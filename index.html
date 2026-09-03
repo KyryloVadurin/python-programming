@@ -1,0 +1,2546 @@
+
+<!doctype html>
+<html lang="uk" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Навчальний портал з дисципліни "Програмування на Python. Базовий рівень"">
+      
+      
+      
+      
+      
+        <link rel="next" href="lk/lk1/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Програмування на Python</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="stylesheets/extra.css">
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="cyan">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#python" class="md-skip">
+          Перейти до змісту
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Хедер">
+    <a href="." title="Програмування на Python" class="md-header__button md-logo" aria-label="Програмування на Python" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Програмування на Python
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Робоча програма
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="cyan"  aria-label="Переключити на темну тему"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Переключити на темну тему" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="cyan"  aria-label="Переключити на світлу тему"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Переключити на світлу тему" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Пошук" placeholder="Пошук" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Шукати">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Очистити" aria-label="Очистити" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Пошук розпочато
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Вкладки" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Робоча програма
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="lk/lk1/" class="md-tabs__link">
+          
+  
+  
+  Лекції
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="lb/lb1/" class="md-tabs__link">
+          
+  
+  
+  Лабораторні роботи
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="sr/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Самостійна робота
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="rg/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Розрахунково-графічна робота
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Навігація" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="." title="Програмування на Python" class="md-nav__button md-logo" aria-label="Програмування на Python" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Програмування на Python
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Робоча програма
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="." class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Робоча програма
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Зміст">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Зміст
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Опис освітнього компонента
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Мета та завдання освітнього компонента
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Результати навчання та компетентності
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Програма навчальної дисципліни
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Структура освітнього компонента
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Теми лабораторних робіт
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Теми практичних (семінарських) занять
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Самостійна робота
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Методи навчання
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Методи контролю
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. Розподіл балів, які отримують здобувачі за темами
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12. Розподіл балів, які отримують здобувачі за видами занять
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13. Критерії оцінювання
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="13. Критерії оцінювання">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#131" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13.1. Критерії оцінювання лабораторних робіт та поточного контролю
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#132-" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13.2. Критерії оцінювання індивідуального завдання (Розрахунково-графічної роботи)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#133" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13.3. Критерії оцінювання підсумкового контролю (диференційованого заліку)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#14-ects" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14. Шкала оцінювання: національна та ECTS
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        15. Рекомендована література та інформаційні ресурси
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Лекції
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Лекції
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="lk/lk1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Тема 1. Архітектура мови та інфраструктура
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="lk/lk2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Тема 2. Керування потоком виконання
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="lk/lk3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Тема 3. Впорядковані структури даних (Списки, Кортежі)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="lk/lk4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Тема 4. Текстові, двійкові дані та Регулярні вирази
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="lk/lk5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Тема 5. Хеш-таблиці (Словники, Множини)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="lk/lk6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Тема 6. Функціональна організація коду
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="lk/lk7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Тема 7. Модульна архітектура та пакети
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="lk/lk8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Тема 8. Обробка винятків та файлове в/в
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="lk/lk9/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Тема 9. Об'єктно-орієнтоване програмування
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Лабораторні роботи
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Лабораторні роботи
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="lb/lb1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 1. Розгортання інфраструктури розробки
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="lb/lb2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 2. Скалярні типи даних та моделювання
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="lb/lb3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 3. Алгоритми розгалуженої та циклічної структури
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="lb/lb4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 4. Обробка списків та кортежі
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="lb/lb5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 5. Обробка тексту та регулярні вирази
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="lb/lb6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 6. Асоціативні структури даних (Словники, Множини)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="lb/lb7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 7. Проєктування функцій та рекурсія
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="lb/lb8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 8. Модульне програмування та системні бібліотеки
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="lb/lb9/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 9. Обробка виняткових ситуацій
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="lb/lb10/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 10. Файлове в/в та менеджери контексту
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="lb/lb11/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 11. ООП та перевантаження методів
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="sr/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Самостійна робота
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="rg/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Розрахунково-графічна робота
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Зміст">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Зміст
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Опис освітнього компонента
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Мета та завдання освітнього компонента
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Результати навчання та компетентності
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Програма навчальної дисципліни
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Структура освітнього компонента
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Теми лабораторних робіт
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Теми практичних (семінарських) занять
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Самостійна робота
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Методи навчання
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Методи контролю
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. Розподіл балів, які отримують здобувачі за темами
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12. Розподіл балів, які отримують здобувачі за видами занять
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13. Критерії оцінювання
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="13. Критерії оцінювання">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#131" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13.1. Критерії оцінювання лабораторних робіт та поточного контролю
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#132-" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13.2. Критерії оцінювання індивідуального завдання (Розрахунково-графічної роботи)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#133" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13.3. Критерії оцінювання підсумкового контролю (диференційованого заліку)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#14-ects" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14. Шкала оцінювання: національна та ECTS
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        15. Рекомендована література та інформаційні ресурси
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="python">РОБОЧА ПРОГРАМА ОСВІТНЬОГО КОМПОНЕНТА<br>«Програмування на Python»</h1>
+<hr />
+<h3 id="1">1. Опис освітнього компонента</h3>
+<p>Освітній компонент «Програмування на Python» є нормативною дисципліною професійного циклу підготовки здобувачів вищої освіти першого (бакалаврського) рівня за спеціальністю F7 «Комп’ютерна інженерія». Дисципліна формує базовий комплекс теоретичних знань та прикладних навичок у галузі проектування алгоритмічних структур, низькорівневої та високорівневої обробки даних, розробки системних утиліт і автоматизації процесів комп'ютерної інженерії. Освітній компонент інтегрує знання з дискретної математики, архітектури комп'ютерних систем та операційних систем, забезпечуючи підготовку майбутніх інженерів до створення відмовостійкого, модульного та масштабованого програмного забезпечення на основі сучасного технологічного стеку екосистеми Python.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Найменування показників</th>
+<th style="text-align: left;">Галузь знань, спеціальність, освітній рівень</th>
+<th style="text-align: left;">Характеристика навчальної дисципліни</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Кількість кредитів ECTS:</strong> 4.0<br><strong>Загальний обсяг годин:</strong> 120</td>
+<td style="text-align: left;"><strong>Галузь знань:</strong> Інформаційні технології / Комп'ютерна інженерія<br><strong>Спеціальність:</strong> F7 «Комп’ютерна інженерія»</td>
+<td style="text-align: left;"><strong>Вид дисципліни:</strong> Обов'язкова (нормативна)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Модулів:</strong> 1<br><strong>Змістових модулів:</strong> 3<br><strong>Індивідуальне завдання:</strong> Розрахунково-графічна робота (РГР)</td>
+<td style="text-align: left;"><strong>Освітня програма:</strong> «Комп’ютерна інженерія»<br><strong>Освітній рівень:</strong> Перший (бакалаврський)</td>
+<td style="text-align: left;"><strong>Рік підготовки:</strong> 3-й<br><strong>Семестр:</strong> 5-й</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Тижневих годин:</strong> аудиторних — 2.5 год; СР — 5.0 год</td>
+<td style="text-align: left;"><strong>Форма навчання:</strong> Денна</td>
+<td style="text-align: left;"><strong>Лекції:</strong> 18 год.<br><strong>Практичні:</strong> 0 год.<br><strong>Лабораторні:</strong> 22 год.<br><strong>Самостійна робота:</strong> 80 год.<br><strong>Індивідуальне завдання:</strong> у межах СР<br><strong>Вид контролю:</strong> Диференційований залік</td>
+</tr>
+</tbody>
+</table>
+<p>Співвідношення кількості годин аудиторних занять до самостійної роботи становить <span class="arithmatex">\(40 / 80 = 1 / 2\)</span> (33.3% аудиторного навантаження та 66.7% позааудиторної самостійної роботи).</p>
+<pre class="mermaid"><code>flowchart TD
+    subgraph Prerequisites["Базові пререквізити курсу"]
+        DM["Дискретна математика"]
+        Arch["Архітектура комп'ютерів"]
+        Algo["Основи алгоритмізації"]
+    end
+
+    subgraph Core_Course["Освітній компонент: Програмування на Python (4.0 ECTS / 120 год)"]
+        ZM1["Змістовий модуль 1:\nАрхітектура середовища, скалярні типи\nта структури керування"]
+        ZM2["Змістовий модуль 2:\nАсоціативні структури, модульне\nта функціональне програмування"]
+        ZM3["Змістовий модуль 3:\nНадійність ПЗ, файлові операції\nта ООП-проєктування"]
+        ZM1 --&gt; ZM2 --&gt; ZM3
+    end
+
+    subgraph Postrequisites["Постреквізити та прикладне застосування"]
+        OS_Sys["Системне програмне забезпечення"]
+        Embd["Вбудовані системи та IoT"]
+        Cloud["Розподілені обчислення та хмарні сервіси"]
+        RGR_Res["Розрахунково-графічна робота (РГР)"]
+    end
+
+    Prerequisites --&gt; Core_Course
+    ZM3 --&gt; Postrequisites
+    ZM3 --&gt; RGR_Res</code></pre>
+<hr />
+<h3 id="2">2. Мета та завдання освітнього компонента</h3>
+<p><strong>Метою викладання освітнього компонента</strong> є формування у здобувачів вищої освіти системного інженерного мислення, глибоких фундаментальних знань та стійких практичних умінь щодо алгоритмізації, проектування, написання, налагодження, тестування та супроводу програмного забезпечення мовою Python із використанням процедурної, функціональної та об'єктно-орієнтованої парадигм для вирішення прикладних задач комп'ютерної інженерії.</p>
+<p><strong>Основними завданнями освітнього компонента є:</strong></p>
+<ul>
+<li>
+<p>засвоєння архітектурних засад виконання програм у середовищі CPython, внутрішньої моделі керування пам'яттю, механізмів компіляції вихідного коду в байт-код та функціонування віртуальної машини PVM;</p>
+</li>
+<li>
+<p>опанування інструментів професійного середовища розробника, включаючи дистрибутив Miniconda, ізольовані віртуальні оточення, середовище Visual Studio Code, систему контролю версій Git та репозиторій GitHub;</p>
+</li>
+<li>
+<p>вивчення теоретичних засад і внутрішньої організації скалярних, впорядкованих та асоціативних структур даних мови Python, а також аналіз їхньої асимптотичної просторової та часової складності;</p>
+</li>
+<li>
+<p>опанування методів процедурної та функціональної декомпозиції коду з використанням варіативних сигнатур функцій, областей видимості LEGB, анонімних lambda-виразів та рекурсивних алгоритмів;</p>
+</li>
+<li>
+<p>набуття практичних навичок проектування модульних програмних комплексів, організації пакетів, розбору аргументів командного рядка та взаємодії із системним оточенням;</p>
+</li>
+<li>
+<p>засвоєння принципів об'єктно-орієнтованого програмування, інкапсуляції, механізмів лінеаризації множинного наслідування MRO та перевантаження спеціальних dunder-методів;</p>
+</li>
+<li>
+<p>набуття практичних навичок забезпечення відмовостійкості програмного забезпечення за допомогою багаторівневої обробки винятків та організації персистентного збереження даних у файлових структурах за допомогою менеджерів контексту.</p>
+</li>
+</ul>
+<hr />
+<h3 id="3">3. Результати навчання та компетентності</h3>
+<p>У результаті вивчення освітнього компонента здобувач вищої освіти повинен:</p>
+<p><strong>Знати:</strong></p>
+<ul>
+<li>
+<p>внутрішню організацію середовища CPython, структуру об'єкта <code>PyObject</code>, механізми підрахунку посилань, збирання сміття та функціонування Global Interpreter Lock (GIL);</p>
+</li>
+<li>
+<p>правила оформлення вихідного коду відповідно до міжнародного стандарту PEP 8 та правила структуризації блоків за допомогою відступів;</p>
+</li>
+<li>
+<p>математичні моделі та алгоритмічну складність операцій над списками (<code>list</code>), кортежами (<code>tuple</code>), рядками (<code>str</code>), словниками (<code>dict</code>) та множинами (<code>set</code>);</p>
+</li>
+<li>
+<p>математичний апарат розбору структурованих текстів за допомогою скінченних автоматів модуля регулярних виразів <code>re</code>;</p>
+</li>
+<li>
+<p>правила дозволу ідентифікаторів у просторах імен за моделлю LEGB та механізми функціонування лексичних замикань;</p>
+</li>
+<li>
+<p>алгоритми лінеаризації порядку вирішення методів (MRO C3) при множинному наслідуванні класів та призначення спеціальних dunder-методів;</p>
+</li>
+<li>
+<p>архітектуру безпечного файлового введення-виведення на основі патерну RAII та протоколу менеджерів контексту.</p>
+</li>
+</ul>
+<p><strong>Уміти:</strong></p>
+<ul>
+<li>
+<p>розгортати та конфігурувати інженерне середовище розробки на основі Miniconda, Visual Studio Code та керувати версіями проекту за допомогою Git і GitHub;</p>
+</li>
+<li>
+<p>реалізовувати ефективні алгоритми обробки скалярних та багатовимірних векторних даних із використанням побітової арифметики та зрізів;</p>
+</li>
+<li>
+<p>застосовувати генератори списків (<em>List Comprehensions</em>) та словників (<em>Dict Comprehensions</em>) для високошвидкісної трансформації та фільтрації даних;</p>
+</li>
+<li>
+<p>проектувати та викликати функції з розширеною сигнатурою (<code>*args</code>, <code>**kwargs</code>, positional-only <code>/</code>, keyword-only <code>*</code>) без створення небажаних побічних ефектів;</p>
+</li>
+<li>
+<p>розробляти власні багатофайлові модулі та пакети з чітко регламентованим публічним інтерфейсом за допомогою списку <code>__all__</code> та захищеною точкою входу <code>__main__</code>;</p>
+</li>
+<li>
+<p>створювати ієрархії користувацьких класів винятків та організовувати надійне перехоплення помилок часу виконання за допомогою конструкції <code>try-except-else-finally</code>;</p>
+</li>
+<li>
+<p>проектувати об'єктно-орієнтовані моделі комп'ютерних систем із повноцінною інкапсуляцією через <code>@property</code> та перевантаженням операторів порівняння й арифметики.</p>
+</li>
+</ul>
+<p><strong>Формовані компетентності та програмні результати навчання (ПРН):</strong></p>
+<ul>
+<li>
+<p><strong>Загальні компетентності (ЗК):</strong></p>
+</li>
+<li>
+<p><em>ЗК 1.</em> Здатність до абстрактного мислення, аналізу та синтезу алгоритмічних структур.</p>
+</li>
+<li>
+<p><em>ЗК 2.</em> Здатність застосовувати теоретичні знання у практичних інженерних ситуаціях.</p>
+</li>
+<li>
+<p><em>ЗК 6.</em> Здатність використовувати інформаційні та комунікаційні технології для командної розробки ПЗ.</p>
+</li>
+<li>
+<p><strong>Спеціальні (фахові) компетентності (СК):</strong></p>
+</li>
+<li>
+<p><em>СК 1.</em> Здатність проектувати, розробляти та налагоджувати програмне забезпечення комп'ютерних систем із використанням сучасних мов високого рівня.</p>
+</li>
+<li>
+<p><em>СК 3.</em> Здатність розробляти математичні та імітаційні моделі функціонування вузлів комп'ютерних систем і мереж.</p>
+</li>
+<li>
+<p><em>СК 7.</em> Здатність ефективно управляти системними ресурсами, пам'яттю та файловими дескрипторами на рівні операційної системи.</p>
+</li>
+<li>
+<p><strong>Програмні результати навчання (ПРН):</strong></p>
+</li>
+<li>
+<p><em>ПРН 3.</em> Володіти навичками розробки алгоритмів, вибору структур даних та їх програмної реалізації мовою Python.</p>
+</li>
+<li>
+<p><em>ПРН 8.</em> Вміти створювати надійне об'єктно-орієнтоване програмне забезпечення з обробкою аварійних станів.</p>
+</li>
+<li>
+<p><em>ПРН 14.</em> Застосовувати розподілені системи контролю версій для організації командної та індивідуальної інженерної розробки.</p>
+</li>
+</ul>
+<hr />
+<h3 id="4">4. Програма навчальної дисципліни</h3>
+<p><strong>Модуль 1. Основи алгоритмізації, модульної архітектури та об'єктно-орієнтованого програмування на Python</strong></p>
+<p><strong>Змістовий модуль 1. Архітектура середовища, скалярні типи та структури керування</strong></p>
+<ul>
+<li>
+<p><strong>Тема 1. Архітектура Python, інфраструктура розробника та модель скалярних даних.</strong> 
+  Принципи дворівневого виконання коду в середовищі CPython. Лексичний аналіз, побудова абстрактного синтаксичного дерева AST, компіляція у проміжний байт-код та кешування у файлах <code>.pyc</code>. Функціонування віртуальної машини PVM як стекового емулятора. Проблема синхронізації пам'яті та механізм Global Interpreter Lock (GIL). Інфраструктура інженерної розробки на базі дистрибутива Miniconda, ізоляція оточень conda/venv, конфігурація VS Code та сервісу GitHub. Модель динамічної строгої типізації, змінні як посилання на об'єкти, внутрішня структура <code>PyObject</code>. Незмінність скалярних типів даних (<code>int</code>, <code>float</code>, <code>complex</code>, <code>bool</code>, <code>NoneType</code>). Математичні особливості довгої арифметики цілих чисел. Модель дійсних чисел за стандартом IEEE 754, проблема похибок округлення та використання функції <code>math.isclose()</code>. Побітова арифметика (<code>&lt;&lt;</code>, <code>&gt;&gt;</code>, <code>&amp;</code>, <code>|</code>, <code>^</code>, <code>~</code>) та алгоритми маскування апаратних регістрів.</p>
+</li>
+<li>
+<p><strong>Тема 2. Керування потоком виконання: розгалужені та циклічні алгоритмічні конструкції.</strong>
+  Синтаксичні стандарти оформлення коду PEP 8 та концепція синтаксичного виділення блоків відступами. Повні, неповні та каскадні форми оператора розгалуження <code>if-elif-else</code>. Оцінювання істинності об'єктів у логічному контексті (<em>truthiness</em>). Алгебра логіки та короткозамкнене обчислення (<em>short-circuit evaluation</em>) складених виразів із операторами <code>and</code>, <code>or</code>, <code>not</code>. Синтаксис та семантика лінивого обчислення тернарного умовного виразу. Цикл із передумовою <code>while</code>, інваріант циклу та дотримання умов збіжності чисельних методів. Цикл перебору <code>for</code> як реалізація протоколу ітератора (<code>iter()</code>, <code>next()</code>, <code>StopIteration</code>). Незмінний числовий діапазон <code>range()</code> та доведення константності споживання пам'яті <span class="arithmatex">\(O(1)\)</span>. Керування мікродинамікою ітерацій через директиви <code>break</code>, <code>continue</code>, <code>pass</code>. Архітектурний патерн пошуку без прапорців на основі блоку <code>else</code> у циклах.</p>
+</li>
+<li>
+<p><strong>Тема 3. Впорядковані структури даних: Списки (list) та Кортежі (tuple).</strong>
+  Внутрішня організація динамічного масиву покажчиків <code>PyListObject</code>. Пряма адресна адресація елементів за індексом за час <span class="arithmatex">\(O(1)\)</span>. Позиційна та від'ємна індексація. Математична модель вилучення підмасивів за допомогою зрізів <code>[start:stop:step]</code>. Багатовимірні списки як основа матричної алгебри в комп'ютерній інженерії та запобігання помилкам поверхневого множення вкладених посилань. Динамічне зростання списків та формула геометричного надлишкового виділення пам'яті (<em>over-allocation</em>). Методи модифікації списку: <code>append()</code>, <code>extend()</code>, <code>insert()</code>, <code>pop()</code>, <code>remove()</code>, <code>clear()</code>. Алгоритм гібридного стабільного сортування Timsort та порівняння методів <code>list.sort()</code> і <code>sorted()</code>. Семантика копіювання: присвоєння посилань, поверхнева копія <code>copy()</code> та глибока рекурсивна копія <code>deepcopy()</code>. Незмінні кортежі <code>tuple</code>, кешування у вільних списках (<em>free lists</em>) CPython та розширене позиційне розпакування послідовностей (<em>tuple unpacking</em>). Генератори списків (<em>List Comprehensions</em>) та їх оптимізація на рівні опкоду <code>LIST_APPEND</code>.</p>
+</li>
+<li>
+<p><strong>Тема 4. Текстові та двійкові структури даних. Регулярні вирази.</strong>
+  Рядки <code>str</code> як незмінні послідовності символів Unicode. Адаптивна структура зберігання рядків у пам'яті за специфікацією PEP 393 (формати <code>Latin-1</code>, <code>UCS-2</code>, <code>UCS-4</code>). Керувальні escape-послідовності та властивості сирих рядків <code>r""</code>. Методи токенізації, пошуку, валідації та сегментації рядків (<code>find()</code>, <code>count()</code>, <code>split()</code>, <code>join()</code>, <code>strip()</code>, <code>replace()</code>, <code>isdigit()</code>). Еволюція форматування: f-рядки (f-strings, PEP 498) та міні-мова специфікаторів вирівнювання, знака, ширини полів і точності дійсних чисел. Низькорівневі двійкові типи даних: незмінні октетні масиви <code>bytes</code> та мутабельні буфери <code>bytearray</code>. Архітектура нульового копіювання (<em>Zero-Copy</em>) на основі буферного протоколу <code>memoryview</code>. Модуль <code>re</code>, математичний апарат регулярних виразів на основі недетермінованих скінченних автоматів (NFA), метасимволи, квантифікатори та іменовані групи захоплення <code>(?P&lt;name&gt;...)</code>.</p>
+</li>
+</ul>
+<p><strong>Змістовий модуль 2. Асоціативні структури, модульне та функціональне програмування</strong></p>
+<ul>
+<li>
+<p><strong>Тема 5. Хеш-таблиці та асоціативні структури: Словники (dict) та Множини (set).</strong>
+  Теоретичні засади функціонування асоціативних масивів. Математичний контракт хешованості об'єктів: взаємозв'язок методів <code>__hash__()</code> та <code>__eq__()</code>. Причини заборони використання змінюваних об'єктів як ключів хеш-таблиць. Архітектура компактних словників (<em>Compact Dict</em>, PEP 468) у CPython, розподіл обов'язків між таблицею індексів <code>indices</code> та щільним масивом записів <code>entries</code>. Гарантія збереження порядку вставки записів. Рекурентне псевдовипадкове зондування для розв'язання колізій відкритої адресації. Методи безпечного доступу та модифікації словників: <code>get()</code>, <code>setdefault()</code>, <code>pop()</code>, <code>popitem()</code>, <code>update()</code>. Властивості динамічних уявлень словника <code>keys()</code>, <code>values()</code>, <code>items()</code>. Генератори словників (<em>Dict Comprehensions</em>) та операція інверсії асоціативних карт. Множини <code>set</code> та <code>frozenset</code>. Теоретико-множинні операції: об'єднання (<code>|</code>), перетин (<code>&amp;</code>), різниця (<code>-</code>), симетрична різниця (<code>^</code>) та розрахунок індексу подібності Жаккара <span class="arithmatex">\(J(A, B)\)</span>. Алгоритмічна константна складність пошуку <code>in</code> за <span class="arithmatex">\(O(1)\)</span>.</p>
+</li>
+<li>
+<p><strong>Тема 6. Функціональна організація програмного коду.</strong>
+  Процедурна декомпозиція програмних систем. Інструкція <code>def</code> як динамічний виконуваний оператор створення об'єкта <code>PyFunctionObject</code>. Семантика передачі параметрів за механізмом <em>pass-by-object-reference</em>. Оператор <code>return</code>, повернення множинних значень через неявне пакування в кортеж. Математичні критерії чистих функцій (<em>pure functions</em>) та ізоляція побічних ефектів. Позиційні та іменовані аргументи. Значення параметрів за замовчуванням та аналіз системних причин виникнення пастки змінного значення за замовчуванням (<em>mutable default argument trap</em>). Варіативне пакування та розпакування аргументів через <code>*args</code> та <code>**kwargs</code>. Синтаксичні роздільники сигнатури функції: виключно позиційні параметри <code>/</code> (PEP 570) та виключно іменовані параметри <code>*</code> (PEP 3102). Ієрархічне правило пошуку ідентифікаторів LEGB (Local, Enclosing, Global, Built-in), оператори <code>global</code> та <code>nonlocal</code>. Лексичні замикання (<em>closures</em>) та об'єкти комірок <code>cell</code>. Анонімні lambda-вирази та функції вищого порядку (<code>map</code>, <code>filter</code>). Рекурсивні алгоритми: базовий випадок, рекурсивний крок, глибина стекових кадрів <code>PyFrameObject</code> та обмеження <code>sys.getrecursionlimit()</code>.</p>
+</li>
+<li>
+<p><strong>Тема 7. Модульна архітектура, пакети та взаємодія з оточенням.</strong>
+  Принципи проектування модульних систем: слабка зв'язність та висока внутрішня цілісність. Життєвий цикл завантаження модуля інтерпретатором CPython, роль глобального реєстру кешу <code>sys.modules</code> та системного списку пошуку <code>sys.path</code>. Синтаксичні форми імпорту (<code>import</code>, <code>from ... import</code>, аліаси <code>as</code>). Системна змінна <code>__name__</code> та ідіома захисту точки входу <code>if __name__ == '__main__':</code>. Причини виникнення та методи усунення циклічних імпортів (<em>circular imports</em>). Архітектура регулярних пакетів із файлами <code>__init__.py</code> та просторових пакетів (<em>PEP 420</em>). Регламентація публічного інтерфейсу бібліотеки через спеціальний список <code>__all__</code>. Розбір аргументів командного рядка через список <code>sys.argv</code> та керування кодами завершення процесу <code>sys.exit()</code>. Огляд стандартної бібліотеки: системні виклики модуля <code>os</code>, об'єктно-орієнтована навігація файловою системою <code>pathlib.Path</code>, прецизійний монотонний таймер <code>time.perf_counter()</code> та генератор псевдовипадкових процесів Mersenne Twister (модуль <code>random</code>).</p>
+</li>
+</ul>
+<p><strong>Змістовий модуль 3. Надійність ПЗ, файлові операції та об'єктно-орієнтоване проєктування</strong></p>
+<ul>
+<li>
+<p><strong>Тема 8. Обробка виняткових ситуацій та файлове введення-виведення.</strong>
+  Класифікація програмних помилок: синтаксичні дефекти <code>SyntaxError</code> проти винятків часу виконання <code>Exception</code>. Архітектура розкручування стека викликів (<em>stack unwinding</em>) та структура об'єкта трасування <code>traceback</code>. Повний чотириблочний каркас <code>try-except-else-finally</code>, призначення секції успішного виконання <code>else</code> та гарантованого очищення ресурсів <code>finally</code>. Деревоподібна ієрархія стандартних винятків, відмінності між кореневим класом <code>BaseException</code> та прикладним класом <code>Exception</code>. Правило порядку перехоплення винятків від нащадків до базових класів. Примусова генерація помилок за допомогою оператора <code>raise</code> та побудова ланцюжків винятків (<em>exception chaining</em>) через конструкцію <code>raise ... from ...</code>. Проектування ієрархії користувацьких класів винятків (<em>Custom Exceptions</em>) із контекстними числовими атрибутами. Порівняння парадигм проектування EAFP та LBYL. Файлові потоки введення-виведення, функція <code>open()</code>, текстові та бінарні режими доступу (<code>r</code>, <code>w</code>, <code>a</code>, <code>x</code>, <code>b</code>, <code>+</code>). Буферизація та кодування. Низькорівневе позиціонування файлового курсору методами <code>seek()</code> і <code>tell()</code>. Архітектурний патерн RAII та протокол менеджерів контексту (<code>__enter__</code>, <code>__exit__</code>). Структурний парсинг і генерація файлів CSV (<code>csv.DictReader</code>, <code>csv.DictWriter</code>) та серіалізація об'єктів у формат JSON (<code>json.dump</code>, <code>json.load</code>).</p>
+</li>
+<li>
+<p><strong>Тема 9. Об'єктно-орієнтоване програмування в Python.</strong>
+  Фундаментальні парадигми ООП: абстракція, інкапсуляція, наслідування та поліморфізм. Класи як типи даних, визначені користувачем, та об'єкти як екземпляри класу. Двофазна ініціалізація екземпляра в пам'яті: виділення сирої пам'яті методом <code>__new__(cls)</code> та наповнення атрибутами через ініціалізатор <code>__init__(self)</code>. Фізичний зміст параметра <code>self</code> як явного покажчика на екземпляр. Порівняння статичних атрибутів класу в <code>Class.__dict__</code> та динамічних полів екземпляра в <code>self.__dict__</code>. Рівні доступу до даних: публічні атрибути, конвенційні захищені поля <code>_protected</code> та приватні поля <code>__private</code> із механізмом спотворення імен (<em>name mangling</em>). Проектування керованих полів за допомогою дескрипторів властивостей: декоратор <code>@property</code>, сетери <code>@prop.setter</code> та делетери <code>@prop.deleter</code>. Наслідування класів, перевизначення методів (<em>method overriding</em>) та кооперативне делегування конструктора через функцію <code>super()</code>. Проблема ромбоподібного множинного наслідування та алгоритм лінеаризації C3 для побудови послідовності MRO. Динамічний поліморфізм та концепція качиної типізації (<em>Duck Typing</em>). Перевантаження спеціальних магічних dunder-методів: рядкове відображення (<code>__str__</code>, <code>__repr__</code>), порівняння (<code>__eq__</code>, <code>__ne__</code>, <code>__lt__</code>, <code>__le__</code>, <code>__gt__</code>, <code>__ge__</code>), арифметика (<code>__add__</code>, <code>__radd__</code>, <code>__sub__</code>, <code>__mul__</code>), протокол колекцій (<code>__len__</code>, <code>__getitem__</code>). Декоратори методів класу <code>@classmethod</code> та статичних функцій <code>@staticmethod</code>.</p>
+</li>
+</ul>
+<hr />
+<h3 id="5">5. Структура освітнього компонента</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Назва змістових модулів і тем</th>
+<th style="text-align: center;">Усього годин</th>
+<th style="text-align: center;">Лекції</th>
+<th style="text-align: center;">Практичні</th>
+<th style="text-align: center;">Лабораторні</th>
+<th style="text-align: center;">Самостійна робота</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Змістовий модуль 1. Архітектура середовища, скалярні типи та структури керування</strong></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">Тема 1. Архітектура Python, інфраструктура розробника та модель скалярних даних</td>
+<td style="text-align: center;">14</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">8</td>
+</tr>
+<tr>
+<td style="text-align: left;">Тема 2. Керування потоком виконання: розгалужені та циклічні алгоритмічні конструкції</td>
+<td style="text-align: center;">12</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">8</td>
+</tr>
+<tr>
+<td style="text-align: left;">Тема 3. Впорядковані структури даних: Списки (list) та Кортежі (tuple)</td>
+<td style="text-align: center;">12</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">8</td>
+</tr>
+<tr>
+<td style="text-align: left;">Тема 4. Текстові та двійкові структури даних. Регулярні вирази</td>
+<td style="text-align: center;">12</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">8</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Усього за змістовим модулем 1</strong></td>
+<td style="text-align: center;"><strong>50</strong></td>
+<td style="text-align: center;"><strong>8</strong></td>
+<td style="text-align: center;"><strong>0</strong></td>
+<td style="text-align: center;"><strong>10</strong></td>
+<td style="text-align: center;"><strong>32</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Змістовий модуль 2. Асоціативні структури, модульне та функціональне програмування</strong></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">Тема 5. Хеш-таблиці та асоціативні структури: Словники (dict) та Множини (set)</td>
+<td style="text-align: center;">12</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">8</td>
+</tr>
+<tr>
+<td style="text-align: left;">Тема 6. Функціональна організація програмного коду</td>
+<td style="text-align: center;">14</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">10</td>
+</tr>
+<tr>
+<td style="text-align: left;">Тема 7. Модульна архітектура, пакети та взаємодія з оточенням</td>
+<td style="text-align: center;">14</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">10</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Усього за змістовим модулем 2</strong></td>
+<td style="text-align: center;"><strong>40</strong></td>
+<td style="text-align: center;"><strong>6</strong></td>
+<td style="text-align: center;"><strong>0</strong></td>
+<td style="text-align: center;"><strong>6</strong></td>
+<td style="text-align: center;"><strong>28</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Змістовий модуль 3. Надійність ПЗ, файлові операції та об'єктно-орієнтоване проєктування</strong></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">Тема 8. Обробка виняткових ситуацій та файлове введення-виведення</td>
+<td style="text-align: center;">16</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">10</td>
+</tr>
+<tr>
+<td style="text-align: left;">Тема 9. Об'єктно-орієнтоване програмування в Python</td>
+<td style="text-align: center;">14</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">10</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Усього за змістовим модулем 3</strong></td>
+<td style="text-align: center;"><strong>30</strong></td>
+<td style="text-align: center;"><strong>4</strong></td>
+<td style="text-align: center;"><strong>0</strong></td>
+<td style="text-align: center;"><strong>6</strong></td>
+<td style="text-align: center;"><strong>20</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;">Виконання індивідуального завдання (Розрахунково-графічна робота)</td>
+<td style="text-align: center;"><em>(в межах СР)</em></td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;"><em>(в межах СР)</em></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>УСЬОГО ГОДИН</strong></td>
+<td style="text-align: center;"><strong>120</strong></td>
+<td style="text-align: center;"><strong>18</strong></td>
+<td style="text-align: center;"><strong>0</strong></td>
+<td style="text-align: center;"><strong>22</strong></td>
+<td style="text-align: center;"><strong>80</strong></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="6">6. Теми лабораторних робіт</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">№ з/п</th>
+<th style="text-align: left;">Назва теми лабораторної роботи</th>
+<th style="text-align: center;">Кількість годин</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: left;"><strong>ЛБ №1.</strong> Розгортання інфраструктури розробки: Miniconda, VS Code, Git/GitHub та базові режими виконання Python</td>
+<td style="text-align: center;">2</td>
+</tr>
+<tr>
+<td style="text-align: center;">2</td>
+<td style="text-align: left;"><strong>ЛБ №2.</strong> Скалярні типи даних, побітові операції та математичне моделювання</td>
+<td style="text-align: center;">2</td>
+</tr>
+<tr>
+<td style="text-align: center;">3</td>
+<td style="text-align: left;"><strong>ЛБ №3.</strong> Програмування алгоритмів розгалуженої та циклічної структури</td>
+<td style="text-align: center;">2</td>
+</tr>
+<tr>
+<td style="text-align: center;">4</td>
+<td style="text-align: left;"><strong>ЛБ №4.</strong> Обробка одновимірних і багатовимірних списків та операції з кортежами</td>
+<td style="text-align: center;">2</td>
+</tr>
+<tr>
+<td style="text-align: center;">5</td>
+<td style="text-align: left;"><strong>ЛБ №5.</strong> Обробка текстових даних, рядкові методи та регулярні вирази</td>
+<td style="text-align: center;">2</td>
+</tr>
+<tr>
+<td style="text-align: center;">6</td>
+<td style="text-align: left;"><strong>ЛБ №6.</strong> Асоціативні структури даних: Словники та Множини</td>
+<td style="text-align: center;">2</td>
+</tr>
+<tr>
+<td style="text-align: center;">7</td>
+<td style="text-align: left;"><strong>ЛБ №7.</strong> Проєктування функцій, робота з просторами імен та рекурсивні алгоритми</td>
+<td style="text-align: center;">2</td>
+</tr>
+<tr>
+<td style="text-align: center;">8</td>
+<td style="text-align: left;"><strong>ЛБ №8.</strong> Модульне програмування, створення пакетів та системні бібліотеки</td>
+<td style="text-align: center;">2</td>
+</tr>
+<tr>
+<td style="text-align: center;">9</td>
+<td style="text-align: left;"><strong>ЛБ №9.</strong> Побудова надійного програмного забезпечення: Обробка виняткових ситуацій</td>
+<td style="text-align: center;">2</td>
+</tr>
+<tr>
+<td style="text-align: center;">10</td>
+<td style="text-align: left;"><strong>ЛБ №10.</strong> Файлове введення-виведення та збереження стану за допомогою менеджерів контексту</td>
+<td style="text-align: center;">2</td>
+</tr>
+<tr>
+<td style="text-align: center;">11</td>
+<td style="text-align: left;"><strong>ЛБ №11.</strong> Об'єктно-орієнтоване проєктування класів та перевантаження магічних методів</td>
+<td style="text-align: center;">2</td>
+</tr>
+<tr>
+<td style="text-align: center;"></td>
+<td style="text-align: left;"><strong>Усього годин</strong></td>
+<td style="text-align: center;"><strong>22</strong></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="7">7. Теми практичних (семінарських) занять</h3>
+<p>Відповідно до затвердженого навчального плану підготовки бакалаврів за спеціальністю F7 «Комп’ютерна інженерія», для освітнього компонента «Програмування на Python» проведення практичних (семінарських) занять <strong>не передбачено</strong> (0 годин). Весь комплекс практичних умінь та навичок формується під час виконання 11 лабораторних робіт (22 години аудиторного навантаження) та виконання індивідуальної розрахунково-графічної роботи в межах годин самостійної роботи (80 годин).</p>
+<hr />
+<h3 id="8">8. Самостійна робота</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">№ з/п</th>
+<th style="text-align: left;">Назва теми для самостійного опрацювання та деталізований зміст робіт</th>
+<th style="text-align: center;">Кількість годин СР</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: left;"><strong>Тема 1. Архітектура Python, інфраструктура розробника та модель скалярних даних.</strong> Дослідження розширених команд системи контролю версій Git (створення гілок <code>branch</code>, злиття <code>merge</code>, аналіз конфліктів). Вивчення налаштувань лінтерів <code>flake8</code> та статичного аналізатора типів <code>mypy</code> у VS Code. Аналіз механізму кешування цілих чисел та дослідження виділення пам'яті під об'єкти <code>PyLongObject</code>.</td>
+<td style="text-align: center;">8</td>
+</tr>
+<tr>
+<td style="text-align: center;">2</td>
+<td style="text-align: left;"><strong>Тема 2. Керування потоком виконання: розгалужені та циклічні алгоритмічні конструкції.</strong> Проектування оптимізованих алгоритмів чисельного інтегрування та пошуку коренів нелінійних рівнянь за допомогою циклу <code>while</code>. Дослідження поведінки інструкцій <code>break</code> та <code>continue</code> у багаторівневих вкладених циклах. Реалізація патернів пошуку за допомогою конструкцій <code>for-else</code>.</td>
+<td style="text-align: center;">8</td>
+</tr>
+<tr>
+<td style="text-align: center;">3</td>
+<td style="text-align: left;"><strong>Тема 3. Впорядковані структури даних: Списки (list) та Кортежі (tuple).</strong> Порівняльний бенчмаркінг швидкодії алгоритмів сортування (сортування вибором, вставками, бульбашкове) на базі списків проти стандартного методу <code>list.sort()</code>. Дослідження поведінки функції <code>copy.deepcopy()</code> на циклічних графах посилань.</td>
+<td style="text-align: center;">8</td>
+</tr>
+<tr>
+<td style="text-align: center;">4</td>
+<td style="text-align: left;"><strong>Тема 4. Текстові та двійкові структури даних. Регулярні вирази.</strong> Складання комплексних регулярних виразів для синтаксичного аналізу дампів мережевих пакетів, розбору конфігурацій мережевого обладнання Cisco та валідації поштових адрес за стандартом RFC 5322. Дослідження операцій прямого доступу до пам'яті через <code>memoryview</code>.</td>
+<td style="text-align: center;">8</td>
+</tr>
+<tr>
+<td style="text-align: center;">5</td>
+<td style="text-align: left;"><strong>Тема 5. Хеш-таблиці та асоціативні структури: Словники (dict) та Множини (set).</strong> Порівняльний аналіз швидкості операцій пошуку у структурах <code>list</code>, <code>tuple</code>, <code>set</code>, <code>dict</code> при обсягах вибірки <span class="arithmatex">\(N = 10^3 \dots 10^6\)</span>. Вивчення спеціалізованих структур модуля <code>collections</code>: <code>defaultdict</code>, <code>OrderedDict</code>, <code>namedtuple</code>, <code>deque</code>.</td>
+<td style="text-align: center;">8</td>
+</tr>
+<tr>
+<td style="text-align: center;">6</td>
+<td style="text-align: left;"><strong>Тема 6. Функціональна організація програмного коду.</strong> Дослідження теоретичних засад лямбда-числення Чорча. Проектування користувацьких декораторів функцій для логування, кешування результатів обчислень (мемоізація) та вимірювання часу виконання. Аналіз глибини рекурсії та переповнення стека.</td>
+<td style="text-align: center;">10</td>
+</tr>
+<tr>
+<td style="text-align: center;">7</td>
+<td style="text-align: left;"><strong>Тема 7. Модульна архітектура, пакети та взаємодія з оточенням.</strong> Побудова структури розповсюджуваного пакета Python із файлом <code>pyproject.toml</code> та маніфестом <code>requirements.txt</code>. Дослідження методів модуля <code>time</code> (<code>perf_counter</code>, <code>process_time</code>) для точного аналізу обчислювальної складності алгоритмів.</td>
+<td style="text-align: center;">10</td>
+</tr>
+<tr>
+<td style="text-align: center;">8</td>
+<td style="text-align: left;"><strong>Тема 8. Обробка виняткових ситуацій та файлове введення-виведення.</strong> Дослідження патернів проектування відмовостійкого програмного забезпечення. Створення власного класу менеджера контексту на базі методів <code>__enter__</code> та <code>__exit__</code> для контролю стану апаратного порту або системного ресурсу.</td>
+<td style="text-align: center;">10</td>
+</tr>
+<tr>
+<td style="text-align: center;">9</td>
+<td style="text-align: left;"><strong>Тема 9. Об'єктно-орієнтоване програмування в Python. Виконання розрахунково-графічної роботи (РГР).</strong> Проектування повної об'єктної моделі відповідно до індивідуального варіанта РГР. Побудова UML-діаграми класів, реалізація інкапсуляції через властивості, перевантаження магічних методів (<code>__str__</code>, <code>__repr__</code>, <code>__eq__</code>, <code>__add__</code>, <code>__len__</code>), написання пояснювальної записки згідно з ДСТУ, оформлення репозиторію на GitHub та підготовка презентації до захисту.</td>
+<td style="text-align: center;">10</td>
+</tr>
+<tr>
+<td style="text-align: center;"></td>
+<td style="text-align: left;"><strong>Усього годин самостійної роботи</strong></td>
+<td style="text-align: center;"><strong>80</strong></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="9">9. Методи навчання</h3>
+<p>Організація освітнього процесу з компонента «Програмування на Python» базується на поєднанні традиційних академічних підходів та сучасних інтерактивних проблемно-орієнтованих технологій навчання:</p>
+<ul>
+<li>
+<p><strong>Словесні та лекційні методи:</strong> проблемні оглядові та тематичні лекції з використанням мультимедійних презентацій, аналітичний розбір архітектурних рішень інтерпретатора CPython, лекції-дискусії щодо порівняння мовних парадигм та вибору структур даних для інженерних задач.</p>
+</li>
+<li>
+<p><strong>Наочні методи та демонстрації:</strong> демонстрація виконання коду в режимі реального часу (Live Coding) у середовищі Visual Studio Code, візуалізація графів пам'яті, покрокове трасування виконання інструкцій у налагоджувачі <code>debugpy</code> та інтерактивний аналіз даних у блокнотах Jupyter Notebook.</p>
+</li>
+<li>
+<p><strong>Практичні та дослідницькі методи:</strong> виконання 11 лабораторних робіт на комп'ютерній техніці лабораторії кафедри, самостійне розв'язання індивідуальних розрахункових завдань, робота з реальними апаратними логами, телеметричними потоками та мережевими конфігураціями.</p>
+</li>
+<li>
+<p><strong>Проєктно-орієнтоване навчання (Project-Based Learning):</strong> виконання наскрізної розрахунково-графічної роботи (РГР), яка передбачає проходження повного життєвого циклу інженерного проектування програмного модуля: від формалізації технічного завдання до публічного захисту працюючого програмного продукту з версіонуванням у Git/GitHub.</p>
+</li>
+</ul>
+<hr />
+<h3 id="10">10. Методи контролю</h3>
+<p>Оцінювання результатів навчання здобувачів вищої освіти здійснюється за 100-бальною рейтинговою шкалою, яка інтегрує поточний, модульний (проміжний) та підсумковий семестровий контроль.</p>
+<ul>
+<li>
+<p><strong>Поточний контроль:</strong> здійснюється на кожному лабораторному занятті шляхом перевірки правильності функціонування розроблених програмних модулів, якості коду (відповідність PEP 8, типізація, відсутність дублювання), оцінювання оформленого індивідуального звіту та усного захисту здобувачем результатів роботи за контрольними запитаннями. Також враховується поточна активність здобувача на лекційних заняттях та результати експрес-опитувань.</p>
+</li>
+<li>
+<p><strong>Модульний (проміжний) контроль:</strong> проводиться після завершення вивчення кожного з трьох змістових модулів у формі комп'ютерного тестування або модульної контрольної роботи (МКР) для оцінки рівня засвоєння теоретичного базису та здатності розв'язувати типові алгоритмічні задачі.</p>
+</li>
+<li>
+<p><strong>Контроль виконання індивідуального завдання (РГР):</strong> передбачає поетапну перевірку науково-технічного змісту пояснювальної записки, інспекцію репозиторію на платформі GitHub, перевірку на академічну доброчесність та публічний захист роботи перед комісією кафедри з мультимедійною доповіддю і демонстрацією комплексу.</p>
+</li>
+<li>
+<p><strong>Підсумковий семестровий контроль:</strong> проводиться у формі <strong>диференційованого заліку</strong> в кінці 5 семестру. До диференційованого заліку допускаються здобувачі вищої освіти, які успішно виконали, оформили та захистили всі 11 лабораторних робіт, отримали позитивну оцінку за розрахунково-графічну роботу та набрали за результатами поточного і модульного контролю не менше 40 балів.</p>
+</li>
+</ul>
+<hr />
+<h3 id="11">11. Розподіл балів, які отримують здобувачі за темами</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Вид занять / Контрольні заходи</th>
+<th style="text-align: center;">Змістовий модуль 1</th>
+<th style="text-align: center;"></th>
+<th style="text-align: center;"></th>
+<th style="text-align: center;"></th>
+<th style="text-align: center;">Змістовий модуль 2</th>
+<th style="text-align: center;"></th>
+<th style="text-align: center;"></th>
+<th style="text-align: center;">Змістовий модуль 3</th>
+<th style="text-align: center;"></th>
+<th style="text-align: center;">Підсумковий контроль</th>
+<th style="text-align: center;">Сума</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: center;"><strong>Т1</strong></td>
+<td style="text-align: center;"><strong>Т2</strong></td>
+<td style="text-align: center;"><strong>Т3</strong></td>
+<td style="text-align: center;"><strong>Т4</strong></td>
+<td style="text-align: center;"><strong>Т5</strong></td>
+<td style="text-align: center;"><strong>Т6</strong></td>
+<td style="text-align: center;"><strong>Т7</strong></td>
+<td style="text-align: center;"><strong>Т8</strong></td>
+<td style="text-align: center;"><strong>Т9</strong></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">Опитування / активність на лекціях</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;"><strong>9</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;">Виконання та захист лабораторних робіт</td>
+<td style="text-align: center;">8 (ЛБ1,2)</td>
+<td style="text-align: center;">4 (ЛБ3)</td>
+<td style="text-align: center;">4 (ЛБ4)</td>
+<td style="text-align: center;">4 (ЛБ5)</td>
+<td style="text-align: center;">4 (ЛБ6)</td>
+<td style="text-align: center;">4 (ЛБ7)</td>
+<td style="text-align: center;">4 (ЛБ8)</td>
+<td style="text-align: center;">8 (ЛБ9,10)</td>
+<td style="text-align: center;">4 (ЛБ11)</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;"><strong>44</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;">Модульний контроль (МКР / тести)</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;"><strong>15</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;">Розрахунково-графічна робота (РГР)</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">12</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;"><strong>12</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;">Підсумковий контроль (Диф. залік)</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">20</td>
+<td style="text-align: center;"><strong>20</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Усього балів за темами</strong></td>
+<td style="text-align: center;"><strong>14</strong></td>
+<td style="text-align: center;"><strong>5</strong></td>
+<td style="text-align: center;"><strong>5</strong></td>
+<td style="text-align: center;"><strong>5</strong></td>
+<td style="text-align: center;"><strong>10</strong></td>
+<td style="text-align: center;"><strong>5</strong></td>
+<td style="text-align: center;"><strong>5</strong></td>
+<td style="text-align: center;"><strong>9</strong></td>
+<td style="text-align: center;"><strong>22</strong></td>
+<td style="text-align: center;"><strong>20</strong></td>
+<td style="text-align: center;"><strong>100</strong></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="12">12. Розподіл балів, які отримують здобувачі за видами занять</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Вид навчальної роботи та контрольного заходу, розрахункова формула</th>
+<th style="text-align: center;">Максимальний бал</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Опрацювання теоретичного матеріалу та активність на лекціях.</strong><br>Усього 9 лекційних тем. За 1 тему нараховується <strong>1 бал</strong> (<span class="arithmatex">\(9 \times 1 = 9\)</span>).</td>
+<td style="text-align: center;"><strong>9</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Виконання та захист лабораторних робіт.</strong><br>Усього 11 лабораторних робіт. За 1 виконану та успішно захищену роботу нараховується <strong>4 бали</strong> (<span class="arithmatex">\(11 \times 4 = 44\)</span>).</td>
+<td style="text-align: center;"><strong>44</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Модульний контроль (тестування / МКР за змістовими модулями).</strong><br>Усього 3 змістові модулі. За 1 модульну контрольну роботу нараховується <strong>5 балів</strong> (<span class="arithmatex">\(3 \times 5 = 15\)</span>).</td>
+<td style="text-align: center;"><strong>15</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Виконання, оформлення та публічний захист індивідуального завдання (РГР).</strong><br>Оцінюється комплексно: зміст та алгоритмічна якість коду — 6 балів, якість пояснювальної записки та дотримання ДСТУ — 2 бали, доповідь та відповіді на запитання на захисті — 4 бали (<span class="arithmatex">\(6 + 2 + 4 = 12\)</span>).</td>
+<td style="text-align: center;"><strong>12</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Підсумковий семестровий контроль (диференційований залік).</strong><br>Письмова теоретична частина (10 балів) та практичне завдання з розробки алгоритмічного коду (10 балів) (<span class="arithmatex">\(10 + 10 = 20\)</span>).</td>
+<td style="text-align: center;"><strong>20</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>УСЬОГО БАЛІВ ЗА ОСВІТНІЙ КОМПОНЕНТ:</strong></td>
+<td style="text-align: center;"><strong>100</strong></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="13">13. Критерії оцінювання</h3>
+<h4 id="131">13.1. Критерії оцінювання лабораторних робіт та поточного контролю</h4>
+<p>Кожна з 11 лабораторних робіт оцінюється максимально у 4 бали за такими детальними критеріями:</p>
+<ul>
+<li>
+<p><strong>4 бали (Відмінно):</strong> завдання лабораторної роботи виконано повністю згідно з індивідуальним варіантом, вихідний код є чистим, структурованим, задокументованим відповідно до PEP 8 та позбавленим логічних дефектів. Здобувач продемонстрував бездоганне функціонування програми, впевнено володіє інструментами налагодження у VS Code та системними модулями, своєчасно надав звіт у форматі PDF, оформив коміт у репозиторії GitHub та дав вичерпні, теоретично обґрунтовані відповіді на всі контрольні запитання викладача.</p>
+</li>
+<li>
+<p><strong>3 бали (Добре):</strong> програма функціонує коректно і вирішує поставлену інженерну задачу, однак присутні незначні зауваження щодо стилю оформлення коду (відхилення від PEP 8, надлишкові операції копіювання), звіт містить окремі неточності в оформленні, або під час захисту здобувач відповів на контрольні запитання з незначними неточностями чи після навідних запитань.</p>
+</li>
+<li>
+<p><strong>2 бали (Задовільно):</strong> завдання виконано частково або програма містить логічні недоліки при обробці граничних значень (не обробляються винятки, відсутня валідація вхідних даних), звіт оформлено з порушенням структури, здобувач відчуває труднощі під час пояснення роботи окремих операторів або методів мови Python.</p>
+</li>
+<li>
+<p><strong>0–1 бал (Незадовільно):</strong> програма не працює або містить критичні синтаксичні помилки, індивідуальний варіант не відповідає завданню, звіт не оформлено або виявлено ознаки несанкціонованого запозичення коду (плагіату). Робота підлягає обов'язковому доопрацюванню та повторному захисту.</p>
+</li>
+</ul>
+<h4 id="132-">13.2. Критерії оцінювання індивідуального завдання (Розрахунково-графічної роботи)</h4>
+<p>Розрахунково-графічна робота оцінюється максимально у 12 балів на основі критеріїв, наведених у таблиці:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Складова оцінювання РГР</th>
+<th style="text-align: left;">Критерії відповідності та вимоги до виконання</th>
+<th style="text-align: center;">Макс. бали</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Зміст та інженерна якість розробки</strong></td>
+<td style="text-align: left;">Повна відповідність технічному завданню, проектування довершеної ООП-архітектури (інкапсуляція, наслідування, поліморфізм, dunder-методи), стійкість до збоїв через ієрархію власних винятків, персистентність через збереження у JSON/CSV, наявність відкритого репозиторію на GitHub з історією комітів.</td>
+<td style="text-align: center;"><strong>6</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Оформлення пояснювальної записки</strong></td>
+<td style="text-align: left;">Суворе дотримання вимог державних стандартів (ДСТУ), якість типографіки, коректне оформлення математичних формул LaTeX, таблиць, графічних додатків та бібліографічного списку.</td>
+<td style="text-align: center;"><strong>2</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Публічний захист, доповідь та Live Demo</strong></td>
+<td style="text-align: left;">Чітка структурована доповідь у межах регламенту (5–7 хв), якісна презентація, успішна демонстрація функціонування комплексу в режимі реального часу, глибокі та обґрунтовані відповіді на запитання комісії.</td>
+<td style="text-align: center;"><strong>4</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>УСЬОГО ЗА РГР:</strong></td>
+<td style="text-align: left;"></td>
+<td style="text-align: center;"><strong>12</strong></td>
+</tr>
+</tbody>
+</table>
+<p><em>Застереження щодо академічної доброчесності:</em> Виявлення академічного плагіату, фабрикації даних або несанкціонованого використання чужого вихідного коду без модифікації та розуміння архітектури призводить до негайного анулювання оцінки (0 балів), недопуску до семестрового контролю та призначення нового варіанта завдання.</p>
+<h4 id="133">13.3. Критерії оцінювання підсумкового контролю (диференційованого заліку)</h4>
+<p>Диференційований залік оцінюється максимально у 20 балів і складається з двох рівноцінних частин:</p>
+<ol>
+<li>
+<p><strong>Теоретична частина (10 балів):</strong> включає два комплексні теоретичні питання (по 5 балів кожне) щодо архітектури CPython, моделей пам'яті, внутрішньої організації структур даних, лінеаризації MRO, файлового введення-виведення або обробки винятків. Оцінюється глибина наукового викладу, точність термінології та розуміння причинно-наслідкових зв'язків.</p>
+</li>
+<li>
+<p><strong>Практична частина (10 балів):</strong> передбачає розробку алгоритмічної функції або об'єктного класу мовою Python для розв'язання інженерної задачі безпосередньо під час заліку. Оцінюється коректність алгоритму, оптимізація складності, правильність обробки винятків та читабельність коду.</p>
+</li>
+</ol>
+<hr />
+<h3 id="14-ects">14. Шкала оцінювання: національна та ECTS</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Сума балів за всі види навчальної діяльності</th>
+<th style="text-align: center;">Оцінка ECTS</th>
+<th style="text-align: left;">Оцінка за національною шкалою (для диференційованого заліку)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">90–100</td>
+<td style="text-align: center;"><strong>A</strong></td>
+<td style="text-align: left;"><strong>Відмінно</strong> — відмінний рівень знань і практичних навичок без суттєвих помилок</td>
+</tr>
+<tr>
+<td style="text-align: center;">82–89</td>
+<td style="text-align: center;"><strong>B</strong></td>
+<td style="text-align: left;"><strong>Добре</strong> — дуже добрий рівень вище середнього стандарту з незначними недоліками</td>
+</tr>
+<tr>
+<td style="text-align: center;">75–81</td>
+<td style="text-align: center;"><strong>C</strong></td>
+<td style="text-align: left;"><strong>Добре</strong> — загалом добрий рівень виконання із певною кількістю неточностей</td>
+</tr>
+<tr>
+<td style="text-align: center;">64–74</td>
+<td style="text-align: center;"><strong>D</strong></td>
+<td style="text-align: left;"><strong>Задовільно</strong> — посередній рівень із задовільним розкриттям основних критеріїв</td>
+</tr>
+<tr>
+<td style="text-align: center;">60–63</td>
+<td style="text-align: center;"><strong>E</strong></td>
+<td style="text-align: left;"><strong>Задовільно</strong> — мінімально допустимий рівень, що відповідає базовим вимогам</td>
+</tr>
+<tr>
+<td style="text-align: center;">35–59</td>
+<td style="text-align: center;"><strong>FX</strong></td>
+<td style="text-align: left;"><strong>Незадовільно з можливістю повторного складання</strong> — необхідне повторне складання заліку</td>
+</tr>
+<tr>
+<td style="text-align: center;">1–34</td>
+<td style="text-align: center;"><strong>F</strong></td>
+<td style="text-align: left;"><strong>Незадовільно з обов'язковим повторним вивченням</strong> — необхідний повторний курс</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="15">15. Рекомендована література та інформаційні ресурси</h3>
+<p><strong>Основна література:</strong></p>
+<ol>
+<li>
+<p>Діденко Ю. В., Татарчук Д. Д. Об'єктно-орієнтоване програмування мовою PYTHON : конспект лекцій. Київ : КПІ ім. Ігоря Сікорського, 2021. 129 с. [Електронний ресурс]. URL: https://ela.kpi.ua/handle/123456789/41444</p>
+</li>
+<li>
+<p>Костюченко А. О. Основи програмування мовою Python : навчальний посібник. Чернігів : ФОП Баликіна С. М., 2020. 180 с.</p>
+</li>
+<li>
+<p>Савченко М. В. Основи програмування мовою Python : лабораторний практикум. Харків : НТУ «ХПІ», 2025. 181 с. [Електронний ресурс]. URL: http://repository.kpi.kharkov.ua/handle/KhPI-Press/78210</p>
+</li>
+<li>
+<p>Ковтанюк М. С., Тітова Л. О. Програмування : навчальний посібник. Умань : Візаві, 2023. 186 с. [Електронний ресурс]. URL: https://dspace.udpu.edu.ua/handle/123456789/15389</p>
+</li>
+<li>
+<p>Анісімов А. В. та ін. Програмування числових методів мовою Python : підручник / за ред. А. В. Анісімова. Київ : ВПЦ «Київський університет», 2014. 640 с.</p>
+</li>
+<li>
+<p>Рамський Ю. С., Цибко Г. Ю. Основи програмування : навчальний посібник. Київ : НПУ імені М. П. Драгоманова, 2008. 188 с.</p>
+</li>
+</ol>
+<p><strong>Додаткова література:</strong></p>
+<ol>
+<li>
+<p>Lutz M. Learning Python. 5th ed. Sebastopol : O’Reilly Media, 2013. 1540 p. ISBN 978-1449355739.</p>
+</li>
+<li>
+<p>Ramalho L. Fluent Python: Clear, Concise, and Effective Programming. 2nd ed. Sebastopol : O’Reilly Media, 2022. 1014 p. ISBN 978-1492056355.</p>
+</li>
+<li>
+<p>Slatkin B. Effective Python: 90 Specific Ways to Write Better Python. 2nd ed. Boston : Addison-Wesley, 2019. 480 p. ISBN 978-0134853987.</p>
+</li>
+<li>
+<p>Matthes E. Python Crash Course: A Hands-On, Project-Based Introduction to Programming. 3rd ed. San Francisco : No Starch Press, 2023. 552 p. ISBN 978-1718502703.</p>
+</li>
+<li>
+<p>Gamma E., Helm R., Johnson R., Vlissides J. Design Patterns: Elements of Reusable Object-Oriented Software. Boston : Addison-Wesley, 1994. 395 p. DOI: https://doi.org/10.1145/214878.214879</p>
+</li>
+<li>
+<p>Hettinger R. Data structures and algorithms in Python core engine. <em>Journal of Systems and Software</em>. 2021. Vol. 172. P. 110–124. DOI: https://doi.org/10.1016/j.jss.2020.110852</p>
+</li>
+</ol>
+<p><strong>Інформаційні ресурси в Інтернеті:</strong></p>
+<ol>
+<li>
+<p>Офіційний портал та технічна документація Python / Python Software Foundation. URL: https://docs.python.org/3/</p>
+</li>
+<li>
+<p>Стандарт стилю написання коду PEP 8 / Python Enhancement Proposals. URL: https://peps.python.org/pep-0008/</p>
+</li>
+<li>
+<p>Документація середовища розробки Visual Studio Code для Python. URL: https://code.visualstudio.com/docs/languages/python</p>
+</li>
+<li>
+<p>Документація дистрибутива Miniconda та пакетного менеджера Conda. URL: https://docs.conda.io/projects/conda/en/latest/</p>
+</li>
+<li>
+<p>Офіційне довідкове керівництво з системи контролю версій Git. URL: https://git-scm.com/doc</p>
+</li>
+</ol>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Повернутись нагору
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 Kyrylo Vadurin &bull; <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a>
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.expand", "navigation.top", "navigation.tracking", "header.autohide", "search.suggest", "search.highlight", "content.code.copy"], "search": "assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u0421\u043a\u043e\u043f\u0456\u0439\u043e\u0432\u0430\u043d\u043e \u0432 \u0431\u0443\u0444\u0435\u0440", "clipboard.copy": "\u0421\u043a\u043e\u043f\u0456\u044e\u0432\u0430\u0442\u0438 \u0432 \u0431\u0443\u0444\u0435\u0440", "search.result.more.one": "\u0429\u0435 1 \u0437\u0431\u0456\u0433 \u043d\u0430 \u0446\u0456\u0439 \u0441\u0442\u043e\u0440\u0456\u043d\u0446\u0456", "search.result.more.other": "\u0429\u0435 # \u0437\u0431\u0456\u0433\u0456\u0432 \u043d\u0430 \u0446\u0456\u0439 \u0441\u0442\u043e\u0440\u0456\u043d\u0446\u0456", "search.result.none": "\u0417\u0431\u0456\u0433\u0456\u0432 \u043d\u0435 \u0437\u043d\u0430\u0439\u0434\u0435\u043d\u043e", "search.result.one": "\u0417\u043d\u0430\u0439\u0434\u0435\u043d\u043e 1 \u0437\u0431\u0456\u0433", "search.result.other": "\u0417\u043d\u0430\u0439\u0434\u0435\u043d\u043e # \u0437\u0431\u0456\u0433\u0456\u0432", "search.result.placeholder": "\u0420\u043e\u0437\u043f\u043e\u0447\u043d\u0456\u0442\u044c \u043f\u0438\u0441\u0430\u0442\u0438 \u0434\u043b\u044f \u043f\u043e\u0448\u0443\u043a\u0443", "search.result.term.missing": "\u041d\u0435 \u0437\u043d\u0430\u0439\u0434\u0435\u043d\u043e \u0437\u0430\u043f\u0438\u0442\u0443", "select.version": "\u041e\u0431\u0440\u0430\u0442\u0438 \u0432\u0435\u0440\u0441\u0456\u044e"}, "version": null}</script>
+    
+    
+      <script src="assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

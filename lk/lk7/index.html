@@ -1,0 +1,1955 @@
+
+<!doctype html>
+<html lang="uk" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Навчальний портал з дисципліни "Програмування на Python. Базовий рівень"">
+      
+      
+      
+      
+        <link rel="prev" href="../lk6/">
+      
+      
+        <link rel="next" href="../lk8/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Тема 7. Модульна архітектура та пакети - Програмування на Python</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="cyan">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#2-7" class="md-skip">
+          Перейти до змісту
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Хедер">
+    <a href="../.." title="Програмування на Python" class="md-header__button md-logo" aria-label="Програмування на Python" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Програмування на Python
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Тема 7. Модульна архітектура та пакети
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="cyan"  aria-label="Переключити на темну тему"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Переключити на темну тему" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="cyan"  aria-label="Переключити на світлу тему"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Переключити на світлу тему" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Пошук" placeholder="Пошук" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Шукати">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Очистити" aria-label="Очистити" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Пошук розпочато
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Вкладки" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Робоча програма
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../lk1/" class="md-tabs__link">
+          
+  
+  
+  Лекції
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../lb/lb1/" class="md-tabs__link">
+          
+  
+  
+  Лабораторні роботи
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../sr/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Самостійна робота
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../rg/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Розрахунково-графічна робота
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Навігація" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Програмування на Python" class="md-nav__button md-logo" aria-label="Програмування на Python" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Програмування на Python
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Робоча програма
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Лекції
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Лекції
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lk1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Тема 1. Архітектура мови та інфраструктура
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lk2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Тема 2. Керування потоком виконання
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lk3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Тема 3. Впорядковані структури даних (Списки, Кортежі)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lk4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Тема 4. Текстові, двійкові дані та Регулярні вирази
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lk5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Тема 5. Хеш-таблиці (Словники, Множини)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lk6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Тема 6. Функціональна організація коду
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Тема 7. Модульна архітектура та пакети
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Тема 7. Модульна архітектура та пакети
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Зміст">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Зміст
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#71-import-from-import-as-__name__-if-__name__-__main__" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.1. Модульна організація: поняття модуля, інструкції import, from ... import ..., псевдоніми as, службова змінна __name__ та ідіома if __name__ == '__main__':
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7.1. Модульна організація: поняття модуля, інструкції import, from ... import ..., псевдоніми as, службова змінна __name__ та ідіома if __name__ == &#39;__main__&#39;:">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Основний зміст та теоретичний базис
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#72-__init__py-api-__all__-syspath" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.2. Пакети та простори імен: файли __init__.py, керування публічним API через __all__, механізм пошуку модулів (sys.path)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7.2. Пакети та простори імен: файли __init__.py, керування публічним API через __all__, механізм пошуку модулів (sys.path)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Основний зміст та теоретичний базис
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#73-sys-os-pathlib-time-random" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.3. Огляд стандартної бібліотеки для інженерних задач: модулі sys, os, pathlib, time, random
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7.3. Огляд стандартної бібліотеки для інженерних задач: модулі sys, os, pathlib, time, random">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Основний зміст та теоретичний базис
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sys-cpython" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Модуль sys: взаємодія з інтерпретатором CPython та параметри середовища
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#os-pathlib-" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Модулі os та pathlib: абстракція операційної системи та об'єктно-орієнтовані файлові шляхи
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#time" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Модуль time: системний час та високоточне профілювання швидкодії
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#random" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Модуль random: алгоритм вихору Мерсенна та генерація псевдовипадкових процесів
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Питання для самоперевірки та аналітичного осмислення
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lk8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Тема 8. Обробка винятків та файлове в/в
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lk9/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Тема 9. Об'єктно-орієнтоване програмування
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Лабораторні роботи
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Лабораторні роботи
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lb/lb1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 1. Розгортання інфраструктури розробки
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lb/lb2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 2. Скалярні типи даних та моделювання
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lb/lb3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 3. Алгоритми розгалуженої та циклічної структури
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lb/lb4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 4. Обробка списків та кортежі
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lb/lb5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 5. Обробка тексту та регулярні вирази
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lb/lb6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 6. Асоціативні структури даних (Словники, Множини)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lb/lb7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 7. Проєктування функцій та рекурсія
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lb/lb8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 8. Модульне програмування та системні бібліотеки
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lb/lb9/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 9. Обробка виняткових ситуацій
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lb/lb10/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 10. Файлове в/в та менеджери контексту
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lb/lb11/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 11. ООП та перевантаження методів
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sr/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Самостійна робота
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../rg/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Розрахунково-графічна робота
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Зміст">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Зміст
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#71-import-from-import-as-__name__-if-__name__-__main__" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.1. Модульна організація: поняття модуля, інструкції import, from ... import ..., псевдоніми as, службова змінна __name__ та ідіома if __name__ == '__main__':
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7.1. Модульна організація: поняття модуля, інструкції import, from ... import ..., псевдоніми as, службова змінна __name__ та ідіома if __name__ == &#39;__main__&#39;:">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Основний зміст та теоретичний базис
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#72-__init__py-api-__all__-syspath" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.2. Пакети та простори імен: файли __init__.py, керування публічним API через __all__, механізм пошуку модулів (sys.path)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7.2. Пакети та простори імен: файли __init__.py, керування публічним API через __all__, механізм пошуку модулів (sys.path)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Основний зміст та теоретичний базис
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#73-sys-os-pathlib-time-random" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.3. Огляд стандартної бібліотеки для інженерних задач: модулі sys, os, pathlib, time, random
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7.3. Огляд стандартної бібліотеки для інженерних задач: модулі sys, os, pathlib, time, random">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Основний зміст та теоретичний базис
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sys-cpython" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Модуль sys: взаємодія з інтерпретатором CPython та параметри середовища
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#os-pathlib-" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Модулі os та pathlib: абстракція операційної системи та об'єктно-орієнтовані файлові шляхи
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#time" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Модуль time: системний час та високоточне профілювання швидкодії
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#random" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Модуль random: алгоритм вихору Мерсенна та генерація псевдовипадкових процесів
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Питання для самоперевірки та аналітичного осмислення
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="2-7">ЗМІСТОВИЙ МОДУЛЬ 2. ТЕМА 7. МОДУЛЬНА АРХІТЕКТУРА, ПАКЕТИ ТА ВЗАЄМОДІЯ З ОТОЧЕННЯМ</h1>
+<hr />
+<h2 id="71-import-from-import-as-__name__-if-__name__-__main__">7.1. Модульна організація: поняття модуля, інструкції import, from ... import ..., псевдоніми as, службова змінна <code>__name__</code> та ідіома <code>if __name__ == '__main__':</code></h2>
+<h3 id="_1">Основний зміст та теоретичний базис</h3>
+<p>Проектування складних програмних систем у комп'ютерній інженерії вимагає декомпозиції кодової бази на автономні функціональні компоненти. Модульність є фундаментальним принципом інженерії програмного забезпечення, що забезпечує високу внутрішню зв'язність (<em>high cohesion</em>) та слабку взаємну залежність (<em>loose coupling</em>) між окремими підсистемами. У мові програмування Python фізичною та логічною одиницею модульності виступає <strong>модуль</strong> — окремий файл із вихідним кодом (розширення <code>.py</code>), скомпільованим байт-кодом (<code>.pyc</code>) або скомпільованим динамічним розширенням на мовах C/C++ (файли <code>.so</code> в операційних системах сімейства POSIX або <code>.pyd</code> у середовищі Windows).</p>
+<p>Процес підключення модуля до виконуваного контексту є строго детермінованим конвеєром, який реалізується підсистемою імпорту інтерпретатора CPython. Коли в коді зустрічається інструкція <code>import</code>, віртуальна машина виконує послідовність обов'язкових системних кроків:</p>
+<ol>
+<li>
+<p>Інтерпретатор звертається до глобального кешу завантажених модулів <code>sys.modules</code>, який являє собою словник асоціацій між іменами модулів та екземплярами об'єктів типу <code>PyModuleObject</code>. Якщо модуль уже присутній у цьому словнику, етап завантаження миттєво завершується, а викликаючий код отримує посилання на вже існуючий об'єкт модуля.</p>
+</li>
+<li>
+<p>У разі відсутності модуля в кеші активується підсистема пошуку (<em>finders</em>), яка послідовно сканує директорії, визначені у списку шляхів <code>sys.path</code>.</p>
+</li>
+<li>
+<p>Після знаходження відповідного файлу завантажувач (<em>loader</em>) створює новий порожній простір імен модуля (об'єкт <code>__dict__</code>), транслює вихідний код у байт-код (якщо файл <code>.pyc</code> відсутній або застарів) та виконує весь верхньорівневий код модуля від першого до останнього рядка в цьому ізольованому просторі імен.</p>
+</li>
+<li>
+<p>Сформований об'єкт модуля реєструється у словнику <code>sys.modules</code>, а відповідне ім'я зв'язується у локальному просторі імен того файлу, де було викликано інструкцію імпорту.</p>
+</li>
+</ol>
+<p><pre class="mermaid"><code>sequenceDiagram
+    autonumber
+    participant Caller as Викликаючий модуль (main.py)
+    participant SysModules as Кеш sys.modules
+    participant Finder as Пошуковий модуль (sys.path)
+    participant Loader as Завантажувач (Loader / Compiler)
+    participant TargetDict as Простір імен модуля (module.__dict__)
+
+    Caller-&gt;&gt;SysModules: Перевірка наявності модуля 'module'
+    alt Модуль вже завантажено
+        SysModules--&gt;&gt;Caller: Повернення існуючого посилання на PyModuleObject
+    else Модуль завантажується вперше
+        SysModules--&gt;&gt;Finder: Сигнал відсутності в кеші
+        Finder-&gt;&gt;Finder: Пошук файлу module.py у каталогах sys.path
+        Finder-&gt;&gt;Loader: Передача знайденого шляху до файлу
+        Loader-&gt;&gt;Loader: Компіляція вихідного коду в байт-код (.pyc)
+        Loader-&gt;&gt;TargetDict: Створення ізольованого простору імен
+        Loader-&gt;&gt;TargetDict: Повне виконання верхньорівневого коду модуля
+        Loader-&gt;&gt;SysModules: Реєстрація нового екземпляра PyModuleObject
+        SysModules--&gt;&gt;Caller: Зв'язування ідентифікатора у локальному просторі
+    end</code></pre>
+<em>Рисунок 1 — Послідовність системних операцій при виконанні інструкції імпорту в CPython</em></p>
+<p>Наведена схема взаємодії компонентів середовища CPython підкреслює той факт, що верхньорівневий код будь-якого модуля виконується рівно один раз під час першого імпортування. Усі наступні спроби імпорту в інших частинах програми не виконують код повторно, а лише повертають готове посилання зі словника <code>sys.modules</code>, що суттєво прискорює завантаження великих програмних комплексів.</p>
+<p>Синтаксис мови Python підтримує декілька форм інструкцій імпорту:</p>
+<ul>
+<li>
+<p>Форма прямого імпорту <code>import module_name</code> зв'язує простір імен завантаженого модуля з локальною змінною <code>module_name</code>. Звернення до функцій, класів та змінних модуля здійснюється через явну точкову нотацію <code>module_name.function_name()</code>. Такий підхід є рекомендованим за стандартом PEP 8, оскільки він повністю унеможливлює засмічення локального простору імен та гарантує однозначність джерела кожного ідентифікатора.</p>
+</li>
+<li>
+<p>Селективна форма <code>from module_name import attribute_name</code> здійснює копіювання посилання на конкретний атрибут із простору імен модуля безпосередньо у поточний локальний простір імен. Це дозволяє викликати функцію або створювати екземпляр класу без зазначення префікса модуля.</p>
+</li>
+<li>
+<p>Масова форма <code>from module_name import *</code> виконує імпорт усіх імен, задекларованих у модулі (окрім тих, що починаються з символу підкреслення <code>_</code>, або тих, що явно обмежені списком <code>__all__</code>). В інженерній практиці використання групового імпорту із зірочкою суворо не рекомендується, оскільки воно призводить до неконтрольованого перекриття однойменних локальних змінних і порушує роботу статичних аналізаторів коду.</p>
+</li>
+<li>
+<p>Інструкція призначення псевдонімів <code>as</code> (наприклад, <code>import module_name as alias</code> або <code>from module_name import function_name as fn</code>) створює локальний псевдонім для модуля чи атрибута. Це дозволяє усувати конфлікти між однойменними сутностями з різних бібліотек та скорочувати довгі складені імена.</p>
+</li>
+</ul>
+<p>Центральне місце в архітектурі модулів Python посідає службова змінна <strong><code>__name__</code></strong>. Цей системний рядковий атрибут створюється віртуальною машиною PVM для кожного завантаженого файлу і набуває значення залежно від того, у якому статусі запускається відповідний код:</p>
+<ul>
+<li>
+<p>Якщо файл запускається безпосередньо користувачем як головна точка входу програми (наприклад, через термінал командою <code>python main.py</code>), інтерпретатор встановлює значення <code>__name__ = "__main__"</code>.</p>
+</li>
+<li>
+<p>Якщо ж файл імпортується іншим скриптом або модулем як залежність, змінній <code>__name__</code> автоматично присвоюється ім'я файлу без розширення (наприклад, <code>__name__ = "sensor_driver"</code>).</p>
+</li>
+</ul>
+<p>На базі цієї поведінки реалізовано фундаментальний інженерний патерн — <strong>ідіома <code>if __name__ == '__main__':</code></strong>:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># Модуль обробки сигналів: dsp_filter.py</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="k">def</span><span class="w"> </span><span class="nf">low_pass_filter</span><span class="p">(</span><span class="n">signal_data</span><span class="p">:</span> <span class="nb">list</span><span class="p">,</span> <span class="n">cutoff_freq</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">:</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span><span class="sd">"""Виконує цифрову низькочастотну фільтрацію вхідного сигналу."""</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>    <span class="n">filtered_data</span> <span class="o">=</span> <span class="p">[</span><span class="n">sample</span> <span class="o">*</span> <span class="n">cutoff_freq</span> <span class="k">for</span> <span class="n">sample</span> <span class="ow">in</span> <span class="n">signal_data</span><span class="p">]</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>    <span class="k">return</span> <span class="n">filtered_data</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">'__main__'</span><span class="p">:</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>    <span class="c1"># Блок модульного тестування та демонстрації</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>    <span class="n">test_signal</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">1.2</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">]</span>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>    <span class="n">result</span> <span class="o">=</span> <span class="n">low_pass_filter</span><span class="p">(</span><span class="n">test_signal</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Результат тестування фільтра: </span><span class="si">{</span><span class="n">result</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</span></code></pre></div>
+<p>Застосування зазначеної ідіоми дозволяє створювати універсальні модулі подвійного призначення: вони можуть безпечно імпортуватися в інші бібліотеки без виконання налагоджувального або тестового коду, і водночас залишаються доступними для автономного запуску як самостійні консольні утиліти чи модульні тести.</p>
+<p>У практиці модульного проектування особливу небезпеку становлять <strong>циклічні імпорти</strong> (<em>circular imports</em>). Циклічна залежність виникає тоді, коли модуль <span class="arithmatex">\(A\)</span> виконує імпорт модуля <span class="arithmatex">\(B\)</span>, а модуль <span class="arithmatex">\(B\)</span> у своєму тілі імпортує модуль <span class="arithmatex">\(A\)</span>:</p>
+<div class="arithmatex">\[A \xrightarrow{\text{imports}} B \xrightarrow{\text{imports}} A\]</div>
+<p>Якщо імпорт виконується за допомогою форми <code>from A import func_a</code> на верхньому рівні модулів, інтерпретатор перериває виконання з винятком <code>ImportError: cannot import name ... from partially initialized module</code>. Це відбувається тому, що модуль <span class="arithmatex">\(A\)</span> ще не встиг заповнити свій простір імен об'єктом <code>func_a</code>, оскільки був заблокований на етапі очікування завершення виконання модуля <span class="arithmatex">\(B\)</span>. </p>
+<p>Для усунення циклічних блокувань у комп'ютерній інженерії застосовують архітектурний рефакторинг із винесенням спільних типів даних у третій модуль, або використовують відкладений імпорт (<em>deferred import</em>), розміщуючи інструкцію <code>import</code> безпосередньо всередині тіла функції, де вона викликається лише в момент безпосередньої потреби.</p>
+<p><em>Таблиця 7.1 — Порівняльний аналіз синтаксичних форм інструкцій імпорту в Python</em></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Синтаксична конструкція</th>
+<th style="text-align: left;">Вплив на локальний простір імен</th>
+<th style="text-align: center;">Ризик колізій імен</th>
+<th style="text-align: center;">Швидкість доступу до атрибутів</th>
+<th style="text-align: left;">Рекомендований інженерний сценарій</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong><code>import module</code></strong></td>
+<td style="text-align: left;">Додає єдине ім'я <code>module</code></td>
+<td style="text-align: center;">Нульовий</td>
+<td style="text-align: center;">Повільніший (через пошук <code>module.attr</code>)</td>
+<td style="text-align: left;">Базовий промисловий стандарт підключення бібліотек</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>from module import attr</code></strong></td>
+<td style="text-align: left;">Додає ім'я <code>attr</code> напряму</td>
+<td style="text-align: center;">Помірний</td>
+<td style="text-align: center;">Швидший (пряме читання з <code>locals()</code>)</td>
+<td style="text-align: left;">Імпорт окремих високонавантажених функцій і класів</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>import module as alias</code></strong></td>
+<td style="text-align: left;">Додає ім'я <code>alias</code></td>
+<td style="text-align: center;">Нульовий</td>
+<td style="text-align: center;">Аналогічний до прямого імпорту</td>
+<td style="text-align: left;">Скорочення назв стандартних бібліотек</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>from module import *</code></strong></td>
+<td style="text-align: left;">Додає всю множину імен модуля</td>
+<td style="text-align: center;">Критичний</td>
+<td style="text-align: center;">Пряме читання, але непрозорий код</td>
+<td style="text-align: left;">Категорично не рекомендовано у системному коді</td>
+</tr>
+</tbody>
+</table>
+<p>Систематизація синтаксичних форм підтверджує необхідність суворого контролю просторів імен: явне зазначення джерел імпорту забезпечує стабільність програмних інтерфейсів та спрощує супровід багатомодульних комплексів.</p>
+<hr />
+<h2 id="72-__init__py-api-__all__-syspath">7.2. Пакети та простори імен: файли <code>__init__.py</code>, керування публічним API через <code>__all__</code>, механізм пошуку модулів (<code>sys.path</code>)</h2>
+<h3 id="_2">Основний зміст та теоретичний базис</h3>
+<p>Коли масштаби програмного комплексу виходять за межі декількох модулів, виникає потреба в ієрархічній організації файлової структури. <strong>Пакет</strong> у мові Python являє собою структурований каталог файлової системи, який інкапсулює множину взаємопов'язаних модулів та вкладених підпакетів, формуючи єдиний ієрархічний простір імен через точкову нотацію (<code>package.subpackage.module</code>).</p>
+<p>В архітектурі CPython розрізняють два типи пакетів:</p>
+<ol>
+<li>
+<p><strong>Звичайні пакети (Regular Packages):</strong> каталоги, які обов'язково містять службовий ініціалізаційний файл <code>__init__.py</code>. Файл <code>__init__.py</code> автоматично виконується віртуальною машиною PVM у момент імпортування пакета або будь-якого з його внутрішніх компонентів.</p>
+</li>
+<li>
+<p><strong>Просторові пакети (Namespace Packages):</strong> концепція, впроваджена у стандарті PEP 420 (починаючи з Python 3.3), яка дозволяє розділяти компоненти одного логічного пакета між кількома фізично відокремленими директоріями або мережевими сховищами без використання файлів <code>__init__.py</code>.</p>
+</li>
+</ol>
+<p>Файл <code>__init__.py</code> виконує ключові системні функції в архітектурі пакета. Він ініціалізує стан пакета, налаштовує відносні імпорти між внутрішніми модулями та формує так званий експортний шар (<em>facade layer</em>). </p>
+<p>Замість того щоб змушувати зовнішнього користувача виконувати глибокий імпорт вигляду <code>from my_framework.drivers.network.ethernet import EthernetDriver</code>, розробник пакета імпортує клас <code>EthernetDriver</code> безпосередньо у файл <code>__init__.py</code>, надаючи лаконічний інтерфейс: <code>from my_framework import EthernetDriver</code>.</p>
+<p>Керування публічним інтерфейсом модуля або пакета реалізується за допомогою спеціального списку <strong><code>__all__</code></strong>. Змінна <code>__all__</code> визначається на рівні модуля як список рядків, що містять точні імена тих атрибутів, які повинні експортуватися при масовому імпорті <code>from module import *</code>:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># Пакет апаратного моніторингу: hardware_monitor/__init__.py</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="kn">from</span><span class="w"> </span><span class="nn">.cpu</span><span class="w"> </span><span class="kn">import</span> <span class="n">CPUTracker</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="kn">from</span><span class="w"> </span><span class="nn">.memory</span><span class="w"> </span><span class="kn">import</span> <span class="n">RAMTracker</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="kn">from</span><span class="w"> </span><span class="nn">.utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">_internal_kernel_call</span>  <span class="c1"># Внутрішня службова функція</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="c1"># Явна фіксація контракту публічного API</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>    <span class="s1">'CPUTracker'</span><span class="p">,</span>
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>    <span class="s1">'RAMTracker'</span>
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="p">]</span>
+</span></code></pre></div>
+<p>Якщо змінна <code>__all__</code> визначена, інструкція <code>import *</code> імпортує виключно елементи, перераховані в цьому списку. Усі інші ідентифікатори (включаючи випадково імпортовані сторонні бібліотеки та допоміжні функції) залишаються прихованими. Це забезпечує суворе інкапсулювання деталей реалізації та захищає внутрішні алгоритми від несанкціонованого прямого використання.</p>
+<p>Пошук модулів і пакетів у файловій системі здійснюється інтерпретатором відповідно до списку шляхів <strong><code>sys.path</code></strong>. Цей список ініціалізується під час запуску інтерпретатора і формується на основі суворої ієрархії пріоритетів:</p>
+<div class="arithmatex">\[\text{sys.path} = [\text{Dir}_{\text{script}}, \; \text{Env}_{\text{PYTHONPATH}}, \; \text{StdLib}_{\text{core}}, \; \text{SitePackages}_{\text{venv}}]\]</div>
+<p>де <span class="arithmatex">\(\text{Dir}_{\text{script}}\)</span> — абсолютний шлях до директорії, у якій розміщено безпосередньо запущений головний скрипт (має найвищий пріоритет); <span class="arithmatex">\(\text{Env}_{\text{PYTHONPATH}}\)</span> — список додаткових шляхів, визначених у змінній середовища операційної системи <code>PYTHONPATH</code>; <span class="arithmatex">\(\text{StdLib}_{\text{core}}\)</span> — шляхи до стандартної бібліотеки Python та попередньо скомпільованих бінарних модулів CPython; <span class="arithmatex">\(\text{SitePackages}_{\text{venv}}\)</span> — каталог сторонніх пакунків поточного віртуального або conda-середовища (<code>site-packages</code>).</p>
+<p><pre class="mermaid"><code>flowchart TD
+    StartSearch(["Ініціація пошуку модуля: import telemetry"]) --&gt; Step1{"1. Директорія скрипта\n(Dir_script)"}
+
+    Step1 -- "Знайдено" --&gt; LoadMod["Завантаження файлу та виконання"]
+    Step1 -- "Не знайдено" --&gt; Step2{"2. Змінна оточення\nPYTHONPATH"}
+
+    Step2 -- "Знайдено" --&gt; LoadMod
+    Step2 -- "Не знайдено" --&gt; Step3{"3. Стандартна бібліотека\nPython (StdLib)"}
+
+    Step3 -- "Знайдено" --&gt; LoadMod
+    Step3 -- "Не знайдено" --&gt; Step4{"4. Каталог сторонніх пакетів\nsite-packages (Conda/venv)"}
+
+    Step4 -- "Знайдено" --&gt; LoadMod
+    Step4 -- "Не знайдено" --&gt; RaiseError["Генерація винятку ModuleNotFoundError"]</code></pre>
+<em>Рисунок 2 — Алгоритм послідовного сканування просторів файлової системи через список sys.path</em></p>
+<p>Проаналізуємо механізм пошуку, відображений на блок-схемі. Найвищий пріоритет каталогу поточного скрипта <span class="arithmatex">\(\text{Dir}_{\text{script}}\)</span> породжує явище <strong>затінення модулів</strong> (<em>module shadowing</em>): якщо розробник назве власний файл іменем стандартного модуля (наприклад, створить файл <code>math.py</code> або <code>random.py</code> у робочій папці), будь-яка спроба імпортувати однойменну системну бібліотеку завантажить локальний файл, що призведе до порушення роботи стандартної бібліотеки та аварійної зупинки програми. </p>
+<p>Програмне розширення шляхів пошуку може виконуватися динамічно безпосередньо в коді за допомогою методу <code>sys.path.append("/path/to/custom/libs")</code>.</p>
+<p>Для забезпечення повної відтворюваності багатофайлових інженерних проєктів та фіксації їхньої модульної структури застосовуються файли маніфестів залежностей <code>requirements.txt</code> або конфігурації середовищ <code>environment.yml</code> у системі Conda. Еталонна структура інженерного проекту організовується за стандартами ізоляції кодової бази:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>telemetry_project/
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>├── .gitignore               &lt;- Фільтрація артефактів (__pycache__, .venv)
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>├── environment.yml          &lt;- Декларація Conda-середовища та C-бібліотек
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>├── requirements.txt         &lt;- Список Python-пакунків з точними версіями
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>├── README.md                &lt;- Технічна документація проекту
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>├── src/                     &lt;- Вихідний код комплексу (Source root)
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>│   └── telemetry/           &lt;- Кореневий пакет проекту
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>│       ├── __init__.py      &lt;- Головний інтерфейс пакету та __all__
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>│       ├── core.py          &lt;- Алгоритмічне ядро
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>│       └── drivers/         &lt;- Підпакет драйверів периферії
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>│           ├── __init__.py
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>│           ├── uart.py
+</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>│           └── spi.py
+</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>└── tests/                   &lt;- Набір модульних тестів (Unit Tests)
+</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>    ├── test_core.py
+</span><span id="__span-2-16"><a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a>    └── test_drivers.py
+</span></code></pre></div>
+<p><em>Таблиця 7.2 — Структурні компоненти професійного багатофайлового проєкту на Python</em></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Елемент структури</th>
+<th style="text-align: left;">Тип файлового об'єкта</th>
+<th style="text-align: left;">Функціональне призначення в архітектурі</th>
+<th style="text-align: left;">Взаємодія з інтерпретатором</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong><code>src/package/</code></strong></td>
+<td style="text-align: left;">Директорія</td>
+<td style="text-align: left;">Кореневий простір імен програмного модуля</td>
+<td style="text-align: left;">Додається до <code>sys.path</code> або встановлюється через <code>pip install -e .</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>__init__.py</code></strong></td>
+<td style="text-align: left;">Файл вихідного коду</td>
+<td style="text-align: left;">Маркер пакета, експорт публічного API через <code>__all__</code></td>
+<td style="text-align: left;">Виконується автоматично при зверненні до каталогу</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>requirements.txt</code></strong></td>
+<td style="text-align: left;">Текстовий конфіг</td>
+<td style="text-align: left;">Фіксація детермінованих версій залежностей</td>
+<td style="text-align: left;">Зчитується утилітою <code>pip install -r</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>.gitignore</code></strong></td>
+<td style="text-align: left;">Конфігурація Git</td>
+<td style="text-align: left;">Запобігання передачі тимчасових та бінарних файлів</td>
+<td style="text-align: left;">Ігнорується інтерпретатором, зчитується системою Git</td>
+</tr>
+</tbody>
+</table>
+<p>Наведена системна організація файлової структури усуває хаотичні взаємні залежності та дозволяє розгортати проект на цільових вбудованих обчислювачах за допомогою єдиної команди ініціалізації середовища.</p>
+<hr />
+<h2 id="73-sys-os-pathlib-time-random">7.3. Огляд стандартної бібліотеки для інженерних задач: модулі <code>sys</code>, <code>os</code>, <code>pathlib</code>, <code>time</code>, <code>random</code></h2>
+<h3 id="_3">Основний зміст та теоретичний базис</h3>
+<p>Стандартна бібліотека мови Python («Batteries Included») надає розробникам апаратно-орієнтованого та системного програмного забезпечення набір високоефективних вбудованих модулів, реалізованих безпосередньо мовою C. </p>
+<p>Ці модулі забезпечують пряму взаємодію з ядром операційної системи, керування пам'яттю інтерпретатора, прецизійне профілювання часових інтервалів та стохастичне моделювання фізичних процесів.</p>
+<h3 id="sys-cpython">Модуль <code>sys</code>: взаємодія з інтерпретатором CPython та параметри середовища</h3>
+<p>Модуль <strong><code>sys</code></strong> інкапсулює змінні та функції, які мають прямий зв'язок із середовищем виконання віртуальної машини PVM. Ключові можливості модуля включають:</p>
+<ul>
+<li>
+<p>Отримання параметрів командного рядка через список <strong><code>sys.argv</code></strong>. Перший елемент <code>sys.argv[0]</code> завжди містить ім'я запущеного скрипта, а наступні елементи (<code>sys.argv[1:]</code>) — аргументи, передані користувачем або зовнішнім процесом.</p>
+</li>
+<li>
+<p>Стандартні потоки введення-виведення: <code>sys.stdin</code> (потік введення, файловий дескриптор 0), <code>sys.stdout</code> (потік стандартного виведення, дескриптор 1) та <code>sys.stderr</code> (потік виведення діагностичних повідомлень і помилок, дескриптор 2). Перенаправлення цих потоків дозволяє організовувати автоматичне логування в бінарні чи текстові канали зв'язку.</p>
+</li>
+<li>
+<p>Керування лімітом глибини системного стека викликів: функція <code>sys.getrecursionlimit()</code> повертає поточний поріг викликів, а <code>sys.setrecursionlimit(limit)</code> дозволяє збільшити глибину стека для виконання глибоких рекурсивних розрахунків.</p>
+</li>
+<li>
+<p>Інспекція споживання пам'яті об'єктами: функція <code>sys.getsizeof(object)</code> повертає точний фізичний розмір структури об'єкта в байтах без урахування розміру вкладених посилань.</p>
+</li>
+<li>
+<p>Завершення роботи процесу: виклик <code>sys.exit([code])</code> збуджує виняток <code>SystemExit</code>, передаючи цілочисельний статус завершення (<code>0</code> — успіх, ненульове значення — код апаратної чи логічної помилки) в операційну систему.</p>
+</li>
+</ul>
+<h3 id="os-pathlib-">Модулі <code>os</code> та <code>pathlib</code>: абстракція операційної системи та об'єктно-орієнтовані файлові шляхи</h3>
+<p>Модуль <strong><code>os</code></strong> надає низькорівневий процедурний інтерфейс для виконання системних викликів операційної системи (POSIX / Windows API). Він дозволяє керувати змінними середовища (<code>os.environ</code>), робочими каталогами (<code>os.getcwd()</code>, <code>os.chdir()</code>), маніпулювати файловими дескрипторами та ініціювати породження дочірніх процесів через системні функції.</p>
+<p>Починаючи з версії Python 3.4 (згідно зі стандартом PEP 428), для роботи з файловою системою впроваджено сучасний об'єктно-орієнтований модуль <strong><code>pathlib</code></strong>. Замість маніпуляції звичайними рядками модуль надає поліморфні класи <code>Path</code>, <code>PosixPath</code> та <code>WindowsPath</code>, які інкапсулюють специфіку роздільників шляхів (<code>/</code> проти <code>\</code>):</p>
+<ul>
+<li>
+<p>Перевантажений оператор ділення <code>/</code> забезпечує платформо-незалежну конкатенацію компонентів шляху: <code>config_path = Path.home() / "system_data" / "device.cfg"</code>.</p>
+</li>
+<li>
+<p>Методи перевірки стану вузлів файлової системи: <code>.exists()</code> (перевірка фізичної наявності), <code>.is_file()</code> (ідентифікація файлу), <code>.is_dir()</code> (ідентифікація каталогу).</p>
+</li>
+<li>
+<p>Потокове читання та запис: методи <code>.read_text(encoding='utf-8')</code>, <code>.write_text()</code>, <code>.read_bytes()</code> та <code>.write_bytes()</code> забезпечують відкриття, атомарне читання/запис і гарантоване закриття файлового дескриптора за один виклик.</p>
+</li>
+<li>
+<p>Пошук файлів за маскою: метод <code>.glob(pattern)</code> та рекурсивний пошук <code>.rglob(pattern)</code> генерують ітератор шляхів, що відповідають регулярному шаблону файлової системи.</p>
+</li>
+</ul>
+<h3 id="time">Модуль <code>time</code>: системний час та високоточне профілювання швидкодії</h3>
+<p>Модуль <strong><code>time</code></strong> забезпечує роботу з часовими мітками, синхронізацію потоків та вимірювання інтервалів виконання алгоритмів. У комп'ютерній інженерії критично розрізняти два типи системних годинників:</p>
+<ol>
+<li>
+<p>Астрономічний час (<em>wall-clock time</em>), що повертається функцією <code>time.time()</code>. Він відраховує кількість секунд, що минули від початку епохи UNIX (00:00:00 UTC, 1 січня 1970 року). Цей годинник не є строго монотонним, оскільки може зазнавати раптових стрибків внаслідок мережевої синхронізації часу за протоколом NTP або переведення годинників операційної системи.</p>
+</li>
+<li>
+<p>Монотонний таймер високої роздільної здатності, що повертається функцією <strong><code>time.perf_counter()</code></strong>. Цей таймер має найвищу доступну апаратну дискретність (на базі лічильників процесора TSC — <em>Time Stamp Counter</em>) і гарантовано ніколи не зменшує своє значення.</p>
+</li>
+</ol>
+<p>Математично розрахунок часу виконання <span class="arithmatex">\(\Delta t\)</span> обчислювального алгоритму або апаратного опитування датчика з використанням монотонного лічильника описується формулою:</p>
+<div class="arithmatex">\[\Delta t = t_{\text{stop}} - t_{\text{start}} = \text{perf\_counter}_{\text{stop}} - \text{perf\_counter}_{\text{start}}\]</div>
+<p>де <span class="arithmatex">\(t_{\text{start}}\)</span> та <span class="arithmatex">\(t_{\text{stop}}\)</span> — значення лічильника часу в секундах (з плаваючою комою, точність до наносекунд). Затримка виконання потоку на фіксований час <span class="arithmatex">\(\tau\)</span> реалізується функцією <code>time.sleep(\tau)</code>.</p>
+<h3 id="random">Модуль <code>random</code>: алгоритм вихору Мерсенна та генерація псевдовипадкових процесів</h3>
+<p>Модуль <strong><code>random</code></strong> реалізує генератор псевдовипадкових чисел (PRNG) на базі алгоритму <strong>Вихору Мерсенна</strong> (<strong>Mersenne Twister</strong>, варіант MT19937). Цей алгоритм має колосальний період повторення послідовності, що дорівнює простому числу Мерсенна:</p>
+<div class="arithmatex">\[T = 2^{19937} - 1 \approx 4.3 \times 10^{6001}\]</div>
+<p>та забезпечує 623-вимірну рівномірність розподілу псевдовипадкових векторів.</p>
+<p>Генератор не є криптографічно стійким, проте має високу швидкість генерації, що робить його базовим інструментом для статистичного моделювання за методом Монте-Карло, стрес-тестування систем передачі даних та імітації шумів у каналах зв'язку:</p>
+<ul>
+<li>
+<p>Функція <code>random.random()</code> генерує дійсне псевдовипадкове число з неперервного рівномірного розподілу на напіввідкритому інтервалі <span class="arithmatex">\([0.0, 1.0)\)</span>.</p>
+</li>
+<li>
+<p>Функція <code>random.uniform(a, b)</code> масштабує рівномірний розподіл на довільний числовий проміжок <span class="arithmatex">\([a, b]\)</span> згідно з лінійною щільністю ймовірності:</p>
+</li>
+</ul>
+<div class="arithmatex">\[f(x) = \frac{1}{b - a}, \quad \text{для } a \le x \le b\]</div>
+<ul>
+<li>
+<p>Функція <code>random.randint(a, b)</code> генерує дискретне ціле число з рівномірного закритого діапазону <span class="arithmatex">\([a, b]\)</span>.</p>
+</li>
+<li>
+<p>Функція <code>random.choice(sequence)</code> повертає випадковий елемент із непорожньої послідовності за константний час <span class="arithmatex">\(O(1)\)</span>.</p>
+</li>
+<li>
+<p>Функція <code>random.shuffle(list)</code> виконує перестановку елементів списку на місці за алгоритмом Фішера-Єйтса з лінійною складністю <span class="arithmatex">\(O(N)\)</span>.</p>
+</li>
+<li>
+<p>Функція <code>random.sample(population, k)</code> формує вибірку <span class="arithmatex">\(k\)</span> унікальних елементів без повернення.</p>
+</li>
+<li>
+<p>Функція <code>random.gauss(mu, sigma)</code> моделює неперервну випадкову величину з нормальним (гаусовим) розподілом із математичним сподіванням <span class="arithmatex">\(\mu\)</span> та середньоквадратичним відхиленням <span class="arithmatex">\(\sigma\)</span>:</p>
+</li>
+</ul>
+<div class="arithmatex">\[f(x) = \frac{1}{\sigma \sqrt{2\pi}} \exp\left(-\frac{(x - \mu)^2}{2\sigma^2}\right)\]</div>
+<p>Фундаментальною властивістю псевдовипадкових послідовностей є їхня повна детермінованість при фіксації початкового стану (<strong>seed</strong>). Виклик функції <code>random.seed(S)</code> (де <span class="arithmatex">\(S\)</span> — ціле число або послідовність байтів) повністю визначає всю подальшу послідовність згенерованих чисел. Це забезпечує абсолютну відтворюваність інженерних експериментів, верифікацію алгоритмів та налагодження складних стохастичних систем.</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># Інженерний приклад: симуляція вимірювання напруги з гаусовим шумом та оцінка часу</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="kn">import</span><span class="w"> </span><span class="nn">random</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>  <span class="c1"># Фіксація зерна для детермінованого тестування</span>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="n">NOMINAL_VOLTAGE</span> <span class="o">=</span> <span class="mf">5.0</span>  <span class="c1"># Вольт</span>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="n">NOISE_SIGMA</span> <span class="o">=</span> <span class="mf">0.05</span>      <span class="c1"># Відхилення шуму АЦП</span>
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="n">t_start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span>
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="n">telemetry_samples</span> <span class="o">=</span> <span class="p">[</span><span class="n">random</span><span class="o">.</span><span class="n">gauss</span><span class="p">(</span><span class="n">NOMINAL_VOLTAGE</span><span class="p">,</span> <span class="n">NOISE_SIGMA</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10000</span><span class="p">)]</span>
+</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="n">t_elapsed</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span> <span class="o">-</span> <span class="n">t_start</span>
+</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>
+</span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="n">output_file</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">"telemetry_dump.csv"</span><span class="p">)</span>
+</span><span id="__span-3-15"><a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a><span class="n">output_file</span><span class="o">.</span><span class="n">write_text</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">v</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">"</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">telemetry_samples</span><span class="p">[:</span><span class="mi">10</span><span class="p">]))</span>
+</span><span id="__span-3-16"><a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Згенеровано 10000 замірів за </span><span class="si">{</span><span class="n">t_elapsed</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">1000</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2"> мс. Збережено у </span><span class="si">{</span><span class="n">output_file</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</span></code></pre></div>
+<p><em>Таблиця 7.3 — Систематизація системних модулів стандартної бібліотеки Python</em></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Модуль</th>
+<th style="text-align: left;">Рівень взаємодії</th>
+<th style="text-align: left;">Ключові класи та функції</th>
+<th style="text-align: left;">Сфера застосування в комп'ютерній інженерії</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong><code>sys</code></strong></td>
+<td style="text-align: left;">Інтерпретатор PVM / CPython</td>
+<td style="text-align: left;"><code>argv</code>, <code>exit()</code>, <code>getsizeof()</code>, <code>stdin</code>, <code>stdout</code>, <code>path</code></td>
+<td style="text-align: left;">Парсинг CLI-інтерфейсів, контроль пам'яті та лімітів рекурсії</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>os</code></strong></td>
+<td style="text-align: left;">Системні виклики ядра ОС</td>
+<td style="text-align: left;"><code>environ</code>, <code>getcwd()</code>, <code>listdir()</code>, <code>system()</code>, <code>remove()</code></td>
+<td style="text-align: left;">Адміністрування операційної системи, змінні середовища</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>pathlib</code></strong></td>
+<td style="text-align: left;">Об'єктна файлова система</td>
+<td style="text-align: left;"><code>Path</code>, <code>glob()</code>, <code>stat()</code>, <code>read_bytes()</code>, <code>write_text()</code></td>
+<td style="text-align: left;">Кросплатформне керування шляхами, пошук логів, дампи пам'яті</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>time</code></strong></td>
+<td style="text-align: left;">Апаратні лічильники часу</td>
+<td style="text-align: left;"><code>perf_counter()</code>, <code>time()</code>, <code>sleep()</code>, <code>strftime()</code></td>
+<td style="text-align: left;">Прецизійний бенчмаркінг, таймаути драйверів, протоколи опитування</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>random</code></strong></td>
+<td style="text-align: left;">Генератор MT19937</td>
+<td style="text-align: left;"><code>seed()</code>, <code>random()</code>, <code>randint()</code>, <code>gauss()</code>, <code>choice()</code></td>
+<td style="text-align: left;">Імітація апаратних шумів, метод Монте-Карло, стрес-тести</td>
+</tr>
+</tbody>
+</table>
+<p>Аналітичний огляд модулів стандартної бібліотеки підтверджує, що вбудовані засоби мови Python забезпечують повний цикл розробки системного програмного забезпечення: від низькорівневого контролю параметрів виконання до прецизійного статистичного аналізу без необхідності залучення сторонніх залежностей.</p>
+<hr />
+<h3 id="_4">Питання для самоперевірки та аналітичного осмислення</h3>
+<ol>
+<li>
+<p>Опишіть покроковий механізм імпортування модуля у CPython. Яку роль відіграє системний словник <code>sys.modules</code> у запобіганні повторному виконанню верхньорівневого коду модуля?</p>
+</li>
+<li>
+<p>Розкрийте фізичний та системний зміст службової змінної <code>__name__</code>. Поясніть принцип дії та архітектурне призначення ідіоми <code>if __name__ == '__main__':</code>.</p>
+</li>
+<li>
+<p>Чому виникає виняток <code>ImportError</code> при взаємному циклічному імпортуванні модулів (<code>circular imports</code>) через форму <code>from module import attribute</code>? Які інженерні методи дозволяють усунути цю проблему?</p>
+</li>
+<li>
+<p>Поясніть призначення файлу <code>__init__.py</code> у регулярних пакетах. Як за допомогою списку <code>__all__</code> регламентувати публічний контракт API програмного модуля?</p>
+</li>
+<li>
+<p>Опишіть алгоритм формування списку шляхів <code>sys.path</code>. Що таке «затінення модулів» (<em>module shadowing</em>) і як локальний файл <code>random.py</code> може заблокувати роботу стандартної бібліотеки?</p>
+</li>
+<li>
+<p>Чому для прецизійного вимірювання часу виконання обчислювальних алгоритмів слід використовувати функцію <code>time.perf_counter()</code>, а не <code>time.time()</code>? Поясніть поняття монотонності системного таймера.</p>
+</li>
+<li>
+<p>Охарактеризуйте алгоритм генерації псевдовипадкових чисел Mersenne Twister (MT19937), реалізований у модулі <code>random</code>. Чому фіксація зерна генератора (<code>random.seed()</code>) є критично важливою вимогою для верифікації науково-інженерних розрахунків?</p>
+</li>
+</ol>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Повернутись нагору
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 Kyrylo Vadurin &bull; <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a>
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.expand", "navigation.top", "navigation.tracking", "header.autohide", "search.suggest", "search.highlight", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u0421\u043a\u043e\u043f\u0456\u0439\u043e\u0432\u0430\u043d\u043e \u0432 \u0431\u0443\u0444\u0435\u0440", "clipboard.copy": "\u0421\u043a\u043e\u043f\u0456\u044e\u0432\u0430\u0442\u0438 \u0432 \u0431\u0443\u0444\u0435\u0440", "search.result.more.one": "\u0429\u0435 1 \u0437\u0431\u0456\u0433 \u043d\u0430 \u0446\u0456\u0439 \u0441\u0442\u043e\u0440\u0456\u043d\u0446\u0456", "search.result.more.other": "\u0429\u0435 # \u0437\u0431\u0456\u0433\u0456\u0432 \u043d\u0430 \u0446\u0456\u0439 \u0441\u0442\u043e\u0440\u0456\u043d\u0446\u0456", "search.result.none": "\u0417\u0431\u0456\u0433\u0456\u0432 \u043d\u0435 \u0437\u043d\u0430\u0439\u0434\u0435\u043d\u043e", "search.result.one": "\u0417\u043d\u0430\u0439\u0434\u0435\u043d\u043e 1 \u0437\u0431\u0456\u0433", "search.result.other": "\u0417\u043d\u0430\u0439\u0434\u0435\u043d\u043e # \u0437\u0431\u0456\u0433\u0456\u0432", "search.result.placeholder": "\u0420\u043e\u0437\u043f\u043e\u0447\u043d\u0456\u0442\u044c \u043f\u0438\u0441\u0430\u0442\u0438 \u0434\u043b\u044f \u043f\u043e\u0448\u0443\u043a\u0443", "search.result.term.missing": "\u041d\u0435 \u0437\u043d\u0430\u0439\u0434\u0435\u043d\u043e \u0437\u0430\u043f\u0438\u0442\u0443", "select.version": "\u041e\u0431\u0440\u0430\u0442\u0438 \u0432\u0435\u0440\u0441\u0456\u044e"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,1907 @@
+
+<!doctype html>
+<html lang="uk" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Навчальний портал з дисципліни "Програмування на Python. Базовий рівень"">
+      
+      
+      
+      
+        <link rel="prev" href="../lk8/">
+      
+      
+        <link rel="next" href="../../lb/lb1/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Тема 9. Об'єктно-орієнтоване програмування - Програмування на Python</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="cyan">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#3-9-python" class="md-skip">
+          Перейти до змісту
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Хедер">
+    <a href="../.." title="Програмування на Python" class="md-header__button md-logo" aria-label="Програмування на Python" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Програмування на Python
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Тема 9. Об'єктно-орієнтоване програмування
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="cyan"  aria-label="Переключити на темну тему"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Переключити на темну тему" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="cyan"  aria-label="Переключити на світлу тему"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Переключити на світлу тему" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Пошук" placeholder="Пошук" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Шукати">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Очистити" aria-label="Очистити" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Пошук розпочато
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Вкладки" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Робоча програма
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../lk1/" class="md-tabs__link">
+          
+  
+  
+  Лекції
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../lb/lb1/" class="md-tabs__link">
+          
+  
+  
+  Лабораторні роботи
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../sr/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Самостійна робота
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../rg/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Розрахунково-графічна робота
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Навігація" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Програмування на Python" class="md-nav__button md-logo" aria-label="Програмування на Python" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Програмування на Python
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Робоча програма
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Лекції
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Лекції
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lk1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Тема 1. Архітектура мови та інфраструктура
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lk2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Тема 2. Керування потоком виконання
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lk3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Тема 3. Впорядковані структури даних (Списки, Кортежі)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lk4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Тема 4. Текстові, двійкові дані та Регулярні вирази
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lk5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Тема 5. Хеш-таблиці (Словники, Множини)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lk6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Тема 6. Функціональна організація коду
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lk7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Тема 7. Модульна архітектура та пакети
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lk8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Тема 8. Обробка винятків та файлове в/в
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Тема 9. Об'єктно-орієнтоване програмування
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Тема 9. Об'єктно-орієнтоване програмування
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Зміст">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Зміст
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#91-python-class-__init__-self-vs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.1. Концепції ООП у Python: класи (class) та об'єкти (екземпляри), ініціалізатор __init__, параметр self, атрибути класу vs атрибути екземпляру
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9.1. Концепції ООП у Python: класи (class) та об&#39;єкти (екземпляри), ініціалізатор __init__, параметр self, атрибути класу vs атрибути екземпляру">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Основний зміст та теоретичний базис
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#92-_protected-__private-name-mangling-inheritance-super-mro-method-resolution-order" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.2. Інкапсуляція та захист даних (публічні, захищені _protected та приватні __private атрибути, механізм name mangling). Наслідування (inheritance), перевизначення методів, функція super(), множинне наслідування та MRO (Method Resolution Order)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9.2. Інкапсуляція та захист даних (публічні, захищені _protected та приватні __private атрибути, механізм name mangling). Наслідування (inheritance), перевизначення методів, функція super(), множинне наслідування та MRO (Method Resolution Order)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Основний зміст та теоретичний базис
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#93-dundermagic-methods-property-staticmethod-classmethod" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.3. Поліморфізм та спеціальні методи (Dunder/Magic methods). Основи декораторів функцій та методів (@property, @staticmethod, @classmethod)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9.3. Поліморфізм та спеціальні методи (Dunder/Magic methods). Основи декораторів функцій та методів (@property, @staticmethod, @classmethod)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Основний зміст та теоретичний базис
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Питання для самоперевірки та аналітичного осмислення
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Лабораторні роботи
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Лабораторні роботи
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lb/lb1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 1. Розгортання інфраструктури розробки
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lb/lb2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 2. Скалярні типи даних та моделювання
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lb/lb3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 3. Алгоритми розгалуженої та циклічної структури
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lb/lb4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 4. Обробка списків та кортежі
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lb/lb5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 5. Обробка тексту та регулярні вирази
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lb/lb6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 6. Асоціативні структури даних (Словники, Множини)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lb/lb7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 7. Проєктування функцій та рекурсія
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lb/lb8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 8. Модульне програмування та системні бібліотеки
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lb/lb9/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 9. Обробка виняткових ситуацій
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lb/lb10/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 10. Файлове в/в та менеджери контексту
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lb/lb11/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 11. ООП та перевантаження методів
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sr/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Самостійна робота
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../rg/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Розрахунково-графічна робота
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Зміст">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Зміст
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#91-python-class-__init__-self-vs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.1. Концепції ООП у Python: класи (class) та об'єкти (екземпляри), ініціалізатор __init__, параметр self, атрибути класу vs атрибути екземпляру
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9.1. Концепції ООП у Python: класи (class) та об&#39;єкти (екземпляри), ініціалізатор __init__, параметр self, атрибути класу vs атрибути екземпляру">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Основний зміст та теоретичний базис
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#92-_protected-__private-name-mangling-inheritance-super-mro-method-resolution-order" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.2. Інкапсуляція та захист даних (публічні, захищені _protected та приватні __private атрибути, механізм name mangling). Наслідування (inheritance), перевизначення методів, функція super(), множинне наслідування та MRO (Method Resolution Order)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9.2. Інкапсуляція та захист даних (публічні, захищені _protected та приватні __private атрибути, механізм name mangling). Наслідування (inheritance), перевизначення методів, функція super(), множинне наслідування та MRO (Method Resolution Order)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Основний зміст та теоретичний базис
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#93-dundermagic-methods-property-staticmethod-classmethod" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.3. Поліморфізм та спеціальні методи (Dunder/Magic methods). Основи декораторів функцій та методів (@property, @staticmethod, @classmethod)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9.3. Поліморфізм та спеціальні методи (Dunder/Magic methods). Основи декораторів функцій та методів (@property, @staticmethod, @classmethod)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Основний зміст та теоретичний базис
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Питання для самоперевірки та аналітичного осмислення
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="3-9-python">ЗМІСТОВИЙ МОДУЛЬ 3. ТЕМА 9. ОБ'ЄКТНО-ОРІЄНТОВАНЕ ПРОГРАМУВАННЯ В PYTHON</h1>
+<hr />
+<h2 id="91-python-class-__init__-self-vs">9.1. Концепції ООП у Python: класи (class) та об'єкти (екземпляри), ініціалізатор <code>__init__</code>, параметр <code>self</code>, атрибути класу vs атрибути екземпляру</h2>
+<h3 id="_1">Основний зміст та теоретичний базис</h3>
+<p>Об'єктно-орієнтоване програмування (ООП) є провідною парадигмою інженерії складних програмних систем, що базується на моделюванні предметної області у вигляді сукупності взаємодіючих об'єктів. Кожен об'єкт інкапсулює у собі як поточний інформаційний стан (дані, змінні, поля), так і набір операцій для його обробки (поведінку, функції, методи). У мові програмування Python об'єктно-орієнтований підхід реалізовано як фундаментальний принцип архітектури: усі типи даних, включаючи базові скаляри, списки, модулі та навіть самі функції, є повноправними об'єктами першого класу.</p>
+<p>Фундаментальними будівельними блоками ООП виступають поняття класу та об'єкта (екземпляра). <strong>Клас</strong> (<code>class</code>) є абстрактним шаблоном, типом даних, визначеним користувачем, який декларує структуру полів та алгоритмічний інтерфейс методів для майбутніх сутностей. <strong>Об'єкт</strong> (екземпляр, <em>instance</em>) являє собою конкретну фізичну сутність, створену на основі шаблону класу, яка розміщується у динамічній пам'яті комп'ютера та володіє власним станом.</p>
+<p>У системній архітектурі CPython створення класу за допомогою ключового слова <code>class</code> є виконуваним оператором. Під час завантаження модуля інтерпретатор створює спеціальний системний об'єкт типу <code>PyTypeObject</code>, який описує сам клас і зберігає його простір імен у словнику <code>Class.__dict__</code>. </p>
+<p>Створення нового екземпляра класу в пам'яті охоплює дві послідовні фази:</p>
+<ol>
+<li>
+<p>Виклик методу-конструктора <strong><code>__new__(cls, *args, **kwargs)</code></strong>, який відповідає безпосередньо за низькорівневе виділення блоку оперативної пам'яті під новий об'єкт, повертаючи покажчик на створений неініціалізований екземпляр.</p>
+</li>
+<li>
+<p>Виклик методу-ініціалізатора <strong><code>__init__(self, *args, **kwargs)</code></strong>, який приймає посилання на щойно створений екземпляр через обов'язковий перший параметр <code>self</code> і виконує первинне наповнення об'єкта даними (створення та ініціалізацію атрибутів екземпляра).</p>
+</li>
+</ol>
+<p><pre class="mermaid"><code>flowchart TD
+    subgraph Class_Definition["Простір імен Класу (Class Object)"]
+        ClassHeader["PyTypeObject: DeviceController\nid: 0x7FFF10"]
+        ClassDict["__dict__ класу:\n- vendor = 'Intel'\n- max_frequency = 4.5\n- reset_bus() -&gt; PyFunctionObject\n- read_register() -&gt; PyFunctionObject"]
+    end
+
+    subgraph Instance_1["Екземпляр 1 (Instance dev1)"]
+        Inst1_Head["PyObject: dev1\nid: 0x8A0010\nob_type -&gt; 0x7FFF10"]
+        Inst1_Dict["__dict__ екземпляра dev1:\n- port = '/dev/ttyUSB0'\n- baudrate = 115200"]
+    end
+
+    subgraph Instance_2["Екземпляр 2 (Instance dev2)"]
+        Inst2_Head["PyObject: dev2\nid: 0x8A0090\nob_type -&gt; 0x7FFF10"]
+        Inst2_Dict["__dict__ екземпляра dev2:\n- port = '/dev/ttyUSB1'\n- baudrate = 9600"]
+    end
+
+    Inst1_Head --&gt; ClassHeader
+    Inst2_Head --&gt; ClassHeader</code></pre>
+<em>Рисунок 1 — Структурна організація просторів імен класу та незалежних екземплярів у пам'яті CPython</em></p>
+<p>Проаналізуємо схему зв'язків між класом та його екземплярами. Параметр <strong><code>self</code></strong> є обов'язковим першим аргументом усіх методів екземпляра в Python і є повним семантичним еквівалентом покажчика <code>this</code> у мовах C++ та Java. </p>
+<p>Головна відмінність полягає в тому, що в Python передача <code>self</code> декларується явно в сигнатурі методу (<code>def method(self, x):</code>), проте під час виклику методу через екземпляр (<code>dev1.method(x)</code>) віртуальна машина PVM автоматично транслює його у виклик класу з передачею екземпляра як першого аргументу:</p>
+<div class="arithmatex">\[\text{dev1}.\text{read\_register}(\text{reg\_addr}) \equiv \text{DeviceController}.\text{read\_register}(\text{dev1}, \text{reg\_addr})\]</div>
+<p>У комп'ютерній інженерії критично важливо розрізняти <strong>атрибути класу</strong> (<em>class attributes</em>) та <strong>атрибути екземпляра</strong> (<em>instance attributes</em>):</p>
+<ul>
+<li>
+<p>Атрибути класу оголошуються безпосередньо в тілі класу поза межами будь-яких методів і розміщуються у словнику <code>Class.__dict__</code>. Вони є спільними (статичними) для абсолютно всіх екземплярів цього класу. Модифікація атрибута класу через ім'я класу <code>DeviceController.vendor = "AMD"</code> миттєво змінює видиме значення цього поля для всіх існуючих та майбутніх екземплярів.</p>
+</li>
+<li>
+<p>Атрибути екземпляра створюються динамічно (зазвичай усередині методу <code>__init__</code>) через зв'язування з покажчиком <code>self</code> (<code>self.port = port</code>). Вони розміщуються в індивідуальному словнику конкретного екземпляра <code>instance.__dict__</code> і описують його унікальний апаратний чи логічний стан.</p>
+</li>
+</ul>
+<p>Алгоритм пошуку атрибута у Python працює за ієрархічним принципом: спочатку інтерпретатор сканує локальний словник <code>instance.__dict__</code>, у разі відсутності імені — звертається до словника класу <code>Class.__dict__</code>, далі — до базових класів за порядком лінеаризації MRO, і лише якщо атрибут не знайдено на жодному рівні, генерується виняток <code>AttributeError</code>. </p>
+<p>Якщо розробник спробує присвоїти нове значення атрибуту класу через посилання на екземпляр (<code>dev1.vendor = "AMD"</code>), це не змінить спільне значення класу, а створить однойменне локальне поле у словнику <code>dev1.__dict__</code>, яке затінить (<em>shadow</em>) класовий атрибут для цього конкретного екземпляра.</p>
+<p><em>Таблиця 9.1 — Порівняльний аналіз атрибутів класу та атрибутів екземпляра</em></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Критерій порівняння</th>
+<th style="text-align: left;">Атрибути класу (Class Attributes)</th>
+<th style="text-align: left;">Атрибути екземпляра (Instance Attributes)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Місце фізичного зберігання</strong></td>
+<td style="text-align: left;">Словник простору імен класу <code>Class.__dict__</code></td>
+<td style="text-align: left;">Словник конкретного об'єкта <code>self.__dict__</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Час виділення пам'яті</strong></td>
+<td style="text-align: left;">Момент імпорту або компіляції інструкції <code>class</code></td>
+<td style="text-align: left;">Момент виклику <code>__init__</code> при створенні об'єкта</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Ступінь спільності даних</strong></td>
+<td style="text-align: left;">Єдине значення для всіх екземплярів (Shared)</td>
+<td style="text-align: left;">Унікальний ізольований стан кожного об'єкта</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Вплив мутації через екземпляр</strong></td>
+<td style="text-align: left;">Створює локальне поле-тінь в <code>instance.__dict__</code></td>
+<td style="text-align: left;">Змінює стан тільки поточного екземпляра</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Типове інженерне застосування</strong></td>
+<td style="text-align: left;">Константи пристрою, загальні лічильники шини</td>
+<td style="text-align: left;">Номери портів, системні дескриптори, буфери</td>
+</tr>
+</tbody>
+</table>
+<p>Порівняння підтверджує, що для зберігання налаштувань, спільних для всієї серії пристроїв, доцільно використовувати атрибути класу, тоді як робочі параметри каналів зв'язку повинні строго інкапсулюватися на рівні екземплярів.</p>
+<hr />
+<h2 id="92-_protected-__private-name-mangling-inheritance-super-mro-method-resolution-order">9.2. Інкапсуляція та захист даних (публічні, захищені <code>_protected</code> та приватні <code>__private</code> атрибути, механізм name mangling). Наслідування (inheritance), перевизначення методів, функція <code>super()</code>, множинне наслідування та MRO (Method Resolution Order)</h2>
+<h3 id="_2">Основний зміст та теоретичний базис</h3>
+<p><strong>Інкапсуляція</strong> як парадигма об'єктно-орієнтованого проектування полягає в об'єднанні даних та методів їх обробки всередині класу із приховуванням внутрішніх деталей реалізації від зовнішнього втручання. </p>
+<p>На відміну від мов C++ або Java, де інкапсуляція підтримується на рівні компілятора ключовими словами <code>public</code>, <code>protected</code> та <code>private</code>, мова Python реалізує концепцію відкритості архітектури («ми всі дорослі люди»), де захист даних базується на конвенціях іменування:</p>
+<ul>
+<li>
+<p><strong>Публічні атрибути (<code>name</code>):</strong> доступні для необмеженого читання та модифікації з будь-якої точки кодової бази.</p>
+</li>
+<li>
+<p><strong>Захищені атрибути (<code>_name</code>):</strong> позначаються одним провідним символом підкреслення. Це є конвенційною угодою для розробників про те, що атрибут призначений виключно для внутрішнього використання класом та його нащадками; інтерпретатор не накладає технічних заборон на доступ до такого поля, однак статичні аналізатори коду та середовища розробки сигналізують про порушення інкапсуляції.</p>
+</li>
+<li>
+<p><strong>Приватні атрибути (<code>__name</code>):</strong> позначаються двома провідними символами підкреслення (без подвійного підкреслення в кінці). Для таких імен інтерпретатор CPython застосовує апаратний механізм <strong>спотворення імен</strong> (<strong>name mangling</strong>).</p>
+</li>
+</ul>
+<p>Механізм спотворення імен полягає в тому, що компілятор синтаксично перетворює будь-який ідентифікатор вигляду <code>__attribute</code> у форму <code>_ClassName__attribute</code>. Метою цього механізму є не абсолютне приховування даних від зловмисника, а гарантований захист від випадкового перекриття та конфліктів імен при глибокому наслідуванні класів. Прямий доступ до приватного поля через вихідне ім'я <code>dev.__baudrate</code> збуджує виняток <code>AttributeError</code>, однак технічно доступ залишається можливим через спотворене ім'я <code>dev._DeviceController__baudrate</code>.</p>
+<p><strong>Наслідування</strong> (<em>inheritance</em>) забезпечує побудову ієрархічних зв'язків між класами, дозволяючи новому похідному класу (<em>subclass</em>) успадковувати поля та методи батьківського базового класу (<em>base class</em>), розширюючи або модифікуючи їхню поведінку. </p>
+<p><strong>Перевизначення методів</strong> (<em>method overriding</em>) дозволяє класу-нащадку надати власну специфічну реалізацію методу, вже задекларованого у батьківському класі. Для виклику оригінальної реалізації методу базового класу з перевизначеного методу нащадка використовується вбудована проксі-функція <strong><code>super()</code></strong>, яка динамічно знаходить наступний метод у ланцюжку наслідування без явного жорсткого зазначення імені батьківського класу:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">BaseController</span><span class="p">:</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">device_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">device_id</span> <span class="o">=</span> <span class="n">device_id</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="k">class</span><span class="w"> </span><span class="nc">NetworkController</span><span class="p">(</span><span class="n">BaseController</span><span class="p">):</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">device_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">ip_address</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">device_id</span><span class="p">)</span>  <span class="c1"># Делегування ініціалізації базовому класу</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">ip_address</span> <span class="o">=</span> <span class="n">ip_address</span>
+</span></code></pre></div>
+<p>Мова Python підтримує <strong>множинне наслідування</strong> (<em>multiple inheritance</em>), за якого клас може одночасно успадковувати властивості декількох базових класів (<code>class Controller(SerialInterface, NetworkInterface):</code>). Головною проблемою множинного наслідування є колізія імен, відома як «проблема ромба» (<em>diamond problem</em>), коли два батьківські класи успадковують один і той самий базовий клас, а спільний нащадок повинен однозначно визначити пріоритет виклику перевизначених методів.</p>
+<p><pre class="mermaid"><code>classDiagram
+    class DeviceNode {
+        +device_id: int
+        +ping()
+    }
+    class SerialBus {
+        +baudrate: int
+        +ping()
+    }
+    class NetworkBus {
+        +mac_address: str
+        +ping()
+    }
+    class DiagnosticNode {
+        +run_diagnostic()
+        +ping()
+    }
+
+    DeviceNode &lt;|-- SerialBus
+    DeviceNode &lt;|-- NetworkBus
+    SerialBus &lt;|-- DiagnosticNode
+    NetworkBus &lt;|-- DiagnosticNode</code></pre>
+<em>Рисунок 2 — Діаграма множинного ромбоподібного наслідування компонентів комп'ютерної системи</em></p>
+<p>Для детермінованого розв'язання порядку виклику методів у CPython, починаючи з версії 2.3, застосовується <strong>алгоритм лінеаризації C3</strong> (<strong>C3 Linearization</strong>), який визначає строго фіксований <strong>порядок вирішення методів</strong> (<strong>Method Resolution Order, MRO</strong>). </p>
+<p>Лінеаризація класу <span class="arithmatex">\(C\)</span>, що має батьківські класи <span class="arithmatex">\(B_1, B_2, \dots, B_k\)</span>, являє собою впорядкований список, який складається з самого класу <span class="arithmatex">\(C\)</span> та злиття лінеаризацій його батьків разом зі списком самих батьків:</p>
+<div class="arithmatex">\[L(C) = C + \text{merge}\left(L(B_1), L(B_2), \dots, L(B_k), B_1 B_2 \dots B_k\right)\]</div>
+<p>де <span class="arithmatex">\(L(C)\)</span> — результуючий MRO-список класу <span class="arithmatex">\(C\)</span>; операція <span class="arithmatex">\(+\)</span> позначає конкатенацію послідовностей; функція <span class="arithmatex">\(\text{merge}\)</span> послідовно вибирає перший клас (голову) зі списків аргументів, який не входить у хвости (будь-яку частину списку, крім голови) інших списків, вилучає його з усіх списків і додає до результату лінеаризації.</p>
+<p>Алгоритм C3 Linearization гарантує виконання двох критичних інженерних властивостей: збереження локального порядку слідування батьківських класів та властивість монотонності (якщо клас <span class="arithmatex">\(X\)</span> передує класу <span class="arithmatex">\(Y\)</span> у лінеаризації будь-якого базового класу, цей порядок зберігається в усіх похідних класах). </p>
+<p>Переглянути сформований MRO-список будь-якого класу можна через атрибут <code>Class.__mro__</code> або метод <code>Class.mro()</code>. Якщо користувач проектує ієрархію наслідування, яка суперечить принципу монотонності або створює циклічну залежність, компілятор на етапі створення класу збуджує виняток <code>TypeError: Cannot create a consistent method resolution order (MRO)</code>.</p>
+<p><em>Таблиця 9.2 — Рівні інкапсуляції та захисту атрибутів у мові Python</em></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Синтаксичний стиль</th>
+<th style="text-align: left;">Рівень доступу</th>
+<th style="text-align: left;">Механізм інтерпретатора CPython</th>
+<th style="text-align: left;">Правило архітектурного використання</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong><code>attr</code></strong></td>
+<td style="text-align: left;">Публічний (Public)</td>
+<td style="text-align: left;">Пряме збереження в <code>__dict__</code></td>
+<td style="text-align: left;">Відкритий інтерфейс, призначений для користувачів</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>_attr</code></strong></td>
+<td style="text-align: left;">Захищений (Protected)</td>
+<td style="text-align: left;">Пряме збереження в <code>__dict__</code></td>
+<td style="text-align: left;">Внутрішні методи класу та підкласів (конвенція)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>__attr</code></strong></td>
+<td style="text-align: left;">Приватний (Private)</td>
+<td style="text-align: left;">Спотворення імені у <code>_ClassName__attr</code></td>
+<td style="text-align: left;">Захист від випадкового перекриття в підкласах</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>__attr__</code></strong></td>
+<td style="text-align: left;">Системний (Dunder)</td>
+<td style="text-align: left;">Зарезервовано мовою Python</td>
+<td style="text-align: left;">Магічні методи об'єктної моделі (не для полів!)</td>
+</tr>
+</tbody>
+</table>
+<p>Аналіз таблиці показує, що рівні доступу в Python є інструментом координації інженерної розробки, який поєднує дисципліну проектування API із можливістю глибокого системного налагодження.</p>
+<hr />
+<h2 id="93-dundermagic-methods-property-staticmethod-classmethod">9.3. Поліморфізм та спеціальні методи (Dunder/Magic methods). Основи декораторів функцій та методів (<code>@property</code>, <code>@staticmethod</code>, <code>@classmethod</code>)</h2>
+<h3 id="_3">Основний зміст та теоретичний базис</h3>
+<p><strong>Поліморфізм</strong> у мові Python є здатністю об'єктів різних типів надавати єдиний уніфікований інтерфейс для виконання однотипних за змістом операцій. На відміну від статично типізованих мов, де поліморфізм вимагає явної наявності спільного абстрактного базового класу або інтерфейсу, у Python поліморфізм базується на парадигмі <strong>качиної типізації</strong> (<em>Duck Typing</em>: «Якщо воно виглядає як качка, плаває як качка і крякає як качка — це, напевно, качка»). Якщо об'єкт реалізує необхідний набір методів, його можна прозоро використовувати у відповідному алгоритмі незалежно від його положення в дереві наслідування.</p>
+<p>Основою об'єктної моделі Python є <strong>спеціальні методи</strong> (відомі як <strong>dunder-методи</strong>, від <em>double underscore</em>), які починаються і закінчуються подвійним підкресленням. Спеціальні методи дозволяють користувацьким класам інтегруватися в стандартні системні протоколи мови: рядкове відображення, протокол послідовностей, перевантаження арифметичних операцій, протокол контекстних менеджерів та ітераторів:</p>
+<ul>
+<li>
+<p>Рядкове відображення: метод <code>__repr__(self)</code> повертає точне технічне рядкове представлення об'єкта, орієнтоване на налагодження та розробника (ідеально — вираз, що дозволяє відтворити об'єкт через <code>eval()</code>), тоді як метод <code>__str__(self)</code> формує людино-читабельний вигляд для виведення через функцію <code>print()</code>.</p>
+</li>
+<li>
+<p>Протокол колекцій: метод <code>__len__(self)</code> викликається функцією <code>len()</code> і повертає невід'ємну довжину; метод <code>__getitem__(self, key)</code> забезпечує доступ за індексом або зрізом (<code>obj[key]</code>).</p>
+</li>
+<li>
+<p>Перевантаження операторів порівняння: методи <code>__eq__</code> (<span class="arithmatex">\(==\)</span>), <code>__ne__</code> (<span class="arithmatex">\(\neq\)</span>), <code>__lt__</code> (<span class="arithmatex">\(&lt;\)</span>), <code>__le__</code> (<span class="arithmatex">\(\le\)</span>), <code>__gt__</code> (<span class="arithmatex">\(&gt;\)</span>), <code>__ge__</code> (<span class="arithmatex">\(\ge\)</span>) реалізують компонентне порівняння об'єктів.</p>
+</li>
+<li>
+<p>Перевантаження арифметичних операторів: метод <code>__add__(self, other)</code> перевизначає оператор додавання <code>+</code>, <code>__sub__</code> — віднімання <code>-</code>, <code>__mul__</code> — множення <code>*</code>, <code>__truediv__</code> — ділення <code>/</code>. Для підтримки некомутативних операцій (коли об'єкт користувацького класу стоїть праворуч від скаляра) реалізуються віддзеркалені методи з префіксом <code>r</code> (<code>__radd__</code>, <code>__rmul__</code>).</p>
+</li>
+</ul>
+<p><pre class="mermaid"><code>sequenceDiagram
+    autonumber
+    participant App as Виконуваний код (v1 + v2)
+    participant V1 as Екземпляр v1 (Vector)
+    participant V2 as Екземпляр v2 (Vector)
+    participant PVM as Віртуальна машина Python
+
+    App-&gt;&gt;V1: Операція бінарного додавання: v1 + v2
+    V1-&gt;&gt;V1: Виклик спеціального методу __add__(v2)
+    alt v1 знає, як додати v2 (isinstance == True)
+        V1-&gt;&gt;V1: Обчислення нових координат
+        V1--&gt;&gt;App: Повернення нового екземпляра Vector(x, y)
+    else v1 не підтримує тип v2
+        V1--&gt;&gt;PVM: Повернення константи NotImplemented
+        PVM-&gt;&gt;V2: Спроба реверсивного виклику: v2.__radd__(v1)
+        alt v2 підтримує додавання з v1
+            V2--&gt;&gt;App: Повернення результату
+        else v2 також не підтримує v1
+            PVM--&gt;&gt;App: Генерація винятку TypeError
+        end
+    end</code></pre>
+<em>Рисунок 3 — Послідовність взаємодії об'єктів при перевантаженні арифметичного оператора додавання</em></p>
+<p>Діаграма послідовності демонструє протокол узгодження типів у CPython. Якщо лівий операнд повертає константу <code>NotImplemented</code>, віртуальна машина автоматично передає керування реверсивному методу правого операнда, забезпечуючи коректну поліморфну взаємодію навіть між різнорідними класами.</p>
+<p>Керування методами та властивостями класу здійснюється за допомогою вбудованих <strong>декораторів методів</strong>:</p>
+<ul>
+<li>
+<p>Декоратор <strong><code>@property</code></strong> реалізує протокол дескрипторів, дозволяючи звертатися до методу як до звичайного поля даних (<code>obj.magnitude</code> замість <code>obj.magnitude()</code>). Супутні декоратори <code>@prop.setter</code> та <code>@prop.deleter</code> забезпечують суворий контроль типів та валідацію діапазонів при запису нового значення, унеможливлюючи встановлення некоректного стану об'єкта.</p>
+</li>
+<li>
+<p>Декоратор <strong><code>@classmethod</code></strong> перетворює метод у метод класу, першим обов'язковим аргументом якого передається не екземпляр <code>self</code>, а сам об'єкт класу <strong><code>cls</code></strong>. Метод класу має доступ до модифікації класових атрибутів і часто використовується для реалізації альтернативних фабричних конструкторів (<em>factory methods</em>).</p>
+</li>
+<li>
+<p>Декоратор <strong><code>@staticmethod</code></strong> перетворює метод на статичну функцію, яка фізично розміщується у просторі імен класу, однак не отримує неявних посилань ні на <code>self</code>, ні на <code>cls</code>. Статичні методи застосовуються для інкапсуляції допоміжних утилітарних функцій, які логічно належать до доменної області класу, але не залежать від його стану.</p>
+</li>
+</ul>
+<p>Розглянемо практичний інженерний приклад: розробку завершеного класу <strong><code>HardwareVector</code></strong>, призначеного для векторної обробки сигналів просторової орієнтації, у якому реалізовано інкапсуляцію, валідацію через <code>@property</code>, фабричний метод <code>@classmethod</code>, перевантаження арифметичних операторів та операторів порівняння:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Union</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="k">class</span><span class="w"> </span><span class="nc">HardwareVector</span><span class="p">:</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">    </span><span class="sd">"""Клас інженерного двовимірного вектора параметрів датчиків."""</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>    <span class="c1"># Атрибут класу для аудиту кількості виділених структур</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>    <span class="n">allocated_vectors_count</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="nb">float</span><span class="p">):</span>
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>        <span class="c1"># Інкапсуляція приватних атрибутів зі спотворенням імен</span>
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">__x</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">__y</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>        <span class="n">HardwareVector</span><span class="o">.</span><span class="n">allocated_vectors_count</span> <span class="o">+=</span> <span class="mi">1</span>
+</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>
+</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>    <span class="nd">@property</span>
+</span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">x</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+</span><span id="__span-1-18"><a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a><span class="w">        </span><span class="sd">"""Гетер координати X."""</span>
+</span><span id="__span-1-19"><a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__x</span>
+</span><span id="__span-1-20"><a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a>
+</span><span id="__span-1-21"><a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a>    <span class="nd">@x</span><span class="o">.</span><span class="n">setter</span>
+</span><span id="__span-1-22"><a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">x</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="__span-1-23"><a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a><span class="w">        </span><span class="sd">"""Сетер координати X з валідацією типу."""</span>
+</span><span id="__span-1-24"><a id="__codelineno-1-24" name="__codelineno-1-24" href="#__codelineno-1-24"></a>        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">)):</span>
+</span><span id="__span-1-25"><a id="__codelineno-1-25" name="__codelineno-1-25" href="#__codelineno-1-25"></a>            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">"Координата вектора повинна бути числовим значенням."</span><span class="p">)</span>
+</span><span id="__span-1-26"><a id="__codelineno-1-26" name="__codelineno-1-26" href="#__codelineno-1-26"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">__x</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+</span><span id="__span-1-27"><a id="__codelineno-1-27" name="__codelineno-1-27" href="#__codelineno-1-27"></a>
+</span><span id="__span-1-28"><a id="__codelineno-1-28" name="__codelineno-1-28" href="#__codelineno-1-28"></a>    <span class="nd">@property</span>
+</span><span id="__span-1-29"><a id="__codelineno-1-29" name="__codelineno-1-29" href="#__codelineno-1-29"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">y</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+</span><span id="__span-1-30"><a id="__codelineno-1-30" name="__codelineno-1-30" href="#__codelineno-1-30"></a><span class="w">        </span><span class="sd">"""Гетер координати Y."""</span>
+</span><span id="__span-1-31"><a id="__codelineno-1-31" name="__codelineno-1-31" href="#__codelineno-1-31"></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__y</span>
+</span><span id="__span-1-32"><a id="__codelineno-1-32" name="__codelineno-1-32" href="#__codelineno-1-32"></a>
+</span><span id="__span-1-33"><a id="__codelineno-1-33" name="__codelineno-1-33" href="#__codelineno-1-33"></a>    <span class="nd">@y</span><span class="o">.</span><span class="n">setter</span>
+</span><span id="__span-1-34"><a id="__codelineno-1-34" name="__codelineno-1-34" href="#__codelineno-1-34"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">y</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="__span-1-35"><a id="__codelineno-1-35" name="__codelineno-1-35" href="#__codelineno-1-35"></a><span class="w">        </span><span class="sd">"""Сетер координати Y з валідацією типу."""</span>
+</span><span id="__span-1-36"><a id="__codelineno-1-36" name="__codelineno-1-36" href="#__codelineno-1-36"></a>        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">)):</span>
+</span><span id="__span-1-37"><a id="__codelineno-1-37" name="__codelineno-1-37" href="#__codelineno-1-37"></a>            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">"Координата вектора повинна бути числовим значенням."</span><span class="p">)</span>
+</span><span id="__span-1-38"><a id="__codelineno-1-38" name="__codelineno-1-38" href="#__codelineno-1-38"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">__y</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+</span><span id="__span-1-39"><a id="__codelineno-1-39" name="__codelineno-1-39" href="#__codelineno-1-39"></a>
+</span><span id="__span-1-40"><a id="__codelineno-1-40" name="__codelineno-1-40" href="#__codelineno-1-40"></a>    <span class="nd">@property</span>
+</span><span id="__span-1-41"><a id="__codelineno-1-41" name="__codelineno-1-41" href="#__codelineno-1-41"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">magnitude</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+</span><span id="__span-1-42"><a id="__codelineno-1-42" name="__codelineno-1-42" href="#__codelineno-1-42"></a><span class="w">        </span><span class="sd">"""Обчислювана властивість: евклідова норма (довжина) вектора."""</span>
+</span><span id="__span-1-43"><a id="__codelineno-1-43" name="__codelineno-1-43" href="#__codelineno-1-43"></a>        <span class="k">return</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__x</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">__y</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
+</span><span id="__span-1-44"><a id="__codelineno-1-44" name="__codelineno-1-44" href="#__codelineno-1-44"></a>
+</span><span id="__span-1-45"><a id="__codelineno-1-45" name="__codelineno-1-45" href="#__codelineno-1-45"></a>    <span class="nd">@classmethod</span>
+</span><span id="__span-1-46"><a id="__codelineno-1-46" name="__codelineno-1-46" href="#__codelineno-1-46"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">from_polar</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">radius</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">angle_rad</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">"HardwareVector"</span><span class="p">:</span>
+</span><span id="__span-1-47"><a id="__codelineno-1-47" name="__codelineno-1-47" href="#__codelineno-1-47"></a><span class="w">        </span><span class="sd">"""Фабричний метод створення вектора з полярних координат."""</span>
+</span><span id="__span-1-48"><a id="__codelineno-1-48" name="__codelineno-1-48" href="#__codelineno-1-48"></a>        <span class="k">if</span> <span class="n">radius</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+</span><span id="__span-1-49"><a id="__codelineno-1-49" name="__codelineno-1-49" href="#__codelineno-1-49"></a>            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"Радіус у полярній системі не може бути від'ємним."</span><span class="p">)</span>
+</span><span id="__span-1-50"><a id="__codelineno-1-50" name="__codelineno-1-50" href="#__codelineno-1-50"></a>        <span class="n">calc_x</span> <span class="o">=</span> <span class="n">radius</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">angle_rad</span><span class="p">)</span>
+</span><span id="__span-1-51"><a id="__codelineno-1-51" name="__codelineno-1-51" href="#__codelineno-1-51"></a>        <span class="n">calc_y</span> <span class="o">=</span> <span class="n">radius</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">angle_rad</span><span class="p">)</span>
+</span><span id="__span-1-52"><a id="__codelineno-1-52" name="__codelineno-1-52" href="#__codelineno-1-52"></a>        <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span><span class="n">calc_x</span><span class="p">,</span> <span class="n">calc_y</span><span class="p">)</span>
+</span><span id="__span-1-53"><a id="__codelineno-1-53" name="__codelineno-1-53" href="#__codelineno-1-53"></a>
+</span><span id="__span-1-54"><a id="__codelineno-1-54" name="__codelineno-1-54" href="#__codelineno-1-54"></a>    <span class="nd">@staticmethod</span>
+</span><span id="__span-1-55"><a id="__codelineno-1-55" name="__codelineno-1-55" href="#__codelineno-1-55"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">calculate_dot_product</span><span class="p">(</span><span class="n">v1</span><span class="p">:</span> <span class="s2">"HardwareVector"</span><span class="p">,</span> <span class="n">v2</span><span class="p">:</span> <span class="s2">"HardwareVector"</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+</span><span id="__span-1-56"><a id="__codelineno-1-56" name="__codelineno-1-56" href="#__codelineno-1-56"></a><span class="w">        </span><span class="sd">"""Статичний утилітарний метод обчислення скалярного добутку."""</span>
+</span><span id="__span-1-57"><a id="__codelineno-1-57" name="__codelineno-1-57" href="#__codelineno-1-57"></a>        <span class="k">return</span> <span class="p">(</span><span class="n">v1</span><span class="o">.</span><span class="n">x</span> <span class="o">*</span> <span class="n">v2</span><span class="o">.</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">v1</span><span class="o">.</span><span class="n">y</span> <span class="o">*</span> <span class="n">v2</span><span class="o">.</span><span class="n">y</span><span class="p">)</span>
+</span><span id="__span-1-58"><a id="__codelineno-1-58" name="__codelineno-1-58" href="#__codelineno-1-58"></a>
+</span><span id="__span-1-59"><a id="__codelineno-1-59" name="__codelineno-1-59" href="#__codelineno-1-59"></a>    <span class="c1"># --- Спеціальні методи інтерфейсу відображення ---</span>
+</span><span id="__span-1-60"><a id="__codelineno-1-60" name="__codelineno-1-60" href="#__codelineno-1-60"></a>
+</span><span id="__span-1-61"><a id="__codelineno-1-61" name="__codelineno-1-61" href="#__codelineno-1-61"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+</span><span id="__span-1-62"><a id="__codelineno-1-62" name="__codelineno-1-62" href="#__codelineno-1-62"></a><span class="w">        </span><span class="sd">"""Офіційне рядкове представлення для відтворення об'єкта."""</span>
+</span><span id="__span-1-63"><a id="__codelineno-1-63" name="__codelineno-1-63" href="#__codelineno-1-63"></a>        <span class="k">return</span> <span class="sa">f</span><span class="s2">"HardwareVector(</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">__x</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">__y</span><span class="si">}</span><span class="s2">)"</span>
+</span><span id="__span-1-64"><a id="__codelineno-1-64" name="__codelineno-1-64" href="#__codelineno-1-64"></a>
+</span><span id="__span-1-65"><a id="__codelineno-1-65" name="__codelineno-1-65" href="#__codelineno-1-65"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+</span><span id="__span-1-66"><a id="__codelineno-1-66" name="__codelineno-1-66" href="#__codelineno-1-66"></a><span class="w">        </span><span class="sd">"""Користувацьке рядкове представлення для інженерних звітів."""</span>
+</span><span id="__span-1-67"><a id="__codelineno-1-67" name="__codelineno-1-67" href="#__codelineno-1-67"></a>        <span class="k">return</span> <span class="sa">f</span><span class="s2">"Вектор(X=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">__x</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">, Y=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">__y</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">, Норма=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">magnitude</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">)"</span>
+</span><span id="__span-1-68"><a id="__codelineno-1-68" name="__codelineno-1-68" href="#__codelineno-1-68"></a>
+</span><span id="__span-1-69"><a id="__codelineno-1-69" name="__codelineno-1-69" href="#__codelineno-1-69"></a>    <span class="c1"># --- Перевантаження арифметичних операторів ---</span>
+</span><span id="__span-1-70"><a id="__codelineno-1-70" name="__codelineno-1-70" href="#__codelineno-1-70"></a>
+</span><span id="__span-1-71"><a id="__codelineno-1-71" name="__codelineno-1-71" href="#__codelineno-1-71"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__add__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="s2">"HardwareVector"</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="s2">"HardwareVector"</span><span class="p">:</span>
+</span><span id="__span-1-72"><a id="__codelineno-1-72" name="__codelineno-1-72" href="#__codelineno-1-72"></a><span class="w">        </span><span class="sd">"""Перевантаження оператора додавання +."""</span>
+</span><span id="__span-1-73"><a id="__codelineno-1-73" name="__codelineno-1-73" href="#__codelineno-1-73"></a>        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="n">HardwareVector</span><span class="p">):</span>
+</span><span id="__span-1-74"><a id="__codelineno-1-74" name="__codelineno-1-74" href="#__codelineno-1-74"></a>            <span class="k">return</span> <span class="n">HardwareVector</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__x</span> <span class="o">+</span> <span class="n">other</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">__y</span> <span class="o">+</span> <span class="n">other</span><span class="o">.</span><span class="n">y</span><span class="p">)</span>
+</span><span id="__span-1-75"><a id="__codelineno-1-75" name="__codelineno-1-75" href="#__codelineno-1-75"></a>        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">)):</span>
+</span><span id="__span-1-76"><a id="__codelineno-1-76" name="__codelineno-1-76" href="#__codelineno-1-76"></a>            <span class="k">return</span> <span class="n">HardwareVector</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__x</span> <span class="o">+</span> <span class="n">other</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">__y</span> <span class="o">+</span> <span class="n">other</span><span class="p">)</span>
+</span><span id="__span-1-77"><a id="__codelineno-1-77" name="__codelineno-1-77" href="#__codelineno-1-77"></a>        <span class="k">return</span> <span class="bp">NotImplemented</span>
+</span><span id="__span-1-78"><a id="__codelineno-1-78" name="__codelineno-1-78" href="#__codelineno-1-78"></a>
+</span><span id="__span-1-79"><a id="__codelineno-1-79" name="__codelineno-1-79" href="#__codelineno-1-79"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__radd__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="s2">"HardwareVector"</span><span class="p">:</span>
+</span><span id="__span-1-80"><a id="__codelineno-1-80" name="__codelineno-1-80" href="#__codelineno-1-80"></a><span class="w">        </span><span class="sd">"""Перевантаження віддзеркаленого додавання (скаляр + вектор)."""</span>
+</span><span id="__span-1-81"><a id="__codelineno-1-81" name="__codelineno-1-81" href="#__codelineno-1-81"></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="fm">__add__</span><span class="p">(</span><span class="n">other</span><span class="p">)</span>
+</span><span id="__span-1-82"><a id="__codelineno-1-82" name="__codelineno-1-82" href="#__codelineno-1-82"></a>
+</span><span id="__span-1-83"><a id="__codelineno-1-83" name="__codelineno-1-83" href="#__codelineno-1-83"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__sub__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">:</span> <span class="s2">"HardwareVector"</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">"HardwareVector"</span><span class="p">:</span>
+</span><span id="__span-1-84"><a id="__codelineno-1-84" name="__codelineno-1-84" href="#__codelineno-1-84"></a><span class="w">        </span><span class="sd">"""Перевантаження оператора віднімання -."""</span>
+</span><span id="__span-1-85"><a id="__codelineno-1-85" name="__codelineno-1-85" href="#__codelineno-1-85"></a>        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="n">HardwareVector</span><span class="p">):</span>
+</span><span id="__span-1-86"><a id="__codelineno-1-86" name="__codelineno-1-86" href="#__codelineno-1-86"></a>            <span class="k">return</span> <span class="n">HardwareVector</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__x</span> <span class="o">-</span> <span class="n">other</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">__y</span> <span class="o">-</span> <span class="n">other</span><span class="o">.</span><span class="n">y</span><span class="p">)</span>
+</span><span id="__span-1-87"><a id="__codelineno-1-87" name="__codelineno-1-87" href="#__codelineno-1-87"></a>        <span class="k">return</span> <span class="bp">NotImplemented</span>
+</span><span id="__span-1-88"><a id="__codelineno-1-88" name="__codelineno-1-88" href="#__codelineno-1-88"></a>
+</span><span id="__span-1-89"><a id="__codelineno-1-89" name="__codelineno-1-89" href="#__codelineno-1-89"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__mul__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">scalar</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="s2">"HardwareVector"</span><span class="p">:</span>
+</span><span id="__span-1-90"><a id="__codelineno-1-90" name="__codelineno-1-90" href="#__codelineno-1-90"></a><span class="w">        </span><span class="sd">"""Перевантаження оператора множення на скаляр *."""</span>
+</span><span id="__span-1-91"><a id="__codelineno-1-91" name="__codelineno-1-91" href="#__codelineno-1-91"></a>        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">scalar</span><span class="p">,</span> <span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">)):</span>
+</span><span id="__span-1-92"><a id="__codelineno-1-92" name="__codelineno-1-92" href="#__codelineno-1-92"></a>            <span class="k">return</span> <span class="n">HardwareVector</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__x</span> <span class="o">*</span> <span class="n">scalar</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">__y</span> <span class="o">*</span> <span class="n">scalar</span><span class="p">)</span>
+</span><span id="__span-1-93"><a id="__codelineno-1-93" name="__codelineno-1-93" href="#__codelineno-1-93"></a>        <span class="k">return</span> <span class="bp">NotImplemented</span>
+</span><span id="__span-1-94"><a id="__codelineno-1-94" name="__codelineno-1-94" href="#__codelineno-1-94"></a>
+</span><span id="__span-1-95"><a id="__codelineno-1-95" name="__codelineno-1-95" href="#__codelineno-1-95"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__rmul__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">scalar</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="s2">"HardwareVector"</span><span class="p">:</span>
+</span><span id="__span-1-96"><a id="__codelineno-1-96" name="__codelineno-1-96" href="#__codelineno-1-96"></a><span class="w">        </span><span class="sd">"""Перевантаження віддзеркаленого множення (скаляр * вектор)."""</span>
+</span><span id="__span-1-97"><a id="__codelineno-1-97" name="__codelineno-1-97" href="#__codelineno-1-97"></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="fm">__mul__</span><span class="p">(</span><span class="n">scalar</span><span class="p">)</span>
+</span><span id="__span-1-98"><a id="__codelineno-1-98" name="__codelineno-1-98" href="#__codelineno-1-98"></a>
+</span><span id="__span-1-99"><a id="__codelineno-1-99" name="__codelineno-1-99" href="#__codelineno-1-99"></a>    <span class="c1"># --- Перевантаження операторів порівняння ---</span>
+</span><span id="__span-1-100"><a id="__codelineno-1-100" name="__codelineno-1-100" href="#__codelineno-1-100"></a>
+</span><span id="__span-1-101"><a id="__codelineno-1-101" name="__codelineno-1-101" href="#__codelineno-1-101"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__eq__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">:</span> <span class="nb">object</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+</span><span id="__span-1-102"><a id="__codelineno-1-102" name="__codelineno-1-102" href="#__codelineno-1-102"></a><span class="w">        </span><span class="sd">"""Перевантаження оператора рівності == з урахуванням апаратної похибки float."""</span>
+</span><span id="__span-1-103"><a id="__codelineno-1-103" name="__codelineno-1-103" href="#__codelineno-1-103"></a>        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="n">HardwareVector</span><span class="p">):</span>
+</span><span id="__span-1-104"><a id="__codelineno-1-104" name="__codelineno-1-104" href="#__codelineno-1-104"></a>            <span class="k">return</span> <span class="kc">False</span>
+</span><span id="__span-1-105"><a id="__codelineno-1-105" name="__codelineno-1-105" href="#__codelineno-1-105"></a>        <span class="k">return</span> <span class="n">math</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__x</span><span class="p">,</span> <span class="n">other</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">rel_tol</span><span class="o">=</span><span class="mf">1e-9</span><span class="p">)</span> <span class="ow">and</span> <span class="n">math</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__y</span><span class="p">,</span> <span class="n">other</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="n">rel_tol</span><span class="o">=</span><span class="mf">1e-9</span><span class="p">)</span>
+</span><span id="__span-1-106"><a id="__codelineno-1-106" name="__codelineno-1-106" href="#__codelineno-1-106"></a>
+</span><span id="__span-1-107"><a id="__codelineno-1-107" name="__codelineno-1-107" href="#__codelineno-1-107"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__lt__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">:</span> <span class="s2">"HardwareVector"</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+</span><span id="__span-1-108"><a id="__codelineno-1-108" name="__codelineno-1-108" href="#__codelineno-1-108"></a><span class="w">        </span><span class="sd">"""Перевантаження оператора менше &lt; за евклідовою нормою."""</span>
+</span><span id="__span-1-109"><a id="__codelineno-1-109" name="__codelineno-1-109" href="#__codelineno-1-109"></a>        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="n">HardwareVector</span><span class="p">):</span>
+</span><span id="__span-1-110"><a id="__codelineno-1-110" name="__codelineno-1-110" href="#__codelineno-1-110"></a>            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">magnitude</span> <span class="o">&lt;</span> <span class="n">other</span><span class="o">.</span><span class="n">magnitude</span>
+</span><span id="__span-1-111"><a id="__codelineno-1-111" name="__codelineno-1-111" href="#__codelineno-1-111"></a>        <span class="k">return</span> <span class="bp">NotImplemented</span>
+</span><span id="__span-1-112"><a id="__codelineno-1-112" name="__codelineno-1-112" href="#__codelineno-1-112"></a>
+</span><span id="__span-1-113"><a id="__codelineno-1-113" name="__codelineno-1-113" href="#__codelineno-1-113"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+</span><span id="__span-1-114"><a id="__codelineno-1-114" name="__codelineno-1-114" href="#__codelineno-1-114"></a><span class="w">        </span><span class="sd">"""Повертає розмірність векторного простору."""</span>
+</span><span id="__span-1-115"><a id="__codelineno-1-115" name="__codelineno-1-115" href="#__codelineno-1-115"></a>        <span class="k">return</span> <span class="mi">2</span>
+</span></code></pre></div>
+<p><em>Таблиця 9.3 — Базові групи спеціальних dunder-методів у моделі даних Python</em></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Категорія протоколу</th>
+<th style="text-align: left;">Dunder-метод</th>
+<th style="text-align: left;">Синтаксичний або функціональний тригер</th>
+<th style="text-align: left;">Математичний / Системний зміст</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Життєвий цикл</strong></td>
+<td style="text-align: left;"><code>__init__(self, ...)</code></td>
+<td style="text-align: left;"><code>obj = ClassName(...)</code></td>
+<td style="text-align: left;">Ініціалізація полів створеного екземпляра</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Рядковий вивід</strong></td>
+<td style="text-align: left;"><code>__repr__(self)</code></td>
+<td style="text-align: left;"><code>repr(obj)</code>, інтерактивна консоль</td>
+<td style="text-align: left;">Однозначний технічний рядок стану об'єкта</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Рядковий вивід</strong></td>
+<td style="text-align: left;"><code>__str__(self)</code></td>
+<td style="text-align: left;"><code>str(obj)</code>, <code>print(obj)</code>, f-рядки</td>
+<td style="text-align: left;">Зручне користувацьке текстове представлення</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Порівняння</strong></td>
+<td style="text-align: left;"><code>__eq__(self, other)</code></td>
+<td style="text-align: left;"><code>obj1 == obj2</code></td>
+<td style="text-align: left;">Перевірка еквівалентності значень полів</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Порівняння</strong></td>
+<td style="text-align: left;"><code>__lt__(self, other)</code></td>
+<td style="text-align: left;"><code>obj1 &lt; obj2</code>, сортування <code>sorted()</code></td>
+<td style="text-align: left;">Строге порівняння для впорядкування</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Арифметика</strong></td>
+<td style="text-align: left;"><code>__add__(self, other)</code></td>
+<td style="text-align: left;"><code>obj1 + obj2</code></td>
+<td style="text-align: left;">Векторна або скалярна сума структур</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Арифметика</strong></td>
+<td style="text-align: left;"><code>__mul__(self, other)</code></td>
+<td style="text-align: left;"><code>obj1 * obj2</code></td>
+<td style="text-align: left;">Множення на скаляр або матричний добуток</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Колекції</strong></td>
+<td style="text-align: left;"><code>__len__(self)</code></td>
+<td style="text-align: left;"><code>len(obj)</code></td>
+<td style="text-align: left;">Повернення кількості вимірів або елементів</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Колекції</strong></td>
+<td style="text-align: left;"><code>__getitem__(self, k)</code></td>
+<td style="text-align: left;"><code>obj[k]</code></td>
+<td style="text-align: left;">Доступ до компонентів за індексом або ключем</td>
+</tr>
+</tbody>
+</table>
+<p>Аналіз реалізації класу та таблиці dunder-методів підтверджує, що грамотне використання магічних методів перетворює користувацький клас на органічний елемент мови Python, забезпечуючи високу читабельність коду та математичну строгість операцій.</p>
+<hr />
+<h3 id="_4">Питання для самоперевірки та аналітичного осмислення</h3>
+<ol>
+<li>
+<p>Розкрийте системні відмінності між методом виділення пам'яті <code>__new__</code> та методом ініціалізації <code>__init__</code> в об'єктній моделі Python. У яких інженерних архітектурних патернах виникає потреба в явному перевизначенні <code>__new__</code>?</p>
+</li>
+<li>
+<p>Поясніть фізичний механізм роботи параметра <code>self</code>. Чому відсутність <code>self</code> у визначенні методу екземпляра викликає виняток <code>TypeError</code> під час спроби його виклику через створений об'єкт?</p>
+</li>
+<li>
+<p>Що являє собою механізм спотворення імен (<em>name mangling</em>) у CPython? Чому використання приватного атрибута <code>__attribute</code> не забезпечує абсолютного захисту від читання ззовні, але надійно захищає від конфліктів при наслідуванні?</p>
+</li>
+<li>
+<p>Сформулюйте сутність алгоритму лінеаризації C3 (C3 Linearization) для розв'язання порядку вирішення методів (MRO). Яким чином MRO усуває неоднозначності при множинному ромбоподібному наслідуванні?</p>
+</li>
+<li>
+<p>Чим принципово відрізняються методи, декоровані за допомогою <code>@staticmethod</code> та <code>@classmethod</code>? Який із них слід застосовувати для створення альтернативних фабричних конструкторів і чому?</p>
+</li>
+<li>
+<p>Опишіть призначення та протокол роботи декоратора властивості <code>@property</code>. Як механізм сетерів (<code>@property.setter</code>) запобігає переходу об'єкта в некоректний апаратний стан?</p>
+</li>
+<li>
+<p>Поясніть логіку роботи віртуальної машини CPython при виклику перевантаженого арифметичного оператора додавання <code>+</code>. Чому за відсутності підтримки операнда метод <code>__add__</code> повинен повертати константу <code>NotImplemented</code>, а не збуджувати виняток <code>TypeError</code> безпосередньо?</p>
+</li>
+</ol>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Повернутись нагору
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 Kyrylo Vadurin &bull; <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a>
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.expand", "navigation.top", "navigation.tracking", "header.autohide", "search.suggest", "search.highlight", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u0421\u043a\u043e\u043f\u0456\u0439\u043e\u0432\u0430\u043d\u043e \u0432 \u0431\u0443\u0444\u0435\u0440", "clipboard.copy": "\u0421\u043a\u043e\u043f\u0456\u044e\u0432\u0430\u0442\u0438 \u0432 \u0431\u0443\u0444\u0435\u0440", "search.result.more.one": "\u0429\u0435 1 \u0437\u0431\u0456\u0433 \u043d\u0430 \u0446\u0456\u0439 \u0441\u0442\u043e\u0440\u0456\u043d\u0446\u0456", "search.result.more.other": "\u0429\u0435 # \u0437\u0431\u0456\u0433\u0456\u0432 \u043d\u0430 \u0446\u0456\u0439 \u0441\u0442\u043e\u0440\u0456\u043d\u0446\u0456", "search.result.none": "\u0417\u0431\u0456\u0433\u0456\u0432 \u043d\u0435 \u0437\u043d\u0430\u0439\u0434\u0435\u043d\u043e", "search.result.one": "\u0417\u043d\u0430\u0439\u0434\u0435\u043d\u043e 1 \u0437\u0431\u0456\u0433", "search.result.other": "\u0417\u043d\u0430\u0439\u0434\u0435\u043d\u043e # \u0437\u0431\u0456\u0433\u0456\u0432", "search.result.placeholder": "\u0420\u043e\u0437\u043f\u043e\u0447\u043d\u0456\u0442\u044c \u043f\u0438\u0441\u0430\u0442\u0438 \u0434\u043b\u044f \u043f\u043e\u0448\u0443\u043a\u0443", "search.result.term.missing": "\u041d\u0435 \u0437\u043d\u0430\u0439\u0434\u0435\u043d\u043e \u0437\u0430\u043f\u0438\u0442\u0443", "select.version": "\u041e\u0431\u0440\u0430\u0442\u0438 \u0432\u0435\u0440\u0441\u0456\u044e"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

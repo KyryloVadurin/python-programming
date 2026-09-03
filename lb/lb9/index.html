@@ -1,0 +1,2212 @@
+
+<!doctype html>
+<html lang="uk" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Навчальний портал з дисципліни "Програмування на Python. Базовий рівень"">
+      
+      
+      
+      
+        <link rel="prev" href="../lb8/">
+      
+      
+        <link rel="next" href="../lb10/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>ЛБ 9. Обробка виняткових ситуацій - Програмування на Python</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="cyan">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#no-9" class="md-skip">
+          Перейти до змісту
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Хедер">
+    <a href="../.." title="Програмування на Python" class="md-header__button md-logo" aria-label="Програмування на Python" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Програмування на Python
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              ЛБ 9. Обробка виняткових ситуацій
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="cyan"  aria-label="Переключити на темну тему"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Переключити на темну тему" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="cyan"  aria-label="Переключити на світлу тему"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Переключити на світлу тему" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Пошук" placeholder="Пошук" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Шукати">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Очистити" aria-label="Очистити" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Пошук розпочато
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Вкладки" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Робоча програма
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../lk/lk1/" class="md-tabs__link">
+          
+  
+  
+  Лекції
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../lb1/" class="md-tabs__link">
+          
+  
+  
+  Лабораторні роботи
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../sr/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Самостійна робота
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../rg/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Розрахунково-графічна робота
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Навігація" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Програмування на Python" class="md-nav__button md-logo" aria-label="Програмування на Python" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Програмування на Python
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Робоча програма
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Лекції
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Лекції
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lk/lk1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Тема 1. Архітектура мови та інфраструктура
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lk/lk2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Тема 2. Керування потоком виконання
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lk/lk3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Тема 3. Впорядковані структури даних (Списки, Кортежі)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lk/lk4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Тема 4. Текстові, двійкові дані та Регулярні вирази
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lk/lk5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Тема 5. Хеш-таблиці (Словники, Множини)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lk/lk6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Тема 6. Функціональна організація коду
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lk/lk7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Тема 7. Модульна архітектура та пакети
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lk/lk8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Тема 8. Обробка винятків та файлове в/в
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lk/lk9/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Тема 9. Об'єктно-орієнтоване програмування
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Лабораторні роботи
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Лабораторні роботи
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lb1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 1. Розгортання інфраструктури розробки
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lb2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 2. Скалярні типи даних та моделювання
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lb3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 3. Алгоритми розгалуженої та циклічної структури
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lb4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 4. Обробка списків та кортежі
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lb5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 5. Обробка тексту та регулярні вирази
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lb6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 6. Асоціативні структури даних (Словники, Множини)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lb7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 7. Проєктування функцій та рекурсія
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lb8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 8. Модульне програмування та системні бібліотеки
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 9. Обробка виняткових ситуацій
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 9. Обробка виняткових ситуацій
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Зміст">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Зміст
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1 Теоретичні відомості
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-0" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2 Підготовка середовища та розгортання проєкту (Крок 0)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2 Підготовка середовища та розгортання проєкту (Крок 0)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1. Активація робочого середовища та створення структури папок
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2. Структура файлової системи проекту
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-vscodelaunchjson" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3. Створення конфігурації налагоджувача .vscode/launch.json
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3 Порядок виконання роботи
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3 Порядок виконання роботи">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 Індивідуальні завдання
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2. Покроковий алгоритм та розв'язок еталонного прикладу
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.2. Покроковий алгоритм та розв&#39;язок еталонного прикладу">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-custom_exceptionspy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Крок 1. Створення модуля користувацьких винятків custom_exceptions.py
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-device_validatorpy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Крок 2. Реалізація валідатора та обробника збоїв device_validator.py
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3. Запуск, тестування та перевірка результатів
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Вимоги до змісту звіту
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Контрольні запитання для захисту роботи
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lb10/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 10. Файлове в/в та менеджери контексту
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lb11/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 11. ООП та перевантаження методів
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sr/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Самостійна робота
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../rg/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Розрахунково-графічна робота
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Зміст">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Зміст
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1 Теоретичні відомості
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-0" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2 Підготовка середовища та розгортання проєкту (Крок 0)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2 Підготовка середовища та розгортання проєкту (Крок 0)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1. Активація робочого середовища та створення структури папок
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2. Структура файлової системи проекту
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-vscodelaunchjson" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3. Створення конфігурації налагоджувача .vscode/launch.json
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3 Порядок виконання роботи
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3 Порядок виконання роботи">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 Індивідуальні завдання
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2. Покроковий алгоритм та розв'язок еталонного прикладу
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.2. Покроковий алгоритм та розв&#39;язок еталонного прикладу">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-custom_exceptionspy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Крок 1. Створення модуля користувацьких винятків custom_exceptions.py
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-device_validatorpy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Крок 2. Реалізація валідатора та обробника збоїв device_validator.py
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3. Запуск, тестування та перевірка результатів
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Вимоги до змісту звіту
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Контрольні запитання для захисту роботи
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="no-9">Лабораторна робота № 9. Побудова надійного програмного забезпечення: Обробка виняткових ситуацій</h1>
+<p><strong>Мета:</strong> Опанувати практичні навички проектування стійких до відмов програмних комплексів мовою Python. Навчитися реалізовувати багаторівневу обробку помилок часу виконання за допомогою конструкції <code>try-except-else-finally</code>, проектувати ієрархію користувацьких класів винятків (<em>Custom Exceptions</em>) для конкретної інженерної предметної області, застосовувати механізм явної генерації винятків <code>raise</code> та зв'язування первинного контексту помилок через ланцюжки винятків (<em>exception chaining</em>). Опанувати парадигму EAFP (<em>Easier to Ask for Forgiveness than Permission</em>) для валідації параметрів апаратних пристроїв та конфігураційних файлів комп'ютерних систем.</p>
+<p><strong>Стек технологій та інструменти:</strong></p>
+<ul>
+<li>
+<p><strong>Мова програмування / Інтерпретатор:</strong> Python 3.10+ (CPython 64-bit)</p>
+</li>
+<li>
+<p><strong>Інструменти розробки (IDE):</strong> Visual Studio Code з інтегрованим терміналом та підсистемою налагодження <code>debugpy</code></p>
+</li>
+<li>
+<p><strong>Середовище управління:</strong> Ізольоване середовище Conda (<code>ce_lab_env</code>)</p>
+</li>
+<li>
+<p><strong>Бібліотеки та модулі:</strong> <code>sys</code>, <code>time</code></p>
+</li>
+</ul>
+<hr />
+<h2 id="1">1 Теоретичні відомості</h2>
+<p>Надійність функціонування комп'ютерних систем та їхня стійкість до збоїв (<em>fault tolerance</em>) визначається здатністю програмного забезпечення коректно реагувати на аномальні вхідні дані, апаратні таймаути та помилки системних викликів без аварійного завершення процесу. </p>
+<p>У теорії надійності програмно-апаратних комплексів імовірність безвідмовної роботи системи <span class="arithmatex">\(R(t)\)</span> протягом часу <span class="arithmatex">\(t\)</span> за експоненційним законом надійності описується залежністю:</p>
+<div class="arithmatex">\[R(t) = e^{-\lambda t}\]</div>
+<p>де <span class="arithmatex">\(\lambda\)</span> — інтенсивність відмов (кількість збоїв за одиницю часу); середній наробіток до відмови визначається як <span class="arithmatex">\(\text{MTBF} = \frac{1}{\lambda}\)</span>. </p>
+<p>Коефіцієнт програмного відновлення системи <span class="arithmatex">\(P_{\text{recovery}}\)</span> характеризує частку успішно локалізованих та оброблених виняткових ситуацій:</p>
+<div class="arithmatex">\[P_{\text{recovery}} = \frac{N_{\text{handled}}}{N_{\text{total\_faults}}}\]</div>
+<p>де <span class="arithmatex">\(N_{\text{handled}}\)</span> — кількість винятків, перехоплених та нейтралізованих блоками <code>except</code>; <span class="arithmatex">\(N_{\text{total\_faults}}\)</span> — загальна кількість нештатних ситуацій, що виникли під час функціонування комплексу.</p>
+<p>У мові Python обробка виняткових ситуацій реалізована через механізм <strong>розкручування стека викликів</strong> (<em>stack unwinding</em>). Коли виникає помилка, інтерпретатор CPython створює об'єкт винятку, успадкований від базового класу <code>BaseException</code>, та передає його вгору через активні стекові кадри <code>PyFrameObject</code>. </p>
+<p>Конструкція <code>try-except-else-finally</code> забезпечує детермінований контроль виконання:</p>
+<ul>
+<li>
+<p>Секція <code>try</code> ізолює виконання потенційно небезпечних інструкцій;</p>
+</li>
+<li>
+<p>Секція <code>except ExceptionType as err</code> перехоплює виняток, якщо згенерований об'єкт відповідає вказаному класу або є його нащадком;</p>
+</li>
+<li>
+<p>Секція <code>else</code> виконується виключно за умови, що в блоці <code>try</code> не виникло жодної помилки;</p>
+</li>
+<li>
+<p>Секція <code>finally</code> виконується безумовно, гарантуючи звільнення системних дескрипторів та закриття каналів зв'язку.</p>
+</li>
+</ul>
+<p><pre class="mermaid"><code>classDiagram
+    class BaseException {
+        +args: tuple
+    }
+    class Exception {
+        +__str__()
+        +__repr__()
+    }
+    class HardwareConfigError {
+        +device_id: str
+        +error_code: int
+        +timestamp: str
+    }
+    class VoltageOutOfBoundsError {
+        +measured_voltage: float
+        +min_limit: float
+        +max_limit: float
+    }
+    class ClockPllSyncError {
+        +target_frequency_hz: float
+        +pll_multiplier: int
+    }
+    class RegisterConflictError {
+        +reg_address: str
+        +conflicting_bits: str
+    }
+
+    BaseException &lt;|-- Exception
+    Exception &lt;|-- HardwareConfigError
+    HardwareConfigError &lt;|-- VoltageOutOfBoundsError
+    HardwareConfigError &lt;|-- ClockPllSyncError
+    HardwareConfigError &lt;|-- RegisterConflictError</code></pre>
+<em>Рисунок 1 — Ієрархія користувацьких класів винятків для діагностики апаратних конфігурацій</em></p>
+<p>Проаналізуємо схему наслідування винятків, наведену на рисунку 1. Усі користувацькі винятки обов'язково повинні наслідуватися від базового класу <code>Exception</code>, а не безпосередньо від <code>BaseException</code>. Це запобігає випадковому перехопленню критичних системних сигналів завершення процесу <code>KeyboardInterrupt</code> (комбінація клавіш <code>Ctrl+C</code>) та <code>SystemExit</code>.</p>
+<p>Створення спеціалізованих класів винятків дозволяє інкапсулювати в об'єкт помилки не лише текстове повідомлення, а й додаткові інженерні атрибути (виміряні значення, фізичні межі, шістнадцяткові адреси регістрів та коди помилок). </p>
+<p>Механізм <strong>ланцюжка винятків</strong> (<strong>exception chaining</strong>, PEP 3134) дозволяє пов'язувати низькорівневі помилки із високорівневою бізнес-логікою за допомогою оператора <code>raise ... from ...</code>:</p>
+<div class="arithmatex">\[\text{TargetException}.\_\_\text{cause}\_\_ = \text{OriginalException}\]</div>
+<p>Це забезпечує збереження повного діагностичного контексту першопричини збою при передачі винятку між програмними шарами системи.</p>
+<p><pre class="mermaid"><code>flowchart TD
+    subgraph Raw_Input["Вхідний конфігураційний потік"]
+        InpConfig["Словник параметрів пристрою (JSON/Dict)"]
+    end
+
+    subgraph Validation_Layer["Багаторівнева система валідації (EAFP)"]
+        InpConfig --&gt; TypeCheck{"Валідація типів даних\n(isinstance)"}
+        TypeCheck -- "Некоректний тип" --&gt; RaiseType["raise TypeError"]
+        TypeCheck -- "Коректно" --&gt; RangeCheck{"Перевірка фізичних меж\n(Voltage, Clock)"}
+
+        RangeCheck -- "Вихід за межі" --&gt; RaiseCustom["raise VoltageOutOfBoundsError\nfrom ValueError"]
+        RangeCheck -- "Коректно" --&gt; ConflictCheck{"Контроль регістрових конфліктів"}
+
+        ConflictCheck -- "Конфлікт бітів" --&gt; RaiseConflict["raise RegisterConflictError"]
+        ConflictCheck -- "Успіх" --&gt; SuccessNode["Конфігурація валідна (Ready)"]
+    end
+
+    subgraph Error_Handler["Обробник відмовостійкості (try-except)"]
+        RaiseType --&gt; CatchBlock["Перехоплення HardwareConfigError"]
+        RaiseCustom --&gt; CatchBlock
+        RaiseConflict --&gt; CatchBlock
+        CatchBlock --&gt; Recovery["Логування причини та перехід у безпечний режим (Fail-Safe)"]
+    end</code></pre>
+<em>Рисунок 2 — Конвеєр багаторівневої валідації параметрів пристрою з генерацією кастомних винятків</em></p>
+<p>Наведена схема конвеєра демонструє послідовну фільтрацію конфігурації: від базової перевірки типів до складної перевірки фізичних інваріантів із подальшою локалізацією помилок у блоці відновлення працездатності.</p>
+<hr />
+<h2 id="2-0">2 Підготовка середовища та розгортання проєкту (Крок 0)</h2>
+<p>Для виконання лабораторної роботи здобувач вищої освіти використовує налаштоване робоче середовище <code>ce_lab_env</code>.</p>
+<h3 id="21">2.1. Активація робочого середовища та створення структури папок</h3>
+<p>Відкрийте системний термінал та виконайте команди розгортання каталогу <code>lab09</code>:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># Активація віртуального середовища Conda</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>conda<span class="w"> </span>activate<span class="w"> </span>ce_lab_env
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="c1"># Створення робочого каталогу для Лабораторної роботи №9</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>mkdir<span class="w"> </span>-p<span class="w"> </span>~/projects/computer_engineering_python/lab09
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="nb">cd</span><span class="w"> </span>~/projects/computer_engineering_python/lab09
+</span></code></pre></div>
+<h3 id="22">2.2. Структура файлової системи проекту</h3>
+<p>У робочій директорії <code>lab09</code> створіть файли проекту відповідно до наведеної структури:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>lab09/
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>├── .vscode/
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>│   └── launch.json            # Конфігурація налагоджувача для ЛБ №9
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>├── .gitignore                 # Правила виключення тимчасових файлів
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>├── custom_exceptions.py       # Модуль ієрархії користувацьких класів винятків
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>├── device_validator.py        # Модуль багаторівневої валідації та обробки збоїв
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>└── README.md                  # Звітний опис виконання індивідуального варіанта
+</span></code></pre></div>
+<h3 id="23-vscodelaunchjson">2.3. Створення конфігурації налагоджувача <code>.vscode/launch.json</code></h3>
+<p>Створіть файл <code>.vscode/launch.json</code> для забезпечення налагодження розроблюваних модулів:</p>
+<div class="language-json highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="p">{</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">    </span><span class="nt">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.2.0"</span><span class="p">,</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="nt">"configurations"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">        </span><span class="p">{</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">            </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Python: Запуск валідатора з обробкою винятків (ЛБ9)"</span><span class="p">,</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">            </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"debugpy"</span><span class="p">,</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">            </span><span class="nt">"request"</span><span class="p">:</span><span class="w"> </span><span class="s2">"launch"</span><span class="p">,</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">            </span><span class="nt">"program"</span><span class="p">:</span><span class="w"> </span><span class="s2">"${workspaceFolder}/device_validator.py"</span><span class="p">,</span>
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">            </span><span class="nt">"console"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integratedTerminal"</span><span class="p">,</span>
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="w">            </span><span class="nt">"justMyCode"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="w">    </span><span class="p">]</span>
+</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="p">}</span>
+</span></code></pre></div>
+<hr />
+<h2 id="3">3 Порядок виконання роботи</h2>
+<h3 id="31">3.1 Індивідуальні завдання</h3>
+<p>Кожен здобувач вищої освіти розробляє систему надійної валідації конфігурації апаратного вузла комп'ютерної системи відповідно до індивідуального варіанта. </p>
+<p>Вимоги до реалізації:</p>
+<ol>
+<li>
+<p>Проектування власної ієрархії винятків у файлі <code>custom_exceptions.py</code> (щонайменше один базовий доменний клас та три похідні класи зі специфічними числовими полями стану).</p>
+</li>
+<li>
+<p>Реалізація функцій валідації у файлі <code>device_validator.py</code>, які перевіряють вхідні параметри, генерують кастомні винятки за допомогою <code>raise</code> та використовують ланцюжки винятків (<code>from</code>).</p>
+</li>
+<li>
+<p>Побудова тестового стенду, що демонструє перехоплення помилок через конструкцію <code>try-except-else-finally</code>, безпечне відновлення системи та розрахунок коефіцієнта програмного відновлення <span class="arithmatex">\(P_{\text{recovery}}\)</span>.</p>
+</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Варіант</th>
+<th style="text-align: left;">Апаратний вузол / Підсистема</th>
+<th style="text-align: left;">Контрольовані параметри та фізичні обмеження</th>
+<th style="text-align: left;">Спеціалізовані класи користувацьких винятків</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>1</strong></td>
+<td style="text-align: left;">Контролер живлення ЦОД</td>
+<td style="text-align: left;">Напруга: <span class="arithmatex">\(12.0\text{ В} \pm 5\%\)</span>; Струм: <span class="arithmatex">\(\le 40.0\text{ А}\)</span>; Частота: <span class="arithmatex">\(50 \pm 0.5\text{ Гц}\)</span></td>
+<td style="text-align: left;"><code>PowerSupplyError</code>, <code>VoltageToleranceError</code>, <code>OverCurrentError</code></td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>2</strong></td>
+<td style="text-align: left;">Модуль швидкісного АЦП (ADC)</td>
+<td style="text-align: left;">Частота вибірки: <span class="arithmatex">\(1 \dots 100\text{ МГц}\)</span>; Вхідна напруга: <span class="arithmatex">\(-2.5 \dots +2.5\text{ В}\)</span></td>
+<td style="text-align: left;"><code>ADCValidationError</code>, <code>SamplingRateError</code>, <code>InputOverloadError</code></td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>3</strong></td>
+<td style="text-align: left;">Мережевий екран (Firewall Appliance)</td>
+<td style="text-align: left;">IP-адреса: IPv4 формат; Діапазон портів: <span class="arithmatex">\(1 \dots 65535\)</span>; Ліміт сесій: <span class="arithmatex">\(\le 10000\)</span></td>
+<td style="text-align: left;"><code>FirewallPolicyError</code>, <code>InvalidPortRangeError</code>, <code>SessionLimitExceededError</code></td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>4</strong></td>
+<td style="text-align: left;">Оптичний трансивер SFP+</td>
+<td style="text-align: left;">Довжина хвилі: <span class="arithmatex">\(850, 1310, 1550\text{ нм}\)</span>; Оптична потужність: <span class="arithmatex">\(-8.0 \dots +0.5\text{ дБм}\)</span></td>
+<td style="text-align: left;"><code>OpticalModuleError</code>, <code>WavelengthMismatchError</code>, <code>OpticalPowerCriticalError</code></td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>5</strong></td>
+<td style="text-align: left;">Політний контролер дрона (IMU)</td>
+<td style="text-align: left;">Частота ШІМ: <span class="arithmatex">\(50 \dots 490\text{ Гц}\)</span>; Діапазон гіроскопа: <span class="arithmatex">\(\le 2000\text{ deg/s}\)</span>; Батарея: <span class="arithmatex">\(3..6\text{ S}\)</span></td>
+<td style="text-align: left;"><code>FlightControllerError</code>, <code>GyroSaturationError</code>, <code>BatteryVoltageLevelError</code></td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>6</strong></td>
+<td style="text-align: left;">RAID-контролер дискового масиву</td>
+<td style="text-align: left;">Розмір блоку страйпу: <span class="arithmatex">\(64, 128, 256, 512\text{ КБ}\)</span>; Кількість дисків: <span class="arithmatex">\(2 \dots 16\)</span></td>
+<td style="text-align: left;"><code>RAIDConfigError</code>, <code>InvalidStripeSizeError</code>, <code>InsufficientDiskCountError</code></td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>7</strong></td>
+<td style="text-align: left;">Супутниковий модем телеметрії</td>
+<td style="text-align: left;">Несуча частота: <span class="arithmatex">\(2.4 \dots 2.483\text{ ГГц}\)</span>; Швидкість: <span class="arithmatex">\(1200 \dots 115200\text{ бод}\)</span></td>
+<td style="text-align: left;"><code>DownlinkModemError</code>, <code>CarrierFrequencyError</code>, <code>SymbolRateOutOfRangeError</code></td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>8</strong></td>
+<td style="text-align: left;">Драйвер крокового двигуна ЧПУ</td>
+<td style="text-align: left;">Крок мікрокроку: <span class="arithmatex">\(1, 2, 4, 8, 16, 32\)</span>; Струм фази: <span class="arithmatex">\(\le 4.5\text{ А}\)</span>; Швидкість</td>
+<td style="text-align: left;"><code>StepperDriverError</code>, <code>MicrosteppingModeError</code>, <code>PhaseCurrentOverloadError</code></td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>9</strong></td>
+<td style="text-align: left;">Шлюз автомобільної шини CAN</td>
+<td style="text-align: left;">Швидкість шини: <span class="arithmatex">\(125, 250, 500, 1000\text{ кбіт/с}\)</span>; CAN-ID: <span class="arithmatex">\(0 \dots 0x7FF\)</span></td>
+<td style="text-align: left;"><code>CANBusGatewayError</code>, <code>InvalidBaudrateError</code>, <code>IdentifierOverflowError</code></td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>10</strong></td>
+<td style="text-align: left;">Термоконтролер серверної стійки</td>
+<td style="text-align: left;">Температура процесора: <span class="arithmatex">\(\le 85.0^\circ\text{C}\)</span>; Оберти кулера: <span class="arithmatex">\(500 \dots 8000\text{ RPM}\)</span></td>
+<td style="text-align: left;"><code>ThermalRegulationError</code>, <code>CriticalTempExceededError</code>, <code>FanRPMStallError</code></td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>11</strong></td>
+<td style="text-align: left;">Апаратний генератор ентропії (TRNG)</td>
+<td style="text-align: left;">Рівень ентропії: <span class="arithmatex">\(\ge 7.8\text{ біт/байт}\)</span>; Частота генератора: <span class="arithmatex">\(1 \dots 50\text{ МГц}\)</span></td>
+<td style="text-align: left;"><code>EntropySourceError</code>, <code>LowEntropyLevelError</code>, <code>JitterClockFailureError</code></td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>12</strong></td>
+<td style="text-align: left;">Бездротовий вузол Zigbee Mesh</td>
+<td style="text-align: left;">Номер каналу: <span class="arithmatex">\(11 \dots 26\)</span>; Потужність TX: <span class="arithmatex">\(-20 \dots +8\text{ дБм}\)</span>; Sleep Duty: <span class="arithmatex">\(\ge 90\%\)</span></td>
+<td style="text-align: left;"><code>WirelessMeshError</code>, <code>IllegalChannelError</code>, <code>DutyCycleViolationError</code></td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>13</strong></td>
+<td style="text-align: left;">Прискорювач на базі FPGA</td>
+<td style="text-align: left;">Частота ядра: <span class="arithmatex">\(100 \dots 450\text{ МГц}\)</span>; Ліній PCIe: <span class="arithmatex">\(1, 4, 8, 16\)</span>; Напруга: <span class="arithmatex">\(0.85 \pm 0.05\text{ В}\)</span></td>
+<td style="text-align: left;"><code>FPGAHardwareError</code>, <code>CoreVoltageOutOfRangeError</code>, <code>PCIeLinkWidthError</code></td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>14</strong></td>
+<td style="text-align: left;">Стільниковий модем 5G/LTE</td>
+<td style="text-align: left;">Діапазон частот: Bands 1, 3, 7, 20, 28; Рівень сигналу RSRP: <span class="arithmatex">\(\ge -120\text{ дБм}\)</span></td>
+<td style="text-align: left;"><code>CellularModemError</code>, <code>UnsupportedBandError</code>, <code>SignalTooWeakError</code></td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>15</strong></td>
+<td style="text-align: left;">Контролер пам'яті DDR5</td>
+<td style="text-align: left;">Таймінг tCL: <span class="arithmatex">\(28 \dots 40\)</span>; Напруга VDD: <span class="arithmatex">\(1.10 \pm 0.05\text{ В}\)</span>; Частота: <span class="arithmatex">\(4800 \dots 6400\text{ MT/s}\)</span></td>
+<td style="text-align: left;"><code>MemoryTimingError</code>, <code>CASLatencyConflictError</code>, <code>VDDOverVoltageError</code></td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>16</strong></td>
+<td style="text-align: left;">Промисловий контролер PLC</td>
+<td style="text-align: left;">Час циклу: <span class="arithmatex">\(1 \dots 50\text{ мс}\)</span>; Діапазон входу 4..20 мА: <span class="arithmatex">\(3.8 \dots 20.5\text{ мА}\)</span></td>
+<td style="text-align: left;"><code>PLCSystemError</code>, <code>CycleTimeExceededError</code>, <code>CurrentLoopSensorError</code></td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>17</strong></td>
+<td style="text-align: left;">Bluetooth 5.0 Beacon маяк</td>
+<td style="text-align: left;">Інтервал передачі: <span class="arithmatex">\(20 \dots 10240\text{ мс}\)</span>; Довжина корисного навантаження: <span class="arithmatex">\(\le 31\text{ Б}\)</span></td>
+<td style="text-align: left;"><code>BluetoothBeaconError</code>, <code>AdvIntervalOutOfRangeError</code>, <code>PayloadOverflowError</code></td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>18</strong></td>
+<td style="text-align: left;">GNSS RTK-приймач позиціонування</td>
+<td style="text-align: left;">Кількість супутників: <span class="arithmatex">\(\ge 6\)</span>; Значення HDOP: <span class="arithmatex">\(\le 2.0\)</span>; Частота оновлення: <span class="arithmatex">\(1 \dots 20\text{ Гц}\)</span></td>
+<td style="text-align: left;"><code>GNSSReceiverError</code>, <code>InsufficientSatellitesError</code>, <code>HighDOPPrecisionError</code></td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>19</strong></td>
+<td style="text-align: left;">Апаратний криптомодуль HSM</td>
+<td style="text-align: left;">Довжина PIN-коду: <span class="arithmatex">\(8 \dots 16\)</span> символів; Кількість ключів: <span class="arithmatex">\(\le 1024\)</span>; Температура</td>
+<td style="text-align: left;"><code>HSMSecurityError</code>, <code>PINComplexityError</code>, <code>KeySlotExhaustedError</code></td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>20</strong></td>
+<td style="text-align: left;">Контролер шини USB 3.2</td>
+<td style="text-align: left;">Струм порту: <span class="arithmatex">\(\le 900\text{ мА}\)</span>; Розмір пакету: <span class="arithmatex">\(512, 1024\text{ Б}\)</span>; Кількість кінцевих точок</td>
+<td style="text-align: left;"><code>USBSubsystemError</code>, <code>VBUSOverCurrentError</code>, <code>MaxPacketSizeInvalidError</code></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="32">3.2. Покроковий алгоритм та розв'язок еталонного прикладу</h3>
+<p>Розглянемо базовий навчально-інженерний приклад: розробку системи валідації та контролю конфігурації тактування й живлення мікроконтролера (<code>MCU_PowerClock_Validator</code>).</p>
+<p>Фізичні вимоги до конфігурації мікроконтролера:</p>
+<ol>
+<li>
+<p><strong>Напруга живлення ядра (<span class="arithmatex">\(V_{\text{core}}\)</span>):</strong> допустимий діапазон становить від <span class="arithmatex">\(1.8\text{ В}\)</span> до <span class="arithmatex">\(3.6\text{ В}\)</span>. При виході за межі генерується виняток <code>VoltageOutOfBoundsError</code>.</p>
+</li>
+<li>
+<p><strong>Джерело опорного тактового сигналу (<code>clock_source</code>):</strong> допустимі виключно значення <code>'HSI'</code> (High-Speed Internal, 16 МГц) або <code>'HSE'</code> (High-Speed External, 8..25 МГц). Інші джерела викликають <code>ClockSourceInvalidError</code>.</p>
+</li>
+<li>
+<p><strong>Множник фазового автопідстроювання частоти (<code>pll_multiplier</code>):</strong> ціле число в діапазоні <span class="arithmatex">\(2 \dots 32\)</span>.</p>
+</li>
+<li>
+<p><strong>Підсумкова тактова частота системи (<span class="arithmatex">\(f_{\text{sys}}\)</span>):</strong> обчислюється як <span class="arithmatex">\(f_{\text{sys}} = f_{\text{input}} \times \text{PLL\_MUL}\)</span> і не повинна перевищувати максимально допустиму частоту кристала <span class="arithmatex">\(168.0\text{ МГц}\)</span>. Перевищення ініціює <code>SystemFrequencyExceededError</code>.</p>
+</li>
+</ol>
+<h4 id="1-custom_exceptionspy">Крок 1. Створення модуля користувацьких винятків <code>custom_exceptions.py</code></h4>
+<p>Створіть файл <code>custom_exceptions.py</code> у каталозі <code>lab09</code> та введіть повний код:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="sd">"""</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="sd">Лабораторна робота № 9. Модуль 1.</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="sd">Ієрархія користувацьких класів винятків для системи валідації мікроконтролера.</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="sd">Освітній компонент: Програмування на Python.</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="sd">"""</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="k">class</span><span class="w"> </span><span class="nc">HardwareConfigError</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="w">    </span><span class="sd">"""Базовий клас для всіх винятків конфігурації апаратного забезпечення."""</span>
+</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">message</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">error_code</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">):</span>
+</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
+</span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">error_code</span> <span class="o">=</span> <span class="n">error_code</span>
+</span><span id="__span-3-15"><a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">timestamp</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">"%Y-%m-</span><span class="si">%d</span><span class="s2"> %H:%M:%S"</span><span class="p">)</span>
+</span><span id="__span-3-16"><a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a>
+</span><span id="__span-3-17"><a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+</span><span id="__span-3-18"><a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a>        <span class="k">return</span> <span class="sa">f</span><span class="s2">"[ERR-</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">error_code</span><span class="si">}</span><span class="s2">] (</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">timestamp</span><span class="si">}</span><span class="s2">) </span><span class="si">{</span><span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__str__</span><span class="p">()</span><span class="si">}</span><span class="s2">"</span>
+</span><span id="__span-3-19"><a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a>
+</span><span id="__span-3-20"><a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a>
+</span><span id="__span-3-21"><a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a><span class="k">class</span><span class="w"> </span><span class="nc">VoltageOutOfBoundsError</span><span class="p">(</span><span class="n">HardwareConfigError</span><span class="p">):</span>
+</span><span id="__span-3-22"><a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a><span class="w">    </span><span class="sd">"""Збуджується, коли напруга живлення виходить за допустимі апаратні межі."""</span>
+</span><span id="__span-3-23"><a id="__codelineno-3-23" name="__codelineno-3-23" href="#__codelineno-3-23"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">voltage</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">min_v</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">1.8</span><span class="p">,</span> <span class="n">max_v</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">3.6</span><span class="p">):</span>
+</span><span id="__span-3-24"><a id="__codelineno-3-24" name="__codelineno-3-24" href="#__codelineno-3-24"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">voltage</span> <span class="o">=</span> <span class="n">voltage</span>
+</span><span id="__span-3-25"><a id="__codelineno-3-25" name="__codelineno-3-25" href="#__codelineno-3-25"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">min_v</span> <span class="o">=</span> <span class="n">min_v</span>
+</span><span id="__span-3-26"><a id="__codelineno-3-26" name="__codelineno-3-26" href="#__codelineno-3-26"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">max_v</span> <span class="o">=</span> <span class="n">max_v</span>
+</span><span id="__span-3-27"><a id="__codelineno-3-27" name="__codelineno-3-27" href="#__codelineno-3-27"></a>        <span class="n">msg</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"Напруга живлення </span><span class="si">{</span><span class="n">voltage</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">V виходить за межі допустимого діапазону [</span><span class="si">{</span><span class="n">min_v</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">V .. </span><span class="si">{</span><span class="n">max_v</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">V]."</span>
+</span><span id="__span-3-28"><a id="__codelineno-3-28" name="__codelineno-3-28" href="#__codelineno-3-28"></a>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span> <span class="n">error_code</span><span class="o">=</span><span class="mi">1001</span><span class="p">)</span>
+</span><span id="__span-3-29"><a id="__codelineno-3-29" name="__codelineno-3-29" href="#__codelineno-3-29"></a>
+</span><span id="__span-3-30"><a id="__codelineno-3-30" name="__codelineno-3-30" href="#__codelineno-3-30"></a>
+</span><span id="__span-3-31"><a id="__codelineno-3-31" name="__codelineno-3-31" href="#__codelineno-3-31"></a><span class="k">class</span><span class="w"> </span><span class="nc">ClockSourceInvalidError</span><span class="p">(</span><span class="n">HardwareConfigError</span><span class="p">):</span>
+</span><span id="__span-3-32"><a id="__codelineno-3-32" name="__codelineno-3-32" href="#__codelineno-3-32"></a><span class="w">    </span><span class="sd">"""Збуджується при виборі непідтримуваного джерела тактового сигналу."""</span>
+</span><span id="__span-3-33"><a id="__codelineno-3-33" name="__codelineno-3-33" href="#__codelineno-3-33"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">source</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">allowed_sources</span><span class="p">:</span> <span class="nb">tuple</span> <span class="o">=</span> <span class="p">(</span><span class="s2">"HSI"</span><span class="p">,</span> <span class="s2">"HSE"</span><span class="p">)):</span>
+</span><span id="__span-3-34"><a id="__codelineno-3-34" name="__codelineno-3-34" href="#__codelineno-3-34"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">source</span> <span class="o">=</span> <span class="n">source</span>
+</span><span id="__span-3-35"><a id="__codelineno-3-35" name="__codelineno-3-35" href="#__codelineno-3-35"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">allowed_sources</span> <span class="o">=</span> <span class="n">allowed_sources</span>
+</span><span id="__span-3-36"><a id="__codelineno-3-36" name="__codelineno-3-36" href="#__codelineno-3-36"></a>        <span class="n">msg</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"Джерело тактування '</span><span class="si">{</span><span class="n">source</span><span class="si">}</span><span class="s2">' є недійсним. Дозволені джерела: </span><span class="si">{</span><span class="n">allowed_sources</span><span class="si">}</span><span class="s2">."</span>
+</span><span id="__span-3-37"><a id="__codelineno-3-37" name="__codelineno-3-37" href="#__codelineno-3-37"></a>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span> <span class="n">error_code</span><span class="o">=</span><span class="mi">1002</span><span class="p">)</span>
+</span><span id="__span-3-38"><a id="__codelineno-3-38" name="__codelineno-3-38" href="#__codelineno-3-38"></a>
+</span><span id="__span-3-39"><a id="__codelineno-3-39" name="__codelineno-3-39" href="#__codelineno-3-39"></a>
+</span><span id="__span-3-40"><a id="__codelineno-3-40" name="__codelineno-3-40" href="#__codelineno-3-40"></a><span class="k">class</span><span class="w"> </span><span class="nc">SystemFrequencyExceededError</span><span class="p">(</span><span class="n">HardwareConfigError</span><span class="p">):</span>
+</span><span id="__span-3-41"><a id="__codelineno-3-41" name="__codelineno-3-41" href="#__codelineno-3-41"></a><span class="w">    </span><span class="sd">"""Збуджується, коли розрахована частота ядра перевищує апаратний ліміт."""</span>
+</span><span id="__span-3-42"><a id="__codelineno-3-42" name="__codelineno-3-42" href="#__codelineno-3-42"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">calculated_freq_mhz</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">max_freq_mhz</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">168.0</span><span class="p">):</span>
+</span><span id="__span-3-43"><a id="__codelineno-3-43" name="__codelineno-3-43" href="#__codelineno-3-43"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">calculated_freq_mhz</span> <span class="o">=</span> <span class="n">calculated_freq_mhz</span>
+</span><span id="__span-3-44"><a id="__codelineno-3-44" name="__codelineno-3-44" href="#__codelineno-3-44"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">max_freq_mhz</span> <span class="o">=</span> <span class="n">max_freq_mhz</span>
+</span><span id="__span-3-45"><a id="__codelineno-3-45" name="__codelineno-3-45" href="#__codelineno-3-45"></a>        <span class="n">msg</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"Розрахована частота ядра </span><span class="si">{</span><span class="n">calculated_freq_mhz</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> МГц перевищує критичний ліміт </span><span class="si">{</span><span class="n">max_freq_mhz</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> МГц."</span>
+</span><span id="__span-3-46"><a id="__codelineno-3-46" name="__codelineno-3-46" href="#__codelineno-3-46"></a>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span> <span class="n">error_code</span><span class="o">=</span><span class="mi">1003</span><span class="p">)</span>
+</span></code></pre></div>
+<h4 id="2-device_validatorpy">Крок 2. Реалізація валідатора та обробника збоїв <code>device_validator.py</code></h4>
+<p>Створіть файл <code>device_validator.py</code> та введіть повний код:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="sd">"""</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="sd">Лабораторна робота № 9. Модуль 2.</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="sd">Модуль багаторівневої валідації параметрів, ланцюжків винятків (raise from)</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="sd">та профілювання надійності програмного забезпечення.</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="sd">Освітній компонент: Програмування на Python.</span>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="sd">"""</span>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">Any</span>
+</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>
+</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="kn">from</span><span class="w"> </span><span class="nn">custom_exceptions</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+</span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>    <span class="n">HardwareConfigError</span><span class="p">,</span>
+</span><span id="__span-4-14"><a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a>    <span class="n">VoltageOutOfBoundsError</span><span class="p">,</span>
+</span><span id="__span-4-15"><a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a>    <span class="n">ClockSourceInvalidError</span><span class="p">,</span>
+</span><span id="__span-4-16"><a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a>    <span class="n">SystemFrequencyExceededError</span><span class="p">,</span>
+</span><span id="__span-4-17"><a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a><span class="p">)</span>
+</span><span id="__span-4-18"><a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a>
+</span><span id="__span-4-19"><a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a>
+</span><span id="__span-4-20"><a id="__codelineno-4-20" name="__codelineno-4-20" href="#__codelineno-4-20"></a><span class="k">def</span><span class="w"> </span><span class="nf">validate_mcu_configuration</span><span class="p">(</span><span class="n">config</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+</span><span id="__span-4-21"><a id="__codelineno-4-21" name="__codelineno-4-21" href="#__codelineno-4-21"></a><span class="w">    </span><span class="sd">"""</span>
+</span><span id="__span-4-22"><a id="__codelineno-4-22" name="__codelineno-4-22" href="#__codelineno-4-22"></a><span class="sd">    Здійснює комплексну валідацію словника конфігурації мікроконтролера.</span>
+</span><span id="__span-4-23"><a id="__codelineno-4-23" name="__codelineno-4-23" href="#__codelineno-4-23"></a><span class="sd">    Повертає фінальну розраховану робочу частоту системи в МГц.</span>
+</span><span id="__span-4-24"><a id="__codelineno-4-24" name="__codelineno-4-24" href="#__codelineno-4-24"></a><span class="sd">    """</span>
+</span><span id="__span-4-25"><a id="__codelineno-4-25" name="__codelineno-4-25" href="#__codelineno-4-25"></a>    <span class="c1"># 1. Валідація наявності та типів обов'язкових ключів</span>
+</span><span id="__span-4-26"><a id="__codelineno-4-26" name="__codelineno-4-26" href="#__codelineno-4-26"></a>    <span class="n">required_keys</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"voltage"</span><span class="p">,</span> <span class="s2">"clock_source"</span><span class="p">,</span> <span class="s2">"input_freq_mhz"</span><span class="p">,</span> <span class="s2">"pll_multiplier"</span><span class="p">}</span>
+</span><span id="__span-4-27"><a id="__codelineno-4-27" name="__codelineno-4-27" href="#__codelineno-4-27"></a>    <span class="n">missing_keys</span> <span class="o">=</span> <span class="n">required_keys</span><span class="o">.</span><span class="n">difference</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+</span><span id="__span-4-28"><a id="__codelineno-4-28" name="__codelineno-4-28" href="#__codelineno-4-28"></a>    <span class="k">if</span> <span class="n">missing_keys</span><span class="p">:</span>
+</span><span id="__span-4-29"><a id="__codelineno-4-29" name="__codelineno-4-29" href="#__codelineno-4-29"></a>        <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="sa">f</span><span class="s2">"У конфігураційній структурі відсутні обов'язкові параметри: </span><span class="si">{</span><span class="n">missing_keys</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</span><span id="__span-4-30"><a id="__codelineno-4-30" name="__codelineno-4-30" href="#__codelineno-4-30"></a>
+</span><span id="__span-4-31"><a id="__codelineno-4-31" name="__codelineno-4-31" href="#__codelineno-4-31"></a>    <span class="c1"># 2. Валідація напруги живлення</span>
+</span><span id="__span-4-32"><a id="__codelineno-4-32" name="__codelineno-4-32" href="#__codelineno-4-32"></a>    <span class="k">try</span><span class="p">:</span>
+</span><span id="__span-4-33"><a id="__codelineno-4-33" name="__codelineno-4-33" href="#__codelineno-4-33"></a>        <span class="n">voltage</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">config</span><span class="p">[</span><span class="s2">"voltage"</span><span class="p">])</span>
+</span><span id="__span-4-34"><a id="__codelineno-4-34" name="__codelineno-4-34" href="#__codelineno-4-34"></a>    <span class="k">except</span> <span class="p">(</span><span class="ne">ValueError</span><span class="p">,</span> <span class="ne">TypeError</span><span class="p">)</span> <span class="k">as</span> <span class="n">type_err</span><span class="p">:</span>
+</span><span id="__span-4-35"><a id="__codelineno-4-35" name="__codelineno-4-35" href="#__codelineno-4-35"></a>        <span class="k">raise</span> <span class="n">HardwareConfigError</span><span class="p">(</span><span class="s2">"Параметр 'voltage' повинен бути числовим значенням."</span><span class="p">,</span> <span class="n">error_code</span><span class="o">=</span><span class="mi">1004</span><span class="p">)</span> <span class="kn">from</span><span class="w"> </span><span class="nn">type_err</span>
+</span><span id="__span-4-36"><a id="__codelineno-4-36" name="__codelineno-4-36" href="#__codelineno-4-36"></a>
+</span><span id="__span-4-37"><a id="__codelineno-4-37" name="__codelineno-4-37" href="#__codelineno-4-37"></a>    <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="mf">1.8</span> <span class="o">&lt;=</span> <span class="n">voltage</span> <span class="o">&lt;=</span> <span class="mf">3.6</span><span class="p">):</span>
+</span><span id="__span-4-38"><a id="__codelineno-4-38" name="__codelineno-4-38" href="#__codelineno-4-38"></a>        <span class="k">raise</span> <span class="n">VoltageOutOfBoundsError</span><span class="p">(</span><span class="n">voltage</span><span class="p">,</span> <span class="n">min_v</span><span class="o">=</span><span class="mf">1.8</span><span class="p">,</span> <span class="n">max_v</span><span class="o">=</span><span class="mf">3.6</span><span class="p">)</span>
+</span><span id="__span-4-39"><a id="__codelineno-4-39" name="__codelineno-4-39" href="#__codelineno-4-39"></a>
+</span><span id="__span-4-40"><a id="__codelineno-4-40" name="__codelineno-4-40" href="#__codelineno-4-40"></a>    <span class="c1"># 3. Валідація джерела тактування</span>
+</span><span id="__span-4-41"><a id="__codelineno-4-41" name="__codelineno-4-41" href="#__codelineno-4-41"></a>    <span class="n">clock_source</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">config</span><span class="p">[</span><span class="s2">"clock_source"</span><span class="p">])</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+</span><span id="__span-4-42"><a id="__codelineno-4-42" name="__codelineno-4-42" href="#__codelineno-4-42"></a>    <span class="k">if</span> <span class="n">clock_source</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">"HSI"</span><span class="p">,</span> <span class="s2">"HSE"</span><span class="p">):</span>
+</span><span id="__span-4-43"><a id="__codelineno-4-43" name="__codelineno-4-43" href="#__codelineno-4-43"></a>        <span class="k">raise</span> <span class="n">ClockSourceInvalidError</span><span class="p">(</span><span class="n">clock_source</span><span class="p">)</span>
+</span><span id="__span-4-44"><a id="__codelineno-4-44" name="__codelineno-4-44" href="#__codelineno-4-44"></a>
+</span><span id="__span-4-45"><a id="__codelineno-4-45" name="__codelineno-4-45" href="#__codelineno-4-45"></a>    <span class="c1"># 4. Валідація частоти та множника PLL</span>
+</span><span id="__span-4-46"><a id="__codelineno-4-46" name="__codelineno-4-46" href="#__codelineno-4-46"></a>    <span class="n">input_freq</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">config</span><span class="p">[</span><span class="s2">"input_freq_mhz"</span><span class="p">])</span>
+</span><span id="__span-4-47"><a id="__codelineno-4-47" name="__codelineno-4-47" href="#__codelineno-4-47"></a>    <span class="n">pll_mult</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">config</span><span class="p">[</span><span class="s2">"pll_multiplier"</span><span class="p">])</span>
+</span><span id="__span-4-48"><a id="__codelineno-4-48" name="__codelineno-4-48" href="#__codelineno-4-48"></a>
+</span><span id="__span-4-49"><a id="__codelineno-4-49" name="__codelineno-4-49" href="#__codelineno-4-49"></a>    <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="mi">2</span> <span class="o">&lt;=</span> <span class="n">pll_mult</span> <span class="o">&lt;=</span> <span class="mi">32</span><span class="p">):</span>
+</span><span id="__span-4-50"><a id="__codelineno-4-50" name="__codelineno-4-50" href="#__codelineno-4-50"></a>        <span class="k">raise</span> <span class="n">HardwareConfigError</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Множник PLL (</span><span class="si">{</span><span class="n">pll_mult</span><span class="si">}</span><span class="s2">) виходить за межі [2 .. 32]."</span><span class="p">,</span> <span class="n">error_code</span><span class="o">=</span><span class="mi">1005</span><span class="p">)</span>
+</span><span id="__span-4-51"><a id="__codelineno-4-51" name="__codelineno-4-51" href="#__codelineno-4-51"></a>
+</span><span id="__span-4-52"><a id="__codelineno-4-52" name="__codelineno-4-52" href="#__codelineno-4-52"></a>    <span class="c1"># Розрахунок підсумкової частоти</span>
+</span><span id="__span-4-53"><a id="__codelineno-4-53" name="__codelineno-4-53" href="#__codelineno-4-53"></a>    <span class="n">target_sys_freq_mhz</span> <span class="o">=</span> <span class="n">input_freq</span> <span class="o">*</span> <span class="n">pll_mult</span>
+</span><span id="__span-4-54"><a id="__codelineno-4-54" name="__codelineno-4-54" href="#__codelineno-4-54"></a>    <span class="n">max_limit_mhz</span> <span class="o">=</span> <span class="mf">168.0</span>
+</span><span id="__span-4-55"><a id="__codelineno-4-55" name="__codelineno-4-55" href="#__codelineno-4-55"></a>
+</span><span id="__span-4-56"><a id="__codelineno-4-56" name="__codelineno-4-56" href="#__codelineno-4-56"></a>    <span class="k">if</span> <span class="n">target_sys_freq_mhz</span> <span class="o">&gt;</span> <span class="n">max_limit_mhz</span><span class="p">:</span>
+</span><span id="__span-4-57"><a id="__codelineno-4-57" name="__codelineno-4-57" href="#__codelineno-4-57"></a>        <span class="k">raise</span> <span class="n">SystemFrequencyExceededError</span><span class="p">(</span><span class="n">target_sys_freq_mhz</span><span class="p">,</span> <span class="n">max_limit_mhz</span><span class="p">)</span>
+</span><span id="__span-4-58"><a id="__codelineno-4-58" name="__codelineno-4-58" href="#__codelineno-4-58"></a>
+</span><span id="__span-4-59"><a id="__codelineno-4-59" name="__codelineno-4-59" href="#__codelineno-4-59"></a>    <span class="k">return</span> <span class="n">target_sys_freq_mhz</span>
+</span><span id="__span-4-60"><a id="__codelineno-4-60" name="__codelineno-4-60" href="#__codelineno-4-60"></a>
+</span><span id="__span-4-61"><a id="__codelineno-4-61" name="__codelineno-4-61" href="#__codelineno-4-61"></a>
+</span><span id="__span-4-62"><a id="__codelineno-4-62" name="__codelineno-4-62" href="#__codelineno-4-62"></a><span class="k">def</span><span class="w"> </span><span class="nf">run_fault_tolerance_testbench</span><span class="p">(</span><span class="n">test_configs</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">dict</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="__span-4-63"><a id="__codelineno-4-63" name="__codelineno-4-63" href="#__codelineno-4-63"></a><span class="w">    </span><span class="sd">"""</span>
+</span><span id="__span-4-64"><a id="__codelineno-4-64" name="__codelineno-4-64" href="#__codelineno-4-64"></a><span class="sd">    Запускає тестовий стенд обробки конфігураційних наборів</span>
+</span><span id="__span-4-65"><a id="__codelineno-4-65" name="__codelineno-4-65" href="#__codelineno-4-65"></a><span class="sd">    із розрахунком метрик відновлення після збоїв P_recovery.</span>
+</span><span id="__span-4-66"><a id="__codelineno-4-66" name="__codelineno-4-66" href="#__codelineno-4-66"></a><span class="sd">    """</span>
+</span><span id="__span-4-67"><a id="__codelineno-4-67" name="__codelineno-4-67" href="#__codelineno-4-67"></a>    <span class="n">header_sep</span> <span class="o">=</span> <span class="s2">"="</span> <span class="o">*</span> <span class="mi">90</span>
+</span><span id="__span-4-68"><a id="__codelineno-4-68" name="__codelineno-4-68" href="#__codelineno-4-68"></a>    <span class="n">sub_sep</span> <span class="o">=</span> <span class="s2">"-"</span> <span class="o">*</span> <span class="mi">90</span>
+</span><span id="__span-4-69"><a id="__codelineno-4-69" name="__codelineno-4-69" href="#__codelineno-4-69"></a>
+</span><span id="__span-4-70"><a id="__codelineno-4-70" name="__codelineno-4-70" href="#__codelineno-4-70"></a>    <span class="nb">print</span><span class="p">(</span><span class="n">header_sep</span><span class="p">)</span>
+</span><span id="__span-4-71"><a id="__codelineno-4-71" name="__codelineno-4-71" href="#__codelineno-4-71"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="s1">'ТЕСТУВАННЯ ВІДМОВОСТІЙКОСТІ ТА ОБРОБКИ ВИНИКЛИХ ВИOffКІВ'</span><span class="si">:</span><span class="s2">^90</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</span><span id="__span-4-72"><a id="__codelineno-4-72" name="__codelineno-4-72" href="#__codelineno-4-72"></a>    <span class="nb">print</span><span class="p">(</span><span class="n">header_sep</span><span class="p">)</span>
+</span><span id="__span-4-73"><a id="__codelineno-4-73" name="__codelineno-4-73" href="#__codelineno-4-73"></a>
+</span><span id="__span-4-74"><a id="__codelineno-4-74" name="__codelineno-4-74" href="#__codelineno-4-74"></a>    <span class="n">successful_runs</span> <span class="o">=</span> <span class="mi">0</span>
+</span><span id="__span-4-75"><a id="__codelineno-4-75" name="__codelineno-4-75" href="#__codelineno-4-75"></a>    <span class="n">handled_faults</span> <span class="o">=</span> <span class="mi">0</span>
+</span><span id="__span-4-76"><a id="__codelineno-4-76" name="__codelineno-4-76" href="#__codelineno-4-76"></a>    <span class="n">total_configs</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">test_configs</span><span class="p">)</span>
+</span><span id="__span-4-77"><a id="__codelineno-4-77" name="__codelineno-4-77" href="#__codelineno-4-77"></a>
+</span><span id="__span-4-78"><a id="__codelineno-4-78" name="__codelineno-4-78" href="#__codelineno-4-78"></a>    <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">cfg</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">test_configs</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+</span><span id="__span-4-79"><a id="__codelineno-4-79" name="__codelineno-4-79" href="#__codelineno-4-79"></a>        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="se">\n</span><span class="s2">Тест #</span><span class="si">{</span><span class="n">idx</span><span class="si">:</span><span class="s2">02d</span><span class="si">}</span><span class="s2">: Тестування конфігурації -&gt; </span><span class="si">{</span><span class="n">cfg</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</span><span id="__span-4-80"><a id="__codelineno-4-80" name="__codelineno-4-80" href="#__codelineno-4-80"></a>        <span class="k">try</span><span class="p">:</span>
+</span><span id="__span-4-81"><a id="__codelineno-4-81" name="__codelineno-4-81" href="#__codelineno-4-81"></a>            <span class="n">sys_freq</span> <span class="o">=</span> <span class="n">validate_mcu_configuration</span><span class="p">(</span><span class="n">cfg</span><span class="p">)</span>
+</span><span id="__span-4-82"><a id="__codelineno-4-82" name="__codelineno-4-82" href="#__codelineno-4-82"></a>        <span class="k">except</span> <span class="n">VoltageOutOfBoundsError</span> <span class="k">as</span> <span class="n">v_err</span><span class="p">:</span>
+</span><span id="__span-4-83"><a id="__codelineno-4-83" name="__codelineno-4-83" href="#__codelineno-4-83"></a>            <span class="n">handled_faults</span> <span class="o">+=</span> <span class="mi">1</span>
+</span><span id="__span-4-84"><a id="__codelineno-4-84" name="__codelineno-4-84" href="#__codelineno-4-84"></a>            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"  [ПЕРЕХОПЛЕНО СПЕЦІАЛІЗОВАНО]: </span><span class="si">{</span><span class="n">v_err</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</span><span id="__span-4-85"><a id="__codelineno-4-85" name="__codelineno-4-85" href="#__codelineno-4-85"></a>            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"  -&gt; Дія системи: Увімкнення захисту від перенапруги/зниженої напруги."</span><span class="p">)</span>
+</span><span id="__span-4-86"><a id="__codelineno-4-86" name="__codelineno-4-86" href="#__codelineno-4-86"></a>        <span class="k">except</span> <span class="n">ClockSourceInvalidError</span> <span class="k">as</span> <span class="n">clk_err</span><span class="p">:</span>
+</span><span id="__span-4-87"><a id="__codelineno-4-87" name="__codelineno-4-87" href="#__codelineno-4-87"></a>            <span class="n">handled_faults</span> <span class="o">+=</span> <span class="mi">1</span>
+</span><span id="__span-4-88"><a id="__codelineno-4-88" name="__codelineno-4-88" href="#__codelineno-4-88"></a>            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"  [ПЕРЕХОПЛЕНО СПЕЦІАЛІЗОВАНО]: </span><span class="si">{</span><span class="n">clk_err</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</span><span id="__span-4-89"><a id="__codelineno-4-89" name="__codelineno-4-89" href="#__codelineno-4-89"></a>            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"  -&gt; Дія системи: Примусове перемикання на внутрішній генератор HSI."</span><span class="p">)</span>
+</span><span id="__span-4-90"><a id="__codelineno-4-90" name="__codelineno-4-90" href="#__codelineno-4-90"></a>        <span class="k">except</span> <span class="n">SystemFrequencyExceededError</span> <span class="k">as</span> <span class="n">freq_err</span><span class="p">:</span>
+</span><span id="__span-4-91"><a id="__codelineno-4-91" name="__codelineno-4-91" href="#__codelineno-4-91"></a>            <span class="n">handled_faults</span> <span class="o">+=</span> <span class="mi">1</span>
+</span><span id="__span-4-92"><a id="__codelineno-4-92" name="__codelineno-4-92" href="#__codelineno-4-92"></a>            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"  [ПЕРЕХОПЛЕНО СПЕЦІАЛІЗОВАНО]: </span><span class="si">{</span><span class="n">freq_err</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</span><span id="__span-4-93"><a id="__codelineno-4-93" name="__codelineno-4-93" href="#__codelineno-4-93"></a>            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"  -&gt; Дія системи: Зниження множника PLL до безпечного значення за замовчуванням."</span><span class="p">)</span>
+</span><span id="__span-4-94"><a id="__codelineno-4-94" name="__codelineno-4-94" href="#__codelineno-4-94"></a>        <span class="k">except</span> <span class="n">HardwareConfigError</span> <span class="k">as</span> <span class="n">hw_err</span><span class="p">:</span>
+</span><span id="__span-4-95"><a id="__codelineno-4-95" name="__codelineno-4-95" href="#__codelineno-4-95"></a>            <span class="n">handled_faults</span> <span class="o">+=</span> <span class="mi">1</span>
+</span><span id="__span-4-96"><a id="__codelineno-4-96" name="__codelineno-4-96" href="#__codelineno-4-96"></a>            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"  [ПЕРЕХОПЛЕНО БАЗОВИЙ ХАРДВЕРНИЙ]: </span><span class="si">{</span><span class="n">hw_err</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</span><span id="__span-4-97"><a id="__codelineno-4-97" name="__codelineno-4-97" href="#__codelineno-4-97"></a>            <span class="k">if</span> <span class="n">hw_err</span><span class="o">.</span><span class="n">__cause__</span><span class="p">:</span>
+</span><span id="__span-4-98"><a id="__codelineno-4-98" name="__codelineno-4-98" href="#__codelineno-4-98"></a>                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"  -&gt; Першопричина (Chained Cause): </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">hw_err</span><span class="o">.</span><span class="n">__cause__</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">hw_err</span><span class="o">.</span><span class="n">__cause__</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</span><span id="__span-4-99"><a id="__codelineno-4-99" name="__codelineno-4-99" href="#__codelineno-4-99"></a>        <span class="k">except</span> <span class="ne">KeyError</span> <span class="k">as</span> <span class="n">key_err</span><span class="p">:</span>
+</span><span id="__span-4-100"><a id="__codelineno-4-100" name="__codelineno-4-100" href="#__codelineno-4-100"></a>            <span class="n">handled_faults</span> <span class="o">+=</span> <span class="mi">1</span>
+</span><span id="__span-4-101"><a id="__codelineno-4-101" name="__codelineno-4-101" href="#__codelineno-4-101"></a>            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"  [ПЕРЕХОПЛЕНО СТАНДАРТНИЙ]: Відсутній ключ структури -&gt; </span><span class="si">{</span><span class="n">key_err</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</span><span id="__span-4-102"><a id="__codelineno-4-102" name="__codelineno-4-102" href="#__codelineno-4-102"></a>        <span class="k">else</span><span class="p">:</span>
+</span><span id="__span-4-103"><a id="__codelineno-4-103" name="__codelineno-4-103" href="#__codelineno-4-103"></a>            <span class="n">successful_runs</span> <span class="o">+=</span> <span class="mi">1</span>
+</span><span id="__span-4-104"><a id="__codelineno-4-104" name="__codelineno-4-104" href="#__codelineno-4-104"></a>            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"  [УСПІХ]: Конфігурація валідна. Робоча частота MCU: </span><span class="si">{</span><span class="n">sys_freq</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> МГц."</span><span class="p">)</span>
+</span><span id="__span-4-105"><a id="__codelineno-4-105" name="__codelineno-4-105" href="#__codelineno-4-105"></a>        <span class="k">finally</span><span class="p">:</span>
+</span><span id="__span-4-106"><a id="__codelineno-4-106" name="__codelineno-4-106" href="#__codelineno-4-106"></a>            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"  [FINALLY]: Аудит тесту #</span><span class="si">{</span><span class="n">idx</span><span class="si">}</span><span class="s2"> завершено. Стан шини перевірено."</span><span class="p">)</span>
+</span><span id="__span-4-107"><a id="__codelineno-4-107" name="__codelineno-4-107" href="#__codelineno-4-107"></a>
+</span><span id="__span-4-108"><a id="__codelineno-4-108" name="__codelineno-4-108" href="#__codelineno-4-108"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">"</span> <span class="o">+</span> <span class="n">header_sep</span><span class="p">)</span>
+</span><span id="__span-4-109"><a id="__codelineno-4-109" name="__codelineno-4-109" href="#__codelineno-4-109"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="s1">'ПІДСУМКОВІ МЕТРИКИ НАДІЙНОСТІ СИСТЕМИ'</span><span class="si">:</span><span class="s2">^90</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</span><span id="__span-4-110"><a id="__codelineno-4-110" name="__codelineno-4-110" href="#__codelineno-4-110"></a>    <span class="nb">print</span><span class="p">(</span><span class="n">sub_sep</span><span class="p">)</span>
+</span><span id="__span-4-111"><a id="__codelineno-4-111" name="__codelineno-4-111" href="#__codelineno-4-111"></a>    <span class="n">p_recovery</span> <span class="o">=</span> <span class="p">(</span><span class="n">handled_faults</span> <span class="o">/</span> <span class="p">(</span><span class="n">total_configs</span> <span class="o">-</span> <span class="n">successful_runs</span><span class="p">))</span> <span class="k">if</span> <span class="p">(</span><span class="n">total_configs</span> <span class="o">-</span> <span class="n">successful_runs</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="mf">1.0</span>
+</span><span id="__span-4-112"><a id="__codelineno-4-112" name="__codelineno-4-112" href="#__codelineno-4-112"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"  Всього оброблено тестових наборів:         </span><span class="si">{</span><span class="n">total_configs</span><span class="si">:</span><span class="s2">&gt;5d</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</span><span id="__span-4-113"><a id="__codelineno-4-113" name="__codelineno-4-113" href="#__codelineno-4-113"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"  Штатних успішних конфігурацій:             </span><span class="si">{</span><span class="n">successful_runs</span><span class="si">:</span><span class="s2">&gt;5d</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</span><span id="__span-4-114"><a id="__codelineno-4-114" name="__codelineno-4-114" href="#__codelineno-4-114"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"  Локалізованих та оброблених збоїв:         </span><span class="si">{</span><span class="n">handled_faults</span><span class="si">:</span><span class="s2">&gt;5d</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</span><span id="__span-4-115"><a id="__codelineno-4-115" name="__codelineno-4-115" href="#__codelineno-4-115"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"  Коефіцієнт програмного відновлення (P):   </span><span class="si">{</span><span class="n">p_recovery</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">100</span><span class="si">:</span><span class="s2">&gt;7.2f</span><span class="si">}</span><span class="s2">%"</span><span class="p">)</span>
+</span><span id="__span-4-116"><a id="__codelineno-4-116" name="__codelineno-4-116" href="#__codelineno-4-116"></a>    <span class="nb">print</span><span class="p">(</span><span class="n">header_sep</span> <span class="o">+</span> <span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
+</span><span id="__span-4-117"><a id="__codelineno-4-117" name="__codelineno-4-117" href="#__codelineno-4-117"></a>
+</span><span id="__span-4-118"><a id="__codelineno-4-118" name="__codelineno-4-118" href="#__codelineno-4-118"></a>
+</span><span id="__span-4-119"><a id="__codelineno-4-119" name="__codelineno-4-119" href="#__codelineno-4-119"></a><span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="__span-4-120"><a id="__codelineno-4-120" name="__codelineno-4-120" href="#__codelineno-4-120"></a><span class="w">    </span><span class="sd">"""Головна точка входу лабораторної роботи."""</span>
+</span><span id="__span-4-121"><a id="__codelineno-4-121" name="__codelineno-4-121" href="#__codelineno-4-121"></a>    <span class="c1"># Набір тестових даних з різними типами дефектів та коректними станами</span>
+</span><span id="__span-4-122"><a id="__codelineno-4-122" name="__codelineno-4-122" href="#__codelineno-4-122"></a>    <span class="n">test_suite</span> <span class="o">=</span> <span class="p">[</span>
+</span><span id="__span-4-123"><a id="__codelineno-4-123" name="__codelineno-4-123" href="#__codelineno-4-123"></a>        <span class="c1"># Тест 1: Повністю коректна конфігурація (HSE 8 МГц * 21 = 168 МГц)</span>
+</span><span id="__span-4-124"><a id="__codelineno-4-124" name="__codelineno-4-124" href="#__codelineno-4-124"></a>        <span class="p">{</span><span class="s2">"voltage"</span><span class="p">:</span> <span class="mf">3.3</span><span class="p">,</span> <span class="s2">"clock_source"</span><span class="p">:</span> <span class="s2">"HSE"</span><span class="p">,</span> <span class="s2">"input_freq_mhz"</span><span class="p">:</span> <span class="mf">8.0</span><span class="p">,</span> <span class="s2">"pll_multiplier"</span><span class="p">:</span> <span class="mi">21</span><span class="p">},</span>
+</span><span id="__span-4-125"><a id="__codelineno-4-125" name="__codelineno-4-125" href="#__codelineno-4-125"></a>
+</span><span id="__span-4-126"><a id="__codelineno-4-126" name="__codelineno-4-126" href="#__codelineno-4-126"></a>        <span class="c1"># Тест 2: Аварійна напруга (4.5V &gt; 3.6V)</span>
+</span><span id="__span-4-127"><a id="__codelineno-4-127" name="__codelineno-4-127" href="#__codelineno-4-127"></a>        <span class="p">{</span><span class="s2">"voltage"</span><span class="p">:</span> <span class="mf">4.5</span><span class="p">,</span> <span class="s2">"clock_source"</span><span class="p">:</span> <span class="s2">"HSE"</span><span class="p">,</span> <span class="s2">"input_freq_mhz"</span><span class="p">:</span> <span class="mf">8.0</span><span class="p">,</span> <span class="s2">"pll_multiplier"</span><span class="p">:</span> <span class="mi">10</span><span class="p">},</span>
+</span><span id="__span-4-128"><a id="__codelineno-4-128" name="__codelineno-4-128" href="#__codelineno-4-128"></a>
+</span><span id="__span-4-129"><a id="__codelineno-4-129" name="__codelineno-4-129" href="#__codelineno-4-129"></a>        <span class="c1"># Тест 3: Невідоме джерело тактування</span>
+</span><span id="__span-4-130"><a id="__codelineno-4-130" name="__codelineno-4-130" href="#__codelineno-4-130"></a>        <span class="p">{</span><span class="s2">"voltage"</span><span class="p">:</span> <span class="mf">3.0</span><span class="p">,</span> <span class="s2">"clock_source"</span><span class="p">:</span> <span class="s2">"EXTERNAL_CRYSTAL_INVALID"</span><span class="p">,</span> <span class="s2">"input_freq_mhz"</span><span class="p">:</span> <span class="mf">12.0</span><span class="p">,</span> <span class="s2">"pll_multiplier"</span><span class="p">:</span> <span class="mi">4</span><span class="p">},</span>
+</span><span id="__span-4-131"><a id="__codelineno-4-131" name="__codelineno-4-131" href="#__codelineno-4-131"></a>
+</span><span id="__span-4-132"><a id="__codelineno-4-132" name="__codelineno-4-132" href="#__codelineno-4-132"></a>        <span class="c1"># Тест 4: Перевищення ліміту частоти (12 МГц * 16 = 192 МГц &gt; 168 МГц)</span>
+</span><span id="__span-4-133"><a id="__codelineno-4-133" name="__codelineno-4-133" href="#__codelineno-4-133"></a>        <span class="p">{</span><span class="s2">"voltage"</span><span class="p">:</span> <span class="mf">3.3</span><span class="p">,</span> <span class="s2">"clock_source"</span><span class="p">:</span> <span class="s2">"HSE"</span><span class="p">,</span> <span class="s2">"input_freq_mhz"</span><span class="p">:</span> <span class="mf">12.0</span><span class="p">,</span> <span class="s2">"pll_multiplier"</span><span class="p">:</span> <span class="mi">16</span><span class="p">},</span>
+</span><span id="__span-4-134"><a id="__codelineno-4-134" name="__codelineno-4-134" href="#__codelineno-4-134"></a>
+</span><span id="__span-4-135"><a id="__codelineno-4-135" name="__codelineno-4-135" href="#__codelineno-4-135"></a>        <span class="c1"># Тест 5: Некоректний тип напруги (рядкове сміття)</span>
+</span><span id="__span-4-136"><a id="__codelineno-4-136" name="__codelineno-4-136" href="#__codelineno-4-136"></a>        <span class="p">{</span><span class="s2">"voltage"</span><span class="p">:</span> <span class="s2">"CORRUPTED_VALUE"</span><span class="p">,</span> <span class="s2">"clock_source"</span><span class="p">:</span> <span class="s2">"HSI"</span><span class="p">,</span> <span class="s2">"input_freq_mhz"</span><span class="p">:</span> <span class="mf">16.0</span><span class="p">,</span> <span class="s2">"pll_multiplier"</span><span class="p">:</span> <span class="mi">4</span><span class="p">},</span>
+</span><span id="__span-4-137"><a id="__codelineno-4-137" name="__codelineno-4-137" href="#__codelineno-4-137"></a>
+</span><span id="__span-4-138"><a id="__codelineno-4-138" name="__codelineno-4-138" href="#__codelineno-4-138"></a>        <span class="c1"># Тест 6: Відсутність обов'язкового ключа</span>
+</span><span id="__span-4-139"><a id="__codelineno-4-139" name="__codelineno-4-139" href="#__codelineno-4-139"></a>        <span class="p">{</span><span class="s2">"voltage"</span><span class="p">:</span> <span class="mf">3.3</span><span class="p">,</span> <span class="s2">"clock_source"</span><span class="p">:</span> <span class="s2">"HSI"</span><span class="p">},</span>
+</span><span id="__span-4-140"><a id="__codelineno-4-140" name="__codelineno-4-140" href="#__codelineno-4-140"></a>    <span class="p">]</span>
+</span><span id="__span-4-141"><a id="__codelineno-4-141" name="__codelineno-4-141" href="#__codelineno-4-141"></a>
+</span><span id="__span-4-142"><a id="__codelineno-4-142" name="__codelineno-4-142" href="#__codelineno-4-142"></a>    <span class="n">t_start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span>
+</span><span id="__span-4-143"><a id="__codelineno-4-143" name="__codelineno-4-143" href="#__codelineno-4-143"></a>    <span class="n">run_fault_tolerance_testbench</span><span class="p">(</span><span class="n">test_suite</span><span class="p">)</span>
+</span><span id="__span-4-144"><a id="__codelineno-4-144" name="__codelineno-4-144" href="#__codelineno-4-144"></a>    <span class="n">t_elapsed</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span> <span class="o">-</span> <span class="n">t_start</span>
+</span><span id="__span-4-145"><a id="__codelineno-4-145" name="__codelineno-4-145" href="#__codelineno-4-145"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Час виконання діагностичного тестбенчу: </span><span class="si">{</span><span class="n">t_elapsed</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">1000</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2"> мс</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
+</span><span id="__span-4-146"><a id="__codelineno-4-146" name="__codelineno-4-146" href="#__codelineno-4-146"></a>
+</span><span id="__span-4-147"><a id="__codelineno-4-147" name="__codelineno-4-147" href="#__codelineno-4-147"></a>
+</span><span id="__span-4-148"><a id="__codelineno-4-148" name="__codelineno-4-148" href="#__codelineno-4-148"></a><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
+</span><span id="__span-4-149"><a id="__codelineno-4-149" name="__codelineno-4-149" href="#__codelineno-4-149"></a>    <span class="n">main</span><span class="p">()</span>
+</span></code></pre></div>
+<hr />
+<h3 id="33">3.3. Запуск, тестування та перевірка результатів</h3>
+<p>Виконайте запуск розробленої програми у системному терміналі VS Code під управлінням активованого середовища Conda:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1"># Запуск модуля тестування відмовостійкості та валідації</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>python<span class="w"> </span>device_validator.py
+</span></code></pre></div>
+<p>Нижче наведено еталонний вивід результатів виконання програми в терміналі:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>==========================================================================================
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>                  ТЕСТУВАННЯ ВІДМОВОСТІЙКОСТІ ТА ОБРОБКИ ВИНИКЛИХ ВИOffКІВ                 
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>==========================================================================================
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>Тест #01: Тестування конфігурації -&gt; {'voltage': 3.3, 'clock_source': 'HSE', 'input_freq_mhz': 8.0, 'pll_multiplier': 21}
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>  [УСПІХ]: Конфігурація валідна. Робоча частота MCU: 168.00 МГц.
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>  [FINALLY]: Аудит тесту #1 завершено. Стан шини перевірено.
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>
+</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>Тест #02: Тестування конфігурації -&gt; {'voltage': 4.5, 'clock_source': 'HSE', 'input_freq_mhz': 8.0, 'pll_multiplier': 10}
+</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>  [ПЕРЕХОПЛЕНО СПЕЦІАЛІЗОВАНО]: [ERR-1001] (2026-08-30 17:02:15) Напруга живлення 4.50V виходить за межі допустимого діапазону [1.80V .. 3.60V].
+</span><span id="__span-6-11"><a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a>  -&gt; Дія системи: Увімкнення захисту від перенапруги/зниженої напруги.
+</span><span id="__span-6-12"><a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a>  [FINALLY]: Аудит тесту #2 завершено. Стан шини перевірено.
+</span><span id="__span-6-13"><a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a>
+</span><span id="__span-6-14"><a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a>Тест #03: Тестування конфігурації -&gt; {'voltage': 3.0, 'clock_source': 'EXTERNAL_CRYSTAL_INVALID', 'input_freq_mhz': 12.0, 'pll_multiplier': 4}
+</span><span id="__span-6-15"><a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a>  [ПЕРЕХОПЛЕНО СПЕЦІАЛІЗОВАНО]: [ERR-1002] (2026-08-30 17:02:15) Джерело тактування 'EXTERNAL_CRYSTAL_INVALID' є недійсним. Дозволені джерела: ('HSI', 'HSE').
+</span><span id="__span-6-16"><a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a>  -&gt; Дія системи: Примусове перемикання на внутрішній генератор HSI.
+</span><span id="__span-6-17"><a id="__codelineno-6-17" name="__codelineno-6-17" href="#__codelineno-6-17"></a>  [FINALLY]: Аудит тесту #3 завершено. Стан шини перевірено.
+</span><span id="__span-6-18"><a id="__codelineno-6-18" name="__codelineno-6-18" href="#__codelineno-6-18"></a>
+</span><span id="__span-6-19"><a id="__codelineno-6-19" name="__codelineno-6-19" href="#__codelineno-6-19"></a>Тест #04: Тестування конфігурації -&gt; {'voltage': 3.3, 'clock_source': 'HSE', 'input_freq_mhz': 12.0, 'pll_multiplier': 16}
+</span><span id="__span-6-20"><a id="__codelineno-6-20" name="__codelineno-6-20" href="#__codelineno-6-20"></a>  [ПЕРЕХОПЛЕНО СПЕЦІАЛІЗОВАНО]: [ERR-1003] (2026-08-30 17:02:15) Розрахована частота ядра 192.00 МГц перевищує критичний ліміт 168.00 МГц.
+</span><span id="__span-6-21"><a id="__codelineno-6-21" name="__codelineno-6-21" href="#__codelineno-6-21"></a>  -&gt; Дія системи: Зниження множника PLL до безпечного значення за замовчуванням.
+</span><span id="__span-6-22"><a id="__codelineno-6-22" name="__codelineno-6-22" href="#__codelineno-6-22"></a>  [FINALLY]: Аудит тесту #4 завершено. Стан шини перевірено.
+</span><span id="__span-6-23"><a id="__codelineno-6-23" name="__codelineno-6-23" href="#__codelineno-6-23"></a>
+</span><span id="__span-6-24"><a id="__codelineno-6-24" name="__codelineno-6-24" href="#__codelineno-6-24"></a>Тест #05: Тестування конфігурації -&gt; {'voltage': 'CORRUPTED_VALUE', 'clock_source': 'HSI', 'input_freq_mhz': 16.0, 'pll_multiplier': 4}
+</span><span id="__span-6-25"><a id="__codelineno-6-25" name="__codelineno-6-25" href="#__codelineno-6-25"></a>  [ПЕРЕХОПЛЕНО БАЗОВИЙ ХАРДВЕРНИЙ]: [ERR-1004] (2026-08-30 17:02:15) Параметр 'voltage' повинен бути числовим значенням.
+</span><span id="__span-6-26"><a id="__codelineno-6-26" name="__codelineno-6-26" href="#__codelineno-6-26"></a>  -&gt; Першопричина (Chained Cause): ValueError: could not convert string to float: 'CORRUPTED_VALUE'
+</span><span id="__span-6-27"><a id="__codelineno-6-27" name="__codelineno-6-27" href="#__codelineno-6-27"></a>  [FINALLY]: Аудит тесту #5 завершено. Стан шини перевірено.
+</span><span id="__span-6-28"><a id="__codelineno-6-28" name="__codelineno-6-28" href="#__codelineno-6-28"></a>
+</span><span id="__span-6-29"><a id="__codelineno-6-29" name="__codelineno-6-29" href="#__codelineno-6-29"></a>Тест #06: Тестування конфігурації -&gt; {'voltage': 3.3, 'clock_source': 'HSI'}
+</span><span id="__span-6-30"><a id="__codelineno-6-30" name="__codelineno-6-30" href="#__codelineno-6-30"></a>  [ПЕРЕХОПЛЕНО СТАНДАРТНИЙ]: Відсутній ключ структури -&gt; "У конфігураційній структурі відсутні обов'язкові параметри: {'input_freq_mhz', 'pll_multiplier'}"
+</span><span id="__span-6-31"><a id="__codelineno-6-31" name="__codelineno-6-31" href="#__codelineno-6-31"></a>  [FINALLY]: Аудит тесту #6 завершено. Стан шини перевірено.
+</span><span id="__span-6-32"><a id="__codelineno-6-32" name="__codelineno-6-32" href="#__codelineno-6-32"></a>
+</span><span id="__span-6-33"><a id="__codelineno-6-33" name="__codelineno-6-33" href="#__codelineno-6-33"></a>==========================================================================================
+</span><span id="__span-6-34"><a id="__codelineno-6-34" name="__codelineno-6-34" href="#__codelineno-6-34"></a>                           ПІДСУМКОВІ МЕТРИКИ НАДІЙНОСТІ СИСТЕМИ                          
+</span><span id="__span-6-35"><a id="__codelineno-6-35" name="__codelineno-6-35" href="#__codelineno-6-35"></a>------------------------------------------------------------------------------------------
+</span><span id="__span-6-36"><a id="__codelineno-6-36" name="__codelineno-6-36" href="#__codelineno-6-36"></a>  Всього оброблено тестових наборів:             6
+</span><span id="__span-6-37"><a id="__codelineno-6-37" name="__codelineno-6-37" href="#__codelineno-6-37"></a>  Штатних успішних конфігурацій:                 1
+</span><span id="__span-6-38"><a id="__codelineno-6-38" name="__codelineno-6-38" href="#__codelineno-6-38"></a>  Локалізованих та оброблених збоїв:             5
+</span><span id="__span-6-39"><a id="__codelineno-6-39" name="__codelineno-6-39" href="#__codelineno-6-39"></a>  Коефіцієнт програмного відновлення (P):   100.00%
+</span><span id="__span-6-40"><a id="__codelineno-6-40" name="__codelineno-6-40" href="#__codelineno-6-40"></a>==========================================================================================
+</span><span id="__span-6-41"><a id="__codelineno-6-41" name="__codelineno-6-41" href="#__codelineno-6-41"></a>
+</span><span id="__span-6-42"><a id="__codelineno-6-42" name="__codelineno-6-42" href="#__codelineno-6-42"></a>Час виконання діагностичного тестбенчу: 1.350 мс
+</span></code></pre></div>
+<p>Аналіз результатів тестування демонструє:</p>
+<ol>
+<li>
+<p>Система ієрархії винятків точно диференціює помилки: спеціалізовані перехоплювачі відпрацювали для напруги (<code>ERR-1001</code>), джерела тактування (<code>ERR-1002</code>) та частотного перевантаження (<code>ERR-1003</code>).</p>
+</li>
+<li>
+<p>Механізм ланцюжка винятків (<code>raise ... from type_err</code>) у тесті #5 успішно зберіг системну першопричину <code>ValueError</code>, водночас надавши прикладній програмі високоінформативний хардверний виняток <code>HardwareConfigError [ERR-1004]</code>.</p>
+</li>
+<li>
+<p>Блок <code>finally</code> спрацював у 100% випадків, підтверджуючи безперервність циклу аудиту ресурсів, а коефіцієнт програмного відновлення досяг <span class="arithmatex">\(P_{\text{recovery}} = 100.00\%\)</span>.</p>
+</li>
+</ol>
+<hr />
+<h2 id="4">4. Вимоги до змісту звіту</h2>
+<p>Звіт з лабораторної роботи оформлюється у форматі PDF відповідно до стандартів НАЗЯВО/ECTS та повинен містити такі обов'язкові розділи:</p>
+<ol>
+<li>
+<p><strong>Титульна сторінка:</strong> повне найменування ЗВО, інституту, кафедри, дисципліни, номер і назва роботи, відомості про здобувача (ПІБ, група, варіант), відомості про викладача.</p>
+</li>
+<li>
+<p><strong>Мета роботи та технічна постановка задачі:</strong> формулювання мети дослідження, опис контрольованого апаратного вузла та фізичні межі параметрів згідно з варіантом.</p>
+</li>
+<li>
+<p><strong>Діаграма класів винятків (UML):</strong> графічна схема наслідування розроблених користувацьких винятків із переліком атрибутів кожного класу.</p>
+</li>
+<li>
+<p><strong>Програмний код:</strong> повні вихідні лістинги файлів <code>custom_exceptions.py</code> та <code>device_validator.py</code> із детальними авторськими коментарями.</p>
+</li>
+<li>
+<p><strong>Результати тестування:</strong> скріншоти консольного виведення тестбенчу з фіксацією перехоплення кожного типу винятку, ланцюжків помилок та розрахунку метрики <span class="arithmatex">\(P_{\text{recovery}}\)</span>.</p>
+</li>
+<li>
+<p><strong>Посилання на Git-репозиторій:</strong> діюче посилання на оновлений репозиторій GitHub із зафіксованим комітом виконаної лабораторної роботи.</p>
+</li>
+<li>
+<p><strong>Висновки:</strong> аналітичний висновок щодо забезпечення надійності ПЗ, переваг кастомних винятків над поверненням числових кодів помилок та ефективності підходу EAFP.</p>
+</li>
+</ol>
+<hr />
+<h2 id="5">5. Контрольні запитання для захисту роботи</h2>
+<ol>
+<li>
+<p>У чому полягає принципова різниця між системними винятками, похідними від <code>BaseException</code> (наприклад, <code>KeyboardInterrupt</code>, <code>SystemExit</code>), та прикладними винятками, похідними від <code>Exception</code>?</p>
+</li>
+<li>
+<p>Опишіть внутрішній механізм розкручування стека викликів (<em>stack unwinding</em>) у CPython. Що відбувається з об'єктами локального стекового кадру <code>PyFrameObject</code> при виникненні винятку?</p>
+</li>
+<li>
+<p>Поясніть призначення та синтаксис ланцюжків винятків (<em>exception chaining</em>, PEP 3134) за допомогою конструкції <code>raise ... from ...</code>. Яка інформація зберігається в атрибуті <code>__cause__</code>?</p>
+</li>
+<li>
+<p>Порівняйте парадигми програмування EAFP (<em>Easier to Ask for Forgiveness than Permission</em>) та LBYL (<em>Look Before You Leap</em>). Чому в багатопотокових системах підхід EAFP є більш стійким до стану гонитви TOCTOU?</p>
+</li>
+<li>
+<p>Чому блоки <code>except</code> повинні розташовуватися строго у порядку від найбільш спеціалізованих (похідних) класів до найбільш загальних (базових)? Що станеться, якщо першим блоком вказати <code>except Exception:</code>?</p>
+</li>
+<li>
+<p>За яких умов виконується блок <code>else</code> у конструкції <code>try-except-else-finally</code>? Чому відокремлення коду успішного виконання в блок <code>else</code> є кращою практикою, ніж розміщення його в кінці блоку <code>try</code>?</p>
+</li>
+</ol>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Повернутись нагору
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 Kyrylo Vadurin &bull; <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a>
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.expand", "navigation.top", "navigation.tracking", "header.autohide", "search.suggest", "search.highlight", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u0421\u043a\u043e\u043f\u0456\u0439\u043e\u0432\u0430\u043d\u043e \u0432 \u0431\u0443\u0444\u0435\u0440", "clipboard.copy": "\u0421\u043a\u043e\u043f\u0456\u044e\u0432\u0430\u0442\u0438 \u0432 \u0431\u0443\u0444\u0435\u0440", "search.result.more.one": "\u0429\u0435 1 \u0437\u0431\u0456\u0433 \u043d\u0430 \u0446\u0456\u0439 \u0441\u0442\u043e\u0440\u0456\u043d\u0446\u0456", "search.result.more.other": "\u0429\u0435 # \u0437\u0431\u0456\u0433\u0456\u0432 \u043d\u0430 \u0446\u0456\u0439 \u0441\u0442\u043e\u0440\u0456\u043d\u0446\u0456", "search.result.none": "\u0417\u0431\u0456\u0433\u0456\u0432 \u043d\u0435 \u0437\u043d\u0430\u0439\u0434\u0435\u043d\u043e", "search.result.one": "\u0417\u043d\u0430\u0439\u0434\u0435\u043d\u043e 1 \u0437\u0431\u0456\u0433", "search.result.other": "\u0417\u043d\u0430\u0439\u0434\u0435\u043d\u043e # \u0437\u0431\u0456\u0433\u0456\u0432", "search.result.placeholder": "\u0420\u043e\u0437\u043f\u043e\u0447\u043d\u0456\u0442\u044c \u043f\u0438\u0441\u0430\u0442\u0438 \u0434\u043b\u044f \u043f\u043e\u0448\u0443\u043a\u0443", "search.result.term.missing": "\u041d\u0435 \u0437\u043d\u0430\u0439\u0434\u0435\u043d\u043e \u0437\u0430\u043f\u0438\u0442\u0443", "select.version": "\u041e\u0431\u0440\u0430\u0442\u0438 \u0432\u0435\u0440\u0441\u0456\u044e"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,1724 @@
+
+<!doctype html>
+<html lang="uk" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Навчальний портал з дисципліни "Програмування на Python. Базовий рівень"">
+      
+      
+      
+      
+        <link rel="prev" href="../lk1/">
+      
+      
+        <link rel="next" href="../lk3/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Тема 2. Керування потоком виконання - Програмування на Python</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="cyan">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#1-2" class="md-skip">
+          Перейти до змісту
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Хедер">
+    <a href="../.." title="Програмування на Python" class="md-header__button md-logo" aria-label="Програмування на Python" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Програмування на Python
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Тема 2. Керування потоком виконання
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="cyan"  aria-label="Переключити на темну тему"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Переключити на темну тему" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="cyan"  aria-label="Переключити на світлу тему"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Переключити на світлу тему" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Пошук" placeholder="Пошук" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Шукати">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Очистити" aria-label="Очистити" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Пошук розпочато
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Вкладки" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Робоча програма
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../lk1/" class="md-tabs__link">
+          
+  
+  
+  Лекції
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../lb/lb1/" class="md-tabs__link">
+          
+  
+  
+  Лабораторні роботи
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../sr/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Самостійна робота
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../rg/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Розрахунково-графічна робота
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Навігація" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Програмування на Python" class="md-nav__button md-logo" aria-label="Програмування на Python" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Програмування на Python
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Робоча програма
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Лекції
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Лекції
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lk1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Тема 1. Архітектура мови та інфраструктура
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Тема 2. Керування потоком виконання
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Тема 2. Керування потоком виконання
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Зміст">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Зміст
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#21-if-elif-else-pep-8-and-or-not-short-circuit-evaluation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1. Умовне виконання: повні та неповні форми if-elif-else, правила відступів (PEP 8), логічні зв'язки and, or, not і коротка схема обчислення (short-circuit evaluation)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.1. Умовне виконання: повні та неповні форми if-elif-else, правила відступів (PEP 8), логічні зв&#39;язки and, or, not і коротка схема обчислення (short-circuit evaluation)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Основний зміст та теоретичний базис
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#22-conditional-expressions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2. Тернарний умовний вираз (Conditional Expressions): синтаксис та інженерні сценарії застосування
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.2. Тернарний умовний вираз (Conditional Expressions): синтаксис та інженерні сценарії застосування">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Основний зміст та теоретичний базис
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#23-while-for-range-break-continue-pass-else" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3. Циклічні конструкції: цикл з передумовою while, цикл ітерації for по ітерованих послідовностях, функція range(). Керування ітераціями: оператори break, continue, pass та специфіка блоку else у циклах
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.3. Циклічні конструкції: цикл з передумовою while, цикл ітерації for по ітерованих послідовностях, функція range(). Керування ітераціями: оператори break, continue, pass та специфіка блоку else у циклах">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Основний зміст та теоретичний базис
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Питання для самоперевірки та аналітичного осмислення
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lk3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Тема 3. Впорядковані структури даних (Списки, Кортежі)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lk4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Тема 4. Текстові, двійкові дані та Регулярні вирази
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lk5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Тема 5. Хеш-таблиці (Словники, Множини)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lk6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Тема 6. Функціональна організація коду
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lk7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Тема 7. Модульна архітектура та пакети
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lk8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Тема 8. Обробка винятків та файлове в/в
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lk9/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Тема 9. Об'єктно-орієнтоване програмування
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Лабораторні роботи
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Лабораторні роботи
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lb/lb1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 1. Розгортання інфраструктури розробки
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lb/lb2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 2. Скалярні типи даних та моделювання
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lb/lb3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 3. Алгоритми розгалуженої та циклічної структури
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lb/lb4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 4. Обробка списків та кортежі
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lb/lb5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 5. Обробка тексту та регулярні вирази
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lb/lb6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 6. Асоціативні структури даних (Словники, Множини)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lb/lb7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 7. Проєктування функцій та рекурсія
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lb/lb8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 8. Модульне програмування та системні бібліотеки
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lb/lb9/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 9. Обробка виняткових ситуацій
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lb/lb10/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 10. Файлове в/в та менеджери контексту
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lb/lb11/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 11. ООП та перевантаження методів
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sr/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Самостійна робота
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../rg/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Розрахунково-графічна робота
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Зміст">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Зміст
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#21-if-elif-else-pep-8-and-or-not-short-circuit-evaluation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1. Умовне виконання: повні та неповні форми if-elif-else, правила відступів (PEP 8), логічні зв'язки and, or, not і коротка схема обчислення (short-circuit evaluation)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.1. Умовне виконання: повні та неповні форми if-elif-else, правила відступів (PEP 8), логічні зв&#39;язки and, or, not і коротка схема обчислення (short-circuit evaluation)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Основний зміст та теоретичний базис
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#22-conditional-expressions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2. Тернарний умовний вираз (Conditional Expressions): синтаксис та інженерні сценарії застосування
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.2. Тернарний умовний вираз (Conditional Expressions): синтаксис та інженерні сценарії застосування">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Основний зміст та теоретичний базис
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#23-while-for-range-break-continue-pass-else" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3. Циклічні конструкції: цикл з передумовою while, цикл ітерації for по ітерованих послідовностях, функція range(). Керування ітераціями: оператори break, continue, pass та специфіка блоку else у циклах
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.3. Циклічні конструкції: цикл з передумовою while, цикл ітерації for по ітерованих послідовностях, функція range(). Керування ітераціями: оператори break, continue, pass та специфіка блоку else у циклах">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Основний зміст та теоретичний базис
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Питання для самоперевірки та аналітичного осмислення
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="1-2">ЗМІСТОВИЙ МОДУЛЬ 1. ТЕМА 2. КЕРУВАННЯ ПОТОКОМ ВИКОНАННЯ: РОЗГАЛУЖЕНІ ТА ЦИКЛІЧНІ АЛГОРИТМІЧНІ КОНСТРУКЦІЇ</h1>
+<hr />
+<h2 id="21-if-elif-else-pep-8-and-or-not-short-circuit-evaluation">2.1. Умовне виконання: повні та неповні форми if-elif-else, правила відступів (PEP 8), логічні зв'язки and, or, not і коротка схема обчислення (short-circuit evaluation)</h2>
+<h3 id="_1">Основний зміст та теоретичний базис</h3>
+<p>Керування послідовністю виконання інструкцій є фундаментальним аспектом побудови будь-якого алгоритму в комп'ютерній інженерії. У базовому режимі процесор виконує команди лінійно, однак розв'язання реальних обчислювальних задач вимагає адаптивної зміни траєкторії обчислювального процесу залежно від динамічного стану системи, поточних значень змінних або зовнішніх сигналів. Конструкція розгалуження забезпечує умовну зміну потоку керування шляхом обчислення булевих виразів-предикатів.</p>
+<p>У мові програмування Python розгалуження реалізовано за допомогою операторів <code>if</code>, <code>elif</code> та <code>else</code>. На відміну від більшості класичних мов програмування, таких як C, C++ або Java, де для структурування блоків коду застосовуються фігурні дужки <code>{}</code> або спеціальні ключові слова <code>begin</code> і <code>end</code>, синтаксис Python базується на концепції синтаксичного виділення блоків відступами (відомій як <em>off-side rule</em>). </p>
+<p>Лексичний аналізатор інтерпретатора перетворює пробіли на початку рядка у службові токени <code>INDENT</code> (збільшення рівня вкладеності) та <code>DEDENT</code> (зменшення рівня вкладеності). Стандарт інженерного оформлення коду PEP 8 вимагає використання рівно чотирьох символів пробілу для кожного рівня ієрархії, суворо забороняючи змішування символів табуляції та пробілів, оскільки це призводить до виникнення винятку <code>TabError</code>.</p>
+<p>Неповна форма умовного оператора містить лише блок <code>if</code> і забезпечує виконання вкладених інструкцій виключно у разі істинності заданого предиката. Повна бінарна форма <code>if-else</code> створює дві взаємовиключні гілки виконання. Для реалізації складних деревоподібних розгалужень використовується каскадна конструкція <code>if-elif-else</code>, яка є високоефективною альтернативою операторам багатоваріантного вибору на кшталт <code>switch-case</code>. </p>
+<p>Обчислення умовних виразів у ланцюжку <code>elif</code> відбувається строго послідовно зверху вниз до першого виразу, що оцінюється як істинний. Після виконання відповідного блоку інструкцій інтерпретатор повністю ігнорує всі наступні блоки <code>elif</code> та фінальний блок <code>else</code>, негайно передаючи керування за межі всієї конструкції розгалуження.</p>
+<p><pre class="mermaid"><code>flowchart TD
+    Start(["Початок перевірки умовного блоку"]) --&gt; Cond1{"Перевірка Умови 1 (if)"}
+
+    Cond1 -- "Істина (True)" --&gt; Block1["Виконання Блоку інструкцій 1"]
+    Cond1 -- "Хиба (False)" --&gt; Cond2{"Перевірка Умови 2 (elif)"}
+
+    Cond2 -- "Істина (True)" --&gt; Block2["Виконання Блоку інструкцій 2"]
+    Cond2 -- "Хиба (False)" --&gt; CondN{"Перевірка Умови N (elif)"}
+
+    CondN -- "Істина (True)" --&gt; BlockN["Виконання Блоку інструкцій N"]
+    CondN -- "Хиба (False)" --&gt; BlockElse["Виконання Блоку інструкцій else"]
+
+    Block1 --&gt; Merge(["Вихід із конструкції розгалуження"])
+    Block2 --&gt; Merge
+    BlockN --&gt; Merge
+    BlockElse --&gt; Merge</code></pre>
+<em>Рисунок 1 — Логічна схема виконання каскадної конструкції розгалуження if-elif-else</em></p>
+<p>Проаналізуємо схему виконання алгоритму розгалуження. Граф потоку керування наочно демонструє детермінований характер перевірки умов. Жоден із вкладених блоків не може бути виконаний одночасно з іншим. Якщо жоден із предикатів у ланцюжку <code>if-elif</code> не набув значення істини, керування безумовно передається блоку <code>else</code>. Якщо секція <code>else</code> відсутня, а всі умови виявилися хибними, умовний оператор завершує роботу без виконання будь-яких побічних дій.</p>
+<p>Оцінювання умов у мові Python базується на перевірці так званої істинності об'єктів (<em>truthiness</em>). Будь-який тип даних може бути приведений до логічного значення <code>bool</code> за допомогою внутрішнього виклику методу <code>__bool__()</code> або, у разі його відсутності, методу визначення довжини <code>__len__()</code>. Об'єкти, що представляють числові нулі будь-якого типу (<code>0</code>, <code>0.0</code>, <code>0j</code>), порожні колекції (<code>""</code>, <code>[]</code>, <code>()</code>, <code>{}</code>, <code>set()</code>) та спеціальний об'єкт <code>None</code>, автоматично приводяться до логічного значення <code>False</code>. Усі інші об'єкти інтерпретуються як <code>True</code>.</p>
+<p>Формування складених логічних умов здійснюється за допомогою логічних операторів <code>and</code> (кон'юнкція), <code>or</code> (диз'юнкція) та <code>not</code> (логічне заперечення). Пріоритет оператора <code>not</code> є найвищим, далі йде <code>and</code>, а найнижчий пріоритет має оператор <code>or</code>. За необхідності зміни порядку обчислень застосовуються круглі дужки.</p>
+<p>Фундаментальним механізмом виконання логічних операцій у Python є <strong>коротка схема обчислення</strong> (<em>short-circuit evaluation</em>). Відповідно до цього підходу, обчислення операндів у ланцюжку логічних зв'язок відбувається зліва направо і негайно зупиняється, як тільки кінцеве логічне значення всього виразу стає однозначно визначеним. Особливістю мови Python є те, що оператори <code>and</code> та <code>or</code> повертають не булеве значення <code>True</code> або <code>False</code>, а безпосередньо значення того операнда, на якому зупинилося обчислення.</p>
+<p>Математично роботу оператора кон'юнкції <span class="arithmatex">\(z = x \land y\)</span> у контексті короткої схеми Python можна формалізувати за допомогою наступного кусочно-заданого правила:</p>
+<div class="arithmatex">\[z = \text{eval}(x \text{ and } y) = \begin{cases} x, &amp; \text{якщо } \mathbb{B}(x) = \text{False}, \\ y, &amp; \text{якщо } \mathbb{B}(x) = \text{True} \end{cases}\]</div>
+<p>де <span class="arithmatex">\(x\)</span> та <span class="arithmatex">\(y\)</span> — довільні вирази або об'єкти мови Python; <span class="arithmatex">\(\mathbb{B}(x)\)</span> — функція перетворення об'єкта <span class="arithmatex">\(x\)</span> до булевого типу (<code>bool(x)</code>). Якщо перший операнд <span class="arithmatex">\(x\)</span> хибний, весь вираз гарантовано не може бути істинним, тому операнд <span class="arithmatex">\(y\)</span> взагалі не інтерпретується, що запобігає виникненню критичних помилок часу виконання (наприклад, помилки ділення на нуль або звернення за неіснуючим індексом).</p>
+<p>Аналогічно, для логічного оператора диз'юнкції <span class="arithmatex">\(z = x \lor y\)</span> коротка схема обчислення описується залежністю:</p>
+<div class="arithmatex">\[z = \text{eval}(x \text{ or } y) = \begin{cases} x, &amp; \text{якщо } \mathbb{B}(x) = \text{True}, \\ y, &amp; \text{якщо } \mathbb{B}(x) = \text{False} \end{cases}\]</div>
+<p>де <span class="arithmatex">\(x\)</span> виступає визначальним операндом: якщо <span class="arithmatex">\(\mathbb{B}(x) = \text{True}\)</span>, результат <span class="arithmatex">\(x\)</span> повертається негайно, а обчислення виразу <span class="arithmatex">\(y\)</span> блокується. Це дозволяє створювати надійні інженерні конструкції перевірки захисних умов (guard clauses) в один рядок, наприклад: <code>is_valid = (denominator != 0) and (numerator / denominator &gt; threshold)</code>.</p>
+<p>Таблиця 2.1 систематизує правила приведення стандартних типів даних до булевого еквівалента, що є теоретичним підґрунтям для роботи умовних операторів.</p>
+<p><em>Таблиця 2.1 — Правила оцінювання істинності стандартних типів даних у логічному контексті</em></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Тип даних</th>
+<th style="text-align: left;">Значення, що інтерпретуються як <code>False</code></th>
+<th style="text-align: left;">Значення, що інтерпретуються як <code>True</code></th>
+<th style="text-align: left;">Механізм перевірки на рівні CPython</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong><code>int</code>, <code>float</code>, <code>complex</code></strong></td>
+<td style="text-align: left;"><code>0</code>, <code>0.0</code>, <code>0.0j</code>, <code>-0.0</code></td>
+<td style="text-align: left;">Будь-яке ненульове числове значення</td>
+<td style="text-align: left;">Виклик слота <code>nb_bool</code> або порівняння бітів зі значенням нуля</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>bool</code></strong></td>
+<td style="text-align: left;"><code>False</code></td>
+<td style="text-align: left;"><code>True</code></td>
+<td style="text-align: left;">Пряма ідентифікація вбудованого об'єкта-сінглтона</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>str</code></strong></td>
+<td style="text-align: left;">Порожній рядок <code>""</code></td>
+<td style="text-align: left;">Непорожній рядок довільної довжини</td>
+<td style="text-align: left;">Оцінка поля <code>ob_size</code> у структурі <code>PyASCIIObject</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>list</code>, <code>tuple</code></strong></td>
+<td style="text-align: left;">Порожні послідовності <code>[]</code>, <code>()</code></td>
+<td style="text-align: left;">Послідовності, що містять щонайменше один елемент</td>
+<td style="text-align: left;">Перевірка лічильника елементів <code>ob_size &gt; 0</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>dict</code>, <code>set</code></strong></td>
+<td style="text-align: left;">Порожні колекції <code>{}</code>, <code>set()</code></td>
+<td style="text-align: left;">Колекції з кількістю елементів більше нуля</td>
+<td style="text-align: left;">Оцінка заповненості внутрішньої хеш-таблиці</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>NoneType</code></strong></td>
+<td style="text-align: left;">Єдиний об'єкт <code>None</code></td>
+<td style="text-align: left;">Не існує</td>
+<td style="text-align: left;">Порівняння покажчика пам'яті з глобальним <code>Py_None</code></td>
+</tr>
+</tbody>
+</table>
+<p>Наведений системний аналіз підтверджує, що концепція істинності охоплює всі внутрішні структури CPython. Це дозволяє розробникам писати лаконічний та водночас високопродуктивний код перевірки стану апаратних буферів, системних прапорців та каналів передачі даних.</p>
+<hr />
+<h2 id="22-conditional-expressions">2.2. Тернарний умовний вираз (Conditional Expressions): синтаксис та інженерні сценарії застосування</h2>
+<h3 id="_2">Основний зміст та теоретичний базис</h3>
+<p>У теорії мов програмування розрізняють поняття інструкції (<em>statement</em>) та виразу (<em>expression</em>). Інструкція визначає дію та керує потоком виконання, однак вона не повертає прямого обчислювального значення, яке можна було б безпосередньо передати як аргумент функції або використати у правій частині оператора присвоєння. З іншого боку, вираз обов'язково редукується до конкретного результуючого об'єкта (<span class="arithmatex">\(R\)</span>-value). </p>
+<p>Класичний умовний оператор <code>if-else</code> є інструкцією. Для ситуацій, коли вибір між двома альтернативними значеннями повинен здійснюватися безпосередньо всередині обчислювального виразу, починаючи з версії Python 2.5 (згідно з документом PEP 308), було впроваджено <strong>тернарний умовний вираз</strong> (<em>conditional expression</em>).</p>
+<p>Граматична структура тернарного виразу у Python відрізняється від традиційного C-подібного синтаксису <code>condition ? true_val : false_val</code> і має такий синтаксичний формат:</p>
+<div class="arithmatex">\[\text{result} = \text{expression\_true} \textbf{ if } \text{condition} \textbf{ else } \text{expression\_false}\]</div>
+<p>де <span class="arithmatex">\(\text{condition}\)</span> — логічний предикат; <span class="arithmatex">\(\text{expression\_true}\)</span> — вираз, який обчислюється і повертається у разі <span class="arithmatex">\(\mathbb{B}(\text{condition}) = \text{True}\)</span>; <span class="arithmatex">\(\text{expression\_false}\)</span> — вираз, який обчислюється і повертається у разі <span class="arithmatex">\(\mathbb{B}(\text{condition}) = \text{False}\)</span>.</p>
+<p>Семантичною особливістю тернарного виразу є суворе дотримання принципу лінивого обчислення (<em>lazy evaluation</em>). Інтерпретатор спочатку обчислює предикат <span class="arithmatex">\(\text{condition}\)</span>. Якщо умова істинна, обчислюється виключно лівий вираз <span class="arithmatex">\(\text{expression\_true}\)</span>, тоді як правий вираз <span class="arithmatex">\(\text{expression\_false}\)</span> навіть не аналізується на етапі виконання. Якщо умова хибна, обчислюється лише правий вираз <span class="arithmatex">\(\text{expression\_false}\)</span>. </p>
+<p>Ця властивість гарантує безпеку виконання обчислень у випадках, коли одна з альтернативних гілок містить операцію, потенційно небезпечну для виконання за певних граничних умов.</p>
+<p><pre class="mermaid"><code>flowchart LR
+    Start(["Вхід у тернарний вираз"]) --&gt; EvalCond{"Обчислення condition"}
+
+    EvalCond -- "True" --&gt; EvalTrue["Обчислення expression_true"]
+    EvalCond -- "False" --&gt; EvalFalse["Обчислення expression_false"]
+
+    EvalTrue --&gt; ReturnTrue["Повернення значення A"]
+    EvalFalse --&gt; ReturnFalse["Повернення значення B"]
+
+    ReturnTrue --&gt; EndNode(["Присвоєння або передача результату"])
+    ReturnFalse --&gt; EndNode</code></pre>
+<em>Рисунок 2 — Порядок оцінювання та обчислення гілок тернарного умовного виразу</em></p>
+<p>Графічна інтерпретація порядку обчислення чітко ілюструє, що тернарний вираз працює як селектор потоку даних. На відміну від позиційного порядку читання коду людиною (зліва направо), процесорне виконання завжди ставить на перше місце центральну частину виразу — предикат перевірки.</p>
+<p>В інженерній практиці комп'ютерної інженерії тернарні вирази найчастіше використовуються у таких сценаріях:</p>
+<ul>
+<li>
+<p>Ініціалізація апаратних конфігурацій та встановлення значень за замовчуванням у разі відсутності телеметричного сигналу: <code>sampling_rate = config.rate if config.is_valid() else DEFAULT_RATE</code>.</p>
+</li>
+<li>
+<p>Реалізація кусочно-неперервних математичних залежностей та функцій обмеження сигналів (клемпування / насичення):</p>
+</li>
+</ul>
+<div class="arithmatex">\[f(u) = \begin{cases} U_{\max}, &amp; \text{якщо } u \ge U_{\max} \\ u, &amp; \text{якщо } u \lt  U_{\max} \end{cases}\]</div>
+<p>на рівні коду набуває лаконічного вигляду: <code>voltage_out = MAX_VOLTAGE if measured_voltage &gt; MAX_VOLTAGE else measured_voltage</code>.</p>
+<ul>
+<li>
+<p>Нормалізація та фільтрація вхідних даних безпосередньо у виразах спискових включень (<em>list comprehensions</em>).</p>
+</li>
+<li>
+<p>Форматування текстових повідомлень у логах системного адміністрування залежно від статусу операції: <code>log_status = f"Port status: {'UP' if link_active else 'DOWN'}"</code>.</p>
+</li>
+</ul>
+<p>Незважаючи на високу виразність, мова Python дозволяє створювати вкладені тернарні вирази вигляду: <code>a if cond1 else b if cond2 else c</code>. Проте з точки зору стандартів інженерної розробки глибоке вкладення тернарних операторів категорично не рекомендується, оскільки воно істотно підвищує когнітивне навантаження при читанні коду та ускладнює статичний аналіз програмного забезпечення.</p>
+<hr />
+<h2 id="23-while-for-range-break-continue-pass-else">2.3. Циклічні конструкції: цикл з передумовою while, цикл ітерації for по ітерованих послідовностях, функція range(). Керування ітераціями: оператори break, continue, pass та специфіка блоку else у циклах</h2>
+<h3 id="_3">Основний зміст та теоретичний базис</h3>
+<p>Циклічні конструкції є базовим засобом автоматизації повторюваних обчислень, масової обробки структур даних та організації системних циклів опитування обладнання (polling loops). У мові Python реалізовано дві фундаментальні парадигми організації циклів: цикл із передумовою <code>while</code> та узагальнений цикл ітерації <code>for</code>.</p>
+<p>Цикл з передумовою <code>while</code> виконує блок вкладених інструкцій доти, доки логічний вираз умови зберігає значення <code>True</code>. Перевірка умови здійснюється перед початком кожної ітерації. </p>
+<p>Формальна коректність циклу <code>while</code> вимагає дотримання умови збіжності: всередині тіла циклу обов'язково має модифікуватися стан змінних, що входять до предиката, таким чином, щоб за скінченну кількість кроків <span class="arithmatex">\(k\)</span> умова набула значення <code>False</code>:</p>
+<div class="arithmatex">\[\exists k \in \mathbb{N} : \mathbb{B}(\text{condition}(k)) = \text{False}\]</div>
+<p>Порушення цього правила призводить до виникнення критичної помилки — <strong>нескінченного циклу</strong> (<em>infinite loop</em>), який викликає стовідсоткове завантаження процесорного ядра (CPU starvation) та блокування потоку виконання. Нескінченні цикли створюються свідомо лише у специфічних архітектурних патернах системного програмування, таких як диспетчери подій операційної системи або фонові сервіси-демони (<code>while True:</code>), із яких передбачено вихід за зовнішнім апаратним перериванням або умовною інструкцією переривання.</p>
+<p>На відміну від багатьох інших мов програмування, де цикл <code>for</code> є лише синтаксичним еквівалентом лічильника з кроком, у мові Python цикл <code>for</code> реалізує фундаментальний патерн проектування <strong>Ітератор</strong> (<em>Iterator Protocol</em>). Він призначений для послідовного перебору елементів будь-якого ітерованого об'єкта (<em>iterable</em>): списків, кортежів, рядків, словників, множин, відкритих файлових потоків або користувацьких генераторів. </p>
+<p>Внутрішній механізм функціонування циклу <code>for element in sequence:</code> складається з наступних системних кроків:</p>
+<ol>
+<li>
+<p>Інтерпретатор звертається до об'єкта <code>sequence</code> та викликає низькорівневу функцію <code>iter(sequence)</code>, яка повертає спеціальний об'єкт-ітератор, що реалізує метод <code>__next__()</code>.</p>
+</li>
+<li>
+<p>На кожній ітерації віртуальна машина викликає метод <code>next(iterator)</code>.</p>
+</li>
+<li>
+<p>Отриманий об'єкт зв'язується зі змінною ітерації <code>element</code>, після чого виконується тіло циклу.</p>
+</li>
+<li>
+<p>Процес циклічно триває до моменту, коли об'єкт-ітератор вичерпує послідовність і генерує службовий виняток <code>StopIteration</code>.</p>
+</li>
+<li>
+<p>Віртуальна машина PVM автоматично перехоплює виняток <code>StopIteration</code> і коректно завершує роботу циклу, не викликаючи аварійної зупинки програми.</p>
+</li>
+</ol>
+<p>Для генерації строго детермінованих арифметичних прогресій цілих чисел у циклі <code>for</code> застосовується вбудований незмінний тип даних <code>range</code>. Функція <code>range</code> підтримує три форми виклику: <code>range(stop)</code>, <code>range(start, stop)</code> та <code>range(start, stop, step)</code>. Генерація послідовності здійснюється у напіввідкритому інтервалі <span class="arithmatex">\([start, stop)\)</span>, тобто кінцеве значення <span class="arithmatex">\(stop\)</span> ніколи не включається до результуючої послідовності. </p>
+<p>Математично <span class="arithmatex">\(i\)</span>-й елемент послідовності <span class="arithmatex">\(r(i)\)</span>, сформованої генератором <code>range(start, stop, step)</code>, описується лінійною функцією:</p>
+<div class="arithmatex">\[r(i) = start + i \times step, \quad \text{де } 0 \le i \lt  n\]</div>
+<p>де загальна кількість згенерованих ітерацій <span class="arithmatex">\(n\)</span> обчислюється через функцію взяття верхньої цілої частини (стелі):</p>
+<div class="arithmatex">\[n = \text{len}(range(start, stop, step)) = \max\left(0, \; \left\lceil \frac{stop - start}{step} \right\rceil\right)\]</div>
+<p>Важливою архітектурною перевагою <code>range</code> у Python 3 є те, що цей об'єкт є лінивою послідовністю. Він не створює масив чисел у пам'яті фізично, а зберігає лише три атрибути: <span class="arithmatex">\(start\)</span>, <span class="arithmatex">\(stop\)</span> та <span class="arithmatex">\(step\)</span>. Завдяки цьому об'єкт <code>range(0, 10**12)</code> споживає рівно стільки ж оперативної пам'яті (фіксовані 48 байтів), як і <code>range(0, 10)</code>, забезпечуючи просторову складність <span class="arithmatex">\(O(1)\)</span>.</p>
+<p>Керування мікродинамікою ітерацій здійснюється за допомогою трьох спеціальних операторів:</p>
+<ul>
+<li>
+<p>Оператор <code>break</code> здійснює негайне аварійне або дострокове переривання виконання циклу, передаючи керування на першу інструкцію за межами його блоку.</p>
+</li>
+<li>
+<p>Оператор <code>continue</code> припиняє виконання поточної ітерації циклу, ігнорує всі залиheaders інструкцій у тілі циклу та ініціює перехід до перевірки умови (у <code>while</code>) або взяття наступного елемента (у <code>for</code>).</p>
+</li>
+<li>
+<p>Оператор <code>pass</code> є синтаксичною порожньою операцією (<em>no-op</em>), яка не виконує жодних дій і використовується як тимчасова заглушка у порожніх блоках функцій, класів чи умовних переходів.</p>
+</li>
+</ul>
+<p>Унікальною синтаксичною конструкцією мови Python є наявність <strong>блоку <code>else</code> у циклах <code>while</code> та <code>for</code></strong>. Блок <code>else</code> виконується тоді і тільки тоді, коли цикл завершив роботу природним шляхом (умова циклу <code>while</code> стала хибною або послідовність у циклі <code>for</code> була повністю вичерпана). </p>
+<p>Якщо ж вихід із циклу відбувся достроково за допомогою оператора <code>break</code>, блок <code>else</code> повністю ігнорується. Ця конструкція є високоефективним інженерним патерном для реалізації алгоритмів лінійного пошуку, усуваючи необхідність створення допоміжних булевих прапорців (<em>flag variables</em>).</p>
+<p><pre class="mermaid"><code>flowchart TD
+    StartLoop(["Вхід у цикл"]) --&gt; CheckIter{"Є наступний елемент? / Умова істинна?"}
+
+    CheckIter -- "Так" --&gt; ExecBody["Виконання інструкцій тіла циклу"]
+    ExecBody --&gt; CheckBreak{"Зустріли break?"}
+
+    CheckBreak -- "Так" --&gt; ExitBreak["Вихід із циклу (пропуск else)"]
+    CheckBreak -- "Ні" --&gt; CheckContinue{"Зустріли continue?"}
+
+    CheckContinue -- "Так" --&gt; CheckIter
+    CheckContinue -- "Ні" --&gt; StepEnd["Завершення кроку ітерації"]
+    StepEnd --&gt; CheckIter
+
+    CheckIter -- "Ні (вичерпано природно)" --&gt; ExecElse["Виконання блоку ELSE"]
+    ExecElse --&gt; NormalExit(["Завершення конструкції циклу"])
+    ExitBreak --&gt; NormalExit</code></pre>
+<em>Рисунок 3 — Діаграма станів циклічної конструкції з інтеграцією операторів break, continue та блоку else</em></p>
+<p>Схема демонструє критичну біфуркацію потоку керування: блок <code>else</code> тісно пов'язаний із точкою природного вичерпання ітератора. У разі спрацьовування директиви <code>break</code> потік виконання миттєво оминає як залишок тіла циклу, так і блок <code>else</code>.</p>
+<p>Таблиця 2.2 проводить комплексне порівняння циклічних конструкцій мови Python за ключовими технічними показниками.</p>
+<p><em>Таблиця 2.2 — Порівняльний аналіз циклічних конструкцій <code>while</code> та <code>for</code></em></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Параметр порівняння</th>
+<th style="text-align: left;">Цикл з передумовою <code>while</code></th>
+<th style="text-align: left;">Цикл ітерації <code>for</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Базовий механізм керування</strong></td>
+<td style="text-align: left;">Обчислення булевого предиката перед кожною ітерацією</td>
+<td style="text-align: left;">Протокол ітератора (<code>iter()</code>, <code>next()</code>, <code>StopIteration</code>)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Сфера оптимального застосування</strong></td>
+<td style="text-align: left;">Задачі з невідомою кількістю ітерацій, числові методи, очікування події</td>
+<td style="text-align: left;">Перебір структур даних, фіксована кількість кроків, пакетна обробка</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Накладні витрати інтерпретатора</strong></td>
+<td style="text-align: left;">Вищі за рахунок повторної оцінки змінних у виразі</td>
+<td style="text-align: left;">Нижчі через оптимізоване C-виконання обходу колекції</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Ризик зациклення програми</strong></td>
+<td style="text-align: left;">Високий у разі некоректного кроку модифікації лічильника</td>
+<td style="text-align: left;">Відсутній при роботі зі скінченними послідовностями</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Підтримка блоку <code>else</code></strong></td>
+<td style="text-align: left;">Виконується, коли вираз умови повертає <code>False</code></td>
+<td style="text-align: left;">Виконується після вичерпання всіх елементів ітератора</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Просторова складність індексації</strong></td>
+<td style="text-align: left;">Вимагає окремої змінної лічильника (<span class="arithmatex">\(O(1)\)</span>)</td>
+<td style="text-align: left;">При використанні <code>range()</code> просторова складність становить <span class="arithmatex">\(O(1)\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>Як видно з порівняльного аналізу, для задач комп'ютерної інженерії, пов'язаних з обробкою масивів фіксованої довжини, перевагу слід надавати циклу <code>for</code>, який мінімізує накладні витрати віртуальної машини та унеможливлює помилки розбіжності циклу.</p>
+<hr />
+<h3 id="_4">Питання для самоперевірки та аналітичного осмислення</h3>
+<ol>
+<li>
+<p>У чому полягає фундаментальна відмінність підходу мови Python до структурування блоків коду за допомогою відступів від використання синтаксичних дужок у мовах C/C++? Які токени генерує лексичний аналізатор при зміні рівня відступів?</p>
+</li>
+<li>
+<p>Поясніть концепцію короткої схеми обчислення (<em>short-circuit evaluation</em>) для логічних операторів <code>and</code> та <code>or</code>. Які практичні переваги цей механізм надає при перевірці захисних умов (наприклад, запобігання діленню на нуль або уникнення винятку <code>IndexError</code>)?</p>
+</li>
+<li>
+<p>Чому значення виразу <code>[] or "default"</code> у Python дорівнює <code>"default"</code>, а виразу <code>[1, 2] and 0</code> дорівнює <code>0</code>? Опишіть правило повернення фактичного операнда замість булевих констант.</p>
+</li>
+<li>
+<p>Розкрийте семантичну різницю між умовним оператором <code>if-else</code> як інструкцією (<em>statement</em>) та тернарним умовним виразом як виразом (<em>expression</em>). Чому тернарний вираз можна використовувати всередині спискових включень, а звичайний <code>if</code> — ні?</p>
+</li>
+<li>
+<p>Опишіть внутрішній механізм роботи циклу <code>for</code> на рівні протоколу ітератора. Яку роль відіграє службовий виняток <code>StopIteration</code> і чому він не призводить до аварійного завершення програми?</p>
+</li>
+<li>
+<p>Доведіть, що об'єкт <code>range(0, 1000000000)</code> у середовищі CPython споживає константний обсяг пам'яті <span class="arithmatex">\(O(1)\)</span>. Які внутрішні параметри зберігаються в структурі <code>PyRangeObject</code>?</p>
+</li>
+<li>
+<p>За яких конкретних умов виконується блок <code>else</code>, асоційований із циклом <code>for</code> або <code>while</code>? Наведіть інженерний приклад використання конструкції <code>for-else</code> для пошуку несправного вузла комп'ютерної мережі без використання допоміжних прапорцевих змінних.</p>
+</li>
+</ol>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Повернутись нагору
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 Kyrylo Vadurin &bull; <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a>
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.expand", "navigation.top", "navigation.tracking", "header.autohide", "search.suggest", "search.highlight", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u0421\u043a\u043e\u043f\u0456\u0439\u043e\u0432\u0430\u043d\u043e \u0432 \u0431\u0443\u0444\u0435\u0440", "clipboard.copy": "\u0421\u043a\u043e\u043f\u0456\u044e\u0432\u0430\u0442\u0438 \u0432 \u0431\u0443\u0444\u0435\u0440", "search.result.more.one": "\u0429\u0435 1 \u0437\u0431\u0456\u0433 \u043d\u0430 \u0446\u0456\u0439 \u0441\u0442\u043e\u0440\u0456\u043d\u0446\u0456", "search.result.more.other": "\u0429\u0435 # \u0437\u0431\u0456\u0433\u0456\u0432 \u043d\u0430 \u0446\u0456\u0439 \u0441\u0442\u043e\u0440\u0456\u043d\u0446\u0456", "search.result.none": "\u0417\u0431\u0456\u0433\u0456\u0432 \u043d\u0435 \u0437\u043d\u0430\u0439\u0434\u0435\u043d\u043e", "search.result.one": "\u0417\u043d\u0430\u0439\u0434\u0435\u043d\u043e 1 \u0437\u0431\u0456\u0433", "search.result.other": "\u0417\u043d\u0430\u0439\u0434\u0435\u043d\u043e # \u0437\u0431\u0456\u0433\u0456\u0432", "search.result.placeholder": "\u0420\u043e\u0437\u043f\u043e\u0447\u043d\u0456\u0442\u044c \u043f\u0438\u0441\u0430\u0442\u0438 \u0434\u043b\u044f \u043f\u043e\u0448\u0443\u043a\u0443", "search.result.term.missing": "\u041d\u0435 \u0437\u043d\u0430\u0439\u0434\u0435\u043d\u043e \u0437\u0430\u043f\u0438\u0442\u0443", "select.version": "\u041e\u0431\u0440\u0430\u0442\u0438 \u0432\u0435\u0440\u0441\u0456\u044e"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

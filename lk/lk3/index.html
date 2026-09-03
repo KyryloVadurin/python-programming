@@ -1,0 +1,1835 @@
+
+<!doctype html>
+<html lang="uk" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Навчальний портал з дисципліни "Програмування на Python. Базовий рівень"">
+      
+      
+      
+      
+        <link rel="prev" href="../lk2/">
+      
+      
+        <link rel="next" href="../lk4/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Тема 3. Впорядковані структури даних (Списки, Кортежі) - Програмування на Python</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="cyan">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#1-3-list-tuple" class="md-skip">
+          Перейти до змісту
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Хедер">
+    <a href="../.." title="Програмування на Python" class="md-header__button md-logo" aria-label="Програмування на Python" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Програмування на Python
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Тема 3. Впорядковані структури даних (Списки, Кортежі)
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="cyan"  aria-label="Переключити на темну тему"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Переключити на темну тему" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="cyan"  aria-label="Переключити на світлу тему"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Переключити на світлу тему" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Пошук" placeholder="Пошук" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Шукати">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Очистити" aria-label="Очистити" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Пошук розпочато
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Вкладки" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Робоча програма
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../lk1/" class="md-tabs__link">
+          
+  
+  
+  Лекції
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../lb/lb1/" class="md-tabs__link">
+          
+  
+  
+  Лабораторні роботи
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../sr/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Самостійна робота
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../rg/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Розрахунково-графічна робота
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Навігація" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Програмування на Python" class="md-nav__button md-logo" aria-label="Програмування на Python" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Програмування на Python
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Робоча програма
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Лекції
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Лекції
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lk1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Тема 1. Архітектура мови та інфраструктура
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lk2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Тема 2. Керування потоком виконання
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Тема 3. Впорядковані структури даних (Списки, Кортежі)
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Тема 3. Впорядковані структури даних (Списки, Кортежі)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Зміст">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Зміст
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#31-list-slicing-startstopstep" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1. Список (list) як динамічний масив посилань: створення, індексація, зрізи (slicing: [start:stop:step]), багатовимірні вкладені списки
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.1. Список (list) як динамічний масив посилань: створення, індексація, зрізи (slicing: [start:stop:step]), багатовимірні вкладені списки">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Основний зміст та теоретичний базис
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#32-append-extend-insert-pop-remove-clear-del-sort-vs-sorted-reverse-shallow-vs-deep-copy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2. Мутабельність списків: методи додавання (append, extend, insert), вилучення (pop, remove, clear, del), сортування (sort vs sorted, reverse) та поверхневе/глибоке копіювання (shallow vs deep copy)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.2. Мутабельність списків: методи додавання (append, extend, insert), вилучення (pop, remove, clear, del), сортування (sort vs sorted, reverse) та поверхневе/глибоке копіювання (shallow vs deep copy)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Основний зміст та теоретичний базис
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#33-tuple-sizeof-tuple-unpacking-args-list-comprehensions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3. Кортежі (tuple): незмінність, оптимізація споживання пам'яті (sizeof), кортежі як ключі словників, розпакування послідовностей (tuple unpacking, *args). Генератори списків (List Comprehensions)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.3. Кортежі (tuple): незмінність, оптимізація споживання пам&#39;яті (sizeof), кортежі як ключі словників, розпакування послідовностей (tuple unpacking, *args). Генератори списків (List Comprehensions)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Основний зміст та теоретичний базис
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Питання для самоперевірки та аналітичного осмислення
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lk4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Тема 4. Текстові, двійкові дані та Регулярні вирази
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lk5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Тема 5. Хеш-таблиці (Словники, Множини)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lk6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Тема 6. Функціональна організація коду
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lk7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Тема 7. Модульна архітектура та пакети
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lk8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Тема 8. Обробка винятків та файлове в/в
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lk9/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Тема 9. Об'єктно-орієнтоване програмування
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Лабораторні роботи
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Лабораторні роботи
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lb/lb1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 1. Розгортання інфраструктури розробки
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lb/lb2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 2. Скалярні типи даних та моделювання
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lb/lb3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 3. Алгоритми розгалуженої та циклічної структури
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lb/lb4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 4. Обробка списків та кортежі
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lb/lb5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 5. Обробка тексту та регулярні вирази
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lb/lb6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 6. Асоціативні структури даних (Словники, Множини)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lb/lb7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 7. Проєктування функцій та рекурсія
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lb/lb8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 8. Модульне програмування та системні бібліотеки
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lb/lb9/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 9. Обробка виняткових ситуацій
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lb/lb10/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 10. Файлове в/в та менеджери контексту
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lb/lb11/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 11. ООП та перевантаження методів
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sr/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Самостійна робота
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../rg/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Розрахунково-графічна робота
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Зміст">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Зміст
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#31-list-slicing-startstopstep" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1. Список (list) як динамічний масив посилань: створення, індексація, зрізи (slicing: [start:stop:step]), багатовимірні вкладені списки
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.1. Список (list) як динамічний масив посилань: створення, індексація, зрізи (slicing: [start:stop:step]), багатовимірні вкладені списки">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Основний зміст та теоретичний базис
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#32-append-extend-insert-pop-remove-clear-del-sort-vs-sorted-reverse-shallow-vs-deep-copy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2. Мутабельність списків: методи додавання (append, extend, insert), вилучення (pop, remove, clear, del), сортування (sort vs sorted, reverse) та поверхневе/глибоке копіювання (shallow vs deep copy)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.2. Мутабельність списків: методи додавання (append, extend, insert), вилучення (pop, remove, clear, del), сортування (sort vs sorted, reverse) та поверхневе/глибоке копіювання (shallow vs deep copy)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Основний зміст та теоретичний базис
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#33-tuple-sizeof-tuple-unpacking-args-list-comprehensions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3. Кортежі (tuple): незмінність, оптимізація споживання пам'яті (sizeof), кортежі як ключі словників, розпакування послідовностей (tuple unpacking, *args). Генератори списків (List Comprehensions)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.3. Кортежі (tuple): незмінність, оптимізація споживання пам&#39;яті (sizeof), кортежі як ключі словників, розпакування послідовностей (tuple unpacking, *args). Генератори списків (List Comprehensions)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Основний зміст та теоретичний базис
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Питання для самоперевірки та аналітичного осмислення
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="1-3-list-tuple">ЗМІСТОВИЙ МОДУЛЬ 1. ТЕМА 3. ВПОРЯДКОВАНІ СТРУКТУРИ ДАНИХ: СПИСКИ (LIST) ТА КОРТЕЖІ (TUPLE)</h1>
+<hr />
+<h2 id="31-list-slicing-startstopstep">3.1. Список (list) як динамічний масив посилань: створення, індексація, зрізи (slicing: [start:stop:step]), багатовимірні вкладені списки</h2>
+<h3 id="_1">Основний зміст та теоретичний базис</h3>
+<p>У системному програмуванні та комп'ютерній інженерії організація структур даних у пам'яті визначає обчислювальну складність алгоритмів і просторову ефективність програмного забезпечення. Мова Python пропонує високорівневу впорядковану послідовність — <strong>список</strong> (<code>list</code>), який за своєю внутрішньою архітектурою в еталонній реалізації CPython є інкапсульованим динамічним масивом покажчиків. </p>
+<p>На відміну від статичних масивів мов C або C++, де елементи однакового базового типу розташовуються в пам'яті суцільним неперервним блоком безпосередньо зі своїми бінарними значеннями, список Python забезпечує гетерогенність завдяки непрямій адресації. Внутрішня C-структура <code>PyListObject</code> зберігає не самі дані, а масив адрес (покажчиків типу <code>PyObject*</code>), кожен із яких веде до відповідного об'єкта, розташованого у довільному місці динамічної пам'яті (купи).</p>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">    </span><span class="n">PyObject_VAR_HEAD</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="n">PyObject</span><span class="w"> </span><span class="o">**</span><span class="n">ob_item</span><span class="p">;</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span><span class="n">Py_ssize_t</span><span class="w"> </span><span class="n">allocated</span><span class="p">;</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="p">}</span><span class="w"> </span><span class="n">PyListObject</span><span class="p">;</span>
+</span></code></pre></div>
+<p>У наведеній структурі макрос <code>PyObject_VAR_HEAD</code> містить системні поля: лічильник посилань <code>ob_refcnt</code>, покажчик на дескриптор типу <code>ob_type</code> та кількість фактично збережених елементів <code>ob_size</code>. Поле <code>ob_item</code> є покажчиком на блок неперервної пам'яті, що містить покажчики на об'єкти, а поле <code>allocated</code> фіксує сумарну кількість зарезервованих слотів у виділеному буфері.</p>
+<p><pre class="mermaid"><code>flowchart LR
+    subgraph PyListObject_Memory["Структура PyListObject у купі"]
+        ob_refcnt["ob_refcnt: 1"]
+        ob_type["ob_type: &amp;PyList_Type"]
+        ob_size["ob_size: 3"]
+        allocated["allocated: 4"]
+        ob_item["ob_item (покажчик)"]
+    end
+
+    subgraph Pointer_Array["Неперервний масив покажчиків (ob_item)"]
+        Ptr0["Slot 0: 0x7FFF01"]
+        Ptr1["Slot 1: 0x7FFF08"]
+        Ptr2["Slot 2: 0x7FFF10"]
+        Ptr3["Slot 3: NULL (запас)"]
+    end
+
+    subgraph Heap_Objects["Об'єкти Python у динамічній пам'яті"]
+        ObjInt["PyLongObject (int)\nЗначення: 1024\nid: 0x7FFF01"]
+        ObjStr["PyUnicodeObject (str)\nЗначення: 'CPU'\nid: 0x7FFF08"]
+        ObjFloat["PyFloatObject (float)\nЗначення: 3.1415\nid: 0x7FFF10"]
+    end
+
+    ob_item --&gt; Pointer_Array
+    Ptr0 --&gt; ObjInt
+    Ptr1 --&gt; ObjStr
+    Ptr2 --&gt; ObjFloat</code></pre>
+<em>Рисунок 1 — Фізична організація списку в CPython: неперервний масив покажчиків та розпорошені об'єкти в купі</em></p>
+<p>Наведена схема розкриває механізм забезпечення довільного доступу до елементів. Оскільки покажчики на елементи розташовані в пам'яті строго послідовно один за одним, обчислення фізичної адреси будь-якого <span class="arithmatex">\(i\)</span>-го слота виконується за один такт процесора за формулою адресної арифметики:</p>
+<div class="arithmatex">\[\text{Address}(L[i]) = \text{BaseAddress}(ob\_item) + i \times \text{sizeof}(\text{PyObject}^*)\]</div>
+<p>де <span class="arithmatex">\(\text{BaseAddress}(ob\_item)\)</span> позначає початкову адресу виділеного масиву покажчиків; <span class="arithmatex">\(i\)</span> є індексом елемента (<span class="arithmatex">\(0 \le i &lt; ob\_size\)</span>); <span class="arithmatex">\(\text{sizeof}(\text{PyObject}^*)\)</span> дорівнює 8 байтам на 64-розрядних апаратних архітектурах. Звідси випливає, що операція індексації списку в Python має строгу константну часову складність <span class="arithmatex">\(O(1)\)</span>.</p>
+<p>Створення списку здійснюється за допомогою літерала квадратних дужок <code>[]</code> або виклику вбудованої фабричної функції <code>list()</code>. Використання літерала є швидшим, оскільки транслюється компілятором у спеціалізовані опкоди <code>BUILD_LIST</code>, тоді як функція <code>list()</code> вимагає пошуку ідентифікатора у глобальному просторі імен або таблиці вбудованих функцій. </p>
+<p>Індексація підтримує роботу як із додатними, так і з від'ємними індексами. При передачі від'ємного значення інтерпретатор нормалізує його шляхом додавання поточної довжини списку: <span class="arithmatex">\(i_{\text{actual}} = n + i_{\text{neg}}\)</span>, де <span class="arithmatex">\(n = \text{len}(L)\)</span>. Якщо обчислений індекс виходить за межі діапазону <span class="arithmatex">\([0, n-1]\)</span>, віртуальна машина PVM збуджує виняток <code>IndexError</code>.</p>
+<p>Операція вилучення зрізу (<em>slicing</em>) дозволяє отримати підпослідовність елементів і має синтаксис <code>L[start:stop:step]</code>. Зріз списку завжди повертає <strong>новий об'єкт списку</strong> (<code>PyListObject</code>), у який копіюються відповідні покажчики на об'єкти з вихідного списку (поверхнева копія підмасиву). За замовчуванням параметри набувають значень: <span class="arithmatex">\(start = 0\)</span>, <span class="arithmatex">\(stop = n\)</span>, <span class="arithmatex">\(step = 1\)</span>. Кількість елементів <span class="arithmatex">\(k\)</span>, що потрапляють у зріз, визначається формулою:</p>
+<div class="arithmatex">\[k = \max\left(0, \; \left\lceil \frac{stop - start}{step} \right\rceil\right)\]</div>
+<p>У разі використання від'ємного кроку (<span class="arithmatex">\(step &lt; 0\)</span>) рух за індексами здійснюється у зворотному напрямку, при цьому значення за замовчуванням інвертуються: <span class="arithmatex">\(start = n - 1\)</span>, <span class="arithmatex">\(stop = -(n + 1)\)</span>. Операція взяття зрізу виконується за час <span class="arithmatex">\(O(k)\)</span> та вимагає виділення <span class="arithmatex">\(O(k)\)</span> додаткової оперативної пам'яті.</p>
+<p>Багатовимірні (вкладені) списки є основним засобом представлення матриць, тензорів та табличних структур без використання зовнішніх бібліотек. Матриця <span class="arithmatex">\(A \in \mathbb{R}^{m \times n}\)</span> моделюється як список довжиною <span class="arithmatex">\(m\)</span>, елементами якого є окремі списки довжиною <span class="arithmatex">\(n\)</span>. При проектуванні таких структур критично уникати типової інженерної помилки поверхневого множення списків вигляду <code>matrix = [[0] * n] * m</code>. За такої ініціалізації створюється зовнішній список, що містить <span class="arithmatex">\(m\)</span> копій одного й того самого покажчика на єдиний внутрішній список у пам'яті, що призводить до синхронної зміни всіх рядків при модифікації одного елемента:</p>
+<div class="arithmatex">\[\text{id}(\text{matrix}[0]) = \text{id}(\text{matrix}[1]) = \dots = \text{id}(\text{matrix}[m-1])\]</div>
+<p>Коректна ініціалізація вимагає побудови незалежних екземплярів для кожного рядка через генератори списків: <code>matrix = [[0 for _ in range(n)] for _ in range(m)]</code>. Для обчислення класичного добутку двох сумісних матриць <span class="arithmatex">\(A \in \mathbb{R}^{m \times p}\)</span> та <span class="arithmatex">\(B \in \mathbb{R}^{p \times n}\)</span>, де результуючий елемент визначається як <span class="arithmatex">\(C_{ij} = \sum_{k=0}^{p-1} A_{ik} B_{kj}\)</span>, використовується трирівневий вкладений цикл:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># Класичне матричне множення C = A * B</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="n">m</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">A</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">A</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="nb">len</span><span class="p">(</span><span class="n">B</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="n">C</span> <span class="o">=</span> <span class="p">[[</span><span class="nb">sum</span><span class="p">(</span><span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">k</span><span class="p">]</span> <span class="o">*</span> <span class="n">B</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">p</span><span class="p">))</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">)]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">m</span><span class="p">)]</span>
+</span></code></pre></div>
+<p><em>Таблиця 3.1 — Асимптотична складність базових операцій зі списками у середовищі CPython</em></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Операція</th>
+<th style="text-align: left;">Синтаксичний вираз</th>
+<th style="text-align: center;">Середня складність</th>
+<th style="text-align: center;">Найгірша складність</th>
+<th style="text-align: left;">Примітка та системний механізм</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Доступ за індексом</strong></td>
+<td style="text-align: left;"><code>L[i]</code></td>
+<td style="text-align: center;"><span class="arithmatex">\(O(1)\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(O(1)\)</span></td>
+<td style="text-align: left;">Пряме обчислення зміщення покажчика</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Присвоєння за індексом</strong></td>
+<td style="text-align: left;"><code>L[i] = value</code></td>
+<td style="text-align: center;"><span class="arithmatex">\(O(1)\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(O(1)\)</span></td>
+<td style="text-align: left;">Заміна покажчика зі зміною <code>ob_refcnt</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Визначення довжини</strong></td>
+<td style="text-align: left;"><code>len(L)</code></td>
+<td style="text-align: center;"><span class="arithmatex">\(O(1)\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(O(1)\)</span></td>
+<td style="text-align: left;">Зчитування значення поля <code>ob_size</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Отримання зрізу</strong></td>
+<td style="text-align: left;"><code>L[start:stop]</code></td>
+<td style="text-align: center;"><span class="arithmatex">\(O(k)\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(O(k)\)</span></td>
+<td style="text-align: left;">Виділення пам'яті та копіювання <span class="arithmatex">\(k\)</span> покажчиків</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Перевірка наявності</strong></td>
+<td style="text-align: left;"><code>x in L</code></td>
+<td style="text-align: center;"><span class="arithmatex">\(O(n)\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(O(n)\)</span></td>
+<td style="text-align: left;">Послідовний лінійний перебір елементів</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Множення списку</strong></td>
+<td style="text-align: left;"><code>L * k</code></td>
+<td style="text-align: center;"><span class="arithmatex">\(O(k \times n)\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(O(k \times n)\)</span></td>
+<td style="text-align: left;">Виділення нового буфера та копіювання посилань</td>
+</tr>
+</tbody>
+</table>
+<p>Наведена таблиця демонструє, що завдяки масиву покажчиків операції позиційного читання та запису виконуються з максимальною теоретичною швидкістю, проте пошук елемента за значенням вимагає лінійного сканування.</p>
+<hr />
+<h2 id="32-append-extend-insert-pop-remove-clear-del-sort-vs-sorted-reverse-shallow-vs-deep-copy">3.2. Мутабельність списків: методи додавання (append, extend, insert), вилучення (pop, remove, clear, del), сортування (sort vs sorted, reverse) та поверхневе/глибоке копіювання (shallow vs deep copy)</h2>
+<h3 id="_2">Основний зміст та теоретичний базис</h3>
+<p>Списки є змінюваними (mutable) об'єктами: їхній розмір, внутрішня структура та склад елементів можуть динамічно змінюватися під час виконання програми без зміни ідентифікатора самого списку (<code>id(L) == const</code>). Для забезпечення високої продуктивності при частих операціях додавання елементів CPython реалізує стратегію <strong>надлишкового виділення пам'яті</strong> (<em>over-allocation</em>). </p>
+<p>Коли розмір списку перевищує ємність виділеного буфера (<code>ob_size &gt; allocated</code>), внутрішня функція <code>list_resize()</code> у вихідному коді <code>listobject.c</code> виділяє новий блок пам'яті з запасом, розмір якого розраховується за формулою:</p>
+<div class="arithmatex">\[\text{allocated}_{\text{new}} = n + (n \gg 3) + (n \lt  9 \; ? \; 3 : 6)\]</div>
+<p>де <span class="arithmatex">\(n = ob\_size_{\text{new}}\)</span> — необхідна кількість слотів; <span class="arithmatex">\(n \gg 3\)</span> позначає побітовий зсув праворуч на 3 розряди (цілочисельне ділення на 8). Завдяки геометричному зростанню буфера амортизована часова складність додавання елемента в кінець списку за допомогою методу <code>append(x)</code> становить <span class="arithmatex">\(O(1)\)</span>, хоча поодинокі виклики, що ініціюють системне системне перерозподілення через <code>realloc()</code>, мають складність <span class="arithmatex">\(O(n)\)</span>.</p>
+<p>Методи модифікації списку мають різну алгоритмічну ефективність:</p>
+<ul>
+<li>
+<p>Метод <code>append(x)</code> додає один об'єкт у кінець списку з амортизованою складністю <span class="arithmatex">\(O(1)\)</span>.</p>
+</li>
+<li>
+<p>Метод <code>extend(iterable)</code> розширює список, ітеруючи переданий об'єкт і послідовно додаючи всі його елементи за час <span class="arithmatex">\(O(k)\)</span>, де <span class="arithmatex">\(k\)</span> — розмір доданої послідовності.</p>
+</li>
+<li>
+<p>Метод <code>insert(i, x)</code> вставляє об'єкт <code>x</code> у довільну позицію <code>i</code>. Це вимагає зсуву всіх наступних покажчиків праворуч за допомогою низькорівневої C-функції <code>memmove()</code>, тому операція має лінійну складність <span class="arithmatex">\(O(n)\)</span>.</p>
+</li>
+<li>
+<p>Метод <code>pop([i])</code> вилучає та повертає елемент із позиції <code>i</code>. Вилучення з кінця списку (<code>pop()</code>) виконується за <span class="arithmatex">\(O(1)\)</span>, тоді як вилучення з початку або середини (<code>pop(0)</code>) вимагає зсуву покажчиків ліворуч і триває <span class="arithmatex">\(O(n)\)</span>.</p>
+</li>
+<li>
+<p>Метод <code>remove(x)</code> здійснює лінійний пошук першого входження об'єкта, значення якого дорівнює <code>x</code> (порівняння через <code>==</code>), і вилучає його за сумарний час <span class="arithmatex">\(O(n)\)</span>, збуджуючи <code>ValueError</code> у разі відсутності збігу.</p>
+</li>
+<li>
+<p>Оператор <code>del L[i]</code> або <code>del L[start:stop]</code> знищує вказаний елемент чи діапазон на рівні структури списку та декрементує лічильники посилань відповідних об'єктів.</p>
+</li>
+<li>
+<p>Метод <code>clear()</code> повністю очищає список, обнуляючи <code>ob_size</code> та вивільняючи ресурси буфера.</p>
+</li>
+</ul>
+<p>Сортування списків у Python реалізовано за допомогою гібридного адаптивного алгоритму <strong>Timsort</strong> (поєднання сортування злиттям Merge Sort та сортування вставками Insertion Sort). Алгоритм знаходить у вхідних даних природно впорядковані неперервні послідовності (<em>runs</em>) і ефективно об'єднує їх. </p>
+<p>Timsort є стабільним алгоритмом сортування (<em>stable sort</em>), тобто він гарантовано зберігає початковий відносний порядок розташування еквівалентних елементів. Теоретична часова складність Timsort становить <span class="arithmatex">\(O(n)\)</span> для майже впорядкованих масивів та <span class="arithmatex">\(O(n \log n)\)</span> у середньому й найгіршому випадках, при просторовій складності <span class="arithmatex">\(O(n)\)</span>.</p>
+<p>У мові розрізняють два підходи до сортування:</p>
+<ol>
+<li>
+<p>Метод <code>list.sort(key=None, reverse=False)</code> виконує сортування на місці (<em>in-place</em>), безпосередньо мутуючи масив покажчиків вихідного списку і повертаючи значення <code>None</code>.</p>
+</li>
+<li>
+<p>Вбудована функція <code>sorted(iterable, key=None, reverse=False)</code> приймає довільну ітеровану послідовність, створює новий відсортований список і повертає його, залишаючи джерело даних незмінним.</p>
+</li>
+</ol>
+<p>Параметр <code>key</code> приймає функцію одного аргументу, яка обчислює ключ порівняння для кожного елемента. Спеціальний метод <code>list.reverse()</code> змінює порядок елементів списку на протилежний на місці за час <span class="arithmatex">\(O(n)\)</span>.</p>
+<p>Особливе місце в комп'ютерній інженерії посідає семантика копіювання складених структур даних. При простому присвоєнні <code>B = A</code> новий об'єкт списку не створюється: змінна <code>B</code> стає лише додатковим іменованим посиланням на той самий екземпляр <code>PyListObject</code> у пам'яті (<code>id(A) == id(B)</code>).</p>
+<p><pre class="mermaid"><code>flowchart TD
+    subgraph Assignment["Звичайне присвоєння (B = A)"]
+        VarA1["Змінна A"] --&gt; ListObj1["PyListObject (0x100)\n[0x501, 0x502]"]
+        VarB1["Змінна B"] --&gt; ListObj1
+    end
+
+    subgraph ShallowCopy["Поверхневе копіювання (B = A.copy())"]
+        VarA2["Змінна A"] --&gt; ListObjA["PyListObject (0x200)\n[0x501, 0x800]"]
+        VarB2["Змінна B"] --&gt; ListObjB["PyListObject (0x300)\n[0x501, 0x800]"]
+        ListObjA -.-&gt; ScalarObj["int(10) (0x501)"]
+        ListObjB -.-&gt; ScalarObj
+        ListObjA -.-&gt; NestedObj["Вкладений list (0x800)\n[1, 2]"]
+        ListObjB -.-&gt; NestedObj
+    end
+
+    subgraph DeepCopy["Глибоке копіювання (B = copy.deepcopy(A))"]
+        VarA3["Змінна A"] --&gt; ListObjA3["PyListObject (0x400)\n[0x501, 0x901]"]
+        VarB3["Змінна B"] --&gt; ListObjB3["PyListObject (0x500)\n[0x501, 0x902]"]
+        ListObjA3 -.-&gt; Nested1["Вкладений list 1 (0x901)\n[1, 2]"]
+        ListObjB3 -.-&gt; Nested2["Вкладений list 2 (0x902)\n[1, 2]"]
+    end</code></pre>
+<em>Рисунок 2 — Порівняльна схема розміщення в пам'яті структур при присвоєнні, поверхневому та глибокому копіюванні</em></p>
+<p>Як свідчить представлена діаграма, <strong>поверхнева копія</strong> (<em>shallow copy</em>), яка створюється через <code>B = A.copy()</code>, <code>B = A[:]</code> або <code>B = list(A)</code>, дублює виключно зовнішню структуру списку — виділяється новий <code>PyListObject</code>, однак його слоти заповнюються тими самими покажчиками на елементи. </p>
+<p>Якщо список містить змінні вкладені структури (наприклад, інші списки), зміна вкладеного списку через <code>B[1][0] = 99</code> призведе до автоматичної зміни <code>A[1][0]</code>, оскільки покажчик <code>0x800</code> веде до одного й того самого фізичного блоку пам'яті. </p>
+<p><strong>Глибока копія</strong> (<em>deep copy</em>), яка реалізується за допомогою функції <code>copy.deepcopy(A)</code>, виконує повний рекурсивний обхід графа об'єктів. Вона створює дублікати всіх складених підструктур, усуваючи будь-яку спільну мутабельність між вихідним та цільовим об'єктами.</p>
+<p><em>Таблиця 3.2 — Класифікація та системні характеристики методів маніпуляції списками</em></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Метод / Оператор</th>
+<th style="text-align: center;">Зміна на місці (In-place)</th>
+<th style="text-align: center;">Повертає значення</th>
+<th style="text-align: center;">Часова складність</th>
+<th style="text-align: left;">Системні накладні витрати пам'яті</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>append(x)</code></td>
+<td style="text-align: center;">Так</td>
+<td style="text-align: center;"><code>None</code></td>
+<td style="text-align: center;"><span class="arithmatex">\(O(1)\)</span> амортизована</td>
+<td style="text-align: left;">Можливий виклик <code>realloc</code> за формулою надлишку</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>extend(iter)</code></td>
+<td style="text-align: center;">Так</td>
+<td style="text-align: center;"><code>None</code></td>
+<td style="text-align: center;"><span class="arithmatex">\(O(k)\)</span></td>
+<td style="text-align: left;">Одноразове розширення буфера на <span class="arithmatex">\(k\)</span> слотів</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>insert(i, x)</code></td>
+<td style="text-align: center;">Так</td>
+<td style="text-align: center;"><code>None</code></td>
+<td style="text-align: center;"><span class="arithmatex">\(O(n)\)</span></td>
+<td style="text-align: left;">Побайтовий зсув покажчиків управо (<code>memmove</code>)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>pop(i)</code></td>
+<td style="text-align: center;">Так</td>
+<td style="text-align: center;">Елемент</td>
+<td style="text-align: center;"><span class="arithmatex">\(O(n - i)\)</span></td>
+<td style="text-align: left;">Побайтовий зсув покажчиків уліво</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>remove(x)</code></td>
+<td style="text-align: center;">Так</td>
+<td style="text-align: center;"><code>None</code></td>
+<td style="text-align: center;"><span class="arithmatex">\(O(n)\)</span></td>
+<td style="text-align: left;">Лінійне порівняння <span class="arithmatex">\(O(n)\)</span> + зсув елементів <span class="arithmatex">\(O(n)\)</span></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>sort()</code></td>
+<td style="text-align: center;">Так</td>
+<td style="text-align: center;"><code>None</code></td>
+<td style="text-align: center;"><span class="arithmatex">\(O(n \log n)\)</span></td>
+<td style="text-align: left;">Тимчасовий системний буфер Timsort (<span class="arithmatex">\(O(n)\)</span>)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>sorted(iter)</code></td>
+<td style="text-align: center;">Ні</td>
+<td style="text-align: center;">Новий <code>list</code></td>
+<td style="text-align: center;"><span class="arithmatex">\(O(n \log n)\)</span></td>
+<td style="text-align: left;">Виділення нового об'єкта <code>PyListObject</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>deepcopy(L)</code></td>
+<td style="text-align: center;">Ні</td>
+<td style="text-align: center;">Новий <code>list</code></td>
+<td style="text-align: center;"><span class="arithmatex">\(O(N_{\text{total}})\)</span></td>
+<td style="text-align: left;">Повна дуплікація всього дерева об'єктів</td>
+</tr>
+</tbody>
+</table>
+<p>Аналітичний огляд таблиці демонструє, що некоректний вибір методу (наприклад, багаторазове використання <code>insert(0, x)</code> замість <code>append(x)</code> з подальшим реверсуванням) може погіршити швидкодію алгоритму з лінійної <span class="arithmatex">\(O(n)\)</span> до квадратичної <span class="arithmatex">\(O(n^2)\)</span>.</p>
+<hr />
+<h2 id="33-tuple-sizeof-tuple-unpacking-args-list-comprehensions">3.3. Кортежі (tuple): незмінність, оптимізація споживання пам'яті (<strong>sizeof</strong>), кортежі як ключі словників, розпакування послідовностей (tuple unpacking, *args). Генератори списків (List Comprehensions)</h2>
+<h3 id="_3">Основний зміст та теоретичний базис</h3>
+<p><strong>Кортеж</strong> (<code>tuple</code>) є впорядкованою незмінною (immutable) послідовністю довільних об'єктів. Синтаксично кортеж позначається круглими дужками <code>()</code>, або формується простим перерахуванням елементів через кому. Створення одноелементного кортежу обов'язково вимагає наявності висячої коми (<code>single_element_tuple = (42,)</code>), оскільки вираз <code>(42)</code> без коми сприймається синтаксичним парсером як скалярне ціле число в арифметичних дужках.</p>
+<p>На внутрішньому рівні CPython кортеж описується структурою <code>PyTupleObject</code>:</p>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">    </span><span class="n">PyObject_VAR_HEAD</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="n">PyObject</span><span class="w"> </span><span class="o">*</span><span class="n">ob_item</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="p">}</span><span class="w"> </span><span class="n">PyTupleObject</span><span class="p">;</span>
+</span></code></pre></div>
+<p>Ключова архітектурна відмінність кортежу від списку полягає у відсутності поля <code>allocated</code>. Оскільки кортеж не може змінювати свій розмір після ініціалізації, пам'ять під масив покажчиків <code>ob_item</code> виділяється строго під фактичну кількість елементів (<code>ob_size</code>) без будь-якого надлишкового резервування. </p>
+<p>Це забезпечує значну просторову оптимізацію: порожній кортеж у 64-розрядному середовищі займає 40 байтів, тоді як порожній список потребує 56 байтів, а при заповненні елементами різниця у споживанні пам'яті зростає внаслідок надлишкового алокування списків.</p>
+<p><pre class="mermaid"><code>flowchart LR
+    subgraph PyList_Layout["Пам'ять PyListObject (Змінний розмір)"]
+        L_Head["Заголовок об'єкта (24B)"]
+        L_Size["ob_size = 3 (8B)"]
+        L_Alloc["allocated = 6 (8B)"]
+        L_Ptr["ob_item (8B)"] --&gt; L_Buf["Буфер покажчиків: [Ptr, Ptr, Ptr, NULL, NULL, NULL]"]
+    end
+
+    subgraph PyTuple_Layout["Пам'ять PyTupleObject (Фіксований розмір)"]
+        T_Head["Заголовок об'єкта (24B)"]
+        T_Size["ob_size = 3 (8B)"]
+        T_Buf["Вбудовані покажчики: [Ptr, Ptr, Ptr]"]
+    end</code></pre>
+<em>Рисунок 3 — Порівняння фізичного розміщення в пам'яті структур PyListObject та PyTupleObject</em></p>
+<p>Схема демонструє відсутність додаткового рівня непрямої адресації в кортежі. Більше того, інтерпретатор CPython реалізує оптимізацію повторного використання пам'яті: порожній кортеж <code>()</code> є глобальним об'єктом-сінглтоном (<code>id(()) == id(tuple())</code>), а для кортежів довжиною до 20 елементів підтримується масив вільних списків (<em>free lists</em>), що дозволяє уникати дорогих системних викликів виділення пам'яті <code>malloc()</code> при їх частому створенні та знищенні.</p>
+<p>Фундаментальною властивістю кортежу є можливість його використання як ключа в хеш-таблицях (словниках <code>dict</code> та множинах <code>set</code>). Умова хешованості об'єкта (<em>hashability</em>) вимагає наявності незмінного протягом життя об'єкта хеш-значення, що обчислюється спеціальним методом <code>__hash__()</code>. </p>
+<p>Кортеж є хешованим тоді і тільки тоді, коли всі його елементи є рекурсивно хешованими. Кортеж <code>(1, 2, "CPU")</code> може виступати ключем словника, оскільки містить виключно незмінні скаляри. Якщо ж кортеж містить змінний елемент, наприклад список <code>(1, [2, 3])</code>, спроба його хешування призведе до генерації винятку <code>TypeError: unhashable type: 'list'</code>.</p>
+<p>Операція <strong>розпакування послідовностей</strong> (<em>sequence unpacking</em>) дозволяє деструктурувати елементи кортежу чи списку безпосередньо в окремі змінні. Кількість ідентифікаторів ліворуч від оператора присвоєння повинна точно збігатися з довжиною послідовності праворуч:</p>
+<div class="arithmatex">\[a, b, c = (10, 20, 30)\]</div>
+<p>Розширене розпакування з використанням оператора зірочки <code>*</code> (впроваджене у PEP 3132) дозволяє перехоплювати довільну змінну кількість елементів у вигляді списку:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># Розширене позиційне розпакування</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="n">head</span><span class="p">,</span> <span class="o">*</span><span class="n">middle</span><span class="p">,</span> <span class="n">tail</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="c1"># head = 1, middle = [2, 3, 4], tail = 5</span>
+</span></code></pre></div>
+<p>Цей механізм лежить в основі позиційного пакування аргументів функцій <code>*args</code>, де всі передані параметри формують незмінний кортеж усередині тіла функції.</p>
+<p><strong>Генератори списків</strong> (<em>List Comprehensions</em>) є синтаксичним засобом декларативного опису побудови списків на основі ітерованих послідовностей. Загальна математична форма генератора списків відповідає нотації визначення множин у теорії множин:</p>
+<div class="arithmatex">\[\{f(x) \mid x \in S \land P(x)\}\]</div>
+<p>Синтаксично в Python цей вираз записується у вигляді:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="p">[</span><span class="n">expression</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">iterable</span> <span class="k">if</span> <span class="n">predicate</span><span class="p">(</span><span class="n">x</span><span class="p">)]</span>
+</span></code></pre></div>
+<p>де <code>expression(x)</code> — довільна функція трансформації елемента; <code>iterable</code> — вхідна послідовність; <code>predicate(x)</code> — необов'язковий фільтруючий логічний предикат.</p>
+<p>List Comprehensions виконуються значно швидше, ніж аналогічні імперативні цикли з методом <code>append()</code>. Це зумовлено тим, що компілятор CPython оптимізує генератори списків на рівні байт-коду, використовуючи спеціалізовану інструкцію <code>LIST_APPEND</code>. Ця інструкція додає елемент безпосередньо у внутрішній масив <code>ob_item</code> без необхідності щоразу завантажувати метод <code>append</code> із простору імен об'єкта та створювати стековий кадр виклику функції.</p>
+<p>Генератори списків підтримують роботу з кількома рівнями вкладеності, що є зручним інструментом для задач матричної алгебри, наприклад, операції транспонування матриці <span class="arithmatex">\(A^T\)</span>, де <span class="arithmatex">\((A^T)_{ij} = A_{ji}\)</span>:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1"># Транспонування матриці розмірністю m x n</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="n">matrix</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]]</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="n">transposed</span> <span class="o">=</span> <span class="p">[[</span><span class="n">row</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">matrix</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">matrix</span><span class="p">[</span><span class="mi">0</span><span class="p">]))]</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="c1"># Результат: [[1, 4], [2, 5], [3, 6]]</span>
+</span></code></pre></div>
+<p><em>Таблиця 3.3 — Комплексне інженерне порівняння списків (<code>list</code>) та кортежів (<code>tuple</code>)</em></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Характеристика</th>
+<th style="text-align: left;">Список (<code>list</code>)</th>
+<th style="text-align: left;">Кортеж (<code>tuple</code>)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Змінюваність (Mutability)</strong></td>
+<td style="text-align: left;">Змінюваний (Mutable)</td>
+<td style="text-align: left;">Незмінний (Immutable)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Розмір у пам'яті (порожній)</strong></td>
+<td style="text-align: left;">56 байтів (на 64-бітній PVM)</td>
+<td style="text-align: left;">40 байтів (на 64-бітній PVM)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Резервування пам'яті</strong></td>
+<td style="text-align: left;">Надлишкове алокування (Over-allocation)</td>
+<td style="text-align: left;">Суворе точне алокування під розмір</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Можливість бути ключем dict</strong></td>
+<td style="text-align: left;">Заборонено (викликає <code>TypeError</code>)</td>
+<td style="text-align: left;">Дозволено (якщо всі елементи незмінні)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Швидкодія ітерації</strong></td>
+<td style="text-align: left;">Повільніша через непряму адресацію буфера</td>
+<td style="text-align: left;">Швидша на 10–15% завдяки кешуванню CPython</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Пул повторного використання</strong></td>
+<td style="text-align: left;">Вільні списки для структур <code>PyListObject</code></td>
+<td style="text-align: left;">Free lists для кортежів фіксованих розмірів (<span class="arithmatex">\(\le 20\)</span>)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Основне інженерне призначення</strong></td>
+<td style="text-align: left;">Динамічні колекції, накопичувачі даних, стеки</td>
+<td style="text-align: left;">Фіксовані записи, параметри конфігурації, координати</td>
+</tr>
+</tbody>
+</table>
+<p>Порівняльний аналіз підтверджує, що для статичних конфігураційних даних та передачі параметрів у функціях перевагу слід надавати кортежам, що гарантує захист даних від несанкціонованої мутації та оптимізує використання пам'яті.</p>
+<hr />
+<h3 id="_4">Питання для самоперевірки та аналітичного осмислення</h3>
+<ol>
+<li>
+<p>Яким чином влаштована внутрішня C-структура <code>PyListObject</code> в інтерпретаторі CPython? Чому операція індексації списку виконується за константний час <span class="arithmatex">\(O(1)\)</span> незалежно від розміру списку?</p>
+</li>
+<li>
+<p>Опишіть алгоритмічний механізм надлишкового виділення пам'яті (<em>over-allocation</em>) при додаванні елементів до списку. Чому амортизована складність методу <code>append()</code> становить <span class="arithmatex">\(O(1)\)</span>, а складність <code>insert(0, x)</code> є лінійною <span class="arithmatex">\(O(n)\)</span>?</p>
+</li>
+<li>
+<p>У чому полягає принципова відмінність між поверхневим копіюванням списку (<code>shallow copy</code>) та глибоким копіюванням (<code>deep copy</code>)? Які непередбачувані побічні ефекти можуть виникнути при модифікації вкладеного списку у поверхневій копії?</p>
+</li>
+<li>
+<p>Охарактеризуйте алгоритм сортування Timsort. Які його характеристики щодо стабільності, а також часової складності у найкращому, середньому та найгіршому випадках?</p>
+</li>
+<li>
+<p>Чому кортеж <code>(1, 2, [3, 4])</code> не може бути використаний як ключ словника, незважаючи на те, що сам кортеж належить до незмінного типу <code>tuple</code>? Яким математичним критеріям повинен відповідати об'єкт для підтримки протоколу <code>__hash__()</code>?</p>
+</li>
+<li>
+<p>За рахунок яких низькорівневих оптимізацій віртуальної машини CPython генератори списків (<em>List Comprehensions</em>) демонструють вищу швидкість виконання порівняно з класичними циклами <code>for</code>, що використовують метод <code>list.append()</code>?</p>
+</li>
+<li>
+<p>Поясніть причину виникнення логічної помилки при створенні нульової матриці розмірністю <span class="arithmatex">\(3 \times 3\)</span> за допомогою виразу <code>A = [[0] * 3] * 3</code>. Які адреси поверне функція <code>id()</code> для окремих рядків такої матриці?</p>
+</li>
+</ol>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Повернутись нагору
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 Kyrylo Vadurin &bull; <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a>
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.expand", "navigation.top", "navigation.tracking", "header.autohide", "search.suggest", "search.highlight", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u0421\u043a\u043e\u043f\u0456\u0439\u043e\u0432\u0430\u043d\u043e \u0432 \u0431\u0443\u0444\u0435\u0440", "clipboard.copy": "\u0421\u043a\u043e\u043f\u0456\u044e\u0432\u0430\u0442\u0438 \u0432 \u0431\u0443\u0444\u0435\u0440", "search.result.more.one": "\u0429\u0435 1 \u0437\u0431\u0456\u0433 \u043d\u0430 \u0446\u0456\u0439 \u0441\u0442\u043e\u0440\u0456\u043d\u0446\u0456", "search.result.more.other": "\u0429\u0435 # \u0437\u0431\u0456\u0433\u0456\u0432 \u043d\u0430 \u0446\u0456\u0439 \u0441\u0442\u043e\u0440\u0456\u043d\u0446\u0456", "search.result.none": "\u0417\u0431\u0456\u0433\u0456\u0432 \u043d\u0435 \u0437\u043d\u0430\u0439\u0434\u0435\u043d\u043e", "search.result.one": "\u0417\u043d\u0430\u0439\u0434\u0435\u043d\u043e 1 \u0437\u0431\u0456\u0433", "search.result.other": "\u0417\u043d\u0430\u0439\u0434\u0435\u043d\u043e # \u0437\u0431\u0456\u0433\u0456\u0432", "search.result.placeholder": "\u0420\u043e\u0437\u043f\u043e\u0447\u043d\u0456\u0442\u044c \u043f\u0438\u0441\u0430\u0442\u0438 \u0434\u043b\u044f \u043f\u043e\u0448\u0443\u043a\u0443", "search.result.term.missing": "\u041d\u0435 \u0437\u043d\u0430\u0439\u0434\u0435\u043d\u043e \u0437\u0430\u043f\u0438\u0442\u0443", "select.version": "\u041e\u0431\u0440\u0430\u0442\u0438 \u0432\u0435\u0440\u0441\u0456\u044e"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

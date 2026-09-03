@@ -1,0 +1,1876 @@
+
+<!doctype html>
+<html lang="uk" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Навчальний портал з дисципліни "Програмування на Python. Базовий рівень"">
+      
+      
+      
+      
+        <link rel="prev" href="../lk7/">
+      
+      
+        <link rel="next" href="../lk9/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Тема 8. Обробка винятків та файлове в/в - Програмування на Python</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="cyan">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#3-8-" class="md-skip">
+          Перейти до змісту
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Хедер">
+    <a href="../.." title="Програмування на Python" class="md-header__button md-logo" aria-label="Програмування на Python" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Програмування на Python
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Тема 8. Обробка винятків та файлове в/в
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="cyan"  aria-label="Переключити на темну тему"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Переключити на темну тему" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="cyan"  aria-label="Переключити на світлу тему"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Переключити на світлу тему" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Пошук" placeholder="Пошук" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Шукати">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Очистити" aria-label="Очистити" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Пошук розпочато
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Вкладки" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Робоча програма
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../lk1/" class="md-tabs__link">
+          
+  
+  
+  Лекції
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../lb/lb1/" class="md-tabs__link">
+          
+  
+  
+  Лабораторні роботи
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../sr/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Самостійна робота
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../rg/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Розрахунково-графічна робота
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Навігація" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Програмування на Python" class="md-nav__button md-logo" aria-label="Програмування на Python" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Програмування на Python
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Робоча програма
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Лекції
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Лекції
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lk1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Тема 1. Архітектура мови та інфраструктура
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lk2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Тема 2. Керування потоком виконання
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lk3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Тема 3. Впорядковані структури даних (Списки, Кортежі)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lk4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Тема 4. Текстові, двійкові дані та Регулярні вирази
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lk5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Тема 5. Хеш-таблиці (Словники, Множини)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lk6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Тема 6. Функціональна організація коду
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lk7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Тема 7. Модульна архітектура та пакети
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Тема 8. Обробка винятків та файлове в/в
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Тема 8. Обробка винятків та файлове в/в
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Зміст">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Зміст
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#81-try-except-else-finally-baseexception-exception" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.1. Архітектура обробки винятків: синтаксичні помилки проти винятків часу виконання, конструкція try-except-else-finally, порядок перехоплення та ієрархія класів BaseException / Exception
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8.1. Архітектура обробки винятків: синтаксичні помилки проти винятків часу виконання, конструкція try-except-else-finally, порядок перехоплення та ієрархія класів BaseException / Exception">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Основний зміст та теоретичний базис
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#82-raise-custom-exceptions-" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.2. Генерація винятків (raise), створення власних класів винятків (Custom Exceptions) для бізнес-логіки
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8.2. Генерація винятків (raise), створення власних класів винятків (Custom Exceptions) для бізнес-логіки">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Основний зміст та теоретичний базис
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#83-open-r-w-a-b-seek-tell-raii-with" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.3. Робота з файлами: функція open(), режими доступу ('r', 'w', 'a', 'b', '+'), позиціонування курсору (seek, tell), буферизація та кодування. Патерн RAII та менеджери контексту (оператор with)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8.3. Робота з файлами: функція open(), режими доступу (&#39;r&#39;, &#39;w&#39;, &#39;a&#39;, &#39;b&#39;, &#39;+&#39;), позиціонування курсору (seek, tell), буферизація та кодування. Патерн RAII та менеджери контексту (оператор with)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Основний зміст та теоретичний базис
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Питання для самоперевірки та аналітичного осмислення
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lk9/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Тема 9. Об'єктно-орієнтоване програмування
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Лабораторні роботи
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Лабораторні роботи
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lb/lb1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 1. Розгортання інфраструктури розробки
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lb/lb2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 2. Скалярні типи даних та моделювання
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lb/lb3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 3. Алгоритми розгалуженої та циклічної структури
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lb/lb4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 4. Обробка списків та кортежі
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lb/lb5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 5. Обробка тексту та регулярні вирази
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lb/lb6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 6. Асоціативні структури даних (Словники, Множини)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lb/lb7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 7. Проєктування функцій та рекурсія
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lb/lb8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 8. Модульне програмування та системні бібліотеки
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lb/lb9/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 9. Обробка виняткових ситуацій
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lb/lb10/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 10. Файлове в/в та менеджери контексту
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lb/lb11/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 11. ООП та перевантаження методів
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sr/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Самостійна робота
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../rg/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Розрахунково-графічна робота
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Зміст">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Зміст
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#81-try-except-else-finally-baseexception-exception" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.1. Архітектура обробки винятків: синтаксичні помилки проти винятків часу виконання, конструкція try-except-else-finally, порядок перехоплення та ієрархія класів BaseException / Exception
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8.1. Архітектура обробки винятків: синтаксичні помилки проти винятків часу виконання, конструкція try-except-else-finally, порядок перехоплення та ієрархія класів BaseException / Exception">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Основний зміст та теоретичний базис
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#82-raise-custom-exceptions-" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.2. Генерація винятків (raise), створення власних класів винятків (Custom Exceptions) для бізнес-логіки
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8.2. Генерація винятків (raise), створення власних класів винятків (Custom Exceptions) для бізнес-логіки">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Основний зміст та теоретичний базис
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#83-open-r-w-a-b-seek-tell-raii-with" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.3. Робота з файлами: функція open(), режими доступу ('r', 'w', 'a', 'b', '+'), позиціонування курсору (seek, tell), буферизація та кодування. Патерн RAII та менеджери контексту (оператор with)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8.3. Робота з файлами: функція open(), режими доступу (&#39;r&#39;, &#39;w&#39;, &#39;a&#39;, &#39;b&#39;, &#39;+&#39;), позиціонування курсору (seek, tell), буферизація та кодування. Патерн RAII та менеджери контексту (оператор with)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Основний зміст та теоретичний базис
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Питання для самоперевірки та аналітичного осмислення
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="3-8-">ЗМІСТОВИЙ МОДУЛЬ 3. ТЕМА 8. ОБРОБКА ВИНЯТКОВИХ СИТУАЦІЙ ТА ФАЙЛОВЕ ВВЕДЕННЯ-ВИВЕДЕННЯ</h1>
+<hr />
+<h2 id="81-try-except-else-finally-baseexception-exception">8.1. Архітектура обробки винятків: синтаксичні помилки проти винятків часу виконання, конструкція try-except-else-finally, порядок перехоплення та ієрархія класів BaseException / Exception</h2>
+<h3 id="_1">Основний зміст та теоретичний базис</h3>
+<p>Надійність функціонування програмних комплексів у комп'ютерній інженерії визначається їхньою здатністю штатно обробляти непередбачені або аномальні стани системи. Будь-які порушення нормального ходу виконання програми класифікуються на дві принципово різні категорії: синтаксичні помилки (<em>syntax errors</em>) та помилки часу виконання (<em>runtime errors</em>), які в об'єктно-орієнтованому середовищі Python формалізуються як <strong>винятки</strong> (<strong>виняткові ситуації</strong>, <em>exceptions</em>).</p>
+<p>Синтаксичні помилки (клас <code>SyntaxError</code> та його похідний підклас <code>IndentationError</code>) виявляються транслятором CPython на етапі лексичного та синтаксичного аналізу вихідного тексту до моменту генерації байт-коду. Якщо код містить синтаксичні дефекти (порушення правил відступів, незакриті дужки або некоректні ключові слова), трансляція повністю блокується, а програма взагалі не починає виконуватися. </p>
+<p>Натомість винятки часу виконання виникають у коректно скомпільованому байт-коді безпосередньо під час його інтерпретації віртуальною машиною PVM. До таких ситуацій належать спроби ділення на нуль (<code>ZeroDivisionError</code>), звернення за межі діапазону масиву (<code>IndexError</code>), передача несумісних типів даних (<code>TypeError</code>) або апаратні помилки доступу до зовнішніх носіїв і портів (<code>OSError</code>).</p>
+<p>Механізм обробки винятків у CPython базується на процедурі <strong>розкручування стека викликів</strong> (<em>stack unwinding</em>). Коли в точці виконання інструкції виникає аномальний стан, віртуальна машина PVM створює об'єкт винятку, який інкапсулює інформацію про тип помилки, її текстовий опис та повний стан стекових кадрів на момент аварії (<em>traceback</em>). Якщо в поточному стековому кадрі <code>PyFrameObject</code> відсутній блок перехоплення помилки, виконання кадру негайно переривається, ресурси локальних змінних декрементуються, а об'єкт винятку передається вгору за ієрархією викликів у викликаючий стековий кадр. </p>
+<p>Цей процес рекурсивно повторюється доти, доки не буде знайдено відповідний обробник. Якщо виняток досягає верхнього рівня програми і залишається необробленим, інтерпретатор аварійно завершує процес, виводячи діагностичний звіт трасування в стандартний потік помилок <code>sys.stderr</code>.</p>
+<p><pre class="mermaid"><code>flowchart TD
+    subgraph Try_Block_Execution["1. Моніторинг виконання (Блок try)"]
+        StartTry["Початок блоку try"] --&gt; ExecInst["Виконання інструкцій"]
+        ExecInst --&gt; CheckFault{"Виникла виняткова ситуація?"}
+    end
+
+    subgraph Exception_Dispatching["2. Диспетчеризація та перехоплення"]
+        CheckFault -- "Так (Генерація винятку E)" --&gt; MatchExc{"Зіставлення з блоками except E_i"}
+        MatchExc -- "isinstance(E, E_i) == True" --&gt; ExecExcept["Виконання відповідного блоку except"]
+        MatchExc -- "Не знайдено збігу" --&gt; UnwindStack["Розкрутка стека (Stack Unwinding)\nПередача винятку вище"]
+    end
+
+    subgraph Successful_Branch["3. Успішне завершення"]
+        CheckFault -- "Ні (Винятків немає)" --&gt; ExecElse["Виконання блоку else\n(Код, що залежить від успіху try)"]
+    end
+
+    subgraph Guaranteed_Finalization["4. Гарантоване очищення"]
+        ExecExcept --&gt; ExecFinally["Виконання блоку finally\n(Гарантоване звільнення ресурсів)"]
+        ExecElse --&gt; ExecFinally
+        UnwindStack --&gt; ExecFinally
+    end
+
+    ExecFinally --&gt; EndExec(["Перехід до наступних інструкцій або аварійний вихід"])</code></pre>
+<em>Рисунок 1 — Повний життєвий цикл та граф потоку керування конструкції try-except-else-finally</em></p>
+<p>Проаналізуємо структуру керування, наведену на рисунку. Повний синтаксичний каркас обробки винятків складається з чотирьох взаємопов'язаних блоків:</p>
+<ul>
+<li>
+<p>Блок <code>try</code> інкапсулює критичну ділянку програмного коду, виконання якої потенційно може призвести до виникнення винятку.</p>
+</li>
+<li>
+<p>Блоки <code>except ExceptionClass as err</code> задають перелік очікуваних типів помилок. Якщо згенерований виняток є екземпляром класу <code>ExceptionClass</code> або його нащадком, керування передається цьому блоку, а сам об'єкт винятку зв'язується з локальною змінною <code>err</code>. Конструкція може містити довільну кількість блоків <code>except</code>, що перевіряються послідовно зверху вниз.</p>
+</li>
+<li>
+<p>Блок <code>else</code> виконується виключно в тому випадку, коли в блоці <code>try</code> не виникло жодної виняткової ситуації. Відокремлення основного коду від блоку <code>try</code> за допомогою секції <code>else</code> є важливим інженерним принципом, оскільки це унеможливлює випадкове перехоплення помилок, що виникають поза межами цільової операції.</p>
+</li>
+<li>
+<p>Блок <code>finally</code> виконується безумовно в усіх можливих випадках: при успішному завершенні блоку <code>try</code>, після виконання блоку <code>except</code>, а також перед передачею необробленого винятку вгору за стеком викликів. Блок <code>finally</code> спрацьовує навіть у разі наявності всередині <code>try</code> або <code>except</code> операторів переривання потоку керування <code>return</code>, <code>break</code> чи <code>continue</code>.</p>
+</li>
+</ul>
+<p>В основі системи винятків Python лежить сувора об'єктно-орієнтована ієрархія класів, коренем якої є базовий клас <strong><code>BaseException</code></strong>. </p>
+<p>Усі стандартні та користувацькі винятки організовані в деревоподібну структуру наслідування:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>BaseException
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>├── SystemExit                   &lt;- Завершення процесу інтерпретатора
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>├── KeyboardInterrupt            &lt;- Сигнал переривання користувачем (Ctrl+C)
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>├── GeneratorExit                &lt;- Закриття генератора або корутини
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>└── Exception                    &lt;- Базовий клас для всіх прикладних помилок
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>    ├── ArithmeticError
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>    │   ├── FloatingPointError   &lt;- Помилка апаратного обчислення з рухомою комою
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>    │   ├── OverflowError        &lt;- Переповнення діапазону для дійсних чисел
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>    │   └── ZeroDivisionError    &lt;- Спроба ділення на нуль
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>    ├── LookupError
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>    │   ├── IndexError           &lt;- Звернення за неіснуючим індексом послідовності
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>    │   └── KeyError             &lt;- Відсутність ключа в хеш-таблиці
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>    ├── OSError                  &lt;- Системні помилки оточення та вводу-виводу
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>    │   ├── FileNotFoundError   &lt;- Відсутність файлу у файловій системі
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>    │   ├── PermissionError      &lt;- Недостатньо прав доступу на рівні ОС
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>    │   └── TimeoutError         &lt;- Вичерпання ліміту часу системного виклику
+</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>    ├── TypeError                &lt;- Застосування операції до невідповідного типу
+</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>    └── ValueError               &lt;- Некоректне значення при правильному типі
+</span></code></pre></div>
+<p>З точки зору архітектури програмного забезпечення критично розуміти різницю між <code>BaseException</code> та <code>Exception</code>. Системні винятки <code>SystemExit</code> та <code>KeyboardInterrupt</code> успадковуються безпосередньо від <code>BaseException</code>, оминаючи гілку <code>Exception</code>. Це зроблено для того, щоб універсальний обробник прикладних помилок <code>except Exception:</code> не перехоплював команди аварійної зупинки програми користувачем через комбінацію клавіш <code>Ctrl+C</code>. </p>
+<p>Використання так званого порожнього перехоплення <code>except:</code> або перехоплення <code>except BaseException:</code> вважається грубим порушенням інженерних практик, оскільки воно блокує штатне завершення процесів операційною системою.</p>
+<p>При побудові ланцюжка блоків <code>except</code> порядок їхнього слідування повинен суворо відповідати правилу: <strong>від найбільш спеціалізованих (похідних) класів до більш загальних (базових)</strong>. Якщо розмістити блок перехоплення базового класу вище його нащадків, наприклад, <code>except LookupError:</code> перед <code>except IndexError:</code>, базовий блок перехопить усі екземпляри <code>IndexError</code>, оскільки перевірка відповідності типів на рівні CPython виконується за принципом:</p>
+<div class="arithmatex">\[\text{isinstance}(\text{RaisedException}, \text{HandledExceptionClass}) == \text{True}\]</div>
+<p>У такому випадку блок <code>except IndexError:</code> перетвориться на мертвий код (<em>dead code</em>), який ніколи не отримає керування.</p>
+<p><em>Таблиця 8.1 — Систематизація базових класів винятків CPython та їхній інженерний контекст</em></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Клас винятку</th>
+<th style="text-align: left;">Базовий клас</th>
+<th style="text-align: left;">Типова причина збудження</th>
+<th style="text-align: left;">Інженерне значення в комп'ютерній інженерії</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong><code>ZeroDivisionError</code></strong></td>
+<td style="text-align: left;"><code>ArithmeticError</code></td>
+<td style="text-align: left;">Ділення на числовий нуль (<code>x / 0</code>, <code>x % 0</code>)</td>
+<td style="text-align: left;">Порушення математичної коректності в алгоритмах DSP</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>IndexError</code></strong></td>
+<td style="text-align: left;"><code>LookupError</code></td>
+<td style="text-align: left;">Вихід за межі індексної сітки списку/кортежу</td>
+<td style="text-align: left;">Помилка адресації динамічних буферів обміну даними</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>KeyError</code></strong></td>
+<td style="text-align: left;"><code>LookupError</code></td>
+<td style="text-align: left;">Звернення до неіснуючого ключа словника</td>
+<td style="text-align: left;">Збій розбору конфігурацій чи протоколів за словником</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>ValueError</code></strong></td>
+<td style="text-align: left;"><code>Exception</code></td>
+<td style="text-align: left;">Некоректне значення (<code>int("ABC")</code>)</td>
+<td style="text-align: left;">Помилка перетворення даних, отриманих з АЦП чи UART</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>TypeError</code></strong></td>
+<td style="text-align: left;"><code>Exception</code></td>
+<td style="text-align: left;">Несумісність типів (<code>"10" + 5</code>)</td>
+<td style="text-align: left;">Порушення контракту виклику функції чи драйвера</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>FileNotFoundError</code></strong></td>
+<td style="text-align: left;"><code>OSError</code></td>
+<td style="text-align: left;">Відсутність файлу на диску</td>
+<td style="text-align: left;">Збій завантаження калібрувальних таблиць чи прошивок</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>PermissionError</code></strong></td>
+<td style="text-align: left;"><code>OSError</code></td>
+<td style="text-align: left;">Заборона доступу на рівні ядра ОС</td>
+<td style="text-align: left;">Спроба прямого доступу до системних портів без прав root</td>
+</tr>
+</tbody>
+</table>
+<p>Аналіз таблиці показує, що чітка типізація виняткових ситуацій дозволяє розробнику точно локалізувати рівень збою — від помилки у внутрішніх структурах даних до апаратних відмов периферійних інтерфейсів.</p>
+<hr />
+<h2 id="82-raise-custom-exceptions-">8.2. Генерація винятків (raise), створення власних класів винятків (Custom Exceptions) для бізнес-логіки</h2>
+<h3 id="_2">Основний зміст та теоретичний базис</h3>
+<p>Оператор <strong><code>raise</code></strong> забезпечує явну примусову генерацію виняткової ситуації у будь-якій точці програми. Застосування цього оператора сигналізує про виникнення стану, який порушує внутрішні інваріанти модуля або вимоги технічного завдання. </p>
+<p>Синтаксично оператор <code>raise</code> підтримує три форми використання:</p>
+<ol>
+<li>
+<p>Генерація нового екземпляра класу винятку з передачею діагностичного повідомлення: <code>raise ValueError("Параметр напруги виходить за межі 0..5V")</code>.</p>
+</li>
+<li>
+<p>Повторна генерація (<em>re-raising</em>) поточного активного винятку всередині блоку <code>except</code>: одиночний оператор <code>raise</code> без аргументів передає раніше перехоплений виняток далі вгору за стеком викликів після виконання локального логування.</p>
+</li>
+<li>
+<p>Явна трансформація винятків із збереженням первинного контексту помилки через конструкцію <strong>ланцюжка винятків</strong> (<strong>exception chaining</strong>, PEP 3134): <code>raise TargetException() from OriginalException</code>.</p>
+</li>
+</ol>
+<p>Механізм ланцюжка винятків є критично важливим для збереження діагностичного сліду при переході між різними рівнями абстракції. Якщо низькорівневий драйвер генерує <code>OSError</code> через апаратний таймаут шини I2C, високорівневий контролер може перехопити його та згенерувати спеціалізований виняток <code>SensorReadError</code>, явно вказавши джерело через директиву <code>from</code>:</p>
+<div class="arithmatex">\[\text{TargetException}.\_\_\text{cause}\_\_ = \text{OriginalException}\]</div>
+<p>Це дозволяє інженеру бачити повну хронологію виникнення проблеми у звіті трасування: як первинну апаратну відмову, так і її наслідки для бізнес-логіки.</p>
+<p>Для відображення специфічних помилок предметної області розробник повинен проектувати <strong>власні класи винятків</strong> (<strong>Custom Exceptions</strong>). За правилами проектування архітектури Python, будь-який користувацький виняток зобов'язаний наслідуватися від класу <code>Exception</code> (або одного з його стандартних нащадків) і в жодному разі не від <code>BaseException</code>.</p>
+<p>В інженерних проектах рекомендується створювати ієрархію винятків із спільним базовим класом для всього модуля або підсистеми. Це дозволяє користувачам бібліотеки перехоплювати як будь-яку помилку модуля в цілому через його базовий клас, так і обробляти кожну окрему нештатну ситуацію індивідуально:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># Ієрархія користувацьких винятків підсистеми телеметрії</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="k">class</span><span class="w"> </span><span class="nc">TelemetryError</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">    </span><span class="sd">"""Базовий клас для всіх винятків підсистеми збору телеметрії."""</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>    <span class="k">pass</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="k">class</span><span class="w"> </span><span class="nc">DeviceTimeoutError</span><span class="p">(</span><span class="n">TelemetryError</span><span class="p">):</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">    </span><span class="sd">"""Виникає при перевищенні ліміту часу очікування відповіді пристрою."""</span>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">port</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">timeout</span><span class="p">:</span> <span class="nb">float</span><span class="p">):</span>
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">port</span> <span class="o">=</span> <span class="n">port</span>
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">timeout</span> <span class="o">=</span> <span class="n">timeout</span>
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Пристрій на порту '</span><span class="si">{</span><span class="n">port</span><span class="si">}</span><span class="s2">' не відповів за </span><span class="si">{</span><span class="n">timeout</span><span class="si">}</span><span class="s2"> с."</span><span class="p">)</span>
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="k">class</span><span class="w"> </span><span class="nc">CRCValidationError</span><span class="p">(</span><span class="n">TelemetryError</span><span class="p">):</span>
+</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="w">    </span><span class="sd">"""Виникає при невідповідності контрольної суми отриманого пакета."""</span>
+</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">expected_crc</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">actual_crc</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+</span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">expected_crc</span> <span class="o">=</span> <span class="n">expected_crc</span>
+</span><span id="__span-1-18"><a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">actual_crc</span> <span class="o">=</span> <span class="n">actual_crc</span>
+</span><span id="__span-1-19"><a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Помилка CRC: очікувалося 0x</span><span class="si">{</span><span class="n">expected_crc</span><span class="si">:</span><span class="s2">04X</span><span class="si">}</span><span class="s2">, отримано 0x</span><span class="si">{</span><span class="n">actual_crc</span><span class="si">:</span><span class="s2">04X</span><span class="si">}</span><span class="s2">."</span><span class="p">)</span>
+</span></code></pre></div>
+<p>У наведеному прикладі класи <code>DeviceTimeoutError</code> та <code>CRCValidationError</code> інкапсулюють специфічні контекстні параметри (назва порту, часовий інтервал, очікувана та фактична контрольні суми), що дозволяє обробнику помилок не просто отримати текстове повідомлення, а програмно аналізувати числові атрибути винятку для прийняття рішення про повторну передачу кадру.</p>
+<p>У практиці комп'ютерної інженерії виділяють дві парадигми проектування обчислювальних процесів:</p>
+<ul>
+<li>
+<p><strong>LBYL</strong> (<em>Look Before You Leap</em> — «Подивись перед тим, як стрибнути»): підхід, характерний для мов C/C++, за якого перед виконанням кожної потенційно небезпечної операції здійснюються численні попередні перевірки через інструкції <code>if</code>. Цей підхід створює значний оверхед на багаторазове дублювання перевірок і у багатопотокових системах страждає від стану гонитви типу TOCTOU (<em>Time-of-Check to Time-of-Use</em>).</p>
+</li>
+<li>
+<p><strong>EAFP</strong> (<em>Easier to Ask for Forgiveness than Permission</em> — «Легше попросити вибачення, ніж дозволу»): ідіоматичний підхід мови Python, за якого операція виконується безпосередньо всередині блоку <code>try</code>, а можливі збої перехоплюються відповідними блоками <code>except</code>. Парадигма EAFP є швидшою в умовах, коли виняткові ситуації виникають відносно рідко, оскільки блок <code>try</code> за відсутності помилок не створює додаткових обчислювальних накладних витрат.</p>
+</li>
+</ul>
+<hr />
+<h2 id="83-open-r-w-a-b-seek-tell-raii-with">8.3. Робота з файлами: функція open(), режими доступу ('r', 'w', 'a', 'b', '+'), позиціонування курсору (seek, tell), буферизація та кодування. Патерн RAII та менеджери контексту (оператор with)</h2>
+<h3 id="_3">Основний зміст та теоретичний базис</h3>
+<p>Взаємодія з постійними запам'ятовуючими пристроями (ПЗП), накопичувачами та віртуальними файловими системами операційної системи здійснюється через абстракцію файлового потоку введення-виведення. У мові Python доступ до файлових ресурсів відкриває вбудована функція <strong><code>open()</code></strong>, яка пов'язує фізичний файл на носії з відповідним файловим об'єктом (потоком) у пам'яті процесу:</p>
+<div class="arithmatex">\[\text{file\_object} = \text{open}(file, mode='r', buffering=-1, encoding=None, errors=None, newline=None, closefd=True)\]</div>
+<p>Експлікація ключових параметрів функції <code>open()</code>:</p>
+<ul>
+<li>
+<p><span class="arithmatex">\(file\)</span> — рядковий шлях до файлу (абсолютний або відносний), об'єкт <code>pathlib.Path</code> або цілочисельний файловий дескриптор ядра ОС;</p>
+</li>
+<li>
+<p><span class="arithmatex">\(mode\)</span> — рядковий специфікатор режиму доступу;</p>
+</li>
+<li>
+<p><span class="arithmatex">\(buffering\)</span> — ціле число, що регламентує політику буферизації потоку (<span class="arithmatex">\(0\)</span> — буферизація вимкнена, дозволено лише для бінарних файлів; <span class="arithmatex">\(1\)</span> — рядкова буферизація для тексту; <span class="arithmatex">\(&gt;1\)</span> — фіксований розмір системного буфера в байтах; <span class="arithmatex">\(-1\)</span> — використання розміру системного буфера за замовчуванням <code>io.DEFAULT_BUFFER_SIZE</code>, що зазвичай становить 4096 або 8192 байти);</p>
+</li>
+<li>
+<p><span class="arithmatex">\(encoding\)</span> — назва стандарту кодування символів для текстового режиму (<code>utf-8</code>, <code>ascii</code>, <code>cp1251</code>);</p>
+</li>
+<li>
+<p><span class="arithmatex">\(errors\)</span> — режим реакції на помилки декодування символів (<code>strict</code> — збудження винятку <code>UnicodeDecodeError</code>, <code>ignore</code> — пропуск некоректних байтів, <code>replace</code> — заміна на маркер <code>\uFFFD</code>);</p>
+</li>
+<li>
+<p><span class="arithmatex">\(newline\)</span> — спосіб трансляції символів кінця рядка (<code>\n</code>, <code>\r</code>, <code>\r\n</code>).</p>
+</li>
+</ul>
+<p>Режим доступу <span class="arithmatex">\(mode\)</span> формується комбінацією базових символів, що визначають спрямованість потоку даних та формат інтерпретації вмісту:</p>
+<ul>
+<li>
+<p>Символ <code>'r'</code> (Read) відкриває файл виключно для читання. Файловий курсор встановлюється на нульовий байт (початок файлу). Якщо файл фізично відсутній на диску, функція збуджує виняток <code>FileNotFoundError</code>.</p>
+</li>
+<li>
+<p>Символ <code>'w'</code> (Write) відкриває файл для запису. Якщо файл існує, його вміст миттєво знищується (<strong>усікається до нульової довжини</strong>, <em>truncation</em>). Якщо файл відсутній, створюється новий порожній файл.</p>
+</li>
+<li>
+<p>Символ <code>'a'</code> (Append) відкриває файл для дозапису в кінець. Початковий вміст зберігається, а всі операції запису автоматично перенаправляються в кінець файлу незалежно від переміщень курсору.</p>
+</li>
+<li>
+<p>Символ <code>'x'</code> (Exclusive Creation) відкриває файл для запису виключно за умови, що він ще не існує. Якщо файл уже присутній, генерується виняток <code>FileExistsError</code>.</p>
+</li>
+<li>
+<p>Символ <code>'+'</code> (Update) підключає комбінований режим одночасного читання та запису (<code>r+</code>, <code>w+</code>, <code>a+</code>). У режимі <code>r+</code> початкові дані зберігаються, а запис перезаписує байти з поточної позиції курсору. У режимі <code>w+</code> файл попередньо очищається.</p>
+</li>
+<li>
+<p>Символи <code>'t'</code> (Text) та <code>'b'</code> (Binary) визначають рівень представлення: текстовий (повертає об'єкти <code>str</code> з автоматичним декодуванням) або бінарний (повертає сирі байти <code>bytes</code> без інтерпретації).</p>
+</li>
+</ul>
+<p>Керування позицією зчитування та запису здійснюється за допомогою методів низькорівневого позиціонування курсору:</p>
+<ul>
+<li>
+<p>Метод <strong><code>file.tell()</code></strong> повертає поточне зміщення курсору в байтах від початку файлу у вигляді невід'ємного цілого числа <span class="arithmatex">\(P \in \mathbb{N}_0\)</span>.</p>
+</li>
+<li>
+<p>Метод <strong><code>file.seek(offset, whence=0)</code></strong> переміщує курсор у нову позицію, де <span class="arithmatex">\(offset\)</span> визначає зміщення в байтах, а параметр <span class="arithmatex">\(whence\)</span> вказує точку відліку:</p>
+</li>
+<li>
+<p><span class="arithmatex">\(whence = 0\)</span> (<code>os.SEEK_SET</code>): абсолютне зміщення від початку файлу (дозволено в текстовому та бінарному режимах);</p>
+</li>
+<li>
+<p><span class="arithmatex">\(whence = 1\)</span> (<code>os.SEEK_CUR</code>): відносне зміщення від поточної позиції курсору (дозволено тільки в бінарному режимі <code>'b'</code>);</p>
+</li>
+<li>
+<p><span class="arithmatex">\(whence = 2\)</span> (<code>os.SEEK_END</code>): відносне зміщення від кінця файлу (дозволено тільки в бінарному режимі <code>'b'</code>).</p>
+</li>
+</ul>
+<p>У текстовому режимі використання довільних числових зміщень <span class="arithmatex">\(offset \neq 0\)</span> при <span class="arithmatex">\(whence \neq 0\)</span> суворо заборонено через нелінійність багатобайтових кодувань Unicode (UTF-8), де символ може займати від 1 до 4 байтів: єдиним коректним аргументом для <code>seek()</code> у тексті є значення, раніше отримане з виклику <code>tell()</code>.</p>
+<p>У комп'ютерній інженерії критичною проблемою є <strong>витік файлових дескрипторів</strong> (<em>file descriptor leak</em>). Операційна система виділяє кожному процесу обмежену кількість файлових дескрипторів (ліміт <code>ulimit -n</code> у POSIX-системах). </p>
+<p>Якщо відкривати файли без їхнього явного закриття методом <code>file.close()</code>, таблиця дескрипторів процесу швидко переповнюється, що призводить до системного винятку <code>OSError: [Errno 24] Too many open files</code> та блокування операцій введення-виведення. Крім того, нескинуті з буфера дані при раптовому збої процесу втрачаються.</p>
+<p>Для вирішення проблеми гарантованого вивільнення ресурсів застосовується архітектурний патерн <strong>RAII</strong> (<em>Resource Acquisition Is Initialization</em>), реалізований у Python через <strong>менеджери контексту</strong> та оператор <strong><code>with</code></strong> (PEP 343).</p>
+<p><pre class="mermaid"><code>sequenceDiagram
+    autonumber
+    participant App as Програмний код
+    participant CM as Менеджер контексту (with open())
+    participant FileObj as Файловий дескриптор (PyFile)
+    participant OS as Ядро операційної системи
+
+    App-&gt;&gt;CM: Вхід у блок: with open('data.bin', 'wb') as f
+    CM-&gt;&gt;OS: Системний виклик open() -&gt; виділення дескриптора
+    OS--&gt;&gt;CM: Повернення дескриптора файлу
+    CM-&gt;&gt;FileObj: Виклик методу __enter__()
+    FileObj--&gt;&gt;App: Зв'язування файлового об'єкта зі змінною 'f'
+
+    rect rgb(240, 248, 255)
+        Note over App,FileObj: Тіло контекстного блоку with
+        App-&gt;&gt;FileObj: f.write(payload_data)
+        App-&gt;&gt;FileObj: Виникнення винятку або успішне завершення
+    end
+
+    App-&gt;&gt;CM: Вихід із блоку with
+    CM-&gt;&gt;FileObj: Виклик методу __exit__(exc_type, exc_val, exc_tb)
+    FileObj-&gt;&gt;FileObj: f.flush() (скидання буфера на диск)
+    FileObj-&gt;&gt;OS: Системний виклик close()
+    OS--&gt;&gt;FileObj: Дескриптор звільнено в таблиці ОС
+    FileObj--&gt;&gt;CM: Підтвердження закриття
+    CM--&gt;&gt;App: Передача керування далі (або прокидання винятку)</code></pre>
+<em>Рисунок 2 — Послідовність взаємодії протоколу менеджера контексту при гарантованому закритті файлу</em></p>
+<p>Проаналізуємо схему виконання протоколу контекстного менеджера. Протокол базується на двох магічних методах:</p>
+<ol>
+<li>
+<p>Метод <strong><code>__enter__()</code></strong> ініціалізує ресурс, відкриває файловий потік і повертає об'єкт, що зв'язується зі змінною після ключового слова <code>as</code>.</p>
+</li>
+<li>
+<p>Метод <strong><code>__exit__(exc_type, exc_val, exc_tb)</code></strong> викликається автоматично при виході з блоку <code>with</code> за будь-яких умов. Якщо всередині блоку виник виняток, його параметри передаються в <code>__exit__</code>. Метод гарантовано викликає системну функцію <code>close()</code>, виконує скидання буферів на диск через <code>flush()</code> та звільняє дескриптор операційної системи. Якщо метод <code>__exit__</code> повертає <code>True</code>, виняток вважається подавленим; якщо повертається <code>False</code> (поведінка за замовчуванням) — виняток продовжує прокидатися вгору за стеком після закриття файлу.</p>
+</li>
+</ol>
+<p>Розглянемо практичний інженерний приклад надійного зчитування бінарного файлу прошивки мікроконтролера з перевіркою цілісності та обробкою системних винятків:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="n">FIRMWARE_HEADER_MAGIC</span> <span class="o">=</span> <span class="sa">b</span><span class="s2">"</span><span class="se">\x7F\x45\x4C\x46</span><span class="s2">"</span>  <span class="c1"># Сигнатура ELF файлу</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="k">def</span><span class="w"> </span><span class="nf">load_firmware_safe</span><span class="p">(</span><span class="n">file_path</span><span class="p">:</span> <span class="n">Path</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bytes</span><span class="p">:</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">    </span><span class="sd">"""Виконує надійне зчитування бінарного образу прошивки з обробкою винятків."""</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>    <span class="k">try</span><span class="p">:</span>
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>        <span class="c1"># Безпечне відкриття файлу через менеджер контексту</span>
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">"rb"</span><span class="p">,</span> <span class="n">buffering</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="k">as</span> <span class="n">bin_file</span><span class="p">:</span>
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>            <span class="n">header</span> <span class="o">=</span> <span class="n">bin_file</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>            <span class="k">if</span> <span class="n">header</span> <span class="o">!=</span> <span class="n">FIRMWARE_HEADER_MAGIC</span><span class="p">:</span>
+</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Некоректна сигнатура заголовка: </span><span class="si">{</span><span class="n">header</span><span class="o">.</span><span class="n">hex</span><span class="p">()</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>
+</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>            <span class="c1"># Переміщення в кінець файлу для визначення розміру</span>
+</span><span id="__span-2-16"><a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a>            <span class="n">file_size</span> <span class="o">=</span> <span class="n">bin_file</span><span class="o">.</span><span class="n">seek</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">SEEK_END</span><span class="p">)</span>
+</span><span id="__span-2-17"><a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a>            <span class="n">bin_file</span><span class="o">.</span><span class="n">seek</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">SEEK_SET</span><span class="p">)</span>  <span class="c1"># Повернення до тіла прошивки</span>
+</span><span id="__span-2-18"><a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a>
+</span><span id="__span-2-19"><a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a>            <span class="n">payload</span> <span class="o">=</span> <span class="n">bin_file</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+</span><span id="__span-2-20"><a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a>            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Успішно завантажено </span><span class="si">{</span><span class="n">file_size</span><span class="si">}</span><span class="s2"> байтів прошивки."</span><span class="p">)</span>
+</span><span id="__span-2-21"><a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a>            <span class="k">return</span> <span class="n">payload</span>
+</span><span id="__span-2-22"><a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a>
+</span><span id="__span-2-23"><a id="__codelineno-2-23" name="__codelineno-2-23" href="#__codelineno-2-23"></a>    <span class="k">except</span> <span class="ne">FileNotFoundError</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
+</span><span id="__span-2-24"><a id="__codelineno-2-24" name="__codelineno-2-24" href="#__codelineno-2-24"></a>        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Апаратна помилка: Файл прошивки '</span><span class="si">{</span><span class="n">file_path</span><span class="si">}</span><span class="s2">' відсутній на носії. (</span><span class="si">{</span><span class="n">err</span><span class="si">}</span><span class="s2">)"</span><span class="p">)</span>
+</span><span id="__span-2-25"><a id="__codelineno-2-25" name="__codelineno-2-25" href="#__codelineno-2-25"></a>        <span class="k">raise</span>
+</span><span id="__span-2-26"><a id="__codelineno-2-26" name="__codelineno-2-26" href="#__codelineno-2-26"></a>    <span class="k">except</span> <span class="ne">PermissionError</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
+</span><span id="__span-2-27"><a id="__codelineno-2-27" name="__codelineno-2-27" href="#__codelineno-2-27"></a>        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Помилка безпеки ОС: Відсутні права на читання файлу '</span><span class="si">{</span><span class="n">file_path</span><span class="si">}</span><span class="s2">'. (</span><span class="si">{</span><span class="n">err</span><span class="si">}</span><span class="s2">)"</span><span class="p">)</span>
+</span><span id="__span-2-28"><a id="__codelineno-2-28" name="__codelineno-2-28" href="#__codelineno-2-28"></a>        <span class="k">raise</span>
+</span><span id="__span-2-29"><a id="__codelineno-2-29" name="__codelineno-2-29" href="#__codelineno-2-29"></a>    <span class="k">except</span> <span class="p">(</span><span class="ne">OSError</span><span class="p">,</span> <span class="ne">ValueError</span><span class="p">)</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
+</span><span id="__span-2-30"><a id="__codelineno-2-30" name="__codelineno-2-30" href="#__codelineno-2-30"></a>        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Критичний збій введення-виведення при читанні прошивки: </span><span class="si">{</span><span class="n">err</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</span><span id="__span-2-31"><a id="__codelineno-2-31" name="__codelineno-2-31" href="#__codelineno-2-31"></a>        <span class="k">raise</span>
+</span></code></pre></div>
+<p><em>Таблиця 8.2 — Матриця режимів доступу функції <code>open()</code> та поведінки файлового курсору</em></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Режим</th>
+<th style="text-align: left;">Тип доступу</th>
+<th style="text-align: center;">Усікання файлу (Truncate)</th>
+<th style="text-align: center;">Початкова позиція курсору</th>
+<th style="text-align: center;">Створення нового файлу</th>
+<th style="text-align: left;">Типове застосування в інженерії</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong><code>'r'</code> / <code>'rb'</code></strong></td>
+<td style="text-align: left;">Тільки читання</td>
+<td style="text-align: center;">Ні</td>
+<td style="text-align: center;">Початок (0 байт)</td>
+<td style="text-align: center;">Ні (генерує <code>FileNotFoundError</code>)</td>
+<td style="text-align: left;">Зчитування конфігурацій, калібрувань</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>'w'</code> / <code>'wb'</code></strong></td>
+<td style="text-align: left;">Тільки запис</td>
+<td style="text-align: center;"><strong>Так (очищення)</strong></td>
+<td style="text-align: center;">Початок (0 байт)</td>
+<td style="text-align: center;">Так (якщо відсутній)</td>
+<td style="text-align: left;">Запис нових образів прошивок, дампи</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>'a'</code> / <code>'ab'</code></strong></td>
+<td style="text-align: left;">Тільки дозапис</td>
+<td style="text-align: center;">Ні</td>
+<td style="text-align: center;">Кінець файлу</td>
+<td style="text-align: center;">Так (якщо відсутній)</td>
+<td style="text-align: left;">Логування системних подій і трафіку</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>'x'</code> / <code>'xb'</code></strong></td>
+<td style="text-align: left;">Ексклюзивне створення</td>
+<td style="text-align: center;">Ні</td>
+<td style="text-align: center;">Початок (0 байт)</td>
+<td style="text-align: center;">Так (якщо є — <code>FileExistsError</code>)</td>
+<td style="text-align: left;">Безпечне створення унікальних логів</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>'r+'</code> / <code>'r+b'</code></strong></td>
+<td style="text-align: left;">Читання та запис</td>
+<td style="text-align: center;">Ні</td>
+<td style="text-align: center;">Початок (0 байт)</td>
+<td style="text-align: center;">Ні (генерує <code>FileNotFoundError</code>)</td>
+<td style="text-align: left;">Модифікація окремих байтів без перезапису</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>'w+'</code> / <code>'w+b'</code></strong></td>
+<td style="text-align: left;">Читання та запис</td>
+<td style="text-align: center;"><strong>Так (очищення)</strong></td>
+<td style="text-align: center;">Початок (0 байт)</td>
+<td style="text-align: center;">Так (якщо відсутній)</td>
+<td style="text-align: left;">Тимчасові буфери обміну інформацією</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>'a+'</code> / <code>'a+b'</code></strong></td>
+<td style="text-align: left;">Читання та дозапис</td>
+<td style="text-align: center;">Ні</td>
+<td style="text-align: center;">Кінець файлу</td>
+<td style="text-align: center;">Так (якщо відсутній)</td>
+<td style="text-align: left;">Читання історії та дозапис нових логів</td>
+</tr>
+</tbody>
+</table>
+<p>Наведена матриця режимів демонструє строгу спеціалізацію операцій введення-виведення, дозволяючи оптимізувати роботу дискової підсистеми відповідно до конкретних вимог надійності.</p>
+<hr />
+<h3 id="_4">Питання для самоперевірки та аналітичного осмислення</h3>
+<ol>
+<li>
+<p>У чому полягає принципова відмінність між помилками етапу трансляції (<code>SyntaxError</code>) та винятками часу виконання (<code>Exception</code>) у віртуальній машині CPython?</p>
+</li>
+<li>
+<p>Опишіть алгоритм розкручування стека (<em>stack unwinding</em>) при виникненні необробленого винятку. Які системні структури формують звіт трасування <code>traceback</code>?</p>
+</li>
+<li>
+<p>Чому перехоплення винятків за допомогою виразу <code>except BaseException:</code> або порожнього <code>except:</code> вважається критичною архітектурною помилкою? Чим семантично відрізняється клас <code>BaseException</code> від класу <code>Exception</code>?</p>
+</li>
+<li>
+<p>Поясніть призначення та порядок виконання блоку <code>else</code> у конструкції <code>try-except-else-finally</code>. Чому розміщення основного коду в секції <code>else</code> є безпечнішим, ніж його пряме включення в блок <code>try</code>?</p>
+</li>
+<li>
+<p>Розкрийте системний механізм ланцюжка винятків (<em>exception chaining</em>) через оператор <code>raise ... from ...</code>. Яка інформація зберігається в атрибутах <code>__cause__</code> та <code>__context__</code>?</p>
+</li>
+<li>
+<p>До яких наслідків для операційної системи призводить витік файлових дескрипторів (<em>file descriptor leak</em>) у високонавантажених сервісах? Чому виклику методу <code>close()</code> у блоці <code>try</code> недостатньо для гарантування надійності?</p>
+</li>
+<li>
+<p>Опишіть роботу протоколу менеджера контексту (<code>__enter__</code> та <code>__exit__</code>) при використанні інструкції <code>with open()</code>. За яких умов метод <code>__exit__</code> здатний придушити виняток, що виник усередині контекстного блоку?</p>
+</li>
+</ol>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Повернутись нагору
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 Kyrylo Vadurin &bull; <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a>
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.expand", "navigation.top", "navigation.tracking", "header.autohide", "search.suggest", "search.highlight", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u0421\u043a\u043e\u043f\u0456\u0439\u043e\u0432\u0430\u043d\u043e \u0432 \u0431\u0443\u0444\u0435\u0440", "clipboard.copy": "\u0421\u043a\u043e\u043f\u0456\u044e\u0432\u0430\u0442\u0438 \u0432 \u0431\u0443\u0444\u0435\u0440", "search.result.more.one": "\u0429\u0435 1 \u0437\u0431\u0456\u0433 \u043d\u0430 \u0446\u0456\u0439 \u0441\u0442\u043e\u0440\u0456\u043d\u0446\u0456", "search.result.more.other": "\u0429\u0435 # \u0437\u0431\u0456\u0433\u0456\u0432 \u043d\u0430 \u0446\u0456\u0439 \u0441\u0442\u043e\u0440\u0456\u043d\u0446\u0456", "search.result.none": "\u0417\u0431\u0456\u0433\u0456\u0432 \u043d\u0435 \u0437\u043d\u0430\u0439\u0434\u0435\u043d\u043e", "search.result.one": "\u0417\u043d\u0430\u0439\u0434\u0435\u043d\u043e 1 \u0437\u0431\u0456\u0433", "search.result.other": "\u0417\u043d\u0430\u0439\u0434\u0435\u043d\u043e # \u0437\u0431\u0456\u0433\u0456\u0432", "search.result.placeholder": "\u0420\u043e\u0437\u043f\u043e\u0447\u043d\u0456\u0442\u044c \u043f\u0438\u0441\u0430\u0442\u0438 \u0434\u043b\u044f \u043f\u043e\u0448\u0443\u043a\u0443", "search.result.term.missing": "\u041d\u0435 \u0437\u043d\u0430\u0439\u0434\u0435\u043d\u043e \u0437\u0430\u043f\u0438\u0442\u0443", "select.version": "\u041e\u0431\u0440\u0430\u0442\u0438 \u0432\u0435\u0440\u0441\u0456\u044e"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

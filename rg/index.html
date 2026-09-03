@@ -1,0 +1,2644 @@
+
+<!doctype html>
+<html lang="uk" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Навчальний портал з дисципліни "Програмування на Python. Базовий рівень"">
+      
+      
+      
+      
+        <link rel="prev" href="../sr/">
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Розрахунково-графічна робота - Програмування на Python</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="cyan">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#-python" class="md-skip">
+          Перейти до змісту
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Хедер">
+    <a href=".." title="Програмування на Python" class="md-header__button md-logo" aria-label="Програмування на Python" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Програмування на Python
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Розрахунково-графічна робота
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="cyan"  aria-label="Переключити на темну тему"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Переключити на темну тему" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="cyan"  aria-label="Переключити на світлу тему"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Переключити на світлу тему" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Пошук" placeholder="Пошук" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Шукати">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Очистити" aria-label="Очистити" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Пошук розпочато
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Вкладки" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Робоча програма
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../lk/lk1/" class="md-tabs__link">
+          
+  
+  
+  Лекції
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../lb/lb1/" class="md-tabs__link">
+          
+  
+  
+  Лабораторні роботи
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../sr/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Самостійна робота
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="./" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Розрахунково-графічна робота
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Навігація" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Програмування на Python" class="md-nav__button md-logo" aria-label="Програмування на Python" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Програмування на Python
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Робоча програма
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Лекції
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Лекції
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lk/lk1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Тема 1. Архітектура мови та інфраструктура
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lk/lk2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Тема 2. Керування потоком виконання
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lk/lk3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Тема 3. Впорядковані структури даних (Списки, Кортежі)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lk/lk4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Тема 4. Текстові, двійкові дані та Регулярні вирази
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lk/lk5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Тема 5. Хеш-таблиці (Словники, Множини)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lk/lk6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Тема 6. Функціональна організація коду
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lk/lk7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Тема 7. Модульна архітектура та пакети
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lk/lk8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Тема 8. Обробка винятків та файлове в/в
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lk/lk9/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Тема 9. Об'єктно-орієнтоване програмування
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Лабораторні роботи
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Лабораторні роботи
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lb/lb1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 1. Розгортання інфраструктури розробки
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lb/lb2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 2. Скалярні типи даних та моделювання
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lb/lb3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 3. Алгоритми розгалуженої та циклічної структури
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lb/lb4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 4. Обробка списків та кортежі
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lb/lb5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 5. Обробка тексту та регулярні вирази
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lb/lb6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 6. Асоціативні структури даних (Словники, Множини)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lb/lb7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 7. Проєктування функцій та рекурсія
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lb/lb8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 8. Модульне програмування та системні бібліотеки
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lb/lb9/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 9. Обробка виняткових ситуацій
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lb/lb10/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 10. Файлове в/в та менеджери контексту
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lb/lb11/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 11. ООП та перевантаження методів
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sr/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Самостійна робота
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Розрахунково-графічна робота
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Розрахунково-графічна робота
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Зміст">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Зміст
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ВСТУП
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1 ЗАГАЛЬНІ ПОЛОЖЕННЯ
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1 ЗАГАЛЬНІ ПОЛОЖЕННЯ">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 Мета і завдання розрахунково-графічної роботи
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 Основні етапи виконання розрахунково-графічної роботи
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3 Типова структура записки та вимоги до її змісту
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. ОФОРМЛЕННЯ ПОЯСНЮВАЛЬНОЇ ЗАПИСКИ
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. ОФОРМЛЕННЯ ПОЯСНЮВАЛЬНОЇ ЗАПИСКИ">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 Загальні вимоги та правила викладу тексту
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 Вимоги до складання реферату
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 Нумерація розділів, сторінок, ілюстрацій та таблиць
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4 Оформлення математичних виразів та формул
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.5 Оформлення додатків та списку літератури
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. ОФОРМЛЕННЯ ГРАФІЧНОЇ / ПРАКТИЧНОЇ ЧАСТИНИ
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. ВИМОГИ ДО ПІДГОТОВКИ ПРЕЗЕНТАЦІЇ ТА ДОПОВІДІ НА ЗАХИСТІ
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. ВИМОГИ ДО ПІДГОТОВКИ ПРЕЗЕНТАЦІЇ ТА ДОПОВІДІ НА ЗАХИСТІ">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 Загальні вимоги до структури та регламенту доповіді
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 Вимоги до змісту та візуального оформлення мультимедійної презентації
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3 Вимоги до проведення демонстрації функціонування комплексу
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#44" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.4 Порядок процедури захисту та критерії відповідей на запитання
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. ТИПОВІ ТЕМИ РОЗРАХУНКОВО-ГРАФІЧНОЇ РОБОТИ
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. КРИТЕРІЇ ТА ШКАЛА ОЦІНЮВАННЯ
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        СПИСОК РЕКОМЕНДОВАНОЇ ЛІТЕРАТУРИ
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="СПИСОК РЕКОМЕНДОВАНОЇ ЛІТЕРАТУРИ">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Основна література:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Додаткова література:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Інформаційні ресурси в Інтернеті:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ДОДАТКИ
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ДОДАТКИ">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Додаток А. Зразок оформлення титульної сторінки
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Додаток Б. Зразок бланка технічного завдання та календарного плану
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Додаток Б. Зразок бланка технічного завдання та календарного плану">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Сторона аркуша 1
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Сторона аркуша 2
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Зміст">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Зміст
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ВСТУП
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1 ЗАГАЛЬНІ ПОЛОЖЕННЯ
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1 ЗАГАЛЬНІ ПОЛОЖЕННЯ">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 Мета і завдання розрахунково-графічної роботи
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 Основні етапи виконання розрахунково-графічної роботи
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3 Типова структура записки та вимоги до її змісту
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. ОФОРМЛЕННЯ ПОЯСНЮВАЛЬНОЇ ЗАПИСКИ
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. ОФОРМЛЕННЯ ПОЯСНЮВАЛЬНОЇ ЗАПИСКИ">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 Загальні вимоги та правила викладу тексту
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 Вимоги до складання реферату
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 Нумерація розділів, сторінок, ілюстрацій та таблиць
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4 Оформлення математичних виразів та формул
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.5 Оформлення додатків та списку літератури
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. ОФОРМЛЕННЯ ГРАФІЧНОЇ / ПРАКТИЧНОЇ ЧАСТИНИ
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. ВИМОГИ ДО ПІДГОТОВКИ ПРЕЗЕНТАЦІЇ ТА ДОПОВІДІ НА ЗАХИСТІ
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. ВИМОГИ ДО ПІДГОТОВКИ ПРЕЗЕНТАЦІЇ ТА ДОПОВІДІ НА ЗАХИСТІ">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 Загальні вимоги до структури та регламенту доповіді
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 Вимоги до змісту та візуального оформлення мультимедійної презентації
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3 Вимоги до проведення демонстрації функціонування комплексу
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#44" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.4 Порядок процедури захисту та критерії відповідей на запитання
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. ТИПОВІ ТЕМИ РОЗРАХУНКОВО-ГРАФІЧНОЇ РОБОТИ
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. КРИТЕРІЇ ТА ШКАЛА ОЦІНЮВАННЯ
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        СПИСОК РЕКОМЕНДОВАНОЇ ЛІТЕРАТУРИ
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="СПИСОК РЕКОМЕНДОВАНОЇ ЛІТЕРАТУРИ">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Основна література:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Додаткова література:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Інформаційні ресурси в Інтернеті:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ДОДАТКИ
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ДОДАТКИ">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Додаток А. Зразок оформлення титульної сторінки
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Додаток Б. Зразок бланка технічного завдання та календарного плану
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Додаток Б. Зразок бланка технічного завдання та календарного плану">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Сторона аркуша 1
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Сторона аркуша 2
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="-python">МЕТОДИЧНІ ВКАЗІВКИ ЩОДО ВИКОНАННЯ РОЗРАХУНКОВО-ГРАФІЧНОЇ РОБОТИ<br>з освітнього компонента<br>«Програмування на Python»</h1>
+<hr />
+<h2 id="_1">ВСТУП</h2>
+<p>Розрахунково-графічна робота (РГР) з освітнього компонента «Програмування на Python» є важливою складовою практичної та інженерно-технічної підготовки здобувачів вищої освіти першого (бакалаврського) рівня за спеціальністю F7 «Комп’ютерна інженерія». У сучасних умовах розвитку апаратно-програмних засобів, вбудованих обчислювальних систем та хмарних сервісів мова Python займає провідні позиції як інструмент для швидкого прототипування, системного адміністрування, автоматизованого тестування, моделювання та аналізу великих масивів телеметричних даних. Виконання розрахунково-графічної роботи дозволяє здобувачам інтегрувати теоретичні знання з архітектури обчислювальних систем, дискретної математики та системного програмного забезпечення з прикладними методами об'єктно-орієнтованого програмування, модульного проектування та верифікації алгоритмів.</p>
+<p>Метою виконання розрахунково-графічної роботи є закріплення та поглиблення теоретичних знань, отриманих під час лекційних занять, а також набуття стійких практичних навичок проектування структурованих багатофайлових програмних комплексів. Робота спрямована на формування здатності самостійно обирати раціональні структури даних, проектувати класи з використанням перевантаження спеціальних методів, забезпечувати стійкість програмного коду до відмов за допомогою механізму винятків та організовувати персистентне збереження стану системи за допомогою сучасних форматів обміну даними (JSON, CSV) та бінарних потоків.</p>
+<p>У результаті вивчення освітнього компонента та виконання розрахунково-графічної роботи здобувач вищої освіти повинен</p>
+<p><strong>знати:</strong></p>
+<ul>
+<li>
+<p>теоретичні засади архітектури інтерпретатора CPython, принципи функціонування віртуальної машини PVM та внутрішню модель керування динамічною пам'яттю на основі лічильників посилань;</p>
+</li>
+<li>
+<p>математичні моделі та внутрішню організацію базових структур даних, включаючи динамічні масиви списків, компактні хеш-таблиці словників і множин та незмінні кортежі;</p>
+</li>
+<li>
+<p>принципи об'єктно-орієнтованого проектування, порядок лінеаризації методів за алгоритмом C3 при множинному наслідуванні та механізми перевантаження спеціальних dunder-методів;</p>
+</li>
+<li>
+<p>стандарти оформлення інженерного коду згідно з регламентом PEP 8 та правила побудови надійної модульної архітектури програмних пакетів;</p>
+</li>
+<li>
+<p>протоколи взаємодії з файловою системою, режими доступу до бінарних і текстових потоків та системні моделі гарантованого вивільнення ресурсів на основі менеджерів контексту;</p>
+</li>
+<li>
+<p>математичні алгоритми аналізу та вилучення шаблонів текстової інформації на базі скінченних автоматів модуля регулярних виразів.</p>
+</li>
+</ul>
+<p><strong>уміти:</strong></p>
+<ul>
+<li>
+<p>проектувати об'єктно-орієнтовані моделі апаратних та системних компонентів комп'ютерних систем із забезпеченням інкапсуляції через дескриптори властивостей;</p>
+</li>
+<li>
+<p>реалізовувати багатофайлові програмні комплекси з відокремленими рівнями бізнес-логіки, збереження даних та інтерфейсу користувача;</p>
+</li>
+<li>
+<p>створювати багаторівневі ієрархії користувацьких класів винятків та організовувати перехоплення помилок для забезпечення відмовостійкості системного ПЗ;</p>
+</li>
+<li>
+<p>застосовувати анонімні lambda-функції та функції вищого порядку для ефективного сортування, фільтрації та агрегації багатовимірних масивів даних;</p>
+</li>
+<li>
+<p>організовувати персистентний обмін інформацією за допомогою серіалізації структур даних у формати JSON та CSV, а також валідувати заголовки бінарних файлів;</p>
+</li>
+<li>
+<p>управляти історією розробки програмного комплексу за допомогою системи контролю версій Git та публікувати результати у хмарному репозиторії GitHub.</p>
+</li>
+</ul>
+<hr />
+<h2 id="1">1 ЗАГАЛЬНІ ПОЛОЖЕННЯ</h2>
+<h3 id="11-">1.1 Мета і завдання розрахунково-графічної роботи</h3>
+<p>Об'єктом проектування у розрахунково-графічній роботі є програмна модель підсистеми або апаратного вузла комп'ютерної інженерії, що функціонує в умовах детермінованих параметрів вхідного потоку даних. Предметом дослідження виступають алгоритми обробки інформації, структури даних, методи забезпечення надійності та об'єктно-орієнтована архітектура програмного забезпечення на мові Python.</p>
+<p>Під час виконання розрахунково-графічної роботи здобувач вищої освіти вирішує такий комплекс інженерно-розрахункових та алгоритмічних завдань:</p>
+<ul>
+<li>
+<p>проведення детального аналізу технічного завдання та формування формальної математичної постановки задачі моделювання цільової підсистеми;</p>
+</li>
+<li>
+<p>проектування об'єктної моделі предметної області із виділенням базових та похідних класів, визначенням приватних атрибутів та реалізацією інкапсуляції через властивості;</p>
+</li>
+<li>
+<p>перевантаження спеціальних магічних методів моделі даних Python для забезпечення можливості рядкового відображення, компонентного порівняння та арифметичної взаємодії об'єктів;</p>
+</li>
+<li>
+<p>розробка ієрархії користувацьких класів виняткових ситуацій для точної ідентифікації та локалізації аварійних станів апаратних компонентів;</p>
+</li>
+<li>
+<p>створення алгоритмів імпорту, валідації та нормалізації вхідних даних із використанням методів рядкового аналізу та модуля регулярних виразів;</p>
+</li>
+<li>
+<p>реалізація підсистеми персистентного збереження поточного стану обчислювального комплексу у файли форматів JSON та CSV із використанням менеджерів контексту;</p>
+</li>
+<li>
+<p>побудова модульної структури проекту у вигляді окремого пакета з точкою входу, що забезпечує взаємодію з користувачем через консольний інтерфейс командного рядка;</p>
+</li>
+<li>
+<p>проведення комплексного тестування створеного програмного забезпечення, вимірювання показників швидкодії та оформлення проектної документації.</p>
+</li>
+</ul>
+<h3 id="12-">1.2 Основні етапи виконання розрахунково-графічної роботи</h3>
+<p>Виконання розрахунково-графічної роботи здійснюється здобувачем вищої освіти послідовно відповідно до встановленого календарного графіка навчального процесу.</p>
+<p>Послідовність етапів виконання та захисту розрахунково-графічної роботи:</p>
+<ol>
+<li>
+<p>Отримання технічного завдання, вибір теми згідно з індивідуальним варіантом та аналіз вихідних вимог.</p>
+</li>
+<li>
+<p>Опрацювання літературних джерел, аналіз технічної документації та дослідження предметної області.</p>
+</li>
+<li>
+<p>Формалізація математичної моделі функціонування системи та розрахунок часової складності алгоритмів.</p>
+</li>
+<li>
+<p>Проектування архітектури класів, розробка ієрархії винятків та побудова структури пакетів.</p>
+</li>
+<li>
+<p>Програмна реалізація модулів бізнес-логіки, персистентного збереження даних та інтерфейсу користувача.</p>
+</li>
+<li>
+<p>Комплексне тестування розробленого комплексу, виправлення дефектів та бенчмаркінг швидкодії.</p>
+</li>
+<li>
+<p>Оформлення пояснювальної записки та підготовка графічного матеріалу відповідно до стандартів.</p>
+</li>
+<li>
+<p>Попередня перевірка роботи керівником, проходження нормоконтролю та контроль академічної доброчесності.</p>
+</li>
+<li>
+<p>Публічний захист розрахунково-графічної роботи перед комісією кафедри.</p>
+</li>
+</ol>
+<p>Логічний перехід між етапами базується на принципах ітеративного інженерного проектування. На початкових стадіях здобувач вищої освіти формує теоретичний фундамент та формалізує обмеження предметної області, що дозволяє уникнути архітектурних помилок при виборі структур даних. Перехід від математичного моделювання до програмної реалізації супроводжується фіксацією кожного кроку в системі контролю версій Git, що забезпечує прозорість розробки та дозволяє оперативно вносити корективи.</p>
+<p>Завершальні етапи передбачають інтеграцію розроблених модулів у єдиний функціональний комплекс, експериментальну верифікацію коректності обчислень та оформлення звітної документації. Проходження нормоконтролю підтверджує відповідність пояснювальної записки чинним державним стандартам України, а перевірка на академічну доброчесність гарантує авторський характер виконаних досліджень, що є обов'язковою передумовою для допуску до публічного захисту.</p>
+<h3 id="13">1.3 Типова структура записки та вимоги до її змісту</h3>
+<p>Пояснювальна записка до розрахунково-графічної роботи повинна бути зброшурована у твердій або м'якій обкладинці та містити такі обов'язкові структурні елементи, розташовані у суворій послідовності:</p>
+<ol>
+<li>
+<p>Титульна сторінка — оформлюється за встановленим бланком, наведеним у Додатку А.</p>
+</li>
+<li>
+<p>Бланк завдання — підписується здобувачем вищої освіти та керівником роботи, наведений у Додатку Б.</p>
+</li>
+<li>
+<p>Реферат (Анотація) — викладається державною (українською) та іноземною (англійською) мовами.</p>
+</li>
+<li>
+<p>Зміст — автоматично згенерований перелік усіх розділів, підрозділів та додатків із зазначенням номерів початкових сторінок.</p>
+</li>
+<li>
+<p>Перелік умовних позначень, символів, одиниць та скорочень — містить алфавітний список специфічних абревіатур і термінів.</p>
+</li>
+<li>
+<p>Вступ — розкриває актуальність теми, мету роботи, об'єкт, предмет та практичне значення результатів розробки.</p>
+</li>
+<li>
+<p>Розділ 1. Аналітичний огляд та технічне завдання.</p>
+</li>
+<li>
+<p><em>1.1. Аналіз предметної області та існуючих програмних аналогів.</em></p>
+</li>
+<li>
+<p><em>1.2. Обґрунтування вибору технологічного стеку та інструментів розробки.</em></p>
+</li>
+<li>
+<p><em>1.3. Формалізована постановка задачі та специфікація технічних вимог.</em></p>
+</li>
+<li>
+<p>Розділ 2. Математичні моделі та алгоритмічні структури.</p>
+</li>
+<li>
+<p><em>2.1. Формальний опис математичної моделі функціонування підсистеми.</em></p>
+</li>
+<li>
+<p><em>2.2. Алгоритми обробки, нормалізації та валідації вхідних потоків даних.</em></p>
+</li>
+<li>
+<p><em>2.3. Алгоритми обчислення інженерних метрик та аналіз асимптотичної складності.</em></p>
+</li>
+<li>
+<p><em>2.4. Схеми потоків даних та станів динамічної системи.</em></p>
+</li>
+<li>
+<p>Розділ 3. Програмна реалізація та архітектура комплексу.</p>
+</li>
+<li>
+<p><em>3.1. Структура пакетів проекту та організація точки входу.</em></p>
+</li>
+<li>
+<p><em>3.2. Проектування ієрархії класів, інкапсуляція та спеціальні методи.</em></p>
+</li>
+<li>
+<p><em>3.3. Підсистема обробки виняткових ситуацій та забезпечення надійності.</em></p>
+</li>
+<li>
+<p><em>3.4. Реалізація персистентного збереження даних у форматах JSON та CSV.</em></p>
+</li>
+<li>
+<p>Розділ 4. Тестування, експериментальні дослідження та інструкція користувача.</p>
+<ul>
+<li>
+<p><em>4.1. Методика тестування та опис тестових наборів даних.</em></p>
+</li>
+<li>
+<p><em>4.2. Аналіз результатів функціонального тестування та обробки аварійних станів.</em></p>
+</li>
+<li>
+<p><em>4.3. Оцінка часової та просторової ефективності роботи програми.</em></p>
+</li>
+<li>
+<p><em>4.4. Керівництво оператора щодо встановлення та запуску CLI-інтерфейсу.</em></p>
+</li>
+</ul>
+</li>
+<li>
+<p>Висновки — містять узагальнені науково-технічні підсумки виконання роботи та оцінку ступеня досягнення поставленої мети.</p>
+</li>
+<li>
+<p>Список використаної літератури — оформлюється згідно з вимогами ДСТУ 8302:2015.</p>
+</li>
+<li>
+<p>Додатки — містять повні лістинги програмного коду модулів, графічні схеми та зразки файлів конфігурації.</p>
+</li>
+</ol>
+<hr />
+<h2 id="2">2. ОФОРМЛЕННЯ ПОЯСНЮВАЛЬНОЇ ЗАПИСКИ</h2>
+<h3 id="21">2.1 Загальні вимоги та правила викладу тексту</h3>
+<p>Текст пояснювальної записки оформлюється на аркушах білого паперу формату А4 (розміри <span class="arithmatex">\(210 \times 297\)</span> мм) із дотриманням таких розмірів полів: ліве поле — 30 мм (для брошурування), праве поле — 10 мм, верхнє та нижнє поля — по 20 мм. Для набору тексту використовується гарнітура шрифту Times New Roman із розміром кегля 14 пунктів, міжрядковим інтервалом 1.5 та абзацним відступом 1.25 см. Вирівнювання основного тексту здійснюється по ширині сторінки з обов'язковим автоматичним переносом слів.</p>
+<p>Виклад матеріалу здійснюється державною мовою в академічному науково-технічному стилі від третьої особи або у безособовій формі. Усі речення повинні бути синтаксично повними, логічно зв'язаними та містити чітку граматичну основу. Забороняється використання неформальної лексики, скорочень слів без їхнього попереднього розкриття та розриву логічних зв'язків між абзацами.</p>
+<h3 id="22">2.2 Вимоги до складання реферату</h3>
+<p>Реферат є обов'язковим елементом пояснювальної записки і призначений для ознайомлення з основними положеннями та результатами роботи. Обсяг реферату не повинен перевищувати 500 слів (одна сторінка друкованого тексту). </p>
+<p>Реферат повинен містити відомості про загальний обсяг пояснювальної записки у сторінках, кількість ілюстрацій, кількість таблиць, кількість додатків та кількість використаних літературних джерел. </p>
+<p>У тексті реферату обов'язково наводиться перелік ключових слів, що складається з 5–15 термінів, надрукованих ВЕЛИКИМИ ЛІТЕРАМИ у називному відмінку в один рядок через коми. Основний зміст анотації послідовно розкриває актуальність теми, мету проведених досліджень, застосовані методи моделювання, отримані програмні результати та галузь їх практичного застосування. Текст реферату дублюється англійською мовою.</p>
+<h3 id="23">2.3 Нумерація розділів, сторінок, ілюстрацій та таблиць</h3>
+<p>Усі сторінки пояснювальної записки нумеруються наскрізною нумерацією арабськими цифрами. Номер сторінки проставляється у правому верхньому куті аркуша без крапки в кінці. Першою сторінкою є титульний аркуш, другою — бланк завдання, однак номери сторінок на них не проставляються. Нумерація починається цифрою «3» зі сторінки реферату.</p>
+<p>Розділи основної частини повинні мати порядкову нумерацію в межах усієї записки і позначатися арабськими цифрами з крапкою (наприклад: <code>1.</code>, <code>2.</code>). Підрозділи нумеруються в межах кожного розділу двома цифрами, розділеними крапкою (наприклад: <code>1.1.</code>, <code>1.2.</code>). Пункти підрозділів нумеруються трьома цифрами (наприклад: <code>1.1.1.</code>). Заголовки розділів друкуються жирним шрифтом великими літерами з вирівнюванням по центру, а заголовки підрозділів — жирним шрифтом з абзацного відступу.</p>
+<p>Ілюстрації (схеми, графіки, діаграми, знімки екрана) нумеруються арабськими цифрами в межах розділу двома числами через крапку. Підпис під ілюстрацією розміщується по центру і має формат:</p>
+<p><em>Рисунок X.Y — Назва рисунка</em></p>
+<p>де X — номер розділу; Y — порядковий номер ілюстрації в межах розділу. Таблиці нумеруються в межах розділу та позначаються з лівого боку над таблицею з абзацного відступу за формою:</p>
+<p><em>Таблиця X.Y — Назва таблиці</em></p>
+<h3 id="24">2.4 Оформлення математичних виразів та формул</h3>
+<p>Усі математичні вирази, аналітичні залежності та формули розрахунку алгоритмічної складності записуються за допомогою комп'ютерного набору LaTeX. Формули розміщуються окремими виділеними рядками по центру сторінки, а їхня нумерація вказується арабськими цифрами у круглих дужках біля правого краю сторінки на рівні формули. Нумерація формул складається з номера розділу та порядкового номера формули, розділених крапкою.</p>
+<p>Пояснення значень символів та числових коефіцієнтів (експлікація) наводиться безпосередньо під формулою, починаючи зі слова «де» без двокрапки з нового рядка без абзацного відступу. Після кожного символу через тире наводиться його фізичне значення та одиниця вимірювання, а елементи переліку розділяються крапкою з комою.</p>
+<p>Для розрахунку коефіцієнта готовності <span class="arithmatex">\(K_{\text{гот}}\)</span> апаратно-програмної системи у стаціонарному режимі використовується аналітична залежність:</p>
+<div class="arithmatex">\[K_{\text{гот}} = \frac{T_0}{T_0 + T_{\text{в}}} \qquad (2.1)\]</div>
+<p>де <span class="arithmatex">\(T_0\)</span> — середній наробіток обчислювальної системи до відмови, виміряний у годинах; <span class="arithmatex">\(T_{\text{в}}\)</span> — середній час відновлення працездатності комплексу після збою, виміряний у годинах.</p>
+<p>Асимптотична часова складність <span class="arithmatex">\(T(n)\)</span> сортування масиву телеметричних відліків методом Timsort визначається теоретичною формулою:</p>
+<div class="arithmatex">\[T(n) = O(n \log_2 n) \qquad (2.2)\]</div>
+<p>де <span class="arithmatex">\(n\)</span> — кількість оброблюваних записів у файловому масиві; <span class="arithmatex">\(\log_2 n\)</span> — логарифмічна основа глибини рекурсивного злиття підмасивів.</p>
+<h3 id="25">2.5 Оформлення додатків та списку літератури</h3>
+<p>Додатки оформлюються як продовження пояснювальної записки на наступних її аркушах і розташовуються у порядку появи посилань у тексті. Кожен додаток починається з нової сторінки. У правому верхньому куті аркуша друкується слово «ДОДАТОК» та велика літера українського алфавіту для його позначення (наприклад: «ДОДАТОК А», «ДОДАТОК Б»). Для позначення додатків забороняється використовувати літери Ґ, Є, І, Ї, Й, О, Ч, Ь. Під позначенням додатка по центру сторінки розміщується його тематичний заголовок. Ілюстрації, таблиці та формули в додатках нумеруються із зазначенням літери додатка (наприклад: <em>Рисунок А.1</em>, формула <em>(Б.1)</em>, <em>Таблиця В.2</em>).</p>
+<p>Список використаної літератури формується у порядку цитування джерел у тексті або в алфавітному порядку відповідно до вимог стандарту ДСТУ 8302:2015 або міжнародного стандарту APA. Посилання на літературні джерела у тексті записуються у квадратних дужках із зазначенням порядкового номера джерела за списком (наприклад: <code>[3]</code>, <code>[5, с. 45]</code>).</p>
+<hr />
+<h2 id="3">3. ОФОРМЛЕННЯ ГРАФІЧНОЇ / ПРАКТИЧНОЇ ЧАСТИНИ</h2>
+<p>Графічна частина розрахунково-графічної роботи є обов'язковим візуальним матеріалом, що ілюструє архітектурні, структурні та функціональні рішення, розроблені здобувачем вищої освіти. Графічний матеріал подається у формі цифрових панелей (плакатів) формату А2 або А1, оформлених відповідно до стандартів Єдиної системи конструкторської документації (ЄСКД) та Єдиної системи програмної документації (ЄСПД).</p>
+<p>Склад обов'язкових графічних аркушів (цифрових панелей):</p>
+<ol>
+<li>
+<p><strong>Аркуш 1. Структурно-концептуальна модель та архітектура системи:</strong> містить дворівневу діаграму пакетів та модулів проекту, відображає взаємодію підсистем введення-виведення, бізнес-логіки та сховища, а також схему потоків даних (DFD) при обробці телеметрії.</p>
+</li>
+<li>
+<p><strong>Аркуш 2. Об'єктна модель та алгоритмічні схеми:</strong> містить детальну UML-діаграму класів (із зазначенням рівнів доступу атрибутів, методів, зв'язків наслідування та асоціацій), а також блок-схеми базових алгоритмів обробки даних, розбору регулярних виразів та циклічних обчислень.</p>
+</li>
+<li>
+<p><strong>Аркуш 3. Експериментальні дослідження та користувацький інтерфейс:</strong> містить діаграми станів системи (State Machine Diagram), часові графіки продуктивності та навантаження процесора за результатами бенчмаркінгу, а також схему екранних форм консольного інтерфейсу CLI з прикладами реальних звітів.</p>
+</li>
+</ol>
+<hr />
+<h2 id="4">4. ВИМОГИ ДО ПІДГОТОВКИ ПРЕЗЕНТАЦІЇ ТА ДОПОВІДІ НА ЗАХИСТІ</h2>
+<h3 id="41">4.1 Загальні вимоги до структури та регламенту доповіді</h3>
+<p>Публічний захист розрахунково-графічної роботи є підсумковим етапом контролю, на якому здобувач вищої освіти демонструє рівень опанування теоретичного матеріалу, володіння інженерною термінологією та здатність аргументувати прийняті проектні рішення. Загальний регламент доповіді становить строго 5–7 хвилин.</p>
+<p>Похвилинний розподіл регламенту виступу:</p>
+<ul>
+<li>
+<p><strong>Вступна частина (до 1 хвилини):</strong> обґрунтування актуальності теми розробки, формулювання мети дослідження, визначення об'єкта та предмета проектування;</p>
+</li>
+<li>
+<p><strong>Концептуальна та математична частина (1.5–2 хвилини):</strong> висвітлення математичної моделі функціонування підсистеми, алгоритмів обробки даних, аналізу асимптотичної складності та вибору структур даних;</p>
+</li>
+<li>
+<p><strong>Програмно-інженерна частина (2–2.5 хвилини):</strong> демонстрація архітектури класів, організації інкапсуляції, перевантаження dunder-методів, проектування ієрархії винятків та підсистеми персистентного збереження у формати JSON/CSV;</p>
+</li>
+<li>
+<p><strong>Експериментальна частина та висновки (до 1 хвилини):</strong> аналіз результатів тестування надійності, показників бенчмаркінгу швидкодії та узагальнені науково-практичні висновки.</p>
+</li>
+</ul>
+<h3 id="42">4.2 Вимоги до змісту та візуального оформлення мультимедійної презентації</h3>
+<p>Мультимедійна презентація готується за допомогою програмного забезпечення Microsoft PowerPoint або Google Презентації та повинна містити від 8 до 12 слайдів у співвідношенні сторін 16:9. Візуальне оформлення має бути витримане в академічному стилі з використанням контрастної колірної гами (темний текст на світлому фоні). Для заголовків використовується розмір шрифту 28–36 пунктів, для основного тексту — 18–24 пункти.</p>
+<p>Структура слайдів презентації:</p>
+<ul>
+<li>
+<p>Слайд 1: Титульний (назва університету, кафедра, тема роботи, відомості про автора та керівника);</p>
+</li>
+<li>
+<p>Слайд 2: Мета, завдання та об'єкт проектування;</p>
+</li>
+<li>
+<p>Слайд 3: Математична модель та алгоритмічні формули розрахунків;</p>
+</li>
+<li>
+<p>Слайд 4: Архітектура модулів та пакетна структура комплексу;</p>
+</li>
+<li>
+<p>Слайд 5: UML-діаграма класів та взаємодія об'єктів;</p>
+</li>
+<li>
+<p>Слайд 6: Реалізація інкапсуляції та перевантаження спеціальних dunder-методів;</p>
+</li>
+<li>
+<p>Слайд 7: Система забезпечення надійності та ієрархія користувацьких винятків;</p>
+</li>
+<li>
+<p>Слайд 8: Підсистема персистентності та робота з файлами JSON/CSV;</p>
+</li>
+<li>
+<p>Слайд 9: Результати функціонального тестування та графіки швидкодії;</p>
+</li>
+<li>
+<p>Слайд 10: Скріншоти виконання консольної CLI-утиліти;</p>
+</li>
+<li>
+<p>Слайд 11: Висновки за результатами виконання роботи;</p>
+</li>
+<li>
+<p>Слайд 12: Фінальний слайд із подякою за увагу та контактами репозиторію GitHub.</p>
+</li>
+</ul>
+<h3 id="43">4.3 Вимоги до проведення демонстрації функціонування комплексу</h3>
+<p>Після завершення виступу здобувач вищої освіти проводить обов'язкову демонстрацію функціонування розробленого програмного комплексу в режимі реального часу (Live Demo) тривалістю 2–3 хвилини.</p>
+<p>Чеклист дій здобувача під час демонстрації комплексу:</p>
+<ol>
+<li>
+<p>Демонстрація структури проекту у середовищі Visual Studio Code та активація віртуального середовища Conda.</p>
+</li>
+<li>
+<p>Запуск програми через консольний інтерфейс термінала з передачею різних комбінацій аргументів командного рядка <code>sys.argv</code> (включаючи прапорець <code>--help</code>).</p>
+</li>
+<li>
+<p>Демонстрація штатної обробки вхідного файлу даних та генерації результуючого табличного звіту.</p>
+</li>
+<li>
+<p>Імітація аварійного стану (введення некоректного діапазону напруги, пошкодженого формату файлу або несумісних типів) для демонстрації спрацьовування користувацьких винятків та відсутності аварійного падіння програми.</p>
+</li>
+<li>
+<p>Відкриття та демонстрація згенерованих файлів знімків стану у форматах JSON та CSV.</p>
+</li>
+<li>
+<p>Демонстрація відкритого репозиторію на платформі GitHub із структурованою історією комітів.</p>
+</li>
+</ol>
+<h3 id="44">4.4 Порядок процедури захисту та критерії відповідей на запитання</h3>
+<p>Загальна тривалість захисту одного здобувача вищої освіти становить 10–15 хвилин, що включає доповідь, демонстрацію роботи програми та відповіді на запитання членів екзаменаційної комісії. Члени комісії оцінюють глибину володіння матеріалом, наукову обґрунтованість проектних рішень та аргументованість висновків.</p>
+<p>Типові напрямки фахових запитань членів комісії:</p>
+<ul>
+<li>
+<p>механізми керування пам'яттю та внутрішня реалізація використаних структур даних у CPython;</p>
+</li>
+<li>
+<p>причини вибору конкретних патернів проектування та способів реалізації інкапсуляції;</p>
+</li>
+<li>
+<p>алгоритмічна складність реалізованих функцій та методи оптимізації вузьких місць продуктивності;</p>
+</li>
+<li>
+<p>призначення конкретних dunder-методів та механізм диспетчеризації перевантажених операторів;</p>
+</li>
+<li>
+<p>забезпечення безпеки файлового введення-виведення за допомогою протоколу менеджерів контексту.</p>
+</li>
+</ul>
+<hr />
+<h2 id="5-">5. ТИПОВІ ТЕМИ РОЗРАХУНКОВО-ГРАФІЧНОЇ РОБОТИ</h2>
+<ol>
+<li>
+<p>Програмний комплекс моніторингу та обліку апаратних конфігурацій вузлів локальної мережі.</p>
+</li>
+<li>
+<p>Система симуляції диспетчеризації черги задач центрального процесора на базі алгоритмів FIFO та Round Robin.</p>
+</li>
+<li>
+<p>Модуль аналізу, фільтрації та статистичної обробки журналів подій системних логів серверного обладнання.</p>
+</li>
+<li>
+<p>Програмна модель системи керування сховищем даних та автоматизованого резервного копіювання файлових масивів.</p>
+</li>
+<li>
+<p>Модуль розрахунку та математичного моделювання показників надійності апаратно-програмних комплексів комп'ютерних систем.</p>
+</li>
+<li>
+<p>Інформаційно-довідкова система обліку мережевих пристроїв, розподілу IP-адресації та аналізу топології мережі.</p>
+</li>
+<li>
+<p>Система емуляції багаторівневої кеш-пам'яті процесора з алгоритмами заміщення рядків LRU та FIFO.</p>
+</li>
+<li>
+<p>Модуль симуляції, захоплення та аналізу трафіку мережевих пакетів із підтримкою фільтрації за портами.</p>
+</li>
+<li>
+<p>Система обліку, діагностики та оптимізації енергоспоживання компонентів розподіленої обчислювальної системи.</p>
+</li>
+<li>
+<p>Програмний емулятор багатоканального цифрового лічильника та логічного аналізатора телеметричних сигналів.</p>
+</li>
+<li>
+<p>Комплекс моніторингу параметрів температурних датчиків серверної стійки з підсистемою тривожних сповіщень.</p>
+</li>
+<li>
+<p>Система обліку, аудиту та оптимізації розподілу ліцензійного програмного забезпечення на підприємстві.</p>
+</li>
+<li>
+<p>Програмна модель планувальника дискових операцій введення-виведення за алгоритмами SCAN та C-SCAN.</p>
+</li>
+<li>
+<p>Модуль валідації, аналізу та перевірки цілісності файлових масивів за контрольними сумами та сигнатурами.</p>
+</li>
+<li>
+<p>Система обліку та автоматизованого аудиту матриці прав доступу користувачів до мережевих ресурсів.</p>
+</li>
+<li>
+<p>Програмний аналізатор завантаження та пропускної здатності каналів передачі даних у розподілених системах.</p>
+</li>
+<li>
+<p>Система діагностики та класифікації несправностей оперативної пам'яті на основі таблиці сигнатур помилок.</p>
+</li>
+<li>
+<p>Модуль автоматизованого конфігурування мережевих інтерфейсів та генерації скриптів статичної маршрутизації.</p>
+</li>
+<li>
+<p>Програмний комплекс обліку життєвого циклу, напрацювання на відмову та амортизації комп'ютерного обладнання.</p>
+</li>
+<li>
+<p>Емулятор контролера системи прецизійного охолодження дата-центру з адаптивним регулюванням повітряного потоку.</p>
+</li>
+</ol>
+<hr />
+<h2 id="6">6. КРИТЕРІЇ ТА ШКАЛА ОЦІНЮВАННЯ</h2>
+<p>Оцінювання розрахунково-графічної роботи здійснюється за 10-бальною шкалою на основі комплексного аналізу змісту розробки, якості оформлення розрахунково-пояснювальної записки та результатів публічного захисту.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">№ з/п</th>
+<th style="text-align: left;">Об’єкт оцінювання</th>
+<th style="text-align: center;">Максимальна кількість балів</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: left;">Зміст, алгоритмічна та технічна якість розробки</td>
+<td style="text-align: center;">5</td>
+</tr>
+<tr>
+<td style="text-align: center;">2</td>
+<td style="text-align: left;">Якість оформлення пояснювальної записки та презентації</td>
+<td style="text-align: center;">2</td>
+</tr>
+<tr>
+<td style="text-align: center;">3</td>
+<td style="text-align: left;">Захист роботи, доповідь та відповіді на запитання</td>
+<td style="text-align: center;">3</td>
+</tr>
+<tr>
+<td style="text-align: center;"></td>
+<td style="text-align: left;"><strong>УСЬОГО</strong></td>
+<td style="text-align: center;"><strong>10</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Максимальна оцінка у 5 балів за зміст та технічну якість розробки виставляється, якщо здобувач вищої освіти повністю виконав індивідуальне технічне завдання, спроектував бездоганну об'єктно-орієнтовану архітектуру з використанням інкапсуляції, наслідування та поліморфізму, коректно реалізував перевантаження спеціальних dunder-методів, забезпечив надійність коду за допомогою ієрархії користувацьких винятків, реалізував персистентність через збереження у форматах JSON/CSV з використанням менеджерів контексту та опублікував чистий, структурований вихідний код у репозиторії GitHub. Зниження балів відбувається за наявності логічних помилок в алгоритмах, відсутності валідації вхідних параметрів або порушення вимог модульності кодової бази.</p>
+<p>Максимальна оцінка у 2 бали за якість оформлення пояснювальної записки та презентації виставляється за умови повної відповідності друкованого звіту вимогам стандартів ДСТУ, дотримання регламенту шрифтового набору, полів, нумерації, правильного оформлення формул LaTeX, наявності детальних експлікацій, грамотно побудованих таблиць і рисунків, наявності якісно структурованого бібліографічного списку та підготовки наочної мультимедійної презентації відповідно до технічних вимог.</p>
+<p>Максимальна оцінка у 3 бали за захист роботи призначається, якщо здобувач вільно та впевнено володіє матеріалом, вкладається у встановлений часовий регламент доповіді, демонструє бездоганне функціонування комплексу в режимі реального часу та надає глибокі, вичерпні, теоретично обґрунтовані відповіді на всі запитання членів екзаменаційної комісії.</p>
+<p>Дотримання принципів академічної доброчесності є обов'язковою передумовою успішного захисту розрахунково-графічної роботи. Виявлення у пояснювальній записці або вихідному коді ознак плагіату, несанкціонованого запозичення чужих робіт без належного посилання на першоджерело, фабрикації результатів експериментів або подання коду, згенерованого без особистісного інженерного опрацювання, має наслідком безумовне недопущення здобувача до захисту та отримання незадовільної оцінки з обов'язковим повторним виконанням завдання за новим індивідуальним варіантом.</p>
+<hr />
+<h2 id="_2">СПИСОК РЕКОМЕНДОВАНОЇ ЛІТЕРАТУРИ</h2>
+<h3 id="_3">Основна література:</h3>
+<ol>
+<li>
+<p>Діденко Ю. В., Татарчук Д. Д. Об'єктно-орієнтоване програмування мовою PYTHON : конспект лекцій. Київ : КПІ ім. Ігоря Сікорського, 2021. 129 с. URL: https://ela.kpi.ua/handle/123456789/41444</p>
+</li>
+<li>
+<p>Костюченко А. О. Основи програмування мовою Python : навчальний посібник. Чернігів : ФОП Баликіна С. М., 2020. 180 с.</p>
+</li>
+<li>
+<p>Савченко М. В. Основи програмування мовою Python : лабораторний практикум. Харків : НТУ «ХПІ», 2025. 181 с. URL: http://repository.kpi.kharkov.ua/handle/KhPI-Press/78210</p>
+</li>
+<li>
+<p>Ковтанюк М. С., Тітова Л. О. Програмування : навчальний посібник. Умань : Візаві, 2023. 186 с. URL: https://dspace.udpu.edu.ua/handle/123456789/15389</p>
+</li>
+<li>
+<p>Анісімов А. В. та ін. Програмування числових методів мовою Python : підручник / за ред. А. В. Анісімова. Київ : ВПЦ «Київський університет», 2014. 640 с.</p>
+</li>
+<li>
+<p>Рамський Ю. С., Цибко Г. Ю. Основи програмування : навчальний посібник. Київ : НПУ імені М. П. Драгоманова, 2008. 188 с.</p>
+</li>
+</ol>
+<h3 id="_4">Додаткова література:</h3>
+<ol>
+<li>
+<p>Lutz M. Learning Python. 5th ed. Sebastopol : O’Reilly Media, 2013. 1540 p. ISBN 978-1449355739.</p>
+</li>
+<li>
+<p>Ramalho L. Fluent Python: Clear, Concise, and Effective Programming. 2nd ed. Sebastopol : O’Reilly Media, 2022. 1014 p. ISBN 978-1492056355.</p>
+</li>
+<li>
+<p>Slatkin B. Effective Python: 90 Specific Ways to Write Better Python. 2nd ed. Boston : Addison-Wesley, 2019. 480 p. ISBN 978-0134853987.</p>
+</li>
+<li>
+<p>Matthes E. Python Crash Course: A Hands-On, Project-Based Introduction to Programming. 3rd ed. San Francisco : No Starch Press, 2023. 552 p. ISBN 978-1718502703.</p>
+</li>
+<li>
+<p>Gamma E., Helm R., Johnson R., Vlissides J. Design Patterns: Elements of Reusable Object-Oriented Software. Boston : Addison-Wesley, 1994. 395 p. DOI: https://doi.org/10.1145/214878.214879</p>
+</li>
+<li>
+<p>Hettinger R. Data structures and algorithms in Python core engine. <em>Journal of Systems and Software</em>. 2021. Vol. 172. P. 110–124. DOI: https://doi.org/10.1016/j.jss.2020.110852</p>
+</li>
+</ol>
+<h3 id="_5">Інформаційні ресурси в Інтернеті:</h3>
+<ol>
+<li>
+<p>Python 3 Documentation / Python Software Foundation. URL: https://docs.python.org/3/</p>
+</li>
+<li>
+<p>PEP 8 – Style Guide for Python Code. URL: https://peps.python.org/pep-0008/</p>
+</li>
+<li>
+<p>PEP 3134 – Exception Chaining and Embedded Tracebacks. URL: https://peps.python.org/pep-3134/</p>
+</li>
+<li>
+<p>Visual Studio Code Documentation for Python. URL: https://code.visualstudio.com/docs/languages/python</p>
+</li>
+<li>
+<p>Git Official Documentation and Reference Manual. URL: https://git-scm.com/doc</p>
+</li>
+</ol>
+<hr />
+<h2 id="_6">ДОДАТКИ</h2>
+<h3 id="_7">Додаток А. Зразок оформлення титульної сторінки</h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>                  МІНІСТЕРСТВО ОСВІТИ І НАУКИ УКРАЇНИ
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>          НАЦІОНАЛЬНИЙ ТЕХНІЧНИЙ УНІВЕРСИТЕТ УКРАЇНИ
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>      «КИЇВСЬКИЙ ПОЛІТЕХНІЧНИЙ ІНСТИТУТ ІМЕНІ ІГОРЯ СІКОРСЬКОГО»
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>             Факультет комп'ютерних наук та програмної інженерії
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>                     Кафедра комп'ютерної інженерії
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>                                      ДОПУСТИТИ ДО ЗАХИСТУ
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>                                      Завідувач кафедри
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>                                      __________  ___________________
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>                                       (підпис)   (ініціали, прізвище)
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>                                      «___» ____________ 2026 р.
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>                     РОЗРАХУНКОВО-ГРАФІЧНА РОБОТА
+</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>                 з освітнього компонента «Програмування на Python»
+</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>       на тему: «Програмний комплекс моніторингу та обліку апаратних 
+</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>                 конфігурацій вузлів локальної мережі»
+</span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>
+</span><span id="__span-0-21"><a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a>
+</span><span id="__span-0-22"><a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a>
+</span><span id="__span-0-23"><a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a>
+</span><span id="__span-0-24"><a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a>Виконав:
+</span><span id="__span-0-25"><a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a>студент 3 курсу, групи КІ-31
+</span><span id="__span-0-26"><a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a>спеціальності F7 «Комп'ютерна інженерія»
+</span><span id="__span-0-27"><a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a>Шевченко Богдан Олександрович   __________
+</span><span id="__span-0-28"><a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a>                                 (підпис)
+</span><span id="__span-0-29"><a id="__codelineno-0-29" name="__codelineno-0-29" href="#__codelineno-0-29"></a>
+</span><span id="__span-0-30"><a id="__codelineno-0-30" name="__codelineno-0-30" href="#__codelineno-0-30"></a>Керівник:
+</span><span id="__span-0-31"><a id="__codelineno-0-31" name="__codelineno-0-31" href="#__codelineno-0-31"></a>доцент кафедри комп'ютерної інженерії,
+</span><span id="__span-0-32"><a id="__codelineno-0-32" name="__codelineno-0-32" href="#__codelineno-0-32"></a>канд. техн. наук, доцент
+</span><span id="__span-0-33"><a id="__codelineno-0-33" name="__codelineno-0-33" href="#__codelineno-0-33"></a>Ковальчук Ігор Васильович        __________
+</span><span id="__span-0-34"><a id="__codelineno-0-34" name="__codelineno-0-34" href="#__codelineno-0-34"></a>                                 (підпис)
+</span><span id="__span-0-35"><a id="__codelineno-0-35" name="__codelineno-0-35" href="#__codelineno-0-35"></a>
+</span><span id="__span-0-36"><a id="__codelineno-0-36" name="__codelineno-0-36" href="#__codelineno-0-36"></a>
+</span><span id="__span-0-37"><a id="__codelineno-0-37" name="__codelineno-0-37" href="#__codelineno-0-37"></a>Національна шкала:   ____________________
+</span><span id="__span-0-38"><a id="__codelineno-0-38" name="__codelineno-0-38" href="#__codelineno-0-38"></a>Кількість балів:     ____________________
+</span><span id="__span-0-39"><a id="__codelineno-0-39" name="__codelineno-0-39" href="#__codelineno-0-39"></a>Оцінка ECTS:         ____________________
+</span><span id="__span-0-40"><a id="__codelineno-0-40" name="__codelineno-0-40" href="#__codelineno-0-40"></a>
+</span><span id="__span-0-41"><a id="__codelineno-0-41" name="__codelineno-0-41" href="#__codelineno-0-41"></a>Члени комісії:       __________  _____________________________
+</span><span id="__span-0-42"><a id="__codelineno-0-42" name="__codelineno-0-42" href="#__codelineno-0-42"></a>                      (підпис)       (вчене звання, ініціали, прізвище)
+</span><span id="__span-0-43"><a id="__codelineno-0-43" name="__codelineno-0-43" href="#__codelineno-0-43"></a>                     __________  _____________________________
+</span><span id="__span-0-44"><a id="__codelineno-0-44" name="__codelineno-0-44" href="#__codelineno-0-44"></a>                      (підпис)       (вчене звання, ініціали, прізвище)
+</span><span id="__span-0-45"><a id="__codelineno-0-45" name="__codelineno-0-45" href="#__codelineno-0-45"></a>
+</span><span id="__span-0-46"><a id="__codelineno-0-46" name="__codelineno-0-46" href="#__codelineno-0-46"></a>
+</span><span id="__span-0-47"><a id="__codelineno-0-47" name="__codelineno-0-47" href="#__codelineno-0-47"></a>
+</span><span id="__span-0-48"><a id="__codelineno-0-48" name="__codelineno-0-48" href="#__codelineno-0-48"></a>
+</span><span id="__span-0-49"><a id="__codelineno-0-49" name="__codelineno-0-49" href="#__codelineno-0-49"></a>                                Київ – 2026
+</span></code></pre></div>
+<hr />
+<h3 id="_8">Додаток Б. Зразок бланка технічного завдання та календарного плану</h3>
+<h4 id="1_1">Сторона аркуша 1</h4>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>          НАЦІОНАЛЬНИЙ ТЕХНІЧНИЙ УНІВЕРСИТЕТ УКРАЇНИ
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>  «КИЇВСЬКИЙ ПОЛІТЕХНІЧНИЙ ІНСТИТУТ ІМЕНІ ІГОРЯ СІКОРСЬКОГО»
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>                 Кафедра комп'ютерної інженерії
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>Освітній рівень:         Перший (бакалаврський)
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>Спеціальність:           F7 «Комп'ютерна інженерія»
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>Освітньо-професійна 
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>програма:                «Комп'ютерна інженерія»
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>                                  ЗАТВЕРДЖУЮ
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>                                  Завідувач кафедри
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>                                  __________  ___________________
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>                                   (підпис)   (ініціали, прізвище)
+</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>                                  «___» ____________ 2026 р.
+</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>
+</span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a>
+</span><span id="__span-1-18"><a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a>                                 ЗАВДАННЯ
+</span><span id="__span-1-19"><a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a>               НА РОЗРАХУНКОВО-ГРАФІЧНУ РОБОТУ СТУДЕНТУ
+</span><span id="__span-1-20"><a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a>
+</span><span id="__span-1-21"><a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a>                 Шевченку Богдану Олександровичу
+</span><span id="__span-1-22"><a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a>
+</span><span id="__span-1-23"><a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a>1. Тема роботи: «Програмний комплекс моніторингу та обліку апаратних 
+</span><span id="__span-1-24"><a id="__codelineno-1-24" name="__codelineno-1-24" href="#__codelineno-1-24"></a>   конфігурацій вузлів локальної мережі»
+</span><span id="__span-1-25"><a id="__codelineno-1-25" name="__codelineno-1-25" href="#__codelineno-1-25"></a>   керівник роботи: доцент Ковальчук Ігор Васильович, канд. техн. наук,
+</span><span id="__span-1-26"><a id="__codelineno-1-26" name="__codelineno-1-26" href="#__codelineno-1-26"></a>   затверджені наказом по університету від «15» вересня 2026 р. № 1024-с.
+</span><span id="__span-1-27"><a id="__codelineno-1-27" name="__codelineno-1-27" href="#__codelineno-1-27"></a>
+</span><span id="__span-1-28"><a id="__codelineno-1-28" name="__codelineno-1-28" href="#__codelineno-1-28"></a>2. Термін здачі студентом завершеної роботи: «15» грудня 2026 р.
+</span><span id="__span-1-29"><a id="__codelineno-1-29" name="__codelineno-1-29" href="#__codelineno-1-29"></a>
+</span><span id="__span-1-30"><a id="__codelineno-1-30" name="__codelineno-1-30" href="#__codelineno-1-30"></a>3. Вихідні дані до роботи:
+</span><span id="__span-1-31"><a id="__codelineno-1-31" name="__codelineno-1-31" href="#__codelineno-1-31"></a>
+</span><span id="__span-1-32"><a id="__codelineno-1-32" name="__codelineno-1-32" href="#__codelineno-1-32"></a>   - Вхідні дані: текстові логи мережевого сканування, CSV-таблиці конфігурацій;
+</span><span id="__span-1-33"><a id="__codelineno-1-33" name="__codelineno-1-33" href="#__codelineno-1-33"></a>
+</span><span id="__span-1-34"><a id="__codelineno-1-34" name="__codelineno-1-34" href="#__codelineno-1-34"></a>   - Стек технологій: Python 3.10+, VS Code, Git/GitHub, модулі sys, os, re, json;
+</span><span id="__span-1-35"><a id="__codelineno-1-35" name="__codelineno-1-35" href="#__codelineno-1-35"></a>
+</span><span id="__span-1-36"><a id="__codelineno-1-36" name="__codelineno-1-36" href="#__codelineno-1-36"></a>   - Апаратні обмеження: облік IP-адрес, MAC-адрес, відкритих портів та завантаження CPU.
+</span><span id="__span-1-37"><a id="__codelineno-1-37" name="__codelineno-1-37" href="#__codelineno-1-37"></a>
+</span><span id="__span-1-38"><a id="__codelineno-1-38" name="__codelineno-1-38" href="#__codelineno-1-38"></a>4. Зміст пояснювальної записки (перелік питань, що підлягають розробці):
+</span><span id="__span-1-39"><a id="__codelineno-1-39" name="__codelineno-1-39" href="#__codelineno-1-39"></a>
+</span><span id="__span-1-40"><a id="__codelineno-1-40" name="__codelineno-1-40" href="#__codelineno-1-40"></a>   - Аналітичний огляд предметної області та формалізація технічного завдання.
+</span><span id="__span-1-41"><a id="__codelineno-1-41" name="__codelineno-1-41" href="#__codelineno-1-41"></a>
+</span><span id="__span-1-42"><a id="__codelineno-1-42" name="__codelineno-1-42" href="#__codelineno-1-42"></a>   - Математичне моделювання мережевих структур даних та оцінка складності алгоритмів.
+</span><span id="__span-1-43"><a id="__codelineno-1-43" name="__codelineno-1-43" href="#__codelineno-1-43"></a>
+</span><span id="__span-1-44"><a id="__codelineno-1-44" name="__codelineno-1-44" href="#__codelineno-1-44"></a>   - Об'єктно-орієнтоване проектування класів, реалізація інкапсуляції та dunder-методів.
+</span><span id="__span-1-45"><a id="__codelineno-1-45" name="__codelineno-1-45" href="#__codelineno-1-45"></a>
+</span><span id="__span-1-46"><a id="__codelineno-1-46" name="__codelineno-1-46" href="#__codelineno-1-46"></a>   - Побудова ієрархії винятків та підсистеми персистентного збереження у JSON/CSV.
+</span><span id="__span-1-47"><a id="__codelineno-1-47" name="__codelineno-1-47" href="#__codelineno-1-47"></a>
+</span><span id="__span-1-48"><a id="__codelineno-1-48" name="__codelineno-1-48" href="#__codelineno-1-48"></a>   - Функціональне тестування, бенчмаркінг швидкодії та керівництво користувача CLI.
+</span><span id="__span-1-49"><a id="__codelineno-1-49" name="__codelineno-1-49" href="#__codelineno-1-49"></a>
+</span><span id="__span-1-50"><a id="__codelineno-1-50" name="__codelineno-1-50" href="#__codelineno-1-50"></a>5. Перелік графічного матеріалу (із зазначенням обов'язкових схем):
+</span><span id="__span-1-51"><a id="__codelineno-1-51" name="__codelineno-1-51" href="#__codelineno-1-51"></a>
+</span><span id="__span-1-52"><a id="__codelineno-1-52" name="__codelineno-1-52" href="#__codelineno-1-52"></a>   - Аркуш 1: Структурно-концептуальна модель та схема пакетів проекту (формат А2).
+</span><span id="__span-1-53"><a id="__codelineno-1-53" name="__codelineno-1-53" href="#__codelineno-1-53"></a>
+</span><span id="__span-1-54"><a id="__codelineno-1-54" name="__codelineno-1-54" href="#__codelineno-1-54"></a>   - Аркуш 2: UML-діаграма класів та блок-схеми алгоритмів обробки даних (формат А2).
+</span><span id="__span-1-55"><a id="__codelineno-1-55" name="__codelineno-1-55" href="#__codelineno-1-55"></a>
+</span><span id="__span-1-56"><a id="__codelineno-1-56" name="__codelineno-1-56" href="#__codelineno-1-56"></a>   - Аркуш 3: Діаграма станів системи, графіки продуктивності та інтерфейс CLI (формат А2).
+</span></code></pre></div>
+<h4 id="2_1">Сторона аркуша 2</h4>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>                    Календарний план виконання етапів розрахунково-графічної роботи
+</span></code></pre></div>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">№ з/п</th>
+<th style="text-align: left;">Назва етапу розрахунково-графічної роботи</th>
+<th style="text-align: center;">Термін виконання (тижні)</th>
+<th style="text-align: center;">Відмітка про виконання</th>
+<th style="text-align: center;">Підпис керівника</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: left;">Отримання завдання, аналіз літератури та вибір архітектури</td>
+<td style="text-align: center;">1–2 тиждень</td>
+<td style="text-align: center;">Виконано</td>
+<td style="text-align: center;"><strong><em>_</em></strong>______</td>
+</tr>
+<tr>
+<td style="text-align: center;">2</td>
+<td style="text-align: left;">Формалізація математичної моделі та проектування UML-діаграми</td>
+<td style="text-align: center;">3–5 тиждень</td>
+<td style="text-align: center;">Виконано</td>
+<td style="text-align: center;"><strong><em>_</em></strong>______</td>
+</tr>
+<tr>
+<td style="text-align: center;">3</td>
+<td style="text-align: left;">Розробка базових класів, dunder-методів та ієрархії винятків</td>
+<td style="text-align: center;">6–8 тиждень</td>
+<td style="text-align: center;">Виконано</td>
+<td style="text-align: center;"><strong><em>_</em></strong>______</td>
+</tr>
+<tr>
+<td style="text-align: center;">4</td>
+<td style="text-align: left;">Реалізація підсистем персистентності (JSON/CSV) та інтерфейсу CLI</td>
+<td style="text-align: center;">9–11 тиждень</td>
+<td style="text-align: center;">Виконано</td>
+<td style="text-align: center;"><strong><em>_</em></strong>______</td>
+</tr>
+<tr>
+<td style="text-align: center;">5</td>
+<td style="text-align: left;">Комплексне тестування, бенчмаркінг швидкодії та виправлення дефектів</td>
+<td style="text-align: center;">12–13 тиждень</td>
+<td style="text-align: center;">Виконано</td>
+<td style="text-align: center;"><strong><em>_</em></strong>______</td>
+</tr>
+<tr>
+<td style="text-align: center;">6</td>
+<td style="text-align: left;">Оформлення записки, графічних аркушів, нормоконтроль та захист</td>
+<td style="text-align: center;">14 тиждень</td>
+<td style="text-align: center;">Виконано</td>
+<td style="text-align: center;"><strong><em>_</em></strong>______</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>                                        Студент  _________________  (Шевченко Б. О.)
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>                                                    (підпис)                 (ПІБ)
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>                                        Керівник _________________  (Ковальчук І. В.)
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>                                                    (підпис)                 (ПІБ)
+</span></code></pre></div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Повернутись нагору
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 Kyrylo Vadurin &bull; <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a>
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.expand", "navigation.top", "navigation.tracking", "header.autohide", "search.suggest", "search.highlight", "content.code.copy"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u0421\u043a\u043e\u043f\u0456\u0439\u043e\u0432\u0430\u043d\u043e \u0432 \u0431\u0443\u0444\u0435\u0440", "clipboard.copy": "\u0421\u043a\u043e\u043f\u0456\u044e\u0432\u0430\u0442\u0438 \u0432 \u0431\u0443\u0444\u0435\u0440", "search.result.more.one": "\u0429\u0435 1 \u0437\u0431\u0456\u0433 \u043d\u0430 \u0446\u0456\u0439 \u0441\u0442\u043e\u0440\u0456\u043d\u0446\u0456", "search.result.more.other": "\u0429\u0435 # \u0437\u0431\u0456\u0433\u0456\u0432 \u043d\u0430 \u0446\u0456\u0439 \u0441\u0442\u043e\u0440\u0456\u043d\u0446\u0456", "search.result.none": "\u0417\u0431\u0456\u0433\u0456\u0432 \u043d\u0435 \u0437\u043d\u0430\u0439\u0434\u0435\u043d\u043e", "search.result.one": "\u0417\u043d\u0430\u0439\u0434\u0435\u043d\u043e 1 \u0437\u0431\u0456\u0433", "search.result.other": "\u0417\u043d\u0430\u0439\u0434\u0435\u043d\u043e # \u0437\u0431\u0456\u0433\u0456\u0432", "search.result.placeholder": "\u0420\u043e\u0437\u043f\u043e\u0447\u043d\u0456\u0442\u044c \u043f\u0438\u0441\u0430\u0442\u0438 \u0434\u043b\u044f \u043f\u043e\u0448\u0443\u043a\u0443", "search.result.term.missing": "\u041d\u0435 \u0437\u043d\u0430\u0439\u0434\u0435\u043d\u043e \u0437\u0430\u043f\u0438\u0442\u0443", "select.version": "\u041e\u0431\u0440\u0430\u0442\u0438 \u0432\u0435\u0440\u0441\u0456\u044e"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

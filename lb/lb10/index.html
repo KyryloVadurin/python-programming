@@ -1,0 +1,2188 @@
+
+<!doctype html>
+<html lang="uk" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Навчальний портал з дисципліни "Програмування на Python. Базовий рівень"">
+      
+      
+      
+      
+        <link rel="prev" href="../lb9/">
+      
+      
+        <link rel="next" href="../lb11/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>ЛБ 10. Файлове в/в та менеджери контексту - Програмування на Python</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="cyan">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#no-10-" class="md-skip">
+          Перейти до змісту
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Хедер">
+    <a href="../.." title="Програмування на Python" class="md-header__button md-logo" aria-label="Програмування на Python" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Програмування на Python
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              ЛБ 10. Файлове в/в та менеджери контексту
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="cyan"  aria-label="Переключити на темну тему"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Переключити на темну тему" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="cyan"  aria-label="Переключити на світлу тему"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Переключити на світлу тему" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Пошук" placeholder="Пошук" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Шукати">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Очистити" aria-label="Очистити" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Пошук розпочато
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Вкладки" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Робоча програма
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../lk/lk1/" class="md-tabs__link">
+          
+  
+  
+  Лекції
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../lb1/" class="md-tabs__link">
+          
+  
+  
+  Лабораторні роботи
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../sr/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Самостійна робота
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../rg/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Розрахунково-графічна робота
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Навігація" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Програмування на Python" class="md-nav__button md-logo" aria-label="Програмування на Python" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Програмування на Python
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Робоча програма
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Лекції
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Лекції
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lk/lk1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Тема 1. Архітектура мови та інфраструктура
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lk/lk2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Тема 2. Керування потоком виконання
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lk/lk3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Тема 3. Впорядковані структури даних (Списки, Кортежі)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lk/lk4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Тема 4. Текстові, двійкові дані та Регулярні вирази
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lk/lk5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Тема 5. Хеш-таблиці (Словники, Множини)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lk/lk6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Тема 6. Функціональна організація коду
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lk/lk7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Тема 7. Модульна архітектура та пакети
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lk/lk8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Тема 8. Обробка винятків та файлове в/в
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lk/lk9/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Тема 9. Об'єктно-орієнтоване програмування
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Лабораторні роботи
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Лабораторні роботи
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lb1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 1. Розгортання інфраструктури розробки
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lb2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 2. Скалярні типи даних та моделювання
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lb3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 3. Алгоритми розгалуженої та циклічної структури
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lb4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 4. Обробка списків та кортежі
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lb5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 5. Обробка тексту та регулярні вирази
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lb6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 6. Асоціативні структури даних (Словники, Множини)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lb7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 7. Проєктування функцій та рекурсія
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lb8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 8. Модульне програмування та системні бібліотеки
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lb9/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 9. Обробка виняткових ситуацій
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 10. Файлове в/в та менеджери контексту
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 10. Файлове в/в та менеджери контексту
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Зміст">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Зміст
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1 Теоретичні відомості
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-0" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2 Підготовка середовища та розгортання проєкту (Крок 0)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2 Підготовка середовища та розгортання проєкту (Крок 0)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1. Активація робочого середовища та створення структури папок
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2. Структура файлової системи проекту
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-vscodelaunchjson" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3. Створення конфігурації налагоджувача .vscode/launch.json
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3 Порядок виконання роботи
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3 Порядок виконання роботи">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 Індивідуальні завдання
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2. Покроковий алгоритм та розв'язок еталонного прикладу
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.2. Покроковий алгоритм та розв&#39;язок еталонного прикладу">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-power_telemetrycsv-firmware_samplebin" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Крок 1. Генерація тестових файлів power_telemetry.csv та firmware_sample.bin
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-telemetry_pipelinepy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Крок 2. Реалізація повного коду модуля telemetry_pipeline.py
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3. Запуск, тестування та перевірка результатів
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Вимоги до змісту звіту
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Контрольні запитання для захисту роботи
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lb11/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 11. ООП та перевантаження методів
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sr/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Самостійна робота
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../rg/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Розрахунково-графічна робота
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Зміст">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Зміст
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1 Теоретичні відомості
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-0" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2 Підготовка середовища та розгортання проєкту (Крок 0)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2 Підготовка середовища та розгортання проєкту (Крок 0)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1. Активація робочого середовища та створення структури папок
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2. Структура файлової системи проекту
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-vscodelaunchjson" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3. Створення конфігурації налагоджувача .vscode/launch.json
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3 Порядок виконання роботи
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3 Порядок виконання роботи">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 Індивідуальні завдання
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2. Покроковий алгоритм та розв'язок еталонного прикладу
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.2. Покроковий алгоритм та розв&#39;язок еталонного прикладу">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-power_telemetrycsv-firmware_samplebin" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Крок 1. Генерація тестових файлів power_telemetry.csv та firmware_sample.bin
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-telemetry_pipelinepy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Крок 2. Реалізація повного коду модуля telemetry_pipeline.py
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3. Запуск, тестування та перевірка результатів
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Вимоги до змісту звіту
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Контрольні запитання для захисту роботи
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="no-10-">Лабораторна робота № 10. Файлове введення-виведення та збереження стану за допомогою менеджерів контексту</h1>
+<p><strong>Мета:</strong> Опанувати практичні навички проектування підсистем персистентного збереження даних, файлового введення-виведення та серіалізації структур інформації мовою Python. Навчитися здійснювати потокове читання, фільтрацію та запис текстових файлів через контекстні менеджери <code>with</code>, освоїти структурний парсинг і генерацію звітів у форматах CSV (модуль <code>csv</code>) та JSON (модуль <code>json</code>). Опанувати низькорівневе бінарне позиціонування файлового курсору за допомогою методів <code>seek()</code> і <code>tell()</code>, а також реалізувати валідацію апаратних бінарних файлів за магічними сигнатурами (<em>magic numbers</em>) у задачах комп'ютерної інженерії.</p>
+<p><strong>Стек технологій та інструменти:</strong></p>
+<ul>
+<li>
+<p><strong>Мова програмування / Інтерпретатор:</strong> Python 3.10+ (CPython 64-bit)</p>
+</li>
+<li>
+<p><strong>Інструменти розробки (IDE):</strong> Visual Studio Code з інтегрованим терміналом та підсистемою налагодження <code>debugpy</code></p>
+</li>
+<li>
+<p><strong>Середовище управління:</strong> Ізольоване середовище Conda (<code>ce_lab_env</code>)</p>
+</li>
+<li>
+<p><strong>Бібліотеки та модулі:</strong> <code>os</code>, <code>sys</code>, <code>csv</code>, <code>json</code>, <code>pathlib</code>, <code>time</code></p>
+</li>
+</ul>
+<hr />
+<h2 id="1">1 Теоретичні відомості</h2>
+<p>У комп'ютерній інженерії збереження поточного стану обчислювального процесу, обмін телеметрією між розподіленими вузлами та ведення системних аудитів спираються на механізми взаємодії з дисковою підсистемою введення-виведення. Операційна система надає доступ до файлів через абстракцію віртуальної файлової системи (Virtual File System, VFS), асоціюючи відкритий файл із числовим файловим дескриптором у таблиці процесів ядра.</p>
+<p>Фундаментальною вимогою надійності при роботі з файловими дескрипторами є гарантія їхнього своєчасного та детермінованого закриття. Якщо процес відкриває файли без виклику системного методу закриття <code>close()</code>, виникає аварійна ситуація вичерпання ліміту дескрипторів ядра ОС (<code>EMFILE: Too many open files</code>). Крім того, операції запису за замовчуванням буферизуються в оперативній пам'яті (розмір буфера <span class="arithmatex">\(S_{\text{buf}} = \text{io.DEFAULT\_BUFFER\_SIZE}\)</span>, зазвичай 4096 або 8192 байти); без примусового скидання буфера (<em>flushing</em>) раптове завершення програми призводить до безповоротної втрати даних.</p>
+<p>Для усунення цих ризиків у мові Python застосовується архітектурний патерн <strong>RAII</strong> (<em>Resource Acquisition Is Initialization</em>), втілений через <strong>менеджери контексту</strong> та оператор <strong><code>with</code></strong> (PEP 343). </p>
+<p>Менеджер контексту реалізує протокол двох спеціальних методів:</p>
+<ol>
+<li>
+<p>Метод <strong><code>__enter__()</code></strong> захоплює системний ресурс, відкриває файловий потік і повертає об'єкт дескриптора;</p>
+</li>
+<li>
+<p>Метод <strong><code>__exit__(exc_type, exc_val, exc_tb)</code></strong> викликається автоматично при виході з блоку <code>with</code>, гарантуючи скидання буферів методом <code>flush()</code> та звільнення файлового дескриптора на рівні операційної системи навіть у разі виникнення критичних винятків усередині блоку.</p>
+</li>
+</ol>
+<p><pre class="mermaid"><code>sequenceDiagram
+    autonumber
+    participant App as Програмний код
+    participant CM as Менеджер контексту (with open)
+    participant Stream as Файловий потік (io.TextIOWrapper)
+    participant OS as Ядро операційної системи (VFS)
+
+    App-&gt;&gt;CM: Вхід у блок: with open('telemetry.csv', 'r') as f
+    CM-&gt;&gt;OS: Системний виклик open() -&gt; виділення дескриптора
+    OS--&gt;&gt;CM: Дескриптор файлу (fd)
+    CM-&gt;&gt;Stream: Ініціалізація буферизованого потоку (__enter__)
+    Stream--&gt;&gt;App: Повернення об'єкта потоку 'f'
+
+    rect rgb(240, 248, 255)
+        Note over App,Stream: Виконання операцій читання/запису
+        App-&gt;&gt;Stream: f.readline() / csv.DictReader
+        App-&gt;&gt;Stream: Обробка даних або виникнення винятку
+    end
+
+    App-&gt;&gt;CM: Вихід із блоку with (завершення або збій)
+    CM-&gt;&gt;Stream: Виклик __exit__(exc_type, exc_val, exc_tb)
+    Stream-&gt;&gt;Stream: Скидання буфера на диск (flush)
+    Stream-&gt;&gt;OS: Системний виклик close(fd)
+    OS--&gt;&gt;Stream: Дескриптор закрито в таблиці процесів
+    CM--&gt;&gt;App: Звільнення ресурсів підтверджено</code></pre>
+<em>Рисунок 1 — Послідовність взаємодії та життєвий цикл файлового дескриптора у протоколі менеджера контексту</em></p>
+<p>Проаналізуємо схему, наведену на рисунку 1. Автоматичне управління ресурсами виключає людський фактор при вивільненні пам'яті та закритті портів. </p>
+<p>Для роботи з бінарними даними застосовується режим <code>mode='rb'</code>, у якому дані зчитуються як незмінні послідовності байтів <code>bytes</code>. </p>
+<p>Низькорівневе позиціонування курсору в бінарному файлі формалізується розрахунком зміщення <span class="arithmatex">\(P_{\text{new}}\)</span>:</p>
+<div class="arithmatex">\[P_{\text{new}} = P_{\text{base}}(whence) + \Delta_{\text{offset}}\]</div>
+<p>де <span class="arithmatex">\(P_{\text{base}}(whence)\)</span> визначає опорну точку (<span class="arithmatex">\(whence=0\)</span> — початок файлу <code>os.SEEK_SET</code>, <span class="arithmatex">\(whence=1\)</span> — поточна позиція <code>os.SEEK_CUR</code>, <span class="arithmatex">\(whence=2\)</span> — кінець файлу <code>os.SEEK_END</code>); <span class="arithmatex">\(\Delta_{\text{offset}}\)</span> — цілочисельне зміщення у байтах. </p>
+<p>Перевірка цілісності бінарного файлу здійснюється шляхом зчитування перших <span class="arithmatex">\(K\)</span> байтів заголовка та їх зіставлення з еталонним сигнатурним вектором (<strong>magic number</strong>):</p>
+<div class="arithmatex">\[\text{Header}_{\text{actual}} = \text{file}.\text{read}(K) \stackrel{?}{=} \text{MAGIC\_SIGNATURE}\]</div>
+<p>Для табличних даних стандартом обміну є формат <strong>CSV</strong> (<em>Comma-Separated Values</em>), у якому записи відповідають рядкам, а поля відокремлюються роздільником (комою чи крапкою з комою). Модуль <code>csv</code> надає класи <code>DictReader</code> та <code>DictWriter</code>, які перетворюють рядки таблиці у словники <code>dict</code>, де ключами виступають заголовки стовпців. </p>
+<p>Для ієрархічних структур даних застосовується формат <strong>JSON</strong> (<em>JavaScript Object Notation</em>). Серіалізація структур Python (<code>dict</code>, <code>list</code>, <code>str</code>, <code>int</code>, <code>float</code>, <code>bool</code>, <code>None</code>) у формат JSON описується як взаємно однозначне відображення типів:</p>
+<div class="arithmatex">\[\mathcal{S}: \text{Python Object Graph} \longrightarrow \text{JSON String / Stream}\]</div>
+<p><pre class="mermaid"><code>flowchart LR
+    subgraph Binary_Verification["1. Бінарний аудит файлу"]
+        BinFile["Сирий образ прошивки (.bin)"] --&gt; ReadMagic["f.seek(0) -&gt; read(4)"]
+        ReadMagic --&gt; CheckMagic{"Сигнатура 0xAA55DEAD ?"}
+        CheckMagic -- "Ні" --&gt; ThrowErr["raise ValueError"]
+        CheckMagic -- "Так" --&gt; ExtractPayload["Вилучення корисного блоку"]
+    end
+
+    subgraph CSV_Transformation["2. Таблична обробка (CSV)"]
+        CSVFile["Телеметрія датчиків (.csv)"] --&gt; DictReader["csv.DictReader(f)"]
+        DictReader --&gt; FilterEngine["Фільтрація та валідація даних"]
+        FilterEngine --&gt; MetricAgg["Обчислення інтегральних показників"]
+    end
+
+    subgraph JSON_Export["3. Персистентне збереження (JSON)"]
+        MetricAgg --&gt; JSONDump["json.dump(state, indent=4)"]
+        ExtractPayload --&gt; JSONDump
+        JSONDump --&gt; JSONFile["Фінальний стан: snapshot.json"]
+    end</code></pre>
+<em>Рисунок 2 — Багаторівневий конвеєр бінарної верифікації, обробки табличних даних CSV та серіалізації у JSON</em></p>
+<p>Наведена схема конвеєра демонструє послідовну інтеграцію трьох рівнів обробки інформації: від бінарної перевірки апаратних заголовків до структурування потоків CSV та експорту підсумкового стану системи в уніфікований формат JSON.</p>
+<hr />
+<h2 id="2-0">2 Підготовка середовища та розгортання проєкту (Крок 0)</h2>
+<p>Для виконання лабораторної роботи здобувач вищої освіти використовує налаштоване робоче середовище <code>ce_lab_env</code>.</p>
+<h3 id="21">2.1. Активація робочого середовища та створення структури папок</h3>
+<p>Відкрийте системний термінал та виконайте команди розгортання структури каталогу <code>lab10</code>:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># Активація віртуального середовища Conda</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>conda<span class="w"> </span>activate<span class="w"> </span>ce_lab_env
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="c1"># Створення робочого каталогу для Лабораторної роботи №10</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>mkdir<span class="w"> </span>-p<span class="w"> </span>~/projects/computer_engineering_python/lab10
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="nb">cd</span><span class="w"> </span>~/projects/computer_engineering_python/lab10
+</span></code></pre></div>
+<h3 id="22">2.2. Структура файлової системи проекту</h3>
+<p>У робочій директорії <code>lab10</code> створіть файли проекту відповідно до наведеної схеми:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>lab10/
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>├── .vscode/
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>│   └── launch.json            # Конфігурація налагоджувача для ЛБ №10
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>├── .gitignore                 # Правила виключення тимчасових файлів
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>├── telemetry_pipeline.py      # Головний модуль обробки файлів CSV, JSON та BIN
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>├── power_telemetry.csv        # Вхідний файл інженерної телеметрії (CSV)
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>├── firmware_sample.bin        # Вхідний тестовий бінарний файл із магічним заголовком
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>├── station_snapshot.json      # Вихідний серіалізований файл підсумкового стану (JSON)
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>└── README.md                  # Звітний опис виконання індивідуального варіанта
+</span></code></pre></div>
+<h3 id="23-vscodelaunchjson">2.3. Створення конфігурації налагоджувача <code>.vscode/launch.json</code></h3>
+<p>Створіть файл <code>.vscode/launch.json</code> для забезпечення налагодження розроблюваних модулів:</p>
+<div class="language-json highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="p">{</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">    </span><span class="nt">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.2.0"</span><span class="p">,</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="nt">"configurations"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">        </span><span class="p">{</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">            </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Python: Запуск файлового конвеєра (ЛБ10)"</span><span class="p">,</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">            </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"debugpy"</span><span class="p">,</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">            </span><span class="nt">"request"</span><span class="p">:</span><span class="w"> </span><span class="s2">"launch"</span><span class="p">,</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">            </span><span class="nt">"program"</span><span class="p">:</span><span class="w"> </span><span class="s2">"${workspaceFolder}/telemetry_pipeline.py"</span><span class="p">,</span>
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">            </span><span class="nt">"console"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integratedTerminal"</span><span class="p">,</span>
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="w">            </span><span class="nt">"justMyCode"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="w">    </span><span class="p">]</span>
+</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="p">}</span>
+</span></code></pre></div>
+<hr />
+<h2 id="3">3 Порядок виконання роботи</h2>
+<h3 id="31">3.1 Індивідуальні завдання</h3>
+<p>Кожен здобувач вищої освіти виконує варіант завдання згідно зі своїм номером у списку академічної групи. </p>
+<p>Необхідно реалізувати:</p>
+<ol>
+<li>
+<p><strong>Завдання 1 (Обробка CSV):</strong> зчитування табличного файлу через <code>csv.DictReader</code>, фільтрацію рядків за заданим фізичним критерієм, обчислення інтегральної або статистичної величини та збереження очищених даних у новий CSV-файл через <code>csv.DictWriter</code>.</p>
+</li>
+<li>
+<p><strong>Завдання 2 (Бінарний аудит):</strong> відкриття бінарного файлу в режимі <code>'rb'</code>, верифікацію заголовка за 4-байтною магічною сигнатурою, переміщення курсору за допомогою <code>seek()</code> для вилучення бінарного блоку даних та підрахунок розміру через <code>tell()</code>.</p>
+</li>
+<li>
+<p><strong>Завдання 3 (Серіалізація JSON):</strong> формування комплексного словника стану системи, що об'єднує результати CSV-аналізу та бінарного аудиту, і його збереження у файл JSON із форматуванням <code>indent=4</code>.</p>
+</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Варіант</th>
+<th style="text-align: left;">Предметна область та вхідний CSV-файл</th>
+<th style="text-align: left;">Критерій фільтрації CSV та розрахунку</th>
+<th style="text-align: left;">Магічна сигнатура BIN-файлу (HEX)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>1</strong></td>
+<td style="text-align: left;">Телеметрія сонячної електростанції (<code>solar.csv</code>)</td>
+<td style="text-align: left;">Напруга <span class="arithmatex">\(&gt; 220\text{ В}\)</span>; розрахунок сумарної потужності <span class="arithmatex">\(P = U \cdot I\)</span></td>
+<td style="text-align: left;"><code>0x534F4C52</code> (ASCII: <code>'SOLR'</code>)</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>2</strong></td>
+<td style="text-align: left;">Моніторинг серверів ЦОД (<code>servers.csv</code>)</td>
+<td style="text-align: left;">Завантаження CPU <span class="arithmatex">\(&gt; 80\%\)</span>; підрахунок середнього обсягу вільної RAM</td>
+<td style="text-align: left;"><code>0x4E4F4445</code> (ASCII: <code>'NODE'</code>)</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>3</strong></td>
+<td style="text-align: left;">Трафік мережевого шлюзу (<code>traffic.csv</code>)</td>
+<td style="text-align: left;">Пакети з помилками <span class="arithmatex">\(\text{Drop} &gt; 0\)</span>; агрегація сумарних байтів за IP</td>
+<td style="text-align: left;"><code>0x504B5453</code> (ASCII: <code>'PKTS'</code>)</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>4</strong></td>
+<td style="text-align: left;">Метеорологічна станція (<code>weather.csv</code>)</td>
+<td style="text-align: left;">Температура <span class="arithmatex">\(&lt; 0^\circ\text{C}\)</span>; знаходження максимального пориву вітру</td>
+<td style="text-align: left;"><code>0x57544852</code> (ASCII: <code>'WTHR'</code>)</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>5</strong></td>
+<td style="text-align: left;">Вібраційна діагностика турбіни (<code>vibration.csv</code>)</td>
+<td style="text-align: left;">Амплітуда <span class="arithmatex">\(&gt; 1.5\text{ мм/с}\)</span>; обчислення дисперсії частоти вібрації</td>
+<td style="text-align: left;"><code>0x56494252</code> (ASCII: <code>'VIBR'</code>)</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>6</strong></td>
+<td style="text-align: left;">Акумуляторний блок ДБЖ (<code>ups_battery.csv</code>)</td>
+<td style="text-align: left;">Заряд <span class="arithmatex">\(\text{SoC} &lt; 20\%\)</span>; розрахунок середнього внутрішнього опору</td>
+<td style="text-align: left;"><code>0x42415454</code> (ASCII: <code>'BATT'</code>)</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>7</strong></td>
+<td style="text-align: left;">Лог перемикань реле підстанції (<code>relays.csv</code>)</td>
+<td style="text-align: left;">Час спрацьовування <span class="arithmatex">\(&gt; 50\text{ мс}\)</span>; підрахунок кількості спрацювань</td>
+<td style="text-align: left;"><code>0x53575443</code> (ASCII: <code>'SWTC'</code>)</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>8</strong></td>
+<td style="text-align: left;">Бортова телеметрія БПЛА (<code>drone.csv</code>)</td>
+<td style="text-align: left;">Висота <span class="arithmatex">\(&gt; 100\text{ м}\)</span>; розрахунок повної пройденої дистанції польоту</td>
+<td style="text-align: left;"><code>0x4156494F</code> (ASCII: <code>'AVIO'</code>)</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>9</strong></td>
+<td style="text-align: left;">Опитування промислового ПЛК (<code>plc_data.csv</code>)</td>
+<td style="text-align: left;">Тиск у магістралі <span class="arithmatex">\(&gt; 6.0\text{ бар}\)</span>; виділення аварійних контурів</td>
+<td style="text-align: left;"><code>0x504C4353</code> (ASCII: <code>'PLCS'</code>)</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>10</strong></td>
+<td style="text-align: left;">Датчики якості повітря (<code>air_quality.csv</code>)</td>
+<td style="text-align: left;">Рівень <span class="arithmatex">\(\text{PM2.5} &gt; 35\text{ мкг/м}^3\)</span>; обчислення середнього <span class="arithmatex">\(\text{CO}_2\)</span></td>
+<td style="text-align: left;"><code>0x454E5649</code> (ASCII: <code>'ENVI'</code>)</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>11</strong></td>
+<td style="text-align: left;">Автомобільний CAN-лог (<code>can_telemetry.csv</code>)</td>
+<td style="text-align: left;">Оберти <span class="arithmatex">\(\text{RPM} &gt; 4000\)</span>; розрахунок середньої витрати пального</td>
+<td style="text-align: left;"><code>0x43414E42</code> (ASCII: <code>'CANB'</code>)</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>12</strong></td>
+<td style="text-align: left;">Енергоспоживання стійок (<code>power_rack.csv</code>)</td>
+<td style="text-align: left;">Струм фази <span class="arithmatex">\(&gt; 16\text{ А}\)</span>; знаходження пікової активної потужності</td>
+<td style="text-align: left;"><code>0x5241434B</code> (ASCII: <code>'RACK'</code>)</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>13</strong></td>
+<td style="text-align: left;">Швидкісний АЦП вибірки (<code>adc_samples.csv</code>)</td>
+<td style="text-align: left;">Амплітуда сигналу <span class="arithmatex">\(&gt; 3.0\text{ В}\)</span>; розрахунок середньоквадратичного RMS</td>
+<td style="text-align: left;"><code>0x41444344</code> (ASCII: <code>'ADCD'</code>)</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>14</strong></td>
+<td style="text-align: left;">Гідротехнічний шлюз (<code>hydro.csv</code>)</td>
+<td style="text-align: left;">Рівень води <span class="arithmatex">\(&gt; 4.5\text{ м}\)</span>; підрахунок сумарного об'єму скидання</td>
+<td style="text-align: left;"><code>0x48594452</code> (ASCII: <code>'HYDR'</code>)</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>15</strong></td>
+<td style="text-align: left;">Аудит дискового сховища SAN (<code>storage.csv</code>)</td>
+<td style="text-align: left;">Латентність IO <span class="arithmatex">\(&gt; 20\text{ мс}\)</span>; розрахунок сумарного числа операцій IOPS</td>
+<td style="text-align: left;"><code>0x53414E53</code> (ASCII: <code>'SANS'</code>)</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>16</strong></td>
+<td style="text-align: left;">Оптичний рефлектометр OTDR (<code>fiber.csv</code>)</td>
+<td style="text-align: left;">Загасання <span class="arithmatex">\(&gt; 0.25\text{ дБ/км}\)</span>; виявлення точок зварювання волокна</td>
+<td style="text-align: left;"><code>0x4F505443</code> (ASCII: <code>'OPTC'</code>)</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>17</strong></td>
+<td style="text-align: left;">Балансувальник трафіку (<code>load_bal.csv</code>)</td>
+<td style="text-align: left;">Час відповіді сервера <span class="arithmatex">\(&gt; 500\text{ мс}\)</span>; підрахунок частки помилок 502</td>
+<td style="text-align: left;"><code>0x4C4F4144</code> (ASCII: <code>'LOAD'</code>)</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>18</strong></td>
+<td style="text-align: left;">Термоанемометр охолодження (<code>fans.csv</code>)</td>
+<td style="text-align: left;">Оберти кулера <span class="arithmatex">\(&lt; 1000\text{ RPM}\)</span>; знаходження критичних зон стійки</td>
+<td style="text-align: left;"><code>0x46414E53</code> (ASCII: <code>'FANS'</code>)</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>19</strong></td>
+<td style="text-align: left;">Контролер крокового приводу (<code>cnc.csv</code>)</td>
+<td style="text-align: left;">Похибка позиціонування <span class="arithmatex">\(&gt; 0.05\text{ мм}\)</span>; підрахунок пройденого шляху</td>
+<td style="text-align: left;"><code>0x4D4F5452</code> (ASCII: <code>'MOTR'</code>)</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>20</strong></td>
+<td style="text-align: left;">Спектроаналізатор сигналу (<code>spectrum.csv</code>)</td>
+<td style="text-align: left;">Потужність сигналу <span class="arithmatex">\(&gt; -40\text{ дБм}\)</span>; знаходження центральної частоти</td>
+<td style="text-align: left;"><code>0x53504543</code> (ASCII: <code>'SPEC'</code>)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="32">3.2. Покроковий алгоритм та розв'язок еталонного прикладу</h3>
+<p>Розглянемо базовий навчально-інженерний приклад: побудову конвеєра обробки телеметрії трансформаторної підстанції енергомережі (<code>power_telemetry_pipeline</code>).</p>
+<p>Функціональні вимоги:</p>
+<ol>
+<li>
+<p><strong>Обробка CSV:</strong> зчитування <code>power_telemetry.csv</code>, що містить стовпці <code>Timestamp</code>, <code>Voltage_V</code>, <code>Current_A</code>, <code>Frequency_Hz</code>. Необхідно відфільтрувати рядки, де напруга виходить за номінальні межі <span class="arithmatex">\(220.0 \pm 10\text{ В}\)</span>, розрахувати миттєву потужність <span class="arithmatex">\(P = U \cdot I\)</span> (у ватах) та зберегти валідні записи в новий файл <code>cleaned_power.csv</code>.</p>
+</li>
+<li>
+<p><strong>Бінарний аудит прошивки:</strong> відкриття бінарного файлу <code>firmware_sample.bin</code>, перевірка 4-байтної магічної сигнатури <code>0xAA55DEAD</code>, зчитування 2-байтної версії прошивки та визначення повного розміру образу в байтах за допомогою <code>seek()</code> і <code>tell()</code>.</p>
+</li>
+<li>
+<p><strong>Серіалізація в JSON:</strong> формування об'єкта підсумкового звіту та його збереження у файл <code>station_snapshot.json</code> із відступами <code>indent=4</code>.</p>
+</li>
+</ol>
+<h4 id="1-power_telemetrycsv-firmware_samplebin">Крок 1. Генерація тестових файлів <code>power_telemetry.csv</code> та <code>firmware_sample.bin</code></h4>
+<p>Створіть вхідні дані за допомогою наступного допоміжного коду (або створіть файли вручну):</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># Створення тестового CSV-файлу телеметрії</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="n">csv_content</span> <span class="o">=</span> <span class="s2">"""Timestamp,Voltage_V,Current_A,Frequency_Hz</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="s2">2026-08-30 15:00:01,221.4,12.5,50.01</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="s2">2026-08-30 15:00:02,218.2,14.1,49.98</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="s2">2026-08-30 15:00:03,195.0,22.0,49.50</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="s2">2026-08-30 15:00:04,224.8,11.8,50.02</span>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="s2">2026-08-30 15:00:05,238.5,18.2,50.15</span>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="s2">2026-08-30 15:00:06,222.0,13.0,50.00</span>
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="s2">"""</span>
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"power_telemetry.csv"</span><span class="p">,</span> <span class="s2">"w"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">csv_content</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span>
+</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>
+</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="c1"># Створення тестового бінарного файлу з магічним заголовком (0xAA 0x55 0xDE 0xAD)</span>
+</span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="c1"># Сигнатура (4B) + Major_Ver (1B: 2) + Minor_Ver (1B: 5) + Payload (6B)</span>
+</span><span id="__span-3-15"><a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a><span class="n">binary_payload</span> <span class="o">=</span> <span class="nb">bytes</span><span class="p">([</span><span class="mh">0xAA</span><span class="p">,</span> <span class="mh">0x55</span><span class="p">,</span> <span class="mh">0xDE</span><span class="p">,</span> <span class="mh">0xAD</span><span class="p">,</span> <span class="mh">0x02</span><span class="p">,</span> <span class="mh">0x05</span><span class="p">,</span> <span class="mh">0x10</span><span class="p">,</span> <span class="mh">0x20</span><span class="p">,</span> <span class="mh">0x30</span><span class="p">,</span> <span class="mh">0x40</span><span class="p">,</span> <span class="mh">0x50</span><span class="p">,</span> <span class="mh">0x60</span><span class="p">])</span>
+</span><span id="__span-3-16"><a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"firmware_sample.bin"</span><span class="p">,</span> <span class="s2">"wb"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+</span><span id="__span-3-17"><a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a>    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">binary_payload</span><span class="p">)</span>
+</span></code></pre></div>
+<h4 id="2-telemetry_pipelinepy">Крок 2. Реалізація повного коду модуля <code>telemetry_pipeline.py</code></h4>
+<p>Створіть файл <code>telemetry_pipeline.py</code> у каталозі <code>lab10</code> та введіть повний код:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="sd">"""</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="sd">Лабораторна робота № 10.</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="sd">Комплексний конвеєр файлового введення-виведення: обробка CSV,</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="sd">бінарна верифікація сигнатур та персистентна серіалізація у JSON.</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="sd">Освітній компонент: Програмування на Python.</span>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="sd">"""</span>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="kn">import</span><span class="w"> </span><span class="nn">csv</span>
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+</span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+</span><span id="__span-4-14"><a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a>
+</span><span id="__span-4-15"><a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a><span class="c1"># Константа 4-байтної магічної сигнатури бінарного образу</span>
+</span><span id="__span-4-16"><a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a><span class="n">FIRMWARE_MAGIC_HEADER</span> <span class="o">=</span> <span class="nb">bytes</span><span class="p">([</span><span class="mh">0xAA</span><span class="p">,</span> <span class="mh">0x55</span><span class="p">,</span> <span class="mh">0xDE</span><span class="p">,</span> <span class="mh">0xAD</span><span class="p">])</span>
+</span><span id="__span-4-17"><a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a>
+</span><span id="__span-4-18"><a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a>
+</span><span id="__span-4-19"><a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a><span class="k">def</span><span class="w"> </span><span class="nf">process_csv_telemetry</span><span class="p">(</span><span class="n">input_csv_path</span><span class="p">:</span> <span class="n">Path</span><span class="p">,</span> <span class="n">output_csv_path</span><span class="p">:</span> <span class="n">Path</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+</span><span id="__span-4-20"><a id="__codelineno-4-20" name="__codelineno-4-20" href="#__codelineno-4-20"></a><span class="w">    </span><span class="sd">"""</span>
+</span><span id="__span-4-21"><a id="__codelineno-4-21" name="__codelineno-4-21" href="#__codelineno-4-21"></a><span class="sd">    Зчитує дані телеметрії живлення через csv.DictReader, фільтрує аномальні</span>
+</span><span id="__span-4-22"><a id="__codelineno-4-22" name="__codelineno-4-22" href="#__codelineno-4-22"></a><span class="sd">    значення напруги, розраховує потужність та записує валідні дані через csv.DictWriter.</span>
+</span><span id="__span-4-23"><a id="__codelineno-4-23" name="__codelineno-4-23" href="#__codelineno-4-23"></a><span class="sd">    Повертає словник агрегованих статистичних метрик.</span>
+</span><span id="__span-4-24"><a id="__codelineno-4-24" name="__codelineno-4-24" href="#__codelineno-4-24"></a><span class="sd">    """</span>
+</span><span id="__span-4-25"><a id="__codelineno-4-25" name="__codelineno-4-25" href="#__codelineno-4-25"></a>    <span class="k">if</span> <span class="ow">not</span> <span class="n">input_csv_path</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
+</span><span id="__span-4-26"><a id="__codelineno-4-26" name="__codelineno-4-26" href="#__codelineno-4-26"></a>        <span class="k">raise</span> <span class="ne">FileNotFoundError</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Вхідний файл '</span><span class="si">{</span><span class="n">input_csv_path</span><span class="si">}</span><span class="s2">' не знайдено."</span><span class="p">)</span>
+</span><span id="__span-4-27"><a id="__codelineno-4-27" name="__codelineno-4-27" href="#__codelineno-4-27"></a>
+</span><span id="__span-4-28"><a id="__codelineno-4-28" name="__codelineno-4-28" href="#__codelineno-4-28"></a>    <span class="n">total_records</span> <span class="o">=</span> <span class="mi">0</span>
+</span><span id="__span-4-29"><a id="__codelineno-4-29" name="__codelineno-4-29" href="#__codelineno-4-29"></a>    <span class="n">valid_records</span> <span class="o">=</span> <span class="mi">0</span>
+</span><span id="__span-4-30"><a id="__codelineno-4-30" name="__codelineno-4-30" href="#__codelineno-4-30"></a>    <span class="n">total_power_watts</span> <span class="o">=</span> <span class="mf">0.0</span>
+</span><span id="__span-4-31"><a id="__codelineno-4-31" name="__codelineno-4-31" href="#__codelineno-4-31"></a>    <span class="n">cleaned_rows</span> <span class="o">=</span> <span class="p">[]</span>
+</span><span id="__span-4-32"><a id="__codelineno-4-32" name="__codelineno-4-32" href="#__codelineno-4-32"></a>
+</span><span id="__span-4-33"><a id="__codelineno-4-33" name="__codelineno-4-33" href="#__codelineno-4-33"></a>    <span class="c1"># Читання вхідного CSV-файлу через менеджер контексту</span>
+</span><span id="__span-4-34"><a id="__codelineno-4-34" name="__codelineno-4-34" href="#__codelineno-4-34"></a>    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">input_csv_path</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">"r"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span> <span class="k">as</span> <span class="n">in_file</span><span class="p">:</span>
+</span><span id="__span-4-35"><a id="__codelineno-4-35" name="__codelineno-4-35" href="#__codelineno-4-35"></a>        <span class="n">reader</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">DictReader</span><span class="p">(</span><span class="n">in_file</span><span class="p">)</span>
+</span><span id="__span-4-36"><a id="__codelineno-4-36" name="__codelineno-4-36" href="#__codelineno-4-36"></a>
+</span><span id="__span-4-37"><a id="__codelineno-4-37" name="__codelineno-4-37" href="#__codelineno-4-37"></a>        <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">reader</span><span class="p">:</span>
+</span><span id="__span-4-38"><a id="__codelineno-4-38" name="__codelineno-4-38" href="#__codelineno-4-38"></a>            <span class="n">total_records</span> <span class="o">+=</span> <span class="mi">1</span>
+</span><span id="__span-4-39"><a id="__codelineno-4-39" name="__codelineno-4-39" href="#__codelineno-4-39"></a>            <span class="n">voltage</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s2">"Voltage_V"</span><span class="p">])</span>
+</span><span id="__span-4-40"><a id="__codelineno-4-40" name="__codelineno-4-40" href="#__codelineno-4-40"></a>            <span class="n">current</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s2">"Current_A"</span><span class="p">])</span>
+</span><span id="__span-4-41"><a id="__codelineno-4-41" name="__codelineno-4-41" href="#__codelineno-4-41"></a>            <span class="n">freq</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s2">"Frequency_Hz"</span><span class="p">])</span>
+</span><span id="__span-4-42"><a id="__codelineno-4-42" name="__codelineno-4-42" href="#__codelineno-4-42"></a>
+</span><span id="__span-4-43"><a id="__codelineno-4-43" name="__codelineno-4-43" href="#__codelineno-4-43"></a>            <span class="c1"># Критерій валідності: напруга у межах номіналу 220V +/- 10V (210V .. 230V)</span>
+</span><span id="__span-4-44"><a id="__codelineno-4-44" name="__codelineno-4-44" href="#__codelineno-4-44"></a>            <span class="k">if</span> <span class="mf">210.0</span> <span class="o">&lt;=</span> <span class="n">voltage</span> <span class="o">&lt;=</span> <span class="mf">230.0</span><span class="p">:</span>
+</span><span id="__span-4-45"><a id="__codelineno-4-45" name="__codelineno-4-45" href="#__codelineno-4-45"></a>                <span class="n">valid_records</span> <span class="o">+=</span> <span class="mi">1</span>
+</span><span id="__span-4-46"><a id="__codelineno-4-46" name="__codelineno-4-46" href="#__codelineno-4-46"></a>                <span class="n">power_w</span> <span class="o">=</span> <span class="n">voltage</span> <span class="o">*</span> <span class="n">current</span>
+</span><span id="__span-4-47"><a id="__codelineno-4-47" name="__codelineno-4-47" href="#__codelineno-4-47"></a>                <span class="n">total_power_watts</span> <span class="o">+=</span> <span class="n">power_w</span>
+</span><span id="__span-4-48"><a id="__codelineno-4-48" name="__codelineno-4-48" href="#__codelineno-4-48"></a>
+</span><span id="__span-4-49"><a id="__codelineno-4-49" name="__codelineno-4-49" href="#__codelineno-4-49"></a>                <span class="n">cleaned_rows</span><span class="o">.</span><span class="n">append</span><span class="p">({</span>
+</span><span id="__span-4-50"><a id="__codelineno-4-50" name="__codelineno-4-50" href="#__codelineno-4-50"></a>                    <span class="s2">"Timestamp"</span><span class="p">:</span> <span class="n">row</span><span class="p">[</span><span class="s2">"Timestamp"</span><span class="p">],</span>
+</span><span id="__span-4-51"><a id="__codelineno-4-51" name="__codelineno-4-51" href="#__codelineno-4-51"></a>                    <span class="s2">"Voltage_V"</span><span class="p">:</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">voltage</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span>
+</span><span id="__span-4-52"><a id="__codelineno-4-52" name="__codelineno-4-52" href="#__codelineno-4-52"></a>                    <span class="s2">"Current_A"</span><span class="p">:</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">current</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span>
+</span><span id="__span-4-53"><a id="__codelineno-4-53" name="__codelineno-4-53" href="#__codelineno-4-53"></a>                    <span class="s2">"Power_W"</span><span class="p">:</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">power_w</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span>
+</span><span id="__span-4-54"><a id="__codelineno-4-54" name="__codelineno-4-54" href="#__codelineno-4-54"></a>                    <span class="s2">"Frequency_Hz"</span><span class="p">:</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">freq</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">"</span>
+</span><span id="__span-4-55"><a id="__codelineno-4-55" name="__codelineno-4-55" href="#__codelineno-4-55"></a>                <span class="p">})</span>
+</span><span id="__span-4-56"><a id="__codelineno-4-56" name="__codelineno-4-56" href="#__codelineno-4-56"></a>
+</span><span id="__span-4-57"><a id="__codelineno-4-57" name="__codelineno-4-57" href="#__codelineno-4-57"></a>    <span class="c1"># Запис очищених даних у новий CSV-файл</span>
+</span><span id="__span-4-58"><a id="__codelineno-4-58" name="__codelineno-4-58" href="#__codelineno-4-58"></a>    <span class="k">if</span> <span class="n">cleaned_rows</span><span class="p">:</span>
+</span><span id="__span-4-59"><a id="__codelineno-4-59" name="__codelineno-4-59" href="#__codelineno-4-59"></a>        <span class="n">fieldnames</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"Timestamp"</span><span class="p">,</span> <span class="s2">"Voltage_V"</span><span class="p">,</span> <span class="s2">"Current_A"</span><span class="p">,</span> <span class="s2">"Power_W"</span><span class="p">,</span> <span class="s2">"Frequency_Hz"</span><span class="p">]</span>
+</span><span id="__span-4-60"><a id="__codelineno-4-60" name="__codelineno-4-60" href="#__codelineno-4-60"></a>        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">output_csv_path</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">"w"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">,</span> <span class="n">newline</span><span class="o">=</span><span class="s2">""</span><span class="p">)</span> <span class="k">as</span> <span class="n">out_file</span><span class="p">:</span>
+</span><span id="__span-4-61"><a id="__codelineno-4-61" name="__codelineno-4-61" href="#__codelineno-4-61"></a>            <span class="n">writer</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">DictWriter</span><span class="p">(</span><span class="n">out_file</span><span class="p">,</span> <span class="n">fieldnames</span><span class="o">=</span><span class="n">fieldnames</span><span class="p">)</span>
+</span><span id="__span-4-62"><a id="__codelineno-4-62" name="__codelineno-4-62" href="#__codelineno-4-62"></a>            <span class="n">writer</span><span class="o">.</span><span class="n">writeheader</span><span class="p">()</span>
+</span><span id="__span-4-63"><a id="__codelineno-4-63" name="__codelineno-4-63" href="#__codelineno-4-63"></a>            <span class="n">writer</span><span class="o">.</span><span class="n">writerows</span><span class="p">(</span><span class="n">cleaned_rows</span><span class="p">)</span>
+</span><span id="__span-4-64"><a id="__codelineno-4-64" name="__codelineno-4-64" href="#__codelineno-4-64"></a>
+</span><span id="__span-4-65"><a id="__codelineno-4-65" name="__codelineno-4-65" href="#__codelineno-4-65"></a>    <span class="n">avg_power</span> <span class="o">=</span> <span class="p">(</span><span class="n">total_power_watts</span> <span class="o">/</span> <span class="n">valid_records</span><span class="p">)</span> <span class="k">if</span> <span class="n">valid_records</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="mf">0.0</span>
+</span><span id="__span-4-66"><a id="__codelineno-4-66" name="__codelineno-4-66" href="#__codelineno-4-66"></a>
+</span><span id="__span-4-67"><a id="__codelineno-4-67" name="__codelineno-4-67" href="#__codelineno-4-67"></a>    <span class="k">return</span> <span class="p">{</span>
+</span><span id="__span-4-68"><a id="__codelineno-4-68" name="__codelineno-4-68" href="#__codelineno-4-68"></a>        <span class="s2">"total_read_rows"</span><span class="p">:</span> <span class="n">total_records</span><span class="p">,</span>
+</span><span id="__span-4-69"><a id="__codelineno-4-69" name="__codelineno-4-69" href="#__codelineno-4-69"></a>        <span class="s2">"valid_saved_rows"</span><span class="p">:</span> <span class="n">valid_records</span><span class="p">,</span>
+</span><span id="__span-4-70"><a id="__codelineno-4-70" name="__codelineno-4-70" href="#__codelineno-4-70"></a>        <span class="s2">"anomalous_rows_dropped"</span><span class="p">:</span> <span class="n">total_records</span> <span class="o">-</span> <span class="n">valid_records</span><span class="p">,</span>
+</span><span id="__span-4-71"><a id="__codelineno-4-71" name="__codelineno-4-71" href="#__codelineno-4-71"></a>        <span class="s2">"average_power_watts"</span><span class="p">:</span> <span class="n">avg_power</span><span class="p">,</span>
+</span><span id="__span-4-72"><a id="__codelineno-4-72" name="__codelineno-4-72" href="#__codelineno-4-72"></a>        <span class="s2">"total_active_power_kw"</span><span class="p">:</span> <span class="n">total_power_watts</span> <span class="o">/</span> <span class="mf">1000.0</span>
+</span><span id="__span-4-73"><a id="__codelineno-4-73" name="__codelineno-4-73" href="#__codelineno-4-73"></a>    <span class="p">}</span>
+</span><span id="__span-4-74"><a id="__codelineno-4-74" name="__codelineno-4-74" href="#__codelineno-4-74"></a>
+</span><span id="__span-4-75"><a id="__codelineno-4-75" name="__codelineno-4-75" href="#__codelineno-4-75"></a>
+</span><span id="__span-4-76"><a id="__codelineno-4-76" name="__codelineno-4-76" href="#__codelineno-4-76"></a><span class="k">def</span><span class="w"> </span><span class="nf">verify_binary_firmware</span><span class="p">(</span><span class="n">bin_path</span><span class="p">:</span> <span class="n">Path</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+</span><span id="__span-4-77"><a id="__codelineno-4-77" name="__codelineno-4-77" href="#__codelineno-4-77"></a><span class="w">    </span><span class="sd">"""</span>
+</span><span id="__span-4-78"><a id="__codelineno-4-78" name="__codelineno-4-78" href="#__codelineno-4-78"></a><span class="sd">    Здійснює низькорівневий аналіз бінарного образу прошивки:</span>
+</span><span id="__span-4-79"><a id="__codelineno-4-79" name="__codelineno-4-79" href="#__codelineno-4-79"></a><span class="sd">    перевіряє магічну сигнатуру, позиціонує курсор та вилучає версію.</span>
+</span><span id="__span-4-80"><a id="__codelineno-4-80" name="__codelineno-4-80" href="#__codelineno-4-80"></a><span class="sd">    """</span>
+</span><span id="__span-4-81"><a id="__codelineno-4-81" name="__codelineno-4-81" href="#__codelineno-4-81"></a>    <span class="k">if</span> <span class="ow">not</span> <span class="n">bin_path</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
+</span><span id="__span-4-82"><a id="__codelineno-4-82" name="__codelineno-4-82" href="#__codelineno-4-82"></a>        <span class="k">raise</span> <span class="ne">FileNotFoundError</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Файл бінарного образу '</span><span class="si">{</span><span class="n">bin_path</span><span class="si">}</span><span class="s2">' не знайдено."</span><span class="p">)</span>
+</span><span id="__span-4-83"><a id="__codelineno-4-83" name="__codelineno-4-83" href="#__codelineno-4-83"></a>
+</span><span id="__span-4-84"><a id="__codelineno-4-84" name="__codelineno-4-84" href="#__codelineno-4-84"></a>    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">bin_path</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">"rb"</span><span class="p">)</span> <span class="k">as</span> <span class="n">b_file</span><span class="p">:</span>
+</span><span id="__span-4-85"><a id="__codelineno-4-85" name="__codelineno-4-85" href="#__codelineno-4-85"></a>        <span class="c1"># 1. Зчитування перших 4 байтів заголовка</span>
+</span><span id="__span-4-86"><a id="__codelineno-4-86" name="__codelineno-4-86" href="#__codelineno-4-86"></a>        <span class="n">header</span> <span class="o">=</span> <span class="n">b_file</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+</span><span id="__span-4-87"><a id="__codelineno-4-87" name="__codelineno-4-87" href="#__codelineno-4-87"></a>        <span class="k">if</span> <span class="n">header</span> <span class="o">!=</span> <span class="n">FIRMWARE_MAGIC_HEADER</span><span class="p">:</span>
+</span><span id="__span-4-88"><a id="__codelineno-4-88" name="__codelineno-4-88" href="#__codelineno-4-88"></a>            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+</span><span id="__span-4-89"><a id="__codelineno-4-89" name="__codelineno-4-89" href="#__codelineno-4-89"></a>                <span class="sa">f</span><span class="s2">"Невідомий формат образу: сигнатура </span><span class="si">{</span><span class="n">header</span><span class="o">.</span><span class="n">hex</span><span class="p">()</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span><span class="si">}</span><span class="s2"> != </span><span class="si">{</span><span class="n">FIRMWARE_MAGIC_HEADER</span><span class="o">.</span><span class="n">hex</span><span class="p">()</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span><span class="si">}</span><span class="s2">"</span>
+</span><span id="__span-4-90"><a id="__codelineno-4-90" name="__codelineno-4-90" href="#__codelineno-4-90"></a>            <span class="p">)</span>
+</span><span id="__span-4-91"><a id="__codelineno-4-91" name="__codelineno-4-91" href="#__codelineno-4-91"></a>
+</span><span id="__span-4-92"><a id="__codelineno-4-92" name="__codelineno-4-92" href="#__codelineno-4-92"></a>        <span class="c1"># 2. Зчитування версії (байти 4 та 5)</span>
+</span><span id="__span-4-93"><a id="__codelineno-4-93" name="__codelineno-4-93" href="#__codelineno-4-93"></a>        <span class="n">major_ver</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">b_file</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">1</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span>
+</span><span id="__span-4-94"><a id="__codelineno-4-94" name="__codelineno-4-94" href="#__codelineno-4-94"></a>        <span class="n">minor_ver</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">b_file</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">1</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span>
+</span><span id="__span-4-95"><a id="__codelineno-4-95" name="__codelineno-4-95" href="#__codelineno-4-95"></a>
+</span><span id="__span-4-96"><a id="__codelineno-4-96" name="__codelineno-4-96" href="#__codelineno-4-96"></a>        <span class="c1"># 3. Визначення повного розміру файлу через позиціонування курсору</span>
+</span><span id="__span-4-97"><a id="__codelineno-4-97" name="__codelineno-4-97" href="#__codelineno-4-97"></a>        <span class="n">current_pos</span> <span class="o">=</span> <span class="n">b_file</span><span class="o">.</span><span class="n">tell</span><span class="p">()</span>  <span class="c1"># Позиція після читання заголовка (6-й байт)</span>
+</span><span id="__span-4-98"><a id="__codelineno-4-98" name="__codelineno-4-98" href="#__codelineno-4-98"></a>        <span class="n">file_size_bytes</span> <span class="o">=</span> <span class="n">b_file</span><span class="o">.</span><span class="n">seek</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">SEEK_END</span><span class="p">)</span>  <span class="c1"># Переміщення в кінець файлу</span>
+</span><span id="__span-4-99"><a id="__codelineno-4-99" name="__codelineno-4-99" href="#__codelineno-4-99"></a>        <span class="n">payload_size</span> <span class="o">=</span> <span class="n">file_size_bytes</span> <span class="o">-</span> <span class="n">current_pos</span>
+</span><span id="__span-4-100"><a id="__codelineno-4-100" name="__codelineno-4-100" href="#__codelineno-4-100"></a>
+</span><span id="__span-4-101"><a id="__codelineno-4-101" name="__codelineno-4-101" href="#__codelineno-4-101"></a>    <span class="k">return</span> <span class="p">{</span>
+</span><span id="__span-4-102"><a id="__codelineno-4-102" name="__codelineno-4-102" href="#__codelineno-4-102"></a>        <span class="s2">"magic_signature_hex"</span><span class="p">:</span> <span class="sa">f</span><span class="s2">"0x</span><span class="si">{</span><span class="n">header</span><span class="o">.</span><span class="n">hex</span><span class="p">()</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span>
+</span><span id="__span-4-103"><a id="__codelineno-4-103" name="__codelineno-4-103" href="#__codelineno-4-103"></a>        <span class="s2">"firmware_version"</span><span class="p">:</span> <span class="sa">f</span><span class="s2">"v</span><span class="si">{</span><span class="n">major_ver</span><span class="si">}</span><span class="s2">.</span><span class="si">{</span><span class="n">minor_ver</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span>
+</span><span id="__span-4-104"><a id="__codelineno-4-104" name="__codelineno-4-104" href="#__codelineno-4-104"></a>        <span class="s2">"total_image_size_bytes"</span><span class="p">:</span> <span class="n">file_size_bytes</span><span class="p">,</span>
+</span><span id="__span-4-105"><a id="__codelineno-4-105" name="__codelineno-4-105" href="#__codelineno-4-105"></a>        <span class="s2">"payload_size_bytes"</span><span class="p">:</span> <span class="n">payload_size</span><span class="p">,</span>
+</span><span id="__span-4-106"><a id="__codelineno-4-106" name="__codelineno-4-106" href="#__codelineno-4-106"></a>        <span class="s2">"is_signature_valid"</span><span class="p">:</span> <span class="kc">True</span>
+</span><span id="__span-4-107"><a id="__codelineno-4-107" name="__codelineno-4-107" href="#__codelineno-4-107"></a>    <span class="p">}</span>
+</span><span id="__span-4-108"><a id="__codelineno-4-108" name="__codelineno-4-108" href="#__codelineno-4-108"></a>
+</span><span id="__span-4-109"><a id="__codelineno-4-109" name="__codelineno-4-109" href="#__codelineno-4-109"></a>
+</span><span id="__span-4-110"><a id="__codelineno-4-110" name="__codelineno-4-110" href="#__codelineno-4-110"></a><span class="k">def</span><span class="w"> </span><span class="nf">export_system_snapshot</span><span class="p">(</span><span class="n">output_json_path</span><span class="p">:</span> <span class="n">Path</span><span class="p">,</span> <span class="n">csv_stats</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">bin_stats</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="__span-4-111"><a id="__codelineno-4-111" name="__codelineno-4-111" href="#__codelineno-4-111"></a><span class="w">    </span><span class="sd">"""</span>
+</span><span id="__span-4-112"><a id="__codelineno-4-112" name="__codelineno-4-112" href="#__codelineno-4-112"></a><span class="sd">    Серіалізує підсумковий стан системи у структурований JSON-документ.</span>
+</span><span id="__span-4-113"><a id="__codelineno-4-113" name="__codelineno-4-113" href="#__codelineno-4-113"></a><span class="sd">    """</span>
+</span><span id="__span-4-114"><a id="__codelineno-4-114" name="__codelineno-4-114" href="#__codelineno-4-114"></a>    <span class="n">snapshot_payload</span> <span class="o">=</span> <span class="p">{</span>
+</span><span id="__span-4-115"><a id="__codelineno-4-115" name="__codelineno-4-115" href="#__codelineno-4-115"></a>        <span class="s2">"station_metadata"</span><span class="p">:</span> <span class="p">{</span>
+</span><span id="__span-4-116"><a id="__codelineno-4-116" name="__codelineno-4-116" href="#__codelineno-4-116"></a>            <span class="s2">"facility_name"</span><span class="p">:</span> <span class="s2">"Main Transformer Substation Alpha-1"</span><span class="p">,</span>
+</span><span id="__span-4-117"><a id="__codelineno-4-117" name="__codelineno-4-117" href="#__codelineno-4-117"></a>            <span class="s2">"snapshot_generated_at"</span><span class="p">:</span> <span class="n">time</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">"%Y-%m-</span><span class="si">%d</span><span class="s2"> %H:%M:%S"</span><span class="p">),</span>
+</span><span id="__span-4-118"><a id="__codelineno-4-118" name="__codelineno-4-118" href="#__codelineno-4-118"></a>            <span class="s2">"pipeline_version"</span><span class="p">:</span> <span class="s2">"1.0.0"</span>
+</span><span id="__span-4-119"><a id="__codelineno-4-119" name="__codelineno-4-119" href="#__codelineno-4-119"></a>        <span class="p">},</span>
+</span><span id="__span-4-120"><a id="__codelineno-4-120" name="__codelineno-4-120" href="#__codelineno-4-120"></a>        <span class="s2">"power_telemetry_summary"</span><span class="p">:</span> <span class="n">csv_stats</span><span class="p">,</span>
+</span><span id="__span-4-121"><a id="__codelineno-4-121" name="__codelineno-4-121" href="#__codelineno-4-121"></a>        <span class="s2">"controller_firmware_audit"</span><span class="p">:</span> <span class="n">bin_stats</span>
+</span><span id="__span-4-122"><a id="__codelineno-4-122" name="__codelineno-4-122" href="#__codelineno-4-122"></a>    <span class="p">}</span>
+</span><span id="__span-4-123"><a id="__codelineno-4-123" name="__codelineno-4-123" href="#__codelineno-4-123"></a>
+</span><span id="__span-4-124"><a id="__codelineno-4-124" name="__codelineno-4-124" href="#__codelineno-4-124"></a>    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">output_json_path</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">"w"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span> <span class="k">as</span> <span class="n">j_file</span><span class="p">:</span>
+</span><span id="__span-4-125"><a id="__codelineno-4-125" name="__codelineno-4-125" href="#__codelineno-4-125"></a>        <span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">snapshot_payload</span><span class="p">,</span> <span class="n">j_file</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">ensure_ascii</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</span><span id="__span-4-126"><a id="__codelineno-4-126" name="__codelineno-4-126" href="#__codelineno-4-126"></a>
+</span><span id="__span-4-127"><a id="__codelineno-4-127" name="__codelineno-4-127" href="#__codelineno-4-127"></a>
+</span><span id="__span-4-128"><a id="__codelineno-4-128" name="__codelineno-4-128" href="#__codelineno-4-128"></a><span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="__span-4-129"><a id="__codelineno-4-129" name="__codelineno-4-129" href="#__codelineno-4-129"></a><span class="w">    </span><span class="sd">"""Головна точка входу лабораторної роботи."""</span>
+</span><span id="__span-4-130"><a id="__codelineno-4-130" name="__codelineno-4-130" href="#__codelineno-4-130"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">"="</span> <span class="o">*</span> <span class="mi">80</span><span class="p">)</span>
+</span><span id="__span-4-131"><a id="__codelineno-4-131" name="__codelineno-4-131" href="#__codelineno-4-131"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="s1">'КОНВЕЄР ФАЙЛОВОГО ВВЕДЕННЯ-ВИВЕДЕННЯ ТА ЗБЕРЕЖЕННЯ СТАНУ'</span><span class="si">:</span><span class="s2">^80</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</span><span id="__span-4-132"><a id="__codelineno-4-132" name="__codelineno-4-132" href="#__codelineno-4-132"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">"="</span> <span class="o">*</span> <span class="mi">80</span><span class="p">)</span>
+</span><span id="__span-4-133"><a id="__codelineno-4-133" name="__codelineno-4-133" href="#__codelineno-4-133"></a>
+</span><span id="__span-4-134"><a id="__codelineno-4-134" name="__codelineno-4-134" href="#__codelineno-4-134"></a>    <span class="n">input_csv</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">"power_telemetry.csv"</span><span class="p">)</span>
+</span><span id="__span-4-135"><a id="__codelineno-4-135" name="__codelineno-4-135" href="#__codelineno-4-135"></a>    <span class="n">cleaned_csv</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">"cleaned_power.csv"</span><span class="p">)</span>
+</span><span id="__span-4-136"><a id="__codelineno-4-136" name="__codelineno-4-136" href="#__codelineno-4-136"></a>    <span class="n">input_bin</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">"firmware_sample.bin"</span><span class="p">)</span>
+</span><span id="__span-4-137"><a id="__codelineno-4-137" name="__codelineno-4-137" href="#__codelineno-4-137"></a>    <span class="n">output_json</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">"station_snapshot.json"</span><span class="p">)</span>
+</span><span id="__span-4-138"><a id="__codelineno-4-138" name="__codelineno-4-138" href="#__codelineno-4-138"></a>
+</span><span id="__span-4-139"><a id="__codelineno-4-139" name="__codelineno-4-139" href="#__codelineno-4-139"></a>    <span class="n">t_start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span>
+</span><span id="__span-4-140"><a id="__codelineno-4-140" name="__codelineno-4-140" href="#__codelineno-4-140"></a>
+</span><span id="__span-4-141"><a id="__codelineno-4-141" name="__codelineno-4-141" href="#__codelineno-4-141"></a>    <span class="c1"># 1. Виконання обробки CSV телеметрії</span>
+</span><span id="__span-4-142"><a id="__codelineno-4-142" name="__codelineno-4-142" href="#__codelineno-4-142"></a>    <span class="n">csv_metrics</span> <span class="o">=</span> <span class="n">process_csv_telemetry</span><span class="p">(</span><span class="n">input_csv</span><span class="p">,</span> <span class="n">cleaned_csv</span><span class="p">)</span>
+</span><span id="__span-4-143"><a id="__codelineno-4-143" name="__codelineno-4-143" href="#__codelineno-4-143"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Обробка CSV успішна:"</span><span class="p">)</span>
+</span><span id="__span-4-144"><a id="__codelineno-4-144" name="__codelineno-4-144" href="#__codelineno-4-144"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"  Зчитано рядків:       </span><span class="si">{</span><span class="n">csv_metrics</span><span class="p">[</span><span class="s1">'total_read_rows'</span><span class="p">]</span><span class="si">:</span><span class="s2">&gt;5d</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</span><span id="__span-4-145"><a id="__codelineno-4-145" name="__codelineno-4-145" href="#__codelineno-4-145"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"  Валідних рядків:      </span><span class="si">{</span><span class="n">csv_metrics</span><span class="p">[</span><span class="s1">'valid_saved_rows'</span><span class="p">]</span><span class="si">:</span><span class="s2">&gt;5d</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</span><span id="__span-4-146"><a id="__codelineno-4-146" name="__codelineno-4-146" href="#__codelineno-4-146"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"  Відкинуто аномалій:   </span><span class="si">{</span><span class="n">csv_metrics</span><span class="p">[</span><span class="s1">'anomalous_rows_dropped'</span><span class="p">]</span><span class="si">:</span><span class="s2">&gt;5d</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</span><span id="__span-4-147"><a id="__codelineno-4-147" name="__codelineno-4-147" href="#__codelineno-4-147"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"  Середня потужність:   </span><span class="si">{</span><span class="n">csv_metrics</span><span class="p">[</span><span class="s1">'average_power_watts'</span><span class="p">]</span><span class="si">:</span><span class="s2">&gt;8.2f</span><span class="si">}</span><span class="s2"> Вт"</span><span class="p">)</span>
+</span><span id="__span-4-148"><a id="__codelineno-4-148" name="__codelineno-4-148" href="#__codelineno-4-148"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"  Файл збережено:       </span><span class="si">{</span><span class="n">cleaned_csv</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</span><span id="__span-4-149"><a id="__codelineno-4-149" name="__codelineno-4-149" href="#__codelineno-4-149"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">"-"</span> <span class="o">*</span> <span class="mi">80</span><span class="p">)</span>
+</span><span id="__span-4-150"><a id="__codelineno-4-150" name="__codelineno-4-150" href="#__codelineno-4-150"></a>
+</span><span id="__span-4-151"><a id="__codelineno-4-151" name="__codelineno-4-151" href="#__codelineno-4-151"></a>    <span class="c1"># 2. Виконання бінарного аудиту прошивки</span>
+</span><span id="__span-4-152"><a id="__codelineno-4-152" name="__codelineno-4-152" href="#__codelineno-4-152"></a>    <span class="n">bin_metrics</span> <span class="o">=</span> <span class="n">verify_binary_firmware</span><span class="p">(</span><span class="n">input_bin</span><span class="p">)</span>
+</span><span id="__span-4-153"><a id="__codelineno-4-153" name="__codelineno-4-153" href="#__codelineno-4-153"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Аудит бінарного образу успішний:"</span><span class="p">)</span>
+</span><span id="__span-4-154"><a id="__codelineno-4-154" name="__codelineno-4-154" href="#__codelineno-4-154"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"  Магічна сигнатура:    </span><span class="si">{</span><span class="n">bin_metrics</span><span class="p">[</span><span class="s1">'magic_signature_hex'</span><span class="p">]</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</span><span id="__span-4-155"><a id="__codelineno-4-155" name="__codelineno-4-155" href="#__codelineno-4-155"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"  Версія прошивки:      </span><span class="si">{</span><span class="n">bin_metrics</span><span class="p">[</span><span class="s1">'firmware_version'</span><span class="p">]</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</span><span id="__span-4-156"><a id="__codelineno-4-156" name="__codelineno-4-156" href="#__codelineno-4-156"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"  Загальний розмір:     </span><span class="si">{</span><span class="n">bin_metrics</span><span class="p">[</span><span class="s1">'total_image_size_bytes'</span><span class="p">]</span><span class="si">}</span><span class="s2"> байтів"</span><span class="p">)</span>
+</span><span id="__span-4-157"><a id="__codelineno-4-157" name="__codelineno-4-157" href="#__codelineno-4-157"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"  Розмір корисних даних:</span><span class="si">{</span><span class="n">bin_metrics</span><span class="p">[</span><span class="s1">'payload_size_bytes'</span><span class="p">]</span><span class="si">}</span><span class="s2"> байтів"</span><span class="p">)</span>
+</span><span id="__span-4-158"><a id="__codelineno-4-158" name="__codelineno-4-158" href="#__codelineno-4-158"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">"-"</span> <span class="o">*</span> <span class="mi">80</span><span class="p">)</span>
+</span><span id="__span-4-159"><a id="__codelineno-4-159" name="__codelineno-4-159" href="#__codelineno-4-159"></a>
+</span><span id="__span-4-160"><a id="__codelineno-4-160" name="__codelineno-4-160" href="#__codelineno-4-160"></a>    <span class="c1"># 3. Серіалізація підсумкового стану у JSON</span>
+</span><span id="__span-4-161"><a id="__codelineno-4-161" name="__codelineno-4-161" href="#__codelineno-4-161"></a>    <span class="n">export_system_snapshot</span><span class="p">(</span><span class="n">output_json</span><span class="p">,</span> <span class="n">csv_metrics</span><span class="p">,</span> <span class="n">bin_metrics</span><span class="p">)</span>
+</span><span id="__span-4-162"><a id="__codelineno-4-162" name="__codelineno-4-162" href="#__codelineno-4-162"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Підсумковий знімок стану збережено у JSON:"</span><span class="p">)</span>
+</span><span id="__span-4-163"><a id="__codelineno-4-163" name="__codelineno-4-163" href="#__codelineno-4-163"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"  Цільовий файл:        </span><span class="si">{</span><span class="n">output_json</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</span><span id="__span-4-164"><a id="__codelineno-4-164" name="__codelineno-4-164" href="#__codelineno-4-164"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">"="</span> <span class="o">*</span> <span class="mi">80</span><span class="p">)</span>
+</span><span id="__span-4-165"><a id="__codelineno-4-165" name="__codelineno-4-165" href="#__codelineno-4-165"></a>
+</span><span id="__span-4-166"><a id="__codelineno-4-166" name="__codelineno-4-166" href="#__codelineno-4-166"></a>    <span class="n">t_elapsed</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span> <span class="o">-</span> <span class="n">t_start</span>
+</span><span id="__span-4-167"><a id="__codelineno-4-167" name="__codelineno-4-167" href="#__codelineno-4-167"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Час виконання повного конвеєра: </span><span class="si">{</span><span class="n">t_elapsed</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">1000</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2"> мс</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
+</span><span id="__span-4-168"><a id="__codelineno-4-168" name="__codelineno-4-168" href="#__codelineno-4-168"></a>
+</span><span id="__span-4-169"><a id="__codelineno-4-169" name="__codelineno-4-169" href="#__codelineno-4-169"></a>
+</span><span id="__span-4-170"><a id="__codelineno-4-170" name="__codelineno-4-170" href="#__codelineno-4-170"></a><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
+</span><span id="__span-4-171"><a id="__codelineno-4-171" name="__codelineno-4-171" href="#__codelineno-4-171"></a>    <span class="n">main</span><span class="p">()</span>
+</span></code></pre></div>
+<hr />
+<h3 id="33">3.3. Запуск, тестування та перевірка результатів</h3>
+<p>Виконайте запуск розробленої програми у системному терміналі VS Code під керуванням активованого середовища Conda:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1"># Запуск файлового конвеєра</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>python<span class="w"> </span>telemetry_pipeline.py
+</span></code></pre></div>
+<p>Нижче наведено еталонний вивід програми в терміналі:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>================================================================================
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>            КОНВЕЄР ФАЙЛОВОГО ВВЕДЕННЯ-ВИВЕДЕННЯ ТА ЗБЕРЕЖЕННЯ СТАНУ            
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>================================================================================
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>Обробка CSV успішна:
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>  Зчитано рядків:           6
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>  Валідних рядків:          4
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>  Відкинуто аномалій:       2
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>  Середня потужність:     2836.56 Вт
+</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>  Файл збережено:       cleaned_power.csv
+</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>--------------------------------------------------------------------------------
+</span><span id="__span-6-11"><a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a>Аудит бінарного образу успішний:
+</span><span id="__span-6-12"><a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a>  Магічна сигнатура:    0xAA55DEAD
+</span><span id="__span-6-13"><a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a>  Версія прошивки:      v2.5
+</span><span id="__span-6-14"><a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a>  Загальний розмір:     12 байтів
+</span><span id="__span-6-15"><a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a>  Розмір корисних даних:6 байтів
+</span><span id="__span-6-16"><a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a>--------------------------------------------------------------------------------
+</span><span id="__span-6-17"><a id="__codelineno-6-17" name="__codelineno-6-17" href="#__codelineno-6-17"></a>Підсумковий знімок стану збережено у JSON:
+</span><span id="__span-6-18"><a id="__codelineno-6-18" name="__codelineno-6-18" href="#__codelineno-6-18"></a>  Цільовий файл:        station_snapshot.json
+</span><span id="__span-6-19"><a id="__codelineno-6-19" name="__codelineno-6-19" href="#__codelineno-6-19"></a>================================================================================
+</span><span id="__span-6-20"><a id="__codelineno-6-20" name="__codelineno-6-20" href="#__codelineno-6-20"></a>Час виконання повного конвеєра: 1.450 мс
+</span></code></pre></div>
+<p>Перевіримо вміст згенерованого файлу <code>station_snapshot.json</code>:</p>
+<div class="language-json highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="p">{</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="w">    </span><span class="nt">"station_metadata"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">        </span><span class="nt">"facility_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Main Transformer Substation Alpha-1"</span><span class="p">,</span>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="w">        </span><span class="nt">"snapshot_generated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2026-08-30 17:15:22"</span><span class="p">,</span>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="w">        </span><span class="nt">"pipeline_version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0.0"</span>
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="w">    </span><span class="p">},</span>
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="w">    </span><span class="nt">"power_telemetry_summary"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="w">        </span><span class="nt">"total_read_rows"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span>
+</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="w">        </span><span class="nt">"valid_saved_rows"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span>
+</span><span id="__span-7-10"><a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="w">        </span><span class="nt">"anomalous_rows_dropped"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span>
+</span><span id="__span-7-11"><a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a><span class="w">        </span><span class="nt">"average_power_watts"</span><span class="p">:</span><span class="w"> </span><span class="mf">2836.5575</span><span class="p">,</span>
+</span><span id="__span-7-12"><a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a><span class="w">        </span><span class="nt">"total_active_power_kw"</span><span class="p">:</span><span class="w"> </span><span class="mf">11.34623</span>
+</span><span id="__span-7-13"><a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a><span class="w">    </span><span class="p">},</span>
+</span><span id="__span-7-14"><a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a><span class="w">    </span><span class="nt">"controller_firmware_audit"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-7-15"><a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a><span class="w">        </span><span class="nt">"magic_signature_hex"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0xAA55DEAD"</span><span class="p">,</span>
+</span><span id="__span-7-16"><a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a><span class="w">        </span><span class="nt">"firmware_version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"v2.5"</span><span class="p">,</span>
+</span><span id="__span-7-17"><a id="__codelineno-7-17" name="__codelineno-7-17" href="#__codelineno-7-17"></a><span class="w">        </span><span class="nt">"total_image_size_bytes"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span>
+</span><span id="__span-7-18"><a id="__codelineno-7-18" name="__codelineno-7-18" href="#__codelineno-7-18"></a><span class="w">        </span><span class="nt">"payload_size_bytes"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span>
+</span><span id="__span-7-19"><a id="__codelineno-7-19" name="__codelineno-7-19" href="#__codelineno-7-19"></a><span class="w">        </span><span class="nt">"is_signature_valid"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
+</span><span id="__span-7-20"><a id="__codelineno-7-20" name="__codelineno-7-20" href="#__codelineno-7-20"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-7-21"><a id="__codelineno-7-21" name="__codelineno-7-21" href="#__codelineno-7-21"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>Аналіз результатів перевірки підтверджує:</p>
+<ol>
+<li>
+<p>Фільтрація CSV коректно відкинула аномальні стрибки напруги (рядок <span class="arithmatex">\(195.0\text{ В}\)</span> та рядок <span class="arithmatex">\(238.5\text{ В}\)</span>), зберігши 4 валідні записи та розрахувавши активну потужність.</p>
+</li>
+<li>
+<p>Бінарний аналізатор успішно верифікував сигнатуру <code>0xAA55DEAD</code> та правильно визначив розмір корисного блоку за допомогою комбінації методів <code>seek()</code> та <code>tell()</code>.</p>
+</li>
+<li>
+<p>Результуючий JSON-файл успішно зберіг стан системи у валідному структурованому вигляді.</p>
+</li>
+</ol>
+<hr />
+<h2 id="4">4. Вимоги до змісту звіту</h2>
+<p>Звіт з лабораторної роботи оформлюється у форматі PDF відповідно до стандартів НАЗЯВО/ECTS та повинен містити такі обов'язкові розділи:</p>
+<ol>
+<li>
+<p><strong>Титульна сторінка:</strong> повне найменування університету, факультету, кафедри, дисципліни, номер і назва роботи, відомості про здобувача (ПІБ, група, варіант), відомості про викладача.</p>
+</li>
+<li>
+<p><strong>Мета роботи та технічна постановка задачі:</strong> формулювання мети дослідження, опис полів вхідного CSV-файлу та опис структури бінарного заголовка згідно з варіантом.</p>
+</li>
+<li>
+<p><strong>Алгоритмічний опис файлового конвеєра:</strong> схема взаємодії менеджерів контексту, механізмів фільтрації та серіалізації структур даних.</p>
+</li>
+<li>
+<p><strong>Програмний код:</strong> повні вихідні лістинги файлу <code>telemetry_pipeline.py</code> із детальними авторськими коментарями.</p>
+</li>
+<li>
+<p><strong>Результати тестування:</strong> скріншоти консольного виведення роботи програми, фрагменти згенерованого CSV-файлу та повний лістинг результуючого файлу <code>station_snapshot.json</code>.</p>
+</li>
+<li>
+<p><strong>Посилання на Git-репозиторій:</strong> діюче посилання на оновлений репозиторій GitHub із зафіксованим комітом виконаної лабораторної роботи.</p>
+</li>
+<li>
+<p><strong>Висновки:</strong> аналітичний підсумок щодо безпеки використання менеджерів контексту, надійності формату JSON для персистентного збереження та методів роботи з бінарними потоками.</p>
+</li>
+</ol>
+<hr />
+<h2 id="5">5. Контрольні запитання для захисту роботи</h2>
+<ol>
+<li>
+<p>Як влаштований протокол менеджера контексту (<code>__enter__</code> та <code>__exit__</code>) у мові Python? Чому використання інструкції <code>with open(...)</code> гарантує закриття файлу навіть у разі збудження винятку <code>ZeroDivisionError</code> під час запису?</p>
+</li>
+<li>
+<p>У чому полягає різниця між текстовим (<code>'r'</code>, <code>'w'</code>) та бінарним (<code>'rb'</code>, <code>'wb'</code>) режимами відкриття файлів? Чому в текстовому режимі використання довільних зміщень у методі <code>file.seek(offset)</code> є забороненим для багатобайтових кодувань UTF-8?</p>
+</li>
+<li>
+<p>Поясніть призначення та інженерне використання магічних сигнатур (<em>magic numbers</em>) у бінарних файлах. Що повертає метод <code>file.seek(0, os.SEEK_END)</code>?</p>
+</li>
+<li>
+<p>Чим відрізняються методи модуля <code>json</code>: <code>json.dump()</code> від <code>json.dumps()</code> та <code>json.load()</code> від <code>json.loads()</code>? Які типи даних Python не підтримують пряму серіалізацію у формат JSON без власного енкодера?</p>
+</li>
+<li>
+<p>Опишіть переваги використання класу <code>csv.DictReader</code> над базовим <code>csv.reader</code> при роботі з табличними даними, що мають заголовки стовпців.</p>
+</li>
+<li>
+<p>Що таке системна буферизація введення-виведення, і як параметр <code>buffering</code> функції <code>open()</code> впливає на продуктивність запису великих масивів телеметрії?</p>
+</li>
+</ol>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Повернутись нагору
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 Kyrylo Vadurin &bull; <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a>
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.expand", "navigation.top", "navigation.tracking", "header.autohide", "search.suggest", "search.highlight", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u0421\u043a\u043e\u043f\u0456\u0439\u043e\u0432\u0430\u043d\u043e \u0432 \u0431\u0443\u0444\u0435\u0440", "clipboard.copy": "\u0421\u043a\u043e\u043f\u0456\u044e\u0432\u0430\u0442\u0438 \u0432 \u0431\u0443\u0444\u0435\u0440", "search.result.more.one": "\u0429\u0435 1 \u0437\u0431\u0456\u0433 \u043d\u0430 \u0446\u0456\u0439 \u0441\u0442\u043e\u0440\u0456\u043d\u0446\u0456", "search.result.more.other": "\u0429\u0435 # \u0437\u0431\u0456\u0433\u0456\u0432 \u043d\u0430 \u0446\u0456\u0439 \u0441\u0442\u043e\u0440\u0456\u043d\u0446\u0456", "search.result.none": "\u0417\u0431\u0456\u0433\u0456\u0432 \u043d\u0435 \u0437\u043d\u0430\u0439\u0434\u0435\u043d\u043e", "search.result.one": "\u0417\u043d\u0430\u0439\u0434\u0435\u043d\u043e 1 \u0437\u0431\u0456\u0433", "search.result.other": "\u0417\u043d\u0430\u0439\u0434\u0435\u043d\u043e # \u0437\u0431\u0456\u0433\u0456\u0432", "search.result.placeholder": "\u0420\u043e\u0437\u043f\u043e\u0447\u043d\u0456\u0442\u044c \u043f\u0438\u0441\u0430\u0442\u0438 \u0434\u043b\u044f \u043f\u043e\u0448\u0443\u043a\u0443", "search.result.term.missing": "\u041d\u0435 \u0437\u043d\u0430\u0439\u0434\u0435\u043d\u043e \u0437\u0430\u043f\u0438\u0442\u0443", "select.version": "\u041e\u0431\u0440\u0430\u0442\u0438 \u0432\u0435\u0440\u0441\u0456\u044e"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

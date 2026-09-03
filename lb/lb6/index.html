@@ -1,0 +1,2264 @@
+
+<!doctype html>
+<html lang="uk" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Навчальний портал з дисципліни "Програмування на Python. Базовий рівень"">
+      
+      
+      
+      
+        <link rel="prev" href="../lb5/">
+      
+      
+        <link rel="next" href="../lb7/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>ЛБ 6. Асоціативні структури даних (Словники, Множини) - Програмування на Python</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="cyan">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#no-6" class="md-skip">
+          Перейти до змісту
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Хедер">
+    <a href="../.." title="Програмування на Python" class="md-header__button md-logo" aria-label="Програмування на Python" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Програмування на Python
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              ЛБ 6. Асоціативні структури даних (Словники, Множини)
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="cyan"  aria-label="Переключити на темну тему"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Переключити на темну тему" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="cyan"  aria-label="Переключити на світлу тему"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Переключити на світлу тему" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Пошук" placeholder="Пошук" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Шукати">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Очистити" aria-label="Очистити" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Пошук розпочато
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Вкладки" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Робоча програма
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../lk/lk1/" class="md-tabs__link">
+          
+  
+  
+  Лекції
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../lb1/" class="md-tabs__link">
+          
+  
+  
+  Лабораторні роботи
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../sr/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Самостійна робота
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../rg/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Розрахунково-графічна робота
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Навігація" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Програмування на Python" class="md-nav__button md-logo" aria-label="Програмування на Python" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Програмування на Python
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Робоча програма
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Лекції
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Лекції
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lk/lk1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Тема 1. Архітектура мови та інфраструктура
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lk/lk2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Тема 2. Керування потоком виконання
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lk/lk3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Тема 3. Впорядковані структури даних (Списки, Кортежі)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lk/lk4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Тема 4. Текстові, двійкові дані та Регулярні вирази
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lk/lk5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Тема 5. Хеш-таблиці (Словники, Множини)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lk/lk6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Тема 6. Функціональна організація коду
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lk/lk7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Тема 7. Модульна архітектура та пакети
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lk/lk8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Тема 8. Обробка винятків та файлове в/в
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lk/lk9/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Тема 9. Об'єктно-орієнтоване програмування
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Лабораторні роботи
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Лабораторні роботи
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lb1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 1. Розгортання інфраструктури розробки
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lb2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 2. Скалярні типи даних та моделювання
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lb3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 3. Алгоритми розгалуженої та циклічної структури
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lb4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 4. Обробка списків та кортежі
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lb5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 5. Обробка тексту та регулярні вирази
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 6. Асоціативні структури даних (Словники, Множини)
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 6. Асоціативні структури даних (Словники, Множини)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Зміст">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Зміст
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1 Теоретичні відомості
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-0" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2 Підготовка середовища та розгортання проєкту (Крок 0)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2 Підготовка середовища та розгортання проєкту (Крок 0)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1. Активація робочого середовища та створення структури папок
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2. Структура файлової системи проекту
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-vscodelaunchjson" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3. Створення конфігурації налагоджувача .vscode/launch.json
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3 Порядок виконання роботи
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3 Порядок виконання роботи">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 Індивідуальні завдання
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2. Покроковий алгоритм та розв'язок еталонного прикладу
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.2. Покроковий алгоритм та розв&#39;язок еталонного прикладу">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-network_inventorypy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Крок 1. Реалізація модуля інвентаризації network_inventory.py
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-security_auditpy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Крок 2. Реалізація модуля аудиту безпеки security_audit.py
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3. Запуск, тестування та перевірка результатів
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Вимоги до змісту звіту
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Контрольні запитання для захисту роботи
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lb7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 7. Проєктування функцій та рекурсія
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lb8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 8. Модульне програмування та системні бібліотеки
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lb9/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 9. Обробка виняткових ситуацій
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lb10/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 10. Файлове в/в та менеджери контексту
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lb11/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 11. ООП та перевантаження методів
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sr/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Самостійна робота
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../rg/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Розрахунково-графічна робота
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Зміст">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Зміст
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1 Теоретичні відомості
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-0" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2 Підготовка середовища та розгортання проєкту (Крок 0)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2 Підготовка середовища та розгортання проєкту (Крок 0)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1. Активація робочого середовища та створення структури папок
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2. Структура файлової системи проекту
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-vscodelaunchjson" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3. Створення конфігурації налагоджувача .vscode/launch.json
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3 Порядок виконання роботи
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3 Порядок виконання роботи">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 Індивідуальні завдання
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2. Покроковий алгоритм та розв'язок еталонного прикладу
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.2. Покроковий алгоритм та розв&#39;язок еталонного прикладу">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-network_inventorypy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Крок 1. Реалізація модуля інвентаризації network_inventory.py
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-security_auditpy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Крок 2. Реалізація модуля аудиту безпеки security_audit.py
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3. Запуск, тестування та перевірка результатів
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Вимоги до змісту звіту
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Контрольні запитання для захисту роботи
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="no-6">Лабораторна робота № 6. Асоціативні структури даних: Словники та Множини</h1>
+<p><strong>Мета:</strong> Опанувати практичні навички проектування та застосування асоціативних структур даних і хеш-таблиць мовою Python. Навчитися реалізовувати базові операції створення, модифікації, безпечного доступу та видалення записів у словниках (<code>dict</code>), застосовувати спеціалізовані методи <code>get()</code>, <code>setdefault()</code>, <code>pop()</code>, <code>update()</code>, а також будувати оптимізовані інвертовані індекси за допомогою генераторів словників (<em>Dict Comprehensions</em>). Опанувати частотний аналіз системних подій із використанням класу <code>collections.Counter</code> та навчитися виконувати теоретико-множинні операції над змінюваними (<code>set</code>) і незмінними (<code>frozenset</code>) множинами для розв'язання задач інвентаризації мережевих ресурсів, аудиту прав доступу користувачів та розрахунку метрик схожості системних конфігурацій.</p>
+<p><strong>Стек технологій та інструменти:</strong></p>
+<ul>
+<li>
+<p><strong>Мова програмування / Інтерпретатор:</strong> Python 3.10+ (CPython 64-bit)</p>
+</li>
+<li>
+<p><strong>Інструменти розробки (IDE):</strong> Visual Studio Code з інтегрованим терміналом та підсистемою налагодження <code>debugpy</code></p>
+</li>
+<li>
+<p><strong>Середовище управління:</strong> Ізольоване середовище Conda (<code>ce_lab_env</code>)</p>
+</li>
+<li>
+<p><strong>Бібліотеки та модулі:</strong> <code>collections</code> (<code>Counter</code>, <code>defaultdict</code>), <code>sys</code>, <code>time</code></p>
+</li>
+</ul>
+<hr />
+<h2 id="1">1 Теоретичні відомості</h2>
+<p>У комп'ютерній інженерії та мережевому адмініструванні швидкість пошуку вузлів, маршрутизації пакетів, зіставлення прав користувачів та перевірки безпеки залежить від використання структур даних із константною часовою складністю доступу <span class="arithmatex">\(O(1)\)</span>. Мова Python надає дві високоефективні структури на основі хеш-таблиць: асоціативний масив (<strong>словник</strong>, <code>dict</code>) та колекцію унікальних елементів (<strong>множину</strong>, <code>set</code>).</p>
+<p>В основі функціонування словників та множин лежить математичний апарат <strong>хешування</strong>. Хеш-функція <span class="arithmatex">\(h(k)\)</span> транслює незмінний об'єкт-ключ <span class="arithmatex">\(k\)</span> у 64-розрядне ціле число. </p>
+<p>Індекс <span class="arithmatex">\(i\)</span> у первинній індексній таблиці обчислюється через операцію накладання бітової маски:</p>
+<div class="arithmatex">\[i = h(k) \ \&amp; \ (2^m - 1)\]</div>
+<p>де <span class="arithmatex">\(2^m\)</span> — розмір індексної таблиці CPython, що завжди є степенем двійки; <span class="arithmatex">\(\&amp;\)</span> — операція побітового логічного множення (AND). </p>
+<p>Для розв'язання колізій (коли різні ключі дають однаковий індекс <span class="arithmatex">\(i\)</span>) інтерпретатор застосовує метод відкритої адресації з рекурентним псевдовипадковим зондуванням:</p>
+<div class="arithmatex">\[j_{r+1} = ((5 \times j_r) + 1 + \text{perturb}_r) \pmod{2^m}\]</div>
+<p>де <span class="arithmatex">\(j_r\)</span> — поточний індекс зондування на кроці <span class="arithmatex">\(r\)</span>; <span class="arithmatex">\(\text{perturb}_r\)</span> — змінна збурення, яка ініціалізується повним значенням хешу і на кожному кроці зменшується зсувом праворуч (<span class="arithmatex">\(\text{perturb}_{r+1} = \text{perturb}_r \gg 5\)</span>). </p>
+<p>Завдяки цьому алгоритму середня часова складність операцій пошуку, вставки та вилучення у словниках і множинах становить <span class="arithmatex">\(O(1)\)</span>.</p>
+<p><pre class="mermaid"><code>flowchart TD
+    subgraph Hash_Resolution["Алгоритм адресації у компактному словнику CPython"]
+        Key["Ключ: MAC '00:1A:2B:3C:4D:5E'"] --&gt; HashVal["hash(Key) = 0x8F4A2C1B"]
+        HashVal --&gt; IndexCalc["i = hash &amp; (size - 1)"]
+        IndexCalc --&gt; LookupTable{"Перевірка indices[i]"}
+
+        LookupTable -- "indices[i] == -1" --&gt; KeyNotFound["Ключ відсутній у словнику"]
+        LookupTable -- "indices[i] &gt;= 0" --&gt; CheckMatch{"Збіг хешу та key == entries[idx].key ?"}
+
+        CheckMatch -- "Так (Збіг)" --&gt; ReturnVal["Повернення entries[idx].value"]
+        CheckMatch -- "Ні (Колізія)" --&gt; NextProbe["j = ((5*j) + 1 + perturb) % size"]
+        NextProbe --&gt; LookupTable
+    end</code></pre>
+<em>Рисунок 1 — Схема обчислення хешу, маскування індексу та зондування колізій у словнику CPython</em></p>
+<p>Проаналізуємо схему, наведену на рисунку 1. Алгоритм забезпечує високу стійкість до кластеризації колізій. Оскільки розріджена таблиця <code>indices</code> містить лише короткі цілі числа, компактна архітектура словника дозволяє суттєво заощаджувати оперативну пам'ять процесу порівняно з класичними розрідженими хеш-таблицями.</p>
+<p>Множина (<code>set</code>) є окремим випадком хеш-таблиці, де зберігаються виключно ключі без асоційованих значень. </p>
+<p>Над множинами визначено повний базис операцій дискретної математики:</p>
+<ul>
+<li>
+<p><strong>Об'єднання (<span class="arithmatex">\(A \cup B\)</span>, оператор <code>|</code>):</strong> формує множину елементів, присутніх хоча б у одній вибірці.</p>
+</li>
+<li>
+<p><strong>Перетин (<span class="arithmatex">\(A \cap B\)</span>, оператор <code>&amp;</code>):</strong> формує множину елементів, спільних для обох вибірок.</p>
+</li>
+<li>
+<p><strong>Відносна різниця (<span class="arithmatex">\(A \setminus B\)</span>, оператор <code>-</code>):</strong> виділяє елементи, які входять до множини <span class="arithmatex">\(A\)</span>, але відсутні в множині <span class="arithmatex">\(B\)</span>.</p>
+</li>
+<li>
+<p><strong>Симетрична різниця (<span class="arithmatex">\(A \Delta B\)</span>, оператор <code>^</code>):</strong> виділяє елементи, які належать виключно одній із двох множин, за формулою:</p>
+</li>
+</ul>
+<div class="arithmatex">\[A \Delta B = (A \setminus B) \cup (B \setminus A) = (A \cup B) \setminus (A \cap B)\]</div>
+<p>В інженерних задачах аудиту безпеки та аудиту конфігурацій ступінь відповідності реального стану системи (<span class="arithmatex">\(A\)</span>) нормативному еталону (<span class="arithmatex">\(B\)</span>) кількісно оцінюється за допомогою <strong>коефіцієнта подібності Жаккара</strong> (<strong>Jaccard Similarity Index</strong>):</p>
+<div class="arithmatex">\[J(A, B) = \frac{|A \cap B|}{|A \cup B|} = \frac{|A \cap B|}{|A| + |B| - |A \cap B|}\]</div>
+<p>де <span class="arithmatex">\(|S|\)</span> позначає потужність (кількість елементів) відповідної множини; коефіцієнт змінюється у нормованому діапазоні <span class="arithmatex">\(0 \le J(A, B) \le 1\)</span>, де <span class="arithmatex">\(J = 1\)</span> відповідає повній ідентичності конфігурацій, а <span class="arithmatex">\(J = 0\)</span> — абсолютній розбіжності без спільних параметрів.</p>
+<p><pre class="mermaid"><code>flowchart LR
+    subgraph Asset_Data["Вхідні дані інвентаризації"]
+        RawHostDB["Словник хостів:\n{IP: {OS, Roles, Ports}}"]
+        AccessLogs["Потік логів автентифікації:\n[User_1, User_2, ...]"]
+    end
+
+    subgraph Analytics_Engine["Аналітичне ядро обробки"]
+        RawHostDB --&gt; DictComp["Dict Comprehensions:\nІнвертований індекс Open_Port -&gt; [IPs]"]
+        AccessLogs --&gt; CounterEngine["collections.Counter:\nЧастотний аналіз активності"]
+        RawHostDB --&gt; SetAudit["Теоретико-множинний аудит:\nActual_Ports vs Baseline_Ports"]
+    end
+
+    subgraph Security_Metrics["Метрики та результати"]
+        SetAudit --&gt; JaccardCalc["Розрахунок індексу Жаккара: J(A, B)"]
+        DictComp --&gt; InvertedReport["Звіт топології портів"]
+        CounterEngine --&gt; BruteForceAlert["Детекція аномальних IP"]
+    end</code></pre>
+<em>Рисунок 2 — Конвеєр аналізу мережевих активів, частотної обробки подій та аудиту безпеки</em></p>
+<p>Наведена схема конвеєра демонструє повний цикл аудиту: сирі словникові структури транслюються за допомогою генераторів словників в інвертовані карти, потік подій агрегується класом <code>Counter</code>, а множинні операції обчислюють коефіцієнт відповідності політикам безпеки.</p>
+<hr />
+<h2 id="2-0">2 Підготовка середовища та розгортання проєкту (Крок 0)</h2>
+<p>Для виконання лабораторної роботи здобувач вищої освіти використовує налаштоване віртуальне середовище <code>ce_lab_env</code>.</p>
+<h3 id="21">2.1. Активація робочого середовища та створення структури папок</h3>
+<p>Відкрийте термінал операційної системи та виконайте команди розгортання каталогу <code>lab06</code>:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># Активація віртуального середовища Conda</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>conda<span class="w"> </span>activate<span class="w"> </span>ce_lab_env
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="c1"># Створення робочого каталогу для Лабораторної роботи №6</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>mkdir<span class="w"> </span>-p<span class="w"> </span>~/projects/computer_engineering_python/lab06
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="nb">cd</span><span class="w"> </span>~/projects/computer_engineering_python/lab06
+</span></code></pre></div>
+<h3 id="22">2.2. Структура файлової системи проекту</h3>
+<p>У робочій директорії <code>lab06</code> створіть структуру файлів відповідно до наведеної схеми:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>lab06/
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>├── .vscode/
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>│   └── launch.json            # Конфігурація налагоджувача для ЛБ №6
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>├── .gitignore                 # Правила виключення тимчасових файлів
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>├── network_inventory.py       # Модуль обліку мережевих активів та словникового аналізу
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>├── security_audit.py          # Модуль частотного аналізу та операцій над множинами
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>└── README.md                  # Звітний опис виконання індивідуального варіанта
+</span></code></pre></div>
+<h3 id="23-vscodelaunchjson">2.3. Створення конфігурації налагоджувача <code>.vscode/launch.json</code></h3>
+<p>Створіть файл <code>.vscode/launch.json</code> для забезпечення налагодження розроблюваних модулів:</p>
+<div class="language-json highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="p">{</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">    </span><span class="nt">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.2.0"</span><span class="p">,</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="nt">"configurations"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">        </span><span class="p">{</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">            </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Python: Запуск інвентаризації мережі (dict)"</span><span class="p">,</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">            </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"debugpy"</span><span class="p">,</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">            </span><span class="nt">"request"</span><span class="p">:</span><span class="w"> </span><span class="s2">"launch"</span><span class="p">,</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">            </span><span class="nt">"program"</span><span class="p">:</span><span class="w"> </span><span class="s2">"${workspaceFolder}/network_inventory.py"</span><span class="p">,</span>
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">            </span><span class="nt">"console"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integratedTerminal"</span><span class="p">,</span>
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="w">            </span><span class="nt">"justMyCode"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="w">        </span><span class="p">},</span>
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="w">        </span><span class="p">{</span>
+</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="w">            </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Python: Запуск аудиту безпеки (set/Counter)"</span><span class="p">,</span>
+</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="w">            </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"debugpy"</span><span class="p">,</span>
+</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="w">            </span><span class="nt">"request"</span><span class="p">:</span><span class="w"> </span><span class="s2">"launch"</span><span class="p">,</span>
+</span><span id="__span-2-16"><a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a><span class="w">            </span><span class="nt">"program"</span><span class="p">:</span><span class="w"> </span><span class="s2">"${workspaceFolder}/security_audit.py"</span><span class="p">,</span>
+</span><span id="__span-2-17"><a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a><span class="w">            </span><span class="nt">"console"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integratedTerminal"</span><span class="p">,</span>
+</span><span id="__span-2-18"><a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a><span class="w">            </span><span class="nt">"justMyCode"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
+</span><span id="__span-2-19"><a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-2-20"><a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a><span class="w">    </span><span class="p">]</span>
+</span><span id="__span-2-21"><a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a><span class="p">}</span>
+</span></code></pre></div>
+<hr />
+<h2 id="3">3 Порядок виконання роботи</h2>
+<h3 id="31">3.1 Індивідуальні завдання</h3>
+<p>Кожен здобувач вищої освіти виконує варіант завдання згідно зі своїм номером у списку академічної групи. Необхідно реалізувати:</p>
+<ol>
+<li>
+<p><strong>Завдання 1 (Словники):</strong> побудову вкладеної структури словника для інвентаризації ресурсів або обліку користувачів, виконання CRUD-операцій, безпечний пошук параметрів через <code>get()</code>/<code>setdefault()</code> та створення інвертованого індексу за допомогою Dict Comprehension.</p>
+</li>
+<li>
+<p><strong>Завдання 2 (Частотний аналіз):</strong> розрахунок частоти подій (запитів, трафіку, помилок авторизації) за допомогою <code>collections.Counter</code> та знаходження найбільш навантажених вузлів методом <code>.most_common()</code>.</p>
+</li>
+<li>
+<p><strong>Завдання 3 (Множини):</strong> порівняння множини фактичних параметрів безпеки чи прав доступу із нормативним еталоном, знаходження несанкціонованих надлишкових прав (<span class="arithmatex">\(A \setminus B\)</span>), відсутніх обов'язкових налаштувань (<span class="arithmatex">\(B \setminus A\)</span>) та обчислення індексу Жаккара <span class="arithmatex">\(J(A, B)\)</span>.</p>
+</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Варіант</th>
+<th style="text-align: left;">Предметна область інвентаризації</th>
+<th style="text-align: left;">Структура запису словника та CRUD-операції</th>
+<th style="text-align: left;">Критерій аудиту множин та частотного аналізу</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>1</strong></td>
+<td style="text-align: left;">Сервери корпоративного ЦОД</td>
+<td style="text-align: left;"><code>Host_ID -&gt; {IP, OS, RAM_GB, Services_List, Status}</code></td>
+<td style="text-align: left;">Відкриті порти проти WhiteList; Counter помилок служб</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>2</strong></td>
+<td style="text-align: left;">Користувачі Active Directory</td>
+<td style="text-align: left;"><code>Username -&gt; {Email, Department, Roles_Set, Is_Active}</code></td>
+<td style="text-align: left;">Права користувача проти шаблону посади; Counter входів</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>3</strong></td>
+<td style="text-align: left;">Мережеві комутатори L2/L3</td>
+<td style="text-align: left;"><code>Switch_MAC -&gt; {Model, VLANs_Set, Ports_Count, IP}</code></td>
+<td style="text-align: left;">Дозволені VLAN на транку проти стандарту; Counter STP</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>4</strong></td>
+<td style="text-align: left;">Бездротові точки доступу Wi-Fi</td>
+<td style="text-align: left;"><code>AP_BSSID -&gt; {SSID, Channel, Connected_MACs_Set, Floor}</code></td>
+<td style="text-align: left;">Аудит підключених клієнтів проти BlackList; Counter RSSI</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>5</strong></td>
+<td style="text-align: left;">Віртуальні машини KVM / VMware</td>
+<td style="text-align: left;"><code>VM_UUID -&gt; {Cluster, CPU_Cores, IPs_Set, State}</code></td>
+<td style="text-align: left;">Мережеві інтерфейси проти ліцензій; Counter навантаження</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>6</strong></td>
+<td style="text-align: left;">Апаратні криптографічні токени</td>
+<td style="text-align: left;"><code>Token_SN -&gt; {User, Algorithm, Key_IDs_Set, Expiration}</code></td>
+<td style="text-align: left;">Набір алгоритмів проти стандарту NIST; Counter сесій</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>7</strong></td>
+<td style="text-align: left;">Маршрутизатори прикордонного BGP</td>
+<td style="text-align: left;"><code>Router_IP -&gt; {ASN, Peer_ASNs_Set, Prefixes_Count}</code></td>
+<td style="text-align: left;">Спільні піринги між автономними системами; Counter BGP-флапів</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>8</strong></td>
+<td style="text-align: left;">IoT-датчики промислової SCADA</td>
+<td style="text-align: left;"><code>Sensor_EUI -&gt; {Type, Location, Subscribed_Topics_Set}</code></td>
+<td style="text-align: left;">Активні MQTT-топіки проти безпечного профілю; Counter збоїв</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>9</strong></td>
+<td style="text-align: left;">База обліку сертифікатів SSL/TLS</td>
+<td style="text-align: left;"><code>Domain_Name -&gt; {Issuer, SANs_Set, Valid_Until, Port}</code></td>
+<td style="text-align: left;">Альтернативні імена (SAN) проти DNS-зони; Counter провайдерів</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>10</strong></td>
+<td style="text-align: left;">Акаунти розробників GitHub / GitLab</td>
+<td style="text-align: left;"><code>Dev_Login -&gt; {Team, Repos_Set, SSH_Key_Fingerprints_Set}</code></td>
+<td style="text-align: left;">Доступ до приватних репозиторіїв проти матриці; Counter комітів</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>11</strong></td>
+<td style="text-align: left;">Вузли кластера Kubernetes</td>
+<td style="text-align: left;"><code>Node_Name -&gt; {Roles_Set, Pods_Running_Set, Alloc_RAM}</code></td>
+<td style="text-align: left;">Лейбли вузла проти обов'язкових політик; Counter статусів Pods</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>12</strong></td>
+<td style="text-align: left;">Сервери баз даних PostgreSQL</td>
+<td style="text-align: left;"><code>Instance_ID -&gt; {Host, Databases_Set, Active_Users_Set}</code></td>
+<td style="text-align: left;">Права ролей СУБД проти еталона найменших привілеїв; Counter Lock</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>13</strong></td>
+<td style="text-align: left;">VPN-шлюзи віддаленого доступу</td>
+<td style="text-align: left;"><code>User_Session -&gt; {Client_IP, Assigned_Routes_Set, Group}</code></td>
+<td style="text-align: left;">Маршрути тунелю проти корпоративного сегмента; Counter трафіку</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>14</strong></td>
+<td style="text-align: left;">Апаратні сервери зберігання SAN/NAS</td>
+<td style="text-align: left;"><code>Storage_Node -&gt; {Volumes_Set, Target_IQNs_Set, Capacity}</code></td>
+<td style="text-align: left;">Права мапінгу LUN проти списку хостів; Counter IOPS-помилок</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>15</strong></td>
+<td style="text-align: left;">Поштові релеї та фільтри Spam</td>
+<td style="text-align: left;"><code>Relay_IP -&gt; {Domain, SPF_Records_Set, DKIM_Status}</code></td>
+<td style="text-align: left;">IP-адреси відправників проти списку MX/SPF; Counter спам-атак</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>16</strong></td>
+<td style="text-align: left;">Мережеві пристрої захисту (UTM/NGFW)</td>
+<td style="text-align: left;"><code>Rule_ID -&gt; {Src_Zones_Set, Dst_Zones_Set, App_IDs_Set}</code></td>
+<td style="text-align: left;">Дозволені додатки проти безпечного списку; Counter спрацьовувань</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>17</strong></td>
+<td style="text-align: left;">База аудиту Docker-контейнерів</td>
+<td style="text-align: left;"><code>Image_Name -&gt; {Vulnerabilities_CVE_Set, Layers_Count}</code></td>
+<td style="text-align: left;">Виявлені CVE проти бази критичних загроз; Counter базових образів</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>18</strong></td>
+<td style="text-align: left;">DHCP-сервери підприємства</td>
+<td style="text-align: left;"><code>Subnet_CIDR -&gt; {Pool_Range, Leased_MACs_Set, Router_IP}</code></td>
+<td style="text-align: left;">Зареєстровані MAC проти інвентарної бази; Counter колізій IP</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>19</strong></td>
+<td style="text-align: left;">Робочі станції персоналу</td>
+<td style="text-align: left;"><code>Asset_Tag -&gt; {User, Installed_Software_Set, Antivirus}</code></td>
+<td style="text-align: left;">Встановлене ПЗ проти затвердженого переліку; Counter інцидентів</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>20</strong></td>
+<td style="text-align: left;">Контролери розумного будинку Zigbee</td>
+<td style="text-align: left;"><code>Device_IEEE -&gt; {Device_Type, Capabilities_Set, Link_LQI}</code></td>
+<td style="text-align: left;">Підтримувані кластери Zigbee проти профілю; Counter ретрансляцій</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="32">3.2. Покроковий алгоритм та розв'язок еталонного прикладу</h3>
+<p>Розглянемо виконання базового навчально-інженерного завдання:</p>
+<ol>
+<li>
+<p><strong>Інвентаризація вузлів мережі (<code>dict</code>):</strong> розробка словника хостів комп'ютерної мережі, де ключем є IP-адреса хоста, а значенням — асоціативний масив характеристик (<code>hostname</code>, <code>os_type</code>, <code>open_ports</code> у вигляді множини цілих чисел <code>set</code>, <code>roles</code> у вигляді списку). Реалізація додавання хоста, оновлення параметрів через <code>.update()</code> та вилучення вузла через <code>.pop()</code>.</p>
+</li>
+<li>
+<p><strong>Інвертований індекс портів (Dict Comprehension):</strong> формування інвертованої структури, що відображає номер відкритого мережевого порту на список імен хостів, де цей порт відкритий: <span class="arithmatex">\(\text{Port} \to [\text{Hostname}_1, \text{Hostname}_2]\)</span>.</p>
+</li>
+<li>
+<p><strong>Частотний аналіз подій безпеки (<code>collections.Counter</code>):</strong> підрахунок частоти зафіксованих операційною системою спроб підключення та виділення трьох найбільш атакованих портів за допомогою методу <code>.most_common(3)</code>.</p>
+</li>
+<li>
+<p><strong>Аудит конфігурацій безпеки (<code>set</code>):</strong> порівняння відкритих портів сервера з корпоративним стандартом безпеки (<code>SECURITY_BASELINE</code>), знаходження несанкціонованих відкритих портів (<span class="arithmatex">\(A \setminus B\)</span>), відсутніх критичних портів моніторингу (<span class="arithmatex">\(B \setminus A\)</span>) та обчислення індексу Жаккара <span class="arithmatex">\(J(A, B)\)</span>.</p>
+</li>
+</ol>
+<h4 id="1-network_inventorypy">Крок 1. Реалізація модуля інвентаризації <code>network_inventory.py</code></h4>
+<p>Створіть файл <code>network_inventory.py</code> у каталозі <code>lab06</code> та введіть повний програмний код:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="sd">"""</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="sd">Лабораторна робота № 6. Модуль 1.</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="sd">Інвентаризація мережевих ресурсів: маніпуляції словниками (dict),</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="sd">безпечний доступ, оновлення та генерація інвертованих індексів.</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="sd">Освітній компонент: Програмування на Python.</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="sd">"""</span>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>
+</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="k">def</span><span class="w"> </span><span class="nf">create_initial_host_database</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">dict</span><span class="p">]:</span>
+</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="w">    </span><span class="sd">"""</span>
+</span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="sd">    Створює первинний реєстр мережевих хостів корпоративного сегмента.</span>
+</span><span id="__span-3-15"><a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a><span class="sd">    Ключ: IP-адреса (str). Значення: словник параметрів хоста.</span>
+</span><span id="__span-3-16"><a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a><span class="sd">    """</span>
+</span><span id="__span-3-17"><a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a>    <span class="n">hosts_db</span> <span class="o">=</span> <span class="p">{</span>
+</span><span id="__span-3-18"><a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a>        <span class="s2">"192.168.1.10"</span><span class="p">:</span> <span class="p">{</span>
+</span><span id="__span-3-19"><a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a>            <span class="s2">"hostname"</span><span class="p">:</span> <span class="s2">"srv-web-01"</span><span class="p">,</span>
+</span><span id="__span-3-20"><a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a>            <span class="s2">"os_type"</span><span class="p">:</span> <span class="s2">"Linux Ubuntu 22.04"</span><span class="p">,</span>
+</span><span id="__span-3-21"><a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a>            <span class="s2">"open_ports"</span><span class="p">:</span> <span class="p">{</span><span class="mi">80</span><span class="p">,</span> <span class="mi">443</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">9100</span><span class="p">},</span>
+</span><span id="__span-3-22"><a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a>            <span class="s2">"roles"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"web"</span><span class="p">,</span> <span class="s2">"production"</span><span class="p">],</span>
+</span><span id="__span-3-23"><a id="__codelineno-3-23" name="__codelineno-3-23" href="#__codelineno-3-23"></a>        <span class="p">},</span>
+</span><span id="__span-3-24"><a id="__codelineno-3-24" name="__codelineno-3-24" href="#__codelineno-3-24"></a>        <span class="s2">"192.168.1.15"</span><span class="p">:</span> <span class="p">{</span>
+</span><span id="__span-3-25"><a id="__codelineno-3-25" name="__codelineno-3-25" href="#__codelineno-3-25"></a>            <span class="s2">"hostname"</span><span class="p">:</span> <span class="s2">"srv-db-01"</span><span class="p">,</span>
+</span><span id="__span-3-26"><a id="__codelineno-3-26" name="__codelineno-3-26" href="#__codelineno-3-26"></a>            <span class="s2">"os_type"</span><span class="p">:</span> <span class="s2">"Linux Debian 11"</span><span class="p">,</span>
+</span><span id="__span-3-27"><a id="__codelineno-3-27" name="__codelineno-3-27" href="#__codelineno-3-27"></a>            <span class="s2">"open_ports"</span><span class="p">:</span> <span class="p">{</span><span class="mi">5432</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">9100</span><span class="p">},</span>
+</span><span id="__span-3-28"><a id="__codelineno-3-28" name="__codelineno-3-28" href="#__codelineno-3-28"></a>            <span class="s2">"roles"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"database"</span><span class="p">,</span> <span class="s2">"production"</span><span class="p">],</span>
+</span><span id="__span-3-29"><a id="__codelineno-3-29" name="__codelineno-3-29" href="#__codelineno-3-29"></a>        <span class="p">},</span>
+</span><span id="__span-3-30"><a id="__codelineno-3-30" name="__codelineno-3-30" href="#__codelineno-3-30"></a>        <span class="s2">"192.168.1.20"</span><span class="p">:</span> <span class="p">{</span>
+</span><span id="__span-3-31"><a id="__codelineno-3-31" name="__codelineno-3-31" href="#__codelineno-3-31"></a>            <span class="s2">"hostname"</span><span class="p">:</span> <span class="s2">"srv-app-dev"</span><span class="p">,</span>
+</span><span id="__span-3-32"><a id="__codelineno-3-32" name="__codelineno-3-32" href="#__codelineno-3-32"></a>            <span class="s2">"os_type"</span><span class="p">:</span> <span class="s2">"Linux Ubuntu 22.04"</span><span class="p">,</span>
+</span><span id="__span-3-33"><a id="__codelineno-3-33" name="__codelineno-3-33" href="#__codelineno-3-33"></a>            <span class="s2">"open_ports"</span><span class="p">:</span> <span class="p">{</span><span class="mi">8080</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">3306</span><span class="p">,</span> <span class="mi">9100</span><span class="p">},</span>
+</span><span id="__span-3-34"><a id="__codelineno-3-34" name="__codelineno-3-34" href="#__codelineno-3-34"></a>            <span class="s2">"roles"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"application"</span><span class="p">,</span> <span class="s2">"development"</span><span class="p">],</span>
+</span><span id="__span-3-35"><a id="__codelineno-3-35" name="__codelineno-3-35" href="#__codelineno-3-35"></a>        <span class="p">},</span>
+</span><span id="__span-3-36"><a id="__codelineno-3-36" name="__codelineno-3-36" href="#__codelineno-3-36"></a>        <span class="s2">"192.168.1.25"</span><span class="p">:</span> <span class="p">{</span>
+</span><span id="__span-3-37"><a id="__codelineno-3-37" name="__codelineno-3-37" href="#__codelineno-3-37"></a>            <span class="s2">"hostname"</span><span class="p">:</span> <span class="s2">"srv-win-dc"</span><span class="p">,</span>
+</span><span id="__span-3-38"><a id="__codelineno-3-38" name="__codelineno-3-38" href="#__codelineno-3-38"></a>            <span class="s2">"os_type"</span><span class="p">:</span> <span class="s2">"Windows Server 2022"</span><span class="p">,</span>
+</span><span id="__span-3-39"><a id="__codelineno-3-39" name="__codelineno-3-39" href="#__codelineno-3-39"></a>            <span class="s2">"open_ports"</span><span class="p">:</span> <span class="p">{</span><span class="mi">53</span><span class="p">,</span> <span class="mi">88</span><span class="p">,</span> <span class="mi">389</span><span class="p">,</span> <span class="mi">445</span><span class="p">,</span> <span class="mi">3389</span><span class="p">},</span>
+</span><span id="__span-3-40"><a id="__codelineno-3-40" name="__codelineno-3-40" href="#__codelineno-3-40"></a>            <span class="s2">"roles"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"domain_controller"</span><span class="p">,</span> <span class="s2">"infrastructure"</span><span class="p">],</span>
+</span><span id="__span-3-41"><a id="__codelineno-3-41" name="__codelineno-3-41" href="#__codelineno-3-41"></a>        <span class="p">},</span>
+</span><span id="__span-3-42"><a id="__codelineno-3-42" name="__codelineno-3-42" href="#__codelineno-3-42"></a>    <span class="p">}</span>
+</span><span id="__span-3-43"><a id="__codelineno-3-43" name="__codelineno-3-43" href="#__codelineno-3-43"></a>    <span class="k">return</span> <span class="n">hosts_db</span>
+</span><span id="__span-3-44"><a id="__codelineno-3-44" name="__codelineno-3-44" href="#__codelineno-3-44"></a>
+</span><span id="__span-3-45"><a id="__codelineno-3-45" name="__codelineno-3-45" href="#__codelineno-3-45"></a>
+</span><span id="__span-3-46"><a id="__codelineno-3-46" name="__codelineno-3-46" href="#__codelineno-3-46"></a><span class="k">def</span><span class="w"> </span><span class="nf">add_or_update_host</span><span class="p">(</span><span class="n">hosts_db</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">ip_address</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">host_info</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="__span-3-47"><a id="__codelineno-3-47" name="__codelineno-3-47" href="#__codelineno-3-47"></a><span class="w">    </span><span class="sd">"""</span>
+</span><span id="__span-3-48"><a id="__codelineno-3-48" name="__codelineno-3-48" href="#__codelineno-3-48"></a><span class="sd">    Додає новий хост або оновлює параметри існуючого вузла</span>
+</span><span id="__span-3-49"><a id="__codelineno-3-49" name="__codelineno-3-49" href="#__codelineno-3-49"></a><span class="sd">    за допомогою словникового методу update().</span>
+</span><span id="__span-3-50"><a id="__codelineno-3-50" name="__codelineno-3-50" href="#__codelineno-3-50"></a><span class="sd">    """</span>
+</span><span id="__span-3-51"><a id="__codelineno-3-51" name="__codelineno-3-51" href="#__codelineno-3-51"></a>    <span class="k">if</span> <span class="n">ip_address</span> <span class="ow">in</span> <span class="n">hosts_db</span><span class="p">:</span>
+</span><span id="__span-3-52"><a id="__codelineno-3-52" name="__codelineno-3-52" href="#__codelineno-3-52"></a>        <span class="n">hosts_db</span><span class="p">[</span><span class="n">ip_address</span><span class="p">]</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">host_info</span><span class="p">)</span>
+</span><span id="__span-3-53"><a id="__codelineno-3-53" name="__codelineno-3-53" href="#__codelineno-3-53"></a>    <span class="k">else</span><span class="p">:</span>
+</span><span id="__span-3-54"><a id="__codelineno-3-54" name="__codelineno-3-54" href="#__codelineno-3-54"></a>        <span class="n">hosts_db</span><span class="p">[</span><span class="n">ip_address</span><span class="p">]</span> <span class="o">=</span> <span class="n">host_info</span>
+</span><span id="__span-3-55"><a id="__codelineno-3-55" name="__codelineno-3-55" href="#__codelineno-3-55"></a>
+</span><span id="__span-3-56"><a id="__codelineno-3-56" name="__codelineno-3-56" href="#__codelineno-3-56"></a>
+</span><span id="__span-3-57"><a id="__codelineno-3-57" name="__codelineno-3-57" href="#__codelineno-3-57"></a><span class="k">def</span><span class="w"> </span><span class="nf">decommission_host</span><span class="p">(</span><span class="n">hosts_db</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">ip_address</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+</span><span id="__span-3-58"><a id="__codelineno-3-58" name="__codelineno-3-58" href="#__codelineno-3-58"></a><span class="w">    </span><span class="sd">"""</span>
+</span><span id="__span-3-59"><a id="__codelineno-3-59" name="__codelineno-3-59" href="#__codelineno-3-59"></a><span class="sd">    Вилучає виведений з експлуатації хост за допомогою методу pop(),</span>
+</span><span id="__span-3-60"><a id="__codelineno-3-60" name="__codelineno-3-60" href="#__codelineno-3-60"></a><span class="sd">    запобігаючи виникненню винятку KeyError.</span>
+</span><span id="__span-3-61"><a id="__codelineno-3-61" name="__codelineno-3-61" href="#__codelineno-3-61"></a><span class="sd">    """</span>
+</span><span id="__span-3-62"><a id="__codelineno-3-62" name="__codelineno-3-62" href="#__codelineno-3-62"></a>    <span class="n">removed_host</span> <span class="o">=</span> <span class="n">hosts_db</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">ip_address</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+</span><span id="__span-3-63"><a id="__codelineno-3-63" name="__codelineno-3-63" href="#__codelineno-3-63"></a>    <span class="k">if</span> <span class="n">removed_host</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="__span-3-64"><a id="__codelineno-3-64" name="__codelineno-3-64" href="#__codelineno-3-64"></a>        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Попередження: Спроба видалення неіснуючого хоста </span><span class="si">{</span><span class="n">ip_address</span><span class="si">}</span><span class="s2">."</span><span class="p">)</span>
+</span><span id="__span-3-65"><a id="__codelineno-3-65" name="__codelineno-3-65" href="#__codelineno-3-65"></a>    <span class="k">return</span> <span class="n">removed_host</span>
+</span><span id="__span-3-66"><a id="__codelineno-3-66" name="__codelineno-3-66" href="#__codelineno-3-66"></a>
+</span><span id="__span-3-67"><a id="__codelineno-3-67" name="__codelineno-3-67" href="#__codelineno-3-67"></a>
+</span><span id="__span-3-68"><a id="__codelineno-3-68" name="__codelineno-3-68" href="#__codelineno-3-68"></a><span class="k">def</span><span class="w"> </span><span class="nf">build_inverted_port_index</span><span class="p">(</span><span class="n">hosts_db</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]]:</span>
+</span><span id="__span-3-69"><a id="__codelineno-3-69" name="__codelineno-3-69" href="#__codelineno-3-69"></a><span class="w">    </span><span class="sd">"""</span>
+</span><span id="__span-3-70"><a id="__codelineno-3-70" name="__codelineno-3-70" href="#__codelineno-3-70"></a><span class="sd">    Будує інвертований індекс портів за допомогою Dict Comprehension:</span>
+</span><span id="__span-3-71"><a id="__codelineno-3-71" name="__codelineno-3-71" href="#__codelineno-3-71"></a><span class="sd">    відображає кожен унікальний мережевий порт на список імен хостів (hostname).</span>
+</span><span id="__span-3-72"><a id="__codelineno-3-72" name="__codelineno-3-72" href="#__codelineno-3-72"></a><span class="sd">    """</span>
+</span><span id="__span-3-73"><a id="__codelineno-3-73" name="__codelineno-3-73" href="#__codelineno-3-73"></a>    <span class="c1"># 1. Знаходження множини всіх унікальних портів мережі</span>
+</span><span id="__span-3-74"><a id="__codelineno-3-74" name="__codelineno-3-74" href="#__codelineno-3-74"></a>    <span class="n">all_unique_ports</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+</span><span id="__span-3-75"><a id="__codelineno-3-75" name="__codelineno-3-75" href="#__codelineno-3-75"></a>    <span class="k">for</span> <span class="n">host_data</span> <span class="ow">in</span> <span class="n">hosts_db</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+</span><span id="__span-3-76"><a id="__codelineno-3-76" name="__codelineno-3-76" href="#__codelineno-3-76"></a>        <span class="n">all_unique_ports</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">host_data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"open_ports"</span><span class="p">,</span> <span class="nb">set</span><span class="p">()))</span>
+</span><span id="__span-3-77"><a id="__codelineno-3-77" name="__codelineno-3-77" href="#__codelineno-3-77"></a>
+</span><span id="__span-3-78"><a id="__codelineno-3-78" name="__codelineno-3-78" href="#__codelineno-3-78"></a>    <span class="c1"># 2. Генерація інвертованого індексу Port -&gt; [Hostnames]</span>
+</span><span id="__span-3-79"><a id="__codelineno-3-79" name="__codelineno-3-79" href="#__codelineno-3-79"></a>    <span class="n">inverted_index</span> <span class="o">=</span> <span class="p">{</span>
+</span><span id="__span-3-80"><a id="__codelineno-3-80" name="__codelineno-3-80" href="#__codelineno-3-80"></a>        <span class="n">port</span><span class="p">:</span> <span class="p">[</span>
+</span><span id="__span-3-81"><a id="__codelineno-3-81" name="__codelineno-3-81" href="#__codelineno-3-81"></a>            <span class="n">host</span><span class="p">[</span><span class="s2">"hostname"</span><span class="p">]</span>
+</span><span id="__span-3-82"><a id="__codelineno-3-82" name="__codelineno-3-82" href="#__codelineno-3-82"></a>            <span class="k">for</span> <span class="n">host</span> <span class="ow">in</span> <span class="n">hosts_db</span><span class="o">.</span><span class="n">values</span><span class="p">()</span>
+</span><span id="__span-3-83"><a id="__codelineno-3-83" name="__codelineno-3-83" href="#__codelineno-3-83"></a>            <span class="k">if</span> <span class="n">port</span> <span class="ow">in</span> <span class="n">host</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"open_ports"</span><span class="p">,</span> <span class="nb">set</span><span class="p">())</span>
+</span><span id="__span-3-84"><a id="__codelineno-3-84" name="__codelineno-3-84" href="#__codelineno-3-84"></a>        <span class="p">]</span>
+</span><span id="__span-3-85"><a id="__codelineno-3-85" name="__codelineno-3-85" href="#__codelineno-3-85"></a>        <span class="k">for</span> <span class="n">port</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">all_unique_ports</span><span class="p">)</span>
+</span><span id="__span-3-86"><a id="__codelineno-3-86" name="__codelineno-3-86" href="#__codelineno-3-86"></a>    <span class="p">}</span>
+</span><span id="__span-3-87"><a id="__codelineno-3-87" name="__codelineno-3-87" href="#__codelineno-3-87"></a>    <span class="k">return</span> <span class="n">inverted_index</span>
+</span><span id="__span-3-88"><a id="__codelineno-3-88" name="__codelineno-3-88" href="#__codelineno-3-88"></a>
+</span><span id="__span-3-89"><a id="__codelineno-3-89" name="__codelineno-3-89" href="#__codelineno-3-89"></a>
+</span><span id="__span-3-90"><a id="__codelineno-3-90" name="__codelineno-3-90" href="#__codelineno-3-90"></a><span class="k">def</span><span class="w"> </span><span class="nf">print_inventory_report</span><span class="p">(</span><span class="n">hosts_db</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">inverted_index</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="__span-3-91"><a id="__codelineno-3-91" name="__codelineno-3-91" href="#__codelineno-3-91"></a><span class="w">    </span><span class="sd">"""Виводить на екран відформатований інженерний звіт інвентаризації."""</span>
+</span><span id="__span-3-92"><a id="__codelineno-3-92" name="__codelineno-3-92" href="#__codelineno-3-92"></a>    <span class="n">header_sep</span> <span class="o">=</span> <span class="s2">"="</span> <span class="o">*</span> <span class="mi">80</span>
+</span><span id="__span-3-93"><a id="__codelineno-3-93" name="__codelineno-3-93" href="#__codelineno-3-93"></a>    <span class="n">sub_sep</span> <span class="o">=</span> <span class="s2">"-"</span> <span class="o">*</span> <span class="mi">80</span>
+</span><span id="__span-3-94"><a id="__codelineno-3-94" name="__codelineno-3-94" href="#__codelineno-3-94"></a>
+</span><span id="__span-3-95"><a id="__codelineno-3-95" name="__codelineno-3-95" href="#__codelineno-3-95"></a>    <span class="nb">print</span><span class="p">(</span><span class="n">header_sep</span><span class="p">)</span>
+</span><span id="__span-3-96"><a id="__codelineno-3-96" name="__codelineno-3-96" href="#__codelineno-3-96"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="s1">'РЕЄСТР МЕРЕЖЕВИХ АКТИВІВ ТА ПОРТОВОЇ ТОПОЛОГІЇ'</span><span class="si">:</span><span class="s2">^80</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</span><span id="__span-3-97"><a id="__codelineno-3-97" name="__codelineno-3-97" href="#__codelineno-3-97"></a>    <span class="nb">print</span><span class="p">(</span><span class="n">header_sep</span><span class="p">)</span>
+</span><span id="__span-3-98"><a id="__codelineno-3-98" name="__codelineno-3-98" href="#__codelineno-3-98"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"| </span><span class="si">{</span><span class="s1">'IP-адреса'</span><span class="si">:</span><span class="s2">&lt;15</span><span class="si">}</span><span class="s2"> | </span><span class="si">{</span><span class="s1">'Hostname'</span><span class="si">:</span><span class="s2">&lt;15</span><span class="si">}</span><span class="s2"> | </span><span class="si">{</span><span class="s1">'Операційна система'</span><span class="si">:</span><span class="s2">&lt;22</span><span class="si">}</span><span class="s2"> | </span><span class="si">{</span><span class="s1">'Відкриті порти'</span><span class="si">:</span><span class="s2">&lt;18</span><span class="si">}</span><span class="s2"> |"</span><span class="p">)</span>
+</span><span id="__span-3-99"><a id="__codelineno-3-99" name="__codelineno-3-99" href="#__codelineno-3-99"></a>    <span class="nb">print</span><span class="p">(</span><span class="n">sub_sep</span><span class="p">)</span>
+</span><span id="__span-3-100"><a id="__codelineno-3-100" name="__codelineno-3-100" href="#__codelineno-3-100"></a>
+</span><span id="__span-3-101"><a id="__codelineno-3-101" name="__codelineno-3-101" href="#__codelineno-3-101"></a>    <span class="k">for</span> <span class="n">ip</span><span class="p">,</span> <span class="n">data</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">hosts_db</span><span class="o">.</span><span class="n">items</span><span class="p">()):</span>
+</span><span id="__span-3-102"><a id="__codelineno-3-102" name="__codelineno-3-102" href="#__codelineno-3-102"></a>        <span class="n">ports_str</span> <span class="o">=</span> <span class="s2">", "</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">p</span><span class="p">)</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">"open_ports"</span><span class="p">]))</span>
+</span><span id="__span-3-103"><a id="__codelineno-3-103" name="__codelineno-3-103" href="#__codelineno-3-103"></a>        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"| </span><span class="si">{</span><span class="n">ip</span><span class="si">:</span><span class="s2">&lt;15</span><span class="si">}</span><span class="s2"> | </span><span class="si">{</span><span class="n">data</span><span class="p">[</span><span class="s1">'hostname'</span><span class="p">]</span><span class="si">:</span><span class="s2">&lt;15</span><span class="si">}</span><span class="s2"> | </span><span class="si">{</span><span class="n">data</span><span class="p">[</span><span class="s1">'os_type'</span><span class="p">]</span><span class="si">:</span><span class="s2">&lt;22</span><span class="si">}</span><span class="s2"> | </span><span class="si">{</span><span class="n">ports_str</span><span class="si">:</span><span class="s2">&lt;18</span><span class="si">}</span><span class="s2"> |"</span><span class="p">)</span>
+</span><span id="__span-3-104"><a id="__codelineno-3-104" name="__codelineno-3-104" href="#__codelineno-3-104"></a>
+</span><span id="__span-3-105"><a id="__codelineno-3-105" name="__codelineno-3-105" href="#__codelineno-3-105"></a>    <span class="nb">print</span><span class="p">(</span><span class="n">header_sep</span><span class="p">)</span>
+</span><span id="__span-3-106"><a id="__codelineno-3-106" name="__codelineno-3-106" href="#__codelineno-3-106"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="s1">'ІНВЕРТОВАНИЙ ІНДЕКС: МЕРЕЖЕВИЙ ПОРТ -&gt; СПИСОК ХОСТІВ'</span><span class="si">:</span><span class="s2">^80</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</span><span id="__span-3-107"><a id="__codelineno-3-107" name="__codelineno-3-107" href="#__codelineno-3-107"></a>    <span class="nb">print</span><span class="p">(</span><span class="n">sub_sep</span><span class="p">)</span>
+</span><span id="__span-3-108"><a id="__codelineno-3-108" name="__codelineno-3-108" href="#__codelineno-3-108"></a>    <span class="k">for</span> <span class="n">port</span><span class="p">,</span> <span class="n">host_list</span> <span class="ow">in</span> <span class="n">inverted_index</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+</span><span id="__span-3-109"><a id="__codelineno-3-109" name="__codelineno-3-109" href="#__codelineno-3-109"></a>        <span class="n">hosts_str</span> <span class="o">=</span> <span class="s2">", "</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">host_list</span><span class="p">)</span>
+</span><span id="__span-3-110"><a id="__codelineno-3-110" name="__codelineno-3-110" href="#__codelineno-3-110"></a>        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"  Порт </span><span class="si">{</span><span class="n">port</span><span class="si">:</span><span class="s2">&gt;5d</span><span class="si">}</span><span class="s2"> : </span><span class="si">{</span><span class="n">hosts_str</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</span><span id="__span-3-111"><a id="__codelineno-3-111" name="__codelineno-3-111" href="#__codelineno-3-111"></a>    <span class="nb">print</span><span class="p">(</span><span class="n">header_sep</span> <span class="o">+</span> <span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
+</span><span id="__span-3-112"><a id="__codelineno-3-112" name="__codelineno-3-112" href="#__codelineno-3-112"></a>
+</span><span id="__span-3-113"><a id="__codelineno-3-113" name="__codelineno-3-113" href="#__codelineno-3-113"></a>
+</span><span id="__span-3-114"><a id="__codelineno-3-114" name="__codelineno-3-114" href="#__codelineno-3-114"></a><span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="__span-3-115"><a id="__codelineno-3-115" name="__codelineno-3-115" href="#__codelineno-3-115"></a><span class="w">    </span><span class="sd">"""Головна точка входу модуля інвентаризації мережевих ресурсів."""</span>
+</span><span id="__span-3-116"><a id="__codelineno-3-116" name="__codelineno-3-116" href="#__codelineno-3-116"></a>    <span class="n">t_start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span>
+</span><span id="__span-3-117"><a id="__codelineno-3-117" name="__codelineno-3-117" href="#__codelineno-3-117"></a>
+</span><span id="__span-3-118"><a id="__codelineno-3-118" name="__codelineno-3-118" href="#__codelineno-3-118"></a>    <span class="c1"># 1. Створення бази</span>
+</span><span id="__span-3-119"><a id="__codelineno-3-119" name="__codelineno-3-119" href="#__codelineno-3-119"></a>    <span class="n">network_db</span> <span class="o">=</span> <span class="n">create_initial_host_database</span><span class="p">()</span>
+</span><span id="__span-3-120"><a id="__codelineno-3-120" name="__codelineno-3-120" href="#__codelineno-3-120"></a>
+</span><span id="__span-3-121"><a id="__codelineno-3-121" name="__codelineno-3-121" href="#__codelineno-3-121"></a>    <span class="c1"># 2. CRUD-модифікація: додавання шлюзу моніторингу</span>
+</span><span id="__span-3-122"><a id="__codelineno-3-122" name="__codelineno-3-122" href="#__codelineno-3-122"></a>    <span class="n">new_monitoring_node</span> <span class="o">=</span> <span class="p">{</span>
+</span><span id="__span-3-123"><a id="__codelineno-3-123" name="__codelineno-3-123" href="#__codelineno-3-123"></a>        <span class="s2">"hostname"</span><span class="p">:</span> <span class="s2">"srv-mon-01"</span><span class="p">,</span>
+</span><span id="__span-3-124"><a id="__codelineno-3-124" name="__codelineno-3-124" href="#__codelineno-3-124"></a>        <span class="s2">"os_type"</span><span class="p">:</span> <span class="s2">"Linux AlmaLinux 9"</span><span class="p">,</span>
+</span><span id="__span-3-125"><a id="__codelineno-3-125" name="__codelineno-3-125" href="#__codelineno-3-125"></a>        <span class="s2">"open_ports"</span><span class="p">:</span> <span class="p">{</span><span class="mi">22</span><span class="p">,</span> <span class="mi">9090</span><span class="p">,</span> <span class="mi">3000</span><span class="p">,</span> <span class="mi">9100</span><span class="p">},</span>
+</span><span id="__span-3-126"><a id="__codelineno-3-126" name="__codelineno-3-126" href="#__codelineno-3-126"></a>        <span class="s2">"roles"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"monitoring"</span><span class="p">,</span> <span class="s2">"infrastructure"</span><span class="p">],</span>
+</span><span id="__span-3-127"><a id="__codelineno-3-127" name="__codelineno-3-127" href="#__codelineno-3-127"></a>    <span class="p">}</span>
+</span><span id="__span-3-128"><a id="__codelineno-3-128" name="__codelineno-3-128" href="#__codelineno-3-128"></a>    <span class="n">add_or_update_host</span><span class="p">(</span><span class="n">network_db</span><span class="p">,</span> <span class="s2">"192.168.1.50"</span><span class="p">,</span> <span class="n">new_monitoring_node</span><span class="p">)</span>
+</span><span id="__span-3-129"><a id="__codelineno-3-129" name="__codelineno-3-129" href="#__codelineno-3-129"></a>
+</span><span id="__span-3-130"><a id="__codelineno-3-130" name="__codelineno-3-130" href="#__codelineno-3-130"></a>    <span class="c1"># 3. Вилучення тестового вузла розробки</span>
+</span><span id="__span-3-131"><a id="__codelineno-3-131" name="__codelineno-3-131" href="#__codelineno-3-131"></a>    <span class="n">decommission_host</span><span class="p">(</span><span class="n">network_db</span><span class="p">,</span> <span class="s2">"192.168.1.20"</span><span class="p">)</span>
+</span><span id="__span-3-132"><a id="__codelineno-3-132" name="__codelineno-3-132" href="#__codelineno-3-132"></a>
+</span><span id="__span-3-133"><a id="__codelineno-3-133" name="__codelineno-3-133" href="#__codelineno-3-133"></a>    <span class="c1"># 4. Побудова інвертованого індексу</span>
+</span><span id="__span-3-134"><a id="__codelineno-3-134" name="__codelineno-3-134" href="#__codelineno-3-134"></a>    <span class="n">port_index</span> <span class="o">=</span> <span class="n">build_inverted_port_index</span><span class="p">(</span><span class="n">network_db</span><span class="p">)</span>
+</span><span id="__span-3-135"><a id="__codelineno-3-135" name="__codelineno-3-135" href="#__codelineno-3-135"></a>
+</span><span id="__span-3-136"><a id="__codelineno-3-136" name="__codelineno-3-136" href="#__codelineno-3-136"></a>    <span class="c1"># 5. Виведення звіту</span>
+</span><span id="__span-3-137"><a id="__codelineno-3-137" name="__codelineno-3-137" href="#__codelineno-3-137"></a>    <span class="n">print_inventory_report</span><span class="p">(</span><span class="n">network_db</span><span class="p">,</span> <span class="n">port_index</span><span class="p">)</span>
+</span><span id="__span-3-138"><a id="__codelineno-3-138" name="__codelineno-3-138" href="#__codelineno-3-138"></a>
+</span><span id="__span-3-139"><a id="__codelineno-3-139" name="__codelineno-3-139" href="#__codelineno-3-139"></a>    <span class="n">t_elapsed</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span> <span class="o">-</span> <span class="n">t_start</span>
+</span><span id="__span-3-140"><a id="__codelineno-3-140" name="__codelineno-3-140" href="#__codelineno-3-140"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Час виконання модуля інвентаризації: </span><span class="si">{</span><span class="n">t_elapsed</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">1000</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2"> мс</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
+</span><span id="__span-3-141"><a id="__codelineno-3-141" name="__codelineno-3-141" href="#__codelineno-3-141"></a>
+</span><span id="__span-3-142"><a id="__codelineno-3-142" name="__codelineno-3-142" href="#__codelineno-3-142"></a>
+</span><span id="__span-3-143"><a id="__codelineno-3-143" name="__codelineno-3-143" href="#__codelineno-3-143"></a><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
+</span><span id="__span-3-144"><a id="__codelineno-3-144" name="__codelineno-3-144" href="#__codelineno-3-144"></a>    <span class="n">main</span><span class="p">()</span>
+</span></code></pre></div>
+<h4 id="2-security_auditpy">Крок 2. Реалізація модуля аудиту безпеки <code>security_audit.py</code></h4>
+<p>Створіть файл <code>security_audit.py</code> у каталозі <code>lab06</code> та введіть повний код для частотного аналізу та операцій над множинами:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="sd">"""</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="sd">Лабораторна робота № 6. Модуль 2.</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="sd">Аудит безпеки мережевих портів, розрахунок коефіцієнта Жаккара</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="sd">та частотний аналіз подій засобами collections.Counter.</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="sd">Освітній компонент: Програмування на Python.</span>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="sd">"""</span>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="kn">from</span><span class="w"> </span><span class="nn">collections</span><span class="w"> </span><span class="kn">import</span> <span class="n">Counter</span>
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>
+</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>
+</span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="c1"># Нормативний еталон обов'язкових відкритих портів безпечного веб-сервера (Baseline)</span>
+</span><span id="__span-4-14"><a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="c1"># Порти: 80 (HTTP), 443 (HTTPS), 22 (SSH Management), 9100 (Prometheus Node Exporter)</span>
+</span><span id="__span-4-15"><a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a><span class="n">SECURITY_BASELINE_WEB</span><span class="p">:</span> <span class="nb">frozenset</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="nb">frozenset</span><span class="p">({</span><span class="mi">80</span><span class="p">,</span> <span class="mi">443</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">9100</span><span class="p">})</span>
+</span><span id="__span-4-16"><a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a>
+</span><span id="__span-4-17"><a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a>
+</span><span id="__span-4-18"><a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a><span class="k">def</span><span class="w"> </span><span class="nf">audit_host_port_security</span><span class="p">(</span><span class="n">actual_ports</span><span class="p">:</span> <span class="nb">set</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="n">baseline_ports</span><span class="p">:</span> <span class="nb">frozenset</span><span class="p">[</span><span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+</span><span id="__span-4-19"><a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a><span class="w">    </span><span class="sd">"""</span>
+</span><span id="__span-4-20"><a id="__codelineno-4-20" name="__codelineno-4-20" href="#__codelineno-4-20"></a><span class="sd">    Здійснює теоретико-множинний аудит відповідності конфігурації портів:</span>
+</span><span id="__span-4-21"><a id="__codelineno-4-21" name="__codelineno-4-21" href="#__codelineno-4-21"></a><span class="sd">    обчислює несанкціоновані порти, відсутні обов'язкові порти та індекс Жаккара.</span>
+</span><span id="__span-4-22"><a id="__codelineno-4-22" name="__codelineno-4-22" href="#__codelineno-4-22"></a><span class="sd">    """</span>
+</span><span id="__span-4-23"><a id="__codelineno-4-23" name="__codelineno-4-23" href="#__codelineno-4-23"></a>    <span class="c1"># 1. Пошук несанкціонованих відкритих портів (A \ B)</span>
+</span><span id="__span-4-24"><a id="__codelineno-4-24" name="__codelineno-4-24" href="#__codelineno-4-24"></a>    <span class="n">unauthorized_ports</span> <span class="o">=</span> <span class="n">actual_ports</span><span class="o">.</span><span class="n">difference</span><span class="p">(</span><span class="n">baseline_ports</span><span class="p">)</span>
+</span><span id="__span-4-25"><a id="__codelineno-4-25" name="__codelineno-4-25" href="#__codelineno-4-25"></a>
+</span><span id="__span-4-26"><a id="__codelineno-4-26" name="__codelineno-4-26" href="#__codelineno-4-26"></a>    <span class="c1"># 2. Пошук відсутніх обов'язкових служб (B \ A)</span>
+</span><span id="__span-4-27"><a id="__codelineno-4-27" name="__codelineno-4-27" href="#__codelineno-4-27"></a>    <span class="n">missing_required_ports</span> <span class="o">=</span> <span class="n">baseline_ports</span><span class="o">.</span><span class="n">difference</span><span class="p">(</span><span class="n">actual_ports</span><span class="p">)</span>
+</span><span id="__span-4-28"><a id="__codelineno-4-28" name="__codelineno-4-28" href="#__codelineno-4-28"></a>
+</span><span id="__span-4-29"><a id="__codelineno-4-29" name="__codelineno-4-29" href="#__codelineno-4-29"></a>    <span class="c1"># 3. Спільні легітимні порти (A ∩ B)</span>
+</span><span id="__span-4-30"><a id="__codelineno-4-30" name="__codelineno-4-30" href="#__codelineno-4-30"></a>    <span class="n">compliant_ports</span> <span class="o">=</span> <span class="n">actual_ports</span><span class="o">.</span><span class="n">intersection</span><span class="p">(</span><span class="n">baseline_ports</span><span class="p">)</span>
+</span><span id="__span-4-31"><a id="__codelineno-4-31" name="__codelineno-4-31" href="#__codelineno-4-31"></a>
+</span><span id="__span-4-32"><a id="__codelineno-4-32" name="__codelineno-4-32" href="#__codelineno-4-32"></a>    <span class="c1"># 4. Об'єднання всіх унікальних портів аудиту (A ∪ B)</span>
+</span><span id="__span-4-33"><a id="__codelineno-4-33" name="__codelineno-4-33" href="#__codelineno-4-33"></a>    <span class="n">total_evaluated_ports</span> <span class="o">=</span> <span class="n">actual_ports</span><span class="o">.</span><span class="n">union</span><span class="p">(</span><span class="n">baseline_ports</span><span class="p">)</span>
+</span><span id="__span-4-34"><a id="__codelineno-4-34" name="__codelineno-4-34" href="#__codelineno-4-34"></a>
+</span><span id="__span-4-35"><a id="__codelineno-4-35" name="__codelineno-4-35" href="#__codelineno-4-35"></a>    <span class="c1"># 5. Розрахунок коефіцієнта подібності Жаккара J(A, B) = |A ∩ B| / |A ∪ B|</span>
+</span><span id="__span-4-36"><a id="__codelineno-4-36" name="__codelineno-4-36" href="#__codelineno-4-36"></a>    <span class="k">if</span> <span class="ow">not</span> <span class="n">total_evaluated_ports</span><span class="p">:</span>
+</span><span id="__span-4-37"><a id="__codelineno-4-37" name="__codelineno-4-37" href="#__codelineno-4-37"></a>        <span class="n">jaccard_index</span> <span class="o">=</span> <span class="mf">1.0</span>
+</span><span id="__span-4-38"><a id="__codelineno-4-38" name="__codelineno-4-38" href="#__codelineno-4-38"></a>    <span class="k">else</span><span class="p">:</span>
+</span><span id="__span-4-39"><a id="__codelineno-4-39" name="__codelineno-4-39" href="#__codelineno-4-39"></a>        <span class="n">jaccard_index</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">compliant_ports</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">total_evaluated_ports</span><span class="p">)</span>
+</span><span id="__span-4-40"><a id="__codelineno-4-40" name="__codelineno-4-40" href="#__codelineno-4-40"></a>
+</span><span id="__span-4-41"><a id="__codelineno-4-41" name="__codelineno-4-41" href="#__codelineno-4-41"></a>    <span class="k">return</span> <span class="p">{</span>
+</span><span id="__span-4-42"><a id="__codelineno-4-42" name="__codelineno-4-42" href="#__codelineno-4-42"></a>        <span class="s2">"compliant_ports"</span><span class="p">:</span> <span class="n">compliant_ports</span><span class="p">,</span>
+</span><span id="__span-4-43"><a id="__codelineno-4-43" name="__codelineno-4-43" href="#__codelineno-4-43"></a>        <span class="s2">"unauthorized_ports"</span><span class="p">:</span> <span class="n">unauthorized_ports</span><span class="p">,</span>
+</span><span id="__span-4-44"><a id="__codelineno-4-44" name="__codelineno-4-44" href="#__codelineno-4-44"></a>        <span class="s2">"missing_required_ports"</span><span class="p">:</span> <span class="n">missing_required_ports</span><span class="p">,</span>
+</span><span id="__span-4-45"><a id="__codelineno-4-45" name="__codelineno-4-45" href="#__codelineno-4-45"></a>        <span class="s2">"jaccard_similarity"</span><span class="p">:</span> <span class="n">jaccard_index</span><span class="p">,</span>
+</span><span id="__span-4-46"><a id="__codelineno-4-46" name="__codelineno-4-46" href="#__codelineno-4-46"></a>    <span class="p">}</span>
+</span><span id="__span-4-47"><a id="__codelineno-4-47" name="__codelineno-4-47" href="#__codelineno-4-47"></a>
+</span><span id="__span-4-48"><a id="__codelineno-4-48" name="__codelineno-4-48" href="#__codelineno-4-48"></a>
+</span><span id="__span-4-49"><a id="__codelineno-4-49" name="__codelineno-4-49" href="#__codelineno-4-49"></a><span class="k">def</span><span class="w"> </span><span class="nf">analyze_security_event_frequency</span><span class="p">(</span><span class="n">event_stream</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Counter</span><span class="p">:</span>
+</span><span id="__span-4-50"><a id="__codelineno-4-50" name="__codelineno-4-50" href="#__codelineno-4-50"></a><span class="w">    </span><span class="sd">"""</span>
+</span><span id="__span-4-51"><a id="__codelineno-4-51" name="__codelineno-4-51" href="#__codelineno-4-51"></a><span class="sd">    Здійснює частотний аналіз потоку інцидентів та спроб доступу</span>
+</span><span id="__span-4-52"><a id="__codelineno-4-52" name="__codelineno-4-52" href="#__codelineno-4-52"></a><span class="sd">    за допомогою оптимізованої структури collections.Counter.</span>
+</span><span id="__span-4-53"><a id="__codelineno-4-53" name="__codelineno-4-53" href="#__codelineno-4-53"></a><span class="sd">    """</span>
+</span><span id="__span-4-54"><a id="__codelineno-4-54" name="__codelineno-4-54" href="#__codelineno-4-54"></a>    <span class="n">event_counter</span> <span class="o">=</span> <span class="n">Counter</span><span class="p">(</span><span class="n">event_stream</span><span class="p">)</span>
+</span><span id="__span-4-55"><a id="__codelineno-4-55" name="__codelineno-4-55" href="#__codelineno-4-55"></a>    <span class="k">return</span> <span class="n">event_counter</span>
+</span><span id="__span-4-56"><a id="__codelineno-4-56" name="__codelineno-4-56" href="#__codelineno-4-56"></a>
+</span><span id="__span-4-57"><a id="__codelineno-4-57" name="__codelineno-4-57" href="#__codelineno-4-57"></a>
+</span><span id="__span-4-58"><a id="__codelineno-4-58" name="__codelineno-4-58" href="#__codelineno-4-58"></a><span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="__span-4-59"><a id="__codelineno-4-59" name="__codelineno-4-59" href="#__codelineno-4-59"></a><span class="w">    </span><span class="sd">"""Головна точка входу модуля аудиту безпеки."""</span>
+</span><span id="__span-4-60"><a id="__codelineno-4-60" name="__codelineno-4-60" href="#__codelineno-4-60"></a>    <span class="n">t_start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span>
+</span><span id="__span-4-61"><a id="__codelineno-4-61" name="__codelineno-4-61" href="#__codelineno-4-61"></a>
+</span><span id="__span-4-62"><a id="__codelineno-4-62" name="__codelineno-4-62" href="#__codelineno-4-62"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">"="</span> <span class="o">*</span> <span class="mi">80</span><span class="p">)</span>
+</span><span id="__span-4-63"><a id="__codelineno-4-63" name="__codelineno-4-63" href="#__codelineno-4-63"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="s1">'ТЕОРЕТИКО-МНОЖИННИЙ АУДИТ БЕЗПЕКИ ТА ЧАСТОТНИЙ АНАЛІЗ'</span><span class="si">:</span><span class="s2">^80</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</span><span id="__span-4-64"><a id="__codelineno-4-64" name="__codelineno-4-64" href="#__codelineno-4-64"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">"="</span> <span class="o">*</span> <span class="mi">80</span><span class="p">)</span>
+</span><span id="__span-4-65"><a id="__codelineno-4-65" name="__codelineno-4-65" href="#__codelineno-4-65"></a>
+</span><span id="__span-4-66"><a id="__codelineno-4-66" name="__codelineno-4-66" href="#__codelineno-4-66"></a>    <span class="c1"># Стан реального сервера з аномальними відкритими портами 21 (FTP), 3306 (MySQL) та закритим 9100</span>
+</span><span id="__span-4-67"><a id="__codelineno-4-67" name="__codelineno-4-67" href="#__codelineno-4-67"></a>    <span class="n">actual_server_ports</span> <span class="o">=</span> <span class="p">{</span><span class="mi">80</span><span class="p">,</span> <span class="mi">443</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">3306</span><span class="p">}</span>
+</span><span id="__span-4-68"><a id="__codelineno-4-68" name="__codelineno-4-68" href="#__codelineno-4-68"></a>
+</span><span id="__span-4-69"><a id="__codelineno-4-69" name="__codelineno-4-69" href="#__codelineno-4-69"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Нормативний профіль (Baseline): </span><span class="si">{</span><span class="nb">sorted</span><span class="p">(</span><span class="n">SECURITY_BASELINE_WEB</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</span><span id="__span-4-70"><a id="__codelineno-4-70" name="__codelineno-4-70" href="#__codelineno-4-70"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Фактичний стан портів сервера:   </span><span class="si">{</span><span class="nb">sorted</span><span class="p">(</span><span class="n">actual_server_ports</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</span><span id="__span-4-71"><a id="__codelineno-4-71" name="__codelineno-4-71" href="#__codelineno-4-71"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">"-"</span> <span class="o">*</span> <span class="mi">80</span><span class="p">)</span>
+</span><span id="__span-4-72"><a id="__codelineno-4-72" name="__codelineno-4-72" href="#__codelineno-4-72"></a>
+</span><span id="__span-4-73"><a id="__codelineno-4-73" name="__codelineno-4-73" href="#__codelineno-4-73"></a>    <span class="c1"># 1. Теоретико-множинний аналіз</span>
+</span><span id="__span-4-74"><a id="__codelineno-4-74" name="__codelineno-4-74" href="#__codelineno-4-74"></a>    <span class="n">audit_results</span> <span class="o">=</span> <span class="n">audit_host_port_security</span><span class="p">(</span><span class="n">actual_server_ports</span><span class="p">,</span> <span class="n">SECURITY_BASELINE_WEB</span><span class="p">)</span>
+</span><span id="__span-4-75"><a id="__codelineno-4-75" name="__codelineno-4-75" href="#__codelineno-4-75"></a>
+</span><span id="__span-4-76"><a id="__codelineno-4-76" name="__codelineno-4-76" href="#__codelineno-4-76"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="s1">'РЕЗУЛЬТАТИ ВАЛІДАЦІЇ КОНФІГУРАЦІЇ ПОРТІВ'</span><span class="si">:</span><span class="s2">^80</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</span><span id="__span-4-77"><a id="__codelineno-4-77" name="__codelineno-4-77" href="#__codelineno-4-77"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"  Легітимні відкриті порти (A ∩ B):      </span><span class="si">{</span><span class="nb">sorted</span><span class="p">(</span><span class="n">audit_results</span><span class="p">[</span><span class="s1">'compliant_ports'</span><span class="p">])</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</span><span id="__span-4-78"><a id="__codelineno-4-78" name="__codelineno-4-78" href="#__codelineno-4-78"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"  НЕБЕЗПЕЧНІ порти (A </span><span class="se">\\</span><span class="s2"> B - Усунути!):  </span><span class="si">{</span><span class="nb">sorted</span><span class="p">(</span><span class="n">audit_results</span><span class="p">[</span><span class="s1">'unauthorized_ports'</span><span class="p">])</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</span><span id="__span-4-79"><a id="__codelineno-4-79" name="__codelineno-4-79" href="#__codelineno-4-79"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"  ВІДСУТНІ служби (B </span><span class="se">\\</span><span class="s2"> A - Запустити!): </span><span class="si">{</span><span class="nb">sorted</span><span class="p">(</span><span class="n">audit_results</span><span class="p">[</span><span class="s1">'missing_required_ports'</span><span class="p">])</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</span><span id="__span-4-80"><a id="__codelineno-4-80" name="__codelineno-4-80" href="#__codelineno-4-80"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"  Коефіцієнт відповідності Жаккара:      </span><span class="si">{</span><span class="n">audit_results</span><span class="p">[</span><span class="s1">'jaccard_similarity'</span><span class="p">]</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">100</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">% (J = </span><span class="si">{</span><span class="n">audit_results</span><span class="p">[</span><span class="s1">'jaccard_similarity'</span><span class="p">]</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">)"</span><span class="p">)</span>
+</span><span id="__span-4-81"><a id="__codelineno-4-81" name="__codelineno-4-81" href="#__codelineno-4-81"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">"-"</span> <span class="o">*</span> <span class="mi">80</span><span class="p">)</span>
+</span><span id="__span-4-82"><a id="__codelineno-4-82" name="__codelineno-4-82" href="#__codelineno-4-82"></a>
+</span><span id="__span-4-83"><a id="__codelineno-4-83" name="__codelineno-4-83" href="#__codelineno-4-83"></a>    <span class="c1"># 2. Частотний аналіз логів брандмауера</span>
+</span><span id="__span-4-84"><a id="__codelineno-4-84" name="__codelineno-4-84" href="#__codelineno-4-84"></a>    <span class="n">firewall_blocked_ips</span> <span class="o">=</span> <span class="p">[</span>
+</span><span id="__span-4-85"><a id="__codelineno-4-85" name="__codelineno-4-85" href="#__codelineno-4-85"></a>        <span class="s2">"198.51.100.24"</span><span class="p">,</span> <span class="s2">"203.0.113.5"</span><span class="p">,</span> <span class="s2">"198.51.100.24"</span><span class="p">,</span> <span class="s2">"192.0.2.1"</span><span class="p">,</span>
+</span><span id="__span-4-86"><a id="__codelineno-4-86" name="__codelineno-4-86" href="#__codelineno-4-86"></a>        <span class="s2">"198.51.100.24"</span><span class="p">,</span> <span class="s2">"203.0.113.5"</span><span class="p">,</span> <span class="s2">"198.51.100.99"</span><span class="p">,</span> <span class="s2">"198.51.100.24"</span><span class="p">,</span>
+</span><span id="__span-4-87"><a id="__codelineno-4-87" name="__codelineno-4-87" href="#__codelineno-4-87"></a>        <span class="s2">"203.0.113.5"</span><span class="p">,</span> <span class="s2">"192.0.2.1"</span><span class="p">,</span> <span class="s2">"198.51.100.24"</span><span class="p">,</span> <span class="s2">"198.51.100.24"</span><span class="p">,</span>
+</span><span id="__span-4-88"><a id="__codelineno-4-88" name="__codelineno-4-88" href="#__codelineno-4-88"></a>    <span class="p">]</span>
+</span><span id="__span-4-89"><a id="__codelineno-4-89" name="__codelineno-4-89" href="#__codelineno-4-89"></a>
+</span><span id="__span-4-90"><a id="__codelineno-4-90" name="__codelineno-4-90" href="#__codelineno-4-90"></a>    <span class="n">freq_stats</span> <span class="o">=</span> <span class="n">analyze_security_event_frequency</span><span class="p">(</span><span class="n">firewall_blocked_ips</span><span class="p">)</span>
+</span><span id="__span-4-91"><a id="__codelineno-4-91" name="__codelineno-4-91" href="#__codelineno-4-91"></a>
+</span><span id="__span-4-92"><a id="__codelineno-4-92" name="__codelineno-4-92" href="#__codelineno-4-92"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="s1">'ЧАСТОТНИЙ АНАЛІЗ ЗАБЛОКОВАНИХ АДРЕС (TOP ATTACKERS)'</span><span class="si">:</span><span class="s2">^80</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</span><span id="__span-4-93"><a id="__codelineno-4-93" name="__codelineno-4-93" href="#__codelineno-4-93"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"| </span><span class="si">{</span><span class="s1">'Ранг'</span><span class="si">:</span><span class="s2">^6</span><span class="si">}</span><span class="s2"> | </span><span class="si">{</span><span class="s1">'Джерело атаки (IP)'</span><span class="si">:</span><span class="s2">^25</span><span class="si">}</span><span class="s2"> | </span><span class="si">{</span><span class="s1">'Кількість блокувань'</span><span class="si">:</span><span class="s2">^20</span><span class="si">}</span><span class="s2"> | </span><span class="si">{</span><span class="s1">'Частка від усіх'</span><span class="si">:</span><span class="s2">^18</span><span class="si">}</span><span class="s2"> |"</span><span class="p">)</span>
+</span><span id="__span-4-94"><a id="__codelineno-4-94" name="__codelineno-4-94" href="#__codelineno-4-94"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">"-"</span> <span class="o">*</span> <span class="mi">80</span><span class="p">)</span>
+</span><span id="__span-4-95"><a id="__codelineno-4-95" name="__codelineno-4-95" href="#__codelineno-4-95"></a>
+</span><span id="__span-4-96"><a id="__codelineno-4-96" name="__codelineno-4-96" href="#__codelineno-4-96"></a>    <span class="n">total_events</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">firewall_blocked_ips</span><span class="p">)</span>
+</span><span id="__span-4-97"><a id="__codelineno-4-97" name="__codelineno-4-97" href="#__codelineno-4-97"></a>    <span class="k">for</span> <span class="n">rank</span><span class="p">,</span> <span class="p">(</span><span class="n">ip</span><span class="p">,</span> <span class="n">count</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">freq_stats</span><span class="o">.</span><span class="n">most_common</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span> <span class="n">start</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+</span><span id="__span-4-98"><a id="__codelineno-4-98" name="__codelineno-4-98" href="#__codelineno-4-98"></a>        <span class="n">percentage</span> <span class="o">=</span> <span class="p">(</span><span class="n">count</span> <span class="o">/</span> <span class="n">total_events</span><span class="p">)</span> <span class="o">*</span> <span class="mf">100.0</span>
+</span><span id="__span-4-99"><a id="__codelineno-4-99" name="__codelineno-4-99" href="#__codelineno-4-99"></a>        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"| </span><span class="si">{</span><span class="n">rank</span><span class="si">:</span><span class="s2">^6d</span><span class="si">}</span><span class="s2"> | </span><span class="si">{</span><span class="n">ip</span><span class="si">:</span><span class="s2">^25</span><span class="si">}</span><span class="s2"> | </span><span class="si">{</span><span class="n">count</span><span class="si">:</span><span class="s2">^20d</span><span class="si">}</span><span class="s2"> | </span><span class="si">{</span><span class="n">percentage</span><span class="si">:</span><span class="s2">^17.2f</span><span class="si">}</span><span class="s2">% |"</span><span class="p">)</span>
+</span><span id="__span-4-100"><a id="__codelineno-4-100" name="__codelineno-4-100" href="#__codelineno-4-100"></a>
+</span><span id="__span-4-101"><a id="__codelineno-4-101" name="__codelineno-4-101" href="#__codelineno-4-101"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">"="</span> <span class="o">*</span> <span class="mi">80</span> <span class="o">+</span> <span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
+</span><span id="__span-4-102"><a id="__codelineno-4-102" name="__codelineno-4-102" href="#__codelineno-4-102"></a>    <span class="n">t_elapsed</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span> <span class="o">-</span> <span class="n">t_start</span>
+</span><span id="__span-4-103"><a id="__codelineno-4-103" name="__codelineno-4-103" href="#__codelineno-4-103"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Час виконання модуля аудиту безпеки: </span><span class="si">{</span><span class="n">t_elapsed</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">1000</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2"> мс</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
+</span><span id="__span-4-104"><a id="__codelineno-4-104" name="__codelineno-4-104" href="#__codelineno-4-104"></a>
+</span><span id="__span-4-105"><a id="__codelineno-4-105" name="__codelineno-4-105" href="#__codelineno-4-105"></a>
+</span><span id="__span-4-106"><a id="__codelineno-4-106" name="__codelineno-4-106" href="#__codelineno-4-106"></a><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
+</span><span id="__span-4-107"><a id="__codelineno-4-107" name="__codelineno-4-107" href="#__codelineno-4-107"></a>    <span class="n">main</span><span class="p">()</span>
+</span></code></pre></div>
+<hr />
+<h3 id="33">3.3. Запуск, тестування та перевірка результатів</h3>
+<p>Виконайте послідовний запуск обох розроблених модулів у системному терміналі VS Code під управлінням активованого середовища Conda:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1"># Запуск модуля словникового обліку та індексування</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>python<span class="w"> </span>network_inventory.py
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="c1"># Запуск модуля теоретико-множинного аудиту та частотного аналізу</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>python<span class="w"> </span>security_audit.py
+</span></code></pre></div>
+<p>Нижче наведено еталонний вивід програми <code>network_inventory.py</code> у терміналі:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>================================================================================
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>                РЕЄСТР МЕРЕЖЕВИХ АКТИВІВ ТА ПОРТОВОЇ ТОПОЛОГІЇ                  
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>================================================================================
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>| IP-адреса       | Hostname        | Операційна система     | Відкриті порти     |
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>--------------------------------------------------------------------------------
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>| 192.168.1.10    | srv-web-01      | Linux Ubuntu 22.04     | 22, 80, 443, 9100  |
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>| 192.168.1.15    | srv-db-01       | Linux Debian 11        | 22, 5432, 9100     |
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>| 192.168.1.25    | srv-win-dc      | Windows Server 2022    | 53, 88, 389, 445, 3389 |
+</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>| 192.168.1.50    | srv-mon-01      | Linux AlmaLinux 9      | 22, 3000, 9090, 9100 |
+</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>================================================================================
+</span><span id="__span-6-11"><a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a>               ІНВЕРТОВАНИЙ ІНДЕКС: МЕРЕЖЕВИЙ ПОРТ -&gt; СПИСОК ХОСТІВ             
+</span><span id="__span-6-12"><a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a>--------------------------------------------------------------------------------
+</span><span id="__span-6-13"><a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a>  Порт    22 : srv-web-01, srv-db-01, srv-mon-01
+</span><span id="__span-6-14"><a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a>  Порт    53 : srv-win-dc
+</span><span id="__span-6-15"><a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a>  Порт    80 : srv-web-01
+</span><span id="__span-6-16"><a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a>  Порт    88 : srv-win-dc
+</span><span id="__span-6-17"><a id="__codelineno-6-17" name="__codelineno-6-17" href="#__codelineno-6-17"></a>  Порт   389 : srv-win-dc
+</span><span id="__span-6-18"><a id="__codelineno-6-18" name="__codelineno-6-18" href="#__codelineno-6-18"></a>  Порт   443 : srv-web-01
+</span><span id="__span-6-19"><a id="__codelineno-6-19" name="__codelineno-6-19" href="#__codelineno-6-19"></a>  Порт   445 : srv-win-dc
+</span><span id="__span-6-20"><a id="__codelineno-6-20" name="__codelineno-6-20" href="#__codelineno-6-20"></a>  Порт  3000 : srv-mon-01
+</span><span id="__span-6-21"><a id="__codelineno-6-21" name="__codelineno-6-21" href="#__codelineno-6-21"></a>  Порт  3389 : srv-win-dc
+</span><span id="__span-6-22"><a id="__codelineno-6-22" name="__codelineno-6-22" href="#__codelineno-6-22"></a>  Порт  5432 : srv-db-01
+</span><span id="__span-6-23"><a id="__codelineno-6-23" name="__codelineno-6-23" href="#__codelineno-6-23"></a>  Порт  9090 : srv-mon-01
+</span><span id="__span-6-24"><a id="__codelineno-6-24" name="__codelineno-6-24" href="#__codelineno-6-24"></a>  Порт  9100 : srv-web-01, srv-db-01, srv-mon-01
+</span><span id="__span-6-25"><a id="__codelineno-6-25" name="__codelineno-6-25" href="#__codelineno-6-25"></a>================================================================================
+</span><span id="__span-6-26"><a id="__codelineno-6-26" name="__codelineno-6-26" href="#__codelineno-6-26"></a>
+</span><span id="__span-6-27"><a id="__codelineno-6-27" name="__codelineno-6-27" href="#__codelineno-6-27"></a>Час виконання модуля інвентаризації: 1.280 мс
+</span></code></pre></div>
+<p>Нижче наведено еталонний вивід програми <code>security_audit.py</code> у терміналі:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>================================================================================
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>             ТЕОРЕТИКО-МНОЖИННИЙ АУДИТ БЕЗПЕКИ ТА ЧАСТОТНИЙ АНАЛІЗ             
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>================================================================================
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>Нормативний профіль (Baseline): [22, 80, 443, 9100]
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>Фактичний стан портів сервера:   [21, 22, 80, 443, 3306]
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>--------------------------------------------------------------------------------
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>                     РЕЗУЛЬТАТИ ВАЛІДАЦІЇ КОНФІГУРАЦІЇ ПОРТІВ                   
+</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>--------------------------------------------------------------------------------
+</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a>  Легітимні відкриті порти (A ∩ B):      [22, 80, 443]
+</span><span id="__span-7-10"><a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a>  НЕБЕЗПЕЧНІ порти (A \ B - Усунути!):  [21, 3306]
+</span><span id="__span-7-11"><a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a>  ВІДСУТНІ служби (B \ A - Запустити!): [9100]
+</span><span id="__span-7-12"><a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a>  Коефіцієнт відповідності Жаккара:      50.00% (J = 0.5000)
+</span><span id="__span-7-13"><a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a>--------------------------------------------------------------------------------
+</span><span id="__span-7-14"><a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a>               ЧАСТОТНИЙ АНАЛІЗ ЗАБЛОКОВАНИХ АДРЕС (TOP ATTACKERS)              
+</span><span id="__span-7-15"><a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a>--------------------------------------------------------------------------------
+</span><span id="__span-7-16"><a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a>|  Ранг  |    Джерело атаки (IP)     |  Кількість блокувань |  Частка від усіх   |
+</span><span id="__span-7-17"><a id="__codelineno-7-17" name="__codelineno-7-17" href="#__codelineno-7-17"></a>--------------------------------------------------------------------------------
+</span><span id="__span-7-18"><a id="__codelineno-7-18" name="__codelineno-7-18" href="#__codelineno-7-18"></a>|   1    |       198.51.100.24       |          6           |       50.00%       |
+</span><span id="__span-7-19"><a id="__codelineno-7-19" name="__codelineno-7-19" href="#__codelineno-7-19"></a>|   2    |        203.0.113.5        |          3           |       25.00%       |
+</span><span id="__span-7-20"><a id="__codelineno-7-20" name="__codelineno-7-20" href="#__codelineno-7-20"></a>|   3    |         192.0.2.1         |          2           |       16.67%       |
+</span><span id="__span-7-21"><a id="__codelineno-7-21" name="__codelineno-7-21" href="#__codelineno-7-21"></a>================================================================================
+</span><span id="__span-7-22"><a id="__codelineno-7-22" name="__codelineno-7-22" href="#__codelineno-7-22"></a>
+</span><span id="__span-7-23"><a id="__codelineno-7-23" name="__codelineno-7-23" href="#__codelineno-7-23"></a>Час виконання модуля аудиту безпеки: 1.140 мс
+</span></code></pre></div>
+<p>Аналіз результатів тестування свідчить:</p>
+<ol>
+<li>
+<p>Інвертований індекс коректно зв'язав системні порти зі списком відповідних машин; зокрема, порт віддаленого моніторингу <code>9100</code> та порт адміністрування <code>22</code> успішно ідентифіковані на трьох вузлах.</p>
+</li>
+<li>
+<p>Множинні операції виявили критичні відхилення: наявність небезпечного незашифрованого протоколу FTP (<code>21</code>) та відкритого порту СУБД (<code>3306</code>), що знизило індекс Жаккара до <span class="arithmatex">\(50.00\%\)</span>.</p>
+</li>
+<li>
+<p>Структура <code>Counter</code> правильно ранжувала джерела аномального трафіку, визначивши адресу <code>198.51.100.24</code> головним джерелом інцидентів (<span class="arithmatex">\(50\%\)</span> від усіх подій).</p>
+</li>
+</ol>
+<hr />
+<h2 id="4">4. Вимоги до змісту звіту</h2>
+<p>Звіт з лабораторної роботи оформлюється у форматі PDF відповідно до стандартів вищої освіти НАЗЯВО/ECTS та повинен містити такі розділи:</p>
+<ol>
+<li>
+<p><strong>Титульна сторінка:</strong> повне найменування ЗВО, факультету, кафедри, дисципліни, номер та назва роботи, відомості про студента (ПІБ, група, варіант), відомості про викладача.</p>
+</li>
+<li>
+<p><strong>Мета роботи та математична постановка задачі:</strong> формулювання мети дослідження, математичні формули теоретико-множинних операцій та індексу Жаккара.</p>
+</li>
+<li>
+<p><strong>Опис структури бази даних варіанта:</strong> опис ключів та значень словника інвентаризації відповідно до індивідуального завдання.</p>
+</li>
+<li>
+<p><strong>Програмний код:</strong> повні лістинги створених модулів <code>network_inventory.py</code> та <code>security_audit.py</code> із детальними авторськими коментарями.</p>
+</li>
+<li>
+<p><strong>Результати тестування:</strong> скріншоти консолі з таблицею інвентаризації, інвертованого індексу, аналізу множин та звіту найчастіших подій з <code>Counter</code>.</p>
+</li>
+<li>
+<p><strong>Посилання на Git-репозиторій:</strong> діюче посилання на оновлений репозиторій GitHub із зафіксованим комітом виконаної роботи.</p>
+</li>
+<li>
+<p><strong>Висновки:</strong> аналітичний висновок щодо швидкодії та константної складності <span class="arithmatex">\(O(1)\)</span> асоціативних масивів, переваг Dict Comprehensions та ролі множин у задачах аудиту кібербезпеки.</p>
+</li>
+</ol>
+<hr />
+<h2 id="5">5. Контрольні запитання для захисту роботи</h2>
+<ol>
+<li>
+<p>Як влаштована компактна хеш-таблиця (<em>Compact Dict</em>) в інтерпретаторі CPython? Яким чином розділення на розріджену таблицю <code>indices</code> та щільний масив <code>entries</code> гарантує збереження порядку вставки елементів?</p>
+</li>
+<li>
+<p>Сформулюйте контракт хешованості об'єкта (<em>hashability</em>). Чому об'єкти типу <code>set</code> та <code>list</code> не можуть бути елементами множини або ключами словника, а об'єкти типу <code>frozenset</code> та <code>tuple</code> — можуть?</p>
+</li>
+<li>
+<p>Чим семантично відрізняється робота методу <code>dict.get(key, default)</code> від методу <code>dict.setdefault(key, default)</code>? У яких інженерних алгоритмах застосування <code>setdefault()</code> є найбільш доцільним?</p>
+</li>
+<li>
+<p>Розкрийте математичний та інженерний зміст коефіцієнта подібності Жаккара (<span class="arithmatex">\(Jaccard \ Similarity\)</span>). Як за допомогою операцій над множинами <code>intersection</code> та <code>union</code> розрахувати ступінь відповідності конфігурації еталону?</p>
+</li>
+<li>
+<p>Опишіть алгоритмічні переваги класу <code>collections.Counter</code> над звичайним словником <code>dict</code> при підрахунку частоти подій у високонавантажених потоках логів.</p>
+</li>
+<li>
+<p>Які методи множин мутують об'єкт на місці (наприклад, <code>difference_update()</code>), а які повертають новий екземпляр множини? Як це впливає на використання оперативної пам'яті?</p>
+</li>
+</ol>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Повернутись нагору
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 Kyrylo Vadurin &bull; <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a>
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.expand", "navigation.top", "navigation.tracking", "header.autohide", "search.suggest", "search.highlight", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u0421\u043a\u043e\u043f\u0456\u0439\u043e\u0432\u0430\u043d\u043e \u0432 \u0431\u0443\u0444\u0435\u0440", "clipboard.copy": "\u0421\u043a\u043e\u043f\u0456\u044e\u0432\u0430\u0442\u0438 \u0432 \u0431\u0443\u0444\u0435\u0440", "search.result.more.one": "\u0429\u0435 1 \u0437\u0431\u0456\u0433 \u043d\u0430 \u0446\u0456\u0439 \u0441\u0442\u043e\u0440\u0456\u043d\u0446\u0456", "search.result.more.other": "\u0429\u0435 # \u0437\u0431\u0456\u0433\u0456\u0432 \u043d\u0430 \u0446\u0456\u0439 \u0441\u0442\u043e\u0440\u0456\u043d\u0446\u0456", "search.result.none": "\u0417\u0431\u0456\u0433\u0456\u0432 \u043d\u0435 \u0437\u043d\u0430\u0439\u0434\u0435\u043d\u043e", "search.result.one": "\u0417\u043d\u0430\u0439\u0434\u0435\u043d\u043e 1 \u0437\u0431\u0456\u0433", "search.result.other": "\u0417\u043d\u0430\u0439\u0434\u0435\u043d\u043e # \u0437\u0431\u0456\u0433\u0456\u0432", "search.result.placeholder": "\u0420\u043e\u0437\u043f\u043e\u0447\u043d\u0456\u0442\u044c \u043f\u0438\u0441\u0430\u0442\u0438 \u0434\u043b\u044f \u043f\u043e\u0448\u0443\u043a\u0443", "search.result.term.missing": "\u041d\u0435 \u0437\u043d\u0430\u0439\u0434\u0435\u043d\u043e \u0437\u0430\u043f\u0438\u0442\u0443", "select.version": "\u041e\u0431\u0440\u0430\u0442\u0438 \u0432\u0435\u0440\u0441\u0456\u044e"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

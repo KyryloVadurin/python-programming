@@ -1,0 +1,2243 @@
+
+<!doctype html>
+<html lang="uk" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Навчальний портал з дисципліни "Програмування на Python. Базовий рівень"">
+      
+      
+      
+      
+        <link rel="prev" href="../lb1/">
+      
+      
+        <link rel="next" href="../lb3/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>ЛБ 2. Скалярні типи даних та моделювання - Програмування на Python</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="cyan">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#no-2" class="md-skip">
+          Перейти до змісту
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Хедер">
+    <a href="../.." title="Програмування на Python" class="md-header__button md-logo" aria-label="Програмування на Python" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Програмування на Python
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              ЛБ 2. Скалярні типи даних та моделювання
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="cyan"  aria-label="Переключити на темну тему"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Переключити на темну тему" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="cyan"  aria-label="Переключити на світлу тему"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Переключити на світлу тему" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Пошук" placeholder="Пошук" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Шукати">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Очистити" aria-label="Очистити" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Пошук розпочато
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Вкладки" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Робоча програма
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../lk/lk1/" class="md-tabs__link">
+          
+  
+  
+  Лекції
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../lb1/" class="md-tabs__link">
+          
+  
+  
+  Лабораторні роботи
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../sr/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Самостійна робота
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../rg/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Розрахунково-графічна робота
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Навігація" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Програмування на Python" class="md-nav__button md-logo" aria-label="Програмування на Python" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Програмування на Python
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Робоча програма
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Лекції
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Лекції
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lk/lk1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Тема 1. Архітектура мови та інфраструктура
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lk/lk2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Тема 2. Керування потоком виконання
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lk/lk3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Тема 3. Впорядковані структури даних (Списки, Кортежі)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lk/lk4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Тема 4. Текстові, двійкові дані та Регулярні вирази
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lk/lk5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Тема 5. Хеш-таблиці (Словники, Множини)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lk/lk6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Тема 6. Функціональна організація коду
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lk/lk7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Тема 7. Модульна архітектура та пакети
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lk/lk8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Тема 8. Обробка винятків та файлове в/в
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lk/lk9/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Тема 9. Об'єктно-орієнтоване програмування
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Лабораторні роботи
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Лабораторні роботи
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lb1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 1. Розгортання інфраструктури розробки
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 2. Скалярні типи даних та моделювання
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 2. Скалярні типи даних та моделювання
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Зміст">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Зміст
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1 Теоретичні відомості
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-0" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2 Підготовка середовища та розгортання проєкту (Крок 0)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2 Підготовка середовища та розгортання проєкту (Крок 0)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1. Активація робочого середовища та перевірка конфігурації
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2. Структура файлової системи проекту
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-vscodelaunchjson" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3. Створення конфігурації налагоджувача .vscode/launch.json
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3 Порядок виконання роботи
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3 Порядок виконання роботи">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 Індивідуальні завдання
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2. Покроковий алгоритм та розв'язок еталонного прикладу
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.2. Покроковий алгоритм та розв&#39;язок еталонного прикладу">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-scalar_modelingpy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Крок 1. Реалізація аналітичного модуля scalar_modeling.py
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-register_bitmaskpy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Крок 2. Реалізація модуля бітових маніпуляцій register_bitmask.py
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3. Запуск, тестування та перевірка результатів
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Вимоги до змісту звіту
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Контрольні запитання для захисту роботи
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lb3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 3. Алгоритми розгалуженої та циклічної структури
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lb4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 4. Обробка списків та кортежі
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lb5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 5. Обробка тексту та регулярні вирази
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lb6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 6. Асоціативні структури даних (Словники, Множини)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lb7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 7. Проєктування функцій та рекурсія
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lb8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 8. Модульне програмування та системні бібліотеки
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lb9/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 9. Обробка виняткових ситуацій
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lb10/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 10. Файлове в/в та менеджери контексту
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lb11/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 11. ООП та перевантаження методів
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sr/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Самостійна робота
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../rg/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Розрахунково-графічна робота
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Зміст">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Зміст
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1 Теоретичні відомості
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-0" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2 Підготовка середовища та розгортання проєкту (Крок 0)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2 Підготовка середовища та розгортання проєкту (Крок 0)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1. Активація робочого середовища та перевірка конфігурації
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2. Структура файлової системи проекту
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-vscodelaunchjson" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3. Створення конфігурації налагоджувача .vscode/launch.json
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3 Порядок виконання роботи
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3 Порядок виконання роботи">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 Індивідуальні завдання
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2. Покроковий алгоритм та розв'язок еталонного прикладу
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.2. Покроковий алгоритм та розв&#39;язок еталонного прикладу">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-scalar_modelingpy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Крок 1. Реалізація аналітичного модуля scalar_modeling.py
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-register_bitmaskpy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Крок 2. Реалізація модуля бітових маніпуляцій register_bitmask.py
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3. Запуск, тестування та перевірка результатів
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Вимоги до змісту звіту
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Контрольні запитання для захисту роботи
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="no-2">Лабораторна робота № 2. Скалярні типи даних, побітові операції та математичне моделювання</h1>
+<p><strong>Мета:</strong> Опанувати практичні навички роботи зі скалярними типами даних мови Python (<code>int</code>, <code>float</code>, <code>complex</code>, <code>bool</code>), вивчити внутрішні особливості представлення цілих чисел довільної точності та дійсних чисел стандарту IEEE 754. Навчитися реалізовувати складні аналітичні математичні моделі із застосуванням функцій стандартних модулів <code>math</code> і <code>cmath</code>, виконувати перетворення між різними позиційними системами числення, а також освоїти бітову арифметику та маніпуляції з бітовими масками для моделювання апаратних регістрів мікроконтролерів і низькорівневих телеметричних пакетів у задачах комп'ютерної інженерії.</p>
+<p><strong>Стек технологій та інструменти:</strong></p>
+<ul>
+<li>
+<p><strong>Мова програмування / Інтерпретатор:</strong> Python 3.10+ (CPython 64-bit)</p>
+</li>
+<li>
+<p><strong>Інструменти розробки (IDE):</strong> Visual Studio Code з інтегрованим терміналом та підсистемою налагодження <code>debugpy</code></p>
+</li>
+<li>
+<p><strong>Середовище управління:</strong> Ізольоване середовище Conda (<code>ce_lab_env</code>)</p>
+</li>
+<li>
+<p><strong>Бібліотеки та модулі:</strong> <code>math</code>, <code>cmath</code>, <code>random</code>, <code>sys</code></p>
+</li>
+</ul>
+<hr />
+<h2 id="1">1 Теоретичні відомості</h2>
+<p>У комп'ютерній інженерії проектування алгоритмів низькорівневої обробки сигналів, взаємодії з периферійними пристроями та моделювання фізичних процесів спирається на базові скалярні типи даних. Мова Python забезпечує уніфікований підхід до числових типів, інкапсулюючи апаратні особливості процесорів у високорівневі абстракції, зберігаючи при цьому доступ до бітових операцій прямого керування пам'яттю.</p>
+<p>Цілочисельний тип <code>int</code> у Python 3 реалізує довгу арифметику довільної точності. На внутрішньому рівні CPython об'єкт <code>PyLongObject</code> представляє число як динамічний масив 30-бітних розрядів (<em>digits</em>). Це усуває проблему апаратного переповнення розрядної сітки (наприклад, переповнення 32- або 64-бітних цілих, властивого мовам C/C++), дозволяючи обчислювати точні значення довільних степенів та факторіалів без втрати розрядів. </p>
+<p>Дійсні числа типу <code>float</code> представляють 64-розрядні числа з плаваючою комою подвійної точності відповідно до стандарту IEEE 754. Формат включає 1 біт знака (<span class="arithmatex">\(s\)</span>), 11 бітів зміщеного порядку (<span class="arithmatex">\(e\)</span>) та 52 біти мантиси (<span class="arithmatex">\(m\)</span>). </p>
+<p>Значення числа визначається формулою:</p>
+<div class="arithmatex">\[V = (-1)^s \times \left(1 + \sum_{i=1}^{52} b_{52-i} 2^{-i}\right) \times 2^{e - 1023}\]</div>
+<p>де <span class="arithmatex">\(s \in \{0, 1\}\)</span> — знаковий розряд; <span class="arithmatex">\(e \in [1, 2046]\)</span> — зміщена експонента з нульовим рівнем 1023; <span class="arithmatex">\(b_k \in \{0, 1\}\)</span> — біти дробової частини мантиси. </p>
+<p>Через скінченність розрядної сітки більшість дробових чисел (наприклад, <span class="arithmatex">\(0.1_{10} = 0.0001100110011\dots_2\)</span>) не мають точного двійкового подання. Тому пряме порівняння дійсних чисел за допомогою оператора <code>==</code> є алгоритмічною помилкою. </p>
+<p>Коректне інженерне порівняння виконується з урахуванням граничної похибки <span class="arithmatex">\(\varepsilon\)</span> за допомогою функції <code>math.isclose(a, b)</code>:</p>
+<div class="arithmatex">\[|a - b| \le \max\left(\text{rel\_tol} \times \max(|a|, |b|), \; \text{abs\_tol}\right)\]</div>
+<p>де <span class="arithmatex">\(\text{rel\_tol}\)</span> — максимальне допустиме відносне відхилення (за замовчуванням <span class="arithmatex">\(10^{-9}\)</span>); <span class="arithmatex">\(\text{abs\_tol}\)</span> — мінімальне абсолютне відхилення, що застосовується для значень, близьких до нуля.</p>
+<p>Комплексні числа типу <code>complex</code> моделюються парою дійсних чисел <span class="arithmatex">\(z = x + y\mathbf{j}\)</span>, де <span class="arithmatex">\(x = \text{Re}(z)\)</span> — дійсна частина, а <span class="arithmatex">\(y = \text{Im}(z)\)</span> — уявна частина (<span class="arithmatex">\(\mathbf{j} = \sqrt{-1}\)</span>). Перехід від алгебраїчної форми до тригонометричної або показникової (<span class="arithmatex">\(z = r e^{\mathbf{j}\theta}\)</span>) здійснюється через розрахунок евклідового модуля <span class="arithmatex">\(r\)</span> та фазового кута <span class="arithmatex">\(\theta\)</span>:</p>
+<div class="arithmatex">\[r = |z| = \sqrt{x^2 + y^2}, \quad \theta = \text{Arg}(z) = \text{atan2}(y, x)\]</div>
+<p>де <span class="arithmatex">\(r \ge 0\)</span> — модуль комплексного числа; <span class="arithmatex">\(\theta \in (-\pi, \pi]\)</span> — головне значення аргументу в радіанах.</p>
+<p><pre class="mermaid"><code>flowchart TD
+    subgraph Register_16bit["Формат 16-бітного апаратного регістра телеметрії"]
+        direction LR
+        Bit15["Bit 15\nREADY_FLAG\n(1 bit)"]
+        Bit14_12["Bits 14..12\nDEV_MODE\n(3 bits: 0..7)"]
+        Bit11_4["Bits 11..4\nADC_DATA\n(8 bits: 0..255)"]
+        Bit3_0["Bits 3..0\nCHANNEL_ID\n(4 bits: 0..15)"]
+    end
+
+    subgraph Packing_Process["Упакування бітовими операціями (Bit Packing)"]
+        PackLogic["R = (Ready &lt;&lt; 15) | (Mode &lt;&lt; 12) | (ADC &lt;&lt; 4) | (Channel)"]
+    end
+
+    subgraph Unpacking_Process["Розпакування масками та зсувами (Bit Unpacking)"]
+        UnpackReady["Ready = (R &gt;&gt; 15) &amp; 0x01"]
+        UnpackMode["Mode = (R &gt;&gt; 12) &amp; 0x07"]
+        UnpackADC["ADC = (R &gt;&gt; 4) &amp; 0xFF"]
+        UnpackChannel["Channel = R &amp; 0x0F"]
+    end
+
+    Register_16bit --&gt; Packing_Process
+    Packing_Process --&gt; Unpacking_Process</code></pre>
+<em>Рисунок 1 — Структурна схема упакування та розпакування бітових полів апаратного регістра</em></p>
+<p>Проаналізуємо механізм побітових операцій, наведений на рисунку 1. У комп'ютерній інженерії прямий доступ до окремих бітових груп є основою взаємодії з регістрами мікроконтролерів (GPIO, ADC, UART Control Registers). </p>
+<p>Бітові операції виконуються над цілими числами в їхньому двійковому представленні за правилами додаткового двійкового коду:</p>
+<ul>
+<li>
+<p>Операція логічного додавання (побітове АБО, <code>|</code>) використовується для встановлення певних бітів у значення <span class="arithmatex">\(1\)</span> за маскою: <span class="arithmatex">\(R_{\text{new}} = R \lor \text{MASK}\)</span>.</p>
+</li>
+<li>
+<p>Операція логічного множення (побітове І, <code>&amp;</code>) застосовується для очищення (скидання в <span class="arithmatex">\(0\)</span>) або виділення конкретних бітових полів: <span class="arithmatex">\(R_{\text{new}} = R \land \text{MASK}\)</span>.</p>
+</li>
+<li>
+<p>Операція виключного АБО (побітове XOR, <code>^</code>) інвертує стан цільових бітів: <span class="arithmatex">\(R_{\text{new}} = R \oplus \text{MASK}\)</span>.</p>
+</li>
+<li>
+<p>Операція побітового заперечення (інверсія, <code>~</code>) інвертує всі розряди цілого числа за правилом <span class="arithmatex">\(\sim x = -(x + 1)\)</span>.</p>
+</li>
+<li>
+<p>Побітові зсуви ліворуч (<code>x &lt;&lt; k</code>) та праворуч (<code>x &gt;&gt; k</code>) переміщують бітовий вектор на <span class="arithmatex">\(k\)</span> позицій, що відповідає швидкому апаратному множенню або цілочисельному діленню на степінь <span class="arithmatex">\(2^k\)</span>:</p>
+</li>
+</ul>
+<div class="arithmatex">\[x \ll k = x \times 2^k, \quad x \gg k = \lfloor x / 2^k \rfloor\]</div>
+<p>Математична екстракція <span class="arithmatex">\(m\)</span>-бітного значення, розташованого починаючи з <span class="arithmatex">\(k\)</span>-ї позиції апаратного регістра <span class="arithmatex">\(R\)</span>, формалізується формулою комбінації правого зсуву та бітової маски:</p>
+<div class="arithmatex">\[\text{Field\_Value} = (R \gg k) \land (2^m - 1)\]</div>
+<p>де <span class="arithmatex">\(R\)</span> — числове значення всього регістра; <span class="arithmatex">\(k\)</span> — молодший біт цільового поля; <span class="arithmatex">\(m\)</span> — розрядність поля; величина <span class="arithmatex">\((2^m - 1)\)</span> утворює маску з <span class="arithmatex">\(m\)</span> одиниць у молодших розрядах (наприклад, для 8-бітного поля маска дорівнює <span class="arithmatex">\(2^8 - 1 = 255_{10} = \text{0xFF}_{16}\)</span>).</p>
+<p><pre class="mermaid"><code>flowchart LR
+    subgraph Data_Inputs["Вхідні параметри"]
+        InpX["Параметр X (float)"]
+        InpY["Параметр Y (float)"]
+    end
+
+    subgraph Analytical_Block["Аналітичний блок обчислень (math / cmath)"]
+        TrigExp["Розрахунок f(x, y) = exp(-X) * cos(Y) + ln(1 + X^2)"]
+        ComplexCalc["Комплексний імпеданс: Z = R + j*(w*L - 1/(w*C))"]
+    end
+
+    subgraph Verification_Block["Верифікація точності та порівняння"]
+        EpsilonCheck["math.isclose(f_calc, f_ref, rel_tol=1e-9)"]
+        FormatOut["Форматований вивід (f-strings: HEX, BIN, float)"]
+    end
+
+    Data_Inputs --&gt; Analytical_Block
+    Analytical_Block --&gt; Verification_Block</code></pre>
+<em>Рисунок 2 — Конвеєр математичного моделювання, розрахунку імпедансу та верифікації точності</em></p>
+<p>Схема конвеєра ілюструє повний процес виконання розрахунків: вхідні числові параметри передаються до аналітичного блоку, де засобами функцій <code>math</code> і <code>cmath</code> здійснюється обчислення цільових функцій, після чого результат верифікується за критерієм <span class="arithmatex">\(\varepsilon\)</span>-точності та транслюється у формат інженерного звіту.</p>
+<hr />
+<h2 id="2-0">2 Підготовка середовища та розгортання проєкту (Крок 0)</h2>
+<p>Для виконання лабораторної роботи здобувач вищої освіти використовує віртуальне середовище <code>ce_lab_env</code>, налаштоване під час виконання Лабораторної роботи №1.</p>
+<h3 id="21">2.1. Активація робочого середовища та перевірка конфігурації</h3>
+<p>Відкрийте термінал операційної системи, активуйте створене середовище Conda та перейдіть до робочого каталогу:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># Активація ізольованого робочого середовища Conda</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>conda<span class="w"> </span>activate<span class="w"> </span>ce_lab_env
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="c1"># Створення робочого каталогу для Лабораторної роботи №2</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>mkdir<span class="w"> </span>-p<span class="w"> </span>~/projects/computer_engineering_python/lab02
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="nb">cd</span><span class="w"> </span>~/projects/computer_engineering_python/lab02
+</span></code></pre></div>
+<h3 id="22">2.2. Структура файлової системи проекту</h3>
+<p>У робочій директорії <code>lab02</code> створіть файли проекту відповідно до такої структури:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>lab02/
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>├── .vscode/
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>│   └── launch.json            # Конфігурація запуску налагоджувача для ЛБ №2
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>├── .gitignore                 # Правила виключення тимчасових файлів
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>├── scalar_modeling.py         # Модуль аналітичних математичних розрахунків
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>├── register_bitmask.py        # Модуль емуляції апаратного регістра та масок
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>└── README.md                  # Короткий звіт з описом параметрів варіанта
+</span></code></pre></div>
+<h3 id="23-vscodelaunchjson">2.3. Створення конфігурації налагоджувача <code>.vscode/launch.json</code></h3>
+<p>Створіть файл <code>.vscode/launch.json</code> для забезпечення налагодження програмних модулів:</p>
+<div class="language-json highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="p">{</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">    </span><span class="nt">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.2.0"</span><span class="p">,</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="nt">"configurations"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">        </span><span class="p">{</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">            </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Python: Запуск моделювання скалярних обчислень"</span><span class="p">,</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">            </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"debugpy"</span><span class="p">,</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">            </span><span class="nt">"request"</span><span class="p">:</span><span class="w"> </span><span class="s2">"launch"</span><span class="p">,</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">            </span><span class="nt">"program"</span><span class="p">:</span><span class="w"> </span><span class="s2">"${workspaceFolder}/scalar_modeling.py"</span><span class="p">,</span>
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">            </span><span class="nt">"console"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integratedTerminal"</span><span class="p">,</span>
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="w">            </span><span class="nt">"justMyCode"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="w">        </span><span class="p">},</span>
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="w">        </span><span class="p">{</span>
+</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="w">            </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Python: Запуск бітових маніпуляцій регістра"</span><span class="p">,</span>
+</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="w">            </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"debugpy"</span><span class="p">,</span>
+</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="w">            </span><span class="nt">"request"</span><span class="p">:</span><span class="w"> </span><span class="s2">"launch"</span><span class="p">,</span>
+</span><span id="__span-2-16"><a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a><span class="w">            </span><span class="nt">"program"</span><span class="p">:</span><span class="w"> </span><span class="s2">"${workspaceFolder}/register_bitmask.py"</span><span class="p">,</span>
+</span><span id="__span-2-17"><a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a><span class="w">            </span><span class="nt">"console"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integratedTerminal"</span><span class="p">,</span>
+</span><span id="__span-2-18"><a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a><span class="w">            </span><span class="nt">"justMyCode"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
+</span><span id="__span-2-19"><a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-2-20"><a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a><span class="w">    </span><span class="p">]</span>
+</span><span id="__span-2-21"><a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a><span class="p">}</span>
+</span></code></pre></div>
+<hr />
+<h2 id="3">3 Порядок виконання роботи</h2>
+<h3 id="31">3.1 Індивідуальні завдання</h3>
+<p>Кожен здобувач вищої освіти реалізує розрахунок математичної моделі фізичного процесу або характеристики комп'ютерної системи (Завдання 1), а також розробляє підсистему упакування, модифікації та розпакування полів апаратного 16-бітного або 32-бітного регістра пристрою за допомогою побітових масок (Завдання 2) відповідно до індивідуального варіанта.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Варіант</th>
+<th style="text-align: left;">Математична модель функції <span class="arithmatex">\(f(x, y)\)</span></th>
+<th style="text-align: left;">Структура апаратного регістра (16-біт / 32-біт)</th>
+<th style="text-align: left;">Очікуваний результат / Цільовий артефакт</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>1</strong></td>
+<td style="text-align: left;"><span class="arithmatex">\(f(x, y) = e^{-(x+y)} \sqrt{x^3 + \ln(1 + y^2)} + \cos^2(x y)\)</span></td>
+<td style="text-align: left;">[15: IRQ_EN], [14..10: SYS_CLK], [9..4: ADC_VAL], [3..0: DEV_ID]</td>
+<td style="text-align: left;">Розрахунок <span class="arithmatex">\(f(x,y)\)</span>, бітова ізоляція ADC_VAL та встановлення IRQ_EN</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>2</strong></td>
+<td style="text-align: left;"><span class="arithmatex">\(f(x, y) = \frac{\ln(x^2 + 2)}{\cos(y - x) + 1.5} + \sqrt[3]{x \cdot e^y}\)</span></td>
+<td style="text-align: left;">[15..12: UART_BAUD], [11: TX_BUSY], [10..2: FIFO_CNT], [1..0: MODE]</td>
+<td style="text-align: left;">Упакування полів передавача та скидання прапорця TX_BUSY</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>3</strong></td>
+<td style="text-align: left;"><span class="arithmatex">\(f(x, y) = \text{atan2}(y, x) \cdot e^{-0.1 x} + \frac{\sinh(y)}{\cosh(x) + 1}\)</span></td>
+<td style="text-align: left;">[15: PWR_GOOD], [14..8: VOLT_MV], [7..3: TEMP_C], [2..0: STATUS]</td>
+<td style="text-align: left;">Моделювання телеметрії живлення, перевірка біта PWR_GOOD</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>4</strong></td>
+<td style="text-align: left;">$f(x, y) = \frac{\sin(x^2 + y)}{\sqrt{x^2 + y^2 + 1}} + \log_{10}(</td>
+<td style="text-align: left;">x</td>
+<td style="text-align: left;">+ e^y)$</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>5</strong></td>
+<td style="text-align: left;"><span class="arithmatex">\(f(x, y) = \sqrt{\frac{x^4 + 1}{y^2 + 2}} + e^{-y} \cdot \log_2(x^2 + 4)\)</span></td>
+<td style="text-align: left;">[15: DMA_EN], [14..9: BUFFER_SIZE], [8..1: ADDR_OFFSET], [0: READY]</td>
+<td style="text-align: left;">Налаштування каналу прямого доступу до пам'яті (DMA), інверсія READY</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>6</strong></td>
+<td style="text-align: left;"><span class="arithmatex">\(f(x, y) = \frac{\cos(x) \cdot \ln(y + 2)}{\sqrt[4]{x^2 + y^2 + 0.5}} + e^{x-y}\)</span></td>
+<td style="text-align: left;">[15..11: CPU_LOAD], [10: OVERHEAT], [9..3: FAN_RPM], [2..0: CORE_ID]</td>
+<td style="text-align: left;">Моніторинг завантаження процесора, тривожне маскування OVERHEAT</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>7</strong></td>
+<td style="text-align: left;">$f(x, y) = \frac{x^3 + \tan(y)}{e^{x/2} + \sqrt{</td>
+<td style="text-align: left;">x - y</td>
+<td style="text-align: left;">+ 0.1}}$</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>8</strong></td>
+<td style="text-align: left;"><span class="arithmatex">\(f(x, y) = \ln(1 + e^x) \cdot \cos(\sqrt{y^2 + 1}) + \frac{x y}{x^2 + y^2 + 1}\)</span></td>
+<td style="text-align: left;">[15..13: PROTOCOL], [12: DUPLEX], [11..4: RX_ERRORS], [3..0: ADDR]</td>
+<td style="text-align: left;">Аналіз стану мережевого адаптера, обнулення лічильника помилок</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>9</strong></td>
+<td style="text-align: left;"><span class="arithmatex">\(f(x, y) = \frac{\sqrt{x^2 + 4} \cdot e^{-y^2}}{\sin^2(x) + \cos(y) + 1.2}\)</span></td>
+<td style="text-align: left;">[15: DAC_EN], [14..7: DAC_RAW_OUT], [6..3: GAIN_STAGE], [2..0: CHANNEL]</td>
+<td style="text-align: left;">Формування керуючого слова ЦАП, зміна коефіцієнта GAIN_STAGE</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>10</strong></td>
+<td style="text-align: left;"><span class="arithmatex">\(f(x, y) = \text{erf}(x) \cdot \sqrt{y^2 + 2} + \frac{\log_{10}(x^2 + 10)}{y^2 + 1}\)</span></td>
+<td style="text-align: left;">[15..12: SECTOR_ID], [11: READ_ONLY], [10..4: FLASH_BLOCK], [3..0: STATUS]</td>
+<td style="text-align: left;">Моделювання доступу до блоку Flash-пам'яті, встановлення READ_ONLY</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>11</strong></td>
+<td style="text-align: left;"><span class="arithmatex">\(f(x, y) = \frac{e^{-x y} + \sinh(x)}{\sqrt{x^2 + y^4 + 3}} + \text{atan}(y^2)\)</span></td>
+<td style="text-align: left;">[15: CRYPTO_KEY_VALID], [14..9: KEY_ID], [8..1: SESSION_NONCE], [0: ACTIVE]</td>
+<td style="text-align: left;">Валідація апаратного криптографічного токена та витяг сесії</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>12</strong></td>
+<td style="text-align: left;">$f(x, y) = \frac{\cos(x y) + \ln(x^4 + 1)}{e^{y/3} + \sqrt{</td>
+<td style="text-align: left;">x</td>
+<td style="text-align: left;">+ 1}}$</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>13</strong></td>
+<td style="text-align: left;"><span class="arithmatex">\(f(x, y) = \sqrt[3]{x^3 + e^{-y}} + \frac{\sin(x - y)}{\cos(x + y) + 1.5}\)</span></td>
+<td style="text-align: left;">[15: BUS_ERROR], [14..8: BUS_CLOCK], [7..2: DEVICE_ADDR], [1..0: ACK]</td>
+<td style="text-align: left;">Діагностика системної шини, перевірка бітів підтвердження ACK</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>14</strong></td>
+<td style="text-align: left;"><span class="arithmatex">\(f(x, y) = \frac{\ln(x^2 + y^2 + 1)}{e^{-x} + \cos^2(y)} + \text{tanh}(x y)\)</span></td>
+<td style="text-align: left;">[15..10: PWM_DUTY], [9: INVERT_POLARITY], [8..4: DEAD_TIME], [3..0: PRESC]</td>
+<td style="text-align: left;">Налаштування таймера ШІМ, побітове встановлення INVERT_POLARITY</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>15</strong></td>
+<td style="text-align: left;"><span class="arithmatex">\(f(x, y) = \frac{x^2 \cdot \sqrt{y + 1} + e^{-x}}{\log_2(x^2 + y^2 + 2)}\)</span></td>
+<td style="text-align: left;">[15: SLEEP_MODE], [14..9: WAKEUP_SOURCE], [8..3: BATTERY_LVL], [2..0: SYS_ST]</td>
+<td style="text-align: left;">Керування енергоспоживанням, розпакування рівня заряду BATTERY_LVL</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>16</strong></td>
+<td style="text-align: left;"><span class="arithmatex">\(f(x, y) = \frac{\sin(x y) \cdot \cos(x/y)}{e^{-x^2} + \sqrt{y^2 + 4}}\)</span></td>
+<td style="text-align: left;">[15..12: SPI_SPEED], [11: MASTER_SLAVE], [10..3: PACKET_ID], [2..0: CRC]</td>
+<td style="text-align: left;">Упакування кадру протоколу SPI, перемикання режиму MASTER_SLAVE</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>17</strong></td>
+<td style="text-align: left;"><span class="arithmatex">\(f(x, y) = \text{atan2}(x^2, y) + \frac{\sqrt{x^4 + y^2 + 1}}{e^{x + y} + 2}\)</span></td>
+<td style="text-align: left;">[15: OVERFLOW], [14..8: SAMPLE_INDEX], [7..2: PEAK_AMPLITUDE], [1..0: CH]</td>
+<td style="text-align: left;">Детектор амплітуди сигналу АЦП, скидання прапорця OVERFLOW</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>18</strong></td>
+<td style="text-align: left;">$f(x, y) = \frac{\ln(1 + \sqrt{</td>
+<td style="text-align: left;">x</td>
+<td style="text-align: left;">})}{e^{-y} + \sin^2(x + y)} + \sqrt[4]{y^2 + 3}$</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>19</strong></td>
+<td style="text-align: left;"><span class="arithmatex">\(f(x, y) = \frac{x^3 \cdot e^{-x/2}}{\sqrt{y^2 + 1}} + \log_{10}(x^2 + y^2 + 5)\)</span></td>
+<td style="text-align: left;">[15: USB_CONNECTED], [14..10: EP_ADDR], [9..2: TRANSFER_BYTES], [1..0: SPEED]</td>
+<td style="text-align: left;">Моніторинг інтерфейсу USB, вилучення кількості байтів TRANSFER_BYTES</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>20</strong></td>
+<td style="text-align: left;"><span class="arithmatex">\(f(x, y) = \frac{\cosh(x - y)}{\sqrt{x^2 + 2}} + e^{-y^2} \cdot \cos(x^2)\)</span></td>
+<td style="text-align: left;">[15..13: THERMAL_ZONE], [12: CRITICAL_TEMP], [11..4: CURR_TEMP], [3..0: FAN]</td>
+<td style="text-align: left;">Термоконтролер серверної стійки, примусове маскування FAN</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="32">3.2. Покроковий алгоритм та розв'язок еталонного прикладу</h3>
+<p>Розглянемо повне виконання комплексної інженерної задачі, що не входить до переліку індивідуальних варіантів:</p>
+<ol>
+<li>
+<p><strong>Аналітичне математичне моделювання:</strong> розрахунок сигналу затухаючих коливань з логарифмічною нелінійністю:
+   $<span class="arithmatex">\(y(t, \omega) = A e^{-\gamma t} \cos(\omega t + \phi) + \frac{\ln(1 + t^2)}{1 + \sqrt{t}}\)</span>$
+   при амплітуді <span class="arithmatex">\(A = 5.0\)</span>, коефіцієнті затухання <span class="arithmatex">\(\gamma = 0.2\)</span>, початковій фазі <span class="arithmatex">\(\phi = \frac{\pi}{6}\)</span> та верифікація результату через <code>math.isclose()</code>.</p>
+</li>
+<li>
+<p><strong>Розрахунок комплексного імпедансу кола <span class="arithmatex">\(RLC\)</span>:</strong> обчислення загального електричного опору кола:
+   $<span class="arithmatex">\(Z(\omega) = R + \mathbf{j}\left(\omega L - \frac{1}{\omega C}\right)\)</span>$
+   із знаходженням активної, реактивної складових, повного модуля імпедансу та фазового зсуву.</p>
+</li>
+<li>
+<p><strong>Побітове упакування та емуляція 16-бітного регістра стану телеметрії контролера:</strong></p>
+</li>
+<li>
+<p>Біт 15: <code>FAULT_FLAG</code> (1 біт: 0 — норма, 1 — системна помилка);</p>
+</li>
+<li>
+<p>Біти 14..12: <code>OP_MODE</code> (3 біти: діапазон <span class="arithmatex">\(0 \dots 7\)</span>);</p>
+</li>
+<li>
+<p>Біти 11..4: <code>ADC_VALUE</code> (8 бітів: значення <span class="arithmatex">\(0 \dots 255\)</span>);</p>
+</li>
+<li>
+<p>Біти 3..0: <code>CHANNEL_ID</code> (4 біти: номер каналу <span class="arithmatex">\(0 \dots 15\)</span>).</p>
+</li>
+</ol>
+<h4 id="1-scalar_modelingpy">Крок 1. Реалізація аналітичного модуля <code>scalar_modeling.py</code></h4>
+<p>Створіть файл <code>scalar_modeling.py</code> у корені каталогу <code>lab02</code> та введіть повний робочий код із коментарями:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="sd">"""</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="sd">Лабораторна робота № 2. Модуль 1.</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="sd">Аналітичне моделювання нелінійного сигналу та розрахунок комплексного імпедансу.</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="sd">Освітній компонент: Програмування на Python.</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="sd">"""</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="kn">import</span><span class="w"> </span><span class="nn">cmath</span>
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>
+</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="k">def</span><span class="w"> </span><span class="nf">compute_damped_signal</span><span class="p">(</span><span class="n">t</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">omega</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">amplitude</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">5.0</span><span class="p">,</span> <span class="n">gamma</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.2</span><span class="p">,</span> <span class="n">phi</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mi">6</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="w">    </span><span class="sd">"""</span>
+</span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="sd">    Обчислює миттєве значення сигналу затухаючих коливань за формулою:</span>
+</span><span id="__span-3-15"><a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a><span class="sd">    y(t) = A * exp(-gamma * t) * cos(omega * t + phi) + ln(1 + t^2) / (1 + sqrt(t))</span>
+</span><span id="__span-3-16"><a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a><span class="sd">    """</span>
+</span><span id="__span-3-17"><a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a>    <span class="k">if</span> <span class="n">t</span> <span class="o">&lt;</span> <span class="mf">0.0</span><span class="p">:</span>
+</span><span id="__span-3-18"><a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a>        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"Параметр часу t не може бути від'ємним для фізичної системи."</span><span class="p">)</span>
+</span><span id="__span-3-19"><a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a>
+</span><span id="__span-3-20"><a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a>    <span class="c1"># Обчислення гармонійної складової з експоненційним затуханням</span>
+</span><span id="__span-3-21"><a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a>    <span class="n">damped_harmonic</span> <span class="o">=</span> <span class="n">amplitude</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">gamma</span> <span class="o">*</span> <span class="n">t</span><span class="p">)</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">omega</span> <span class="o">*</span> <span class="n">t</span> <span class="o">+</span> <span class="n">phi</span><span class="p">)</span>
+</span><span id="__span-3-22"><a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a>
+</span><span id="__span-3-23"><a id="__codelineno-3-23" name="__codelineno-3-23" href="#__codelineno-3-23"></a>    <span class="c1"># Обчислення нелінійної логарифмічної корекції</span>
+</span><span id="__span-3-24"><a id="__codelineno-3-24" name="__codelineno-3-24" href="#__codelineno-3-24"></a>    <span class="n">nonlinear_component</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mf">1.0</span> <span class="o">+</span> <span class="n">t</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">+</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">t</span><span class="p">))</span>
+</span><span id="__span-3-25"><a id="__codelineno-3-25" name="__codelineno-3-25" href="#__codelineno-3-25"></a>
+</span><span id="__span-3-26"><a id="__codelineno-3-26" name="__codelineno-3-26" href="#__codelineno-3-26"></a>    <span class="n">result</span> <span class="o">=</span> <span class="n">damped_harmonic</span> <span class="o">+</span> <span class="n">nonlinear_component</span>
+</span><span id="__span-3-27"><a id="__codelineno-3-27" name="__codelineno-3-27" href="#__codelineno-3-27"></a>    <span class="k">return</span> <span class="n">result</span>
+</span><span id="__span-3-28"><a id="__codelineno-3-28" name="__codelineno-3-28" href="#__codelineno-3-28"></a>
+</span><span id="__span-3-29"><a id="__codelineno-3-29" name="__codelineno-3-29" href="#__codelineno-3-29"></a>
+</span><span id="__span-3-30"><a id="__codelineno-3-30" name="__codelineno-3-30" href="#__codelineno-3-30"></a><span class="k">def</span><span class="w"> </span><span class="nf">compute_rlc_impedance</span><span class="p">(</span><span class="n">r_resistance</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">l_inductance</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">c_capacitance</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">frequency_hz</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">complex</span><span class="p">:</span>
+</span><span id="__span-3-31"><a id="__codelineno-3-31" name="__codelineno-3-31" href="#__codelineno-3-31"></a><span class="w">    </span><span class="sd">"""</span>
+</span><span id="__span-3-32"><a id="__codelineno-3-32" name="__codelineno-3-32" href="#__codelineno-3-32"></a><span class="sd">    Обчислює комплексний опір (імпеданс) послідовного RLC-контуру:</span>
+</span><span id="__span-3-33"><a id="__codelineno-3-33" name="__codelineno-3-33" href="#__codelineno-3-33"></a><span class="sd">    Z = R + j * (omega * L - 1 / (omega * C)), де omega = 2 * pi * f</span>
+</span><span id="__span-3-34"><a id="__codelineno-3-34" name="__codelineno-3-34" href="#__codelineno-3-34"></a><span class="sd">    """</span>
+</span><span id="__span-3-35"><a id="__codelineno-3-35" name="__codelineno-3-35" href="#__codelineno-3-35"></a>    <span class="k">if</span> <span class="n">frequency_hz</span> <span class="o">&lt;=</span> <span class="mf">0.0</span> <span class="ow">or</span> <span class="n">c_capacitance</span> <span class="o">&lt;=</span> <span class="mf">0.0</span> <span class="ow">or</span> <span class="n">l_inductance</span> <span class="o">&lt;=</span> <span class="mf">0.0</span><span class="p">:</span>
+</span><span id="__span-3-36"><a id="__codelineno-3-36" name="__codelineno-3-36" href="#__codelineno-3-36"></a>        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"Фізичні параметри L, C та частота f повинні бути строго більшими за нуль."</span><span class="p">)</span>
+</span><span id="__span-3-37"><a id="__codelineno-3-37" name="__codelineno-3-37" href="#__codelineno-3-37"></a>
+</span><span id="__span-3-38"><a id="__codelineno-3-38" name="__codelineno-3-38" href="#__codelineno-3-38"></a>    <span class="n">omega</span> <span class="o">=</span> <span class="mf">2.0</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">frequency_hz</span>
+</span><span id="__span-3-39"><a id="__codelineno-3-39" name="__codelineno-3-39" href="#__codelineno-3-39"></a>    <span class="n">reactance_l</span> <span class="o">=</span> <span class="n">omega</span> <span class="o">*</span> <span class="n">l_inductance</span>
+</span><span id="__span-3-40"><a id="__codelineno-3-40" name="__codelineno-3-40" href="#__codelineno-3-40"></a>    <span class="n">reactance_c</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="p">(</span><span class="n">omega</span> <span class="o">*</span> <span class="n">c_capacitance</span><span class="p">)</span>
+</span><span id="__span-3-41"><a id="__codelineno-3-41" name="__codelineno-3-41" href="#__codelineno-3-41"></a>    <span class="n">total_reactance</span> <span class="o">=</span> <span class="n">reactance_l</span> <span class="o">-</span> <span class="n">reactance_c</span>
+</span><span id="__span-3-42"><a id="__codelineno-3-42" name="__codelineno-3-42" href="#__codelineno-3-42"></a>
+</span><span id="__span-3-43"><a id="__codelineno-3-43" name="__codelineno-3-43" href="#__codelineno-3-43"></a>    <span class="c1"># Формування комплексного числа типу complex</span>
+</span><span id="__span-3-44"><a id="__codelineno-3-44" name="__codelineno-3-44" href="#__codelineno-3-44"></a>    <span class="n">impedance</span> <span class="o">=</span> <span class="nb">complex</span><span class="p">(</span><span class="n">r_resistance</span><span class="p">,</span> <span class="n">total_reactance</span><span class="p">)</span>
+</span><span id="__span-3-45"><a id="__codelineno-3-45" name="__codelineno-3-45" href="#__codelineno-3-45"></a>    <span class="k">return</span> <span class="n">impedance</span>
+</span><span id="__span-3-46"><a id="__codelineno-3-46" name="__codelineno-3-46" href="#__codelineno-3-46"></a>
+</span><span id="__span-3-47"><a id="__codelineno-3-47" name="__codelineno-3-47" href="#__codelineno-3-47"></a>
+</span><span id="__span-3-48"><a id="__codelineno-3-48" name="__codelineno-3-48" href="#__codelineno-3-48"></a><span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="__span-3-49"><a id="__codelineno-3-49" name="__codelineno-3-49" href="#__codelineno-3-49"></a><span class="w">    </span><span class="sd">"""Головна точка входу для демонстрації аналітичних скалярних обчислень."""</span>
+</span><span id="__span-3-50"><a id="__codelineno-3-50" name="__codelineno-3-50" href="#__codelineno-3-50"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">"="</span> <span class="o">*</span> <span class="mi">80</span><span class="p">)</span>
+</span><span id="__span-3-51"><a id="__codelineno-3-51" name="__codelineno-3-51" href="#__codelineno-3-51"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="s1">'АНАЛІТИЧНЕ МОДЕЛЮВАННЯ ТА ОБЧИСЛЕННЯ СКАЛЯРНИХ ДАНИХ'</span><span class="si">:</span><span class="s2">^80</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</span><span id="__span-3-52"><a id="__codelineno-3-52" name="__codelineno-3-52" href="#__codelineno-3-52"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">"="</span> <span class="o">*</span> <span class="mi">80</span><span class="p">)</span>
+</span><span id="__span-3-53"><a id="__codelineno-3-53" name="__codelineno-3-53" href="#__codelineno-3-53"></a>
+</span><span id="__span-3-54"><a id="__codelineno-3-54" name="__codelineno-3-54" href="#__codelineno-3-54"></a>    <span class="c1"># 1. Розрахунок аналітичного сигналу</span>
+</span><span id="__span-3-55"><a id="__codelineno-3-55" name="__codelineno-3-55" href="#__codelineno-3-55"></a>    <span class="n">time_point</span> <span class="o">=</span> <span class="mf">2.5</span>  <span class="c1"># секунди</span>
+</span><span id="__span-3-56"><a id="__codelineno-3-56" name="__codelineno-3-56" href="#__codelineno-3-56"></a>    <span class="n">angular_freq</span> <span class="o">=</span> <span class="mf">4.0</span>  <span class="c1"># рад/с</span>
+</span><span id="__span-3-57"><a id="__codelineno-3-57" name="__codelineno-3-57" href="#__codelineno-3-57"></a>    <span class="n">signal_val</span> <span class="o">=</span> <span class="n">compute_damped_signal</span><span class="p">(</span><span class="n">time_point</span><span class="p">,</span> <span class="n">angular_freq</span><span class="p">)</span>
+</span><span id="__span-3-58"><a id="__codelineno-3-58" name="__codelineno-3-58" href="#__codelineno-3-58"></a>
+</span><span id="__span-3-59"><a id="__codelineno-3-59" name="__codelineno-3-59" href="#__codelineno-3-59"></a>    <span class="c1"># Еталонне значення для перевірки точності</span>
+</span><span id="__span-3-60"><a id="__codelineno-3-60" name="__codelineno-3-60" href="#__codelineno-3-60"></a>    <span class="n">reference_val</span> <span class="o">=</span> <span class="mf">5.0</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="mf">0.2</span> <span class="o">*</span> <span class="mf">2.5</span><span class="p">)</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mf">4.0</span> <span class="o">*</span> <span class="mf">2.5</span> <span class="o">+</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mi">6</span><span class="p">)</span> <span class="o">+</span> <span class="n">math</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mf">1.0</span> <span class="o">+</span> <span class="mf">2.5</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">+</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mf">2.5</span><span class="p">))</span>
+</span><span id="__span-3-61"><a id="__codelineno-3-61" name="__codelineno-3-61" href="#__codelineno-3-61"></a>    <span class="n">is_accurate</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">signal_val</span><span class="p">,</span> <span class="n">reference_val</span><span class="p">,</span> <span class="n">rel_tol</span><span class="o">=</span><span class="mf">1e-9</span><span class="p">,</span> <span class="n">abs_tol</span><span class="o">=</span><span class="mf">1e-12</span><span class="p">)</span>
+</span><span id="__span-3-62"><a id="__codelineno-3-62" name="__codelineno-3-62" href="#__codelineno-3-62"></a>
+</span><span id="__span-3-63"><a id="__codelineno-3-63" name="__codelineno-3-63" href="#__codelineno-3-63"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Час спостереження (t):         </span><span class="si">{</span><span class="n">time_point</span><span class="si">:</span><span class="s2">8.3f</span><span class="si">}</span><span class="s2"> с"</span><span class="p">)</span>
+</span><span id="__span-3-64"><a id="__codelineno-3-64" name="__codelineno-3-64" href="#__codelineno-3-64"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Кутова частота (omega):        </span><span class="si">{</span><span class="n">angular_freq</span><span class="si">:</span><span class="s2">8.3f</span><span class="si">}</span><span class="s2"> рад/с"</span><span class="p">)</span>
+</span><span id="__span-3-65"><a id="__codelineno-3-65" name="__codelineno-3-65" href="#__codelineno-3-65"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Розраховане значення сигналу:  </span><span class="si">{</span><span class="n">signal_val</span><span class="si">:</span><span class="s2">12.8f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</span><span id="__span-3-66"><a id="__codelineno-3-66" name="__codelineno-3-66" href="#__codelineno-3-66"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Еталонне значення перевірки:   </span><span class="si">{</span><span class="n">reference_val</span><span class="si">:</span><span class="s2">12.8f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</span><span id="__span-3-67"><a id="__codelineno-3-67" name="__codelineno-3-67" href="#__codelineno-3-67"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Точність IEEE 754 (isclose):   </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">is_accurate</span><span class="p">)</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span><span class="si">}</span><span class="s2"> (rel_tol=1e-9)"</span><span class="p">)</span>
+</span><span id="__span-3-68"><a id="__codelineno-3-68" name="__codelineno-3-68" href="#__codelineno-3-68"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">"-"</span> <span class="o">*</span> <span class="mi">80</span><span class="p">)</span>
+</span><span id="__span-3-69"><a id="__codelineno-3-69" name="__codelineno-3-69" href="#__codelineno-3-69"></a>
+</span><span id="__span-3-70"><a id="__codelineno-3-70" name="__codelineno-3-70" href="#__codelineno-3-70"></a>    <span class="c1"># 2. Розрахунок комплексного імпедансу RLC кола</span>
+</span><span id="__span-3-71"><a id="__codelineno-3-71" name="__codelineno-3-71" href="#__codelineno-3-71"></a>    <span class="n">r_val</span> <span class="o">=</span> <span class="mf">100.0</span>        <span class="c1"># Ом</span>
+</span><span id="__span-3-72"><a id="__codelineno-3-72" name="__codelineno-3-72" href="#__codelineno-3-72"></a>    <span class="n">l_val</span> <span class="o">=</span> <span class="mf">0.05</span>         <span class="c1"># Генрі (50 мГн)</span>
+</span><span id="__span-3-73"><a id="__codelineno-3-73" name="__codelineno-3-73" href="#__codelineno-3-73"></a>    <span class="n">c_val</span> <span class="o">=</span> <span class="mf">10.0e-6</span>      <span class="c1"># Фарад (10 мкФ)</span>
+</span><span id="__span-3-74"><a id="__codelineno-3-74" name="__codelineno-3-74" href="#__codelineno-3-74"></a>    <span class="n">freq_val</span> <span class="o">=</span> <span class="mf">200.0</span>     <span class="c1"># Герц</span>
+</span><span id="__span-3-75"><a id="__codelineno-3-75" name="__codelineno-3-75" href="#__codelineno-3-75"></a>
+</span><span id="__span-3-76"><a id="__codelineno-3-76" name="__codelineno-3-76" href="#__codelineno-3-76"></a>    <span class="n">z_complex</span> <span class="o">=</span> <span class="n">compute_rlc_impedance</span><span class="p">(</span><span class="n">r_val</span><span class="p">,</span> <span class="n">l_val</span><span class="p">,</span> <span class="n">c_val</span><span class="p">,</span> <span class="n">freq_val</span><span class="p">)</span>
+</span><span id="__span-3-77"><a id="__codelineno-3-77" name="__codelineno-3-77" href="#__codelineno-3-77"></a>    <span class="n">z_magnitude</span><span class="p">,</span> <span class="n">z_phase_rad</span> <span class="o">=</span> <span class="n">cmath</span><span class="o">.</span><span class="n">polar</span><span class="p">(</span><span class="n">z_complex</span><span class="p">)</span>
+</span><span id="__span-3-78"><a id="__codelineno-3-78" name="__codelineno-3-78" href="#__codelineno-3-78"></a>    <span class="n">z_phase_deg</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">degrees</span><span class="p">(</span><span class="n">z_phase_rad</span><span class="p">)</span>
+</span><span id="__span-3-79"><a id="__codelineno-3-79" name="__codelineno-3-79" href="#__codelineno-3-79"></a>
+</span><span id="__span-3-80"><a id="__codelineno-3-80" name="__codelineno-3-80" href="#__codelineno-3-80"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="s1">'РОЗРАХУНОК КОМПЛЕКСНОГО ІМПЕДАНСУ RLC-КОНТУРУ'</span><span class="si">:</span><span class="s2">^80</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</span><span id="__span-3-81"><a id="__codelineno-3-81" name="__codelineno-3-81" href="#__codelineno-3-81"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">"-"</span> <span class="o">*</span> <span class="mi">80</span><span class="p">)</span>
+</span><span id="__span-3-82"><a id="__codelineno-3-82" name="__codelineno-3-82" href="#__codelineno-3-82"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Параметри кола: R = </span><span class="si">{</span><span class="n">r_val</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2"> Ом, L = </span><span class="si">{</span><span class="n">l_val</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">1e3</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2"> мГн, C = </span><span class="si">{</span><span class="n">c_val</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">1e6</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2"> мкФ, f = </span><span class="si">{</span><span class="n">freq_val</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2"> Гц"</span><span class="p">)</span>
+</span><span id="__span-3-83"><a id="__codelineno-3-83" name="__codelineno-3-83" href="#__codelineno-3-83"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Комплексний імпеданс Z:        </span><span class="si">{</span><span class="n">z_complex</span><span class="o">.</span><span class="n">real</span><span class="si">:</span><span class="s2">8.3f</span><span class="si">}</span><span class="s2"> + </span><span class="si">{</span><span class="n">z_complex</span><span class="o">.</span><span class="n">imag</span><span class="si">:</span><span class="s2">8.3f</span><span class="si">}</span><span class="s2">j Ом"</span><span class="p">)</span>
+</span><span id="__span-3-84"><a id="__codelineno-3-84" name="__codelineno-3-84" href="#__codelineno-3-84"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Активний опір Re(Z):           </span><span class="si">{</span><span class="n">z_complex</span><span class="o">.</span><span class="n">real</span><span class="si">:</span><span class="s2">8.3f</span><span class="si">}</span><span class="s2"> Ом"</span><span class="p">)</span>
+</span><span id="__span-3-85"><a id="__codelineno-3-85" name="__codelineno-3-85" href="#__codelineno-3-85"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Реактивний опір Im(Z):         </span><span class="si">{</span><span class="n">z_complex</span><span class="o">.</span><span class="n">imag</span><span class="si">:</span><span class="s2">8.3f</span><span class="si">}</span><span class="s2"> Ом"</span><span class="p">)</span>
+</span><span id="__span-3-86"><a id="__codelineno-3-86" name="__codelineno-3-86" href="#__codelineno-3-86"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Повний модуль імпедансу |Z|:   </span><span class="si">{</span><span class="n">z_magnitude</span><span class="si">:</span><span class="s2">8.3f</span><span class="si">}</span><span class="s2"> Ом"</span><span class="p">)</span>
+</span><span id="__span-3-87"><a id="__codelineno-3-87" name="__codelineno-3-87" href="#__codelineno-3-87"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Фазовий кут зсуву (Arg Z):     </span><span class="si">{</span><span class="n">z_phase_deg</span><span class="si">:</span><span class="s2">8.3f</span><span class="si">}</span><span class="s2"> град (</span><span class="si">{</span><span class="n">z_phase_rad</span><span class="si">:</span><span class="s2">8.4f</span><span class="si">}</span><span class="s2"> рад)"</span><span class="p">)</span>
+</span><span id="__span-3-88"><a id="__codelineno-3-88" name="__codelineno-3-88" href="#__codelineno-3-88"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">"="</span> <span class="o">*</span> <span class="mi">80</span><span class="p">)</span>
+</span><span id="__span-3-89"><a id="__codelineno-3-89" name="__codelineno-3-89" href="#__codelineno-3-89"></a>
+</span><span id="__span-3-90"><a id="__codelineno-3-90" name="__codelineno-3-90" href="#__codelineno-3-90"></a>
+</span><span id="__span-3-91"><a id="__codelineno-3-91" name="__codelineno-3-91" href="#__codelineno-3-91"></a><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
+</span><span id="__span-3-92"><a id="__codelineno-3-92" name="__codelineno-3-92" href="#__codelineno-3-92"></a>    <span class="n">main</span><span class="p">()</span>
+</span></code></pre></div>
+<h4 id="2-register_bitmaskpy">Крок 2. Реалізація модуля бітових маніпуляцій <code>register_bitmask.py</code></h4>
+<p>Створіть файл <code>register_bitmask.py</code> та введіть код для емуляції бітового регістра:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="sd">"""</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="sd">Лабораторна робота № 2. Модуль 2.</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="sd">Побітове упакування, модифікація та розпакування апаратного 16-бітного регістра.</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="sd">Освітній компонент: Програмування на Python.</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="sd">"""</span>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>
+</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="c1"># Бітові маски та позиційні зсуви для 16-бітного регістра</span>
+</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="n">FAULT_FLAG_SHIFT</span> <span class="o">=</span> <span class="mi">15</span>
+</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="n">FAULT_FLAG_MASK</span> <span class="o">=</span> <span class="mh">0x1</span>  <span class="c1"># 1 біт (0b1)</span>
+</span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>
+</span><span id="__span-4-14"><a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="n">OP_MODE_SHIFT</span> <span class="o">=</span> <span class="mi">12</span>
+</span><span id="__span-4-15"><a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a><span class="n">OP_MODE_MASK</span> <span class="o">=</span> <span class="mh">0x7</span>  <span class="c1"># 3 біти (0b111)</span>
+</span><span id="__span-4-16"><a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a>
+</span><span id="__span-4-17"><a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a><span class="n">ADC_VALUE_SHIFT</span> <span class="o">=</span> <span class="mi">4</span>
+</span><span id="__span-4-18"><a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a><span class="n">ADC_VALUE_MASK</span> <span class="o">=</span> <span class="mh">0xFF</span>  <span class="c1"># 8 бітів (0b11111111)</span>
+</span><span id="__span-4-19"><a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a>
+</span><span id="__span-4-20"><a id="__codelineno-4-20" name="__codelineno-4-20" href="#__codelineno-4-20"></a><span class="n">CHANNEL_ID_SHIFT</span> <span class="o">=</span> <span class="mi">0</span>
+</span><span id="__span-4-21"><a id="__codelineno-4-21" name="__codelineno-4-21" href="#__codelineno-4-21"></a><span class="n">CHANNEL_ID_MASK</span> <span class="o">=</span> <span class="mh">0xF</span>  <span class="c1"># 4 біти (0b1111)</span>
+</span><span id="__span-4-22"><a id="__codelineno-4-22" name="__codelineno-4-22" href="#__codelineno-4-22"></a>
+</span><span id="__span-4-23"><a id="__codelineno-4-23" name="__codelineno-4-23" href="#__codelineno-4-23"></a>
+</span><span id="__span-4-24"><a id="__codelineno-4-24" name="__codelineno-4-24" href="#__codelineno-4-24"></a><span class="k">def</span><span class="w"> </span><span class="nf">pack_telemetry_register</span><span class="p">(</span><span class="n">fault</span><span class="p">:</span> <span class="nb">bool</span><span class="p">,</span> <span class="n">op_mode</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">adc_value</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">channel_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+</span><span id="__span-4-25"><a id="__codelineno-4-25" name="__codelineno-4-25" href="#__codelineno-4-25"></a><span class="w">    </span><span class="sd">"""</span>
+</span><span id="__span-4-26"><a id="__codelineno-4-26" name="__codelineno-4-26" href="#__codelineno-4-26"></a><span class="sd">    Упаковує параметри у єдиний 16-бітний цілочисельний регістр за допомогою</span>
+</span><span id="__span-4-27"><a id="__codelineno-4-27" name="__codelineno-4-27" href="#__codelineno-4-27"></a><span class="sd">    операцій бітового зсуву (&lt;&lt;) та побітового логічного АБО (|).</span>
+</span><span id="__span-4-28"><a id="__codelineno-4-28" name="__codelineno-4-28" href="#__codelineno-4-28"></a><span class="sd">    """</span>
+</span><span id="__span-4-29"><a id="__codelineno-4-29" name="__codelineno-4-29" href="#__codelineno-4-29"></a>    <span class="c1"># Валідація допустимих діапазонів значень бітових полів</span>
+</span><span id="__span-4-30"><a id="__codelineno-4-30" name="__codelineno-4-30" href="#__codelineno-4-30"></a>    <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">op_mode</span> <span class="o">&lt;=</span> <span class="mi">7</span><span class="p">):</span>
+</span><span id="__span-4-31"><a id="__codelineno-4-31" name="__codelineno-4-31" href="#__codelineno-4-31"></a>        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">"OP_MODE виходить за межі 3 бітів (0..7): </span><span class="si">{</span><span class="n">op_mode</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</span><span id="__span-4-32"><a id="__codelineno-4-32" name="__codelineno-4-32" href="#__codelineno-4-32"></a>    <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">adc_value</span> <span class="o">&lt;=</span> <span class="mi">255</span><span class="p">):</span>
+</span><span id="__span-4-33"><a id="__codelineno-4-33" name="__codelineno-4-33" href="#__codelineno-4-33"></a>        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">"ADC_VALUE виходить за межі 8 бітів (0..255): </span><span class="si">{</span><span class="n">adc_value</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</span><span id="__span-4-34"><a id="__codelineno-4-34" name="__codelineno-4-34" href="#__codelineno-4-34"></a>    <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">channel_id</span> <span class="o">&lt;=</span> <span class="mi">15</span><span class="p">):</span>
+</span><span id="__span-4-35"><a id="__codelineno-4-35" name="__codelineno-4-35" href="#__codelineno-4-35"></a>        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">"CHANNEL_ID виходить за межі 4 бітів (0..15): </span><span class="si">{</span><span class="n">channel_id</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</span><span id="__span-4-36"><a id="__codelineno-4-36" name="__codelineno-4-36" href="#__codelineno-4-36"></a>
+</span><span id="__span-4-37"><a id="__codelineno-4-37" name="__codelineno-4-37" href="#__codelineno-4-37"></a>    <span class="n">fault_bit</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">fault</span> <span class="k">else</span> <span class="mi">0</span>
+</span><span id="__span-4-38"><a id="__codelineno-4-38" name="__codelineno-4-38" href="#__codelineno-4-38"></a>
+</span><span id="__span-4-39"><a id="__codelineno-4-39" name="__codelineno-4-39" href="#__codelineno-4-39"></a>    <span class="c1"># Побітове складання зміщених полів у єдине 16-бітне ціле</span>
+</span><span id="__span-4-40"><a id="__codelineno-4-40" name="__codelineno-4-40" href="#__codelineno-4-40"></a>    <span class="n">register_val</span> <span class="o">=</span> <span class="p">(</span>
+</span><span id="__span-4-41"><a id="__codelineno-4-41" name="__codelineno-4-41" href="#__codelineno-4-41"></a>        <span class="p">(</span><span class="n">fault_bit</span> <span class="o">&lt;&lt;</span> <span class="n">FAULT_FLAG_SHIFT</span><span class="p">)</span>
+</span><span id="__span-4-42"><a id="__codelineno-4-42" name="__codelineno-4-42" href="#__codelineno-4-42"></a>        <span class="o">|</span> <span class="p">(</span><span class="n">op_mode</span> <span class="o">&lt;&lt;</span> <span class="n">OP_MODE_SHIFT</span><span class="p">)</span>
+</span><span id="__span-4-43"><a id="__codelineno-4-43" name="__codelineno-4-43" href="#__codelineno-4-43"></a>        <span class="o">|</span> <span class="p">(</span><span class="n">adc_value</span> <span class="o">&lt;&lt;</span> <span class="n">ADC_VALUE_SHIFT</span><span class="p">)</span>
+</span><span id="__span-4-44"><a id="__codelineno-4-44" name="__codelineno-4-44" href="#__codelineno-4-44"></a>        <span class="o">|</span> <span class="p">(</span><span class="n">channel_id</span> <span class="o">&lt;&lt;</span> <span class="n">CHANNEL_ID_SHIFT</span><span class="p">)</span>
+</span><span id="__span-4-45"><a id="__codelineno-4-45" name="__codelineno-4-45" href="#__codelineno-4-45"></a>    <span class="p">)</span>
+</span><span id="__span-4-46"><a id="__codelineno-4-46" name="__codelineno-4-46" href="#__codelineno-4-46"></a>    <span class="k">return</span> <span class="n">register_val</span>
+</span><span id="__span-4-47"><a id="__codelineno-4-47" name="__codelineno-4-47" href="#__codelineno-4-47"></a>
+</span><span id="__span-4-48"><a id="__codelineno-4-48" name="__codelineno-4-48" href="#__codelineno-4-48"></a>
+</span><span id="__span-4-49"><a id="__codelineno-4-49" name="__codelineno-4-49" href="#__codelineno-4-49"></a><span class="k">def</span><span class="w"> </span><span class="nf">unpack_telemetry_register</span><span class="p">(</span><span class="n">register_val</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+</span><span id="__span-4-50"><a id="__codelineno-4-50" name="__codelineno-4-50" href="#__codelineno-4-50"></a><span class="w">    </span><span class="sd">"""</span>
+</span><span id="__span-4-51"><a id="__codelineno-4-51" name="__codelineno-4-51" href="#__codelineno-4-51"></a><span class="sd">    Розпаковує 16-бітне число у словник значень окремих бітових полів</span>
+</span><span id="__span-4-52"><a id="__codelineno-4-52" name="__codelineno-4-52" href="#__codelineno-4-52"></a><span class="sd">    за допомогою бітових зсувів праворуч (&gt;&gt;) та бітових масок І (&amp;).</span>
+</span><span id="__span-4-53"><a id="__codelineno-4-53" name="__codelineno-4-53" href="#__codelineno-4-53"></a><span class="sd">    """</span>
+</span><span id="__span-4-54"><a id="__codelineno-4-54" name="__codelineno-4-54" href="#__codelineno-4-54"></a>    <span class="n">fault</span> <span class="o">=</span> <span class="nb">bool</span><span class="p">((</span><span class="n">register_val</span> <span class="o">&gt;&gt;</span> <span class="n">FAULT_FLAG_SHIFT</span><span class="p">)</span> <span class="o">&amp;</span> <span class="n">FAULT_FLAG_MASK</span><span class="p">)</span>
+</span><span id="__span-4-55"><a id="__codelineno-4-55" name="__codelineno-4-55" href="#__codelineno-4-55"></a>    <span class="n">op_mode</span> <span class="o">=</span> <span class="p">(</span><span class="n">register_val</span> <span class="o">&gt;&gt;</span> <span class="n">OP_MODE_SHIFT</span><span class="p">)</span> <span class="o">&amp;</span> <span class="n">OP_MODE_MASK</span>
+</span><span id="__span-4-56"><a id="__codelineno-4-56" name="__codelineno-4-56" href="#__codelineno-4-56"></a>    <span class="n">adc_value</span> <span class="o">=</span> <span class="p">(</span><span class="n">register_val</span> <span class="o">&gt;&gt;</span> <span class="n">ADC_VALUE_SHIFT</span><span class="p">)</span> <span class="o">&amp;</span> <span class="n">ADC_VALUE_MASK</span>
+</span><span id="__span-4-57"><a id="__codelineno-4-57" name="__codelineno-4-57" href="#__codelineno-4-57"></a>    <span class="n">channel_id</span> <span class="o">=</span> <span class="p">(</span><span class="n">register_val</span> <span class="o">&gt;&gt;</span> <span class="n">CHANNEL_ID_SHIFT</span><span class="p">)</span> <span class="o">&amp;</span> <span class="n">CHANNEL_ID_MASK</span>
+</span><span id="__span-4-58"><a id="__codelineno-4-58" name="__codelineno-4-58" href="#__codelineno-4-58"></a>
+</span><span id="__span-4-59"><a id="__codelineno-4-59" name="__codelineno-4-59" href="#__codelineno-4-59"></a>    <span class="k">return</span> <span class="p">{</span>
+</span><span id="__span-4-60"><a id="__codelineno-4-60" name="__codelineno-4-60" href="#__codelineno-4-60"></a>        <span class="s2">"fault"</span><span class="p">:</span> <span class="n">fault</span><span class="p">,</span>
+</span><span id="__span-4-61"><a id="__codelineno-4-61" name="__codelineno-4-61" href="#__codelineno-4-61"></a>        <span class="s2">"op_mode"</span><span class="p">:</span> <span class="n">op_mode</span><span class="p">,</span>
+</span><span id="__span-4-62"><a id="__codelineno-4-62" name="__codelineno-4-62" href="#__codelineno-4-62"></a>        <span class="s2">"adc_value"</span><span class="p">:</span> <span class="n">adc_value</span><span class="p">,</span>
+</span><span id="__span-4-63"><a id="__codelineno-4-63" name="__codelineno-4-63" href="#__codelineno-4-63"></a>        <span class="s2">"channel_id"</span><span class="p">:</span> <span class="n">channel_id</span><span class="p">,</span>
+</span><span id="__span-4-64"><a id="__codelineno-4-64" name="__codelineno-4-64" href="#__codelineno-4-64"></a>    <span class="p">}</span>
+</span><span id="__span-4-65"><a id="__codelineno-4-65" name="__codelineno-4-65" href="#__codelineno-4-65"></a>
+</span><span id="__span-4-66"><a id="__codelineno-4-66" name="__codelineno-4-66" href="#__codelineno-4-66"></a>
+</span><span id="__span-4-67"><a id="__codelineno-4-67" name="__codelineno-4-67" href="#__codelineno-4-67"></a><span class="k">def</span><span class="w"> </span><span class="nf">set_fault_flag</span><span class="p">(</span><span class="n">register_val</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+</span><span id="__span-4-68"><a id="__codelineno-4-68" name="__codelineno-4-68" href="#__codelineno-4-68"></a><span class="w">    </span><span class="sd">"""Встановлює прапорець помилки (біт 15) у 1 за допомогою оператора |."""</span>
+</span><span id="__span-4-69"><a id="__codelineno-4-69" name="__codelineno-4-69" href="#__codelineno-4-69"></a>    <span class="n">mask</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="n">FAULT_FLAG_SHIFT</span>
+</span><span id="__span-4-70"><a id="__codelineno-4-70" name="__codelineno-4-70" href="#__codelineno-4-70"></a>    <span class="k">return</span> <span class="n">register_val</span> <span class="o">|</span> <span class="n">mask</span>
+</span><span id="__span-4-71"><a id="__codelineno-4-71" name="__codelineno-4-71" href="#__codelineno-4-71"></a>
+</span><span id="__span-4-72"><a id="__codelineno-4-72" name="__codelineno-4-72" href="#__codelineno-4-72"></a>
+</span><span id="__span-4-73"><a id="__codelineno-4-73" name="__codelineno-4-73" href="#__codelineno-4-73"></a><span class="k">def</span><span class="w"> </span><span class="nf">clear_fault_flag</span><span class="p">(</span><span class="n">register_val</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+</span><span id="__span-4-74"><a id="__codelineno-4-74" name="__codelineno-4-74" href="#__codelineno-4-74"></a><span class="w">    </span><span class="sd">"""Скидає прапорець помилки (біт 15) у 0 за допомогою операторів &amp; та ~."""</span>
+</span><span id="__span-4-75"><a id="__codelineno-4-75" name="__codelineno-4-75" href="#__codelineno-4-75"></a>    <span class="n">mask</span> <span class="o">=</span> <span class="o">~</span><span class="p">(</span><span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="n">FAULT_FLAG_SHIFT</span><span class="p">)</span>
+</span><span id="__span-4-76"><a id="__codelineno-4-76" name="__codelineno-4-76" href="#__codelineno-4-76"></a>    <span class="c1"># Обмеження розрядності 16 бітами (0xFFFF) через нескінченну розрядність Python</span>
+</span><span id="__span-4-77"><a id="__codelineno-4-77" name="__codelineno-4-77" href="#__codelineno-4-77"></a>    <span class="k">return</span> <span class="p">(</span><span class="n">register_val</span> <span class="o">&amp;</span> <span class="n">mask</span><span class="p">)</span> <span class="o">&amp;</span> <span class="mh">0xFFFF</span>
+</span><span id="__span-4-78"><a id="__codelineno-4-78" name="__codelineno-4-78" href="#__codelineno-4-78"></a>
+</span><span id="__span-4-79"><a id="__codelineno-4-79" name="__codelineno-4-79" href="#__codelineno-4-79"></a>
+</span><span id="__span-4-80"><a id="__codelineno-4-80" name="__codelineno-4-80" href="#__codelineno-4-80"></a><span class="k">def</span><span class="w"> </span><span class="nf">toggle_fault_flag</span><span class="p">(</span><span class="n">register_val</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+</span><span id="__span-4-81"><a id="__codelineno-4-81" name="__codelineno-4-81" href="#__codelineno-4-81"></a><span class="w">    </span><span class="sd">"""Інвертує стан прапорця помилки (біт 15) за допомогою оператора ^."""</span>
+</span><span id="__span-4-82"><a id="__codelineno-4-82" name="__codelineno-4-82" href="#__codelineno-4-82"></a>    <span class="n">mask</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="n">FAULT_FLAG_SHIFT</span>
+</span><span id="__span-4-83"><a id="__codelineno-4-83" name="__codelineno-4-83" href="#__codelineno-4-83"></a>    <span class="k">return</span> <span class="n">register_val</span> <span class="o">^</span> <span class="n">mask</span>
+</span><span id="__span-4-84"><a id="__codelineno-4-84" name="__codelineno-4-84" href="#__codelineno-4-84"></a>
+</span><span id="__span-4-85"><a id="__codelineno-4-85" name="__codelineno-4-85" href="#__codelineno-4-85"></a>
+</span><span id="__span-4-86"><a id="__codelineno-4-86" name="__codelineno-4-86" href="#__codelineno-4-86"></a><span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="__span-4-87"><a id="__codelineno-4-87" name="__codelineno-4-87" href="#__codelineno-4-87"></a><span class="w">    </span><span class="sd">"""Головна точка входу для демонстрації бітових операцій над апаратним регістром."""</span>
+</span><span id="__span-4-88"><a id="__codelineno-4-88" name="__codelineno-4-88" href="#__codelineno-4-88"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">"="</span> <span class="o">*</span> <span class="mi">80</span><span class="p">)</span>
+</span><span id="__span-4-89"><a id="__codelineno-4-89" name="__codelineno-4-89" href="#__codelineno-4-89"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="s1">'ЕRegister: ПОБІТОВЕ УПАКУВАННЯ ТА МАНІПУЛЯЦІЯ РЕГІСТРАМИ'</span><span class="si">:</span><span class="s2">^80</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</span><span id="__span-4-90"><a id="__codelineno-4-90" name="__codelineno-4-90" href="#__codelineno-4-90"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">"="</span> <span class="o">*</span> <span class="mi">80</span><span class="p">)</span>
+</span><span id="__span-4-91"><a id="__codelineno-4-91" name="__codelineno-4-91" href="#__codelineno-4-91"></a>
+</span><span id="__span-4-92"><a id="__codelineno-4-92" name="__codelineno-4-92" href="#__codelineno-4-92"></a>    <span class="c1"># Початкові інженерні параметри датчика</span>
+</span><span id="__span-4-93"><a id="__codelineno-4-93" name="__codelineno-4-93" href="#__codelineno-4-93"></a>    <span class="n">initial_fault</span> <span class="o">=</span> <span class="kc">False</span>
+</span><span id="__span-4-94"><a id="__codelineno-4-94" name="__codelineno-4-94" href="#__codelineno-4-94"></a>    <span class="n">initial_mode</span> <span class="o">=</span> <span class="mi">5</span>          <span class="c1"># 0b101 (Режим калібрування)</span>
+</span><span id="__span-4-95"><a id="__codelineno-4-95" name="__codelineno-4-95" href="#__codelineno-4-95"></a>    <span class="n">initial_adc</span> <span class="o">=</span> <span class="mi">182</span>         <span class="c1"># 0xB6  (Напруга ~3.55 В)</span>
+</span><span id="__span-4-96"><a id="__codelineno-4-96" name="__codelineno-4-96" href="#__codelineno-4-96"></a>    <span class="n">initial_channel</span> <span class="o">=</span> <span class="mi">9</span>       <span class="c1"># 0b1001 (Канал 9)</span>
+</span><span id="__span-4-97"><a id="__codelineno-4-97" name="__codelineno-4-97" href="#__codelineno-4-97"></a>
+</span><span id="__span-4-98"><a id="__codelineno-4-98" name="__codelineno-4-98" href="#__codelineno-4-98"></a>    <span class="c1"># 1. Упакування регістра</span>
+</span><span id="__span-4-99"><a id="__codelineno-4-99" name="__codelineno-4-99" href="#__codelineno-4-99"></a>    <span class="n">reg_word</span> <span class="o">=</span> <span class="n">pack_telemetry_register</span><span class="p">(</span><span class="n">initial_fault</span><span class="p">,</span> <span class="n">initial_mode</span><span class="p">,</span> <span class="n">initial_adc</span><span class="p">,</span> <span class="n">initial_channel</span><span class="p">)</span>
+</span><span id="__span-4-100"><a id="__codelineno-4-100" name="__codelineno-4-100" href="#__codelineno-4-100"></a>
+</span><span id="__span-4-101"><a id="__codelineno-4-101" name="__codelineno-4-101" href="#__codelineno-4-101"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Початкові поля: FAULT=</span><span class="si">{</span><span class="n">initial_fault</span><span class="si">}</span><span class="s2">, MODE=</span><span class="si">{</span><span class="n">initial_mode</span><span class="si">}</span><span class="s2">, ADC=</span><span class="si">{</span><span class="n">initial_adc</span><span class="si">}</span><span class="s2">, CH=</span><span class="si">{</span><span class="n">initial_channel</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</span><span id="__span-4-102"><a id="__codelineno-4-102" name="__codelineno-4-102" href="#__codelineno-4-102"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Упакований 16-бітний регістр:"</span><span class="p">)</span>
+</span><span id="__span-4-103"><a id="__codelineno-4-103" name="__codelineno-4-103" href="#__codelineno-4-103"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"  Десятковий формат (DEC): </span><span class="si">{</span><span class="n">reg_word</span><span class="si">:</span><span class="s2">d</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</span><span id="__span-4-104"><a id="__codelineno-4-104" name="__codelineno-4-104" href="#__codelineno-4-104"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"  Шістнадцятковий (HEX):   0x</span><span class="si">{</span><span class="n">reg_word</span><span class="si">:</span><span class="s2">04X</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</span><span id="__span-4-105"><a id="__codelineno-4-105" name="__codelineno-4-105" href="#__codelineno-4-105"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"  Двійковий формат (BIN):  0b</span><span class="si">{</span><span class="n">reg_word</span><span class="si">:</span><span class="s2">016b</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</span><span id="__span-4-106"><a id="__codelineno-4-106" name="__codelineno-4-106" href="#__codelineno-4-106"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"  Вісімковий формат (OCT): 0o</span><span class="si">{</span><span class="n">reg_word</span><span class="si">:</span><span class="s2">06o</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</span><span id="__span-4-107"><a id="__codelineno-4-107" name="__codelineno-4-107" href="#__codelineno-4-107"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">"-"</span> <span class="o">*</span> <span class="mi">80</span><span class="p">)</span>
+</span><span id="__span-4-108"><a id="__codelineno-4-108" name="__codelineno-4-108" href="#__codelineno-4-108"></a>
+</span><span id="__span-4-109"><a id="__codelineno-4-109" name="__codelineno-4-109" href="#__codelineno-4-109"></a>    <span class="c1"># 2. Розпакування та верифікація полів</span>
+</span><span id="__span-4-110"><a id="__codelineno-4-110" name="__codelineno-4-110" href="#__codelineno-4-110"></a>    <span class="n">unpacked</span> <span class="o">=</span> <span class="n">unpack_telemetry_register</span><span class="p">(</span><span class="n">reg_word</span><span class="p">)</span>
+</span><span id="__span-4-111"><a id="__codelineno-4-111" name="__codelineno-4-111" href="#__codelineno-4-111"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="s1">'РЕЗУЛЬТАТ РОЗПАКУВАННЯ ТА ВЕРИФІКАЦІЇ'</span><span class="si">:</span><span class="s2">^80</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</span><span id="__span-4-112"><a id="__codelineno-4-112" name="__codelineno-4-112" href="#__codelineno-4-112"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"  FAULT_FLAG : </span><span class="si">{</span><span class="n">unpacked</span><span class="p">[</span><span class="s1">'fault'</span><span class="p">]</span><span class="si">}</span><span class="s2"> (очікувалося </span><span class="si">{</span><span class="n">initial_fault</span><span class="si">}</span><span class="s2">)"</span><span class="p">)</span>
+</span><span id="__span-4-113"><a id="__codelineno-4-113" name="__codelineno-4-113" href="#__codelineno-4-113"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"  OP_MODE    : </span><span class="si">{</span><span class="n">unpacked</span><span class="p">[</span><span class="s1">'op_mode'</span><span class="p">]</span><span class="si">}</span><span class="s2"> (очікувалося </span><span class="si">{</span><span class="n">initial_mode</span><span class="si">}</span><span class="s2">)"</span><span class="p">)</span>
+</span><span id="__span-4-114"><a id="__codelineno-4-114" name="__codelineno-4-114" href="#__codelineno-4-114"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"  ADC_VALUE  : </span><span class="si">{</span><span class="n">unpacked</span><span class="p">[</span><span class="s1">'adc_value'</span><span class="p">]</span><span class="si">}</span><span class="s2"> (очікувалося </span><span class="si">{</span><span class="n">initial_adc</span><span class="si">}</span><span class="s2">)"</span><span class="p">)</span>
+</span><span id="__span-4-115"><a id="__codelineno-4-115" name="__codelineno-4-115" href="#__codelineno-4-115"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"  CHANNEL_ID : </span><span class="si">{</span><span class="n">unpacked</span><span class="p">[</span><span class="s1">'channel_id'</span><span class="p">]</span><span class="si">}</span><span class="s2"> (очікувалося </span><span class="si">{</span><span class="n">initial_channel</span><span class="si">}</span><span class="s2">)"</span><span class="p">)</span>
+</span><span id="__span-4-116"><a id="__codelineno-4-116" name="__codelineno-4-116" href="#__codelineno-4-116"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">"-"</span> <span class="o">*</span> <span class="mi">80</span><span class="p">)</span>
+</span><span id="__span-4-117"><a id="__codelineno-4-117" name="__codelineno-4-117" href="#__codelineno-4-117"></a>
+</span><span id="__span-4-118"><a id="__codelineno-4-118" name="__codelineno-4-118" href="#__codelineno-4-118"></a>    <span class="c1"># 3. Маніпуляція окремими бітовими прапорцями</span>
+</span><span id="__span-4-119"><a id="__codelineno-4-119" name="__codelineno-4-119" href="#__codelineno-4-119"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="s1">'МАНІПУЛЯЦІЯ БІТОМ 15 (FAULT_FLAG)'</span><span class="si">:</span><span class="s2">^80</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</span><span id="__span-4-120"><a id="__codelineno-4-120" name="__codelineno-4-120" href="#__codelineno-4-120"></a>    <span class="n">reg_fault_set</span> <span class="o">=</span> <span class="n">set_fault_flag</span><span class="p">(</span><span class="n">reg_word</span><span class="p">)</span>
+</span><span id="__span-4-121"><a id="__codelineno-4-121" name="__codelineno-4-121" href="#__codelineno-4-121"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"  Після SET_FAULT:   0b</span><span class="si">{</span><span class="n">reg_fault_set</span><span class="si">:</span><span class="s2">016b</span><span class="si">}</span><span class="s2"> (HEX: 0x</span><span class="si">{</span><span class="n">reg_fault_set</span><span class="si">:</span><span class="s2">04X</span><span class="si">}</span><span class="s2">, FAULT=</span><span class="si">{</span><span class="n">unpack_telemetry_register</span><span class="p">(</span><span class="n">reg_fault_set</span><span class="p">)[</span><span class="s1">'fault'</span><span class="p">]</span><span class="si">}</span><span class="s2">)"</span><span class="p">)</span>
+</span><span id="__span-4-122"><a id="__codelineno-4-122" name="__codelineno-4-122" href="#__codelineno-4-122"></a>
+</span><span id="__span-4-123"><a id="__codelineno-4-123" name="__codelineno-4-123" href="#__codelineno-4-123"></a>    <span class="n">reg_fault_cleared</span> <span class="o">=</span> <span class="n">clear_fault_flag</span><span class="p">(</span><span class="n">reg_fault_set</span><span class="p">)</span>
+</span><span id="__span-4-124"><a id="__codelineno-4-124" name="__codelineno-4-124" href="#__codelineno-4-124"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"  Після CLEAR_FAULT: 0b</span><span class="si">{</span><span class="n">reg_fault_cleared</span><span class="si">:</span><span class="s2">016b</span><span class="si">}</span><span class="s2"> (HEX: 0x</span><span class="si">{</span><span class="n">reg_fault_cleared</span><span class="si">:</span><span class="s2">04X</span><span class="si">}</span><span class="s2">, FAULT=</span><span class="si">{</span><span class="n">unpack_telemetry_register</span><span class="p">(</span><span class="n">reg_fault_cleared</span><span class="p">)[</span><span class="s1">'fault'</span><span class="p">]</span><span class="si">}</span><span class="s2">)"</span><span class="p">)</span>
+</span><span id="__span-4-125"><a id="__codelineno-4-125" name="__codelineno-4-125" href="#__codelineno-4-125"></a>
+</span><span id="__span-4-126"><a id="__codelineno-4-126" name="__codelineno-4-126" href="#__codelineno-4-126"></a>    <span class="n">reg_fault_toggled</span> <span class="o">=</span> <span class="n">toggle_fault_flag</span><span class="p">(</span><span class="n">reg_fault_cleared</span><span class="p">)</span>
+</span><span id="__span-4-127"><a id="__codelineno-4-127" name="__codelineno-4-127" href="#__codelineno-4-127"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"  Після TOGGLE_FAULT:0b</span><span class="si">{</span><span class="n">reg_fault_toggled</span><span class="si">:</span><span class="s2">016b</span><span class="si">}</span><span class="s2"> (HEX: 0x</span><span class="si">{</span><span class="n">reg_fault_toggled</span><span class="si">:</span><span class="s2">04X</span><span class="si">}</span><span class="s2">, FAULT=</span><span class="si">{</span><span class="n">unpack_telemetry_register</span><span class="p">(</span><span class="n">reg_fault_toggled</span><span class="p">)[</span><span class="s1">'fault'</span><span class="p">]</span><span class="si">}</span><span class="s2">)"</span><span class="p">)</span>
+</span><span id="__span-4-128"><a id="__codelineno-4-128" name="__codelineno-4-128" href="#__codelineno-4-128"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">"="</span> <span class="o">*</span> <span class="mi">80</span><span class="p">)</span>
+</span><span id="__span-4-129"><a id="__codelineno-4-129" name="__codelineno-4-129" href="#__codelineno-4-129"></a>
+</span><span id="__span-4-130"><a id="__codelineno-4-130" name="__codelineno-4-130" href="#__codelineno-4-130"></a>
+</span><span id="__span-4-131"><a id="__codelineno-4-131" name="__codelineno-4-131" href="#__codelineno-4-131"></a><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
+</span><span id="__span-4-132"><a id="__codelineno-4-132" name="__codelineno-4-132" href="#__codelineno-4-132"></a>    <span class="n">main</span><span class="p">()</span>
+</span></code></pre></div>
+<hr />
+<h3 id="33">3.3. Запуск, тестування та перевірка результатів</h3>
+<p>Виконайте запуск розроблених модулів у системному терміналі VS Code під керуванням віртуального оточення <code>ce_lab_env</code>:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1"># Запуск модуля математичного моделювання</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>python<span class="w"> </span>scalar_modeling.py
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="c1"># Запуск модуля бітових операцій та емуляції регістра</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>python<span class="w"> </span>register_bitmask.py
+</span></code></pre></div>
+<p>Нижче наведено еталонний вивід програми <code>scalar_modeling.py</code> в консолі:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>================================================================================
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>            АНАЛІТИЧНЕ МОДЕЛЮВАННЯ ТА ОБЧИСЛЕННЯ СКАЛЯРНИХ ДАНИХ               
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>================================================================================
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>Час спостереження (t):            2.500 с
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>Кутова частота (omega):           4.000 рад/с
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>Розраховане значення сигналу:     1.79255850
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>Еталонне значення перевірки:      1.79255850
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>Точність IEEE 754 (isclose):      TRUE (rel_tol=1e-9)
+</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>--------------------------------------------------------------------------------
+</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>                  РОЗРАХУНОК КОМПЛЕКСНОГО ІМПЕДАНСУ RLC-КОНТУРУ                 
+</span><span id="__span-6-11"><a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a>--------------------------------------------------------------------------------
+</span><span id="__span-6-12"><a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a>Параметри кола: R = 100.0 Ом, L = 50.0 мГн, C = 10.0 мкФ, f = 200.0 Гц
+</span><span id="__span-6-13"><a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a>Комплексний імпеданс Z:         100.000 +  -16.751j Ом
+</span><span id="__span-6-14"><a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a>Активний опір Re(Z):            100.000 Ом
+</span><span id="__span-6-15"><a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a>Реактивний опір Im(Z):          -16.751 Ом
+</span><span id="__span-6-16"><a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a>Повний модуль імпедансу |Z|:    101.393 Ом
+</span><span id="__span-6-17"><a id="__codelineno-6-17" name="__codelineno-6-17" href="#__codelineno-6-17"></a>Фазовий кут зсуву (Arg Z):       -9.508 град (-0.1659 рад)
+</span><span id="__span-6-18"><a id="__codelineno-6-18" name="__codelineno-6-18" href="#__codelineno-6-18"></a>================================================================================
+</span></code></pre></div>
+<p>Нижче наведено еталонний вивід програми <code>register_bitmask.py</code> в консолі:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>================================================================================
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>             ЕRegister: ПОБІТОВЕ УПАКУВАННЯ ТА МАНІПУЛЯЦІЯ РЕГІСТРАМИ           
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>================================================================================
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>Початкові поля: FAULT=False, MODE=5, ADC=182, CH=9
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>Упакований 16-бітний регістр:
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>  Десятковий формат (DEC): 23337
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>  Шістнадцятковий (HEX):   0x5B29
+</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>  Двійковий формат (BIN):  0b0101101100101001
+</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a>  Вісімковий формат (OCT): 0o055451
+</span><span id="__span-7-10"><a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a>--------------------------------------------------------------------------------
+</span><span id="__span-7-11"><a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a>                      РЕЗУЛЬТАТ РОЗПАКУВАННЯ ТА ВЕРИФІКАЦІЇ                     
+</span><span id="__span-7-12"><a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a>--------------------------------------------------------------------------------
+</span><span id="__span-7-13"><a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a>  FAULT_FLAG : False (очікувалося False)
+</span><span id="__span-7-14"><a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a>  OP_MODE    : 5 (очікувалося 5)
+</span><span id="__span-7-15"><a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a>  ADC_VALUE  : 182 (очікувалося 182)
+</span><span id="__span-7-16"><a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a>  CHANNEL_ID : 9 (очікувалося 9)
+</span><span id="__span-7-17"><a id="__codelineno-7-17" name="__codelineno-7-17" href="#__codelineno-7-17"></a>--------------------------------------------------------------------------------
+</span><span id="__span-7-18"><a id="__codelineno-7-18" name="__codelineno-7-18" href="#__codelineno-7-18"></a>                        МАНІПУЛЯЦІЯ БІТОМ 15 (FAULT_FLAG)                       
+</span><span id="__span-7-19"><a id="__codelineno-7-19" name="__codelineno-7-19" href="#__codelineno-7-19"></a>--------------------------------------------------------------------------------
+</span><span id="__span-7-20"><a id="__codelineno-7-20" name="__codelineno-7-20" href="#__codelineno-7-20"></a>  Після SET_FAULT:   0b1101101100101001 (HEX: 0xDB29, FAULT=True)
+</span><span id="__span-7-21"><a id="__codelineno-7-21" name="__codelineno-7-21" href="#__codelineno-7-21"></a>  Після CLEAR_FAULT: 0b0101101100101001 (HEX: 0x5B29, FAULT=False)
+</span><span id="__span-7-22"><a id="__codelineno-7-22" name="__codelineno-7-22" href="#__codelineno-7-22"></a>  Після TOGGLE_FAULT:0b1101101100101001 (HEX: 0xDB29, FAULT=True)
+</span><span id="__span-7-23"><a id="__codelineno-7-23" name="__codelineno-7-23" href="#__codelineno-7-23"></a>================================================================================
+</span></code></pre></div>
+<p>Аналіз результатів тестування підтверджує:</p>
+<ol>
+<li>
+<p>Математична модель функції <span class="arithmatex">\(y(t, \omega)\)</span> повністю узгоджується з еталоном у межах машинної точності подвійного формату IEEE 754 (<span class="arithmatex">\(10^{-9}\)</span>).</p>
+</li>
+<li>
+<p>Побітові зсуви та маски формують коректне 16-бітне машинне слово <code>0x5B29</code> (<code>0b0101101100101001</code>), у якому кожне поле ізольоване від сусідніх розрядів, а операції <code>set</code>, <code>clear</code> та <code>toggle</code> змінюють виключно цільовий 15-й біт без спотворення решти даних регістра.</p>
+</li>
+</ol>
+<hr />
+<h2 id="4">4. Вимоги до змісту звіту</h2>
+<p>Звіт з лабораторної роботи оформлюється відповідно до академічних стандартів у форматі PDF і повинен містити такі обов'язкові компоненти:</p>
+<ol>
+<li>
+<p><strong>Титульна сторінка:</strong> найменування університету, факультету, кафедри, дисципліни, номер і назва лабораторної роботи, дані студента (ПІБ, група, номер варіанта), дані викладача.</p>
+</li>
+<li>
+<p><strong>Мета роботи та коротка теоретична частина:</strong> стислий опис математичного апарату побітової арифметики, масок та представлення чисел у пам'яті комп'ютера.</p>
+</li>
+<li>
+<p><strong>Постановка індивідуального завдання:</strong> математичний вираз цільової функції згідно з варіантом та специфікація бітових полів регістра.</p>
+</li>
+<li>
+<p><strong>Програмний код:</strong> повні лістинги створених скриптів <code>scalar_modeling.py</code> та <code>register_bitmask.py</code> із детальними авторськими коментарями до кожного рядка коду.</p>
+</li>
+<li>
+<p><strong>Результати обчислень:</strong> скріншоти консольного виведення розрахунків, таблиць перетворень систем числення (BIN, OCT, DEC, HEX) та верифікації бітових операцій.</p>
+</li>
+<li>
+<p><strong>Посилання на Git-репозиторій:</strong> посилання на оновлену гілку лабораторної роботи у віддаленому репозиторії GitHub із фіксацією відповідного коміту.</p>
+</li>
+<li>
+<p><strong>Висновки:</strong> аналітичний підсумок щодо точності дійсних обчислень, ефективності побітового упакування телеметрії та порівняння скалярних типів мови Python.</p>
+</li>
+</ol>
+<hr />
+<h2 id="5">5. Контрольні запитання для захисту роботи</h2>
+<ol>
+<li>
+<p>Яким чином у CPython реалізовано довгу арифметику для типу <code>int</code>? Чому цілі числа в Python не мають фіксованого діапазону переповнення розрядної сітки (<span class="arithmatex">\(2^{31}-1\)</span> або <span class="arithmatex">\(2^{63}-1\)</span>), властивого мовам C/C++?</p>
+</li>
+<li>
+<p>Опишіть структуру 64-бітного представлення дійсного числа <code>float</code> за стандартом IEEE 754. Чому виникає похибка представлення числа <span class="arithmatex">\(0.1\)</span> у двійковій системі та як правильно виконувати порівняння чисел за допомогою функції <code>math.isclose()</code>?</p>
+</li>
+<li>
+<p>Поясніть фізичний і математичний зміст операції побітового інвертування <code>~x</code>. Чому вираз <code>~0</code> у Python дорівнює <code>-1</code>, а <code>~0x5B29</code> вимагає додаткового маскування <code>&amp; 0xFFFF</code> для обмеження 16-бітної розрядності?</p>
+</li>
+<li>
+<p>Які побітові операції та маски слід застосувати для встановлення в одиницю, скидання в нуль та інвертування <span class="arithmatex">\(k\)</span>-го біта апаратного регістра без зміни стану решти бітів?</p>
+</li>
+<li>
+<p>Чим відрізняється робота математичних функцій модуля <code>math</code> від модуля <code>cmath</code> при спробі обчислення квадратного кореня з від'ємного числа <span class="arithmatex">\(\sqrt{-4}\)</span>?</p>
+</li>
+<li>
+<p>Виведіть загальну формулу упакування трьох цілочисельних параметрів <span class="arithmatex">\(A\)</span> (розрядність 4 біти), <span class="arithmatex">\(B\)</span> (розрядність 6 бітів) та <span class="arithmatex">\(C\)</span> (розрядність 6 бітів) у єдине 16-бітне машинне слово. Які маски необхідно застосувати для зворотного розпакування поля <span class="arithmatex">\(B\)</span>?</p>
+</li>
+</ol>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Повернутись нагору
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 Kyrylo Vadurin &bull; <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a>
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.expand", "navigation.top", "navigation.tracking", "header.autohide", "search.suggest", "search.highlight", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u0421\u043a\u043e\u043f\u0456\u0439\u043e\u0432\u0430\u043d\u043e \u0432 \u0431\u0443\u0444\u0435\u0440", "clipboard.copy": "\u0421\u043a\u043e\u043f\u0456\u044e\u0432\u0430\u0442\u0438 \u0432 \u0431\u0443\u0444\u0435\u0440", "search.result.more.one": "\u0429\u0435 1 \u0437\u0431\u0456\u0433 \u043d\u0430 \u0446\u0456\u0439 \u0441\u0442\u043e\u0440\u0456\u043d\u0446\u0456", "search.result.more.other": "\u0429\u0435 # \u0437\u0431\u0456\u0433\u0456\u0432 \u043d\u0430 \u0446\u0456\u0439 \u0441\u0442\u043e\u0440\u0456\u043d\u0446\u0456", "search.result.none": "\u0417\u0431\u0456\u0433\u0456\u0432 \u043d\u0435 \u0437\u043d\u0430\u0439\u0434\u0435\u043d\u043e", "search.result.one": "\u0417\u043d\u0430\u0439\u0434\u0435\u043d\u043e 1 \u0437\u0431\u0456\u0433", "search.result.other": "\u0417\u043d\u0430\u0439\u0434\u0435\u043d\u043e # \u0437\u0431\u0456\u0433\u0456\u0432", "search.result.placeholder": "\u0420\u043e\u0437\u043f\u043e\u0447\u043d\u0456\u0442\u044c \u043f\u0438\u0441\u0430\u0442\u0438 \u0434\u043b\u044f \u043f\u043e\u0448\u0443\u043a\u0443", "search.result.term.missing": "\u041d\u0435 \u0437\u043d\u0430\u0439\u0434\u0435\u043d\u043e \u0437\u0430\u043f\u0438\u0442\u0443", "select.version": "\u041e\u0431\u0440\u0430\u0442\u0438 \u0432\u0435\u0440\u0441\u0456\u044e"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
