@@ -1,0 +1,3040 @@
+
+<!doctype html>
+<html lang="uk" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Навчальний портал з дисципліни "Програмування на Python. Базовий рівень"">
+      
+      
+      
+      
+        <link rel="prev" href="../lk4/">
+      
+      
+        <link rel="next" href="../lk6/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Тема 5. Хеш-таблиці (Словники, Множини) - Програмування на Python</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="cyan">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#5-" class="md-skip">
+          Перейти до змісту
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Хедер">
+    <a href="../.." title="Програмування на Python" class="md-header__button md-logo" aria-label="Програмування на Python" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Програмування на Python
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Тема 5. Хеш-таблиці (Словники, Множини)
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="cyan"  aria-label="Переключити на темну тему"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Переключити на темну тему" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="cyan"  aria-label="Переключити на світлу тему"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Переключити на світлу тему" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Пошук" placeholder="Пошук" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Шукати">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Очистити" aria-label="Очистити" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Пошук розпочато
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Вкладки" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Робоча програма
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../lk1/" class="md-tabs__link">
+          
+  
+  
+  Лекції
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../lb/lb1/" class="md-tabs__link">
+          
+  
+  
+  Лабораторні роботи
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../sr/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Самостійна робота
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../sr/quest/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Перелік тестових питань
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../rg/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Розрахунково-графічна робота
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Навігація" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Програмування на Python" class="md-nav__button md-logo" aria-label="Програмування на Python" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Програмування на Python
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Робоча програма
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Лекції
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Лекції
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lk1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Тема 1. Архітектура мови та інфраструктура
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lk2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Тема 2. Керування потоком виконання
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lk3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Тема 3. Впорядковані структури даних (Списки, Кортежі)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lk4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Тема 4. Текстові, двійкові дані та Регулярні вирази
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Тема 5. Хеш-таблиці (Словники, Множини)
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Тема 5. Хеш-таблиці (Словники, Множини)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Зміст">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Зміст
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Мета лекції
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Очікувані результати навчання
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Детальний покроковий план лекції
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Детальний покроковий план лекції">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Теоретико-концептуальний базис. Математичні засади гешування та архітектура асоціативних масивів
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Методологія та аналіз граничних умов. Алгоритмічний інтерфейс, теоретико-множинні операції та системні обмеження хеш-структур
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Практичний індустріальний / фаховий кейс. Проєктування системи потокової дедуплікації та аналізу мережевих аномалій
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Теоретико-концептуальний базис. Математичні засади гешування та архітектура асоціативних масивів
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Теоретико-концептуальний базис. Математичні засади гешування та архітектура асоціативних масивів">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-hashability" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1. Математична формалізація асоціативного відображення, контракт хешованості (hashability) та системні вимоги до незмінності ключів
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-compact-dict-cpython" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2. Внутрішня архітектура компактної хеш-таблиці (Compact Dict) в інтерпретаторі CPython
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3. Механізми розв'язання колізій методом відкритої адресації з псевдовипадковим зондуванням і бітовим збуренням
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14-set-frozenset" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.4. Архітектура колекцій унікальних елементів: реалізація змінюваних множин set та незмінних хешованих аналогів frozenset
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Вказівки для самостійного осмислення
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Методологія та аналіз граничних умов. Алгоритмічний інтерфейс, теоретико-множинні операції та системні обмеження хеш-структур
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Методологія та аналіз граничних умов. Алгоритмічний інтерфейс, теоретико-множинні операції та системні обмеження хеш-структур">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-dictset-comprehensions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1. Методи безпечного вилучення та ініціалізації елементів, робота з динамічними уявленнями словника та генератори Dict/Set Comprehensions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2. Алгебра множин у мовному синтаксисі: операторні та функціональні форми об'єднання, перетину, різниці й симетричної різниці
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-in-" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3. Порівняльний аналіз асимптотичної часової складності оператора належності in у послідовностях та хеш-структурах
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.3. Порівняльний аналіз асимптотичної часової складності оператора належності in у послідовностях та хеш-структурах">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Граничні умови та системні бар'єри моделі константного часу
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4. Бар'єри продуктивності, критичні накладні витрати оперативної пам'яті та загрози деградації часу доступу при масових колізіях у високонавантажених застосунках
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Практичний індустріальний / фаховий кейс. Проєктування системи потокової дедуплікації та аналізу мережевих аномалій
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Практичний індустріальний / фаховий кейс. Проєктування системи потокової дедуплікації та аналізу мережевих аномалій">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-ddos-ip-" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1. Комплексний фаховий кейс. Розробка високопродуктивного ядра мережевого аналізатора для виявлення DDoS-атак та потокової фільтрації IP-адрес
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.1. Комплексний фаховий кейс. Розробка високопродуктивного ядра мережевого аналізатора для виявлення DDoS-атак та потокової фільтрації IP-адрес">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Постановка задачі / ситуації
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Покроковий аналіз та розв'язок
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Покроковий аналіз та розв&#39;язок">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Крок 1. Оцінка просторової складності та вибір типу колекцій
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Крок 2. Реалізація високопродуктивного циклу обробки потоку
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Крок 3. Теоретико-множинний аналіз результатів вікна спостереження
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Інтерпретація результатів та альтернативні сценарії
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2. Зведена довідкова система лекції
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3. Контрольні питання та завдання
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.3. Контрольні питання та завдання">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Прикладні тестові завдання
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Прикладні тестові завдання">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Завдання 1
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Завдання 2
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Завдання 3
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Завдання 4
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Завдання для самостійної роботи
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Завдання для самостійної роботи">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Постановка задачі
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Завдання для виконання
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lk6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Тема 6. Функціональна організація коду
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lk7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Тема 7. Модульна архітектура та пакети
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lk8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Тема 8. Обробка винятків та файлове в/в
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lk9/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Тема 9. Об'єктно-орієнтоване програмування
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Лабораторні роботи
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Лабораторні роботи
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lb/lb1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 1. Розгортання інфраструктури розробки
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lb/lb2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 2. Скалярні типи даних та моделювання
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lb/lb3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 3. Алгоритми розгалуженої та циклічної структури
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lb/lb4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 4. Обробка списків та кортежі
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lb/lb5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 5. Обробка тексту та регулярні вирази
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lb/lb6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 6. Асоціативні структури даних (Словники, Множини)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lb/lb7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 7. Проєктування функцій та рекурсія
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lb/lb8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 8. Модульне програмування та системні бібліотеки
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lb/lb9/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 9. Обробка виняткових ситуацій
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lb/lb10/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 10. Файлове в/в та менеджери контексту
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lb/lb11/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 11. ООП та перевантаження методів
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sr/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Самостійна робота
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sr/quest/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Перелік тестових питань
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../rg/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Розрахунково-графічна робота
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Зміст">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Зміст
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Мета лекції
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Очікувані результати навчання
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Детальний покроковий план лекції
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Детальний покроковий план лекції">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Теоретико-концептуальний базис. Математичні засади гешування та архітектура асоціативних масивів
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Методологія та аналіз граничних умов. Алгоритмічний інтерфейс, теоретико-множинні операції та системні обмеження хеш-структур
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Практичний індустріальний / фаховий кейс. Проєктування системи потокової дедуплікації та аналізу мережевих аномалій
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Теоретико-концептуальний базис. Математичні засади гешування та архітектура асоціативних масивів
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Теоретико-концептуальний базис. Математичні засади гешування та архітектура асоціативних масивів">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-hashability" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1. Математична формалізація асоціативного відображення, контракт хешованості (hashability) та системні вимоги до незмінності ключів
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-compact-dict-cpython" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2. Внутрішня архітектура компактної хеш-таблиці (Compact Dict) в інтерпретаторі CPython
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3. Механізми розв'язання колізій методом відкритої адресації з псевдовипадковим зондуванням і бітовим збуренням
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14-set-frozenset" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.4. Архітектура колекцій унікальних елементів: реалізація змінюваних множин set та незмінних хешованих аналогів frozenset
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Вказівки для самостійного осмислення
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Методологія та аналіз граничних умов. Алгоритмічний інтерфейс, теоретико-множинні операції та системні обмеження хеш-структур
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Методологія та аналіз граничних умов. Алгоритмічний інтерфейс, теоретико-множинні операції та системні обмеження хеш-структур">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-dictset-comprehensions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1. Методи безпечного вилучення та ініціалізації елементів, робота з динамічними уявленнями словника та генератори Dict/Set Comprehensions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2. Алгебра множин у мовному синтаксисі: операторні та функціональні форми об'єднання, перетину, різниці й симетричної різниці
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-in-" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3. Порівняльний аналіз асимптотичної часової складності оператора належності in у послідовностях та хеш-структурах
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.3. Порівняльний аналіз асимптотичної часової складності оператора належності in у послідовностях та хеш-структурах">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Граничні умови та системні бар'єри моделі константного часу
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4. Бар'єри продуктивності, критичні накладні витрати оперативної пам'яті та загрози деградації часу доступу при масових колізіях у високонавантажених застосунках
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Практичний індустріальний / фаховий кейс. Проєктування системи потокової дедуплікації та аналізу мережевих аномалій
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Практичний індустріальний / фаховий кейс. Проєктування системи потокової дедуплікації та аналізу мережевих аномалій">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-ddos-ip-" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1. Комплексний фаховий кейс. Розробка високопродуктивного ядра мережевого аналізатора для виявлення DDoS-атак та потокової фільтрації IP-адрес
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.1. Комплексний фаховий кейс. Розробка високопродуктивного ядра мережевого аналізатора для виявлення DDoS-атак та потокової фільтрації IP-адрес">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Постановка задачі / ситуації
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Покроковий аналіз та розв'язок
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Покроковий аналіз та розв&#39;язок">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Крок 1. Оцінка просторової складності та вибір типу колекцій
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Крок 2. Реалізація високопродуктивного циклу обробки потоку
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Крок 3. Теоретико-множинний аналіз результатів вікна спостереження
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Інтерпретація результатів та альтернативні сценарії
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2. Зведена довідкова система лекції
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3. Контрольні питання та завдання
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.3. Контрольні питання та завдання">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Прикладні тестові завдання
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Прикладні тестові завдання">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Завдання 1
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Завдання 2
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Завдання 3
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Завдання 4
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Завдання для самостійної роботи
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Завдання для самостійної роботи">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Постановка задачі
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Завдання для виконання
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="5-">Тема 5. Хеш-таблиці та асоціативні структури даних: словники та множини</h1>
+<h2 id="_1">Мета лекції</h2>
+<p>Мета лекції полягає у формуванні фундаментальних компетентностей щодо теоретичних засад функціонування хеш-таблиць, архітектури їхньої реалізації у віртуальній машині Python (CPython) та практичних навичок проєктування високоефективних програмних систем. Студенти опанують внутрішні механізми адресації за хеш-кодом, правила забезпечення інваріанта хешованості об'єктів, специфіку розв'язання колізій методом відкритої адресації, а також отримають математичне обґрунтування константної асимптотичної складності базових операцій пошуку, вставки та видалення, що є критично важливим для розробки сучасних сервісів обробки даних, розподілених мережевих систем та алгоритмів реального часу.</p>
+<h2 id="_2">Очікувані результати навчання</h2>
+<ol>
+<li>
+<p><strong>Знання та розуміння.</strong> Здобувачі вищої освіти засвоять математичні основи хешування, формальний контракт взаємозв'язку між методами порівняння об'єктів та генерації хеш-коду, вимоги до незмінності ключів, внутрішню структуру компактних словників і множин у CPython, а також відмінності між змінюваними та незмінними асоціативними колекціями.</p>
+</li>
+<li>
+<p><strong>Застосування.</strong> Слухачі навчються коректно застосовувати спеціалізовані методи безпечного доступу та модифікації асоціативних структур, використовувати синтаксис спискових включень для словників і множин, виконувати теоретико-множинні операції над агрегованими даними та маніпулювати складними вкладеними колекціями.</p>
+</li>
+<li>
+<p><strong>Аналіз.</strong> Студенти зможуть аналізувати алгоритмічну та просторову складність операцій у хеш-структурах порівняно з лінійними послідовностями, ідентифікувати передумови виникнення колізій і деградації швидкодії пошуку, а також досліджувати вплив структуризації даних на ефективність використання системної пам'яті.</p>
+</li>
+<li>
+<p><strong>Оцінювання та синтез.</strong> Майбутні інженери набудуть здатності критично оцінювати компроміс між швидкістю виконання операцій та накладними витратами оперативної пам'яті при роботі з великими обсягами інформації, а також синтезувати оптимальні алгоритмічні конвеєри для обробки неструктурованих мережевих журналів, фільтрації дублікатів і виявлення системних аномалій.</p>
+</li>
+</ol>
+<hr />
+<h2 id="_3">Детальний покроковий план лекції</h2>
+<h3 id="1-">1. Теоретико-концептуальний базис. Математичні засади гешування та архітектура асоціативних масивів</h3>
+<ul>
+<li>
+<p>1.1. Математична формалізація асоціативного відображення, контракт хешованості (hashability) та системні вимоги до незмінності ключів.</p>
+</li>
+<li>
+<p>1.2. Внутрішня архітектура компактної хеш-таблиці (Compact Dict) в інтерпретаторі CPython: поділ на розріджений індексний масив та щільний масив записів.</p>
+</li>
+<li>
+<p>1.3. Механізми розв'язання колізій методом відкритої адресації з псевдовипадковим зондуванням і бітовим збуренням.</p>
+</li>
+<li>
+<p>1.4. Архітектура колекцій унікальних елементів: реалізація змінюваних множин <code>set</code> та незмінних хешованих аналогів <code>frozenset</code>.</p>
+</li>
+</ul>
+<h3 id="2-">2. Методологія та аналіз граничних умов. Алгоритмічний інтерфейс, теоретико-множинні операції та системні обмеження хеш-структур</h3>
+<ul>
+<li>
+<p>2.1. Методи безпечного вилучення та ініціалізації елементів, робота з динамічними уявленнями словника та генератори Dict/Set Comprehensions.</p>
+</li>
+<li>
+<p>2.2. Алгебра множин у мовному синтаксисі: операторні та функціональні форми об'єднання, перетину, різниці й симетричної різниці.</p>
+</li>
+<li>
+<p>2.3. Порівняльний аналіз асимптотичної часової складності оператора належності <code>in</code> у послідовностях (<span class="arithmatex">\(O(N)\)</span>) та хеш-структурах (<span class="arithmatex">\(O(1)\)</span>).</p>
+</li>
+<li>
+<p>2.4. Бар'єри продуктивності, критичні накладні витрати оперативної пам'яті та загрози деградації часу доступу при масових колізіях у високонавантажених застосунках.</p>
+</li>
+</ul>
+<h3 id="3">3. Практичний індустріальний / фаховий кейс. Проєктування системи потокової дедуплікації та аналізу мережевих аномалій</h3>
+<p><strong>Тема наскрізної задачі.</strong> «Розробка ядра системи моніторингу мережевого трафіку для дедуплікації IP-адрес, аналізу пікових навантажень та виявлення кібератак на основі структур dict та set»</p>
+<h2 id="1-_1">1. Теоретико-концептуальний базис. Математичні засади гешування та архітектура асоціативних масивів</h2>
+<h3 id="11-hashability">1.1. Математична формалізація асоціативного відображення, контракт хешованості (hashability) та системні вимоги до незмінності ключів</h3>
+<p>В основі комп'ютерної обробки структурованої інформації лежить концепція асоціативного зв'язку, яка дозволяє адресувати дані не за їхнім фізичним чи порядковим розташуванням у пам'яті, а за змістовним ключем. З математичної точки зору асоціативний масив є дискретним відображенням скінченної множини ключів <span class="arithmatex">\(K\)</span> на довільну множину значень <span class="arithmatex">\(V\)</span>. Таке відображення формалізується у вигляді функції:</p>
+<div class="arithmatex">\[f: K \to V\]</div>
+<p>де кожному унікальному елементу <span class="arithmatex">\(k \in K\)</span> ставиться у взаємно однозначну відповідність елемент <span class="arithmatex">\(v \in V\)</span>, утворюючи елементарну неподільну пару <span class="arithmatex">\((k, v)\)</span>. На відміну від класичних одновимірних масивів, де множина індексів обмежена послідовністю натуральних чисел <span class="arithmatex">\(I = \{0, 1, \dots, n-1\}\)</span>, простір ключів <span class="arithmatex">\(K\)</span> у високорівневих мовах програмування може бути представлений абстрактними типами даних довільної складності.</p>
+<p>Для забезпечення ефективного пошуку елементів у просторі <span class="arithmatex">\(K\)</span> використовується механізм хешування. Хеш-функція перетворює довільний вхідний об'єкт на цілочисельне значення фіксованої розрядності, яке виступає основою для подальшої адресації в пам'яті. Формально хеш-функція описується як сюр'єктивне відображення:</p>
+<div class="arithmatex">\[h: K \to \mathbb{Z}_{2^w}\]</div>
+<p>де <span class="arithmatex">\(w\)</span> позначає машинне слово обчислювальної системи (у сучасних 64-розрядних архітектурах <span class="arithmatex">\(w = 64\)</span>), а <span class="arithmatex">\(\mathbb{Z}_{2^w}\)</span> представляє діапазон знакових цілих чисел від <span class="arithmatex">\(-2^{w-1}\)</span> до <span class="arithmatex">\(2^{w-1} - 1\)</span>. Згодом це значення проєктується на обмежену кількість фізичних кошиків (<em>buckets</em>) адресної таблиці розміром <span class="arithmatex">\(M = 2^m\)</span> за допомогою бітового маскування:</p>
+<div class="arithmatex">\[\text{index} = h(k) \ \&amp; \ (M - 1)\]</div>
+<p>де оператор <span class="arithmatex">\(\&amp;\)</span> позначає порозрядне бітове «І» (<em>bitwise AND</em>), що забезпечує миттєве обчислення залишку від ділення на ступінь двійки без використання ресурсомістких процесорних інструкцій ділення.</p>
+<p>Фундаментальною вимогою до об'єктів, які претендують на роль ключів в асоціативних контейнерах мови Python, є дотримання <strong>контракту хешованості</strong> (<em>hashability contract</em>). Об'єкт класифікується як хешований (<em>hashable</em>), якщо його життєвий цикл гарантує виконання двох непорушних умов: наявність незмінного хеш-значення, яке обчислюється через виклик дандер-методу <code>__hash__()</code>, та підтримку рефлексивного порівняння через метод <code>__eq__()</code>. </p>
+<p>Математичний інваріант узгодженості хешування та еквівалентності формулюється за допомогою операції імплікації:</p>
+<div class="arithmatex">\[\forall x, y \in K : (x == y) \implies (h(x) == h(y))\]</div>
+<p>де вираз <span class="arithmatex">\(x == y\)</span> позначає логічну рівність двох екземплярів даних, а <span class="arithmatex">\(h(x)\)</span> та <span class="arithmatex">\(h(y)\)</span> — результати роботи відповідної хеш-функції. Дане правило стверджує, що два логічно еквівалентні об'єкти зобов'язані генерувати ідентичні хеш-коди. Водночас зворотне твердження <span class="arithmatex">\(h(x) == h(y) \implies x == y\)</span> є хибним, оскільки збіг числових хеш-значень для різних сутностей позначає виникнення ситуації <strong>колізії хешування</strong> (<em>hash collision</em>).</p>
+<p>Безпосереднім наслідком цього контракту є жорстка системна вимога: ключами словників можуть виступати виключно <strong>незмінювані</strong> (<em>immutable</em>) типи даних. До них належать цілі числа <code>int</code>, дійсні числа <code>float</code>, логічні константи <code>bool</code>, текстові рядки <code>str</code>, кортежі <code>tuple</code> (за умови, що всі їхні вкладені елементи також є незмінюваними) та фіксовані множини <code>frozenset</code>. Причина заборони використання змінюваних (<em>mutable</em>) типів (таких як списки <code>list</code>, стандартні множини <code>set</code> або вкладені словники <code>dict</code>) полягає в ризику порушення внутрішньої цілісності адресної структури. </p>
+<p>Якщо об'єкт модифікується після додавання до контейнера, його стан змінюється, що призводить або до стрибкоподібної зміни результату <code>__hash__()</code>, або до порушення логіки <code>__eq__()</code>. У такому випадку віртуальна машина PVM втрачає можливість знайти елемент за первинним індексом зондування, перетворюючи об'єкт на недосяжний блок пам'яті (<em>lost reference</em>), що руйнує детермінізм алгоритму.</p>
+<p>У внутрішній структурі інтерпретатора CPython механізм блокування небезпечних типів реалізований на рівні опису типу <code>PyTypeObject</code>. Для кожного вбудованого класу поле <code>tp_hash</code> містить покажчик на функцію обчислення хешу. У змінюваних типах цей покажчик примусово ініціалізований значенням <code>NULL</code>, що в інтерпретаторі еквівалентно конструкції <code>__hash__ = None</code>. Спроба обчислити хеш від подібного об'єкта або використати його як ключ викликає апаратний перехоплювач винятків, який генерує помилку <code>TypeError: unhashable type</code>.</p>
+<blockquote>
+<p><strong>ПРАКТИЧНИЙ ЯКІР:</strong> У високонавантажених брокерах повідомлень та розподілених базах даних (наприклад, Apache Kafka та Cassandra) ключ повідомлення використовується для партиціонування: консистентна хеш-функція від незмінного ідентифікатора клієнта визначає номер фізичного вузла кластера, куди буде направлено запис, гарантуючи суворий порядок обробки транзакцій одного клієнта.</p>
+</blockquote>
+<p>Ієрархія типів даних мови Python за ознаками мутабельності та придатності до використання в асоціативних структурах наочно представлена на нижченаведеній структурній схемі.</p>
+<pre class="mermaid"><code>flowchart TD
+    Root["Об'єкти Python (PyObject)"] --&gt; Hashable["Хешовані типи (Hashable)"]
+    Root --&gt; Unhashable["Нехешовані типи (Unhashable)"]
+
+    Hashable --&gt; ImmAtomic["Незмінювані атомарні:\nint, float, bool, str, bytes"]
+    Hashable --&gt; ImmComp["Незмінювані складені:\ntuple (з незмінними елементами),\nfrozenset"]
+    Hashable --&gt; CustomHash["Користувацькі класи:\n(за замовчуванням за адресою id)"]
+
+    Unhashable --&gt; MutSeq["Змінювані послідовності:\nlist, bytearray"]
+    Unhashable --&gt; MutAssoc["Змінювані асоціативні структури:\ndict, set"]
+    Unhashable --&gt; TupleMut["Кортежі tuple, що містять\nхоча б один mutable об'єкт"]</code></pre>
+<p>Проаналізувавши взаємозв'язки на схемі, зазначимо, що категорія кортежів <code>tuple</code> займає проміжне положення. Сам кортеж є синтаксично незмінним, однак якщо його елементом виступає змінюваний список, обчислення системного хешу стає неможливим, оскільки цілісність агрегованого стану не гарантована.</p>
+<hr />
+<h3 id="12-compact-dict-cpython">1.2. Внутрішня архітектура компактної хеш-таблиці (Compact Dict) в інтерпретаторі CPython</h3>
+<p>Архітектурна еволюція словників у мові Python є прикладом оптимізації структур даних під обмеження апаратного забезпечення сучасних процесорів, зокрема роботи з кеш-лініями (<em>cache lines</em> L1/L2). До версії Python 3.5 включно використовувалася класична розріджена хеш-таблиця. Вона складалася з єдиного масиву структур фіксованого розміру, де кожен слот містив три поля: 64-бітний хеш ключа, покажчик на об'єкт ключа та покажчик на об'єкт значення. </p>
+<p>Оскільки для мінімізації ймовірності колізій коефіцієнт заповнення (<em>load factor</em>) таблиці не міг перевищувати порогового значення:</p>
+<div class="arithmatex">\[\lambda = \frac{N}{M} \le \frac{2}{3} \approx 0.66\]</div>
+<p>де <span class="arithmatex">\(N\)</span> позначає фактичну кількість збережених елементів, а <span class="arithmatex">\(M\)</span> — загальну місткість виділеного пулу кошиків, щонайменше третина (а часто понад половина) виділеної оперативної пам'яті складалася з порожніх невикористаних слотів розміром 24 байти кожен. Це призводило до значної фрагментації пам'яті та постійних промахів кешу (<em>CPU cache misses</em>) при ітерації по записах.</p>
+<p>Починаючи з релізу Python 3.6 (де це було експериментальною особливістю) та ставши стандартом мови у Python 3.7 згідно з пропозицією PEP 468, у ядро CPython було інтегровано архітектуру <strong>компактного словника</strong> (<em>Compact Dict</em>), запропоновану розробником Реймондом Хеттінгером. Сутність оптимізації полягає у фізичному розщепленні єдиного розрідженого масиву на дві взаємопов'язані таблиці з різними функціональними ролями: розріджену таблицю індексів <code>dk_indices</code> та щільний масив фактичних записів <code>dk_entries</code>.</p>
+<p>Розріджений масив <code>dk_indices</code> відповідає за первинну трансляцію замаскованого хеш-коду в логічний індекс запису. Його розмір завжди кратний степеню двійки (<span class="arithmatex">\(M = 2^m\)</span>). Принциповою перевагою є динамічна типізація елементів цього масиву на рівні мови Сі в залежності від поточного розміру словника:</p>
+<ul>
+<li>
+<p>Для таблиць місткістю до 128 слотів елементи зберігаються у вигляді однобайтових знакових цілих чисел <code>int8_t</code>, де порожні слоти позначаються значенням <code>-1</code>.</p>
+</li>
+<li>
+<p>При зростанні місткості до 32 768 слотів тип індексів масштабується до двобайтових чисел <code>int16_t</code>.</p>
+</li>
+<li>
+<p>Для надвеликих масивів використовуються відповідно типи <code>int32_t</code> або <code>int64_t</code>.</p>
+</li>
+</ul>
+<p>Щільний масив <code>dk_entries</code> містить безперервний ланцюжок структур типу <code>PyDictKeyEntry</code>. Кожен елемент цього масиву має фіксовану внутрішню конфігурацію:</p>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">    </span><span class="n">Py_hash_t</span><span class="w"> </span><span class="n">me_hash</span><span class="p">;</span><span class="w">  </span><span class="cm">/* Кешоване 64-бітне значення хешу ключа */</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="n">PyObject</span><span class="w"> </span><span class="o">*</span><span class="n">me_key</span><span class="p">;</span><span class="w">   </span><span class="cm">/* Покажчик на об'єкт ключа */</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span><span class="n">PyObject</span><span class="w"> </span><span class="o">*</span><span class="n">me_value</span><span class="p">;</span><span class="w"> </span><span class="cm">/* Покажчик на об'єкт асоційованого значення */</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="p">}</span><span class="w"> </span><span class="n">PyDictKeyEntry</span><span class="p">;</span>
+</span></code></pre></div>
+<p>Нові пари ключ-значення записуються в масив <code>dk_entries</code> послідовно у порядку їхньої фактичної ініціалізації: перший доданий елемент потрапляє в нульову позицію, другий — у першу тощо. Завдяки цьому масив <code>dk_entries</code> позбавлений порожніх проміжків, що забезпечує колосальну просторову локальність даних при передачі з оперативної пам'яті до процесорного кешу. </p>
+<p>Одночасно ця архітектура вирішила фундаментальну історичну проблему мови: порядок ітерації по словнику тепер <strong>гарантовано збігається з хронологічним порядком вставки елементів</strong>.</p>
+<p>Оцінимо економію оперативної пам'яті для умовного словника, який містить 8 елементів при базовому виділенні таблиці на 8 слотів. У класичній архітектурі Python 3.5 для зберігання 8 слотів виділялося:</p>
+<div class="arithmatex">\[8 \times 24\ \text{байти} = 192\ \text{байти}\]</div>
+<p>У компактній архітектурі Python 3.7+ індексний масив розміром 8 слотів займає <span class="arithmatex">\(8 \times 1\ \text{байт} = 8\ \text{байтів}\)</span> (оскільки використовується <code>int8_t</code>), а масив <code>dk_entries</code> для тих самих елементів потребує <span class="arithmatex">\(8 \times 24\ \text{байти} = 192\ \text{байти}\)</span>. Підсумковий виграш стає разючим при збільшенні розміру таблиці, наприклад до 1024 слотів із фактором заповнення 66% (680 елементів): класична схема потребувала 24 576 байтів, тоді як компактна витрачає <span class="arithmatex">\(1024 \times 2\ \text{байти} + 680 \times 24\ \text{байти} = 2048 + 16320 = 18368\ \text{байтів}\)</span>, що дає чисту економію близько 25% фізичної пам'яті.</p>
+<blockquote>
+<p><strong>ТИПОВА ПОМИЛКА:</strong> Поширена хибна думка полягає у переконанні, що оскільки словники в сучасному Python є впорядкованими, їх можна використовувати для алгоритмів сортування за значенням. Впорядкованість словника означає виключно збереження хронології вставки (<em>insertion order</em>), а не автоматичне лексикографічне чи числове ранжування ключів або значень.</p>
+</blockquote>
+<hr />
+<h3 id="13">1.3. Механізми розв'язання колізій методом відкритої адресації з псевдовипадковим зондуванням і бітовим збуренням</h3>
+<p>Згідно з комбінаторним принципом Діріхле, при відображенні нескінченної або суттєво більшої множини потенційних ключів <span class="arithmatex">\(K\)</span> у скінченний простір кошиків розміром <span class="arithmatex">\(M\)</span>, неминуче виникають ситуації, коли для двох нерівних ключів <span class="arithmatex">\(k_1 \neq k_2\)</span> обчислені індекси збігаються:</p>
+<div class="arithmatex">\[\text{index}(k_1) = \text{index}(k_2)\]</div>
+<p>Для розв'язання проблеми колізій у комп'ютерних науках використовуються дві магістральні парадигми: метод ланцюжків (<em>chaining</em>, де кожен кошик веде зв'язаний список) та метод відкритої адресації (<em>open addressing</em>, де всі елементи зберігаються безпосередньо в самій таблиці). </p>
+<p>Архітектура CPython базується на <strong>відкритій адресації</strong>, оскільки метод ланцюжків потребує додаткових виділень пам'яті під вузли списку, що руйнує локальність процесорного кешування через розпорошення покажчиків у системній купі (<em>heap</em>).</p>
+<p>Проте класичне лінійне зондування (<em>linear probing</em>), де наступний слот шукається за правилом <span class="arithmatex">\(i_{\text{next}} = (i + 1) \pmod M\)</span>, у мові Python категорично відкинуто через ефект первинної кластеризації (<em>primary clustering</em>), коли довгі ланцюжки зайнятих комірок зливаються, деградуючи час вставки до лінійного <span class="arithmatex">\(O(N)\)</span>. </p>
+<p>Замість цього інтерпретатор застосовує оптимізований алгоритм <strong>псевдовипадкового зондування з бітовим збуренням</strong> (<em>pseudo-random probing with perturbation</em>). Наступний індекс для перевірки кошика <span class="arithmatex">\(j\)</span> обчислюється на кожному кроці за такою рекурентною формулою:</p>
+<div class="arithmatex">\[j_{i+1} = \left( 5 \times j_i + 1 + \text{perturb}_i \right) \pmod M\]</div>
+<p>де <span class="arithmatex">\(j_i\)</span> позначає поточний індекс кошика на кроці ітерації <span class="arithmatex">\(i\)</span>; <span class="arithmatex">\(M = 2^m\)</span> є розміром індексної таблиці, а <span class="arithmatex">\(\text{perturb}_i\)</span> виступає параметром адаптивного динамічного збурення. </p>
+<p>Змінна збурення ініціалізується повним, незрізаним значенням системного хеш-коду ключа: <span class="arithmatex">\(\text{perturb}_0 = h(k)\)</span>. На кожній наступній ітерації зондування цей параметр зсувається вправо на фіксовану бітову константу:</p>
+<div class="arithmatex">\[\text{perturb}_{i+1} = \text{perturb}_i \gg 5\]</div>
+<p>Така нетривіальна математична конструкція забезпечує важливі системні властивості. Множник 5 гарантує, що при <span class="arithmatex">\(\text{perturb} = 0\)</span> лінійний конгруентний генератор обійде абсолютно всі комірки таблиці розміром <span class="arithmatex">\(2^m\)</span> без зациклення на підмножинах, оскільки 5 та <span class="arithmatex">\(2^m\)</span> є взаємно простими числами. </p>
+<p>Одночасно параметр <span class="arithmatex">\(\text{perturb}\)</span> підмішує старші розряди початкового 64-бітного хешу, які були відкинуті первинною операцією маскування <span class="arithmatex">\((h(k)\ \&amp;\ (M-1))\)</span>. Поступовий побітовий зсув гарантує, що колізійні ключі з ідентичними молодшими бітами розійдуться за різними траєкторіями перевірки слотів, мінімізуючи утворення кластерів.</p>
+<p>Життєвий цикл кожного слота в індексній таблиці описується за допомогою трьох фундаментальних станів: <code>Unused</code> (порожній слот, значення <code>-1</code>), <code>Active</code> (активний слот, що вказує на валідний запис у масиві значень), та <code>Dummy</code> (фіктивний слот, що позначає видалений елемент і зберігає спеціальну константу <code>-2</code>).</p>
+<pre class="mermaid"><code>stateDiagram-v2
+    [*] --&gt; Unused: Ініціалізація нової таблиці
+    Unused --&gt; Active: Вставка пари (Key, Value)
+    Active --&gt; Active: Оновлення значення за існуючим ключем
+    Active --&gt; Dummy: Видалення елемента (del / pop)
+    Dummy --&gt; Active: Вставка нового ключа на місце видаленого
+    Dummy --&gt; [*]: Зміна розміру словника (Resizing / Rehash)
+    Active --&gt; [*]: Зміна розміру словника (Resizing / Rehash)</code></pre>
+<p>Проаналізуємо діаграму станів. Існування стану <code>Dummy</code> є суворою необхідністю у методі відкритої адресації. Якби при видаленні елемента слот повертався у стан <code>Unused</code>, то ланцюжок зондування для іншого ключа, який потрапив у колізію з видаленим раніше елементом, обривався б на цій комірці, унеможливлюючи його подальший пошук. </p>
+<p>Слот <code>Dummy</code> повідомляє алгоритм пошуку про необхідність продовження обходу за рекурентною формулою зондування. Лише під час глобальної перебудови таблиці (<em>resizing</em>), яка ініціюється при досягненні порога заповнення у 66%, виділяється новий адресний простір, куди копіюються виключно активні записи, а всі фіктивні маркери <code>Dummy</code> остаточно утилізуються.</p>
+<blockquote>
+<p><strong>ПРАКТИЧНИЙ ЯКІР:</strong> У 2012 році сервери багатьох світових платформ зазнали масштабної вразливості типу HashDoS (CVE-2012-1150). Зловмисники формували спеціальні HTTP-запити з POST-параметрами, чиї назви мали однакові значення молодших бітів стандартного алгоритму хешування. Це перетворювало пошук у словнику конфігурації з <span class="arithmatex">\(O(1)\)</span> на лінійний <span class="arithmatex">\(O(N)\)</span>, викликаючи 100% завантаження ядер CPU обробкою одного запиту. У відповідь починаючи з Python 3.3 було запроваджено алгоритм SipHash із динамічною рандомізацією початкового зерна хешування (<em>hash seed randomization</em>) при кожному запуску інтерпретатора.</p>
+</blockquote>
+<hr />
+<h3 id="14-set-frozenset">1.4. Архітектура колекцій унікальних елементів: реалізація змінюваних множин set та незмінних хешованих аналогів frozenset</h3>
+<p>Колекції на основі множин у мові Python представлені двома спорідненими типами: змінюваною множиною <code>set</code> та незмінною множиною <code>frozenset</code>. Математично вони реалізують фундаментальні концепції абстрактної теорії множин Кантора, виступаючи невпорядкованими сукупностями унікальних сутностей, для яких визначено відношення належності <span class="arithmatex">\(x \in S\)</span>. </p>
+<p>З інженерної точки зору реалізація <code>set</code> в інтерпретаторі CPython являє собою спеціалізовану хеш-таблицю, яка оптимізована виключно під роботу з ключами без збереження асоційованих значень. Внутрішня структура запису кошика множини описується спрощеним Сі-типом <code>setentry</code>:</p>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">    </span><span class="n">PyObject</span><span class="w"> </span><span class="o">*</span><span class="n">key</span><span class="p">;</span><span class="w">     </span><span class="cm">/* Покажчик на збережений унікальний об'єкт */</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span><span class="n">Py_hash_t</span><span class="w"> </span><span class="n">hash</span><span class="p">;</span><span class="w">    </span><span class="cm">/* Закешоване 64-бітне хеш-значення ключа */</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="p">}</span><span class="w"> </span><span class="n">setentry</span><span class="p">;</span>
+</span></code></pre></div>
+<p>На відміну від словників <code>dict</code>, реалізація <code>set</code> у CPython не використовує концепцію розділених компактних масивів Хеттінгера, а залишається класичною розрідженою хеш-таблицею відкритої адресації з лінійним масивом слотів фіксованого розміру. Це пов'язано з тим, що видалення асоційованого поля значень <code>me_value</code> вже зменшує розмір структури до 16 байтів, тому накладні витрати на додатковий індексний масив у даному типі колекцій не мають достатнього виправдання.</p>
+<p>Наслідком збереження класичної структури є те, що <strong>множини абсолютно не зберігають порядок вставки елементів</strong>. Порядок ітерації по множині диктується поточним розташуванням ключів у фізичних кошиках розрідженого масиву, який змінюється після кожної процедури динамічного розширення таблиці (<em>rehash</em>).</p>
+<p>Тип даних <code>frozenset</code> за своєю внутрішньою організацією пам'яті практично дублює структуру <code>set</code>, однак має одну критичну відмінність на рівні віртуальної машини: для нього відсутні будь-які методи динамічної мутації (такі як <code>add()</code>, <code>discard()</code>, <code>pop()</code>, <code>clear()</code>), а поле <code>tp_hash</code> у системній структурі типу вказує на детерміновану функцію обчислення хешу. </p>
+<p>Алгоритм обчислення хеш-коду незмінної множини є симетричним відносно всіх її елементів, що гарантує однаковий результат незалежно від фізичного порядку їхнього розміщення в пам'яті. Це дає змогу безпечно використовувати екземпляри <code>frozenset</code> як повноцінні ключі у словниках або як елементи інших множин, реалізуючи концепцію множин вищих порядків.</p>
+<p>Для систематизації архітектурних рішень та інженерних характеристик розглянутих базових типів даних звернемося до узагальненої порівняльної таблиці.</p>
+<p><em>Таблиця 1.1 — Комплексний порівняльний аналіз базових структур даних мови Python</em></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Структура даних</th>
+<th style="text-align: left;">Категорія мутабельності</th>
+<th style="text-align: left;">Інваріант хешованості (<code>__hash__</code>)</th>
+<th style="text-align: center;">Середня складність пошуку</th>
+<th style="text-align: left;">Принцип внутрішньої організації в CPython</th>
+<th style="text-align: left;">Приклад з реальної практики</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong><code>dict</code></strong></td>
+<td style="text-align: left;">Змінюваний (<em>mutable</em>)</td>
+<td style="text-align: left;">Нехешований (<code>TypeError</code>)</td>
+<td style="text-align: center;"><span class="arithmatex">\(O(1)\)</span></td>
+<td style="text-align: left;">Компактна таблиця: розріджений <code>indices</code> + щільний <code>entries</code></td>
+<td style="text-align: left;">Кешування профілів користувачів у вебсервері за унікальним UUID</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>set</code></strong></td>
+<td style="text-align: left;">Змінюваний (<em>mutable</em>)</td>
+<td style="text-align: left;">Нехешований (<code>TypeError</code>)</td>
+<td style="text-align: center;"><span class="arithmatex">\(O(1)\)</span></td>
+<td style="text-align: left;">Розріджена відкрита адресація (без значень, без порядку)</td>
+<td style="text-align: left;">Фільтрація дублікатів клієнтських ID у режимі реального часу</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>frozenset</code></strong></td>
+<td style="text-align: left;">Незмінюваний (<em>immutable</em>)</td>
+<td style="text-align: left;">Хешований (<span class="arithmatex">\(O(N)\)</span> при створенні)</td>
+<td style="text-align: center;"><span class="arithmatex">\(O(1)\)</span></td>
+<td style="text-align: left;">Заморожена розріджена хеш-таблиця зі статичним хешем</td>
+<td style="text-align: left;">Складені ключі прав доступу: пара <code>(role, frozenset(permissions))</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>list</code></strong></td>
+<td style="text-align: left;">Змінюваний (<em>mutable</em>)</td>
+<td style="text-align: left;">Нехешований (<code>TypeError</code>)</td>
+<td style="text-align: center;"><span class="arithmatex">\(O(N)\)</span></td>
+<td style="text-align: left;">Динамічний масив покажчиків із коефіцієнтом перевиділення</td>
+<td style="text-align: left;">Черга буферизації повідомлень для послідовного запису на диск</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>tuple</code></strong></td>
+<td style="text-align: left;">Незмінюваний (<em>immutable</em>)</td>
+<td style="text-align: left;">Умовно хешований (залежить від вмісту)</td>
+<td style="text-align: center;"><span class="arithmatex">\(O(N)\)</span></td>
+<td style="text-align: left;">Статичний масив покажчиків фіксованої довжини</td>
+<td style="text-align: left;">Координатна пара просторових точок <code>(latitude, longitude)</code> для GPS</td>
+</tr>
+</tbody>
+</table>
+<p>Дані таблиці демонструють, що правильний вибір структур даних дозволяє оптимізувати обчислювальні процеси на порядки: використання хешованих контейнерів <code>dict</code> та <code>set</code> нівелює затримки пошуку, забезпечуючи константний відгук навіть при масивах у мільйони елементів.</p>
+<blockquote>
+<p><strong>КОНТРОЛЬНЕ ПИТАННЯ:</strong> Чому два числових об'єкти з абсолютно різними внутрішніми представленнями у пам'яті комп'ютера, такі як ціле число <code>1</code> та число з плаваючою точкою <code>1.0</code>, дають однаковий хеш-код <code>hash(1) == hash(1.0)</code> і розглядаються словником Python як один і той самий ключ?</p>
+</blockquote>
+<details class="note">
+<summary>Розгорнути аналітичну відповідь</summary>
+<p><strong>Правильний варіант: Забезпечення математичного контракту еквівалентності та хешованості.</strong></p>
+<ol>
+<li>
+<p>Згідно з базовим інваріантом хеш-структур у мові Python, якщо два об'єкти рівні за значенням через оператор порівняння (<code>1 == 1.0</code> повертає логічне значення <code>True</code>), їхні хеш-значення обов'язково повинні збігатися: <code>hash(1) == hash(1.0)</code>. В іншому випадку пошук значення за ключем <code>1.0</code> у словнику, де запис створювався за цілим ключем <code>1</code>, завершувався б аварійною відсутністю ключа (<code>KeyError</code>), оскільки алгоритм шукав би значення в іншому кошику хеш-таблиці.</p>
+</li>
+<li>
+<p>Аналіз альтернативних інтерпретацій та внутрішнього механізму CPython: Хеш-функція для чисел з плаваючою точкою спроєктована таким чином, щоб для будь-якого дійсного числа, чия дробова частина дорівнює нулю, її результат математично збігався з хеш-кодом еквівалентного цілого числа. При вставці ключа <code>1.0</code> у словник, який вже містить ключ <code>1</code>, обчислюється ідентичний індекс кошика, після чого викликається перевірка <code>1 == 1.0</code>. Оскільки вона повертає <code>True</code>, інтерпретатор не створює новий запис, а лише перезаписує асоційоване значення, зберігаючи первинний ключ.</p>
+</li>
+</ol>
+</details>
+<hr />
+<h3 id="_4">Вказівки для самостійного осмислення</h3>
+<ol>
+<li>
+<p>Дослідіть поведінку вбудованої функції <code>hash()</code> для однакових рядків у різних сеансах роботи інтерпретатора Python та проаналізуйте системний вплив змінної середовища <code>PYTHONHASHSEED</code> на стабільність генерації хеш-кодів.</p>
+</li>
+<li>
+<p>Створіть власний клас користувача, перевантажте в ньому методи <code>__hash__()</code> та <code>__eq__()</code>, після чого перевірте, чи дозволить інтерпретатор додати екземпляр цього класу до множини <code>set</code>, якщо один із цих методів буде реалізовано некоректно або проігноровано.</p>
+</li>
+<li>
+<p>Розрахуйте теоретичний обсяг пам'яті, який споживатиме розріджений масив індексів компактного словника при досягненні розміру таблиці у 65 536 слотів, визначивши мінімальний цілочисельний тип Сі, необхідний для адресації елементів такого контейнера.</p>
+</li>
+</ol>
+<h2 id="2-_1">2. Методологія та аналіз граничних умов. Алгоритмічний інтерфейс, теоретико-множинні операції та системні обмеження хеш-структур</h2>
+<h3 id="21-dictset-comprehensions">2.1. Методи безпечного вилучення та ініціалізації елементів, робота з динамічними уявленнями словника та генератори Dict/Set Comprehensions</h3>
+<p>У практичній інженерії програмного забезпечення пряма адресація за ключем через синтаксис індексації <code>d[k]</code> створює суттєві ризики виникнення виняткових ситуацій, оскільки відсутність шуканого ключа призводить до аварійної зупинки потоку виконання з помилкою <code>KeyError</code>. Наївний підхід до усунення цієї проблеми полягає у попередній перевірці наявності ключа за допомогою конструкції <code>if k in d: return d[k] else: return default</code>. </p>
+<p>Така перевірка є методологічно неефективною, оскільки змушує інтерпретатор CPython виконувати подвійне обчислення хешу та повторний обхід ланцюжка зондування: перший раз — під час виконання оператора <code>in</code>, а другий — під час безпосереднього вилучення значення. </p>
+<p>Окрім подвійних обчислювальних витрат, подібний код не є потокобезпечним (<em>thread-safe</em>), оскільки в асинхронному або багатопотоковому середовищі інший потік може видалити ключ між операцією перевірки та операцією читання, що неминуче збудить виняток.</p>
+<p>Для реалізації надійного та атомарного доступу інтерфейс словника надає метод <code>d.get(k, default=None)</code>. Якщо ключ присутній у структурі, метод повертає асоційоване значення, а у разі його відсутності — повертає об'єкт, переданий як другий аргумент (за замовчуванням <code>None</code>). З точки зору системного аналізу метод <code>get()</code> гарантує детермінований час виконання без збудження внутрішніх сигнатур винятків на рівні байт-коду. </p>
+<p>Коли ж завдання вимагає не просто отримання значення, а й гарантованої модифікації внутрішнього стану словника у разі відсутності запису, стандартом виступає метод <code>d.setdefault(k, default=None)</code>. Якщо ключ відсутній, метод створює новий запис <code>k: default</code> і повертає значення <code>default</code>; якщо ключ уже існує, повертається поточне значення без виконання перезапису. </p>
+<p>Формалізація процесу безпечної агрегації даних із використанням аналітичного підходу та гарантованої ініціалізації описується наступною послідовністю кроків:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+\text{Крок 1 (Отримання потоку):} &amp; \quad (k_t, v_t) \leftarrow \text{Stream}(t) \\
+\text{Крок 2 (Атомарна ініціалізація):} &amp; \quad L_k = \text{setdefault}(k_t, \text{List}()) \\
+\text{Крок 3 (Акумуляція стану):} &amp; \quad L_k \leftarrow L_k \cup \{v_t\} \\
+\text{Крок 4 (Фіксація результату):} &amp; \quad \forall k \in \text{dom}(D) : |D[k]| \ge 1
+\end{aligned}
+\]</div>
+<p>де <span class="arithmatex">\(k_t\)</span> позначає вхідний ключ у момент часу <span class="arithmatex">\(t\)</span>; <span class="arithmatex">\(v_t\)</span> є спостережуваним значенням метрики; <span class="arithmatex">\(L_k\)</span> представляє змінний список-акумулятор, асоційований із ключем <span class="arithmatex">\(k_t\)</span>; <span class="arithmatex">\(\text{List}()\)</span> позначає порожній контейнер для групування; <span class="arithmatex">\(\text{dom}(D)\)</span> є областю визначення словника <span class="arithmatex">\(D\)</span>.</p>
+<p>Методи <code>keys()</code>, <code>values()</code> та <code>items()</code> реалізують концепцію <strong>динамічних системних уявлень</strong> (<em>dictionary views</em>). У ранніх версіях мови ці методи виділяли пам'ять і повертали статичні списки елементів, що при обробці великих масивів даних призводило до різкого падіння швидкодії та вичерпання ОЗП. Сучасні об'єкти уявлень (<code>dict_keys</code>, <code>dict_values</code>, <code>dict_items</code>) не дублюють дані, а зберігають слабкий покажчик на сам словник. Будь-яка мутація базового асоціативного масиву миттєво стає видимою через об'єкт уявлення без додаткових операцій копіювання. Більше того, уявлення <code>keys()</code> та <code>items()</code> підтримують операції реляційної алгебри та теорії множин, дозволяючи виконувати перетин або різницю ключів двох конфігурацій за час <span class="arithmatex">\(O(\min(N_1, N_2))\)</span>.</p>
+<p>Синтаксичний апарат <strong>генераторів словників</strong> (<em>Dict Comprehensions</em>) та <strong>генераторів множин</strong> (<em>Set Comprehensions</em>) переносить парадигму декларативного функціонального програмування на рівень створення колекцій. Замість імперативних циклів із послідовними викликами методів мутації, створення структури описується у вигляді математичної нотації множин. </p>
+<p>Інженерна перевага таких генераторів полягає в тому, що інтерпретатор оптимізує створення байт-коду, викликаючи спеціалізовану інструкцію віртуальної машини <code>MAP_ADD</code> або <code>SET_ADD</code>, яка оминає накладні витрати на пошук і виклик системного методу у глобальному просторі імен на кожній ітерації циклу.</p>
+<blockquote>
+<p><strong>ВАЖЛИВО:</strong> Категорично заборонено змінювати розмірність словника (додавати нові ключі або видаляти наявні) безпосередньо під час ітерації по самому словнику або його уявленнях. Це порушує внутрішній інваріант таблиці та викликає аварійне завершення програми з винятком <code>RuntimeError: dictionary changed size during iteration</code>. Безпечна модифікація вимагає попередньої фіксації ключів у статичний кортеж або використання генератора для створення нового об'єкта.</p>
+</blockquote>
+<hr />
+<h3 id="22">2.2. Алгебра множин у мовному синтаксисі: операторні та функціональні форми об'єднання, перетину, різниці й симетричної різниці</h3>
+<p>Математичний апарат теорії множин реалізований у мові Python двома паралельними механізмами: бінарними інфіксними операторами та іменованими методами об'єктів типу <code>set</code> і <code>frozenset</code>. Розуміння семантичної та алгоритмічної різниці між цими підходами є критично важливим для написання стійкого виробничого коду.</p>
+<p>Операторні форми (об'єднання <code>|</code>, перетин <code>&amp;</code>, різниця <code>-</code>, симетрична різниця <code>^</code>) базуються на суворій типізації: обидва операнди зобов'язані належати до типів <code>set</code> або <code>frozenset</code>. Спроба застосувати бінарний оператор до множини та послідовності іншого типу (наприклад, списку <code>list</code> або кортежу <code>tuple</code>) негайно збуджує виняток <code>TypeError</code>. </p>
+<p>На противагу цьому, іменовані функціональні методи (<code>union()</code>, <code>intersection()</code>, <code>difference()</code>, <code>symmetric_difference()</code>) проєктувалися з розрахунком на поліморфізм аргументів. Вони приймають як параметри довільні ітеровані об'єкти (<em>iterables</em>), включаючи генератори, словники та відкриті файлові потоки, самостійно приводячи їх до внутрішньої хеш-структури безпосередньо в процесі виконання.</p>
+<p>Для глибинного розуміння внутрішньої взаємодії компонентів віртуальної машини при виконанні теоретико-множинних операцій звернемося до діаграми послідовності, наведеній на наступному рисунку.</p>
+<pre class="mermaid"><code>sequenceDiagram
+    autonumber
+    actor Dev as Код розробника
+    participant PVM as Віртуальна машина Python
+    participant SetA as Множина A (Small Set)
+    participant SetB as Множина B (Large Set)
+    participant NewSet as Результуюча множина C
+
+    Dev-&gt;&gt;PVM: Виклик A.intersection(B)
+    PVM-&gt;&gt;SetA: Запит розміру len(A)
+    SetA--&gt;&gt;PVM: Повертає N_A
+    PVM-&gt;&gt;SetB: Запит розміру len(B)
+    SetB--&gt;&gt;PVM: Повертає N_B
+    Note over PVM: Оптимізація: порівняння розмірів (N_A &lt;= N_B)
+    PVM-&gt;&gt;NewSet: Виділення пам'яті під новий об'єкт PySetObject
+    loop Для кожного ключа x в множині A
+        PVM-&gt;&gt;SetA: Отримання наступного key_x та hash_x
+        PVM-&gt;&gt;SetB: Перевірка входження (hash_x, key_x)
+        alt Ключ знайдено в B
+            SetB--&gt;&gt;PVM: Match found (True)
+            PVM-&gt;&gt;NewSet: Вставка key_x у щільну структуру
+        else Ключа немає в B
+            SetB--&gt;&gt;PVM: Match not found (False)
+        end
+    end
+    PVM--&gt;&gt;Dev: Повернення покажчика на новий об'єкт C</code></pre>
+<p>Проаналізуємо механізм оптимізації, проілюстрований на діаграмі послідовності. Під час обчислення перетину двох множин інтерпретатор CPython автоматично оцінює потужність обох колекцій: <span class="arithmatex">\(|A|\)</span> та <span class="arithmatex">\(|B|\)</span>. </p>
+<p>Для мінімізації кількості кроків зондування алгоритм завжди вибирає меншу за розміром множину як джерело для ітерації, а в більшій множині виконує виключно пошук за хеш-кодом. Це гарантує результуючу часову складність на рівні <span class="arithmatex">\(O(\min(|A|, |B|))\)</span> замість песимістичної оцінки <span class="arithmatex">\(O(\max(|A|, |B|))\)</span>.</p>
+<p>Методи мутації на місці (<em>in-place mutations</em>) відрізняються тим, що не породжують новий об'єкт у системній купі (<em>heap</em>), а модифікують первинну адресну структуру. До них належать методи <code>update()</code>, <code>intersection_update()</code>, <code>difference_update()</code> та <code>symmetric_difference_update()</code>, яким відповідають складені оператори присвоєння <code>|=</code>, <code>&amp;=</code>, <code>-=</code>, <code>^=</code>. </p>
+<p>Використання мутуючих методів є пріоритетним у системах обробки великих масивів інформації, оскільки воно повністю виключає накладні витрати на виділення нових блоків пам'яті операційною системою та супутнє навантаження на автоматичний збирач сміття (<em>Garbage Collector</em>).</p>
+<hr />
+<h3 id="23-in-">2.3. Порівняльний аналіз асимптотичної часової складності оператора належності in у послідовностях та хеш-структурах</h3>
+<p>Операція перевірки входження елемента в колекцію за допомогою оператора <code>in</code> є однією з найбільш часто використовуваних інструкцій у прикладних та системних алгоритмах. Проте її обчислювальна вартість кардинально залежить від фундаментальної топології структури даних.</p>
+<p>У лінійних послідовностях, таких як <code>list</code> або <code>tuple</code>, перевірка входження <code>x in L</code> вимагає повного послідовного сканування пам'яті від нульового індексу до моменту знаходження елемента або вичерпання списку. Якщо довжина послідовності дорівнює <span class="arithmatex">\(N\)</span>, математичне очікування кількості операцій порівняння для успішного пошуку за рівномірного розподілу елементів становить:</p>
+<div class="arithmatex">\[\mathbb{E}[\text{Comps}_{\text{list}}] = \frac{N + 1}{2}\]</div>
+<p>а в найгіршому випадку (відсутність елемента або його розташування в самому кінці) алгоритм виконує рівно <span class="arithmatex">\(N\)</span> операцій порівняння. Це формує строгу лінійну асимптотичну складність <span class="arithmatex">\(O(N)\)</span>. </p>
+<p>У хеш-структурах (<code>dict</code> та <code>set</code>) перевірка <code>x in S</code> починається з обчислення хешу від шуканого об'єкта та швидкого бітового маскування, що вказує на конкретний кошик. Очікувана кількість зондувань для розрідженої таблиці залежить не від загального числа збережених елементів, а від коефіцієнта заповнення таблиці <span class="arithmatex">\(\lambda = N/M\)</span>. Для відкритої адресації з якісним псевдовипадковим зондуванням середня кількість перевірок кошиків при неуспішному та успішному пошуку описується теоретичними моделями Дональда Кнута:</p>
+<div class="arithmatex">\[\mathbb{E}[\text{Probes}_{\text{unsuccessful}}] \approx \frac{1}{1 - \lambda}, \quad \mathbb{E}[\text{Probes}_{\text{successful}}] \approx \frac{1}{\lambda} \ln\left(\frac{1}{1 - \lambda}\right)\]</div>
+<p>Оскільки інтерпретатор CPython примусово утримує коефіцієнт заповнення в діапазоні <span class="arithmatex">\(\lambda \le 0.66\)</span>, обмежуючи його шляхом завчасного динамічного розширення таблиці, очікувана кількість перевірок слотів становить:</p>
+<div class="arithmatex">\[\mathbb{E}[\text{Probes}] \le \frac{1}{1 - 0.66} \approx 2.94\]</div>
+<p>Це число є константою, яка абсолютно не залежить від того, чи містить контейнер десять елементів, чи сто мільйонів. Таким чином, середня часова складність пошуку становить строго <span class="arithmatex">\(O(1)\)</span>.</p>
+<blockquote>
+<p><strong>ПРАКТИЧНИЙ ЯКІР:</strong> У мережевих міжмережевих екранах (<em>firewalls</em>) та модулях захисту від атак типу Denial of Service перевірка вхідного трафіку на належність «чорному списку» з 500 000 заблокованих IP-адрес за допомогою списку <code>list</code> вимагає до 500 000 операцій порівняння на кожен мережевий пакет, що призводить до повного колапсу мережевого шлюзу. Переведення сховища адрес у тип <code>set</code> скорочує час верифікації до фіксованих 40 наносекунд на пакет незалежно від загального обсягу заблокованої бази.</p>
+</blockquote>
+<h4 id="_5">Граничні умови та системні бар'єри моделі константного часу</h4>
+<p>Теоретична оцінка <span class="arithmatex">\(O(1)\)</span> для операцій у хеш-таблицях спирається на низку математичних припущень, порушення яких в умовах реальної експлуатації призводить до катастрофічної деградації алгоритму до рівня лінійної складності <span class="arithmatex">\(O(N)\)</span> або повної втрати працездатності системи:</p>
+<ol>
+<li>
+<p><strong>Колапс рівномірного розподілу хеш-функції.</strong> Модель гарантує константний час лише за умови простого рівномірного хешування (<em>simple uniform hashing</em>). Якщо користувацький клас реалізує тривіальний метод <code>__hash__()</code>, який повертає константу (наприклад, <code>return 42</code>), усі елементи незалежно від їхньої кількості маскуються в один і той самий початковий кошик. Відкрита адресація змушена виконувати повний обхід псевдовипадкового ланцюжка зондування через усю таблицю. У результаті кожна вставка та кожен пошук потребують <span class="arithmatex">\(O(N)\)</span> операцій порівняння, деградуючи структуру до найгіршої реалізації зв'язаного списку.</p>
+</li>
+<li>
+<p><strong>Дефіцит ентропії складних ключів та бітові маски.</strong> Оскільки базовий індекс обчислюється операцією <span class="arithmatex">\(h(k) \ \&amp; \ (M - 1)\)</span>, для невеликих таблиць розміром 8 або 16 слотів враховуються лише останні 3 або 4 біти хеш-коду. Якщо множина ключів формується за алгоритмом, який генерує числа або рядки з однаковими молодшими бітовими розрядами, система зазнає 100% колізій на першому кроці, що вимагає глибокого зондування навіть за мінімального навантаження на систему.</p>
+</li>
+<li>
+<p><strong>Сплячі затримки динамічної перебудови (Resizing Latency Spikes).</strong> Гарантія константної складності є амортизованою (<em>amortized <span class="arithmatex">\(O(1)\)</span></em>). Коли кількість активних елементів перевищує поріг <span class="arithmatex">\(2/3\)</span> місткості, відбувається прихована системна процедура рехешування: створюється нова таблиця у 2 або 4 рази більшого розміру, для кожного існуючого елемента заново обчислюється бітова маска та новий індекс зондування. У високонавантажених сервісах реального часу вставка одного критичного пакета в момент досягнення порога може викликати мікросекундну або мілісекундну затримку (<em>latency spike</em>), неприпустиму для телекомунікаційного обладнання.</p>
+</li>
+<li>
+<p><strong>Вичерпання пам'яті через фрагментацію та накладні витрати заголовків.</strong> Для об'єктів екстремально великого обсягу (сотні мільйонів записів) сам механізм хешування стає нерелевантним через перевитрату пам'яті на службові структури PVM. Якщо вільна оперативна пам'ять вичерпується, операційна система починає використовувати розділ підкачки на диску (<em>swap</em>), після чого час доступу <span class="arithmatex">\(O(1)\)</span> у віртуальній пам'яті деградує за фізичним часом через очікування повільних операцій дискового вводу-виводу.</p>
+</li>
+</ol>
+<hr />
+<h3 id="24">2.4. Бар'єри продуктивності, критичні накладні витрати оперативної пам'яті та загрози деградації часу доступу при масових колізіях у високонавантажених застосунках</h3>
+<p>Аналіз продуктивності та надійності структур даних неможливий без оцінки їхнього фізичного сліду в пам'яті комп'ютера. У мові Python платою за константну швидкість доступу до словників та множин є надзвичайно високе накладне споживання пам'яті на один збережений елемент.</p>
+<p>Кожен об'єкт у середовищі CPython містить стандартний заголовок <code>PyObject</code>, що складається з лічильника посилань <code>ob_refcnt</code> (8 байтів) та покажчика на об'єкт типу <code>ob_type</code> (8 байтів). </p>
+<p>Якщо збереженим значенням виступає навіть базове ціле число, окрім самого асоціативного запису в пам'яті створюється незалежна структура <code>PyLongObject</code>, яка потребує від 28 до 32 байтів. </p>
+<p>У компактному словнику кожен запис масиву <code>dk_entries</code> вимагає 24 байти для збереження трійки покажчиків і хешу, до чого додається пам'ять розрідженого масиву <code>dk_indices</code>.</p>
+<p><em>Таблиця 2.1 — Порівняльна матриця інженерних підходів до організації асоціативних та пошукових структур</em></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Модель організації даних</th>
+<th style="text-align: left;">Алгоритмічна основа</th>
+<th style="text-align: center;">Складність доступу (середня / найгірша)</th>
+<th style="text-align: center;">Споживання пам'яті на 1 млн цілих чисел</th>
+<th style="text-align: left;">Складність впровадження</th>
+<th style="text-align: left;">Критичні ризики / Обмеження</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Компактний словник Python (<code>dict</code>)</strong></td>
+<td style="text-align: left;">Хеш-таблиця з відкритою адресацією та розділеними масивами</td>
+<td style="text-align: center;"><span class="arithmatex">\(O(1) / O(N)\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(\approx 36-48\ \text{МБ}\)</span> (лише службові покажчики)</td>
+<td style="text-align: left;">Мінімальна (вбудований синтаксис мови)</td>
+<td style="text-align: left;">Лавиноподібне падіння продуктивності при поганому розподілі хешів; сплески затримок при рехешуванні.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Хеш-множина Python (<code>set</code>)</strong></td>
+<td style="text-align: left;">Класична розріджена хеш-таблиця відкритої адресації</td>
+<td style="text-align: center;"><span class="arithmatex">\(O(1) / O(N)\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(\approx 32-40\ \text{МБ}\)</span></td>
+<td style="text-align: left;">Мінімальна (вбудований синтаксис мови)</td>
+<td style="text-align: left;">Повна відсутність порядку елементів; неможливість прямого використання змінюваних підструктур.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Лінійний динамічний масив (<code>list</code>)</strong></td>
+<td style="text-align: left;">Безперервний буфер покажчиків <code>PyObject*</code></td>
+<td style="text-align: center;"><span class="arithmatex">\(O(N) / O(N)\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(\approx 8-9\ \text{МБ}\)</span> (масив покажчиків)</td>
+<td style="text-align: left;">Низька (базовий контейнер)</td>
+<td style="text-align: left;">Неприпустимий час пошуку <span class="arithmatex">\(O(N)\)</span> на великих обсягах; неефективність дедуплікації даних.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Спеціалізований масив (<code>array.array</code> / C-масив)</strong></td>
+<td style="text-align: left;">Безперервний машинний блок примітивних типів</td>
+<td style="text-align: center;"><span class="arithmatex">\(O(N) / O(N)\)</span> (пошук), <span class="arithmatex">\(O(1)\)</span> (індекс)</td>
+<td style="text-align: center;">Рівно <span class="arithmatex">\(4.0\ \text{МБ}\)</span> (чисті <code>int32_t</code>)</td>
+<td style="text-align: left;">Середня (вимагає контролю типів даних)</td>
+<td style="text-align: left;">Відсутність асоціативного зв'язку; лінійний пошук за значенням; обмеження лише примітивними типами.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Префіксне дерево (Trie / Radix Tree)</strong></td>
+<td style="text-align: left;">Ієрархічне дерево символьних переходів</td>
+<td style="text-align: center;"><span class="arithmatex">\(O(L) / O(L)\)</span>, де <span class="arithmatex">\(L\)</span> — довжина ключа</td>
+<td style="text-align: center;"><span class="arithmatex">\(\approx 100-250\ \text{МБ}\)</span> (висока фрагментація)</td>
+<td style="text-align: left;">Висока (вимагає сторонніх С-бібліотек)</td>
+<td style="text-align: left;">Величезні накладні витрати пам'яті на покажчики вузлів; повільна робота з короткими числовими даними.</td>
+</tr>
+</tbody>
+</table>
+<p>Порівняльний аналіз, проведений у таблиці, показує, що словники та множини Python оптимізовані передусім за критерієм швидкості обчислень, свідомо жертвуючи компактністю зберігання інформації. Для задач із суворими апаратними лімітами застосування стандартних структур <code>dict</code> і <code>set</code> вимагає глибокого аналізу граничних умов.</p>
+<blockquote>
+<p><strong>КОНТРОЛЬНЕ ПИТАННЯ:</strong> У розподіленій системі моніторингу телеметрії інженер вирішив збирати унікальні мережеві з'єднання у структуру вигляду <code>connections = set()</code>. Елементами множини виступали списки параметрів пакетів: <code>[src_ip, dst_ip, port]</code>. Під час запуску першої ж тестової трансляції програма аварійно завершила роботу на інструкції <code>connections.add([ip_src, ip_dst, port])</code>. Поясніть точну причину виникнення збою, вкажіть системний тип винятку та запропонуйте коректне архітектурне рішення для усунення помилки без втрати семантики даних.</p>
+</blockquote>
+<details class="note">
+<summary>Розгорнути аналіз / відповідь</summary>
+<p><strong>Правильний варіант: Використання незмінюваного типу кортеж (<code>tuple</code>) замість списку (<code>list</code>).</strong></p>
+<ol>
+<li>
+<p>Логічне та системне обґрунтування: Тип даних <code>list</code> є змінюваним (<em>mutable</em>). В інтерпретаторі CPython у структурі <code>PyTypeObject</code> для класу <code>list</code> поле <code>tp_hash</code> містить нульовий покажчик (<code>NULL</code>), що на рівні мови транслюється у властивість <code>__hash__ = None</code>. Спроба додати список до множини ініціює виклик магічного методу <code>__hash__()</code>, що спричиняє негайне збудження винятку <code>TypeError: unhashable type: 'list'</code>. Це захисний бар'єр віртуальної машини, який запобігає модифікації об'єкта після його розміщення в кошику хеш-таблиці.</p>
+</li>
+<li>
+<p>Корекція інженерного рішення: Для вирішення проблеми необхідно замінити змінний список на незмінюваний кортеж фіксованої структури: <code>connections.add((ip_src, ip_dst, port))</code>. Кортеж, усі елементи якого є хешованими рядками та числами, сам стає повноцінно хешованим об'єктом. Альтернативним професійним рішенням для покращення читабельності та строгості коду є використання іменованих кортежів <code>collections.namedtuple</code> або заморожених дата-класів <code>@dataclass(frozen=True)</code>, які зберігають незмінність атрибутів та генерують стабільний детермінований хеш.</p>
+</li>
+</ol>
+</details>
+<h2 id="3_1">3. Практичний індустріальний / фаховий кейс. Проєктування системи потокової дедуплікації та аналізу мережевих аномалій</h2>
+<h3 id="31-ddos-ip-">3.1. Комплексний фаховий кейс. Розробка високопродуктивного ядра мережевого аналізатора для виявлення DDoS-атак та потокової фільтрації IP-адрес</h3>
+<h4 id="_6">Постановка задачі / ситуації</h4>
+<p>У сучасних телекомунікаційних мережах оператори стикаються з лавиноподібним зростанням обсягів неструктурованого трафіку. Однією з критичних загроз є розподілені атаки на відмову в обслуговуванні (<em>Distributed Denial of Service</em>, DDoS), зокрема атаки типу SYN-Flood та HTTP-Flood. Мета атаки полягає у вичерпанні ліміту мережевих дескрипторів та оперативної пам'яті кінцевих серверів шляхом надсилання мільйонів пакетів зі сфальшованих або ботнет-адрес.</p>
+<p>Перед командою інженерів поставлено завдання розробити програмний модуль первинної фільтрації та виявлення аномалій трафіку для прикордонного маршрутизатора (<em>Edge Router</em>), який працює в умовах жорстких апаратних обмежень віртуалізованого контейнера. Модуль повинен у режимі реального часу аналізувати ковзне часове вікно тривалістю 10 секунд, виконувати миттєву перевірку пакетів на належність довіреним та скомпрометованим адресам, агрегувати кількість запитів від кожного клієнта, фіксувати аномальні сплески та динамічно поповнювати фільтраційні списки.</p>
+<p>Параметри програмно-апаратного середовища та вхідні кількісні характеристики оброблюваного потоку систематизовано у наступній таблиці специфікації.</p>
+<p><em>Таблиця 3.1 — Специфікація параметрів системи моніторингу мережевого трафіку</em></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Параметр системи</th>
+<th style="text-align: left;">Числове значення / Тип</th>
+<th style="text-align: left;">Інженерне обґрунтування та системне обмеження</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Інтенсивність потоку</strong></td>
+<td style="text-align: left;"><span class="arithmatex">\(1 \ 000 \ 000\)</span> пакетів / вікно</td>
+<td style="text-align: left;">Пікове навантаження під час масованої мережевої атаки</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Тривалість вікна аналізу</strong></td>
+<td style="text-align: left;"><span class="arithmatex">\(\Delta t = 10\)</span> секунд</td>
+<td style="text-align: left;">Квант часу для перерахунку метрик агрегації трафіку</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Ліміт оперативної пам'яті</strong></td>
+<td style="text-align: left;"><span class="arithmatex">\(M_{\text{limit}} = 128\ \text{МБ}\)</span></td>
+<td style="text-align: left;">Жорстке апаратне обмеження ізольованого контейнера</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Довірений список (Whitelist)</strong></td>
+<td style="text-align: left;"><span class="arithmatex">\(10 \ 000\)</span> IP-адрес</td>
+<td style="text-align: left;">Адреси корпоративних партнерів, трафік яких не фільтрується</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Чорний список (Blacklist)</strong></td>
+<td style="text-align: left;"><span class="arithmatex">\(50 \ 000\)</span> IP-адрес</td>
+<td style="text-align: left;">Відомі вузли ботнет-мереж для безумовного блокування</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Поріг аномалії (Threshold)</strong></td>
+<td style="text-align: left;"><span class="arithmatex">\(\theta = 500\)</span> пакетів / вікно</td>
+<td style="text-align: left;">Перевищення ініціює блокування та генерацію інциденту</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Допустима затримка (SLA)</strong></td>
+<td style="text-align: left;"><span class="arithmatex">\(\tau \le 100\ \mu\text{s}\)</span> на пакет</td>
+<td style="text-align: left;">Максимальна затримка конвеєра обробки без втрати пакетів</td>
+</tr>
+</tbody>
+</table>
+<p>Архітектура алгоритмічного конвеєра та схема перенаправлення пакетів у ядрі аналізатора представлена на наступній діаграмі.</p>
+<pre class="mermaid"><code>flowchart TD
+    InPacket["Вхідний мережевий пакет:\nКортеж (src_ip, dst_port, timestamp)"] --&gt; Extract["Вилучення ключа адреси джерела src_ip"]
+    Extract --&gt; CheckWhite{"src_ip ∈ Whitelist_Set?"}
+
+    CheckWhite -- "Так (O(1))" --&gt; PassTraffic["Безумовний пропуск у внутрішню мережу"]
+    CheckWhite -- "Ні" --&gt; CheckBlack{"src_ip ∈ Blacklist_Set?"}
+
+    CheckBlack -- "Так (O(1))" --&gt; DropPacket["Аварійне скидання пакета (Drop)"]
+    CheckBlack -- "Ні" --&gt; UpdateStats["Агрегація: traffic_dict[src_ip] += 1\n(setdefault / get)"]
+
+    UpdateStats --&gt; CheckThreshold{"Пакетів від IP &gt; 500?"}
+    CheckThreshold -- "Так" --&gt; TriggerDefense["1. Додавання IP до Blacklist_Set\n2. Реєстрація у списку порушників\n3. Скидання пакета"]
+    CheckThreshold -- "Ні" --&gt; PassTraffic</code></pre>
+<h4 id="_7">Покроковий аналіз та розв'язок</h4>
+<h5 id="1">Крок 1. Оцінка просторової складності та вибір типу колекцій</h5>
+<p>На першому етапі необхідно визначити структури даних для списків фільтрації та агрегатора. Якщо реалізувати списки адрес як динамічні масиви <code>list</code>, перевірка входження <span class="arithmatex">\(10^6\)</span> пакетів у чорний список розміром <span class="arithmatex">\(50\ 000\)</span> елементів вимагатиме виконання операцій порядку:</p>
+<div class="arithmatex">\[N_{\text{ops}} = 10^6 \times \frac{50\ 000}{2} = 2.5 \times 10^{10}\ \text{операцій порівняння}\]</div>
+<p>Такий обсяг обчислень за 10 секунд призведе до повної відмови системи через деградацію часу відповіді. Тому білі та чорні списки адресації реалізуються у вигляді хеш-множин <code>set</code>, що гарантує пошук за середній час <span class="arithmatex">\(O(1)\)</span>. </p>
+<p>Розрахуємо теоретичні витрати пам'яті для зберігання чорного списку <span class="arithmatex">\(N_{\text{black}} = 50\ 000\)</span> та агрегатора унікальних адрес, кількість яких у найгіршому випадку оцінюється як <span class="arithmatex">\(N_{\text{unique}} = 200\ 000\)</span>.</p>
+<p>В інтерпретаторі CPython 64-розрядне число потребує 32 байти пам'яті, а строковий запис IPv4-адреси займає близько 50 байтів. Враховуючи компактну архітектуру словника, оцінимо сумарне споживання пам'яті <span class="arithmatex">\(S_{\text{total}}\)</span> за формулою:</p>
+<div class="arithmatex">\[S_{\text{total}} = S_{\text{white}} + S_{\text{black}} + S_{\text{traffic\_dict}}\]</div>
+<div class="arithmatex">\[S_{\text{total}} \approx (10^4 \times 64\ \text{Б}) + (5 \times 10^4 \times 64\ \text{Б}) + (2 \times 10^5 \times 72\ \text{Б}) \approx 0.64\ \text{МБ} + 3.2\ \text{МБ} + 14.4\ \text{МБ} = 18.24\ \text{МБ}\]</div>
+<p>Отримане значення <span class="arithmatex">\(18.24\ \text{МБ}\)</span> з великим запасом вкладається у встановлений ліміт пам'яті контейнера <span class="arithmatex">\(M_{\text{limit}} = 128\ \text{МБ}\)</span>, що підтверджує архітектурну життєздатність обраного підходу.</p>
+<h5 id="2">Крок 2. Реалізація високопродуктивного циклу обробки потоку</h5>
+<p>Для забезпечення максимальної швидкодії інтерпретатора необхідно мінімізувати накладні витрати на пошук методів об'єктів. Замість виклику методу всередині циклу через крапкову нотацію, посилання на методи <code>add</code> та <code>get</code> кешуються у локальні змінні функції, що переносить операцію виклику з інструкцій байт-коду <code>LOAD_ATTR</code> на швидкі інструкції <code>LOAD_FAST</code>.</p>
+<p>Нижче наведено програмну реалізацію ядра обробки на мові Python:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">process_traffic_window</span><span class="p">(</span><span class="n">packet_stream</span><span class="p">,</span> <span class="n">whitelist</span><span class="p">,</span> <span class="n">blacklist</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="mi">500</span><span class="p">):</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>    <span class="n">traffic_counters</span> <span class="o">=</span> <span class="p">{}</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>    <span class="n">anomalous_ips</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>    <span class="c1"># Локальне кешування методів для оптимізації байт-коду</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>    <span class="n">is_in_white</span> <span class="o">=</span> <span class="n">whitelist</span><span class="o">.</span><span class="fm">__contains__</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>    <span class="n">is_in_black</span> <span class="o">=</span> <span class="n">blacklist</span><span class="o">.</span><span class="fm">__contains__</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>    <span class="n">add_to_black</span> <span class="o">=</span> <span class="n">blacklist</span><span class="o">.</span><span class="n">add</span>
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>    <span class="n">add_anomalous</span> <span class="o">=</span> <span class="n">anomalous_ips</span><span class="o">.</span><span class="n">add</span>
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>    <span class="k">for</span> <span class="n">packet</span> <span class="ow">in</span> <span class="n">packet_stream</span><span class="p">:</span>
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>        <span class="n">src_ip</span> <span class="o">=</span> <span class="n">packet</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>
+</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>        <span class="c1"># Перевірка базових фільтрів за O(1)</span>
+</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>        <span class="k">if</span> <span class="n">is_in_white</span><span class="p">(</span><span class="n">src_ip</span><span class="p">):</span>
+</span><span id="__span-2-16"><a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a>            <span class="k">continue</span>
+</span><span id="__span-2-17"><a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a>
+</span><span id="__span-2-18"><a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a>        <span class="k">if</span> <span class="n">is_in_black</span><span class="p">(</span><span class="n">src_ip</span><span class="p">):</span>
+</span><span id="__span-2-19"><a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a>            <span class="k">continue</span>
+</span><span id="__span-2-20"><a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a>
+</span><span id="__span-2-21"><a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a>        <span class="c1"># Атомарна агрегація кількості запитів</span>
+</span><span id="__span-2-22"><a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a>        <span class="n">current_count</span> <span class="o">=</span> <span class="n">traffic_counters</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">src_ip</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
+</span><span id="__span-2-23"><a id="__codelineno-2-23" name="__codelineno-2-23" href="#__codelineno-2-23"></a>        <span class="n">traffic_counters</span><span class="p">[</span><span class="n">src_ip</span><span class="p">]</span> <span class="o">=</span> <span class="n">current_count</span>
+</span><span id="__span-2-24"><a id="__codelineno-2-24" name="__codelineno-2-24" href="#__codelineno-2-24"></a>
+</span><span id="__span-2-25"><a id="__codelineno-2-25" name="__codelineno-2-25" href="#__codelineno-2-25"></a>        <span class="c1"># Фіксація аномалії та динамічне оновлення блокувань</span>
+</span><span id="__span-2-26"><a id="__codelineno-2-26" name="__codelineno-2-26" href="#__codelineno-2-26"></a>        <span class="k">if</span> <span class="n">current_count</span> <span class="o">&gt;</span> <span class="n">threshold</span><span class="p">:</span>
+</span><span id="__span-2-27"><a id="__codelineno-2-27" name="__codelineno-2-27" href="#__codelineno-2-27"></a>            <span class="n">add_to_black</span><span class="p">(</span><span class="n">src_ip</span><span class="p">)</span>
+</span><span id="__span-2-28"><a id="__codelineno-2-28" name="__codelineno-2-28" href="#__codelineno-2-28"></a>            <span class="n">add_anomalous</span><span class="p">(</span><span class="n">src_ip</span><span class="p">)</span>
+</span><span id="__span-2-29"><a id="__codelineno-2-29" name="__codelineno-2-29" href="#__codelineno-2-29"></a>
+</span><span id="__span-2-30"><a id="__codelineno-2-30" name="__codelineno-2-30" href="#__codelineno-2-30"></a>    <span class="k">return</span> <span class="n">anomalous_ips</span><span class="p">,</span> <span class="n">traffic_counters</span>
+</span></code></pre></div>
+<h5 id="3-">Крок 3. Теоретико-множинний аналіз результатів вікна спостереження</h5>
+<p>Наприкінці часового вікна інженерний конвеєр виконує синтез нової аналітичної інформації шляхом застосування операцій над множинами. Зокрема, необхідно обчислити перетин нових аномальних адрес із відомими діапазонами підмереж інфраструктури хмарних провайдерів <span class="arithmatex">\(S_{\text{cloud}}\)</span>:</p>
+<div class="arithmatex">\[S_{\text{incident}} = \text{anomalous\_ips} \cap S_{\text{cloud}}\]</div>
+<p>Така операція виконується за час <span class="arithmatex">\(O(\min(|\text{anomalous\_ips}|, |S_{\text{cloud}}|))\)</span> і дозволяє автоматично визначити, чи здійснюється атака зі скомпрометованих серверів дата-центрів.</p>
+<h4 id="_8">Інтерпретація результатів та альтернативні сценарії</h4>
+<p>Застосування хеш-структур <code>dict</code> та <code>set</code> дозволило зменшити загальний час фільтрації одного вікна з потенційних кількох годин (у разі використання списків) до <span class="arithmatex">\(0.18\)</span> секунди на типовому сучасному процесорі, забезпечивши пропускну здатність конвеєра на рівні понад <span class="arithmatex">\(5.5 \times 10^6\)</span> пакетів на секунду.</p>
+<p>Розглянемо альтернативний граничний сценарій: що змінилося б у системному рішенні, якби інтенсивність потоку зросла до <span class="arithmatex">\(10^8\)</span> пакетів за вікно, а ліміт оперативної пам'яті було зменшено до <span class="arithmatex">\(16\ \text{МБ}\)</span>?</p>
+<p>У такому екстремальному режимі наведена архітектура на основі чистого Python <code>dict</code> зазнала б колапсу через перевищення ліміту пам'яті (<em>Out of Memory, OOM Killer</em>). </p>
+<p>Для адаптації рішення системні інженери застосовують такі альтернативи:</p>
+<ol>
+<li>
+<p>Заміна стандартного словника Python на ймовірнісні структури даних, зокрема фільтр Блума (<em>Bloom Filter</em>) або фільтр Калькулятор (<em>Counting Bloom Filter</em>), які дозволяють перевіряти входження елементів у фіксованому буфері розміром кілька мегабайтів ціною появи мізерного відсотка хибнопозитивних спрацьовувань (<em>false positive rate</em> <span class="arithmatex">\(\le 0.1\%\)</span>).</p>
+</li>
+<li>
+<p>Перехід до алгоритму Count-Min Sketch, який забезпечує оцінку частоти появи кожного ключа у потоці даних фіксованим обсягом пам'яті без явного збереження самих IP-адрес.</p>
+</li>
+<li>
+<p>Винесення первинної фільтрації на апаратний рівень мережевої карти за допомогою технології eBPF/XDP (<em>Extended Berkeley Packet Filter</em>), де фільтрація здійснюється на рівні ядра Linux за бітовими масками до передачі пакетів у простір користувача.</p>
+</li>
+</ol>
+<hr />
+<h3 id="32">3.2. Зведена довідкова система лекції</h3>
+<p>Для комплексного закріплення теоретичного та методологічного матеріалу основні концепції, досліджені в межах теми, зведено у системну довідкову таблицю.</p>
+<p><em>Таблиця 3.2 — Зведена довідкова система концепцій асоціативних структур даних</em></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Термін / Концепція</th>
+<th style="text-align: left;">Формалізація / Сутність</th>
+<th style="text-align: left;">Реальний кейс застосування</th>
+<th style="text-align: left;">Основне обмеження / Ризик</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Хеш-функція (<code>hash()</code>)</strong></td>
+<td style="text-align: left;"><span class="arithmatex">\(h: K \to \mathbb{Z}_{2^{64}}\)</span>, відображення довільного об'єкта у 64-бітне ціле число</td>
+<td style="text-align: left;">Генерація первинного індексу для розміщення ключа у таблиці</td>
+<td style="text-align: left;">Ризик виникнення колізій при неповному розподілі ентропії</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Контракт хешованості</strong></td>
+<td style="text-align: left;"><span class="arithmatex">\((x == y) \implies (h(x) == h(y))\)</span> за умови стабільності хешу в часі</td>
+<td style="text-align: left;">Дозвіл на використання об'єкта як ключа словника чи елемента множини</td>
+<td style="text-align: left;">Повна заборона використання змінюваних типів (<code>list</code>, <code>set</code>, <code>dict</code>)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Компактний словник</strong></td>
+<td style="text-align: left;">Розщеплення структури на <code>dk_indices</code> та щільний масив <code>dk_entries</code></td>
+<td style="text-align: left;">Оптимізація пам'яті та впорядковане збереження історії запитів</td>
+<td style="text-align: left;">Додатковий рівень непрямої адресації через індексний масив</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Відкрита адресація</strong></td>
+<td style="text-align: left;">Зберігання записів безпосередньо в таблиці без зв'язаних списків</td>
+<td style="text-align: left;">Підвищення кеш-локальності процесора під час обходу слотів</td>
+<td style="text-align: left;">Деградація швидкодії до <span class="arithmatex">\(O(N)\)</span> при заповненні таблиці понад <span class="arithmatex">\(66\%\)</span></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Псевдовипадкове зондування</strong></td>
+<td style="text-align: left;"><span class="arithmatex">\(j_{i+1} = (5j_i + 1 + \text{perturb}) \pmod M\)</span> із зсувом <span class="arithmatex">\(\text{perturb} \gg 5\)</span></td>
+<td style="text-align: left;">Ефективне розсіювання колізійних ключів по адресному простору</td>
+<td style="text-align: left;">Затримка на перерахунок індексів при масових збігах молодших бітів</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Слот Dummy</strong></td>
+<td style="text-align: left;">Спеціальний маркер видаленого запису (індекс <code>-2</code>)</td>
+<td style="text-align: left;">Збереження цілісності ланцюжка зондування для інших ключів</td>
+<td style="text-align: left;">Неможливість негайного звільнення пам'яті до повного рехешування</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Множина (<code>set</code>)</strong></td>
+<td style="text-align: left;">Беззначеннєва розріджена хеш-таблиця унікальних об'єктів</td>
+<td style="text-align: left;">Миттєва дедуплікація ідентифікаторів у потоках подій</td>
+<td style="text-align: left;">Невпорядкованість елементів; високі накладні витрати пам'яті</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Незмінна множина (<code>frozenset</code>)</strong></td>
+<td style="text-align: left;">Хешований незмінний екземпляр множини без методів мутації</td>
+<td style="text-align: left;">Використання груп прав доступу як складених ключів словників</td>
+<td style="text-align: left;">Неможливість динамічного додавання елементів після створення</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Метод <code>d.get()</code></strong></td>
+<td style="text-align: left;">Безпечне читання значення за ключем зі значенням за замовчуванням</td>
+<td style="text-align: left;">Читання необов'язкових полів у напівструктурованих документах JSON</td>
+<td style="text-align: left;">Маскування системних логічних помилок при некоректному ключі за замовчуванням</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Метод <code>d.setdefault()</code></strong></td>
+<td style="text-align: left;">Атомарне зчитування або ініціалізація відсутнього запису</td>
+<td style="text-align: left;">Групування транзакцій за унікальними номерами банківських карток</td>
+<td style="text-align: left;">Непродуктивне обчислення аргументу значення, навіть якщо ключ існує</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Динамічні уявлення</strong></td>
+<td style="text-align: left;">Об'єкти <code>dict_keys</code>, <code>dict_values</code>, <code>dict_items</code> без копіювання даних</td>
+<td style="text-align: left;">Миттєве порівняння конфігурацій систем через операції множин</td>
+<td style="text-align: left;">Заборона модифікації вихідного словника під час ітерації</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Dict Comprehension</strong></td>
+<td style="text-align: left;">Декларативний синтаксис <span class="arithmatex">\(\{k(x): v(x) \text{ for } x \text{ in } S\}\)</span></td>
+<td style="text-align: left;">Інверсія індексів пошуку або фільтрація таблиць конфігурації</td>
+<td style="text-align: left;">Одночасне виділення пам'яті під весь результуючий об'єкт</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="33">3.3. Контрольні питання та завдання</h3>
+<h4 id="_9">Прикладні тестові завдання</h4>
+<h5 id="1_1">Завдання 1</h5>
+<p>Мережевий інженер розробляє модуль автентифікації, де права доступу зберігаються у словнику. Для користувача з роллю адміністратора виконано наступний код:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">role_permissions</span> <span class="o">=</span> <span class="p">{}</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="n">user_roles</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"read"</span><span class="p">,</span> <span class="s2">"write"</span><span class="p">]</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="n">role_permissions</span><span class="p">[</span><span class="n">user_roles</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"SuperAdmin"</span>
+</span></code></pre></div>
+<p>Який результат поверне інтерпретатор CPython під час виконання цього фрагмента коду?</p>
+<ul>
+<li>
+<p>A) У словнику успішно створиться запис <code>['read', 'write']: 'SuperAdmin'</code>.</p>
+</li>
+<li>
+<p>B) Буде згенеровано виняток <code>TypeError: unhashable type: 'list'</code>.</p>
+</li>
+<li>
+<p>C) Буде згенеровано виняток <code>KeyError: 'user_roles'</code>.</p>
+</li>
+<li>
+<p>D) Запис створиться, але обчислене значення хеш-коду буде дорівнювати нулю.</p>
+</li>
+</ul>
+<details class="note">
+<summary>Розгорнути аналіз / відповідь</summary>
+<p><strong>Правильний варіант: B.</strong></p>
+<ol>
+<li>
+<p>Логічне та системне обґрунтування: Ключем словника у мові Python може бути лише об'єкт, який підтримує контракт хешованості (<em>hashable</em>). Змінні типи даних, такі як списки <code>list</code>, мають внутрішній слот <code>tp_hash = NULL</code>, оскільки їхній вміст може бути модифікований на місці. При спробі використати список як ключ віртуальна машина перевіряє підтримку методу <code>__hash__()</code> і, не знайшовши його, перериває операцію викликом винятку <code>TypeError: unhashable type: 'list'</code>.</p>
+</li>
+<li>
+<p>Аналіз дистракторів:</p>
+</li>
+<li>
+<p>Варіант A є хибним, оскільки припущення про автоматичну вставку ігнорує базові принципи захисту цілісності хеш-таблиць.</p>
+</li>
+<li>
+<p>Варіант C є хибним, тому що виняток <code>KeyError</code> виникає виключно під час спроби читання відсутнього ключа, а не під час його запису.</p>
+</li>
+<li>
+<p>Варіант D є хибним, оскільки інтерпретатор не допускає ініціалізації нульового або фіктивного хешу для змінюваних контейнерів.</p>
+</li>
+</ol>
+</details>
+<h5 id="2_1">Завдання 2</h5>
+<p>Розробник реалізує процедуру видалення застарілих сесій користувачів з кеш-словника за наступним алгоритмом:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">sessions</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"u1"</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span> <span class="s2">"u2"</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span> <span class="s2">"u3"</span><span class="p">:</span> <span class="mi">50</span><span class="p">}</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="k">for</span> <span class="n">user</span><span class="p">,</span> <span class="n">score</span> <span class="ow">in</span> <span class="n">sessions</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>    <span class="k">if</span> <span class="n">score</span> <span class="o">&lt;</span> <span class="mi">150</span><span class="p">:</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>        <span class="k">del</span> <span class="n">sessions</span><span class="p">[</span><span class="n">user</span><span class="p">]</span>
+</span></code></pre></div>
+<p>Які наслідки матиме запуск цієї ділянки коду у середовищі Python 3.8+?</p>
+<ul>
+<li>
+<p>A) Усі користувачі з балом менше 150 будуть успішно вилучені зі словника без помилок.</p>
+</li>
+<li>
+<p>B) Видалиться тільки перший знайдений користувач (<code>u1</code>), після чого цикл коректно завершиться.</p>
+</li>
+<li>
+<p>C) Буде згенеровано виняток <code>RuntimeError: dictionary changed size during iteration</code>.</p>
+</li>
+<li>
+<p>D) Відбудеться нескінченне зациклення виконання через зміну внутрішнього індексу <code>dk_indices</code>.</p>
+</li>
+</ul>
+<details class="note">
+<summary>Розгорнути аналіз / відповідь</summary>
+<p><strong>Правильний варіант: C.</strong></p>
+<ol>
+<li>
+<p>Логічне та системне обґрунтування: Об'єкт уявлення <code>sessions.items()</code> посилається безпосередньо на внутрішній стан компактного словника. В інтерпретаторі CPython кожен словник має внутрішній лічильник змін <code>ma_version_tag</code>. Під час кожної ітерації ітератор перевіряє, чи не змінився цей тег. Виклик оператора <code>del sessions[user]</code> змінює розмірність словника та оновлює версію структури, що негайно фіксується ітератором на наступному кроці й збуджує <code>RuntimeError</code>.</p>
+</li>
+<li>
+<p>Аналіз дистракторів:</p>
+</li>
+<li>
+<p>Варіант A є хибним, оскільки ігнорує системний контроль узгодженості розміру ітерованих структур у Python.</p>
+</li>
+<li>
+<p>Варіант B є хибним, тому що помилка виникає не після завершення, а безпосередньо на спробі перейти до наступного елемента після першої мутації.</p>
+</li>
+<li>
+<p>Варіант D є хибним, оскільки захисний механізм інтерпретатора запобігає зацикленню шляхом примусового викидання винятку.</p>
+</li>
+</ol>
+</details>
+<h5 id="3_2">Завдання 3</h5>
+<p>Нехай задано дві множини цілих чисел: <code>A = {1, 2, 3, 4}</code> та <code>B = {3, 4, 5, 6}</code>. Який результат поверне вираз <code>A ^ B</code>, і яка його точна математична назва?</p>
+<ul>
+<li>
+<p>A) <code>{3, 4}</code> — перетин множин.</p>
+</li>
+<li>
+<p>B) <code>{1, 2, 5, 6}</code> — симетрична різниця множин.</p>
+</li>
+<li>
+<p>C) <code>{1, 2}</code> — пряма відносна різниця множин.</p>
+</li>
+<li>
+<p>D) <code>{1, 2, 3, 4, 5, 6}</code> — повне об'єднання множин.</p>
+</li>
+</ul>
+<details class="note">
+<summary>Розгорнути аналіз / відповідь</summary>
+<p><strong>Правильний варіант: B.</strong></p>
+<ol>
+<li>
+<p>Логічне та системне обґрунтування: Оператор <code>^</code> у мові Python позначає операцію <strong>симетричної різниці</strong> (<em>symmetric difference</em>), яка відповідає формулі <span class="arithmatex">\(A \Delta B = (A \setminus B) \cup (B \setminus A)\)</span>. Вона повертає нову множину, що містить елементи, які належать або тільки множині <span class="arithmatex">\(A\)</span>, або тільки множині <span class="arithmatex">\(B\)</span>, але не обом одночасно. Для вхідних даних: <span class="arithmatex">\(A \setminus B = \{1, 2\}\)</span>, <span class="arithmatex">\(B \setminus A = \{5, 6\}\)</span>, тому їхнє об'єднання дорівнює <span class="arithmatex">\(\{1, 2, 5, 6\}\)</span>.</p>
+</li>
+<li>
+<p>Аналіз дистракторів:</p>
+</li>
+<li>
+<p>Варіант A відповідає оператору перетину <code>A &amp; B</code>.</p>
+</li>
+<li>
+<p>Варіант C відповідає оператору відносної різниці <code>A - B</code>.</p>
+</li>
+<li>
+<p>Варіант D відповідає оператору об'єднання <code>A | B</code>.</p>
+</li>
+</ol>
+</details>
+<h5 id="4">Завдання 4</h5>
+<p>Аналітик оптимізує функцію підрахунку частоти символів у текстовому файлі. Яка з наведених інструкцій оновлення лічильника є найбільш коректною та безпечною для опрацювання чергового символу <code>char</code> у словнику <code>freq</code> без ризику падіння програми?</p>
+<ul>
+<li>
+<p>A) <code>freq[char] = freq[char] + 1</code></p>
+</li>
+<li>
+<p>B) <code>freq[char] = freq.get(char, 0) + 1</code></p>
+</li>
+<li>
+<p>C) <code>freq.setdefault(char, 0) += 1</code></p>
+</li>
+<li>
+<p>D) <code>freq[char] = freq.pop(char, 0) + 1</code></p>
+</li>
+</ul>
+<details class="note">
+<summary>Розгорнути аналіз / відповідь</summary>
+<p><strong>Правильний варіант: B.</strong></p>
+<ol>
+<li>
+<p>Логічне та системне обґрунтування: Метод <code>freq.get(char, 0)</code> безпечно вилучає поточне значення частоти символу, повертаючи нуль, якщо символ зустрівся вперше. До цього значення додається одиниця, і результат зберігається за ключем <code>char</code>. Це виключає ризик генерації винятку <code>KeyError</code> і не вимагає попередніх перевірок через <code>in</code>.</p>
+</li>
+<li>
+<p>Аналіз дистракторів:</p>
+</li>
+<li>
+<p>Варіант A збудить аварійний виняток <code>KeyError</code> на першому ж символі, якого ще немає у словнику.</p>
+</li>
+<li>
+<p>Варіант C містить синтаксичну помилку, оскільки виклик методу <code>setdefault()</code> повертає значення, яке не є ліводопустимим операндом (<em>l-value</em>) для оператора присвоєння <code>+=</code>.</p>
+</li>
+<li>
+<p>Варіант D вилучає запис зі словника на кожному кроці через метод <code>pop()</code>, що призводить до зайвих накладних витрат пам'яті та руйнує коректне накопичення значень.</p>
+</li>
+</ol>
+</details>
+<hr />
+<h4 id="_10">Завдання для самостійної роботи</h4>
+<h5 id="_11">Постановка задачі</h5>
+<p>Вам доручено спроєктувати архітектуру підсистеми управління доступом на основі ролей (<em>Role-Based Access Control</em>, RBAC) для розподіленої платформи інтернету речей (IoT). Система отримує запити від <span class="arithmatex">\(50\ 000\)</span> автономних датчиків, кожен з яких наділений певним набором числових або рядкових атрибутів доступу (наприклад, <code>sensor_id</code>, <code>firmware_version</code>, <code>geo_zone</code>, <code>permission_flags</code>). </p>
+<p>Необхідно реалізувати високонадійний сервіс валідації прав доступу, який дозволяє групувати дозволи у незмінні шаблони, перевіряти відповідність фактичних прав датчика політикам безпеки за константний час та виявляти конфлікти між різними ролями.</p>
+<h5 id="_12">Завдання для виконання</h5>
+<ol>
+<li>
+<p>Спроєктуйте структуру даних для представлення шаблонів прав доступу на основі типу <code>frozenset</code>, забезпечивши можливість використання цих шаблонів як складених ключів у словнику правил безпеки.</p>
+</li>
+<li>
+<p>Реалізуйте алгоритм перевірки відповідності прав датчика заданій політиці за допомогою операцій над множинами, використовуючи методи <code>issubset()</code> або <code>issuperset()</code>, та оцініть асимптотичну часову складність валідації одного запиту.</p>
+</li>
+<li>
+<p>Напишіть функцію нормалізації вхідного списку ролей користувача за допомогою генератора словників (<em>Dict Comprehension</em>), яка інвертує словник відображення <code>користувач -&gt; кортеж ролей</code> у структуру зворотного пошуку <code>роль -&gt; множина користувачів</code>.</p>
+</li>
+<li>
+<p>Проведіть експериментальне вимірювання часу виконання операції дедуплікації <span class="arithmatex">\(100\ 000\)</span> ідентифікаторів пристроїв двома способами: шляхом перетворення списку у множину <code>set(device_list)</code> та за допомогою ручного ітеративного наповнення списку з перевіркою <code>if id not in unique_list</code>. Оформіть отримані результати у вигляді стислого аналітичного звіту з графіком або порівняльною таблицею затримок.</p>
+</li>
+</ol>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Повернутись нагору
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 Kyrylo Vadurin &bull; <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a>
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.expand", "navigation.top", "navigation.tracking", "header.autohide", "search.suggest", "search.highlight", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u0421\u043a\u043e\u043f\u0456\u0439\u043e\u0432\u0430\u043d\u043e \u0432 \u0431\u0443\u0444\u0435\u0440", "clipboard.copy": "\u0421\u043a\u043e\u043f\u0456\u044e\u0432\u0430\u0442\u0438 \u0432 \u0431\u0443\u0444\u0435\u0440", "search.result.more.one": "\u0429\u0435 1 \u0437\u0431\u0456\u0433 \u043d\u0430 \u0446\u0456\u0439 \u0441\u0442\u043e\u0440\u0456\u043d\u0446\u0456", "search.result.more.other": "\u0429\u0435 # \u0437\u0431\u0456\u0433\u0456\u0432 \u043d\u0430 \u0446\u0456\u0439 \u0441\u0442\u043e\u0440\u0456\u043d\u0446\u0456", "search.result.none": "\u0417\u0431\u0456\u0433\u0456\u0432 \u043d\u0435 \u0437\u043d\u0430\u0439\u0434\u0435\u043d\u043e", "search.result.one": "\u0417\u043d\u0430\u0439\u0434\u0435\u043d\u043e 1 \u0437\u0431\u0456\u0433", "search.result.other": "\u0417\u043d\u0430\u0439\u0434\u0435\u043d\u043e # \u0437\u0431\u0456\u0433\u0456\u0432", "search.result.placeholder": "\u0420\u043e\u0437\u043f\u043e\u0447\u043d\u0456\u0442\u044c \u043f\u0438\u0441\u0430\u0442\u0438 \u0434\u043b\u044f \u043f\u043e\u0448\u0443\u043a\u0443", "search.result.term.missing": "\u041d\u0435 \u0437\u043d\u0430\u0439\u0434\u0435\u043d\u043e \u0437\u0430\u043f\u0438\u0442\u0443", "select.version": "\u041e\u0431\u0440\u0430\u0442\u0438 \u0432\u0435\u0440\u0441\u0456\u044e"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

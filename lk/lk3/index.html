@@ -1,0 +1,3016 @@
+
+<!doctype html>
+<html lang="uk" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Навчальний портал з дисципліни "Програмування на Python. Базовий рівень"">
+      
+      
+      
+      
+        <link rel="prev" href="../lk2/">
+      
+      
+        <link rel="next" href="../lk4/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Тема 3. Впорядковані структури даних (Списки, Кортежі) - Програмування на Python</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="cyan">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#3" class="md-skip">
+          Перейти до змісту
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Хедер">
+    <a href="../.." title="Програмування на Python" class="md-header__button md-logo" aria-label="Програмування на Python" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Програмування на Python
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Тема 3. Впорядковані структури даних (Списки, Кортежі)
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="cyan"  aria-label="Переключити на темну тему"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Переключити на темну тему" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="cyan"  aria-label="Переключити на світлу тему"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Переключити на світлу тему" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Пошук" placeholder="Пошук" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Шукати">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Очистити" aria-label="Очистити" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Пошук розпочато
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Вкладки" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Робоча програма
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../lk1/" class="md-tabs__link">
+          
+  
+  
+  Лекції
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../lb/lb1/" class="md-tabs__link">
+          
+  
+  
+  Лабораторні роботи
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../sr/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Самостійна робота
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../sr/quest/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Перелік тестових питань
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../rg/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Розрахунково-графічна робота
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Навігація" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Програмування на Python" class="md-nav__button md-logo" aria-label="Програмування на Python" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Програмування на Python
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Робоча програма
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Лекції
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Лекції
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lk1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Тема 1. Архітектура мови та інфраструктура
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lk2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Тема 2. Керування потоком виконання
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Тема 3. Впорядковані структури даних (Списки, Кортежі)
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Тема 3. Впорядковані структури даних (Списки, Кортежі)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Зміст">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Зміст
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Мета лекції
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Очікувані результати навчання
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Детальний покроковий план лекції
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Детальний покроковий план лекції">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-cpython" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Теоретико-концептуальний базис. Архітектура послідовностей та організація пам'яті в CPython
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Методологія та аналіз граничних умов. Алгоритми маніпуляції даними, просторова складність та бар'єри продуктивності
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Практичний індустріальний / фаховий кейс. Проектування високоефективного буфера телеметричних даних
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-cpython_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Теоретико-концептуальний базис. Архітектура послідовностей та організація пам'яті в CPython
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Теоретико-концептуальний базис. Архітектура послідовностей та організація пам&#39;яті в CPython">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-c-pylistobject" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1. Внутрішня C-структура PyListObject та принцип адресації елементів у динамічному масиві покажчиків
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2. Алгоритмічні засади позиційної індексації, нормалізація від'ємних індексів та математичний апарат зрізів
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-pytupleobject" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3. Фізична організація незмінного кортежу PyTupleObject, оптимізація розміру пам'яті та механізм вільних списків
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.4. Математичні критерії хешованості об'єктів і принципи використання кортежів як ключів словників
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Вказівки для самостійного осмислення
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Методологія та аналіз граничних умов. Алгоритми маніпуляції даними, просторова складність та бар'єри продуктивності
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Методологія та аналіз граничних умов. Алгоритми маніпуляції даними, просторова складність та бар&#39;єри продуктивності">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-append" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1. Динамічне масштабування буфера за алгоритмом геометричної прогресії та амортизована складність методу append
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-timsort-sorted" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2. Методологія сортування на місці гібридним алгоритмом Timsort у порівнянні з функціональним підходом функції sorted
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.2. Методологія сортування на місці гібридним алгоритмом Timsort у порівнянні з функціональним підходом функції sorted">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#timsort" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Граничні умови та сценарії деградації Timsort
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3. Семантика поверхневого та глибокого копіювання вкладених структур і небезпека непередбачуваної мутації даних
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.3. Семантика поверхневого та глибокого копіювання вкладених структур і небезпека непередбачуваної мутації даних">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Граничні умови та бар'єри глибокого копіювання
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-list_append" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4. Декларативні генератори списків та оптимізація наповнення колекцій на рівні байт-код інструкції LIST_APPEND
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.4. Декларативні генератори списків та оптимізація наповнення колекцій на рівні байт-код інструкції LIST_APPEND">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#list-comprehensions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Граничні умови використання List Comprehensions
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.5. Критичні бар'єри просторової локальності даних, промахи процесорного кешу через непряму адресацію та обмеження безпеки потоків
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Практичний індустріальний / фаховий кейс. Проектування високоефективного буфера телеметричних даних
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Практичний індустріальний / фаховий кейс. Проектування високоефективного буфера телеметричних даних">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1. Комплексний фаховий кейс. Розробка кільцевого буфера первинної фільтрації пакетів телеметрії інтернет-шлюзу із захистом конфігураційних кортежів від мутації
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.1. Комплексний фаховий кейс. Розробка кільцевого буфера первинної фільтрації пакетів телеметрії інтернет-шлюзу із захистом конфігураційних кортежів від мутації">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Постановка задачі / ситуації
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Покроковий аналіз та розв'язок
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Покроковий аналіз та розв&#39;язок">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Крок 1. Структурна ізоляція метаданих і оцінка статичного споживання пам'яті
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Крок 2. Реалізація кільцевого буфера без перевиділення пам'яті
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-list-comprehensions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Крок 3. Алгоритм статистичної фільтрації вікна на основі List Comprehensions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-tau_max" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Крок 4. Валідація часової складності та відповідності бюджету \(\tau_{max}\)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Інтерпретація результатів та альтернативні сценарії
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2. Зведена довідкова система лекції
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3. Контрольні питання та завдання
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.3. Контрольні питання та завдання">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Прикладні тестові завдання
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Завдання для самостійної роботи
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Завдання для самостійної роботи">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Постановка задачі
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Завдання для виконання
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lk4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Тема 4. Текстові, двійкові дані та Регулярні вирази
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lk5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Тема 5. Хеш-таблиці (Словники, Множини)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lk6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Тема 6. Функціональна організація коду
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lk7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Тема 7. Модульна архітектура та пакети
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lk8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Тема 8. Обробка винятків та файлове в/в
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lk9/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Тема 9. Об'єктно-орієнтоване програмування
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Лабораторні роботи
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Лабораторні роботи
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lb/lb1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 1. Розгортання інфраструктури розробки
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lb/lb2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 2. Скалярні типи даних та моделювання
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lb/lb3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 3. Алгоритми розгалуженої та циклічної структури
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lb/lb4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 4. Обробка списків та кортежі
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lb/lb5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 5. Обробка тексту та регулярні вирази
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lb/lb6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 6. Асоціативні структури даних (Словники, Множини)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lb/lb7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 7. Проєктування функцій та рекурсія
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lb/lb8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 8. Модульне програмування та системні бібліотеки
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lb/lb9/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 9. Обробка виняткових ситуацій
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lb/lb10/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 10. Файлове в/в та менеджери контексту
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lb/lb11/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 11. ООП та перевантаження методів
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sr/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Самостійна робота
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sr/quest/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Перелік тестових питань
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../rg/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Розрахунково-графічна робота
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Зміст">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Зміст
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Мета лекції
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Очікувані результати навчання
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Детальний покроковий план лекції
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Детальний покроковий план лекції">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-cpython" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Теоретико-концептуальний базис. Архітектура послідовностей та організація пам'яті в CPython
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Методологія та аналіз граничних умов. Алгоритми маніпуляції даними, просторова складність та бар'єри продуктивності
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Практичний індустріальний / фаховий кейс. Проектування високоефективного буфера телеметричних даних
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-cpython_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Теоретико-концептуальний базис. Архітектура послідовностей та організація пам'яті в CPython
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Теоретико-концептуальний базис. Архітектура послідовностей та організація пам&#39;яті в CPython">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-c-pylistobject" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1. Внутрішня C-структура PyListObject та принцип адресації елементів у динамічному масиві покажчиків
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2. Алгоритмічні засади позиційної індексації, нормалізація від'ємних індексів та математичний апарат зрізів
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-pytupleobject" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3. Фізична організація незмінного кортежу PyTupleObject, оптимізація розміру пам'яті та механізм вільних списків
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.4. Математичні критерії хешованості об'єктів і принципи використання кортежів як ключів словників
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Вказівки для самостійного осмислення
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Методологія та аналіз граничних умов. Алгоритми маніпуляції даними, просторова складність та бар'єри продуктивності
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Методологія та аналіз граничних умов. Алгоритми маніпуляції даними, просторова складність та бар&#39;єри продуктивності">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-append" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1. Динамічне масштабування буфера за алгоритмом геометричної прогресії та амортизована складність методу append
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-timsort-sorted" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2. Методологія сортування на місці гібридним алгоритмом Timsort у порівнянні з функціональним підходом функції sorted
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.2. Методологія сортування на місці гібридним алгоритмом Timsort у порівнянні з функціональним підходом функції sorted">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#timsort" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Граничні умови та сценарії деградації Timsort
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3. Семантика поверхневого та глибокого копіювання вкладених структур і небезпека непередбачуваної мутації даних
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.3. Семантика поверхневого та глибокого копіювання вкладених структур і небезпека непередбачуваної мутації даних">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Граничні умови та бар'єри глибокого копіювання
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-list_append" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4. Декларативні генератори списків та оптимізація наповнення колекцій на рівні байт-код інструкції LIST_APPEND
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.4. Декларативні генератори списків та оптимізація наповнення колекцій на рівні байт-код інструкції LIST_APPEND">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#list-comprehensions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Граничні умови використання List Comprehensions
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.5. Критичні бар'єри просторової локальності даних, промахи процесорного кешу через непряму адресацію та обмеження безпеки потоків
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Практичний індустріальний / фаховий кейс. Проектування високоефективного буфера телеметричних даних
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Практичний індустріальний / фаховий кейс. Проектування високоефективного буфера телеметричних даних">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1. Комплексний фаховий кейс. Розробка кільцевого буфера первинної фільтрації пакетів телеметрії інтернет-шлюзу із захистом конфігураційних кортежів від мутації
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.1. Комплексний фаховий кейс. Розробка кільцевого буфера первинної фільтрації пакетів телеметрії інтернет-шлюзу із захистом конфігураційних кортежів від мутації">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Постановка задачі / ситуації
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Покроковий аналіз та розв'язок
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Покроковий аналіз та розв&#39;язок">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Крок 1. Структурна ізоляція метаданих і оцінка статичного споживання пам'яті
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Крок 2. Реалізація кільцевого буфера без перевиділення пам'яті
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-list-comprehensions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Крок 3. Алгоритм статистичної фільтрації вікна на основі List Comprehensions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-tau_max" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Крок 4. Валідація часової складності та відповідності бюджету \(\tau_{max}\)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Інтерпретація результатів та альтернативні сценарії
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2. Зведена довідкова система лекції
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3. Контрольні питання та завдання
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.3. Контрольні питання та завдання">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Прикладні тестові завдання
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Завдання для самостійної роботи
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Завдання для самостійної роботи">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Постановка задачі
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Завдання для виконання
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="3">Тема 3. Впорядковані структури даних: списки та кортежі</h1>
+<h2 id="_1">Мета лекції</h2>
+<p>Формування у майбутніх фахівців фундаментального розуміння принципів організації, архітектурних особливостей внутрішнього представлення та механізмів функціонування лінійних впорядкованих структур даних мови Python, зокрема списків як динамічних масивів посилань та кортежів як незмінних послідовностей. У межах академічного курсу вивчаються системні механізми виділення оперативної пам’яті віртуальною машиною CPython, обчислювальна та просторова складність базових алгоритмів маніпуляції колекціями даних, а також формуються практичні навички раціонального вибору між змінюваними й незмінними типами під час проектування високонавантажених інженерних застосунків, конвеєрів первинної обробки інформації та телекомунікаційних протоколів.</p>
+<h2 id="_2">Очікувані результати навчання</h2>
+<ol>
+<li>
+<p><strong>Знання та розуміння.</strong> Студенти повинні засвоїти внутрішню низькорівневу архітектуру об'єктів <code>PyListObject</code> і <code>PyTupleObject</code>, концепцію гетерогенного масиву покажчиків, алгоритмічні засади надлишкового виділення пам’яті та принципові відмінності між мутабельними й імутабельними типами даних у середовищі CPython.</p>
+</li>
+<li>
+<p><strong>Застосування.</strong> Студенти навчаться застосовувати інструментарій створення колекцій, реалізовувати багатовимірні вкладені масиви, керувати зрізами послідовностей, конструювати ефективні генератори списків, а також використовувати вбудовані методи додавання, вилучення та стабільного сортування елементів для вирішення прикладних обчислювальних задач.</p>
+</li>
+<li>
+<p><strong>Аналіз.</strong> Здобувачі вищої освіти зможуть аналізувати відмінності між поверхневим та глибоким копіюванням складних об'єктів, досліджувати алгоритмічну складність операцій доступу й трансформації елементів за асимптотичною нотацією <span class="arithmatex">\(O\)</span>-велике, а також ідентифікувати приховані побічні ефекти розділюваних мутабельних посилань.</p>
+</li>
+<li>
+<p><strong>Оцінювання та синтез.</strong> Здобувачі зможуть критично оцінювати продуктивність використання списків проти кортежів для оптимізації споживання апаратних ресурсів, обґрунтовувати придатність складених структур даних для хешування у ролі ключів асоціативних масивів і синтезувати надійні алгоритмічні конвеєри валідації та фільтрації структурованих пакетів даних.</p>
+</li>
+</ol>
+<hr />
+<h2 id="_3">Детальний покроковий план лекції</h2>
+<h3 id="1-cpython">1. Теоретико-концептуальний базис. Архітектура послідовностей та організація пам'яті в CPython</h3>
+<ul>
+<li>
+<p>1.1. Внутрішня C-структура <code>PyListObject</code> та принцип адресації елементів у динамічному масиві покажчиків</p>
+</li>
+<li>
+<p>1.2. Алгоритмічні засади позиційної індексації, нормалізація від'ємних індексів та математичний апарат зрізів</p>
+</li>
+<li>
+<p>1.3. Фізична організація незмінного кортежу <code>PyTupleObject</code>, оптимізація розміру пам'яті та механізм вільних списків</p>
+</li>
+<li>
+<p>1.4. Математичні критерії хешованості об'єктів і принципи використання кортежів як ключів словників</p>
+</li>
+</ul>
+<h3 id="2">2. Методологія та аналіз граничних умов. Алгоритми маніпуляції даними, просторова складність та бар'єри продуктивності</h3>
+<ul>
+<li>
+<p>2.1. Стратегія надлишкового геометричного виділення пам'яті та амортизована складність операцій модифікації списку</p>
+</li>
+<li>
+<p>2.2. Методологія сортування на місці гібридним алгоритмом Timsort у порівнянні з функціональним підходом функції <code>sorted</code></p>
+</li>
+<li>
+<p>2.3. Семантика поверхневого та глибокого копіювання вкладених структур і небезпека непередбачуваної мутації даних</p>
+</li>
+<li>
+<p>2.4. Декларативні генератори списків та оптимізація наповнення колекцій на рівні байт-код інструкції <code>LIST_APPEND</code></p>
+</li>
+<li>
+<p>2.5. Критичні бар'єри просторової локальності даних, промахи процесорного кешу через непряму адресацію та обмеження безпеки потоків</p>
+</li>
+</ul>
+<h3 id="3_1">3. Практичний індустріальний / фаховий кейс. Проектування високоефективного буфера телеметричних даних</h3>
+<p><strong>Тема наскрізної задачі.</strong> «Розробка кільцевого буфера первинної фільтрації пакетів телеметрії інтернет-шлюзу із захистом конфігураційних кортежів від мутації»</p>
+<h2 id="1-cpython_1">1. Теоретико-концептуальний базис. Архітектура послідовностей та організація пам'яті в CPython</h2>
+<h3 id="11-c-pylistobject">1.1. Внутрішня C-структура <code>PyListObject</code> та принцип адресації елементів у динамічному масиві покажчиків</h3>
+<p>У системному програмуванні та теорії обчислювальних систем ефективність маніпуляції лінійними структурами даних визначається базовими механізмами взаємодії з апаратною пам’яттю. В еталонній реалізації інтерпретатора Python — CPython, яка написана мовою C, вбудований тип <strong>список</strong> (<code>list</code>) не є класичним зв’язним списком у термінах фундаментальних структур даних, а реалізований як динамічний масив покажчиків.</p>
+<p>Фізично структура даних <code>list</code> інкапсульована в низькорівневому системному типі <code>PyListObject</code>. Цей об'єкт розширює базовий макрос змінних послідовностей <code>PyObject_VAR_HEAD</code> і містить системні атрибути, що відповідають за підрахунок посилань (<code>ob_refcnt</code>), дескриптор базового типу даних (<code>ob_type</code>), поточну логічну кількість збережених елементів (<code>ob_size</code>), а також два спеціалізовані внутрішні поля:</p>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">    </span><span class="n">PyObject_VAR_HEAD</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="n">PyObject</span><span class="w"> </span><span class="o">**</span><span class="n">ob_item</span><span class="p">;</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span><span class="n">Py_ssize_t</span><span class="w"> </span><span class="n">allocated</span><span class="p">;</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="p">}</span><span class="w"> </span><span class="n">PyListObject</span><span class="p">;</span>
+</span></code></pre></div>
+<p>У цій структурі покажчик <code>ob_item</code> адресифікує неперервний блок оперативної пам'яті, що складається виключно з покажчиків на інші об'єкти типу <code>PyObject*</code>, тоді як цілочисельне значення <code>allocated</code> відображає поточну фізичну місткість виділеного системного буфера в слотах.</p>
+<p>Оскільки Python належить до мов із динамічною типізацією та гетерогенними послідовностями, сам масив <code>ob_item</code> не зберігає корисні навантаження у вигляді сирих бінарних значень (наприклад, 64-бітних цілих чисел чи рядків змінної довжини). Натомість реалізується парадигма <strong>непрямої адресації</strong> (<em>indirect addressing</em>), коли елементи списку можуть бути розташовані у абсолютно довільних незв'язаних сегментах динамічної пам'яті (купи), а список концентрує лише їхні 64-розрядні адреси.</p>
+<pre class="mermaid"><code>flowchart TD
+    subgraph PyListObject_Header["Заголовок об'єкта списку (PyListObject)"]
+        refcnt["ob_refcnt: Лічильник посилань"]
+        type_ptr["ob_type: Вказівник на PyList_Type"]
+        size["ob_size: Фактична кількість (3)"]
+        allocated["allocated: Виділена місткість (6)"]
+        ob_item_ptr["ob_item: Вказівник на блок пам'яті"]
+    end
+
+    subgraph Pointer_Array["Неперервний блок покажчиків у пам'яті (Купа)"]
+        Slot0["Слот 0: Адреса 0x7FFF01"]
+        Slot1["Слот 1: Адреса 0x7FFF08"]
+        Slot2["Слот 2: Адреса 0x7FFF10"]
+        Slot3["Слот 3: NULL (Резерв)"]
+        Slot4["Слот 4: NULL (Резерв)"]
+        Slot5["Слот 5: NULL (Резерв)"]
+    end
+
+    subgraph Heap_Data["Розпорошені дані у купі (PyObject)"]
+        Obj0["PyLongObject (int)\nЗначення: 1024\nАдреса: 0x7FFF01"]
+        Obj1["PyUnicodeObject (str)\nЗначення: 'Telemetry'\nАдреса: 0x7FFF08"]
+        Obj2["PyFloatObject (float)\nЗначення: 98.6\nАдреса: 0x7FFF10"]
+    end
+
+    ob_item_ptr --&gt; Pointer_Array
+    Slot0 --&gt; Obj0
+    Slot1 --&gt; Obj1
+    Slot2 --&gt; Obj2</code></pre>
+<p>Неперервне розташування покажчиків у внутрішньому масиві гарантує прямий довільний доступ до будь-якого елемента послідовності за константний час. Обчислення фізичної адреси комірки пам'яті, що зберігає посилання на цільовий об'єкт за індексом <span class="arithmatex">\(i\)</span>, виконується за допомогою базової моделі адресної арифметики:</p>
+<div class="arithmatex">\[\text{Address}(L[i]) = \text{BaseAddress}(ob\_item) + i \cdot \text{sizeof}(\text{PyObject}^*)\]</div>
+<p>де <span class="arithmatex">\(\text{Address}(L[i])\)</span> позначає результуючу фізичну адресу покажчика на <span class="arithmatex">\(i\)</span>-й елемент у віртуальному адресному просторі процесу, <span class="arithmatex">\(\text{BaseAddress}(ob\_item)\)</span> являє собою початкову адресу неперервного масиву посилань, <span class="arithmatex">\(i\)</span> є цілочисельним невід'ємним індексом елемента, а множник <span class="arithmatex">\(\text{sizeof}(\text{PyObject}^*)\)</span> відповідає розміру покажчика на поточній системній архітектурі, який для 64-розрядних обчислювальних платформ строго дорівнює 8 байтам. З математичної моделі випливає, що час вилучення адреси не залежить від порядкового номера <span class="arithmatex">\(i\)</span> та розміру послідовності <span class="arithmatex">\(n\)</span>, що забезпечує асимптотичну складність доступу на рівні <span class="arithmatex">\(O(1)\)</span>.</p>
+<blockquote>
+<p><strong>ПРАКТИЧНИЙ ЯКІР:</strong> У промислових системах збору телеметрії та високочастотної комутації пакетів зберігання вхідних структур у гетерогенних динамічних масивах дозволяє буферизувати асинхронні повідомлення з довільним внутрішнім форматом корисного навантаження без попереднього перетворення структури даних до фіксованої довжини.</p>
+</blockquote>
+<hr />
+<h3 id="12">1.2. Алгоритмічні засади позиційної індексації, нормалізація від'ємних індексів та математичний апарат зрізів</h3>
+<p>Індексація в Python реалізує концепцію позиційного зміщення з відліком від нуля. Окрім класичної прямої індексації, мова надає формальний механізм від'ємного позиціонування, що спрощує доступ до елементів з кінця послідовності без явної попередньої конкатенації довжини масиву у прикладному коді.</p>
+<p>На рівні віртуальної машини PVM будь-який запит індексації <code>L[i]</code> проходить обов'язковий етап внутрішньої нормалізації. Якщо індекс є від'ємним числом, інтерпретатор автоматично трансформує його у відповідний еквівалент прямого позиціонування за правилом:</p>
+<div class="arithmatex">\[f_{norm}(i, n) = \begin{cases} i, &amp; \text{якщо } i \ge 0 \\ n + i, &amp; \text{якщо } i \lt  0 \end{cases}\]</div>
+<p>де <span class="arithmatex">\(i\)</span> є вхідним цілим індексом, а <span class="arithmatex">\(n = ob\_size\)</span> позначає поточну кількість активних елементів у послідовності. Після нормалізації виконується строга гранична верифікація: якщо отримане значення <span class="arithmatex">\(f_{norm}(i, n)\)</span> порушує умову належності замкненому діапазону <span class="arithmatex">\([0, n - 1]\)</span>, виконання поточного байт-коду негайно зупиняється генерацією критичного винятку <code>IndexError</code>.</p>
+<p>Операція вилучення підпослідовності, або <strong>зріз</strong> (<em>slicing</em>), використовує синтаксичну конструкцію <code>L[start:stop:step]</code> і є засобом створення поверхневих копій окремих діапазонів списку. Якщо параметри зрізу не вказані явно, середовище виконання застосовує системні значення за замовчуванням: <span class="arithmatex">\(start = 0\)</span>, <span class="arithmatex">\(stop = n\)</span>, <span class="arithmatex">\(step = 1\)</span>. Кількість елементів <span class="arithmatex">\(k\)</span>, що увійдуть до результуючого списку, описується формалізованим співвідношенням:</p>
+<div class="arithmatex">\[k = \max\left(0, \; \left\lfloor \frac{\text{stop} - \text{start} + \text{step} - \text{sgn}(\text{step})}{\text{step}} \right\rfloor\right)\]</div>
+<p>де <span class="arithmatex">\(\text{sgn}(x)\)</span> є сигнатурною функцією, яка визначає напрямок ітераційного руху вздовж буфера адрес пам'яті. У разі використання від'ємного кроку (<span class="arithmatex">\(step &lt; 0\)</span>) вектор сканування масиву інвертується, а початкові межі за замовчуванням автоматично трансформуються у значення <span class="arithmatex">\(start = n - 1\)</span> та <span class="arithmatex">\(stop = -(n + 1)\)</span>.</p>
+<blockquote>
+<p><strong>ТИПОВА ПОМИЛКА:</strong> Спроба ініціалізації багатовимірної структури вигляду прямокутної матриці розмірністю <span class="arithmatex">\(m \times n\)</span> за допомогою оператора множення послідовності <code>matrix = [[0] * n] * m</code> є фундаментальною помилкою початківців. Оператор множення копіює не фізичні списки, а лише покажчик на єдиний створений у пам'яті внутрішній список <code>[0] * n</code>. Унаслідок цього зовнішній динамічний масив містить <span class="arithmatex">\(m\)</span> дубльованих посилань на один і той самий об'єкт у купі, тому мутація одного елемента через селектор <code>matrix[0][0] = 1</code> викликає неявну синхронну зміну значення у всіх <span class="arithmatex">\(m\)</span> рядках.</p>
+<p><strong>КОНТРОЛЬНЕ ПИТАННЯ:</strong> Чому операція вилучення повного зрізу <code>L[:]</code> для екземпляра класу <code>list</code> створює абсолютно новий об'єкт у пам'яті, тоді як виконання аналогічного зрізу <code>T[:]</code> над екземпляром класу <code>tuple</code> повертає посилання на той самий початковий об'єкт?</p>
+</blockquote>
+<details class="note">
+<summary>Розгорнути аналіз / відповідь</summary>
+<p><strong>Правильний варіант: Семантична різниця між мутабельними та імутабельними типами в CPython.</strong></p>
+<ol>
+<li>
+<p>Список є змінюваним типом даних (<code>mutable</code>). Отримання зрізу за специфікацією мови вимагає створення ізольованого контейнера, модифікація якого (наприклад, додавання або видалення елементів) не повинна впливати на вихідний список. Відповідно, віртуальна машина CPython виділяє новий блок пам'яті <code>PyListObject</code> і копіює туди покажчики на елементи. Кортеж є принципово незмінним (<code>immutable</code>), тому гарантується, що стан вихідного об'єкта ніколи не зміниться під час виконання програми. З метою мінімізації накладних витрат на виділення оперативної пам'яті та підвищення швидкодії транслятор повертає посилання на вихідний екземпляр <code>PyTupleObject</code>, оптимізуючи операцію до часової складності <span class="arithmatex">\(O(1)\)</span> без виділення нових структур у купі.</p>
+</li>
+<li>
+<p>Аналіз дистракторів. Твердження про те, що операція зрізу для кортежу повертає генератор, є хибним, оскільки зріз послідовностей завжди повертає конкретний контейнер. Припущення, що <code>tuple</code> не підтримує механізм зрізів, спростовується специфікацією мови. Гіпотеза про автоматичне глибоке копіювання списків також неправильна, оскільки зріз списку реалізує виключно поверхневе копіювання (<em>shallow copy</em>), дублюючи лише масив посилань на об'єкти.</p>
+</li>
+</ol>
+</details>
+<hr />
+<h3 id="13-pytupleobject">1.3. Фізична організація незмінного кортежу <code>PyTupleObject</code>, оптимізація розміру пам'яті та механізм вільних списків</h3>
+<p><strong>Кортеж</strong> (<code>tuple</code>) представляє клас впорядкованих незмінних послідовностей. На відміну від динамічного списку, склад, розмір і порядок розміщення елементів кортежу фіксуються безпосередньо в момент його ініціалізації та залишаються статичними протягом усього життєвого циклу об'єкта.</p>
+<p>Низькорівнева C-структура <code>PyTupleObject</code> відрізняється від структури списку відсутністю поля динамічного резервування:</p>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">    </span><span class="n">PyObject_VAR_HEAD</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span><span class="n">PyObject</span><span class="w"> </span><span class="o">*</span><span class="n">ob_item</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="p">}</span><span class="w"> </span><span class="n">PyTupleObject</span><span class="p">;</span>
+</span></code></pre></div>
+<p>Оголошення масиву <code>ob_item</code> як фіксованого буфера розмірністю <code>[1]</code> у контексті синтаксису мови C реалізує концепцію структурного масиву змінної довжини (<em>struct hack</em>). При виділенні пам'яті під конкретний екземпляр кортежу системний алокатор резервує єдиний неперервний блок, розмір якого точно відповідає сумі заголовка та масиву покажчиків довжиною <code>ob_size</code>. Повна відсутність системного поля <code>allocated</code> виключає резервування невикористаної пам'яті.</p>
+<p>Порівняння фізичного розміру порожніх та заповнених екземплярів через виклик методу <code>__sizeof__()</code> демонструє фундаментальну різницю:</p>
+<div class="arithmatex">\[S_{\text{list\_empty}} = 56 \text{ байтів}, \quad S_{\text{tuple\_empty}} = 40 \text{ байтів (для 64-розрядної архітектури)}\]</div>
+<p>Для збереження <span class="arithmatex">\(n\)</span> однакових посилань кортеж завжди потребує на 16 байтів менше пам'яті в структурі заголовка, а також заощаджує обсяг пам'яті, який список виділяє як надлишковий резерв для майбутніх операцій конкатенації.</p>
+<p>Окрім прямої економії простору, середовище CPython оптимізує створення та знищення кортежів за допомогою механізму <strong>вільних списків</strong> (<em>free lists</em>). Віртуальна машина виділяє статичний масив покажчиків <code>free_list</code> для кортежів із кількістю елементів від 0 до 20. Коли кортеж виходить із зони видимості та його лічильник посилань <code>ob_refcnt</code> падає до нуля, його структура не повертається системному алокатору операційної системи через системний виклик <code>free()</code>. Натомість звільнений блок пам'яті кешується у відповідному слоті <code>free_list[len]</code> і негайно перевикористовується при наступному запиті на створення кортежу ідентичної довжини. </p>
+<p>Порожній кортеж у CPython реалізований як глобальний сталий об'єкт-одинак (<em>singleton</em>): будь-яка спроба створення порожнього кортежу через літерал <code>()</code> або конструктор <code>tuple()</code> повертає одне й те саме посилання на фіксовану адресу в пам'яті, що підтверджується тотожністю ідентифікаторів <code>id(()) == id(tuple())</code>.</p>
+<pre class="mermaid"><code>stateDiagram-v2
+    direction LR
+    [*] --&gt; Allocation : Запит tuple(elements)
+    Allocation --&gt; InUse : Виділення з free_list або через malloc()
+    InUse --&gt; DecrementRef : Зменшення лічильника посилань
+    DecrementRef --&gt; ZeroRef : ob_refcnt == 0
+    ZeroRef --&gt; CheckFreeList : Перевірка довжини len &lt;= 20
+    CheckFreeList --&gt; FreeListPool : Довжина підходить і є місце
+    CheckFreeList --&gt; SystemFree : Повернення ОС через free()
+    FreeListPool --&gt; Allocation : Миттєва рециркуляція слота
+    SystemFree --&gt; [*]</code></pre>
+<blockquote>
+<p><strong>ПРАКТИЧНИЙ ЯКІР:</strong> У мережевих стеках та шлюзах пакетної фільтрації мережевий сокет однозначно описується п'ятіркою параметрів (<em>network 5-tuple</em>): адреса відправника, адреса одержувача, порт відправника, порт одержувача та ідентифікатор протоколу. Використання структури <code>tuple</code> замість <code>list</code> для збереження цього дескриптора на порядок знижує навантаження на підсистему збирання сміття ядра застосунку при проходженні мільйонів транзитних фреймів на секунду.</p>
+</blockquote>
+<hr />
+<h3 id="14">1.4. Математичні критерії хешованості об'єктів і принципи використання кортежів як ключів словників</h3>
+<p>У мові Python високоефективні структури швидкого пошуку — асоціативні масиви (<code>dict</code>) та хеш-множини (<code>set</code>), базуються на алгоритмах побудови розріджених хеш-таблиць із відкритою адресацією. Ключовою системною вимогою до об'єктів, які можуть слугувати ключами для таких структур, є строга <strong>хешованість</strong> (<em>hashability</em>).</p>
+<p>Формально об'єкт називається хешованим, якщо він має незмінне числове хеш-значення протягом усього свого існування, підтримує спеціальний метод <code>__hash__()</code> для його генерації та метод порівняння <code>__eq__()</code> для перевірки еквівалентності з іншими об'єктами. Для забезпечення математичної коректності хеш-таблиць повинен безумовно виконуватися інваріант узгодженості хешування:</p>
+<div class="arithmatex">\[\forall x, y: (x == y) \implies (\text{hash}(x) == \text{hash}(y))\]</div>
+<p>Зворотне твердження загалом не є істинним унаслідок існування колізій першого та другого роду, коли різні об'єкти генерують однакові хеш-суми через обмеженість діапазону 64-бітного представлення результату.</p>
+<p>Списки принципово не є хешованими об'єктами. Оскільки список є мутабельною структурою, зміна будь-якого його елемента неминуче змінила б його умовний контентний хеш. Якби такий об'єкт потрапив у хеш-таблицю, зміна внутрішнього значення призвела б до ситуації, коли об'єкт опинився б у невідповідному кошику (<em>bucket</em>), що зробило б неможливим його подальший пошук і порушило б цілісність асоціативного масиву. Тому клас <code>list</code> явно визначає спеціальний метод <code>__hash__ = None</code>, що сигналізує віртуальній машині про заборону його використання у хеш-таблицях.</p>
+<p>Кортеж є хешованим тоді і тільки тоді, коли кожен без винятку елемент, який входить до його складу, є рекурсивно хешованим:</p>
+<div class="arithmatex">\[\text{Hashable}(T) \iff \forall x \in T: \text{Hashable}(x)\]</div>
+<p>Якщо кортеж складається виключно з незмінних примітивів (цілих чисел, дійсних чисел, рядків, інших хешованих кортежів), він успішно генерує стабільне цілочисельне значення <code>__hash__()</code> і може виступати надійним ключем словника. Якщо ж кортеж містить хоча б одне посилання на мутабельний об'єкт (наприклад, список <code>T = (1, 2, [3, 4])</code>), спроба обчислення його хеш-значення негайно генерує виняток <code>TypeError: unhashable type: 'list'</code>.</p>
+<p><em>Таблиця 1.1 — Систематизація характеристик лінійних структур даних у CPython</em></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Назва типу даних</th>
+<th style="text-align: left;">Фізична організація пам'яті</th>
+<th style="text-align: left;">Властивість змінюваності</th>
+<th style="text-align: left;">Хешованість (Hashable)</th>
+<th style="text-align: left;">Приклад з реальної практики</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Список</strong> (<code>list</code>)</td>
+<td style="text-align: left;">Неперервний масив покажчиків із динамічним геометричним резервуванням</td>
+<td style="text-align: left;">Змінюваний (<code>mutable</code>)</td>
+<td style="text-align: left;">Ні (метод <code>__hash__</code> відсутній)</td>
+<td style="text-align: left;">Буфер черги вхідних телеметричних повідомлень у брокері подій</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Кортеж</strong> (<code>tuple</code>)</td>
+<td style="text-align: left;">Монолітний неперервний блок структурного масиву фіксованого розміру</td>
+<td style="text-align: left;">Незмінний (<code>immutable</code>)</td>
+<td style="text-align: left;">Так (за умови рекурсивної незмінності всіх елементів)</td>
+<td style="text-align: left;">Композитний ключ словника сесій зв'язку <code>(ip_address, port)</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Рядок</strong> (<code>str</code>)</td>
+<td style="text-align: left;">Неперервний суцільний буфер символів стандарту Unicode (ASCII, UCS-1/2/4)</td>
+<td style="text-align: left;">Незмінний (<code>immutable</code>)</td>
+<td style="text-align: left;">Так</td>
+<td style="text-align: left;">Збереження уніфікованих дескрипторів ресурсів та ідентифікаторів вузлів</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Масив байтів</strong> (<code>bytes</code>)</td>
+<td style="text-align: left;">Суцільний блок неперервної сирої пам'яті для зберігання октетів (uint8)</td>
+<td style="text-align: left;">Незмінний (<code>immutable</code>)</td>
+<td style="text-align: left;">Так</td>
+<td style="text-align: left;">Серіалізовані бінарні пакети для передачі через сокети протоколу TCP/IP</td>
+</tr>
+</tbody>
+</table>
+<p>Аналіз даних таблиці показує, що правильний вибір структурної організації даних безпосередньо диктується функціональними вимогами алгоритму щодо динамічної зміни розмірів контейнера та необхідності асоціативної адресації елементів за допомогою алгоритмів швидкого пошуку.</p>
+<hr />
+<h3 id="_4">Вказівки для самостійного осмислення</h3>
+<ol>
+<li>
+<p>Дослідити поведінку системної адреси внутрішнього масиву посилань списку при його поступовому наповненні за допомогою модуля <code>sys</code> та вбудованої функції <code>id()</code>, простеживши момент, коли чергове виконання методу <code>append()</code> призводить до зміни базової адреси буфера покажчиків через перевиділення пам'яті.</p>
+</li>
+<li>
+<p>Реалізувати алгоритм перевірки коректності вкладених кортежів на предмет можливості їхнього використання як ключів у хеш-таблицях за допомогою рекурсивної функції, яка перевіряє наявність магічного методу <code>__hash__</code> у кожного листового вузла дерева об'єктів.</p>
+</li>
+<li>
+<p>Побудувати порівняльний графік часу створення <span class="arithmatex">\(10^6\)</span> порожніх списків проти аналогічної кількості порожніх кортежів за допомогою модуля <code>timeit</code>, пояснивши отриманий розрив у швидкодії крізь призму функціонування внутрішнього пулу <code>free_list</code> віртуальної машини CPython.</p>
+</li>
+</ol>
+<h2 id="2_1">2. Методологія та аналіз граничних умов. Алгоритми маніпуляції даними, просторова складність та бар'єри продуктивності</h2>
+<h3 id="21-append">2.1. Динамічне масштабування буфера за алгоритмом геометричної прогресії та амортизована складність методу <code>append</code></h3>
+<p>Методологія керування динамічною пам'яттю в середовищі CPython базується на запобіганні частим системним викликам перерозподілу пам'яті. Якби виділення пам'яті під внутрішній масив покажчиків здійснювалося строго на одиницю більшим за попередній розмір при кожному додаванні елемента, часова складність послідовного наповнення списку довжиною <span class="arithmatex">\(n\)</span> перетворилася б на арифметичну прогресію з сумарною вартістю:</p>
+<div class="arithmatex">\[\sum_{i=1}^{n} O(i) = O(n^2)\]</div>
+<p>Така квадратична деградація є неприпустимою для систем обробки потоків даних. Для досягнення константної швидкості додавання застосовується стратегія <strong>геометричного масштабування</strong>, реалізована у внутрішній C-функції <code>list_resize()</code> файлу вихідного коду <code>Objects/listobject.c</code>. </p>
+<p>Математична та процедурна формалізація процесу масштабування буфера списку описується такою послідовністю системних переходів:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+\text{Крок 1 (Оцінка стану):} &amp; \quad \text{Якщо } ob\_size + 1 \le allocated \land ob\_size \ge (allocated \gg 1), \text{ перевиділення не потрібне;} \\
+\text{Крок 2 (Обчислення квоти):} &amp; \quad allocated_{\text{new}} = \left(ob\_size + 1\right) + \left(\left(ob\_size + 1\right) \gg 3\right) + \left(ob\_size \lt  9 \; ? \; 3 : 6\right); \\
+\text{Крок 3 (Перевиділення):} &amp; \quad ob\_item = (\text{PyObject}^{**})\,\text{PyMem\_Realloc}\left(ob\_item, \; allocated_{\text{new}} \times \text{sizeof}(\text{PyObject}^*)\right); \\
+\text{Крок 4 (Фіксація стану):} &amp; \quad allocated = allocated_{\text{new}}, \quad ob\_size = ob\_size + 1.
+\end{aligned}
+\]</div>
+<p>де <span class="arithmatex">\(ob\_size\)</span> визначає поточну кількість активних елементів, <span class="arithmatex">\(allocated\)</span> є поточною ємністю виділеного пулу пам'яті, оператор <span class="arithmatex">\(\gg 3\)</span> реалізує апаратний бітовий зсув праворуч на три розряди (що еквівалентно цілочисельному діленню на вісім), а тернарний вираз забезпечує мінімальний надлишок у три або шість слотів для запобігання надмірній фрагментації пам'яті на малих вибірках.</p>
+<p>Завдяки коефіцієнту розширення, що асимптотично наближається до <span class="arithmatex">\(1.125\)</span>, операція <code>append</code> демонструє <strong>амортизовану часову складність</strong> <span class="arithmatex">\(O(1)\)</span>. Відповідно до банківського методу амортизаційного аналізу, кожна проста операція додавання штучно оподатковується фіксованою кількістю умовних кредитів часу. Більшість цих кредитів накопичуються на внутрішньому обліковому рахунку структури даних, і в момент вичерпання ємності буфера накопичений потенціал покриває дорогий поодинокий виклик функції <code>realloc()</code>, вартість якого пропорційна поточному розміру масиву <span class="arithmatex">\(O(n)\)</span>.</p>
+<pre class="mermaid"><code>sequenceDiagram
+    autonumber
+    actor Dev as Прикладний код
+    participant List as Об'єкт PyListObject
+    participant Kernel as Системний алокатор CPython
+    participant OS as Операційна система (VMM)
+
+    Dev-&gt;&gt;List: list.append(object_ref)
+    List-&gt;&gt;List: Перевірка умови: ob_size + 1 &gt; allocated
+    alt Буфер заповнено (ob_size == allocated)
+        List-&gt;&gt;List: Обчислення allocated_new за формулою надлишку
+        List-&gt;&gt;Kernel: PyMem_Realloc(ob_item, allocated_new)
+        alt Неперервний сегмент вільний
+            Kernel-&gt;&gt;OS: Розширення віртуальної сторінки
+            OS--&gt;&gt;Kernel: Підтвердження адреси
+        else Сусідня пам'ять зайнята
+            Kernel-&gt;&gt;OS: Виділення нового блоку пам'яті
+            OS--&gt;&gt;Kernel: Базова адреса нового блоку
+            Kernel-&gt;&gt;Kernel: Побайтове копіювання старих покажчиків (memcpy)
+            Kernel-&gt;&gt;OS: Звільнення старого адресного блоку
+        end
+        Kernel--&gt;&gt;List: Оновлений базовий покажчик ob_item
+        List-&gt;&gt;List: allocated = allocated_new
+    end
+    List-&gt;&gt;List: Запис покажчика: ob_item[ob_size] = object_ref
+    List-&gt;&gt;List: Інкремент лічильника: ob_size += 1
+    List--&gt;&gt;Dev: Повернення None</code></pre>
+<blockquote>
+<p><strong>ВАЖЛИВО:</strong> Хоча операція додавання елемента в кінець списку через метод <code>append</code> є амортизовано еквівалентною <span class="arithmatex">\(O(1)\)</span>, вставка елемента на початок списку за допомогою методу <code>insert(0, value)</code> завжди має строгу лінійну складність <span class="arithmatex">\(O(n)\)</span> у найгіршому та середньому випадках. Це зумовлено обов'язковим фізичним переміщенням усіх <span class="arithmatex">\(n\)</span> покажчиків на один слот праворуч за допомогою системного виклику <code>memmove()</code>, тому використання списку як двосторонньої черги або стека типу FIFO є грубою архітектурною помилкою.</p>
+</blockquote>
+<hr />
+<h3 id="22-timsort-sorted">2.2. Методологія сортування на місці гібридним алгоритмом Timsort у порівнянні з функціональним підходом функції <code>sorted</code></h3>
+<p>Сортування послідовностей у мові Python базується на алгоритмі <strong>Timsort</strong>, розробленому Тімом Петерсом спеціально для обробки реальних наборів даних. Теоретична парадигма Timsort відхиляється від класичних академічних методів, таких як швидке сортування (Quicksort) або сортування купою (Heapsort), фокусуючись на знаходженні вже впорядкованих фрагментів у вхідній послідовності.</p>
+<p>Алгоритм є стабільним (<em>stable</em>), адаптивним та має гібридну архітектуру, що поєднує оптимізоване <strong>сортування злиттям</strong> (<em>Merge Sort</em>) та <strong>сортування вставками</strong> (<em>Insertion Sort</em>). Життєвий цикл сортування Timsort складається з таких чітко розмежованих фаз:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+\text{Фаза 1 (Квантування):} &amp; \quad \text{Обчислення порогу } \text{minrun} \in [32, 64] \text{ на основі довжини масиву } n; \\
+\text{Фаза 2 (Ідентифікація):} &amp; \quad \text{Пошук монотонних послідовностей (зростаючих або строго спадних run);} \\
+\text{Фаза 3 (Нормалізація):} &amp; \quad \text{Інверсія спадних run та доведення коротких run до розміру } \text{minrun} \text{ бінарними вставками;} \\
+\text{Фаза 4 (Колапс стека):} &amp; \quad \text{Злиття run у стеку за правилами інваріантів } |A| &gt; |B| + |C| \land |B| &gt; |C|.
+\end{aligned}
+\]</div>
+<p>Показник <span class="arithmatex">\(\text{minrun}\)</span> розраховується через послідовне бітове зрушення так, щоб відношення <span class="arithmatex">\(n / \text{minrun}\)</span> було рівним або трохи меншим за степінь двійки. Це мінімізує кількість незбалансованих операцій злиття. </p>
+<p>У разі знаходження строго спадної послідовності алгоритм реверсує її на місці за лінійний час <span class="arithmatex">\(O(k)\)</span>, відновлюючи порядок зростання. Якщо знайдений фрагмент коротший за <span class="arithmatex">\(\text{minrun}\)</span>, застосовується сортування бінарними вставками (<em>Binary Insertion Sort</em>), яке мінімізує кількість операцій порівняння ключів за рахунок дихотомічного пошуку позиції вставки.</p>
+<p>Злиття сформованих блоків контролюється стеком інваріантів, де довжини трьох верхніх блоків <span class="arithmatex">\(A, B, C\)</span> повинні гарантувати збалансованість дерева злиття. Для прискорення операцій об'єднання великих блоків використовується <strong>режим галопу</strong> (<em>Galloping Mode</em>): якщо один блок послідовно виграє порівняння понад сім разів поспіль, Timsort перемикається з покрокового лінійного злиття на експоненціальний бінарний пошук меж включення даних.</p>
+<p>На практиці інженер стикається з вибором між мутабельним методом <code>list.sort()</code> та вбудованою функцією <code>sorted()</code>. Метод <code>list.sort()</code> модифікує внутрішній буфер <code>ob_item</code> безпосередньо у пам'яті вихідного об'єкта, що дає суттєву просторову економію. Функція <code>sorted(iterable)</code> реалізує функціональну парадигму: вона ітерує будь-яку вхідну послідовність, розміщує покажчики у тимчасовий новостворений список, виконує сортування Timsort на його рівні та повертає результат, залишаючи початковий об'єкт незмінним, що вимагає виділення <span class="arithmatex">\(O(n)\)</span> додаткової пам'яті.</p>
+<blockquote>
+<p><strong>ПРАКТИЧНИЙ ЯКІР:</strong> Алгоритм Timsort продемонстрував таку безпрецедентну ефективність на частково впорядкованих масивах реального світу, що був повністю запозичений із вихідного коду CPython і стандартизований як базовий системний алгоритм сортування масивів об'єктів у платформах Java SE, Google Android Runtime та рушії JavaScript V8.</p>
+</blockquote>
+<h4 id="timsort">Граничні умови та сценарії деградації Timsort</h4>
+<p>Теоретична надійність Timsort вичерпується у випадках обробки специфічних псевдовипадкових розподілів або навмисно сформованих антагоністичних послідовностей. Якщо вхідний масив складається з чергування елементів без найменшої локальної монотонності, Timsort повністю втрачає свої адаптивні переваги, вироджуючись у класичний Merge Sort із часовою складністю <span class="arithmatex">\(O(n \log n)\)</span> та піковими витратами допоміжної пам'яті на копіювання зрізів. </p>
+<p>Історичним прецедентом є виявлена у 2015 році вразливість алгоритму Timsort у мовах Python та Java, пов'язана з порушенням стекового інваріанта: для спеціально сконструйованих ультравеликих послідовностей глибина стека злиття перевищувала жорстко закладену константу, спричиняючи аварійне переповнення внутрішнього буфера (<code>IndexError: list index out of range</code>). </p>
+<p>Крім того, Timsort втрачає інженерну доцільність у мікроконтролерах та вбудованих системах із жорстким дефіцитом оперативної пам'яті, де просторові накладні витрати <span class="arithmatex">\(O(n)\)</span> на роботу системних буферів злиття неприйнятні порівняно з алгоритмом сортування купою (Heapsort), що має просторову складність строго <span class="arithmatex">\(O(1)\)</span>.</p>
+<hr />
+<h3 id="23">2.3. Семантика поверхневого та глибокого копіювання вкладених структур і небезпека непередбачуваної мутації даних</h3>
+<p>Архітектурна ізоляція стану об'єктів є базовим принципом проектування надійних систем. При використанні складених структур даних, таких як багаторівневі списки або списки кортежів, розробник мусить чітко розмежовувати операції зв'язування посилань, поверхневого дублювання та глибокої структурної реплікації.</p>
+<p>Просте присвоєння <code>B = A</code> не виконує жодного дублювання пам'яті: воно лише інкрементує лічильник посилань <code>ob_refcnt</code> вихідного екземпляра <code>PyListObject</code> та асоціює нове символьне ім'я <code>B</code> з існуючою системною адресою.</p>
+<p>Методологія <strong>поверхневого копіювання</strong> (<em>shallow copy</em>), реалізована через вирази <code>B = A.copy()</code>, <code>B = A[:]</code> або конструктор <code>B = list(A)</code>, створює новий об'єкт <code>PyListObject</code>, виділяючи окремий блок пам'яті під внутрішній масив покажчиків довжиною <span class="arithmatex">\(n\)</span>. Однак значення цих покажчиків копіюються побітово (<em>bitwise copy</em>): вони продовжують адресувати ті самі екземпляри об'єктів у купі. </p>
+<p>Якщо елементами списку є незмінні скаляри (числа або рядки), такий механізм є повністю безпечним. Проте якщо список містить вкладені мутабельні структури (наприклад, <code>A = [[1, 2], [3, 4]]</code>), поверхнева копія створює лише ілюзію незалежності:</p>
+<div class="arithmatex">\[\text{id}(A) \ne \text{id}(B), \quad \text{але} \quad \text{id}(A[0]) \equiv \text{id}(B[0])\]</div>
+<p>Будь-яка пряма модифікація вкладеного підсписку через інтерфейс копії <code>B[0].append(99)</code> миттєво змінює стан структури <code>A[0]</code>, руйнуючи детермінізм паралельних або ізольованих обчислень.</p>
+<p>Методологія <strong>глибокого копіювання</strong> (<em>deep copy</em>), яка надається стандартним модулем <code>copy.deepcopy()</code>, усуває спільну мутабельність шляхом повного рекурсивного клонування всього графа об'єктів. Для запобігання нескінченного зациклення при обробці циклічних посилань у складних графах функція <code>deepcopy</code> веде внутрішню хеш-таблицю мемоїзації <code>memo</code>, структура якої формалізується відображенням:</p>
+<div class="arithmatex">\[\text{memo}: \text{id}(obj_{\text{original}}) \mapsto obj_{\text{cloned}}\]</div>
+<p>Алгоритмічний цикл глибокого клонування перевіряє унікальний ідентифікатор кожного досліджуваного об'єкта: якщо об'єкт уже присутній у словнику <code>memo</code>, функція повертає готове посилання на раніше клонований екземпляр, запобігаючи дублюванню замкнених циклічних вузлів.</p>
+<h4 id="_5">Граничні умови та бар'єри глибокого копіювання</h4>
+<p>Застосування <code>copy.deepcopy()</code> пов'язане з високими накладними витратами системних ресурсів. Часова складність операції становить <span class="arithmatex">\(O(V + E)\)</span>, де <span class="arithmatex">\(V\)</span> — загальна кількість досяжних об'єктів у графі даних, а <span class="arithmatex">\(E\)</span> — кількість посилань між ними. </p>
+<p>Глибоке копіювання стає критичним бар'єром у високонавантажених сервісах обробки транзакцій через катастрофічне падіння продуктивності: накладні витрати на багаторазові інспектування типів, виклики протоколу <code>__deepcopy__()</code> та наповнення словника <code>memo</code> перевищують швидкість виділення сирої пам'яті в сотні разів. </p>
+<p>Більше того, якщо глибина вкладеності графа даних перевищує встановлений системний ліміт глибини стека інтерпретатора (що регулюється функцією <code>sys.getrecursionlimit()</code>), глибоке копіювання аварійно завершується критичним винятком <code>RecursionError</code>. </p>
+<p>Нарешті, глибоке клонування виявляється абсолютно недієздатним для структур, що містять посилання на апаратні або низькорівневі системні дескриптори, такі як відкриті файлові потоки, мережеві сокети або блокування потоків (<code>threading.Lock</code>), оскільки операційна система не підтримує реплікацію системних ресурсів ядра через прикладні копії.</p>
+<hr />
+<h3 id="24-list_append">2.4. Декларативні генератори списків та оптимізація наповнення колекцій на рівні байт-код інструкції <code>LIST_APPEND</code></h3>
+<p>У сучасній практиці проектування програмного забезпечення на мові Python створення та фільтрація списків традиційно реалізується за допомогою декларативної конструкції <strong>спискових включень</strong> (<em>List Comprehensions</em>). З погляду теоретичного програмування генератор списку є формою синтаксичного цукру для відображення фундаментальної математичної нотації побудови множин.</p>
+<p>Проте перевага генераторів списків над класичними імперативними циклами <code>for</code> полягає не лише у лаконічності вихідного коду, а й у глибинній архітектурній оптимізації, закладеній на рівні компілятора байт-коду CPython. Для аналізу цієї оптимізації порівняємо дві семантично еквівалентні форми наповнення масиву квадратами чисел:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># Варіант 1: Імперативний цикл</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>    <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span> <span class="o">*</span> <span class="n">x</span><span class="p">)</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="c1"># Варіант 2: Спискове включення</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="n">result</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="o">*</span> <span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">data</span><span class="p">]</span>
+</span></code></pre></div>
+<p>При трансляції першого варіанта у віртуальну машину CPython генерується цикл, що на кожній ітерації виконує інструкції <code>LOAD_FAST</code> (завантаження локальної змінної), <code>LOAD_ATTR</code> (динамічний пошук атрибута <code>append</code> у просторі імен об'єкта списку), <code>LOAD_METHOD</code> та <code>CALL_METHOD</code> (формування стекового кадру виклику функції). Динамічний пошук методу <code>append</code> та виклик функції через загальний протокол PVM генерує значні системні затримки.</p>
+<p>На противагу цьому, компілятор розпізнає синтаксис спискового включення як єдиний атомарний вираз і генерує оптимізований блок інструкцій, центром якого є спеціалізований опкод <code>LIST_APPEND</code>.</p>
+<div class="arithmatex">\[
+\begin{aligned}
+\text{Крок 1 (Ініціалізація):} &amp; \quad \text{Інструкція } \texttt{BUILD\_LIST 0} \text{ розміщує порожній список на вершині стека оцінки;} \\
+\text{Крок 2 (Ітерація):} &amp; \quad \text{Інструкція } \texttt{FOR\_ITER} \text{ вилучає чергове значення } x \text{ з ітератора;} \\
+\text{Крок 3 (Обчислення):} &amp; \quad \text{Виконання арифметичної операції над } x \text{ безпосередньо у стек;} \\
+\text{Крок 4 (Апаратне додавання):} &amp; \quad \text{Інструкція } \texttt{LIST\_APPEND 1} \text{ вилучає обчислене значення та поміщає його в буфер;} \\
+\text{Крок 5 (Завершення):} &amp; \quad \text{Вихід із циклу за сигналом } \text{StopIteration} \text{ без демонтажу кадру виклику.}
+\end{aligned}
+\]</div>
+<p>Інструкція <code>LIST_APPEND</code> викликає внутрішню C-функцію з обходом стандартного протоколу виклику методів Python. Вона записує покажчик безпосередньо у внутрішній масив <code>ob_item</code> списку, що знаходиться на фіксованій позиції стека, інкрементує внутрішнє поле <code>ob_size</code> і викликає макрос <code>Py_INCREF</code>. Як наслідок, виконання спискового включення демонструє прискорення на 25–40% порівняно з еквівалентним циклом <code>for</code> із ручним викликом <code>append()</code>.</p>
+<h4 id="list-comprehensions">Граничні умови використання List Comprehensions</h4>
+<p>Попри високу обчислювальну ефективність, спискові включення мають фундаментальне граничне обмеження: <strong>жадібне обчислення</strong> (<em>eager evaluation</em>). У момент виконання виразу інтерпретатор зобов'язаний виділити обсяг оперативної пам'яті, достатній для одночасного утримання всіх результуючих покажчиків. </p>
+<p>Якщо розмір вхідної вибірки <span class="arithmatex">\(n\)</span> перевищує доступний обсяг вільної фізичної пам'яті комп'ютера (наприклад, генерація списку з <span class="arithmatex">\(10^8\)</span> елементів у системах із 8 ГБ RAM), операційна система починає використовувати механізм підкачування сторінок на диск (<em>swapping</em>), що призводить до падіння швидкодії на кілька порядків, або процес аварійно знищується системним механізмом OOM Killer із викидом винятку <code>MemoryError</code>. </p>
+<p>У таких граничних умовах методологія спискових включень втрачає свою релевантність і повинна поступатися лінивим генераторним виразам (<em>generator expressions</em>) з константним споживанням пам'яті <span class="arithmatex">\(O(1)\)</span>.</p>
+<hr />
+<h3 id="25">2.5. Критичні бар'єри просторової локальності даних, промахи процесорного кешу через непряму адресацію та обмеження безпеки потоків</h3>
+<p>При переході від високорівневих алгоритмічних абстракцій до системної інженерії апаратного забезпечення списки Python стикаються з двома критичними бар'єрами продуктивності: низькою ефективністю кешування на рівні мікроархітектури процесора та обмеженнями паралелізму.</p>
+<p>Сучасні процесори досягають пікової швидкодії завдяки ієрархії кеш-пам'яті (L1, L2, L3). Коли процесор запитує дані з оперативної пам'яті, апаратний контролер завантажує не окремий байт, а цілісну <strong>кеш-лінію</strong> (<em>cache line</em>), розмір якої для більшості сучасних архітектур x86-64 та ARM становить 64 байти. Якщо програма послідовно читає неперервний масив чисел (як у статичних масивах C або <code>numpy.ndarray</code>), виникає ефект високої <strong>просторової локальності</strong> (<em>spatial locality</em>): одне звернення до пам'яті підтягує в надшвидкий кеш L1 відразу вісім 64-бітних значень.</p>
+<p>У списках Python просторова локальність існує лише для самого масиву покажчиків <code>ob_item</code>. Однак реальні числові або рядкові дані розпорошені по всій оперативній пам'яті у вигляді повноцінних структур <code>PyObject</code>. </p>
+<p>Послідовний перебір списку Python змушує процесор здійснювати так звану «гонитву за покажчиками» (<em>pointer chasing</em>): зчитування кожного наступного елемента вимагає звернення за новою непередбачуваною адресою динамічної пам'яті, що викликає систематичні <strong>промахи кешу</strong> (<em>Cache Misses</em>). Процесор вимушений простоювати сотні тактів у очікуванні відповіді від основної пам'яті DRAM, що зводить нанівець переваги високошвидкісних конвеєрів сучасних CPU.</p>
+<p>Другий критичний бар'єр полягає у семантиці <strong>безпеки потоків</strong> (<em>thread safety</em>). В інтерпретаторі CPython доступ до внутрішніх структур захищений глобальним блокуванням інтерпретатора — <strong>GIL</strong> (<em>Global Interpreter Lock</em>). Окремі вбудовані атомарні операції над списками (наприклад, метод <code>append()</code> або вилучення за індексом <code>L.pop()</code>) є потокобезпечними на рівні C, оскільки відповідні внутрішні функції виконуються без вивільнення м'ютекса GIL. </p>
+<p>Проте будь-яка складена операція, що складається з кількох інструкцій байт-коду, у багатопотоковому середовищі зазнає стану перегонів (<em>race conditions</em>):</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># Потенційний стан перегонів у багатопотоковому коді</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="k">if</span> <span class="n">my_list</span><span class="p">:</span>                 <span class="c1"># Інструкція 1: перевірка наявності (POP_JUMP_IF_FALSE)</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>    <span class="n">val</span> <span class="o">=</span> <span class="n">my_list</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>     <span class="c1"># Інструкція 2: вилучення елемента (CALL_METHOD)</span>
+</span></code></pre></div>
+<p>Між виконанням першої та другої інструкцій операційна система може перемкнути контекст на інший потік, який спустошить <code>my_list</code>. Повернення управління першому потоку неминуче спричинить збудження <code>IndexError: pop from empty list</code>. </p>
+<p><em>Таблиця 2.1 — Порівняльна матриця інженерних підходів до організації та обробки послідовностей у Python</em></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Методологія / Структурний підхід</th>
+<th style="text-align: center;">Асимптотична складність (Доступ / Вставка)</th>
+<th style="text-align: center;">Складність впровадження</th>
+<th style="text-align: left;">Критичні ризики / Обмеження</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Динамічний список (<code>list</code>)</strong></td>
+<td style="text-align: center;"><span class="arithmatex">\(O(1)\)</span> читання / <span class="arithmatex">\(O(1)\)</span> аморт. додавання в кінець</td>
+<td style="text-align: center;">Мінімальна (вбудований синтаксис мови)</td>
+<td style="text-align: left;">Високий рівень промахів кешу CPU; лінійна деградація <span class="arithmatex">\(O(n)\)</span> при операціях на початку контейнера</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Незмінний кортеж (<code>tuple</code>)</strong></td>
+<td style="text-align: center;"><span class="arithmatex">\(O(1)\)</span> читання / Мутація заборонена</td>
+<td style="text-align: center;">Мінімальна (декларативний опис структури)</td>
+<td style="text-align: left;">Неможливість динамічного розширення; вимагає повного перевиділення <span class="arithmatex">\(O(n)\)</span> при спробі модифікації</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Двостороння черга (<code>collections.deque</code>)</strong></td>
+<td style="text-align: center;"><span class="arithmatex">\(O(n)\)</span> прямий доступ за індексом / <span class="arithmatex">\(O(1)\)</span> вставка з обох кінців</td>
+<td style="text-align: center;">Низька (імпорт зі стандартної бібліотеки)</td>
+<td style="text-align: left;">Повільний довільний доступ до центральних елементів списку; відсутність операцій зрізу на рівні C</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Спискове включення (List Comprehension)</strong></td>
+<td style="text-align: center;"><span class="arithmatex">\(O(n)\)</span> генерація з інструкцією <code>LIST_APPEND</code></td>
+<td style="text-align: center;">Низька (декларативний синтаксис виразів)</td>
+<td style="text-align: left;">Ризик аварійного переповнення пам'яті <code>MemoryError</code> при обробці великих масивів через жадібне обчислення</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Неперервний масив C (<code>numpy.ndarray</code>)</strong></td>
+<td style="text-align: center;"><span class="arithmatex">\(O(1)\)</span> читання / <span class="arithmatex">\(O(n)\)</span> структурна зміна розміру</td>
+<td style="text-align: center;">Середня (вимагає сторонньої залежності NumPy)</td>
+<td style="text-align: left;">Строга типізована гомогенність; висока вартість динамічної зміни форми та вставки поодиноких елементів</td>
+</tr>
+</tbody>
+</table>
+<p>Наведена матриця чітко розмежовує інженерні сфери застосування технологій: універсальний список CPython ідеально підходить для високорівневої агрегації різнотипних об'єктів у невеликих обсягах, проте стає архітектурним вузьким місцем у задачах лінійної алгебри, мережевої буферизації пакетів та паралельних обчислень, де безальтернативними є структури зі строгою просторовою локальністю даних.</p>
+<blockquote>
+<p><strong>КОНТРОЛЬНЕ ПИТАННЯ:</strong> У розподіленій системі збору даних високочастотний потік фіксує події від <span class="arithmatex">\(10^6\)</span> сенсорів за секунду. Розробник реалізував буфер накопичення черги повідомлень через послідовність викликів <code>buffer.insert(0, telemetry_packet)</code>. Які катастрофічні наслідки це матиме для продуктивності системи, як деградуватиме обчислювальна складність конвеєра, і яка методологічна заміна повинна бути застосована згідно зі стандартами архітектури високопродуктивного ПЗ?</p>
+</blockquote>
+<details class="note">
+<summary>Розгорнути аналіз / відповідь</summary>
+<p><strong>Правильний варіант: Катастрофічна деградація до складності <span class="arithmatex">\(O(N^2)\)</span> через побайтовий зсув покажчиків у пам'яті; необхідна заміна на <code>collections.deque</code> або заповнення через <code>append</code> з інверсією.</strong></p>
+<ol>
+<li>
+<p>Метод <code>insert(0, x)</code> змушує середовище CPython викликати низькорівневу системну функцію <code>memmove()</code> для фізичного переміщення всіх існуючих покажчиків у масиві на 8 байтів праворуч для звільнення нульового слота. Для черги з <span class="arithmatex">\(N = 10^6\)</span> елементів сумарна кількість копіювань адрес складе <span class="arithmatex">\(\frac{N(N - 1)}{2} \approx 5 \cdot 10^{11}\)</span> операцій зсуву покажчиків у пам'яті, що гарантовано спричинить перевантаження процесора, зависання конвеєра збору даних і втрату вхідного трафіку через переповнення сокетів. </p>
+</li>
+<li>
+<p>Методологічно коректним рішенням є використання структури <code>collections.deque</code> (двобічна черга на основі двозв'язного списку фіксованих блоків пам'яті розміром по 64 елементи), що забезпечує операцію додавання зліва <code>appendleft()</code> за гарантований час <span class="arithmatex">\(O(1)\)</span> без переміщення сусідніх елементів. Іншим альтернативним підходом для класичного списку є накопичення елементів у хвіст через метод <code>append(telemetry_packet)</code> з алгоритмічною складністю <span class="arithmatex">\(O(1)\)</span> та одноразовий виклик системного реверсування <code>buffer.reverse()</code> перед фінальною обробкою блоку даних за час <span class="arithmatex">\(O(N)\)</span>.</p>
+</li>
+</ol>
+</details>
+<h2 id="3_2">3. Практичний індустріальний / фаховий кейс. Проектування високоефективного буфера телеметричних даних</h2>
+<h3 id="31-">3.1. Комплексний фаховий кейс. Розробка кільцевого буфера первинної фільтрації пакетів телеметрії інтернет-шлюзу із захистом конфігураційних кортежів від мутації</h3>
+<h4 id="_6">Постановка задачі / ситуації</h4>
+<p>У сучасних телекомунікаційних мережах та промислових системах Інтернету речей (IoT) граничні маршрутизатори здійснюють первинну агрегацію та фільтрацію високочастотних потоків сенсорних даних. Архітектура типового промислового шлюзу стикається з проблемою стабільності оперативної пам'яті: під час пікових навантажень неконтрольоване наповнення динамічних масивів призводить до спрацьовування механізму аварійного завершення процесів операційною системою (OOM Killer). Крім того, наявність багатопотокового конвеєра обробки створює ризик несанкціонованої модифікації метаданих пакетів у пам'яті іншими підсистемами аналітики.</p>
+<p>Розробляється модуль буферизації та статистичної фільтрації часових рядів телеметрії вібраційного стану турбінних установок. Кожен вхідний пакет містить незмінний заголовок ідентифікації пристрою, мітку часу, калібрувальні коефіцієнти, а також масив амплітудних вимірювань сенсорів. Необхідно спроектувати кільцевий буфер фіксованої місткості, що виключає динамічні перевиділення пам'яті в робочому режимі, гарантує незмінність системних дескрипторів і забезпечує обчислення ковзного середнього значення з відсіканням шумів за допомогою генераторів списків у межах жорсткого бюджету часу.</p>
+<p><em>Таблиця 3.1 — Вхідні технічні параметри та системні обмеження граничного шлюзу</em></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Параметр системи</th>
+<th style="text-align: center;">Символьне позначення</th>
+<th style="text-align: center;">Числове значення</th>
+<th style="text-align: left;">Системна розмірність та коментар</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Частота вхідного потоку</strong></td>
+<td style="text-align: center;"><span class="arithmatex">\(f_{in}\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(1\,000\)</span></td>
+<td style="text-align: left;">Пакетів за секунду (Гц)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Місткість ковзного вікна</strong></td>
+<td style="text-align: center;"><span class="arithmatex">\(K\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(10\,000\)</span></td>
+<td style="text-align: left;">Кількість пакетів у буфері</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Кількість каналів вимірювання</strong></td>
+<td style="text-align: center;"><span class="arithmatex">\(M\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(8\)</span></td>
+<td style="text-align: left;">Датчиків вібрації на один пакет</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Ліміт оперативної пам'яті</strong></td>
+<td style="text-align: center;"><span class="arithmatex">\(RAM_{limit}\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(64\)</span></td>
+<td style="text-align: left;">Мегабайти, виділені для процесу буфера</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Часовий бюджет обробки вікна</strong></td>
+<td style="text-align: center;"><span class="arithmatex">\(\tau_{max}\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(1.0\)</span></td>
+<td style="text-align: left;">Мілісекунди на цикл валідації</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Розмір заголовка пакета</strong></td>
+<td style="text-align: center;"><span class="arithmatex">\(S_{hdr}\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(40\)</span></td>
+<td style="text-align: left;">Байтів, незмінні метадані (tuple)</td>
+</tr>
+</tbody>
+</table>
+<pre class="mermaid"><code>flowchart TD
+    SensorStream["Потік пакетів телеметрії (1000 Гц)"] --&gt; IngressParser["Парсер сокета: Формування пакетів"]
+
+    subgraph Packet_Architecture["Архітектура телеметричного пакета"]
+        HeaderTuple["Заголовок (Кортеж - Tuple)\nUUID, Timestamp, Calib_Coeffs\nІМУТАБЕЛЬНИЙ ЗАХИСТ"]
+        DataList["Корисне навантаження (Список - List)\nАмплітуди вібрацій (8 каналів)\nМУТАБЕЛЬНІ ДАНІ"]
+    end
+
+    IngressParser --&gt; HeaderTuple
+    IngressParser --&gt; DataList
+
+    HeaderTuple --&gt; RingBuffer["Кільцевий буфер фіксованого розміру (PyListObject)\nРозмір: K = 10 000 слотів"]
+    DataList --&gt; RingBuffer
+
+    RingBuffer --&gt; RingIndexMath["Модульна індексація: pos = counter mod K\n(Виключає realloc та pop(0))"]
+
+    RingIndexMath --&gt; WindowProcessor["Конвеєр фільтрації (List Comprehension)\nВекторизоване відсікання викидів: |x - mean| &gt; 3*sigma"]
+
+    WindowProcessor --&gt; EgressQueue["Агрегований вихідний потік до хмари"]</code></pre>
+<h4 id="_7">Покроковий аналіз та розв'язок</h4>
+<h5 id="1">Крок 1. Структурна ізоляція метаданих і оцінка статичного споживання пам'яті</h5>
+<p>Для запобігання побічних ефектів спільної мутабельності заголовок пакета проектується як незмінний кортеж <span class="arithmatex">\(H = (\text{device\_id}, \text{timestamp}, \text{calib\_factor})\)</span>, а вектор вимірювань формується як список дійсних чисел <span class="arithmatex">\(D = [v_1, v_2, \dots, v_M]\)</span>. Розрахунок фізичного обсягу пам'яті для утримання буфера з <span class="arithmatex">\(K = 10\,000\)</span> пакетів базується на формулі сумарних накладних витрат CPython у 64-розрядному середовищі:</p>
+<div class="arithmatex">\[V_{total} = V_{buffer\_list} + K \cdot \left( V_{tuple\_hdr} + V_{list\_data} + V_{primitives} \right)\]</div>
+<p>Використовуючи системні константи розмірів структур у CPython, підставимо параметри завдання у розрахункову модель:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+V_{buffer\_list} &amp;= 56 + (10\,000 \cdot 8) = 80\,056 \text{ байтів}; \\
+V_{tuple\_hdr} &amp;= 40 + (3 \cdot 8) = 64 \text{ байти}; \\
+V_{list\_data} &amp;= 56 + (8 \cdot 8) = 120 \text{ байтів}; \\
+V_{primitives} &amp;= 3 \cdot 28 + 8 \cdot 24 = 276 \text{ байтів}.
+\end{aligned}
+\]</div>
+<p>Загальний обсяг пам'яті, необхідний для функціонування буфера, обчислюється як:</p>
+<div class="arithmatex">\[V_{total} = 80\,056 + 10\,000 \cdot (64 + 120 + 276) = 4\,680\,056 \text{ байтів} \approx 4.46 \text{ МБ}\]</div>
+<p>Отримане значення <span class="arithmatex">\(4.46 \text{ МБ}\)</span> становить лише <span class="arithmatex">\(6.97\%\)</span> від ліміту <span class="arithmatex">\(RAM_{limit} = 64 \text{ МБ}\)</span>, що забезпечує необхідний запас надійності системи.</p>
+<h5 id="2_2">Крок 2. Реалізація кільцевого буфера без перевиділення пам'яті</h5>
+<p>Застосування динамічного додавання <code>append</code> із вилученням застарілих даних через <code>pop(0)</code> створює квадратичну деградацію <span class="arithmatex">\(O(K)\)</span> за часом на кожне вилучення через системний зсув покажчиків у пам'яті. Замість цього створюється попередньо алокований список фіксованої довжини <span class="arithmatex">\(K\)</span>, куди елементи записуються за модульним індексом.</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">TelemetryRingBuffer</span><span class="p">:</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">capacity</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">capacity</span> <span class="o">=</span> <span class="n">capacity</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">buffer</span> <span class="o">=</span> <span class="p">[</span><span class="kc">None</span><span class="p">]</span> <span class="o">*</span> <span class="n">capacity</span>  <span class="c1"># Одноразове виділення 10 000 слотів</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">cursor</span> <span class="o">=</span> <span class="mi">0</span>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">is_full</span> <span class="o">=</span> <span class="kc">False</span>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">push</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">packet_header</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">,</span> <span class="n">readings</span><span class="p">:</span> <span class="nb">list</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>        <span class="c1"># Запис у комірку пам'яті за константний час O(1)</span>
+</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">buffer</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">cursor</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">packet_header</span><span class="p">,</span> <span class="n">readings</span><span class="p">)</span>
+</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">cursor</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cursor</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">capacity</span>
+</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">cursor</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+</span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">is_full</span> <span class="o">=</span> <span class="kc">True</span>
+</span></code></pre></div>
+<p>Формалізація обчислення поточної циклічної позиції курсора в системному буфері визначається як:</p>
+<div class="arithmatex">\[pos_t = (pos_{t-1} + 1) \pmod K\]</div>
+<p>де операція взяття остачі від цілочисельного ділення гарантує замкненість робочого діапазону індексів <span class="arithmatex">\([0, K - 1]\)</span>, усуваючи необхідність у викликах внутрішньої функції <code>list_resize()</code> та запобігаючи дефрагментації оперативної пам'яті.</p>
+<h5 id="3-list-comprehensions">Крок 3. Алгоритм статистичної фільтрації вікна на основі List Comprehensions</h5>
+<p>Для аналізу вібраційного сигналу в реальному часі необхідно обчислити математичне сподівання та середньоквадратичне відхилення потоку вимірювань за вибраним сенсорним каналом <span class="arithmatex">\(c \in [0, M-1]\)</span>, після чого відсіяти аномальні викиди за правилом трьох сигм (<span class="arithmatex">\(3\sigma\)</span>). Вибірка даних здійснюється виключно за допомогою спискового включення:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+\mu &amp;= \frac{1}{K} \sum_{i=0}^{K-1} x_i, \quad \text{де } x_i = \text{buffer}[i][1][c]; \\
+\sigma &amp;= \sqrt{\frac{1}{K} \sum_{i=0}^{K-1} (x_i - \mu)^2}.
+\end{aligned}
+\]</div>
+<p>Алгоритмічна реалізація фільтрації транслюється в оптимізований байт-код:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">filter_channel_outliers</span><span class="p">(</span><span class="n">buffer</span><span class="p">:</span> <span class="nb">list</span><span class="p">,</span> <span class="n">channel_idx</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">:</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>    <span class="c1"># Екстракція вимірювань через List Comprehension (інструкція LIST_APPEND)</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>    <span class="n">channel_data</span> <span class="o">=</span> <span class="p">[</span><span class="n">item</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="n">channel_idx</span><span class="p">]</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">buffer</span> <span class="k">if</span> <span class="n">item</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">]</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">channel_data</span><span class="p">)</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>    <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>        <span class="k">return</span> <span class="p">[]</span>
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>    <span class="n">mean</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">channel_data</span><span class="p">)</span> <span class="o">/</span> <span class="n">n</span>
+</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>    <span class="n">variance</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">((</span><span class="n">x</span> <span class="o">-</span> <span class="n">mean</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">channel_data</span><span class="p">)</span> <span class="o">/</span> <span class="n">n</span>
+</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>    <span class="n">std_dev</span> <span class="o">=</span> <span class="n">variance</span> <span class="o">**</span> <span class="mf">0.5</span>
+</span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>    <span class="n">threshold</span> <span class="o">=</span> <span class="mf">3.0</span> <span class="o">*</span> <span class="n">std_dev</span>
+</span><span id="__span-5-12"><a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a>
+</span><span id="__span-5-13"><a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a>    <span class="c1"># Фільтрація значень, що потрапляють у довірчий інтервал</span>
+</span><span id="__span-5-14"><a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a>    <span class="n">filtered_series</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">channel_data</span> <span class="k">if</span> <span class="nb">abs</span><span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">mean</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="n">threshold</span><span class="p">]</span>
+</span><span id="__span-5-15"><a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a>    <span class="k">return</span> <span class="n">filtered_series</span>
+</span></code></pre></div>
+<h5 id="4-tau_max">Крок 4. Валідація часової складності та відповідності бюджету <span class="arithmatex">\(\tau_{max}\)</span></h5>
+<p>Асимптотична складність обчислення статистичних параметрів та фільтрації вікна визначається формулою:</p>
+<div class="arithmatex">\[T(K) = O(K) + O(K) + O(K) = 3 \cdot O(K) \equiv O(K)\]</div>
+<p>У середовищі процесора з тактовою частотою <span class="arithmatex">\(3.2 \text{ ГГц}\)</span> обробка <span class="arithmatex">\(K = 10\,000\)</span> чисел типу <code>float</code> у пам'яті CPython вимагає приблизно <span class="arithmatex">\(1.8 \cdot 10^6\)</span> тактів, що відповідає чистому часу виконання:</p>
+<div class="arithmatex">\[\tau_{calc} \approx \frac{1.8 \cdot 10^6}{3.2 \cdot 10^9} \approx 0.56 \cdot 10^{-3} \text{ с} = 0.56 \text{ мс}\]</div>
+<p>Оскільки <span class="arithmatex">\(0.56 \text{ мс} &lt; \tau_{max} = 1.0 \text{ мс}\)</span>, запропонований конвеєр задовольняє вимоги обробки в режимі реального часу.</p>
+<h4 id="_8">Інтерпретація результатів та альтернативні сценарії</h4>
+<ol>
+<li>
+<p>Використання попередньо виділеного списку фіксованої довжини дозволило перевести операцію циклічного додавання телеметричного пакета у гарантовану часову категорію <span class="arithmatex">\(O(1)\)</span> без викликів системного алокатора, знизивши затримку вставки з <span class="arithmatex">\(1.2 \text{ мс}\)</span> (у разі <code>insert(0)</code>) до <span class="arithmatex">\(80 \text{ нс}\)</span>.</p>
+</li>
+<li>
+<p>Застосування імутабельного кортежу для збереження заголовка гарантувало цілісність метаданих вузла обліку, унеможлививши випадкове пошкодження системних міток часу або ідентифікаторів іншими функціональними модулями в пам'яті.</p>
+</li>
+<li>
+<p>У разі радикального збільшення вхідного потоку даних у 100 разів (до <span class="arithmatex">\(f_{in} = 100\,000\)</span> пакетів/с при <span class="arithmatex">\(K = 10^6\)</span>) представлена архітектура на основі стандартних списків Python зазнає колапсу через промахи кеш-пам'яті L1/L2 і накладні витрати на інтерпретацію байт-коду. У такому альтернативному сценарії необхідно відмовитися від гетерогенних динамічних масивів посилань на користь неперервних блоків спільної пам'яті <code>multiprocessing.shared_memory</code> з упаковкою даних у двійкові вектори модуля <code>array</code> або масиви бібліотеки NumPy.</p>
+</li>
+</ol>
+<hr />
+<h3 id="32">3.2. Зведена довідкова система лекції</h3>
+<p><em>Таблиця 3.2 — Фундаментальний довідник концепцій та структур організації послідовностей у Python</em></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Термін / Концепція</th>
+<th style="text-align: left;">Формалізація / Сутність</th>
+<th style="text-align: left;">Реальний кейс застосування</th>
+<th style="text-align: left;">Основне обмеження / Ризик</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong><code>PyListObject</code></strong></td>
+<td style="text-align: left;">C-структура з неперервним масивом покажчиків <code>PyObject**</code> і полями <code>ob_size</code>, <code>allocated</code></td>
+<td style="text-align: left;">Буферизація гетерогенних повідомлень змінної довжини</td>
+<td style="text-align: left;">Промахи кешу процесора через розпорошеність об'єктів у купі</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>PyTupleObject</code></strong></td>
+<td style="text-align: left;">Незмінний монолітний блок пам'яті фіксованої місткості без поля динамічного розширення</td>
+<td style="text-align: left;">Збереження конфігурацій, координат та мережевих 5-сокетів</td>
+<td style="text-align: left;">Повна відсутність операцій модифікації на місці</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Адресна арифметика</strong></td>
+<td style="text-align: left;"><span class="arithmatex">\(\text{Addr}(L[i]) = \text{Base} + i \cdot S_{ptr}\)</span></td>
+<td style="text-align: left;">Довільний доступ до <span class="arithmatex">\(i\)</span>-го елемента за час <span class="arithmatex">\(O(1)\)</span></td>
+<td style="text-align: left;">Позиціонування поза діапазоном генерує виняток <code>IndexError</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Нормалізація індексів</strong></td>
+<td style="text-align: left;"><span class="arithmatex">\(f(i) = n + i\)</span> при від'ємних значеннях індексу</td>
+<td style="text-align: left;">Читання останніх елементів часових рядів без розрахунку довжини</td>
+<td style="text-align: left;">Некоректний крок у від'ємних зрізах повертає порожній список</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Зріз (Slicing)</strong></td>
+<td style="text-align: left;">Створення нового списку <span class="arithmatex">\(O(k)\)</span> копіюванням підмасиву посилань</td>
+<td style="text-align: left;">Вилучення діапазону пакетів для віконної обробки</td>
+<td style="text-align: left;">Не є глибокою копією, зберігає спільну мутабельність підсписків</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Геометричне масштабування</strong></td>
+<td style="text-align: left;">Збільшення буфера за формулою <span class="arithmatex">\(n + (n \gg 3) + const\)</span></td>
+<td style="text-align: left;">Метод <code>append(x)</code> з амортизованою складністю <span class="arithmatex">\(O(1)\)</span></td>
+<td style="text-align: left;">Надлишкове резервування займає до 12.5% зайвої пам'яті</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Timsort</strong></td>
+<td style="text-align: left;">Гібридний адаптивний стабільний алгоритм злиттям і вставками <span class="arithmatex">\(O(n \log n)\)</span></td>
+<td style="text-align: left;">Вбудоване сортування через <code>sort()</code> та <code>sorted()</code></td>
+<td style="text-align: left;">Вимагає <span class="arithmatex">\(O(n)\)</span> додаткової пам'яті для буферів злиття</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Хешованість (Hashable)</strong></td>
+<td style="text-align: left;">Наявність незмінного значення <code>__hash__()</code> за умови еквівалентності <code>__eq__()</code></td>
+<td style="text-align: left;">Використання кортежів як складних ключів у словниках <code>dict</code></td>
+<td style="text-align: left;">Неможливість хешування кортежів, що містять мутабельні елементи</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Пули вільних об'єктів</strong></td>
+<td style="text-align: left;">Масив <code>free_list</code> для повторного використання пам'яті кортежів (<span class="arithmatex">\(len \le 20\)</span>)</td>
+<td style="text-align: left;">Зменшення навантаження на системний <code>malloc</code> при швидких циклах</td>
+<td style="text-align: left;">Обмежена дія: оптимізує лише об'єкти малої місткості</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>List Comprehensions</strong></td>
+<td style="text-align: left;">Декларативне створення списків через опкод <code>LIST_APPEND</code></td>
+<td style="text-align: left;">Прискорена на 30% фільтрація та трансформація масивів</td>
+<td style="text-align: left;">Жадібне обчислення може викликати вичерпання RAM (<code>MemoryError</code>)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="33">3.3. Контрольні питання та завдання</h3>
+<h4 id="_9">Прикладні тестові завдання</h4>
+<ol>
+<li>
+<p>У розподіленій системі зв'язку стан з'єднання зберігається у вигляді кортежу <code>channel_state = (101, "ACTIVE", [50, 60, 70])</code>. Розробник намагається використати цю змінну як ключ у словнику сесій: <code>sessions = {channel_state: "Worker_1"}</code>. Яку реакцію продемонструє інтерпретатор CPython під час виконання цього рядка коду?</p>
+</li>
+<li>
+<p>A. Словник успішно створиться, оскільки базовим типом об'єкта є незмінний кортеж <code>tuple</code>.</p>
+</li>
+<li>
+<p>B. Виникне помилка часу компіляції <code>SyntaxError</code> через використання складених типів як ключів.</p>
+</li>
+<li>
+<p>C. Інтерпретатор згенерує виняток <code>TypeError: unhashable type: 'list'</code>.</p>
+</li>
+<li>
+<p>D. Словник створиться, але значення хешу автоматично перераховуватиметься при зміні третього елемента.</p>
+</li>
+</ol>
+<details class="note">
+<summary>Розгорнути аналіз / відповідь</summary>
+<p><strong>Правильний варіант: C.</strong></p>
+<ol>
+<li>
+<p>Відповідно до інваріанта хешованості, кортеж є хешованим об'єктом виключно за умови, що кожен окремий елемент, який входить до його складу, є строго хешованим. Оскільки третій елемент кортежу є мутабельним списком <code>[50, 60, 70]</code>, у якого магічний метод <code>__hash__</code> відсутній (<code>None</code>), спроба обчислення хешу від усього кортежу спричинить каскадний збій та генерацію винятку <code>TypeError</code>.</p>
+</li>
+<li>
+<p>Аналіз дистракторів. Варіант A є хибним, оскільки зовнішня незмінність кортежу не компенсує внутрішню мутабельність вкладених посилань. Варіант B відкидається, тому що валідація хешованості ключів відбувається динамічно під час виконання програми, а не на етапі синтаксичного розбору. Варіант D є принципово неможливим, оскільки динамічний перерахунок хешу зламав би інваріант незмінності комірок у відкритій адресації хеш-таблиці CPython.</p>
+</li>
+</ol>
+</details>
+<ol>
+<li>
+<p>Програма виконує обробку черги пакетів за допомогою списку <code>queue = []</code>. На кожній ітерації додається новий пакет у хвіст через <code>queue.append(packet)</code>, а обробка здійснюється шляхом вилучення найстарішого пакета виразом <code>current = queue.pop(0)</code>. Як зміниться сумарний час виконання програми при збільшенні кількості оброблених пакетів від <span class="arithmatex">\(1\,000\)</span> до <span class="arithmatex">\(100\,000\)</span>?</p>
+</li>
+<li>
+<p>A. Час зросте пропорційно у 100 разів, оскільки обидва методи є базовими операціями над списком.</p>
+</li>
+<li>
+<p>B. Час виконання збільшиться приблизно у 10 000 разів, оскільки загальна часова складність конвеєра становить <span class="arithmatex">\(O(n^2)\)</span>.</p>
+</li>
+<li>
+<p>C. Час зросте логарифмічно у зв'язку з оптимізацією алгоритму Timsort.</p>
+</li>
+<li>
+<p>D. Час не зміниться завдяки механізму геометричного масштабування пам'яті списку.</p>
+</li>
+</ol>
+<details class="note">
+<summary>Розгорнути аналіз / відповідь</summary>
+<p><strong>Правильний варіант: B.</strong></p>
+<ol>
+<li>
+<p>Метод <code>append()</code> має амортизовану складність <span class="arithmatex">\(O(1)\)</span>. Проте виклик <code>queue.pop(0)</code> вилучає перший елемент масиву покажчиків, що змушує низькорівневу функцію <code>memmove()</code> зміщувати всі решту елементів на 8 байтів ліворуч, генеруючи лінійну складність <span class="arithmatex">\(O(n)\)</span> на кожній ітерації. Сумарна складність циклу з <span class="arithmatex">\(n\)</span> кроків складає <span class="arithmatex">\(\sum O(i) = O(n^2)\)</span>. При збільшенні <span class="arithmatex">\(n\)</span> у 100 разів (<span class="arithmatex">\(k = 100\)</span>), квадратична складність масштабує витрати часу пропорційно <span class="arithmatex">\(k^2 = 100^2 = 10\,000\)</span>.</p>
+</li>
+<li>
+<p>Аналіз дистракторів. Варіант A хибно припускає, що вилучення з нульової позиції має константну вартість, ігноруючи фізичну структуру масиву покажчиків. Варіант C не стосується операцій черги, оскільки Timsort активується лише при явному виклику сортування. Варіант D сплутує стратегію виділення пам'яті для додавання в кінець зі зсувом елементів при видаленні з голови списку.</p>
+</li>
+</ol>
+</details>
+<ol>
+<li>
+<p>Досліджується стан пам'яті для вкладеного масиву після виконання таких операцій:
+<div class="language-python highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="n">row</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="n">matrix</span> <span class="o">=</span> <span class="p">[</span><span class="n">row</span><span class="p">]</span> <span class="o">*</span> <span class="mi">3</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="n">matrix</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">]</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="n">matrix</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">99</span>
+</span></code></pre></div>
+Які значення міститимуть елементи списку <code>matrix</code> після завершення обчислень?</p>
+</li>
+<li>
+<p>A. <code>[[8, 9], [99, 2], [99, 2]]</code></p>
+</li>
+<li>
+<p>B. <code>[[99, 9], [99, 2], [99, 2]]</code></p>
+</li>
+<li>
+<p>C. <code>[[8, 9], [99, 2], [1, 2]]</code></p>
+</li>
+<li>
+<p>D. <code>[[8, 9], [1, 2], [1, 2]]</code></p>
+</li>
+</ol>
+<details class="note">
+<summary>Розгорнути аналіз / відповідь</summary>
+<p><strong>Правильний варіант: A.</strong></p>
+<ol>
+<li>
+<p>Операція <code>matrix = [row] * 3</code> створює список із трьох посилань на один і той самий об'єкт <code>row</code>. Вираз <code>matrix[0] = [8, 9]</code> замінює покажчик у нульовому слоті <code>matrix</code> на абсолютно новий об'єкт списку <code>[8, 9]</code>, розриваючи його зв'язок зі змінною <code>row</code>. Слоти <code>matrix[1]</code> та <code>matrix[2]</code> продовжують адресувати вихідний об'єкт <code>row</code>. Команда <code>matrix[1][0] = 99</code> мутує безпосередньо спільний об'єкт <code>row</code>, перетворюючи його на <code>[99, 2]</code>. Відтак, <code>matrix[1]</code> та <code>matrix[2]</code> відображають <code>[99, 2]</code>, а <code>matrix[0]</code> залишається <code>[8, 9]</code>.</p>
+</li>
+<li>
+<p>Аналіз дистракторів. Варіант B помилково вважає, що нульовий рядок зберіг зв'язок зі змінною <code>row</code> після повного перезапису слота новим об'єктом. Варіант C хибно припускає, що зміна елемента торкнулася виключно першого рядка, ігноруючи дублювання посилань між першим та другим слотами. Варіант D ігнорує реалізацію мутації об'єкта <code>row</code> через індекс другого рядка.</p>
+</li>
+</ol>
+</details>
+<ol>
+<li>
+<p>Задано масив кортежів <code>telemetry = [(10, 0.5), (5, 0.2), (10, 0.1), (5, 0.8)]</code>. Виконується стабільне сортування: <code>result = sorted(telemetry, key=lambda x: x[0])</code>. Яким буде фінальне розташування елементів у колекції <code>result</code>?</p>
+</li>
+<li>
+<p>A. <code>[(5, 0.8), (5, 0.2), (10, 0.1), (10, 0.5)]</code></p>
+</li>
+<li>
+<p>B. <code>[(5, 0.2), (5, 0.8), (10, 0.5), (10, 0.1)]</code></p>
+</li>
+<li>
+<p>C. <code>[(5, 0.2), (5, 0.8), (10, 0.1), (10, 0.5)]</code></p>
+</li>
+<li>
+<p>D. <code>[(10, 0.1), (10, 0.5), (5, 0.2), (5, 0.8)]</code></p>
+</li>
+</ol>
+<details class="note">
+<summary>Розгорнути аналіз / відповідь</summary>
+<p><strong>Правильний варіант: B.</strong></p>
+<ol>
+<li>
+<p>Алгоритм Timsort володіє математичною властивістю стабільності (<em>stability</em>): відносний порядок розташування елементів з еквівалентними ключами сортування строго зберігається. Сортування здійснюється за першим елементом пари (<code>x[0]</code>). Пари з ключем <code>5</code> спочатку розташовувалися як <code>(5, 0.2)</code>, а потім <code>(5, 0.8)</code>. Пари з ключем <code>10</code> мали первинний порядок <code>(10, 0.5)</code>, а потім <code>(10, 0.1)</code>. Стабільне сортування групує ключі у порядку зростання (<span class="arithmatex">\(5 &lt; 10\)</span>), повністю консервуючи початковий відносний порядок усередині кожної групи.</p>
+</li>
+<li>
+<p>Аналіз дистракторів. Варіант A змінює порядок пар із ключем 5 на протилежний, що порушує стабільність алгоритму. Варіант C додатково сортує другі елементи, ніби порівнювався весь кортеж, тоді як ключ вибирав лише нульовий індекс. Варіант D демонструє спадне сортування, що суперечить стандартному параметру <code>reverse=False</code>.</p>
+</li>
+</ol>
+</details>
+<hr />
+<h4 id="_10">Завдання для самостійної роботи</h4>
+<h5 id="_11">Постановка задачі</h5>
+<p>У телекомунікаційному шлюзі моніторингу трафіку промислової підстанції необхідно розробити модуль детекції DoS-атак на основі аналізу ентропії заголовків мережевих пакетів. Система отримує структурований потік журналів, де кожна транзакція представлена кортежем мережевих атрибутів і списком міток часу спрацювання тригерів безпеки. Модуль повинен накопичувати ковзне вікно з останніх <span class="arithmatex">\(50\,000\)</span> подій, підтримувати пошук унікальних IP-адрес без дублювання записів, забезпечувати захист еталонних конфігураційних фільтрів від випадкової модифікації та генерувати звіт про відхилення частоти звернень за фіксований квант часу.</p>
+<h5 id="_12">Завдання для виконання</h5>
+<ol>
+<li>
+<p>Спроектувати програмний клас аналітичного кільцевого буфера заданої місткості, реалізувавши збереження вхідних мережевих транзакцій без використання методів динамічного розширення списку в процесі безперервної обробки потоку.</p>
+</li>
+<li>
+<p>Реалізувати механізм валідації мережевих дескрипторів на предмет їх придатності для використання як ключів швидкого доступу в асоціативних масивах за допомогою рекурсивної перевірки імутабельності всіх складових компонентів кортежу.</p>
+</li>
+<li>
+<p>Розробити алгоритм фільтрації вхідного масиву подій за допомогою спискових включень, який екстрагує вибірку транзакцій за вказаним діапазоном портів та обчислює дисперсію часових інтервалів між сусідніми подіями.</p>
+</li>
+<li>
+<p>Провести експериментальне порівняння часу виконання операції сортування накопиченого масиву подій на місці методом <code>sort()</code> проти функціонального підходу з поверненням нового списку через функцію <code>sorted()</code>, зафіксувавши різницю у споживанні оперативної пам'яті процесом за допомогою системних засобів модуля <code>tracemalloc</code>.</p>
+</li>
+</ol>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Повернутись нагору
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 Kyrylo Vadurin &bull; <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a>
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.expand", "navigation.top", "navigation.tracking", "header.autohide", "search.suggest", "search.highlight", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u0421\u043a\u043e\u043f\u0456\u0439\u043e\u0432\u0430\u043d\u043e \u0432 \u0431\u0443\u0444\u0435\u0440", "clipboard.copy": "\u0421\u043a\u043e\u043f\u0456\u044e\u0432\u0430\u0442\u0438 \u0432 \u0431\u0443\u0444\u0435\u0440", "search.result.more.one": "\u0429\u0435 1 \u0437\u0431\u0456\u0433 \u043d\u0430 \u0446\u0456\u0439 \u0441\u0442\u043e\u0440\u0456\u043d\u0446\u0456", "search.result.more.other": "\u0429\u0435 # \u0437\u0431\u0456\u0433\u0456\u0432 \u043d\u0430 \u0446\u0456\u0439 \u0441\u0442\u043e\u0440\u0456\u043d\u0446\u0456", "search.result.none": "\u0417\u0431\u0456\u0433\u0456\u0432 \u043d\u0435 \u0437\u043d\u0430\u0439\u0434\u0435\u043d\u043e", "search.result.one": "\u0417\u043d\u0430\u0439\u0434\u0435\u043d\u043e 1 \u0437\u0431\u0456\u0433", "search.result.other": "\u0417\u043d\u0430\u0439\u0434\u0435\u043d\u043e # \u0437\u0431\u0456\u0433\u0456\u0432", "search.result.placeholder": "\u0420\u043e\u0437\u043f\u043e\u0447\u043d\u0456\u0442\u044c \u043f\u0438\u0441\u0430\u0442\u0438 \u0434\u043b\u044f \u043f\u043e\u0448\u0443\u043a\u0443", "search.result.term.missing": "\u041d\u0435 \u0437\u043d\u0430\u0439\u0434\u0435\u043d\u043e \u0437\u0430\u043f\u0438\u0442\u0443", "select.version": "\u041e\u0431\u0440\u0430\u0442\u0438 \u0432\u0435\u0440\u0441\u0456\u044e"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

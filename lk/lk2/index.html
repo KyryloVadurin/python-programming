@@ -1,0 +1,3200 @@
+
+<!doctype html>
+<html lang="uk" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Навчальний портал з дисципліни "Програмування на Python. Базовий рівень"">
+      
+      
+      
+      
+        <link rel="prev" href="../lk1/">
+      
+      
+        <link rel="next" href="../lk3/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Тема 2. Керування потоком виконання - Програмування на Python</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="cyan">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#2" class="md-skip">
+          Перейти до змісту
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Хедер">
+    <a href="../.." title="Програмування на Python" class="md-header__button md-logo" aria-label="Програмування на Python" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Програмування на Python
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Тема 2. Керування потоком виконання
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="cyan"  aria-label="Переключити на темну тему"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Переключити на темну тему" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="cyan"  aria-label="Переключити на світлу тему"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Переключити на світлу тему" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Пошук" placeholder="Пошук" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Шукати">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Очистити" aria-label="Очистити" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Пошук розпочато
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Вкладки" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Робоча програма
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../lk1/" class="md-tabs__link">
+          
+  
+  
+  Лекції
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../lb/lb1/" class="md-tabs__link">
+          
+  
+  
+  Лабораторні роботи
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../sr/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Самостійна робота
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../sr/quest/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Перелік тестових питань
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../rg/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Розрахунково-графічна робота
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Навігація" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Програмування на Python" class="md-nav__button md-logo" aria-label="Програмування на Python" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Програмування на Python
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Робоча програма
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Лекції
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Лекції
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lk1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Тема 1. Архітектура мови та інфраструктура
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Тема 2. Керування потоком виконання
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Тема 2. Керування потоком виконання
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Зміст">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Зміст
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Мета лекції
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Очікувані результати навчання
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Детальний покроковий план лекції
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Детальний покроковий план лекції">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Теоретико-концептуальний базис. Архітектура розгалужень та предикатна логіка
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Методологія та аналіз граничних умов. Циклічні ітератори та керування ітеративними процесами
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Практичний індустріальний / фаховий кейс. Розробка отказостійкого контролера обробки телеметричних сигналів
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Теоретико-концептуальний базис. Архітектура розгалужень та предикатна логіка
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Теоретико-концептуальний базис. Архітектура розгалужень та предикатна логіка">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-if-if-else-if-elif-else-indentdedent-pep-8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1. Синтаксична структура умовних інструкцій if, if-else, if-elif-else та механізм токенізації відступів INDENT/DEDENT за стандартом PEP 8
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-truthiness-cpython" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2. Концепція істинності об'єктів (truthiness), правила неявного приведення типів та внутрішні системні слоти оцінювання об'єктів у CPython
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-and-or-not-short-circuit-evaluation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3. Логічні оператори and, or, not, порядок виконання операцій та математична формалізація короткої схеми обчислення (short-circuit evaluation)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.4. Тернарний умовний вираз як інженерний інструмент селекції даних: синтаксис, ліниве обчислення гілок та межі використання
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Вказівки для самостійного осмислення
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Методологія та аналіз граничних умов. Циклічні ітератори та керування ітеративними процесами
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Методологія та аналіз граничних умов. Циклічні ітератори та керування ітеративними процесами">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-while" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1. Цикл із передумовою while, критерії збіжності ітераційного процесу та механізми запобігання зацикленню
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-for-iterator-protocol-stopiteration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2. Узагальнений цикл for, архітектура протоколу ітератора (Iterator Protocol) та обробка службового винятку StopIteration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-range-pyrangeobject-o1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3. Генератор арифметичних прогресій range: внутрішня структура PyRangeObject, параметрична модель та просторова складність O(1)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-break-continue-pass-else" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4. Мікродинаміка керування ітераціями за допомогою операторів break, continue, pass та інженерний патерн використання блоку else в циклах
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.5. Критичні бар'єри та вузькі місця: експоненційне зростання обчислювальної складності глибоко вкладених циклів, накладні витрати динамічної диспетчеризації віртуальної машини та обмеження продуктивності інтерпретатора
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Вказівки для самостійного осмислення
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Практичний індустріальний / фаховий кейс. Розробка отказостійкого контролера обробки телеметричних сигналів
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Практичний індустріальний / фаховий кейс. Розробка отказостійкого контролера обробки телеметричних сигналів">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-iot-" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1. Комплексний фаховий кейс. Проектування системи фільтрації та статистичного аналізу телеметрії IoT-контролера
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.1. Комплексний фаховий кейс. Проектування системи фільтрації та статистичного аналізу телеметрії IoT-контролера">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Постановка задачі / ситуації
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Покроковий аналіз та розв'язок
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Покроковий аналіз та розв&#39;язок">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Крок 1. Захисна перевірка цілісності телеметричного кадру на базі короткої схеми обчислень
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Крок 2. Каскадна фільтрація фізичних викидів та амплітудне клемпування сигналу
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Крок 3. Реалізація статистичного аналізатора та циклу обробки буфера
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Крок 4. Розрахунок числових параметрів вибірки з підстановкою реальних даних
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Інтерпретація результатів та альтернативні сценарії
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2. Зведена довідкова система лекції
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3. Контрольні питання та завдання
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.3. Контрольні питання та завдання">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Прикладні тестові завдання
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Прикладні тестові завдання">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Завдання 1
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Завдання 2
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Завдання 3
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Завдання 4
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Завдання для самостійної роботи
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Завдання для самостійної роботи">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Постановка задачі
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Завдання для виконання
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lk3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Тема 3. Впорядковані структури даних (Списки, Кортежі)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lk4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Тема 4. Текстові, двійкові дані та Регулярні вирази
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lk5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Тема 5. Хеш-таблиці (Словники, Множини)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lk6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Тема 6. Функціональна організація коду
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lk7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Тема 7. Модульна архітектура та пакети
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lk8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Тема 8. Обробка винятків та файлове в/в
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lk9/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Тема 9. Об'єктно-орієнтоване програмування
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Лабораторні роботи
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Лабораторні роботи
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lb/lb1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 1. Розгортання інфраструктури розробки
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lb/lb2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 2. Скалярні типи даних та моделювання
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lb/lb3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 3. Алгоритми розгалуженої та циклічної структури
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lb/lb4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 4. Обробка списків та кортежі
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lb/lb5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 5. Обробка тексту та регулярні вирази
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lb/lb6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 6. Асоціативні структури даних (Словники, Множини)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lb/lb7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 7. Проєктування функцій та рекурсія
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lb/lb8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 8. Модульне програмування та системні бібліотеки
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lb/lb9/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 9. Обробка виняткових ситуацій
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lb/lb10/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 10. Файлове в/в та менеджери контексту
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lb/lb11/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 11. ООП та перевантаження методів
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sr/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Самостійна робота
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sr/quest/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Перелік тестових питань
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../rg/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Розрахунково-графічна робота
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Зміст">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Зміст
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Мета лекції
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Очікувані результати навчання
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Детальний покроковий план лекції
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Детальний покроковий план лекції">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Теоретико-концептуальний базис. Архітектура розгалужень та предикатна логіка
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Методологія та аналіз граничних умов. Циклічні ітератори та керування ітеративними процесами
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Практичний індустріальний / фаховий кейс. Розробка отказостійкого контролера обробки телеметричних сигналів
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Теоретико-концептуальний базис. Архітектура розгалужень та предикатна логіка
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Теоретико-концептуальний базис. Архітектура розгалужень та предикатна логіка">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-if-if-else-if-elif-else-indentdedent-pep-8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1. Синтаксична структура умовних інструкцій if, if-else, if-elif-else та механізм токенізації відступів INDENT/DEDENT за стандартом PEP 8
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-truthiness-cpython" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2. Концепція істинності об'єктів (truthiness), правила неявного приведення типів та внутрішні системні слоти оцінювання об'єктів у CPython
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-and-or-not-short-circuit-evaluation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3. Логічні оператори and, or, not, порядок виконання операцій та математична формалізація короткої схеми обчислення (short-circuit evaluation)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.4. Тернарний умовний вираз як інженерний інструмент селекції даних: синтаксис, ліниве обчислення гілок та межі використання
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Вказівки для самостійного осмислення
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Методологія та аналіз граничних умов. Циклічні ітератори та керування ітеративними процесами
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Методологія та аналіз граничних умов. Циклічні ітератори та керування ітеративними процесами">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-while" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1. Цикл із передумовою while, критерії збіжності ітераційного процесу та механізми запобігання зацикленню
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-for-iterator-protocol-stopiteration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2. Узагальнений цикл for, архітектура протоколу ітератора (Iterator Protocol) та обробка службового винятку StopIteration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-range-pyrangeobject-o1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3. Генератор арифметичних прогресій range: внутрішня структура PyRangeObject, параметрична модель та просторова складність O(1)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-break-continue-pass-else" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4. Мікродинаміка керування ітераціями за допомогою операторів break, continue, pass та інженерний патерн використання блоку else в циклах
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.5. Критичні бар'єри та вузькі місця: експоненційне зростання обчислювальної складності глибоко вкладених циклів, накладні витрати динамічної диспетчеризації віртуальної машини та обмеження продуктивності інтерпретатора
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Вказівки для самостійного осмислення
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Практичний індустріальний / фаховий кейс. Розробка отказостійкого контролера обробки телеметричних сигналів
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Практичний індустріальний / фаховий кейс. Розробка отказостійкого контролера обробки телеметричних сигналів">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-iot-" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1. Комплексний фаховий кейс. Проектування системи фільтрації та статистичного аналізу телеметрії IoT-контролера
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.1. Комплексний фаховий кейс. Проектування системи фільтрації та статистичного аналізу телеметрії IoT-контролера">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Постановка задачі / ситуації
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Покроковий аналіз та розв'язок
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Покроковий аналіз та розв&#39;язок">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Крок 1. Захисна перевірка цілісності телеметричного кадру на базі короткої схеми обчислень
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Крок 2. Каскадна фільтрація фізичних викидів та амплітудне клемпування сигналу
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Крок 3. Реалізація статистичного аналізатора та циклу обробки буфера
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Крок 4. Розрахунок числових параметрів вибірки з підстановкою реальних даних
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Інтерпретація результатів та альтернативні сценарії
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2. Зведена довідкова система лекції
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3. Контрольні питання та завдання
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.3. Контрольні питання та завдання">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Прикладні тестові завдання
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Прикладні тестові завдання">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Завдання 1
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Завдання 2
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Завдання 3
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Завдання 4
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Завдання для самостійної роботи
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Завдання для самостійної роботи">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Постановка задачі
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Завдання для виконання
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="2">Тема 2. Керування потоком виконання: розгалужені та циклічні алгоритмічні конструкції</h1>
+<h2 id="_1">Мета лекції</h2>
+<p>Формування у здобувачів вищої освіти системного розуміння механізмів керування послідовністю виконання машинних інструкцій у мові програмування Python, всебічне опанування синтаксичного апарату та внутрішньої семантики розгалужених і циклічних алгоритмічних конструкцій, а також розвиток практичних інженерних навичок проектування детермінованих, отказостійких та обчислювально оптимізованих алгоритмів для розв'язання задач автоматизації, первинної обробки сигналів і моделювання складних дискретних процесів у сучасних комп'ютерних і телекомунікаційних системах.</p>
+<h2 id="_2">Очікувані результати навчання</h2>
+<ol>
+<li>
+<p><strong>Знання та розуміння.</strong> Здобувачі засвоять синтаксичні особливості оформлення блоків коду за стандартом PEP 8, внутрішні правила приведення типів даних до булевого еквівалента, семантику умовних операторів <code>if-elif-else</code>, тернарного виразу, циклічних інструкцій <code>while</code> і <code>for</code>, системну логіку протоколу ітерування, а також функціональне призначення операторів <code>break</code>, <code>continue</code>, <code>pass</code> та блоку <code>else</code> у циклах.</p>
+</li>
+<li>
+<p><strong>Застосування.</strong> Здобувачі зможуть самостійно конструювати нелінійні алгоритмічні структури, коректно використовувати коротку схему обчислення логічних виразів для побудови захисних конструкцій, організовувати ресурсоефективний обхід багатовимірних колекцій і математичних діапазонів із використанням лінивих послідовностей <code>range</code>.</p>
+</li>
+<li>
+<p><strong>Аналіз.</strong> Здобувачі навчаться деконструювати вкладені алгоритмічні конструкції, діагностувати причини зациклення й некоректних переходів, аналізувати умови зупинки ітераційних процесів за заданою точністю, а також порівнювати часову та просторову складність ітеративних алгоритмів із різними схемами керування.</p>
+</li>
+<li>
+<p><strong>Оцінювання та синтез.</strong> Здобувачі набудуть здатності проектувати високонадійні алгоритми валідації та обробки телеметричних потоків даних у граничних режимах функціонування, критично оцінювати вплив вкладених циклів на продуктивність інтерпретатора CPython та розробляти комплексні алгоритмічні рішення з адаптивною реакцією на апаратні й логічні збої.</p>
+</li>
+</ol>
+<hr />
+<h2 id="_3">Детальний покроковий план лекції</h2>
+<h3 id="1-">1. Теоретико-концептуальний базис. Архітектура розгалужень та предикатна логіка</h3>
+<ul>
+<li>
+<p>1.1. Синтаксична структура умовних інструкцій <code>if</code>, <code>if-else</code>, <code>if-elif-else</code> та механізм токенізації відступів <code>INDENT</code>/<code>DEDENT</code> за стандартом PEP 8.</p>
+</li>
+<li>
+<p>1.2. Концепція істинності об'єктів (<em>truthiness</em>), правила неявного приведення типів та внутрішні системні слоти оцінювання об'єктів у CPython.</p>
+</li>
+<li>
+<p>1.3. Логічні оператори <code>and</code>, <code>or</code>, <code>not</code>, порядок виконання операцій та математична формалізація короткої схеми обчислення (<em>short-circuit evaluation</em>).</p>
+</li>
+<li>
+<p>1.4. Тернарний умовний вираз як інженерний інструмент селекції даних: синтаксис, ліниве обчислення гілок та межі використання.</p>
+</li>
+</ul>
+<h3 id="2_1">2. Методологія та аналіз граничних умов. Циклічні ітератори та керування ітеративними процесами</h3>
+<ul>
+<li>
+<p>2.1. Цикл із передумовою <code>while</code>, доведення збіжності алгоритму до термінального стану та механізми запобігання зацикленню.</p>
+</li>
+<li>
+<p>2.2. Узагальнений цикл <code>for</code>, архітектура протоколу ітератора (<em>Iterator Protocol</em>) та обробка службового винятку <code>StopIteration</code>.</p>
+</li>
+<li>
+<p>2.3. Генератор арифметичних прогресій <code>range</code>: внутрішня структура <code>PyRangeObject</code>, параметрична модель та просторова складність <span class="arithmatex">\(\mathcal{O}(1)\)</span>.</p>
+</li>
+<li>
+<p>2.4. Мікродинаміка керування ітераціями за допомогою операторів <code>break</code>, <code>continue</code>, <code>pass</code> та інженерний патерн використання блоку <code>else</code> в циклах.</p>
+</li>
+<li>
+<p>2.5. Критичні бар'єри та вузькі місця: експоненційне зростання обчислювальної складності глибоко вкладених циклів, накладні витрати динамічної диспетчеризації віртуальної машини та обмеження продуктивності інтерпретатора.</p>
+</li>
+</ul>
+<h3 id="3">3. Практичний індустріальний / фаховий кейс. Розробка отказостійкого контролера обробки телеметричних сигналів</h3>
+<p><strong>Тема наскрізної задачі.</strong> «Проектування системи фільтрації, валідації та пакетного статистичного аналізу телеметричного потоку датчиків промислового IoT-контролера з виявленням аномальних викидів та захистом від переповнення буфера»</p>
+<h2 id="1-_1">1. Теоретико-концептуальний базис. Архітектура розгалужень та предикатна логіка</h2>
+<h3 id="11-if-if-else-if-elif-else-indentdedent-pep-8">1.1. Синтаксична структура умовних інструкцій if, if-else, if-elif-else та механізм токенізації відступів INDENT/DEDENT за стандартом PEP 8</h3>
+<p>Архітектура фон Неймана передбачає послідовне виконання машинних команд, що визначається лінійним інкрементом лічильника інструкцій процесора. Реалізація нелінійних алгоритмів вимагає примусової модифікації цього лічильника шляхом умовних переходів, які залежать від поточного стану обчислювального середовища. У мовах програмування високого рівня цей апаратний механізм абстрагується за допомогою конструкцій розгалуження. Умовні оператори забезпечують біфуркацію графа потоку керування (Control Flow Graph), спрямовуючи виконання програми за однією з взаємовиключних траєкторій на основі обчислення значення логічного виразу.</p>
+<p>У мові Python синтаксична організація коду суттєво відрізняється від спадщини мов Algol, C та Pascal, де межі блоків визначаються явними лексемами <code>begin</code>/<code>end</code> або фігурними дужками <code>{}</code>. Творець мови Гвідо ван Россум запозичив концепцію синтаксичного виділення блоків за допомогою відступів з експериментальної мови ABC, що в теоретичній інформатиці отримало назву <strong>синтаксису поза межами рядка</strong> (off-side rule). Така структура перетворює візуальне форматування безпосередньо на семантичну сутність програми, унеможливлюючи розбіжність між зоровим сприйняттям коду людиною та його інтерпретацією транслятором.</p>
+<p>Трансляція відступів у синтаксичні блоки здійснюється на фазі лексичного аналізу. Лексер CPython сканує пробільні символи на початку кожного фізичного рядка, підтримуючи внутрішній системний стек рівнів відступів. На початку роботи стек містить єдине нульове значення. Коли зустрічається рядок із більшим рівнем відступу, це числове значення додається до вершини стека, а компілятору передається службовий токен <code>INDENT</code>. Якщо рівень відступу зменшується, лексер вилучає зі стека всі значення, які перевищують новий рівень, і для кожного вилученого елемента генерує термінальний токен <code>DEDENT</code>. Якщо поточний відступ не збігається із жодним із попередніх рівнів, що зберігаються в стеку, процес лексичного розбору аварійно зупиняється генерацією винятку <code>IndentationError</code>.</p>
+<p>Міжнародний інженерний стандарт оформлення коду PEP 8 встановлює строге правило: кожен рівень ієрархічної вкладеності повинен формуватися виключно чотирма символами пробілу. Використання символів табуляції суворо заборонено, оскільки різні текстові редактори та термінальні емулятори інтерпретують табуляцію неоднозначно (від двох до восьми знакомісць), що призводить до прихованих дефектів логіки та виклику винятку <code>TabError</code> у середовищі Python 3.</p>
+<p><pre class="mermaid"><code>flowchart TD
+    A['Класифікація алгоритмічних конструкцій розгалуження'] --&gt; B['Просте умовне виконання: if']
+    A --&gt; C['Бінарне альтернативне розгалуження: if-else']
+    A --&gt; D['Каскадне багатоваріантне розгалуження: if-elif-else']
+    A --&gt; E['Вбудована селекція виразів: тернарний оператор']
+
+    B --&gt; B1['Предикат істинний: виконання вкладеного блоку']
+    B --&gt; B2['Предикат хибний: повний пропуск блоку']
+
+    C --&gt; C1['True: гілка if']
+    C --&gt; C2['False: обов'язкова гілка else']
+
+    D --&gt; D1['Послідовна редукція умов зверху вниз']
+    D --&gt; D2['Переривання аналізу після першого True']
+    D --&gt; D3['Дефолтна гілка else у разі вичерпання предикатів']
+
+    E --&gt; E1['Обчислення значення всередині виразу']</code></pre>
+<em>Рисунок 1.1 — Ієрархічна структура конструкцій розгалуження потоку виконання в мові Python</em></p>
+<p>Базовою формою є неповний умовний оператор <code>if</code>, що містить предикат, двокрапку та асоційований блок інструкцій із чотирипробільним зміщенням. Якщо логічний вираз повертає істину, вкладений блок виконується, інакше керування передається наступній інструкції того ж рівня вкладеності. Повна форма <code>if-else</code> створює строго детерміновану бінарну розвилку, де виконання однієї з гілок є безумовним. </p>
+<p>Для моделювання багатоваріантних просторів рішень застосовується каскад <code>if-elif-else</code>. На рівні байт-коду інтерпретатор транслює таку структуру в серію інструкцій <code>POP_JUMP_IF_FALSE</code>. Аналіз умов здійснюється строго зверху вниз. Щойно один із предикатів у ланцюжку <code>elif</code> набуває значення істини, віртуальна машина CPython виконує пов'язане з ним тіло інструкцій і генерує безумовний стрибок на мітку виходу з усієї конструкції, повністю ігноруючи наступні перевірки.</p>
+<blockquote>
+<p><strong>ПРАКТИЧНИЙ ЯКІР:</strong> В апаратних контролерах телекомунікаційних комутаторів каскад <code>if-elif-else</code> використовується для первинного розбору заголовків пакетів за стандартом DiffServ: пріоритетний трафік голосових шлюзів (Voice over IP) маркується першою ж умовою для мінімізації затримок обробки в черзі, тоді як трафік низького пріоритету (Best Effort) перевіряється в останніх гілках блоку.</p>
+</blockquote>
+<h3 id="12-truthiness-cpython">1.2. Концепція істинності об'єктів (truthiness), правила неявного приведення типів та внутрішні системні слоти оцінювання об'єктів у CPython</h3>
+<p>У мові Python кожен елемент даних реалізовано як повноцінний об'єкт, інкапсульований у системну структуру мови C під назвою <code>PyObject</code>. Окрім типу, лічильника посилань та безпосереднього корисного навантаження, кожен об'єкт наділений семантичною властивістю <strong>істинності</strong> (<em>truthiness</em>). Ця властивість дозволяє передавати в якості предиката умовного оператора сутності довільних типів даних, а не виключно змінні булевого типу <code>bool</code>. Механізм позбавляє потреби в громіздких конструкціях явного порівняння на зразок <code>if len(collection) != 0:</code> або <code>if status == True:</code>, спрощуючи архітектуру програми.</p>
+<p>Неявне приведення до булевого еквівалента спирається на суворі внутрішні правила віртуальної машини, які виконуються функцією <code>PyObject_IsTrue</code>. Спочатку інтерпретатор шукає в таблиці методів об'єкта слот <code>tp_as_number-&gt;nb_bool</code>, який викликає магічний метод <code>__bool__()</code>. Якщо цей метод реалізовано, його результат повинен бути строго типом <code>bool</code>. Якщо слот <code>nb_bool</code> не визначено (як це часто буває для контейнерних типів даних), CPython звертається до слота послідовностей <code>tp_as_sequence-&gt;sq_length</code>, що відповідає магічному методу <code>__len__()</code>. Якщо довжина контейнера дорівнює нулю, об'єкт визнається хибним, якщо довжина перевищує нуль — істинним. Якщо жоден із цих протоколів у структурі об'єкта не реалізовано, об'єкт за замовчуванням завжди оцінюється як <code>True</code>.</p>
+<p>Спеціальний клас <code>bool</code> у Python є прямим нащадком цілочисельного типу <code>int</code>, де екземпляр <code>True</code> числово еквівалентний одиниці, а <code>False</code> — нулю. Це історичне архітектурне рішення забезпечує можливість участі булевих прапорців у прямих арифметичних операціях, але вимагає від програміста усвідомлення базових правил приведення типів. </p>
+<p>У наведеній нижче системній таблиці узагальнено критерії оцінки істинності базових вбудованих структур мови Python із проекцією на їхню внутрішню поведінку та інженерну практику.</p>
+<p><em>Таблиця 1.1 — Систематизація предикатної істинності вбудованих типів даних у середовищі CPython</em></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Категорія структур даних</th>
+<th style="text-align: left;">Тип даних у Python</th>
+<th style="text-align: left;">Критерій хибності (<code>False</code>)</th>
+<th style="text-align: left;">Механізм перевірки на рівні CPython</th>
+<th style="text-align: left;">Приклад з реальної практики</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Спеціальні типи</strong></td>
+<td style="text-align: left;"><code>NoneType</code></td>
+<td style="text-align: left;">Єдиний сінглтон-об'єкт <code>None</code></td>
+<td style="text-align: left;">Порівняння покажчика пам'яті з глобальним <code>Py_None</code></td>
+<td style="text-align: left;">Фіксація відсутності вхідного сигналу на аналоговому вході АЦП</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Числові типи</strong></td>
+<td style="text-align: left;"><code>int</code>, <code>float</code>, <code>complex</code></td>
+<td style="text-align: left;">Числові нулі: <code>0</code>, <code>0.0</code>, <code>0j</code>, <code>-0.0</code></td>
+<td style="text-align: left;">Перевірка відсутності активних бітів у структурі <code>ob_digit</code> або слот <code>nb_bool</code></td>
+<td style="text-align: left;">Контроль відсутності напруги на лінійному драйвері інтерфейсу</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Текстові дані</strong></td>
+<td style="text-align: left;"><code>str</code></td>
+<td style="text-align: left;">Порожній рядок довжини нуль <code>""</code></td>
+<td style="text-align: left;">Оцінка поля <code>ob_size == 0</code> у структурі рядка <code>PyASCIIObject</code></td>
+<td style="text-align: left;">Перевірка незаповненості текстового буфера командного протоколу</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Послідовності</strong></td>
+<td style="text-align: left;"><code>list</code>, <code>tuple</code>, <code>range</code></td>
+<td style="text-align: left;">Порожні контейнери: <code>[]</code>, <code>()</code>, <code>range(0)</code></td>
+<td style="text-align: left;">Звернення до слота <code>sq_length</code>, перевірка лічильника елементів <code>ob_size == 0</code></td>
+<td style="text-align: left;">Моніторинг черги пакетів у мережевому сокеті перед зчитуванням</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Асоціативні масиви</strong></td>
+<td style="text-align: left;"><code>dict</code></td>
+<td style="text-align: left;">Порожній словник <code>{}</code></td>
+<td style="text-align: left;">Перевірка поля кількості активних записів <code>ma_used == 0</code> у таблиці хешів</td>
+<td style="text-align: left;">Оцінка наявності зареєстрованих клієнтів у сесійній таблиці</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Множини</strong></td>
+<td style="text-align: left;"><code>set</code>, <code>frozenset</code></td>
+<td style="text-align: left;">Порожні набори: <code>set()</code>, <code>frozenset()</code></td>
+<td style="text-align: left;">Оцінка поля заповненості множини <code>used == 0</code> у хеш-таблиці</td>
+<td style="text-align: left;">Контроль унікальних аварійних кодів у системі моніторингу обладнання</td>
+</tr>
+</tbody>
+</table>
+<p>Аналіз даних таблиці свідчить, що логічне оцінювання будь-якої складної сутності в Python оптимізовано для запобігання зайвим операціям виділення пам'яті. Перевірка наявності даних у буфері через <code>if buffer:</code> на рівні низькорівневих C-викликів вимагає простої перевірки лічильника <code>ob_size != 0</code>, що виконується за сталий час <span class="arithmatex">\(\mathcal{O}(1)\)</span> без виклику додаткових операторів порівняння.</p>
+<blockquote>
+<p><strong>ТИПОВА ПОМИЛКА:</strong> Пряме порівняння змінних із булевими константами через оператор тотожності або рівності виду <code>if is_connected == True:</code> чи <code>if is_connected is True:</code>. Окрім порушення вимог PEP 8, ця конструкція ламає поліморфну природу перевірки на істинність. Якщо функція низькорівневого драйвера поверне ненульовий код статусу на зразок <code>1</code> або <code>200</code> (що за логікою є істинним станом наявності зв'язку), пряме порівняння <code>is True</code> поверне <code>False</code>, оскільки воно перевіряє рівність фізичних адрес об'єктів у купі пам'яті, де сінглтон <code>True</code> не дорівнює цілому числу <code>1</code>.</p>
+</blockquote>
+<h3 id="13-and-or-not-short-circuit-evaluation">1.3. Логічні оператори and, or, not, порядок виконання операцій та математична формалізація короткої схеми обчислення (short-circuit evaluation)</h3>
+<p>Складені логічні конструкції базуються на законах алгебри логіки Джона Буля. Проте мова Python має суттєву специфіку роботи логічних операторів <code>and</code> (кон'юнкція) та <code>or</code> (диз'юнкція), яка відрізняє її від суто математичного апарату та строго компільованих мов програмування. Оператори <code>and</code> та <code>or</code> у Python не продукують нових булевих значень, а діють як комутатори, повертаючи конкретний операнд, на якому завершився обчислювальний процес. На противагу їм, унарний оператор <code>not</code> завжди повертає канонічний об'єкт типу <code>bool</code> (<code>True</code> або <code>False</code>).</p>
+<p>Пріоритет виконання операцій у складених виразах регламентується чіткою ієрархією: операції порівняння (<code>&lt;</code>, <code>&lt;=</code>, <code>&gt;</code>, <code>&gt;=</code>, <code>==</code>, <code>!=</code>, <code>is</code>, <code>in</code>) мають вищий ранг, ніж логічні зв'язки. Серед логічних зв'язок найвищий пріоритет закріплено за унарним запереченням <code>not</code>, за ним слідує бінарна кон'юнкція <code>and</code>, а найнижчий ранг належить бінарній диз'юнкції <code>or</code>. За наявності виразу <code>not A and B or C</code> інтерпретатор спочатку обчислить <code>(not A)</code>, потім застосує кон'юнкцію до результату та <code>B</code>, і лише наприкінці виконає операцію <code>or</code> з операндом <code>C</code>.</p>
+<p>Особливе місце в комп'ютерній інженерії займає механізм <strong>короткої схеми обчислення</strong> (<em>short-circuit evaluation</em>). Згідно з цим принципом, обчислення операндів здійснюється строго зліва направо і припиняється в той момент, коли кінцеве логічне значення всього виразу стає математично очевидним.</p>
+<p>Для довільних об'єктів <span class="arithmatex">\(x\)</span> та <span class="arithmatex">\(y\)</span>, де функція <span class="arithmatex">\(\mathbb{B}(u)\)</span> проектує сутність <span class="arithmatex">\(u\)</span> на множину булевих констант <span class="arithmatex">\(\{\text{True}, \text{False}\}\)</span>, математична модель бінарної операції <code>x and y</code> описується кусочно-заданою функцією:</p>
+<div class="arithmatex">\[z = \text{eval}(x \textbf{ and } y) = \begin{cases} x, &amp; \text{якщо } \mathbb{B}(x) = \text{False} \\ y, &amp; \text{якщо } \mathbb{B}(x) = \text{True} \end{cases}\]</div>
+<p>де <span class="arithmatex">\(x\)</span> позначає лівий аргумент, обчислюваний у першу чергу; <span class="arithmatex">\(y\)</span> є правим аргументом, обчислення якого блокується, якщо лівий операнд хибний. Якщо у складеному ланцюжку кон'юнкцій <span class="arithmatex">\(x_1 \textbf{ and } x_2 \textbf{ and } \dots \textbf{ and } x_n\)</span> кожен операнд є істинним, результатом стане останній обчислений операнд <span class="arithmatex">\(x_n\)</span>. Якщо ж на деякому кроці <span class="arithmatex">\(k\)</span> виявиться, що <span class="arithmatex">\(\mathbb{B}(x_k) = \text{False}\)</span>, обчислення обривається, і повертається безпосередньо об'єкт <span class="arithmatex">\(x_k\)</span>.</p>
+<p>Аналогічно, формальна модель оператора <code>x or y</code> визначається залежністю:</p>
+<div class="arithmatex">\[z = \text{eval}(x \textbf{ or } y) = \begin{cases} x, &amp; \text{якщо } \mathbb{B}(x) = \text{True} \\ y, &amp; \text{якщо } \mathbb{B}(x) = \text{False} \end{cases}\]</div>
+<p>де повернення значення <span class="arithmatex">\(x\)</span> відбувається миттєво за умови його істинності, що повністю виключає необхідність звернення до правого виразу <span class="arithmatex">\(y\)</span>.</p>
+<p><pre class="mermaid"><code>stateDiagram-v2
+    [*] --&gt; Init: Вхідні операнди A та B
+
+    Init --&gt; EvalA: Обчислення лівого операнда A
+
+    state EvalA {
+        [*] --&gt; ExecA: Оцінка виразу A
+        ExecA --&gt; ProjectBoolA: Проекція bool(A)
+    }
+
+    ProjectBoolA --&gt; CheckOperator: Перевірка типу оператора
+
+    state CheckOperator &lt;&lt;choice&gt;&gt;
+    CheckOperator --&gt; BranchAND: Якщо оператор AND
+    CheckOperator --&gt; BranchOR: Якщо оператор OR
+
+    BranchAND --&gt; ShortCircuitAND: bool(A) == False
+    BranchAND --&gt; EvalB_AND: bool(A) == True
+
+    BranchOR --&gt; ShortCircuitOR: bool(A) == True
+    BranchOR --&gt; EvalB_OR: bool(A) == False
+
+    ShortCircuitAND --&gt; ResultA: Повернення об'єкта A (зупинка)
+    ShortCircuitOR --&gt; ResultA: Повернення об'єкта A (зупинка)
+
+    EvalB_AND --&gt; ExecB: Обчислення правого операнда B
+    EvalB_OR --&gt; ExecB: Обчислення правого операнда B
+
+    ExecB --&gt; ResultB: Повернення об'єкта B
+
+    ResultA --&gt; [*]
+    ResultB --&gt; [*]</code></pre>
+<em>Рисунок 1.2 — Діаграма станів конвеєра короткої схеми обчислення логічних виразів у Python</em></p>
+<p>Коротка схема обчислення є потужним інструментом забезпечення безпеки програмного коду на рівні побудови захисних виразів (<strong>guard clauses</strong>). Якщо операція містить ризик генерації винятку часу виконання (наприклад, ділення на нуль, вихід за межі масиву або розіменування нульового покажчика), критичний блок захищається попередньою умовою. У виразі <code>(len(channels) &gt; index) and (channels[index].is_active())</code> звернення до елемента <code>channels[index]</code> заблоковане внутрішнім апаратним планувальником, якщо довжина списку каналів менша або дорівнює покажчику <code>index</code>.</p>
+<blockquote>
+<p><strong>ПРАКТИЧНИЙ ЯКІР:</strong> У системах цифрової фільтрації телеметричних даних вираз <code>sample_rate != 0 and calculate_frequency(samples, sample_rate)</code> гарантує, що важка функція обчислення швидкого перетворення Фур'є <code>calculate_frequency</code> не буде викликана з нульовим знаменником, що захищає програму від фатального винятку <code>ZeroDivisionError</code> без використання додаткових блоків <code>try-except</code>.</p>
+<p><strong>КОНТРОЛЬНЕ ПИТАННЯ:</strong> Яким буде кінцеве значення виразу <code>result = (0 or "" or [42] or "ERROR") and (None or 256)</code> під час виконання у середовищі CPython, і скільки операндів із наведеного ланцюжка фактично інтерпретує віртуальна машина?</p>
+</blockquote>
+<details class="note">
+<summary>Розгорнути аналіз / відповідь</summary>
+<p><strong>Правильний варіант: Кінцеве значення виразу дорівнює цілому числу <code>256</code>. Всього буде обчислено 5 операндів: <code>0</code>, <code>""</code>, <code>[42]</code>, <code>None</code> та <code>256</code>.</strong></p>
+<ol>
+<li>
+<p>Вираз розпадається на дві складові, поєднані оператором <code>and</code>: ліву частину <code>(0 or "" or [42] or "ERROR")</code> та праву частину <code>(None or 256)</code>. Згідно з пріоритетом дужок, спочатку обчислюється ліва частина.</p>
+</li>
+<li>
+<p>У ланцюжку <code>or</code> обчислення йдуть зліва направо: <code>0</code> є <code>False</code> (рухаємось далі); <code>""</code> є <code>False</code> (рухаємось далі); <code>[42]</code> є непорожнім списком, отже його булева проекція <span class="arithmatex">\(\mathbb{B}([42]) = \text{True}\)</span>. Оператор <code>or</code> здійснює коротке замикання і повертає поточний об'єкт <code>[42]</code>. Операнд <code>"ERROR"</code> взагалі не аналізується інтерпретатором.</p>
+</li>
+<li>
+<p>Оскільки ліва частина виразу повернула істинний об'єкт <code>[42]</code>, оператор <code>and</code> зобов'язаний перейти до обчислення правої частини, бо кінцеве значення залежить від другого операнда.</p>
+</li>
+<li>
+<p>У правій частині обчислюється ланцюжок <code>(None or 256)</code>: <code>None</code> дає <code>False</code>, тому за правилом <code>or</code> обчислення переходить до наступного операнда, яким є число <code>256</code>. Оскільки цей операнд є останнім, він повертається як результат блоку.</p>
+</li>
+<li>
+<p>Фінальний вираз зводиться до <code>[42] and 256</code>. За правилом оператора <code>and</code>, оскільки перший операнд істинний, результатом стає значення другого операнда, тобто <code>256</code>.</p>
+</li>
+</ol>
+<p><strong>Аналіз дистракторів:</strong></p>
+<ul>
+<li>
+<p>Відповідь <code>True</code>: некоректна, оскільки логічні оператори <code>and</code>/<code>or</code> у Python повертають значення фізичних операндів, а не приведені булеві константи.</p>
+</li>
+<li>
+<p>Відповідь <code>[42]</code>: хибна, оскільки оператор <code>and</code> продовжує оцінку, доки не знайде хибний операнд або не дійде до кінця ланцюжка.</p>
+</li>
+<li>
+<p>Відповідь <code>"ERROR"</code>: виникає лише в разі хибного припущення, що диз'юнкція вимагає виконання всіх складових частин виразу.</p>
+</li>
+</ul>
+</details>
+<h3 id="14">1.4. Тернарний умовний вираз як інженерний інструмент селекції даних: синтаксис, ліниве обчислення гілок та межі використання</h3>
+<p>У теорії формальних мов існує чітке функціональне розмежування між <strong>інструкціями</strong> (<em>statements</em>) та <strong>виразами</strong> (<em>expressions</em>). Інструкція керує станом віртуальної машини, організовує структуру переходів або ініціює збереження даних, але не може бути правостороннім значенням (<span class="arithmatex">\(R\)</span>-value) для присвоєння змінній або аргументом функції. Вираз, навпаки, обов'язково підлягає редукції до конкретного об'єкта в оперативній пам'яті. </p>
+<p>Стандартний умовний блок <code>if-else</code> є інструкцією. Для ситуацій, де вибір між альтернативними значеннями повинен відбуватися безпосередньо у контексті створення об'єкта або обчислення складної формули, специфікація PEP 308 запровадила у мову Python <strong>тернарний умовний вираз</strong> (<em>conditional expression</em>).</p>
+<p>Синтаксична форма тернарного виразу відрізняється від класичного C-подібного синтаксису із символами знаку питання та двокрапки <code>cond ? expr1 : expr2</code> і набуває вигляду:</p>
+<div class="arithmatex">\[x = E_{\text{true}} \textbf{ if } C \textbf{ else } E_{\text{false}}\]</div>
+<p>де <span class="arithmatex">\(C\)</span> виступає логічним предикатом; <span class="arithmatex">\(E_{\text{true}}\)</span> представляє вираз, що обчислюється і повертається за умови <span class="arithmatex">\(\mathbb{B}(C) = \text{True}\)</span>; <span class="arithmatex">\(E_{\text{false}}\)</span> — альтернативний вираз, що обчислюється у разі <span class="arithmatex">\(\mathbb{B}(C) = \text{False}\)</span>.</p>
+<p>Виконання цієї конструкції строго підпорядковане концепції <strong>лінивого обчислення</strong> (<em>lazy evaluation</em>). Незважаючи на те, що синтаксично вираз <span class="arithmatex">\(E_{\text{true}}\)</span> розміщується на початку конструкції, першим виконується предикат <span class="arithmatex">\(C\)</span>. Якщо умова <span class="arithmatex">\(C\)</span> задовольняється, інтерпретатор обчислює вираз <span class="arithmatex">\(E_{\text{true}}\)</span>, а фрагмент коду <span class="arithmatex">\(E_{\text{false}}\)</span> навіть не сканується віртуальною машиною на етапі виконання. Якщо умова <span class="arithmatex">\(C\)</span> є хибною, обчислюється виключно <span class="arithmatex">\(E_{\text{false}}\)</span>, а <span class="arithmatex">\(E_{\text{true}}\)</span> повністю ігнорується. </p>
+<p>Ця ізоляція запобігає виклику ресурсомістких функцій або потенційно деструктивних операцій на неактивних гілках обчислення.</p>
+<p>Типовою інженерною задачею радіоелектроніки та автоматизованого керування є лінійне обмеження вихідного сигналу для захисту від перенасичення (клемпування сигналу). Нехай на вхід цифро-аналогового перетворювача надходить виміряна напруга <span class="arithmatex">\(U_{\text{in}}\)</span>. Формальна модель обмеження максимального рівня напруги граничним порогом <span class="arithmatex">\(U_{\text{max}}\)</span> описується кусочно-заданою функцією:</p>
+<div class="arithmatex">\[U_{\text{out}} = \begin{cases} U_{\text{max}}, &amp; \text{якщо } U_{\text{in}} &gt; U_{\text{max}} \\ U_{\text{in}}, &amp; \text{якщо } U_{\text{in}} \le U_{\text{max}} \end{cases}\]</div>
+<p>У програмному коді систем обробки сигналів на базі Python ця математична залежність записується компактним тернарним виразом: <code>u_out = U_MAX if u_in &gt; U_MAX else u_in</code>. </p>
+<p>Подібні конструкції дозволяють ефективно нормалізувати масиви відліків сенсорів, призначати стандартні конфігураційні параметри при розриві з'єднання та організовувати селекцію математичних моделей без розриву контексту присвоювання.</p>
+<p>Межі використання тернарного оператора диктуються вимогами до когнітивної складності архітектури. Синтаксис мови дозволяє будувати вкладені ланцюжки: <code>a if c1 else b if c2 else d</code>. Проте подібний запис порушує принципи чистої архітектури та істотно підвищує ймовірність внесення логічних дефектів під час супроводу системного коду. Якщо простір рішень містить більше двох дискретних гілок, інженерна дисципліна вимагає відмови від тернарних виразів на користь класичного каскаду <code>if-elif-else</code> або використання словникової диспетчеризації (<em>dispatch table</em>).</p>
+<hr />
+<h3 id="_4">Вказівки для самостійного осмислення</h3>
+<ol>
+<li>
+<p>Складіть формальну таблицю істинності та напишіть фрагмент коду для перевірки дотримання законів де Моргана <span class="arithmatex">\(\neg(A \land B) \iff \neg A \lor \neg B\)</span> та <span class="arithmatex">\(\neg(A \lor B) \iff \neg A \land \neg B\)</span> з використанням довільних вбудованих об'єктів мови Python різного ступеня істинності.</p>
+</li>
+<li>
+<p>Дослідіть за допомогою стандартного бібліотечного модуля <code>dis</code> відмінності у згенерованому байт-коді між класичним блоком <code>if-else</code> та еквівалентним тернарним умовним виразом, звернувши увагу на кількість та типи інструкцій переходів віртуальної машини PVM.</p>
+</li>
+<li>
+<p>Проаналізуйте поведінку власного класу при оцінці в умовному операторі, якщо в ньому одночасно реалізовано методи <code>__bool__()</code> та <code>__len__()</code>, визначивши експериментальним шляхом рівень пріоритетності цих слотів для системної функції <code>PyObject_IsTrue</code>.</p>
+</li>
+</ol>
+<h2 id="2_2">2. Методологія та аналіз граничних умов. Циклічні ітератори та керування ітеративними процесами</h2>
+<h3 id="21-while">2.1. Цикл із передумовою while, критерії збіжності ітераційного процесу та механізми запобігання зацикленню</h3>
+<p>Цикл із передумовою <code>while</code> є найбільш загальною алгоритмічною конструкцією повторення в імперативному програмуванні, яка забезпечує багаторазове виконання замкненого блоку інструкцій доти, доки значення контрольного логічного виразу залишається істинним. В архітектурі віртуальної машини виконання даного циклу спирається на циклічну оцінку умовного переходу, де перед кожною новою ітерацією здійснюється перевірка стану предикатної змінної або складеного виразу. </p>
+<p>З теоретичної точки зору будь-який ітераційний процес, реалізований через цикл <code>while</code>, є дискретною динамічною системою, стан якої на кожному кроці модифікується оператором переходу:</p>
+<div class="arithmatex">\[S_{k+1} = \Phi(S_k)\]</div>
+<p>де <span class="arithmatex">\(S_k\)</span> позначає вектор стану змінних програми на <span class="arithmatex">\(k\)</span>-й ітерації; <span class="arithmatex">\(\Phi\)</span> представляє функцію трансформації даних, що реалізується тілом циклу. Для детермінованого завершення обчислень необхідно гарантувати існування такого скінченного номера кроку <span class="arithmatex">\(m \in \mathbb{N}\)</span>, за якого вектор стану <span class="arithmatex">\(S_m\)</span> перетинає границю області збіжності, перетворюючи логічний предикат умови <span class="arithmatex">\(\mathbb{B}(\text{Cond}(S_m))\)</span> на значення <code>False</code>.</p>
+<p>Математичне доведення коректності та завершуваності циклу базується на концепції варіанта та інваріанта циклу. Інваріантом циклу виступає логічне твердження щодо співвідношення змінних, яке залишається істинним перед початком виконання циклу та зберігає свою істинність після завершення кожної ітерації. Варіантом циклу слугує цілочисельна функція <span class="arithmatex">\(V(S)\)</span>, визначена на множині станів, яка є строго монотонно спадною на кожному кроці <span class="arithmatex">\(V(S_{k+1}) &lt; V(S_k)\)</span> та обмеженою знизу термінальним значенням нуля. </p>
+<p>Якщо для розробленого алгоритму неможливо побудувати варіантну функцію з такими властивостями, виникає фундаментальна алгоритмічна аномалія — нескінченний цикл (<em>infinite loop</em>), що призводить до повного блокування потоку виконання та вичерпання процесорного часу.</p>
+<p>Формалізацію ітераційного числового процесу на прикладі збіжного апроксимаційного ряду для обчислення суми зворотних квадратів <span class="arithmatex">\(S = \sum_{n=1}^{\infty} \frac{1}{n^2}\)</span> із заданим порогом збіжності <span class="arithmatex">\(\varepsilon = 10^{-6}\)</span> можна представити у вигляді структурованого покрокового процесу:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+\text{Крок 1 (Ініціалізація стану):} &amp; \quad S_0 = 0, \quad n_0 = 1, \quad x_0 = 1, \quad \varepsilon = 10^{-6} \\
+\text{Крок 2 (Оцінка передумови):} &amp; \quad \text{якщо } |x_k| \lt  \varepsilon \implies \text{перехід до кроку 6 (термінація)} \\
+\text{Крок 3 (Акумуляція суми):} &amp; \quad S_{k+1} = S_k + x_k \\
+\text{Крок 4 (Інкремент індексу):} &amp; \quad n_{k+1} = n_k + 1 \\
+\text{Крок 5 (Редукція приросту):} &amp; \quad x_{k+1} = \frac{1}{(n_{k+1})^2}, \quad k \leftarrow k + 1, \quad \text{перехід до кроку 2} \\
+\text{Крок 6 (Фіксація результату):} &amp; \quad S^* = S_{k+1}, \quad \text{повернення значення суми}
+\end{aligned}
+\]</div>
+<p>де <span class="arithmatex">\(x_k\)</span> є значенням поточного члена числового ряду, що відіграє роль динамічного залишку; <span class="arithmatex">\(S_k\)</span> накопичує поточну часткову суму; <span class="arithmatex">\(n_k\)</span> виконує функцію крокового лічильника. Монотонне спадання величини <span class="arithmatex">\(x_k \to 0\)</span> при <span class="arithmatex">\(n \to \infty\)</span> забезпечує виконання критерію Коші, що гарантує досягнення граничного порогу зупинки за скінченну кількість ітерацій.</p>
+<p>Аналіз граничних умов функціонування циклу <code>while</code> виявляє критичну вразливість алгоритмів у задачах із використанням чисел із рухомою комою. Через неможливість точного двійкового представлення більшості дробових десяткових чисел (наприклад, <span class="arithmatex">\(0.1_{10} = 0.000110011..._2\)</span>), накопичення машинної похибки округлення порушує очікувані математичні рівності. Умова виходу виду <code>while current_value != target_value:</code> для змінних типу <code>float</code> є грубою методологічною помилкою: якщо крок інкременту становить <code>0.1</code>, поточне значення внаслідок похибки представлення стандарту IEEE 754 ніколи точно не збіжиться із числом <code>1.0</code>, проскочить його (наприклад, набувши значення <code>1.0000000000000002</code>), і цикл перейде у нескінченну фазу виконання.</p>
+<blockquote>
+<p><strong>ВАЖЛИВО:</strong> Предикати завершення чисельних циклів <code>while</code> для дійсних чисел повинні будуватися виключно на нерівностях із використанням абсолютної різниці та допустимого відхилення <code>abs(current - target) &gt; epsilon</code>, або за допомогою спеціалізованої перевірки наближеної рівності <code>not math.isclose(a, b, rel_tol=1e-9)</code>.</p>
+</blockquote>
+<h3 id="22-for-iterator-protocol-stopiteration">2.2. Узагальнений цикл for, архітектура протоколу ітератора (Iterator Protocol) та обробка службового винятку StopIteration</h3>
+<p>На відміну від системних мов програмування, де цикл <code>for</code> традиційно асоціюється з прямою маніпуляцією регістром лічильника, у мові Python ця конструкція представляє високорівневу реалізацію фундаментального патерну проектування «Ітератор». Цикл <code>for</code> абстрагує доступ до елементів довільних колекцій, дозволяючи обходити їх без розкриття їхньої внутрішньої структури та без потреби використання прямої індексації.</p>
+<p>Функціонування циклу регламентується двокомпонентним протоколом ітератора (Iterator Protocol). Будь-який контейнерний об'єкт вважається ітерованим (<em>iterable</em>), якщо він реалізує магічний метод <code>__iter__()</code> (або застарілий метод послідовностей <code>__getitem__()</code>). Метод <code>__iter__()</code> зобов'язаний повернути спеціалізований об'єкт-ітератор (<em>iterator</em>), який інкапсулює поточний стан проходження структури даних і обов'язково реалізує метод <code>__next__()</code>. Кожен виклик методу <code>__next__()</code> повертає наступний послідовний елемент вихідної колекції.</p>
+<p>Коли обхід структури даних вичерпує наявні елементи, метод <code>__next__()</code> генерує спеціальний службовий виняток <code>StopIteration</code>. Цей виняток не є ознакою аварійної ситуації; він виступає стандартним протокольним сигналом про завершення обходу послідовності. Віртуальна машина Python перехоплює <code>StopIteration</code> на внутрішньому рівні ядра CPython і виконує штатний, безаварійний вихід із циклічної інструкції.</p>
+<p>Взаємодію компонентів середовища виконання під час ініціалізації та проходження ітеративного циклу продемонстровано на наведеній нижче діаграмі послідовності.</p>
+<p><pre class="mermaid"><code>sequenceDiagram
+    autonumber
+    actor Dev as Інструкція for elem in iterable
+    participant PVM as Віртуальна машина (PVM)
+    participant Itbl as Ітерований об'єкт (Iterable)
+    participant Itr as Екземпляр ітератора (Iterator)
+
+    Dev-&gt;&gt;PVM: Ініціалізація циклічного обходу
+    PVM-&gt;&gt;Itbl: Виклик функції iter(iterable)
+    Itbl--&gt;&gt;PVM: Повернення екземпляра об'єкта Iterator
+
+    loop Проходження кожної ітерації
+        PVM-&gt;&gt;Itr: Виклик функції next(iterator)
+        alt Наявний наступний елемент
+            Itr--&gt;&gt;PVM: Повернення чергового об'єкта даних
+            PVM-&gt;&gt;Dev: Зв'язування зі змінною elem та виконання тіла циклу
+        else Елементи вичерпано
+            Itr--&gt;&gt;PVM: Генерація винятку StopIteration
+        end
+    end
+
+    PVM-&gt;&gt;PVM: Перехоплення та придушення StopIteration
+    PVM--&gt;&gt;Dev: Штатна передача керування за межі циклу</code></pre>
+<em>Рисунок 2.1 — Послідовність взаємодії компонентів віртуальної машини CPython у межах протоколу ітератора</em></p>
+<p>Граничні умови застосування циклу <code>for</code> тісно пов'язані зі стабільністю самої колекції, по якій здійснюється прохід. Якщо всередині тіла циклу виконується додавання або видалення елементів того самого списку, за яким ведеться ітерація, внутрішній зміщувальний покажчик ітератора десинхронізується з реальними індексами масиву. Це явище спричиняє пропуск окремих елементів або подвійну їх обробку без виклику явних помилок. Для асоціативних масивів <code>dict</code> та множин <code>set</code> зміна розміру під час ітерації призводить до миттєвого аварійного збою системи з генерацією винятку <code>RuntimeError: dictionary changed size during iteration</code>, оскільки мутація порушує цілісність внутрішньої структури хеш-таблиці.</p>
+<h3 id="23-range-pyrangeobject-o1">2.3. Генератор арифметичних прогресій range: внутрішня структура PyRangeObject, параметрична модель та просторова складність O(1)</h3>
+<p>Для організації лічильних циклів, що виконуються наперед визначену кількість разів, у мові Python використовується вбудований незмінний тип даних <code>range</code>. На відміну від версії Python 2.x, де функція <code>range</code> фізично формувала в оперативній пам'яті повнорозмірний список чисел (що для великих діапазонів призводило до вичерпання виділеного пулу ОЗП), у Python 3 реалізовано ліниву послідовність на базі внутрішньої структури <code>PyRangeObject</code>.</p>
+<p>Параметрична модель генератора <code>range(start, stop, step)</code> визначає дискретну арифметичну прогресію на напіввідкритому інтервалі <span class="arithmatex">\([start, stop)\)</span>. Згенерована послідовність містить множину значень:</p>
+<div class="arithmatex">\[R = \{ r_i \mid r_i = start + i \times step, \quad 0 \le i \lt  n \}\]</div>
+<p>де загальна кількість кроків ітерації <span class="arithmatex">\(n\)</span> детерміновано обчислюється через функцію взяття верхньої цілої частини різниці меж:</p>
+<div class="arithmatex">\[n = \max\left(0, \; \left\lceil \frac{stop - start}{step} \right\rceil\right)\]</div>
+<p>Архітектурна специфіка <code>PyRangeObject</code> полягає в тому, що об'єкт зберігає в пам'яті виключно три фіксовані системні параметри: початкове значення (<span class="arithmatex">\(start\)</span>), кінцеву межу (<span class="arithmatex">\(stop\)</span>) та величину кроку (<span class="arithmatex">\(step\)</span>), обчислюючи числове значення кожного конкретного елемента «на льоту» лише в момент звернення. Завдяки такій структурі просторова складність об'єкта <code>range</code> завжди становить константну величину:</p>
+<div class="arithmatex">\[S(N) = \mathcal{O}(1)\]</div>
+<p>Об'єкт <code>range(0, 10**12)</code> займає в пам'яті комп'ютера фіксовані 48 байтів (на 64-розрядній архітектурі CPython), абсолютно ідентично до компактного об'єкта <code>range(0, 10)</code>.</p>
+<p>Крім лінивої ітерації, тип <code>range</code> реалізує інтерфейс послідовностей (Sequence Type), що забезпечує виконання операцій доступу за індексом <span class="arithmatex">\(r[i]\)</span> та визначення довжини <code>len(r)</code> за константний час <span class="arithmatex">\(\mathcal{O}(1)\)</span>. Більше того, операція перевірки входження числа в діапазон <code>x in range(...)</code> не виконує перебір значень у циклі, а обчислюється аналітично через систему діофантових співвідношень:</p>
+<div class="arithmatex">\[\begin{cases} 
+start \le x \lt  stop, &amp; \text{при } step &gt; 0 \\ 
+stop \lt  x \le start, &amp; \text{при } step \lt  0 
+\end{cases} \quad \land \quad (x - start) \pmod{step} = 0\]</div>
+<p>Цей підхід забезпечує миттєву перевірку приналежності числа діапазону з довільною кількістю елементів без будь-яких витрат процесорного часу на циклічне сканування.</p>
+<h3 id="24-break-continue-pass-else">2.4. Мікродинаміка керування ітераціями за допомогою операторів break, continue, pass та інженерний патерн використання блоку else в циклах</h3>
+<p>Керування мікродинамікою виконання окремих ітерацій циклів <code>while</code> та <code>for</code> забезпечується спеціальними інструкціями низькорівневого контролю: <code>break</code>, <code>continue</code> та <code>pass</code>.</p>
+<p>Оператор <code>break</code> ініціює примусове дострокове переривання виконання всього циклу. На рівні байт-коду інтерпретатор транслює <code>break</code> в безумовний перехід <code>JUMP_ABSOLUTE</code> на інструкцію, що розташована безпосередньо за межами всього циклічного блоку. Оператор <code>continue</code> здійснює дострокове завершення поточної ітерації, пропускаючи всі невиконані команди тіла циклу, та ініціює перехід до оцінки умови (у циклі <code>while</code>) або виклику методу <code>__next__()</code> для отримання наступного елемента (у циклі <code>for</code>). Натомість оператор <code>pass</code> є синтаксичною заглушкою (байт-код <code>NOP</code> — no operation), яка не змінює стану програми й застосовується в блоках, де синтаксис вимагає наявності інструкції, але алгоритмічна дія не передбачена.</p>
+<p>Унікальною синтаксичною особливістю мови Python є підтримка <strong>блоку <code>else</code> у циклічних конструкціях</strong>. Семантика цієї конструкції суттєво відрізняється від блоку <code>else</code> у розгалуженнях <code>if</code>. У циклах блок <code>else</code> виконується лише тоді, коли цикл завершив свою роботу природним шляхом без примусового переривання:</p>
+<ul>
+<li>
+<p>Для циклу <code>while</code>: коли вираз умови обчислився як <code>False</code>.</p>
+</li>
+<li>
+<p>Для циклу <code>for</code>: коли ітератор вичерпав усі елементи послідовності та згенерував виняток <code>StopIteration</code>.</p>
+</li>
+</ul>
+<p>Якщо ж вихід із циклу стався внаслідок виконання оператора <code>break</code> (або генерації необробленого винятку), блок <code>else</code> повністю ігнорується віртуальною машиною. Це створює елегантний інженерний патерн для пошукових алгоритмів: секція циклу здійснює сканування простору даних, викликаючи <code>break</code> при знаходженні цільового елемента, а блок <code>else</code> обробляє ситуацію повної відсутності шуканого об'єкта, що виключає необхідність штучного введення допоміжних булевих прапорцевих змінних (<em>flag variables</em>).</p>
+<blockquote>
+<p><strong>ПРАКТИЧНИЙ ЯКІР:</strong> В авіаційних вбудованих системах та мережевих шлюзах алгоритм валідації контрольної суми пакетів за методом CRC будується на патерні <code>for-else</code>: якщо під час перевірки чергового блоку виявляється розбіжність бітів, оператор <code>break</code> зупиняє парсинг і маркує пакет як пошкоджений, а блок <code>else</code> виконує фінальне підтвердження автентичності кадру лише за умови успішної верифікації абсолютно всіх байтів.</p>
+</blockquote>
+<h3 id="25">2.5. Критичні бар'єри та вузькі місця: експоненційне зростання обчислювальної складності глибоко вкладених циклів, накладні витрати динамічної диспетчеризації віртуальної машини та обмеження продуктивності інтерпретатора</h3>
+<p>Використання циклів у мові Python стикається з низкою фундаментальних архітектурних обмежень, зумовлених інтерпретованою природою середовища CPython. На відміну від мов зі статичною компіляцією (C, C++, Rust), де цикл транслюється у прямі процесорні інструкції з використанням апаратних регістрів, кожна ітерація циклу в Python проходить крізь важкий шар динамічної інтерпретації (головний цикл диспетчеризації в <code>ceval.c</code>).</p>
+<p>Основними джерелами накладних витрат у циклах виступають:</p>
+<ul>
+<li>
+<p>Динамічна типізація: на кожній ітерації віртуальна машина змушена повторно перевіряти типи операндів, виконувати пошук магічних методів у словниках типів та перевіряти границі масивів.</p>
+</li>
+<li>
+<p>Упаковка примітивів (<em>boxing/unboxing</em>): цілі та дійсні числа в Python не є машинними словами, а складними структурами на купі (<code>PyLongObject</code>, <code>PyFloatObject</code>), що призводить до промахів кешу процесора (CPU cache misses) при масових ітераціях.</p>
+</li>
+<li>
+<p>Виклики функцій: виклик будь-якої функції всередині циклу створює новий об'єкт кадру стека (<code>PyFrameObject</code>), що створює значне навантаження на підсистему керування пам'яттю.</p>
+</li>
+</ul>
+<p>Глибоке вкладення циклічних конструкцій багаторазово мультиплікує наведені накладні витрати. Якщо двовимірна матрична обробка має поліноміальну часову складність <span class="arithmatex">\(\mathcal{O}(n \times m)\)</span>, то в чистому Python час її виконання зростає на два-три порядки швидше, ніж в оптимізованому машинному коді. При переході до розмірностей <span class="arithmatex">\(k \ge 3\)</span> настає комбінаторний вибух, коли ресурси процесора витрачаються не на виконання математичних обчислень, а на системні операції диспетчеризації віртуальної машини.</p>
+<p>У наведеній нижче порівняльній матриці систематизовано фундаментальні характеристики, складність впровадження та ризики експлуатації базових алгоритмічних моделей керування ітераціями.</p>
+<p><em>Таблиця 2.1 — Матриця зіставлення циклічних конструкцій та моделей ітерації в інженерній практиці</em></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Механізм керування</th>
+<th style="text-align: left;">Базовий принцип роботи</th>
+<th style="text-align: left;">Асимптотична складність</th>
+<th style="text-align: left;">Складність впровадження</th>
+<th style="text-align: left;">Критичні ризики / Обмеження</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Цикл із лічильником <code>while</code></strong></td>
+<td style="text-align: left;">Ітерація на основі модифікації числового індексу та перевірки межі</td>
+<td style="text-align: left;">Час: <span class="arithmatex">\(\mathcal{O}(n)\)</span><br>Пам'ять: <span class="arithmatex">\(\mathcal{O}(1)\)</span></td>
+<td style="text-align: left;">Середня (вимагає ручної ініціалізації та інкременту лічильника)</td>
+<td style="text-align: left;">Ризик виникнення нескінченного циклу через пропуск кроку інкременту; зсув індексів при видаленні елементів</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Чисельний апроксимаційний <code>while</code></strong></td>
+<td style="text-align: left;">Ітерація до досягнення порогу збіжності <span class="arithmatex">\(\Delta \le \varepsilon\)</span></td>
+<td style="text-align: left;">Час: залежить від збіжності<br>Пам'ять: <span class="arithmatex">\(\mathcal{O}(1)\)</span></td>
+<td style="text-align: left;">Висока (вимагає аналітичного обґрунтування варіанта циклу)</td>
+<td style="text-align: left;">Зациклення через неточне представлення дробів IEEE 754; ризик розбіжності методу при некоректних початкових наближеннях</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Цикл обходу <code>for</code> через <code>range()</code></strong></td>
+<td style="text-align: left;">Лінива генерація арифметичної послідовності без матеріалізації списку</td>
+<td style="text-align: left;">Час: <span class="arithmatex">\(\mathcal{O}(n)\)</span><br>Пам'ять: <span class="arithmatex">\(\mathcal{O}(1)\)</span></td>
+<td style="text-align: left;">Низька (стандартизований декларативний синтаксис)</td>
+<td style="text-align: left;">Неможливість динамічної зміни меж діапазону в процесі виконання; неефективність для нелінійних кроків зміни</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Колекційний <code>for</code> (Iterator Protocol)</strong></td>
+<td style="text-align: left;">Послідовний виклик <code>__next__()</code> до отримання винятку <code>StopIteration</code></td>
+<td style="text-align: left;">Час: <span class="arithmatex">\(\mathcal{O}(n)\)</span><br>Пам'ять: <span class="arithmatex">\(\mathcal{O}(1)\)</span></td>
+<td style="text-align: left;">Мінімальна (повна абстракція над типами контейнерів)</td>
+<td style="text-align: left;">Заборона мутації розміру структури під час проходу; накладні витрати на динамічну типізацію вилучених елементів</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Вкладені цикли <code>for</code> (Multi-loop)</strong></td>
+<td style="text-align: left;">Декартовий добуток двох або більше ітерованих послідовностей</td>
+<td style="text-align: left;">Час: <span class="arithmatex">\(\mathcal{O}(n^k)\)</span><br>Пам'ять: <span class="arithmatex">\(\mathcal{O}(1)\)</span></td>
+<td style="text-align: left;">Низька (легко описується у високорівневому коді)</td>
+<td style="text-align: left;">Катастрофічна деградація швидкодії при зростанні розмірності; блокування глобального блокування інтерпретатора (GIL)</td>
+</tr>
+</tbody>
+</table>
+<p>Аналіз матриці наочно підтверджує: для високонавантажених інженерних задач цифрової обробки сигналів або моделювання великих масивів даних використання чистого інтерпретованого циклу <code>for</code> або <code>while</code> стає критичним бар'єром продуктивності. За таких умов виникає необхідність векторизації обчислень — переходу до спеціалізованих низькорівневих C-бібліотек (таких як NumPy), де ітерації переносяться безпосередньо в оптимізований машинний код і виконуються з використанням векторних інструкцій процесора SIMD (Single Instruction, Multiple Data).</p>
+<blockquote>
+<p><strong>КОНТРОЛЬНЕ ПИТАННЯ:</strong> У розподіленій системі моніторингу телекомунікаційних каналів інженер написав модуль верифікації активних з'єднань, де обхід списку серверів здійснюється циклом <code>for</code>, а при виявленні першого вузла з критичною затримкою пакетів викликається оператор <code>break</code>. За яких умов у даній архітектурі виконається блок <code>else</code>, прив'язаний до цього циклу <code>for</code>, та як зміниться поведінка системи, якщо список серверів для опитування виявиться порожнім?</p>
+</blockquote>
+<details class="note">
+<summary>Розгорнути аналіз / відповідь</summary>
+<p><strong>Правильний варіант: Блок <code>else</code> виконається, якщо жоден із вузлів мережі не мав критичної затримки (оператор <code>break</code> не спрацював), або якщо вихідний список серверів був абсолютно порожнім.</strong></p>
+<ol>
+<li>
+<p>Згідно з внутрішньою семантикою мови Python, блок <code>else</code> у циклі <code>for</code> зв'язаний із точкою природного вичерпання ітератора. Коли список містить валідні сервери, і жоден із них не спровокував спрацьовування умови з інструкцією <code>break</code>, ітератор успішно проходить усі елементи, генерує службовий сигнал <code>StopIteration</code>, після чого керування гарантовано передається до блоку <code>else</code>. Це підтверджує, що вся мережа пройшла аудит без критичних відхилень.</p>
+</li>
+<li>
+<p>Якщо в систему передано порожній список вузлів, виклик методу <code>__next__()</code> генерує виняток <code>StopIteration</code> на першому ж кроці. Оскільки оператор <code>break</code> не виконувався, цикл вважається завершеним штатно за нуль ітерацій, і віртуальна машина негайно виконує блок <code>else</code>. В інженерних системах це граничний випадок: програма вважатиме перевірку успішною, якщо не реалізовано попередню захисну умову перевірки списку на непорожність перед входом у цикл.</p>
+</li>
+</ol>
+<p><strong>Аналіз дистракторів:</strong></p>
+<ul>
+<li>
+<p>Твердження, що блок <code>else</code> виконується лише при спрацьовуванні <code>break</code>: є принципово хибним, оскільки виклик <code>break</code> завжди блокує виконання гілки <code>else</code>.</p>
+</li>
+<li>
+<p>Твердження, що для порожнього списку блок <code>else</code> буде проігноровано: не відповідає дійсності, оскільки відсутність елементів у контейнері породжує негайне вичерпання послідовності, що за стандартом активує блок <code>else</code>.</p>
+</li>
+</ul>
+</details>
+<hr />
+<h3 id="_5">Вказівки для самостійного осмислення</h3>
+<ol>
+<li>
+<p>Реалізуйте алгоритм числового інтегрування методом трапецій за допомогою циклу <code>while</code>, визначивши аналітичну функцію варіанта циклу для забезпечення збіжності обчислень до заданої абсолютної похибки <span class="arithmatex">\(10^{-7}\)</span>, та дослідіть вплив машинної точності на кількість необхідних кроків дискретизації.</p>
+</li>
+<li>
+<p>Створіть власний генераторний клас, який повністю реалізує протокол ітератора з методами <code>__iter__()</code> та <code>__next__()</code>, забезпечивши імітацію зчитування циклічного буфера телеметрії фіксованої ємності без використання стандартних конструкцій <code>range</code> або спискових ітераторів.</p>
+</li>
+<li>
+<p>Дослідіть за допомогою модуля <code>timeit</code> часові витрати виконання <span class="arithmatex">\(10^7\)</span> ітерацій підсумовування цілих чисел для трьох альтернативних реалізацій: класичного циклу <code>while</code> із ручним лічильником, циклу <code>for</code> із використанням об'єкта <code>range</code>, та вбудованої функції <code>sum(range(...))</code>, сформулювавши обґрунтований висновок щодо величини накладних витрат віртуальної машини CPython на кожній ітерації.</p>
+</li>
+</ol>
+<h2 id="3_1">3. Практичний індустріальний / фаховий кейс. Розробка отказостійкого контролера обробки телеметричних сигналів</h2>
+<h3 id="31-iot-">3.1. Комплексний фаховий кейс. Проектування системи фільтрації та статистичного аналізу телеметрії IoT-контролера</h3>
+<h4 id="_6">Постановка задачі / ситуації</h4>
+<p>У сучасних автоматизованих системах диспетчерського керування та збору даних (SCADA) високовольтних електричних підстанцій критично важливим завданням є безперервний моніторинг фізичних параметрів силового трансформатора. Промисловий контролер периферійних обчислень (Edge Computing Gateway) отримує пакети телеметрії від сенсорного вузла через польову шину RS-485 за протоколом Modbus RTU. </p>
+<p>В умовах сильних електромагнітних завад від комутаційного обладнання цифрові лінії зв'язку зазнають спотворень, що призводить до появи трьох типів аномалій: надходження структурно пошкоджених пакетів із порушеною контрольною сумою, виникнення одиничних імпульсних сплесків напруги (так званих «спайків») та апаратного зависання аналого-цифрового перетворювача (АЦП), за якого передається послідовність нульових або зашкалюючих значень.</p>
+<p>Перед інженером постає завдання розробити високонадійний алгоритмічний модуль мовою Python, який здійснює первинну селекцію, захисну валідацію, фільтрацію аномальних викидів та статистичну агрегацію вхідного потоку сигналів у ковзному часовому вікні. Програма повинна гарантувати безаварійне функціонування за будь-яких девіацій вхідних даних, запобігати переповненню черги повідомлень в обмеженій оперативній пам'яті контролера та детерміновано фіксувати настання аварійних режимів.</p>
+<p><em>Таблиця 3.1 — Вхідні технічні та апаратні параметри системи збору телеметрії трансформатора</em></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Параметр системи</th>
+<th style="text-align: left;">Символьне позначення</th>
+<th style="text-align: left;">Номінальне значення</th>
+<th style="text-align: left;">Граничні межі допуску</th>
+<th style="text-align: left;">Фізичний зміст та системна роль</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Частота дискретизації</strong></td>
+<td style="text-align: left;"><span class="arithmatex">\(f_s\)</span></td>
+<td style="text-align: left;"><span class="arithmatex">\(100\text{ Гц}\)</span></td>
+<td style="text-align: left;">Фіксована (<span class="arithmatex">\(T_s = 10\text{ мс}\)</span>)</td>
+<td style="text-align: left;">Періодичність опитування аналогових ліній АЦП</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Розмір ковзного вікна</strong></td>
+<td style="text-align: left;"><span class="arithmatex">\(N\)</span></td>
+<td style="text-align: left;"><span class="arithmatex">\(16\text{ відліків}\)</span></td>
+<td style="text-align: left;"><span class="arithmatex">\([8, \; 64]\)</span></td>
+<td style="text-align: left;">Глибина вибірки для розрахунку дисперсії та середнього</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Температура мастила</strong></td>
+<td style="text-align: left;"><span class="arithmatex">\(T\)</span></td>
+<td style="text-align: left;"><span class="arithmatex">\(+65.0^\circ\text{C}\)</span></td>
+<td style="text-align: left;"><span class="arithmatex">\([-40.0^\circ\text{C}, \; +125.0^\circ\text{C}]\)</span></td>
+<td style="text-align: left;">Робочий тепловий режим ізоляційного середовища</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Міжфазна напруга</strong></td>
+<td style="text-align: left;"><span class="arithmatex">\(U\)</span></td>
+<td style="text-align: left;"><span class="arithmatex">\(230.0\text{ В}\)</span></td>
+<td style="text-align: left;"><span class="arithmatex">\([207.0\text{ В}, \; 253.0\text{ В}]\)</span></td>
+<td style="text-align: left;">Допустиме відхилення живильної мережі <span class="arithmatex">\(\pm 10\%\)</span></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Граничний стрибок</strong></td>
+<td style="text-align: left;"><span class="arithmatex">\(\Delta T_{\max}\)</span></td>
+<td style="text-align: left;"><span class="arithmatex">\(5.0^\circ\text{C}\)</span></td>
+<td style="text-align: left;">Максимальний приріст за крок</td>
+<td style="text-align: left;">Поріг відсікання фізично неможливих імпульсних завад</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Ємність черги буфера</strong></td>
+<td style="text-align: left;"><span class="arithmatex">\(B_{\max}\)</span></td>
+<td style="text-align: left;"><span class="arithmatex">\(64\text{ пакети}\)</span></td>
+<td style="text-align: left;">Жорстке апаратне обмеження</td>
+<td style="text-align: left;">Граничний розмір буфера пам'яті до примусового скиду</td>
+</tr>
+</tbody>
+</table>
+<p>Для наочного представлення логіки обробки вхідних повідомлень розроблено загальну блок-схему алгоритму функціонування контролера, що відображає взаємодію циклічних та умовних операторів.</p>
+<p><pre class="mermaid"><code>flowchart TD
+    Start(["Отримання сирого буфера пакетів"]) --&gt; CheckBuffer{"Буфер містить пакети?&lt;br&gt;(while buffer)"}
+
+    CheckBuffer -- "Ні (порожній)" --&gt; Finish(["Очікування наступного циклу АЦП"])
+    CheckBuffer -- "Так" --&gt; PopPacket["Вилучення пакета з черги: buffer.pop(0)"]
+
+    PopPacket --&gt; ValidateGuard{"Захисна перевірка:&lt;br&gt;пакет валідний і CRC вірна?"}
+    ValidateGuard -- "Ні (пошкоджено)" --&gt; DropCorrupt["Скидання пакета: continue"] --&gt; CheckBuffer
+    ValidateGuard -- "Так" --&gt; CheckSpike{"Стрибок dT &gt; 5.0 °C або T поза межами?"}
+
+    CheckSpike -- "Так (аномалія)" --&gt; ClampData["Корекція сплеску / логування аварії"] --&gt; Accumulate
+    CheckSpike -- "Ні (норма)" --&gt; Accumulate["Додавання відліку до вікна: window.append(T)"]
+
+    Accumulate --&gt; CheckWindow{"Розмір вікна == N?&lt;br&gt;(повнота вибірки)"}
+    CheckWindow -- "Ні" --&gt; CheckBuffer
+    CheckWindow -- "Так" --&gt; CalcStats["Обчислення математичного сподівання та дисперсії"]
+
+    CalcStats --&gt; CheckThreshold{"Напруга виходить за межі [207, 253] В?"}
+    CheckThreshold -- "Так (аварія)" --&gt; TriggerAlarm["Активація реле захисту: break"]
+    CheckThreshold -- "Ні" --&gt; SlideWindow["Зсув вікна: window.pop(0)"] --&gt; CheckBuffer
+
+    TriggerAlarm --&gt; EmergencyStop(["Аварійне знеструмлення підстанції"])</code></pre>
+<em>Рисунок 3.1 — Граф потоку керування алгоритму отказостійкої фільтрації та аналізу телеметрії</em></p>
+<h4 id="_7">Покроковий аналіз та розв'язок</h4>
+<h5 id="1">Крок 1. Захисна перевірка цілісності телеметричного кадру на базі короткої схеми обчислень</h5>
+<p>Отриманий пакет являє собою словник, що містить ідентифікатор датчика, корисне навантаження та контрольну суму. Перед спробою читання даних необхідно унеможливити виникнення винятків відсутності ключів <code>KeyError</code> або спроби звернення до неіснуючих полів порожнього об'єкта <code>NoneType</code>. Застосування законів де Моргана та короткої схеми обчислення оператора <code>and</code> дозволяє перевірити валідність структури в один вираз без використання громіздких конструкцій:</p>
+<div class="arithmatex">\[\text{is\_valid} = (\text{packet } \textbf{is not} \text{ None}) \land (\text{'raw\_data'} \textbf{ in } \text{packet}) \land (\text{len}(\text{packet}['\text{raw\_data}']) == 2)\]</div>
+<p>Якщо перша умова повертає <code>False</code>, доступ до внутрішніх ключів словника блокується апаратним конвеєром PVM, запобігаючи аварійній зупинці програми.</p>
+<h5 id="2_3">Крок 2. Каскадна фільтрація фізичних викидів та амплітудне клемпування сигналу</h5>
+<p>Температурні процеси в мастилі трансформатора мають значну теплову інерцію, тому різка зміна температури більше ніж на <span class="arithmatex">\(\Delta T_{\max} = 5.0^\circ\text{C}\)</span> за інтервал часу <span class="arithmatex">\(T_s = 10\text{ мс}\)</span> фізично неможлива. Такий стрибок однозначно свідчить про наведення високовольтної завади на лінію АЦП. Для виправлення спотворень застосовується алгоритм кусочно-лінійної селекції з використанням вкладених умовних переходів та тернарного оператора:</p>
+<div class="arithmatex">\[T_{\text{filtered}} = \begin{cases} T_{\text{prev}}, &amp; \text{якщо } |T_{\text{raw}} - T_{\text{prev}}| &gt; \Delta T_{\max} \\ 125.0, &amp; \text{якщо } T_{\text{raw}} &gt; 125.0 \\ -40.0, &amp; \text{якщо } T_{\text{raw}} &lt; -40.0 \\ T_{\text{raw}}, &amp; \text{в інших випадках} \end{cases}\]</div>
+<p>де <span class="arithmatex">\(T_{\text{raw}}\)</span> позначає сире значення відліку, вилучене з пакета; <span class="arithmatex">\(T_{\text{prev}}\)</span> є попереднім достовірним значенням температури.</p>
+<h5 id="3_2">Крок 3. Реалізація статистичного аналізатора та циклу обробки буфера</h5>
+<p>Нижче наведено фрагмент програмного забезпечення вбудованого контролера, який реалізує обробку черги пакетів, розрахунок характеристик сигналу та керування аварійним зупином.</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="n">RAW_BUFFER</span> <span class="o">=</span> <span class="p">[</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>    <span class="p">{</span><span class="s1">'id'</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">'raw_data'</span><span class="p">:</span> <span class="p">[</span><span class="mf">65.2</span><span class="p">,</span> <span class="mf">229.5</span><span class="p">]},</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>    <span class="p">{</span><span class="s1">'id'</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">'raw_data'</span><span class="p">:</span> <span class="p">[</span><span class="mf">65.4</span><span class="p">,</span> <span class="mf">230.1</span><span class="p">]},</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>    <span class="kc">None</span><span class="p">,</span>  <span class="c1"># Збійний пакет</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>    <span class="p">{</span><span class="s1">'id'</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span> <span class="s1">'raw_data'</span><span class="p">:</span> <span class="p">[</span><span class="mf">98.7</span><span class="p">,</span> <span class="mf">228.9</span><span class="p">]},</span>  <span class="c1"># Аномальний спайк (+33.3 °C)</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>    <span class="p">{</span><span class="s1">'id'</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span> <span class="s1">'raw_data'</span><span class="p">:</span> <span class="p">[</span><span class="mf">65.8</span><span class="p">,</span> <span class="mf">231.0</span><span class="p">]},</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>    <span class="p">{</span><span class="s1">'id'</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span> <span class="s1">'raw_data'</span><span class="p">:</span> <span class="p">[</span><span class="mf">66.0</span><span class="p">,</span> <span class="mf">204.2</span><span class="p">]},</span>  <span class="c1"># Аварійне просідання напруги</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>    <span class="p">{</span><span class="s1">'id'</span><span class="p">:</span> <span class="mi">7</span><span class="p">,</span> <span class="s1">'raw_data'</span><span class="p">:</span> <span class="p">[</span><span class="mf">66.1</span><span class="p">,</span> <span class="mf">230.0</span><span class="p">]}</span>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="p">]</span>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="n">WINDOW_SIZE</span> <span class="o">=</span> <span class="mi">4</span>
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="n">TEMP_MAX_DELTA</span> <span class="o">=</span> <span class="mf">5.0</span>
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="n">V_MIN</span><span class="p">,</span> <span class="n">V_MAX</span> <span class="o">=</span> <span class="mf">207.0</span><span class="p">,</span> <span class="mf">253.0</span>
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>
+</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="n">temp_window</span> <span class="o">=</span> <span class="p">[]</span>
+</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="n">last_valid_temp</span> <span class="o">=</span> <span class="mf">65.0</span>
+</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>
+</span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a><span class="nb">print</span><span class="p">(</span><span class="s2">"Запуск циклу обробки черги телеметрії..."</span><span class="p">)</span>
+</span><span id="__span-0-21"><a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a>
+</span><span id="__span-0-22"><a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a><span class="c1"># Керування спорожненням черги за допомогою циклу з передумовою while</span>
+</span><span id="__span-0-23"><a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a><span class="k">while</span> <span class="n">RAW_BUFFER</span><span class="p">:</span>
+</span><span id="__span-0-24"><a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a>    <span class="n">packet</span> <span class="o">=</span> <span class="n">RAW_BUFFER</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+</span><span id="__span-0-25"><a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a>
+</span><span id="__span-0-26"><a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a>    <span class="c1"># Крок 1: Захисна перевірка на базі короткої схеми обчислення</span>
+</span><span id="__span-0-27"><a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a>    <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="n">packet</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="s1">'raw_data'</span> <span class="ow">in</span> <span class="n">packet</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">packet</span><span class="p">[</span><span class="s1">'raw_data'</span><span class="p">])</span> <span class="o">==</span> <span class="mi">2</span><span class="p">):</span>
+</span><span id="__span-0-28"><a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a>        <span class="nb">print</span><span class="p">(</span><span class="s2">"Виявлено пошкоджений кадр. Пропуск ітерації."</span><span class="p">)</span>
+</span><span id="__span-0-29"><a id="__codelineno-0-29" name="__codelineno-0-29" href="#__codelineno-0-29"></a>        <span class="k">continue</span>
+</span><span id="__span-0-30"><a id="__codelineno-0-30" name="__codelineno-0-30" href="#__codelineno-0-30"></a>
+</span><span id="__span-0-31"><a id="__codelineno-0-31" name="__codelineno-0-31" href="#__codelineno-0-31"></a>    <span class="n">raw_temp</span><span class="p">,</span> <span class="n">raw_voltage</span> <span class="o">=</span> <span class="n">packet</span><span class="p">[</span><span class="s1">'raw_data'</span><span class="p">]</span>
+</span><span id="__span-0-32"><a id="__codelineno-0-32" name="__codelineno-0-32" href="#__codelineno-0-32"></a>
+</span><span id="__span-0-33"><a id="__codelineno-0-33" name="__codelineno-0-33" href="#__codelineno-0-33"></a>    <span class="c1"># Крок 2: Каскадна селекція аномалій</span>
+</span><span id="__span-0-34"><a id="__codelineno-0-34" name="__codelineno-0-34" href="#__codelineno-0-34"></a>    <span class="k">if</span> <span class="nb">abs</span><span class="p">(</span><span class="n">raw_temp</span> <span class="o">-</span> <span class="n">last_valid_temp</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">TEMP_MAX_DELTA</span><span class="p">:</span>
+</span><span id="__span-0-35"><a id="__codelineno-0-35" name="__codelineno-0-35" href="#__codelineno-0-35"></a>        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Аномальний викид температури: </span><span class="si">{</span><span class="n">raw_temp</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2"> °C. Застосовано фільтрацію."</span><span class="p">)</span>
+</span><span id="__span-0-36"><a id="__codelineno-0-36" name="__codelineno-0-36" href="#__codelineno-0-36"></a>        <span class="n">filtered_temp</span> <span class="o">=</span> <span class="n">last_valid_temp</span>
+</span><span id="__span-0-37"><a id="__codelineno-0-37" name="__codelineno-0-37" href="#__codelineno-0-37"></a>    <span class="k">else</span><span class="p">:</span>
+</span><span id="__span-0-38"><a id="__codelineno-0-38" name="__codelineno-0-38" href="#__codelineno-0-38"></a>        <span class="c1"># Тернарна амплітудна нормалізація граничних меж</span>
+</span><span id="__span-0-39"><a id="__codelineno-0-39" name="__codelineno-0-39" href="#__codelineno-0-39"></a>        <span class="n">filtered_temp</span> <span class="o">=</span> <span class="mf">125.0</span> <span class="k">if</span> <span class="n">raw_temp</span> <span class="o">&gt;</span> <span class="mf">125.0</span> <span class="k">else</span> <span class="p">(</span><span class="o">-</span><span class="mf">40.0</span> <span class="k">if</span> <span class="n">raw_temp</span> <span class="o">&lt;</span> <span class="o">-</span><span class="mf">40.0</span> <span class="k">else</span> <span class="n">raw_temp</span><span class="p">)</span>
+</span><span id="__span-0-40"><a id="__codelineno-0-40" name="__codelineno-0-40" href="#__codelineno-0-40"></a>        <span class="n">last_valid_temp</span> <span class="o">=</span> <span class="n">filtered_temp</span>
+</span><span id="__span-0-41"><a id="__codelineno-0-41" name="__codelineno-0-41" href="#__codelineno-0-41"></a>
+</span><span id="__span-0-42"><a id="__codelineno-0-42" name="__codelineno-0-42" href="#__codelineno-0-42"></a>    <span class="n">temp_window</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">filtered_temp</span><span class="p">)</span>
+</span><span id="__span-0-43"><a id="__codelineno-0-43" name="__codelineno-0-43" href="#__codelineno-0-43"></a>
+</span><span id="__span-0-44"><a id="__codelineno-0-44" name="__codelineno-0-44" href="#__codelineno-0-44"></a>    <span class="c1"># Накопичення ковзного вікна для статистичного аналізу</span>
+</span><span id="__span-0-45"><a id="__codelineno-0-45" name="__codelineno-0-45" href="#__codelineno-0-45"></a>    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">temp_window</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">WINDOW_SIZE</span><span class="p">:</span>
+</span><span id="__span-0-46"><a id="__codelineno-0-46" name="__codelineno-0-46" href="#__codelineno-0-46"></a>        <span class="k">continue</span>
+</span><span id="__span-0-47"><a id="__codelineno-0-47" name="__codelineno-0-47" href="#__codelineno-0-47"></a>
+</span><span id="__span-0-48"><a id="__codelineno-0-48" name="__codelineno-0-48" href="#__codelineno-0-48"></a>    <span class="c1"># Крок 3: Розрахунок математичного сподівання за допомогою циклу for</span>
+</span><span id="__span-0-49"><a id="__codelineno-0-49" name="__codelineno-0-49" href="#__codelineno-0-49"></a>    <span class="n">sum_temp</span> <span class="o">=</span> <span class="mf">0.0</span>
+</span><span id="__span-0-50"><a id="__codelineno-0-50" name="__codelineno-0-50" href="#__codelineno-0-50"></a>    <span class="k">for</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">temp_window</span><span class="p">:</span>
+</span><span id="__span-0-51"><a id="__codelineno-0-51" name="__codelineno-0-51" href="#__codelineno-0-51"></a>        <span class="n">sum_temp</span> <span class="o">+=</span> <span class="n">val</span>
+</span><span id="__span-0-52"><a id="__codelineno-0-52" name="__codelineno-0-52" href="#__codelineno-0-52"></a>    <span class="n">mean_temp</span> <span class="o">=</span> <span class="n">sum_temp</span> <span class="o">/</span> <span class="n">WINDOW_SIZE</span>
+</span><span id="__span-0-53"><a id="__codelineno-0-53" name="__codelineno-0-53" href="#__codelineno-0-53"></a>
+</span><span id="__span-0-54"><a id="__codelineno-0-54" name="__codelineno-0-54" href="#__codelineno-0-54"></a>    <span class="c1"># Розрахунок середньоквадратичного відхилення</span>
+</span><span id="__span-0-55"><a id="__codelineno-0-55" name="__codelineno-0-55" href="#__codelineno-0-55"></a>    <span class="n">variance_sum</span> <span class="o">=</span> <span class="mf">0.0</span>
+</span><span id="__span-0-56"><a id="__codelineno-0-56" name="__codelineno-0-56" href="#__codelineno-0-56"></a>    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">WINDOW_SIZE</span><span class="p">):</span>
+</span><span id="__span-0-57"><a id="__codelineno-0-57" name="__codelineno-0-57" href="#__codelineno-0-57"></a>        <span class="n">variance_sum</span> <span class="o">+=</span> <span class="p">(</span><span class="n">temp_window</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="n">mean_temp</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span>
+</span><span id="__span-0-58"><a id="__codelineno-0-58" name="__codelineno-0-58" href="#__codelineno-0-58"></a>    <span class="n">std_dev</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">variance_sum</span> <span class="o">/</span> <span class="n">WINDOW_SIZE</span><span class="p">)</span>
+</span><span id="__span-0-59"><a id="__codelineno-0-59" name="__codelineno-0-59" href="#__codelineno-0-59"></a>
+</span><span id="__span-0-60"><a id="__codelineno-0-60" name="__codelineno-0-60" href="#__codelineno-0-60"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Вікно сформовано. Середня T: </span><span class="si">{</span><span class="n">mean_temp</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> °C, Відхилення: </span><span class="si">{</span><span class="n">std_dev</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2"> °C"</span><span class="p">)</span>
+</span><span id="__span-0-61"><a id="__codelineno-0-61" name="__codelineno-0-61" href="#__codelineno-0-61"></a>
+</span><span id="__span-0-62"><a id="__codelineno-0-62" name="__codelineno-0-62" href="#__codelineno-0-62"></a>    <span class="c1"># Перевірка напруги: паттерн аварійного розмикання ланцюга</span>
+</span><span id="__span-0-63"><a id="__codelineno-0-63" name="__codelineno-0-63" href="#__codelineno-0-63"></a>    <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="n">V_MIN</span> <span class="o">&lt;=</span> <span class="n">raw_voltage</span> <span class="o">&lt;=</span> <span class="n">V_MAX</span><span class="p">):</span>
+</span><span id="__span-0-64"><a id="__codelineno-0-64" name="__codelineno-0-64" href="#__codelineno-0-64"></a>        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"КРИТИЧНА АВАРІЯ! Вихід напруги за межі: </span><span class="si">{</span><span class="n">raw_voltage</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2"> В. Робота циклу переривається."</span><span class="p">)</span>
+</span><span id="__span-0-65"><a id="__codelineno-0-65" name="__codelineno-0-65" href="#__codelineno-0-65"></a>        <span class="k">break</span>
+</span><span id="__span-0-66"><a id="__codelineno-0-66" name="__codelineno-0-66" href="#__codelineno-0-66"></a>
+</span><span id="__span-0-67"><a id="__codelineno-0-67" name="__codelineno-0-67" href="#__codelineno-0-67"></a>    <span class="c1"># Зсув ковзного вікна</span>
+</span><span id="__span-0-68"><a id="__codelineno-0-68" name="__codelineno-0-68" href="#__codelineno-0-68"></a>    <span class="n">temp_window</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+</span><span id="__span-0-69"><a id="__codelineno-0-69" name="__codelineno-0-69" href="#__codelineno-0-69"></a><span class="k">else</span><span class="p">:</span>
+</span><span id="__span-0-70"><a id="__codelineno-0-70" name="__codelineno-0-70" href="#__codelineno-0-70"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">"Вся черга телеметрії успішно оброблена в штатному режимі."</span><span class="p">)</span>
+</span></code></pre></div>
+<h5 id="4">Крок 4. Розрахунок числових параметрів вибірки з підстановкою реальних даних</h5>
+<p>Розглянемо числовий зріз ковзного вікна після обробки перших чотирьох валідних пакетів із наведеного лістингу. Після фільтрації спайку пакета №4 замість аномального значення <span class="arithmatex">\(98.7^\circ\text{C}\)</span> підставляється попереднє стабільне значення <span class="arithmatex">\(65.4^\circ\text{C}\)</span>. У результаті вибірка набуває вигляду: <span class="arithmatex">\(T = [65.2, \; 65.4, \; 65.4, \; 65.8]^\circ\text{C}\)</span>.</p>
+<p>Обчислення середнього арифметичного значення температури в ковзному вікні розміром <span class="arithmatex">\(N = 4\)</span> здійснюється за математичною залежністю:</p>
+<div class="arithmatex">\[\mu_T = \frac{1}{N} \sum_{i=1}^{N} T_i = \frac{65.2 + 65.4 + 65.4 + 65.8}{4} = \frac{261.8}{4} = 65.45^\circ\text{C}\]</div>
+<p>де <span class="arithmatex">\(T_i\)</span> позначає значення <span class="arithmatex">\(i\)</span>-го відфільтрованого відліку температури всередині контейнера вікна; <span class="arithmatex">\(N\)</span> визначає ширину вікна спостереження.</p>
+<p>Оцінка стабільності теплового режиму виконується за формулою вибіркового середньоквадратичного відхилення:</p>
+<div class="arithmatex">\[\sigma_T = \sqrt{\frac{1}{N} \sum_{i=1}^{N} (T_i - \mu_T)^2}\]</div>
+<p>Підставляючи розраховані значення кожного відхилення, отримуємо:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+\sum_{i=1}^{4} (T_i - 65.45)^2 &amp;= (65.2 - 65.45)^2 + (65.4 - 65.45)^2 + (65.4 - 65.45)^2 + (65.8 - 65.45)^2 \\
+&amp;= (-0.25)^2 + (-0.05)^2 + (-0.05)^2 + (0.35)^2 \\
+&amp;= 0.0625 + 0.0025 + 0.0025 + 0.1225 = 0.1900^\circ\text{C}^2
+\end{aligned}
+\]</div>
+<p>Розрахунок фінального середньоквадратичного відхилення температури дає результат:</p>
+<div class="arithmatex">\[\sigma_T = \sqrt{\frac{0.1900}{4}} = \sqrt{0.0475} \approx 0.2179^\circ\text{C}\]</div>
+<p>Отримане значення <span class="arithmatex">\(\sigma_T \approx 0.2179^\circ\text{C}\)</span> свідчить про високу стабільність теплового процесу та підтверджує ефективність усунення імпульсної завади з потоку первинних вимірювань.</p>
+<h4 id="_8">Інтерпретація результатів та альтернативні сценарії</h4>
+<p>Аналіз виконання програми показує, що на шостому пакеті зафіксовано напругу <span class="arithmatex">\(204.2\text{ В}\)</span>, яка виходить за допустиму технологічну межу <span class="arithmatex">\([207.0, 253.0]\text{ В}\)</span>. Умовний оператор <code>if not (V_MIN &lt;= raw_voltage &lt;= V_MAX):</code> успішно ідентифікував аварійний стан мережі та виконав інструкцію <code>break</code>. Внаслідок цього відбулося негайне розірвання циклу <code>while</code>, а фінальний блок <code>else</code> був проігнорований інтерпретатором, що підтверджує факт позаштатного переривання технологічного процесу.</p>
+<p>У разі радикальної зміни умов експлуатації алгоритмічна модель зазнає суттєвих трансформацій:</p>
+<ol>
+<li>
+<p>Якщо частота дискретизації зросте від <span class="arithmatex">\(100\text{ Гц}\)</span> до <span class="arithmatex">\(1\text{ МГц}\)</span> (наприклад, при переході на моніторинг високочастотних перехідних процесів і розрядів у дуговому проміжку), інтерпретований цикл <code>while</code> у Python стане критичним вузьким місцем процесора через високі накладні витрати байт-код диспетчеризації <span class="arithmatex">\(\mathcal{O}(N)\)</span>. За такого сценарію розробник зобов'язаний перейти від покрокового перебору відліків до векторизованої обробки за допомогою бібліотеки NumPy, де циклічні оператори виконуються на рівні асемблерних інструкцій SIMD.</p>
+</li>
+<li>
+<p>Якщо потік пакетів стане безперервним і нескінченним у часі (телеметрія реального часу без фіксованого буфера), конструкція <code>while RAW_BUFFER:</code> втратить здатність до самостійного завершення, що вимагатиме її перебудови в нескінченний цикл опитування сокета <code>while True:</code> з перенесенням логіки збереження стану в зовнішню кільцеву чергу (<em>ring buffer</em>) фіксованої місткості.</p>
+</li>
+</ol>
+<hr />
+<h3 id="32">3.2. Зведена довідкова система лекції</h3>
+<p><em>Таблиця 3.2 — Зведена система концепцій, синтаксичних конструкцій та граничних обмежень теми</em></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Термін / Концепція</th>
+<th style="text-align: left;">Формалізація / Сутність</th>
+<th style="text-align: left;">Реальний кейс застосування</th>
+<th style="text-align: left;">Основне обмеження / Ризик</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Каскадний умовний оператор <code>if-elif-else</code></strong></td>
+<td style="text-align: left;">Предикатне багатоваріантне розгалуження потоку інструкцій</td>
+<td style="text-align: left;">Маршрутизація пакетів мережевого трафіку за класами обслуговування QoS</td>
+<td style="text-align: left;">Лінійна деградація продуктивності при великій кількості гілок перевірки</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Коротка схема обчислення (<em>short-circuit</em>)</strong></td>
+<td style="text-align: left;"><span class="arithmatex">\(\text{eval}(A \land B)\)</span>: обчислення <span class="arithmatex">\(B\)</span> блокується, якщо <span class="arithmatex">\(\mathbb{B}(A) = \text{False}\)</span></td>
+<td style="text-align: left;">Створення захисних бар'єрів доступу до пам'яті та запобігання діленню на нуль</td>
+<td style="text-align: left;">Приховані помилки у разі розміщення функцій із побічними ефектами у правій частині</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Тернарний умовний вираз</strong></td>
+<td style="text-align: left;"><span class="arithmatex">\(\text{res} = X \textbf{ if } C \textbf{ else } Y\)</span> (ліниве обчислення гілок)</td>
+<td style="text-align: left;">Амплітудне обмеження сигналів (клемпування) у цифрових фільтрах</td>
+<td style="text-align: left;">Втрата читабельності коду та ускладнення тестування при глибокому вкладенні</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Цикл із передумовою <code>while</code></strong></td>
+<td style="text-align: left;">Ітерація до виконання термінальної умови <span class="arithmatex">\(S_{k+1} = \Phi(S_k)\)</span></td>
+<td style="text-align: left;">Апроксимація числових рядів та очікування зовнішньої апаратної події</td>
+<td style="text-align: left;">Ризик зациклення через неточне представлення дробів IEEE 754 або збій лічильника</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Колекційний цикл <code>for</code></strong></td>
+<td style="text-align: left;">Обхід послідовностей на базі протоколу ітератора (<code>iter</code>, <code>next</code>)</td>
+<td style="text-align: left;">Пакетна обробка телеметричних структур та обхід файлових дескрипторів</td>
+<td style="text-align: left;">Заборона модифікації розміру контейнера під час активної ітерації по ньому</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Генератор арифметичних прогресій <code>range</code></strong></td>
+<td style="text-align: left;">Лінива послідовність цілих чисел із просторовою складністю <span class="arithmatex">\(\mathcal{O}(1)\)</span></td>
+<td style="text-align: left;">Організація лічильних циклів із фіксованою кількістю повторень</td>
+<td style="text-align: left;">Неможливість генерації послідовностей із дробовими кроками зміни значень</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Директиви <code>break</code> та <code>continue</code></strong></td>
+<td style="text-align: left;">Примусовий стрибок на мітку виходу або перехід до наступної ітерації</td>
+<td style="text-align: left;">Достроковий вихід із пошукового циклу при фіксації аварійного сигналу</td>
+<td style="text-align: left;">Ускладнення графа потоку керування, ризик утворення недосяжних ділянок коду</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Блок <code>else</code> у циклічних конструкціях</strong></td>
+<td style="text-align: left;">Виконується виключно при природному вичерпанні ітератора</td>
+<td style="text-align: left;">Пошукові операції в базах даних без використання додаткових прапорців</td>
+<td style="text-align: left;">Пропуск гілки <code>else</code> у разі переривання циклу оператором <code>break</code></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="33">3.3. Контрольні питання та завдання</h3>
+<h4 id="_9">Прикладні тестові завдання</h4>
+<h5 id="1_1">Завдання 1</h5>
+<p>У системі валідації мережевого інтерфейсу виконується наступний фрагмент коду:
+<div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">flags</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">45</span><span class="p">]</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="n">filtered</span> <span class="o">=</span> <span class="p">[</span><span class="n">f</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">flags</span> <span class="k">if</span> <span class="n">f</span> <span class="ow">and</span> <span class="mi">100</span> <span class="o">//</span> <span class="n">f</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">]</span>
+</span></code></pre></div>
+Яким буде кінцевий вміст списку <code>filtered</code> після завершення обчислень?</p>
+<ul>
+<li>
+<p>A. <code>[12, 45]</code></p>
+</li>
+<li>
+<p>B. <code>[12]</code></p>
+</li>
+<li>
+<p>C. Виникне виняток <code>ZeroDivisionError</code></p>
+</li>
+<li>
+<p>D. <code>[0, 12, 45]</code></p>
+</li>
+</ul>
+<details class="note">
+<summary>Розгорнути аналіз / відповідь</summary>
+<p><strong>Правильний варіант: B.</strong></p>
+<ol>
+<li>
+<p>Обчислення спискового включення послідовно оцінює умову <code>if f and 100 // f &gt; 2</code> для кожного елемента списку <code>flags</code>. Для першого елемента <code>f = 0</code> лівий операнд логічного оператора <code>and</code> є числом <code>0</code>. Згідно з правилами істинності мови Python, число <code>0</code> проєктується на булеве значення <code>False</code>. Завдяки короткій схемі обчислення (<em>short-circuit evaluation</em>), оператор <code>and</code> негайно припиняє обчислення і повертає <code>0</code>, а права частина <code>100 // f &gt; 2</code> навіть не інтерпретується віртуальною машиною. Це повністю нівелює ризик ділення на нуль. Елемент відхиляється.</p>
+</li>
+<li>
+<p>Для другого елемента <code>f = 12</code> ліва частина істинна (<code>12 != 0</code>), тому обчислюється права частина: <code>100 // 12</code> дорівнює <code>8</code>. Оскільки <code>8 &gt; 2</code> повертає <code>True</code>, число <code>12</code> потрапляє у результуючий список.</p>
+</li>
+<li>
+<p>Для третього елемента <code>f = 0</code> знову спрацьовує коротке замикання, запобігаючи помилці.</p>
+</li>
+<li>
+<p>Для четвертого елемента <code>f = 45</code> ліва частина істинна, а права частина дає <code>100 // 45 = 2</code>. Умова <code>2 &gt; 2</code> є хибною, тому число <code>45</code> відсікається.</p>
+</li>
+</ol>
+<p><strong>Аналіз дистракторів:</strong></p>
+<ul>
+<li>
+<p>Варіант A є хибним, оскільки для числа 45 операція цілочисельного ділення повертає 2, що не задовольняє строгій нерівності більше двох.</p>
+</li>
+<li>
+<p>Варіант C є хибним, оскільки коротка схема блокує виконання ділення на нуль при хибності першого операнда.</p>
+</li>
+<li>
+<p>Варіант D є хибним, оскільки нульові значення не проходять фільтрацію через власну хибність.</p>
+</li>
+</ul>
+</details>
+<h5 id="2_4">Завдання 2</h5>
+<p>Розгляньте фрагмент коду, що виконує пошук несправного каналу передачі даних:
+<div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">channels</span> <span class="o">=</span> <span class="p">[</span><span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">]</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="k">for</span> <span class="n">ch</span> <span class="ow">in</span> <span class="n">channels</span><span class="p">:</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>    <span class="k">if</span> <span class="ow">not</span> <span class="n">ch</span><span class="p">:</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>        <span class="n">status</span> <span class="o">=</span> <span class="s2">"FAULT"</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>        <span class="k">break</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="k">else</span><span class="p">:</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>    <span class="n">status</span> <span class="o">=</span> <span class="s2">"OK"</span>
+</span></code></pre></div>
+Якого значення набуде змінна <code>status</code>, якщо замість вихідного списку у цикл буде передано порожній список <code>channels = []</code>?</p>
+<ul>
+<li>
+<p>A. Змінна <code>status</code> не буде ініціалізована, виникне виняток <code>NameError</code></p>
+</li>
+<li>
+<p>B. Значення <code>"FAULT"</code></p>
+</li>
+<li>
+<p>C. Значення <code>"OK"</code></p>
+</li>
+<li>
+<p>D. Цикл завершиться аварійно через помилку індексації</p>
+</li>
+</ul>
+<details class="note">
+<summary>Розгорнути аналіз / відповідь</summary>
+<p><strong>Правильний варіант: C.</strong></p>
+<ol>
+<li>
+<p>За семантикою мови Python блок <code>else</code> у циклі <code>for</code> виконується щоразу, коли послідовність ітерації вичерпується без виклику оператора <code>break</code>.</p>
+</li>
+<li>
+<p>Якщо у цикл передається порожній список <code>channels = []</code>, ітератор при першому ж зверненні віртуальної машини фіксує відсутність елементів і миттєво генерує службовий виняток <code>StopIteration</code>.</p>
+</li>
+<li>
+<p>Оскільки тіло циклу не виконалося жодного разу, оператор <code>break</code> не мав змоги спрацювати. Отже, цикл завершився природним штатно вичерпаним шляхом, що викликає негайне виконання блоку <code>else</code> та встановлення значення <code>status = "OK"</code>.</p>
+</li>
+</ol>
+<p><strong>Аналіз дистракторів:</strong></p>
+<ul>
+<li>
+<p>Варіант A є хибним, оскільки блок <code>else</code> гарантовано виконується, тому змінна успішно створюється в поточному просторі імен.</p>
+</li>
+<li>
+<p>Варіант B є хибним, оскільки гілка всередині умови з оператором <code>break</code> залишається недосяжною.</p>
+</li>
+<li>
+<p>Варіант D є хибним, оскільки протокол ітератора безпечно обробляє порожні контейнери без генерації винятків індексації.</p>
+</li>
+</ul>
+</details>
+<h5 id="3_3">Завдання 3</h5>
+<p>Інженер реалізував алгоритм калібрування сенсора з плаваючим кроком за допомогою наступного коду:
+<div class="language-python highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">val</span> <span class="o">=</span> <span class="mf">0.0</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="k">while</span> <span class="n">val</span> <span class="o">!=</span> <span class="mf">0.3</span><span class="p">:</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>    <span class="n">val</span> <span class="o">+=</span> <span class="mf">0.1</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>    <span class="k">if</span> <span class="n">val</span> <span class="o">&gt;</span> <span class="mf">0.5</span><span class="p">:</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>        <span class="k">break</span>
+</span></code></pre></div>
+Скільки ітерацій виконає цей цикл до моменту зупинки?</p>
+<ul>
+<li>
+<p>A. Рівно 3 ітерації</p>
+</li>
+<li>
+<p>B. Рівно 4 ітерації</p>
+</li>
+<li>
+<p>C. Рівно 6 ітерацій</p>
+</li>
+<li>
+<p>D. Цикл виконуватиметься нескінченно</p>
+</li>
+</ul>
+<details class="note">
+<summary>Розгорнути аналіз / відповідь</summary>
+<p><strong>Правильний варіант: C.</strong></p>
+<ol>
+<li>
+<p>Число <code>0.1</code> у двійковій системі числення є нескінченним періодичним дробом, тому при збереженні у форматі IEEE 754 виникає похибка представлення: значення <code>0.1</code> зберігається як <code>0.10000000000000000555...</code>.</p>
+</li>
+<li>
+<p>Після першої ітерації: <code>val = 0.10000000000000000555...</code>.</p>
+</li>
+<li>
+<p>Після другої ітерації: <code>val = 0.20000000000000001110...</code>.</p>
+</li>
+<li>
+<p>Після третьої ітерації: <code>val = 0.30000000000000004441...</code>. Умова <code>val != 0.3</code> повертає <code>True</code>, оскільки накопичене машинне число строго не дорівнює літералу <code>0.3</code>. Цикл продовжує роботу, не зупиняючись на третьому кроці.</p>
+</li>
+<li>
+<p>Після четвертої ітерації: <code>val = 0.40000000000000002220...</code>, умова <code>val &gt; 0.5</code> хибна.</p>
+</li>
+<li>
+<p>Після п'ятої ітерації: <code>val = 0.50000000000000011102...</code>. Умова <code>val &gt; 0.5</code> стає істинною, оскільки додалася похибка, тому спрацьовує переривання <code>break</code>. Таким чином, цикл здійснив 5 ітерацій до досягнення межі переривання. Проте перевірка <code>if val &gt; 0.5</code> спрацьовує на 5 кроці: <code>0.0 -&gt; 0.1 (1)</code>, <code>0.2 (2)</code>, <code>0.30000000000000004 (3)</code>, <code>0.4 (4)</code>, <code>0.5000000000000001 (5)</code>. Оскільки <code>0.5000000000000001 &gt; 0.5</code> повертає <code>True</code>, цикл негайно переривається на 5-й ітерації. </p>
+</li>
+<li>
+<p>Перевіримо точну кількість кроків у CPython: крок 1 (<code>val=0.1</code>), крок 2 (<code>val=0.2</code>), крок 3 (<code>val=0.30000000000000004</code>), крок 4 (<code>val=0.4</code>), крок 5 (<code>val=0.5</code>), де <code>0.1 * 5 = 0.5</code>. При додаванні: <code>0.1 + 0.1 + 0.1 + 0.1 + 0.1 = 0.5</code>. Умова <code>0.5 &gt; 0.5</code> є <code>False</code>! Отже, виконується крок 6: <code>val = 0.6000000000000001</code>. Тут <code>0.6 &gt; 0.5</code> є <code>True</code>, і на 6-й ітерації викликається <code>break</code>.</p>
+</li>
+</ol>
+<p><strong>Аналіз дистракторів:</strong></p>
+<ul>
+<li>
+<p>Варіант A є типовою помилкою неврахування машинної похибки округлення дійсних чисел.</p>
+</li>
+<li>
+<p>Варіант B припускає зупинку на кроці 0.4, що не відповідає умовам виходу.</p>
+</li>
+<li>
+<p>Варіант D був би вірним лише за відсутності запобіжного блоку захисту <code>if val &gt; 0.5: break</code>.</p>
+</li>
+</ul>
+</details>
+<h5 id="4_1">Завдання 4</h5>
+<p>Проаналізуйте поведінку генератора <code>range</code> у наступній конструкції:
+<div class="language-python highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">r</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="n">result</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
+</span></code></pre></div>
+Яким буде значення змінної <code>result</code> після виконання коду?</p>
+<ul>
+<li>
+<p>A. <code>5</code></p>
+</li>
+<li>
+<p>B. <code>0</code></p>
+</li>
+<li>
+<p>C. <code>4</code></p>
+</li>
+<li>
+<p>D. Виникне виняток <code>ValueError</code></p>
+</li>
+</ul>
+<details class="note">
+<summary>Розгорнути аналіз / відповідь</summary>
+<p><strong>Правильний варіант: B.</strong></p>
+<ol>
+<li>
+<p>Функція <code>range(start, stop, step)</code> при позитивному значенні кроку <code>step = 2</code> передбачає, що початкове значення <span class="arithmatex">\(start\)</span> має бути строго меншим за кінцеве значення <span class="arithmatex">\(stop\)</span>.</p>
+</li>
+<li>
+<p>Математична модель визначення кількості елементів виражається формулою <span class="arithmatex">\(n = \max\left(0, \; \lceil (stop - start) / step \rceil\right)\)</span>.</p>
+</li>
+<li>
+<p>Підставляючи значення з коду, маємо: <span class="arithmatex">\((0 - 10) / 2 = -10 / 2 = -5\)</span>.</p>
+</li>
+<li>
+<p>Оскільки функція <span class="arithmatex">\(\max(0, -5)\)</span> вибирає найбільше значення серед нуля та від'ємного результату, довжина результуючої послідовності становить рівно <code>0</code>, тому генератор одразу перебуває у вичерпаному стані.</p>
+</li>
+</ol>
+<p><strong>Аналіз дистракторів:</strong></p>
+<ul>
+<li>
+<p>Варіант A базується на помилковому припущенні, що напрямок обходу визначається автоматично без урахування знаку кроку.</p>
+</li>
+<li>
+<p>Варіант C є результатом некоректного ручного відліку без застосування математичної моделі кроку.</p>
+</li>
+<li>
+<p>Варіант D є хибним, оскільки невідповідність знаку кроку не викликає синтаксичної або системної помилки, а штатно повертає порожній діапазон.</p>
+</li>
+</ul>
+</details>
+<hr />
+<h4 id="_10">Завдання для самостійної роботи</h4>
+<h5 id="_11">Постановка задачі</h5>
+<p>На вітровій електростанції встановлено систему моніторингу вібраційного навантаження головного підшипника вітрогенератора. Контролер фіксує амплітуду віброприскорення у вигляді безперервного масиву числових значень у діапазоні від <span class="arithmatex">\(0.0\text{ g}\)</span> до <span class="arithmatex">\(10.0\text{ g}\)</span>. За штатних умов рівень вібрації не перевищує <span class="arithmatex">\(1.5\text{ g}\)</span>. Перевищення порогу <span class="arithmatex">\(4.0\text{ g}\)</span> свідчить про передаварійний стан (кавітація або знос роликів), а перевищення рівня <span class="arithmatex">\(7.0\text{ g}\)</span> веде до руйнування механічної опори турбіни. Необхідно створити автономний модуль валідації та аналізу часового ряду вимірювань для запобігання катастрофічним відмовам агрегату.</p>
+<h5 id="_12">Завдання для виконання</h5>
+<ol>
+<li>
+<p>Сформуйте за допомогою модуля <code>random</code> тестовий масив із ста псевдовипадкових чисел у діапазоні від нуля до десяти для імітації телеметричного потоку амплітуд віброприскорення підшипника.</p>
+</li>
+<li>
+<p>Реалізуйте алгоритм обходу сформованої вибірки за допомогою циклу <code>for</code>, здійснюючи фільтрацію випадкових нульових значень сенсора з використанням інструкції <code>continue</code>.</p>
+</li>
+<li>
+<p>Запрограмуйте перевірку надійності за допомогою оператора <code>break</code>, який повинен негайно припиняти обробку масиву у разі виявлення хоча б одного критичного значення вібрації понад сім одиниць з активацією прапорця аварійного гальмування ротора.</p>
+</li>
+<li>
+<p>Додайте до циклічної конструкції блок <code>else</code>, який повинен виконувати розрахунок середнього арифметичного рівня вібрації за період спостереження виключно тоді, коли за всю вибірку жодного разу не було перевищено критичного аварійного порогу.</p>
+</li>
+</ol>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Повернутись нагору
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 Kyrylo Vadurin &bull; <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a>
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.expand", "navigation.top", "navigation.tracking", "header.autohide", "search.suggest", "search.highlight", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u0421\u043a\u043e\u043f\u0456\u0439\u043e\u0432\u0430\u043d\u043e \u0432 \u0431\u0443\u0444\u0435\u0440", "clipboard.copy": "\u0421\u043a\u043e\u043f\u0456\u044e\u0432\u0430\u0442\u0438 \u0432 \u0431\u0443\u0444\u0435\u0440", "search.result.more.one": "\u0429\u0435 1 \u0437\u0431\u0456\u0433 \u043d\u0430 \u0446\u0456\u0439 \u0441\u0442\u043e\u0440\u0456\u043d\u0446\u0456", "search.result.more.other": "\u0429\u0435 # \u0437\u0431\u0456\u0433\u0456\u0432 \u043d\u0430 \u0446\u0456\u0439 \u0441\u0442\u043e\u0440\u0456\u043d\u0446\u0456", "search.result.none": "\u0417\u0431\u0456\u0433\u0456\u0432 \u043d\u0435 \u0437\u043d\u0430\u0439\u0434\u0435\u043d\u043e", "search.result.one": "\u0417\u043d\u0430\u0439\u0434\u0435\u043d\u043e 1 \u0437\u0431\u0456\u0433", "search.result.other": "\u0417\u043d\u0430\u0439\u0434\u0435\u043d\u043e # \u0437\u0431\u0456\u0433\u0456\u0432", "search.result.placeholder": "\u0420\u043e\u0437\u043f\u043e\u0447\u043d\u0456\u0442\u044c \u043f\u0438\u0441\u0430\u0442\u0438 \u0434\u043b\u044f \u043f\u043e\u0448\u0443\u043a\u0443", "search.result.term.missing": "\u041d\u0435 \u0437\u043d\u0430\u0439\u0434\u0435\u043d\u043e \u0437\u0430\u043f\u0438\u0442\u0443", "select.version": "\u041e\u0431\u0440\u0430\u0442\u0438 \u0432\u0435\u0440\u0441\u0456\u044e"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
