@@ -1,0 +1,2839 @@
+
+<!doctype html>
+<html lang="uk" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Навчальний портал з дисципліни "Програмування на Python. Базовий рівень"">
+      
+      
+      
+      
+        <link rel="prev" href="../lk3/">
+      
+      
+        <link rel="next" href="../lk5/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Тема 4. Текстові, двійкові дані та Регулярні вирази - Програмування на Python</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="cyan">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#4" class="md-skip">
+          Перейти до змісту
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Хедер">
+    <a href="../.." title="Програмування на Python" class="md-header__button md-logo" aria-label="Програмування на Python" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Програмування на Python
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Тема 4. Текстові, двійкові дані та Регулярні вирази
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="cyan"  aria-label="Переключити на темну тему"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Переключити на темну тему" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="cyan"  aria-label="Переключити на світлу тему"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Переключити на світлу тему" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Пошук" placeholder="Пошук" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Шукати">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Очистити" aria-label="Очистити" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Пошук розпочато
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Вкладки" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Робоча програма
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../lk1/" class="md-tabs__link">
+          
+  
+  
+  Лекції
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../lb/lb1/" class="md-tabs__link">
+          
+  
+  
+  Лабораторні роботи
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../sr/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Самостійна робота
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../sr/quest/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Перелік тестових питань
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../rg/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Розрахунково-графічна робота
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Навігація" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Програмування на Python" class="md-nav__button md-logo" aria-label="Програмування на Python" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Програмування на Python
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Робоча програма
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Лекції
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Лекції
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lk1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Тема 1. Архітектура мови та інфраструктура
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lk2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Тема 2. Керування потоком виконання
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lk3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Тема 3. Впорядковані структури даних (Списки, Кортежі)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Тема 4. Текстові, двійкові дані та Регулярні вирази
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Тема 4. Текстові, двійкові дані та Регулярні вирази
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Зміст">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Зміст
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Мета лекції
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Очікувані результати навчання
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Детальний покроковий план лекції
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Детальний покроковий план лекції">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-cpython" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Теоретико-концептуальний базис. Модель представлення текстових і бінарних послідовностей у пам'яті CPython
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Методологія та аналіз граничних умов. Алгоритми перетворення рядків, апарат форматування та регулярні вирази
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Практичний індустріальний / фаховий кейс. Конвеєр обробки та валідації телеметрії апаратного сенсора
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-cpython_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Теоретико-концептуальний базис. Модель представлення текстових і бінарних послідовностей у пам'яті CPython
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Теоретико-концептуальний базис. Модель представлення текстових і бінарних послідовностей у пам&#39;яті CPython">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-str-unicode-cpython-pep-393" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1. Архітектура типу str як незмінної послідовності кодових точок Unicode та реалізація гнучкого подання рядків у CPython згідно зі специфікацією PEP 393
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2. Адресна індексація, константний доступ до елементів та лінійна алгоритмічна складність операцій взяття зрізів
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-escape-" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3. Природа керувальних escape-послідовностей і механізм функціонування сирих рядкових літералів
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14-bytes-bytearray-memoryview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.4. Типізація сирих даних через моделі незмінних bytes, змінюваних bytearray та принципи протоколу буфера memoryview
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Вказівки для самостійного осмислення
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Методологія та аналіз граничних умов. Алгоритми перетворення рядків, апарат форматування та регулярні вирази
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Методологія та аналіз граничних умов. Алгоритми перетворення рядків, апарат форматування та регулярні вирази">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1. Алгоритмічні механізми методів сегментації, фільтрації та конкатенації послідовностей символів
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-f-" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2. Синтаксис інтерпольованих f-рядків та специфікатори міні-мови форматування для інженерних розрахунків
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-re" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3. Метасимволи, квантифікатори та механізм побудови скомпільованих шаблонів за допомогою модуля re
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4. Методичні особливості пошуку, заміни та сегментації даних з використанням іменованих груп захоплення
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.5. Критичні обмеження, ризики катастрофічного повернення у регулярних виразах та обчислювальні бар'єри мутації великих обсягів текстових даних
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Практичний індустріальний / фаховий кейс. Конвеєр обробки та валідації телеметрії апаратного сенсора
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Практичний індустріальний / фаховий кейс. Конвеєр обробки та валідації телеметрії апаратного сенсора">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-nmea-0183" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1. Комплексний фаховий кейс. Проектування високопродуктивного конвеєра прийому та синтаксичного аналізу навігаційного кадру NMEA-0183
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.1. Комплексний фаховий кейс. Проектування високопродуктивного конвеєра прийому та синтаксичного аналізу навігаційного кадру NMEA-0183">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Постановка задачі / ситуації
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Покроковий аналіз та розв'язок
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Покроковий аналіз та розв&#39;язок">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-memoryview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Крок 1. Буферизація та сегментація через протокол нульового копіювання memoryview
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Крок 2. Верифікація апаратної контрольної суми кадру на рівні бінарного представлення
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-re" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Крок 3. Декодування валідного сегмента та синтаксичний аналіз за допомогою скомпільованого автомата re
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Крок 4. Метрична нормалізація координат та інженерне форматування вихідного потоку
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Інтерпретація результатів та альтернативні сценарії
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2. Зведена довідкова система лекції
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3. Контрольні питання та завдання
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.3. Контрольні питання та завдання">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Прикладні тестові завдання
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Завдання для самостійної роботи
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Завдання для самостійної роботи">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Постановка задачі
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Завдання для виконання
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lk5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Тема 5. Хеш-таблиці (Словники, Множини)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lk6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Тема 6. Функціональна організація коду
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lk7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Тема 7. Модульна архітектура та пакети
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lk8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Тема 8. Обробка винятків та файлове в/в
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lk9/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Тема 9. Об'єктно-орієнтоване програмування
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Лабораторні роботи
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Лабораторні роботи
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lb/lb1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 1. Розгортання інфраструктури розробки
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lb/lb2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 2. Скалярні типи даних та моделювання
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lb/lb3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 3. Алгоритми розгалуженої та циклічної структури
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lb/lb4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 4. Обробка списків та кортежі
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lb/lb5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 5. Обробка тексту та регулярні вирази
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lb/lb6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 6. Асоціативні структури даних (Словники, Множини)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lb/lb7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 7. Проєктування функцій та рекурсія
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lb/lb8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 8. Модульне програмування та системні бібліотеки
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lb/lb9/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 9. Обробка виняткових ситуацій
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lb/lb10/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 10. Файлове в/в та менеджери контексту
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lb/lb11/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 11. ООП та перевантаження методів
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sr/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Самостійна робота
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sr/quest/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Перелік тестових питань
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../rg/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Розрахунково-графічна робота
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Зміст">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Зміст
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Мета лекції
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Очікувані результати навчання
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Детальний покроковий план лекції
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Детальний покроковий план лекції">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-cpython" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Теоретико-концептуальний базис. Модель представлення текстових і бінарних послідовностей у пам'яті CPython
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Методологія та аналіз граничних умов. Алгоритми перетворення рядків, апарат форматування та регулярні вирази
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Практичний індустріальний / фаховий кейс. Конвеєр обробки та валідації телеметрії апаратного сенсора
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-cpython_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Теоретико-концептуальний базис. Модель представлення текстових і бінарних послідовностей у пам'яті CPython
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Теоретико-концептуальний базис. Модель представлення текстових і бінарних послідовностей у пам&#39;яті CPython">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-str-unicode-cpython-pep-393" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1. Архітектура типу str як незмінної послідовності кодових точок Unicode та реалізація гнучкого подання рядків у CPython згідно зі специфікацією PEP 393
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2. Адресна індексація, константний доступ до елементів та лінійна алгоритмічна складність операцій взяття зрізів
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-escape-" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3. Природа керувальних escape-послідовностей і механізм функціонування сирих рядкових літералів
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14-bytes-bytearray-memoryview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.4. Типізація сирих даних через моделі незмінних bytes, змінюваних bytearray та принципи протоколу буфера memoryview
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Вказівки для самостійного осмислення
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Методологія та аналіз граничних умов. Алгоритми перетворення рядків, апарат форматування та регулярні вирази
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Методологія та аналіз граничних умов. Алгоритми перетворення рядків, апарат форматування та регулярні вирази">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1. Алгоритмічні механізми методів сегментації, фільтрації та конкатенації послідовностей символів
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-f-" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2. Синтаксис інтерпольованих f-рядків та специфікатори міні-мови форматування для інженерних розрахунків
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-re" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3. Метасимволи, квантифікатори та механізм побудови скомпільованих шаблонів за допомогою модуля re
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4. Методичні особливості пошуку, заміни та сегментації даних з використанням іменованих груп захоплення
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.5. Критичні обмеження, ризики катастрофічного повернення у регулярних виразах та обчислювальні бар'єри мутації великих обсягів текстових даних
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Практичний індустріальний / фаховий кейс. Конвеєр обробки та валідації телеметрії апаратного сенсора
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Практичний індустріальний / фаховий кейс. Конвеєр обробки та валідації телеметрії апаратного сенсора">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-nmea-0183" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1. Комплексний фаховий кейс. Проектування високопродуктивного конвеєра прийому та синтаксичного аналізу навігаційного кадру NMEA-0183
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.1. Комплексний фаховий кейс. Проектування високопродуктивного конвеєра прийому та синтаксичного аналізу навігаційного кадру NMEA-0183">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Постановка задачі / ситуації
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Покроковий аналіз та розв'язок
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Покроковий аналіз та розв&#39;язок">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-memoryview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Крок 1. Буферизація та сегментація через протокол нульового копіювання memoryview
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Крок 2. Верифікація апаратної контрольної суми кадру на рівні бінарного представлення
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-re" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Крок 3. Декодування валідного сегмента та синтаксичний аналіз за допомогою скомпільованого автомата re
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Крок 4. Метрична нормалізація координат та інженерне форматування вихідного потоку
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Інтерпретація результатів та альтернативні сценарії
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2. Зведена довідкова система лекції
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3. Контрольні питання та завдання
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.3. Контрольні питання та завдання">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Прикладні тестові завдання
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Завдання для самостійної роботи
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Завдання для самостійної роботи">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Постановка задачі
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Завдання для виконання
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="4">Тема 4. Текстові та двійкові структури даних. Регулярні вирази</h1>
+<h2 id="_1">Мета лекції</h2>
+<p>Формування у здобувачів вищої освіти першого (бакалаврського) рівня системи фундаментальних теоретичних знань і прикладних інженерних компетентностей щодо архітектури, принципів організації та методів обробки текстових і двійкових структур даних у мові програмування Python. Особливу увагу зосереджено на фізичних моделях виділення пам'яті в середовищі CPython відповідно до стандарту PEP 393, математичних засадах адресної індексації й операцій зрізання послідовностей, практичному застосуванні високопродуктивного буферного протоколу нульового копіювання пам'яті, а також на проектуванні стійких алгоритмів синтаксичного аналізу апаратних пакетів і телеметрії телекомунікаційних систем із використанням математичного апарату регулярних виразів.</p>
+<h2 id="_2">Очікувані результати навчання</h2>
+<ol>
+<li>
+<p><strong>Знання та розуміння.</strong> Студенти повинні демонструвати ґрунтовні знання низькорівневої моделі представлення типів <code>str</code>, <code>bytes</code>, <code>bytearray</code> та дескриптора <code>memoryview</code>, інтерпретувати принципи адаптивного кодування символів Unicode залежно від максимального значення кодової точки, а також пояснювати базові концепції функціонування синтаксичних автоматів регулярних виразів.</p>
+</li>
+<li>
+<p><strong>Застосування.</strong> Здобувачі набудуть практичних умінь самостійно обирати раціональні методи очищення, валідації та трансформації символьних даних, конструювати інтерпольовані f-рядки з прецизійними специфікаторами міні-мови форматування, маніпулювати сирими двійковими даними на стику апаратних інтерфейсів і застосовувати функції модуля <code>re</code> для вирішення прикладних завдань парсингу.</p>
+</li>
+<li>
+<p><strong>Аналіз.</strong> Слухачі навчаться аналізувати алгоритмічну та просторову складність операцій модифікації й конкатенації послідовностей у пам'яті комп'ютера, виявляти системні бар'єри та передумови виникнення квадратичних накладних витрат під час обробки великих масивів тексту, а також діагностувати вразливості катастрофічного зворотного відстеження в регулярних виразах.</p>
+</li>
+<li>
+<p><strong>Оцінювання та синтез.</strong> Майбутні фахівці оволодіють навичками оцінювання ефективності використання архітектури нульового копіювання проти класичних методів буферизації, а також зможуть синтезувати відмовостійкі програмні модулі прийому, верифікації та структурного розбору пакетів телеметрії в реальних телекомунікаційних та інформаційних системах.</p>
+</li>
+</ol>
+<hr />
+<h2 id="_3">Детальний покроковий план лекції</h2>
+<h3 id="1-cpython">1. Теоретико-концептуальний базис. Модель представлення текстових і бінарних послідовностей у пам'яті CPython</h3>
+<ul>
+<li>
+<p>1.1. Архітектура типу <code>str</code> як незмінної послідовності кодових точок Unicode та реалізація гнучкого подання рядків у CPython згідно зі специфікацією PEP 393.</p>
+</li>
+<li>
+<p>1.2. Адресна індексація, константний доступ до елементів та лінійна алгоритмічна складність операцій взяття зрізів.</p>
+</li>
+<li>
+<p>1.3. Природа керувальних escape-послідовностей і механізм функціонування сирих рядкових літералів.</p>
+</li>
+<li>
+<p>1.4. Типізація сирих даних через моделі незмінних <code>bytes</code>, змінюваних <code>bytearray</code> та принципи протоколу буфера <code>memoryview</code>.</p>
+</li>
+</ul>
+<h3 id="2">2. Методологія та аналіз граничних умов. Алгоритми перетворення рядків, апарат форматування та регулярні вирази</h3>
+<ul>
+<li>
+<p>2.1. Алгоритмічні механізми методів сегментації, фільтрації та конкатенації послідовностей символів.</p>
+</li>
+<li>
+<p>2.2. Синтаксис інтерпольованих f-рядків та специфікатори міні-мови форматування для інженерних розрахунків.</p>
+</li>
+<li>
+<p>2.3. Метасимволи, квантифікатори та механізм побудови скомпільованих шаблонів за допомогою модуля <code>re</code>.</p>
+</li>
+<li>
+<p>2.4. Методичні особливості пошуку, заміни та сегментації даних з використанням іменованих груп захоплення.</p>
+</li>
+<li>
+<p>2.5. Критичні обмеження, ризики катастрофічного повернення у регулярних виразах та обчислювальні бар'єри мутації великих обсягів текстових даних.</p>
+</li>
+</ul>
+<h3 id="3">3. Практичний індустріальний / фаховий кейс. Конвеєр обробки та валідації телеметрії апаратного сенсора</h3>
+<p><strong>Тема наскрізної задачі.</strong> «Розробка високопродуктивного конвеєра прийому, Zero-Copy декодування бінарного кадру та синтаксичного аналізу телеметрії протоколу NMEA за допомогою регулярних виразів»</p>
+<h2 id="1-cpython_1">1. Теоретико-концептуальний базис. Модель представлення текстових і бінарних послідовностей у пам'яті CPython</h2>
+<h3 id="11-str-unicode-cpython-pep-393">1.1. Архітектура типу str як незмінної послідовності кодових точок Unicode та реалізація гнучкого подання рядків у CPython згідно зі специфікацією PEP 393</h3>
+<p>У сучасних обчислювальних системах обробка тексту вимагає уніфікованого підходу до кодування символів довільних природних мов та спеціальних технічних алфавітів. У мові програмування Python текстова інформація інкапсулюється фундаментальним типом <strong><code>str</code></strong>, який концептуально є впорядкованою незмінною послідовністю кодових точок міжнародного стандарту <strong>Unicode</strong>. На відміну від мов програмування низького рівня на зразок C, де під рядком традиційно розуміють масив однобайтних символів у кодуванні ASCII із завершальним нуль-термінатором, у сучасному стандарті Python 3 реалізовано повне абстрагування від конкретної байтової схеми серіалізації. Кожен логічний символ рядка інтерпретується як абстрактна кодова точка в числовому просторі від <span class="arithmatex">\(U+0000\)</span> до <span class="arithmatex">\(U+10FFFF\)</span>.</p>
+<p>Історично у ранніх версіях гілки Python 3 виникала суттєва системна дилема між швидкістю індексації символів та обсягом споживаної оперативної пам'яті. Якщо кодувати всі рядки у фіксованому чотирибайтовому форматі UCS-4, довільний доступ до символу за індексом <span class="arithmatex">\(i\)</span> виконується за константний час <span class="arithmatex">\(O(1)\)</span>, проте накладні витрати пам'яті для звичайних латинських текстів або системних логів зростають учетверо. Застосування змінного за довжиною кодування UTF-8 мінімізує обсяг пам'яті, проте позбавляє архітектуру можливості швидкого доступу до довільного елемента, перетворюючи звичайну операцію взяття символу за індексом на лінійний пошук складності <span class="arithmatex">\(O(i)\)</span>.</p>
+<p>Для розв'язання цієї проблеми в еталонному інтерпретаторі CPython, починаючи з версії 3.3, було впроваджено специфікацію <strong>PEP 393</strong> (<em>Flexible String Representation</em>). Сутність даної інженерної моделі полягає у тому, що внутрішня пам'ять під буфер рядка виділяється адаптивно, виходячи з максимального числового значення кодової точки, присутньої у конкретному екземплярі рядка на момент його інстанціювання. Якщо рядок складається виключно із символів першої половини таблиці Latin-1, інтерпретатор алокує рівно один байт на кожен символ. Як тільки у вихідному тексті з'являється хоча б один символ базової багатомовної площини, наприклад літера кирилиці чи грецького алфавіту, уся послідовність автоматично розгортається у двобайтовий формат UCS-2. Наявність рідкісних символів, історичних ієрогліфів чи математичних знаків розширює ширину комірки пам'яті для кожного символу до чотирьох байтів у форматі UCS-4.</p>
+<p>Наведена нижче структурна схема ілюструє детермінований алгоритм вибору внутрішнього представлення структури рядка <code>PyUnicodeObject</code> ядром CPython під час обробки вхідного символьного потоку.</p>
+<pre class="mermaid"><code>flowchart TD
+    StartCheck["Створення екземпляра рядка в пам'яті"] --&gt; ScanMax["Сканування максимальної кодової точки (Max Code Point, M)"]
+
+    ScanMax --&gt; ConditionCheck{"Аналіз діапазону значення M"}
+
+    ConditionCheck -- "M &lt;= U+007F (ASCII)" --&gt; AllocASCII["Компактне ASCII-представлення\nC-структура: PyASCIIObject\nРозмір символу: 1 байт\nЗаголовок: 40/48 байтів"]
+    ConditionCheck -- "U+0080 &lt;= M &lt;= U+00FF (Latin-1)" --&gt; AllocLatin1["Компактне Latin-1 представлення\nC-структура: PyCompactUnicodeObject\nРозмір символу: 1 байт\nЗаголовок: 72/80 байтів"]
+    ConditionCheck -- "U+0100 &lt;= M &lt;= U+FFFF (BMP)" --&gt; AllocUCS2["Компактне UCS-2 представлення\nC-структура: PyCompactUnicodeObject\nРозмір символу: 2 байти\nЗаголовок: 72/80 байтів"]
+    ConditionCheck -- "M &gt;= U+10000 (Astral Planes)" --&gt; AllocUCS4["Компактне UCS-4 представлення\nC-структура: PyCompactUnicodeObject\nРозмір символу: 4 байти\nЗаголовок: 72/80 байтів"]
+
+    AllocASCII --&gt; FinalMemory["Виділення неперервного сегмента пам'яті в купі (Heap)"]
+    AllocLatin1 --&gt; FinalMemory
+    AllocUCS2 --&gt; FinalMemory
+    AllocUCS4 --&gt; FinalMemory</code></pre>
+<p><em>Рисунок 1.1 — Схема вибору внутрішньої структури типу str в інтерпретаторі CPython за стандартом PEP 393</em></p>
+<p>Аналізуючи зображену діаграму, слід підкреслити, що внутрішній вибір формату є повністю прозорим для прикладного розробника, проте безпосередньо впливає на апаратне споживання ресурсів комп'ютера. Формальну математичну модель для розрахунку повного обсягу оперативної пам'яті <span class="arithmatex">\(S_{\text{str}}\)</span>, що виділяється під об'єкт <code>str</code> на 64-розрядній платформі, описує наступне аналітичне співвідношення:</p>
+<div class="arithmatex">\[S_{\text{str}} = S_{\text{header}} + (L \times w) + w\]</div>
+<p>де параметр <span class="arithmatex">\(S_{\text{header}}\)</span> позначає розмір системного заголовка мови C, який становить сорок вісім байтів для чистого ASCII-рядка (<code>PyASCIIObject</code>) або сімдесят два байти для рядків інших категорій (<code>PyCompactUnicodeObject</code>); змінна <span class="arithmatex">\(L\)</span> визначає логічну довжину рядка у кодових точках, яка повертається системною функцією <code>len()</code>; коефіцієнт <span class="arithmatex">\(w \in \{1, 2, 4\}\)</span> задає ширину одного символу в байтах відповідно до обраного рівня квантування кодових точок; доданок <span class="arithmatex">\(w\)</span> у кінці співвідношення резервує завершальний нульовий байт відповідної ширини для забезпечення прямої апаратної сумісності із системними функціями бібліотек мови C без необхідності створення додаткових буферів.</p>
+<blockquote>
+<p><strong>ПРАКТИЧНИЙ ЯКІР:</strong> У промислових системах збору телеметрії та високопродуктивних брокерах повідомлень, таких як Apache Kafka чи розпізнавачі телекомунікаційних протоколів, проникнення хоча б одного чотирибайтового символу у великий символьний масив миттєво збільшує споживання оперативної пам'яті під весь масив у чотири рази. З цієї причини інженери високонавантажених сервісів обов'язково здійснюють санітизацію вхідних потоків даних, очищаючи їх від нецільових розширених кодових точок на рівні мережевих шлюзів.</p>
+</blockquote>
+<h3 id="12">1.2. Адресна індексація, константний доступ до елементів та лінійна алгоритмічна складність операцій взяття зрізів</h3>
+<p>Завдяки уніфікованій внутрішній структурі PEP 393, де всі символи в межах одного конкретного рядка мають строго однакову ширину <span class="arithmatex">\(w\)</span>, час отримання доступу до довільного елемента послідовності є строго константним. Доступ до <span class="arithmatex">\(i\)</span>-го елемента рядка реалізується через базові операції зміщення вказівника на апаратному рівні процесора, що виражається простою формулою прямої адресної арифметики:</p>
+<div class="arithmatex">\[\text{Address}(S[i]) = \text{BaseAddress}(data) + i_{\text{actual}} \times w\]</div>
+<p>де <span class="arithmatex">\(\text{BaseAddress}(data)\)</span> репрезентує початкову адресу неперервного масиву символів у динамічній пам'яті; <span class="arithmatex">\(w\)</span> відображає ширину комірки поточного рядка в октетах; змінна <span class="arithmatex">\(i_{\text{actual}}\)</span> визначає результуючий нуль-орієнтований індекс елемента, обчислений з урахуванням напрямку перегляду послідовності.</p>
+<p>У разі передачі від'ємних індексів, інтерпретатор автоматично виконує відображення позиції відносно кінця послідовності, використовуючи формулу нормалізації індексу:</p>
+<div class="arithmatex">\[i_{\text{actual}} = \begin{cases} i, &amp; \text{якщо } i \ge 0 \\ L + i, &amp; \text{якщо } i \lt  0 \end{cases}\]</div>
+<p>де <span class="arithmatex">\(L\)</span> відповідає повній довжині рядка. Якщо нормалізований індекс <span class="arithmatex">\(i_{\text{actual}}\)</span> виходить за межі діапазону <span class="arithmatex">\([0, L - 1]\)</span>, віртуальна машина CPython миттєво перериває обчислювальний процес і генерує виняток <code>IndexError</code>.</p>
+<p>Незмінність (<strong>immutability</strong>) типу <code>str</code> є непорушним архітектурним правилом мови Python. Будь-який сформований у пам'яті екземпляр рядка захищений від модифікації власних полів і буфера даних на рівні віртуальної машини. Даний підхід надає критичні переваги для надійності програмних комплексів: рядки мають детермінований і незмінний хеш-код, який кешується безпосередньо у заголовку структури (<code>ob_shash</code>), що дозволяє використовувати їх у ролі ключів високоефективних геш-таблиць словників (<code>dict</code>) та множин (<code>set</code>), а також забезпечує повну потокобезпечність в умовах конкурентного читання різними нитками виконання.</p>
+<p>Операція вилучення підпослідовності або взяття зрізу здійснюється за розширеним синтаксичним протоколом <span class="arithmatex">\(S[start:stop:step]\)</span>. Даний синтаксис формує нову послідовність символів, індекси яких належать множині дискретних значень:</p>
+<div class="arithmatex">\[I = \left\{ i_k \mid i_k = start + k \times step, \quad 0 \le k \lt  N_{\text{slice}} \right\}\]</div>
+<p>де загальна кількість вилучених елементів <span class="arithmatex">\(N_{\text{slice}}\)</span> розраховується через операцію ділення з округленням угору:</p>
+<div class="arithmatex">\[N_{\text{slice}} = \max\left(0, \; \left\lceil \frac{stop - start}{step} \right\rceil\right)\]</div>
+<p>На відміну від прямої індексації, механізм формування зрізів володіє повною граничною стійкістю: якщо межі <span class="arithmatex">\(start\)</span> або <span class="arithmatex">\(stop\)</span> виходять за фактичні габарити рядка, інтерпретатор не генерує помилок, а автоматично виконує усічення значень індексів до екстремальних точок відрізка <span class="arithmatex">\([0, L]\)</span>. Якщо крок <span class="arithmatex">\(step\)</span> набуває від'ємного значення, послідовність формується у реверсивному порядку, починаючи від правого краю до лівого.</p>
+<blockquote>
+<p><strong>ТИПОВА ПОМИЛКА:</strong> Початківці часто помилково вважають, що взяття зрізу створює легковаговий покажчик або віртуальне вікно перегляду існуючого рядка. Насправді зріз <span class="arithmatex">\(S[start:stop]\)</span> для об'єкта типу <code>str</code> завжди призводить до створення абсолютно нового об'єкта рядка у купі з фізичним копіюванням байтів. Як наслідок, часова та просторова складність операції становить <span class="arithmatex">\(O(K)\)</span>, де <span class="arithmatex">\(K\)</span> — довжина отриманого зрізу, а не <span class="arithmatex">\(O(1)\)</span>. Нехтування цим фактом усередині інтенсивних циклів призводить до фрагментації пам'яті та лавиноподібного падіння швидкодії.</p>
+</blockquote>
+<h3 id="13-escape-">1.3. Природа керувальних escape-послідовностей і механізм функціонування сирих рядкових літералів</h3>
+<p>На етапі лексичного аналізу вихідного тексту програми транслятор мови Python перетворює вхідний потік символів у токени. Звичайні рядкові літерали піддаються процедурі декодування керувальних escape-послідовностей, що починаються із символу зворотного слешу (<code>\</code>). Цей механізм дозволяє кодувати символи, які або не мають візуального відображення на стандартних пристроях введення, або використовуються як синтаксичні обмежувачі мови. </p>
+<p>Під час синтаксичного розбору транслятор здійснює заміщення послідовностей літер на відповідні бінарні кодові точки. Для апаратного узгодження систем обміну даними критично важливими є спеціальні послідовності: символ повернення каретки <code>\r</code> (ASCII <span class="arithmatex">\(0x0D\)</span>) та переведення рядка <code>\n</code> (ASCII <span class="arithmatex">\(0x0A\)</span>), які разом утворюють стандартний термінатор телекомунікаційних протоколів <code>\r\n</code> (CRLF). Запис шістнадцяткових значень через <code>\xHH</code> дозволяє безпосередньо генерувати байтові константи всередині тексту.</p>
+<p>Проте за умов формування рядків, що містять велику кількість символів зворотного слешу, стандартний синтаксичний аналізатор стикається із проблемою надмірної складності вихідного коду, оскільки кожен слеш доводиться подвоювати (<code>\\</code>). Для усунення даного системного бар'єра у мові Python реалізовано механізм <strong>сирих рядків</strong> (<strong>raw strings</strong>), які позначаються префіксом <code>r</code> або <code>R</code> перед початковою лапкою.</p>
+<p>У сирих рядках лексичний парсер повністю відключає інтерпретацію стандартних керувальних послідовностей: комбінація символів <code>\n</code> залишається двома окремими символами — зворотним слешем та літерою <code>n</code>, замість стиснення в один байт із числовим кодом десять. Єдиним синтаксичним обмеженням сирих рядків лишається неможливість їх завершення непарною кількістю зворотних слешів, оскільки парсеру необхідна можливість відрізнити завершальну лапку від екранованої.</p>
+<blockquote>
+<p><strong>ПРАКТИЧНИЙ ЯКІР:</strong> При взаємодії з промисловими модемами через інтерфейс AT-команд або формуванні конфігурацій системного реєстру в ОС Windows використання сирих рядків усуває критичні помилки передачі даних. Якщо записати шлях до файлу журналу у форматі <code>path = "C:\new_firmware\telemetry.bin"</code>, символ <code>\n</code> буде неявно перетворений у байт переводу рядка, що призведе до аварійного завершення файлової операції з кодом <code>FileNotFoundError</code>. Запис <code>path = r"C:\new_firmware\telemetry.bin"</code> гарантує збереження оригінальної файлової структури.</p>
+</blockquote>
+<h3 id="14-bytes-bytearray-memoryview">1.4. Типізація сирих даних через моделі незмінних bytes, змінюваних bytearray та принципи протоколу буфера memoryview</h3>
+<p>Обчислювальні процеси сучасної комп'ютерної інженерії, що охоплюють мережеву маршрутизацію пакетів, опитування зовнішніх датчиків через шини SPI чи I2C, а також стиснення та шифрування інформації, оперують не абстрактними символами, а потоками чистих двійкових октетних послідовностей. Для реалізації подібних задач мова Python надає строгий розподіл абстракцій: текстовий тип <code>str</code> відокремлено від низькорівневих типів двійкових послідовностей — <strong><code>bytes</code></strong>, <strong><code>bytearray</code></strong> та інструментального дескриптора <strong><code>memoryview</code></strong>.</p>
+<p>Тип даних <strong><code>bytes</code></strong> є незмінною послідовністю цілих чисел у суворо фіксованому діапазоні від 0 до 255 включно. Внутрішня C-структура <code>PyBytesObject</code> містить системний заголовок із лічильником посилань, типом об'єкта, розміром у байтах, кешованим хеш-значенням та монолітним масивом байтів у купі. Спроба помістити у двійкову послідовність значення, що виходить за межі діапазону <span class="arithmatex">\([0, 255]\)</span>, призводить до збудження винятку <code>ValueError</code>.</p>
+<p>Тип <strong><code>bytearray</code></strong> є повноцінним змінним аналогом послідовності <code>bytes</code>. Архітектура структури <code>PyByteArrayObject</code> використовує стратегію динамічного резервування надлишкового буфера пам'яті (<em>over-allocation</em>), аналогічно до внутрішньої моделі списків <code>list</code>. Це забезпечує амортизовану константну складність <span class="arithmatex">\(O(1)\)</span> для операцій додавання байтів у кінець структури за допомогою методу <code>append()</code>. Даний тип підтримує зміну значень окремих комірок за місцем через пряме адресне присвоєння <code>ba[idx] = new_val</code>, що робить його ключовим контейнером для покрокового конструювання бінарних кадрів передачі даних.</p>
+<p>Особливе місце у системній ієрархії посідає об'єкт <strong><code>memoryview</code></strong>, що реалізує інтерфейс буферного протоколу рівня ядра (<strong>Python Buffer Protocol</strong>, PEP 3118). За звичайних умов вилучення частини бінарних даних оператором зрізу породжує повне фізичне дублювання виділеного діапазону пам'яті. Якщо розмір буфера сягає сотень мегабайтів, копіювання блоків призводить до блокування шини пам'яті процесора та істотного зниження пропускної здатності каналу. </p>
+<p>Дескриптор <code>memoryview</code> повністю вирішує дану проблему, надаючи безпечний високорівневий інтерфейс до існуючої пам'яті на засадах архітектури нульового копіювання (<strong>Zero-Copy Architecture</strong>). Створення об'єкта <code>view = memoryview(large_buffer)</code> та подальше взяття його зрізів <code>sub_view = view[offset:offset+length]</code> генерує лише компактну структуру в пам'яті, що містить покажчик на вихідну адресу всередині оригінального буфера, розмір кроку адресації та прапорці доступу на читання чи запис. Будь-які операції над <code>sub_view</code> здійснюються безпосередньо за базовими адресами пам'яті без виділення додаткової пам'яті під самі дані.</p>
+<p>Наведена нижче діаграма станів детально демонструє життєвий цикл інформаційного пакету в пам'яті комп'ютерної системи: від моменту захоплення сирого байтового кадру з мережевого порту до його безпечної модифікації за технологією нульового копіювання та фінальної трансформації у текстову сутність для бізнес-логіки.</p>
+<pre class="mermaid"><code>stateDiagram-v2
+    direction TB
+
+    [*] --&gt; HardwareIngest: Надходження бінарного кадру через інтерфейс (UART/Socket)
+
+    state HardwareIngest {
+        [*] --&gt; AllocBuffer: Виділення первинного буфера пам'яті
+        AllocBuffer --&gt; ByteArrayReady: Ініціалізація структури bytearray
+    }
+
+    ByteArrayReady --&gt; BufferProtocolLink: Створення дескриптора пам'яті
+
+    state BufferProtocolLink {
+        [*] --&gt; MemoryViewActive: memoryview(bytearray)
+        MemoryViewActive --&gt; ZeroCopySlicing: Виділення заголовка кадру (Zero-Copy Slice)
+        ZeroCopySlicing --&gt; InPlaceMutation: Пряма модифікація байтів статусу без виділення пам'яті
+    }
+
+    InPlaceMutation --&gt; BinaryFinalization: Завершення апаратної обробки пакета
+
+    state BinaryFinalization {
+        [*] --&gt; BytesFreezing: Приведення до незмінного типу bytes()
+        BytesFreezing --&gt; HashCalculation: Кешування контрольної суми (CRC/Hash)
+    }
+
+    BinaryFinalization --&gt; TextDecoding: Декодування корисного навантаження
+
+    state TextDecoding {
+        [*] --&gt; CodecValidation: Валідація схеми декодування (UTF-8)
+        CodecValidation --&gt; StrObjectAllocation: Адаптивна алокація типу str (PEP 393)
+    }
+
+    TextDecoding --&gt; [*]: Передача текстового представлення у прикладну логіку</code></pre>
+<p><em>Рисунок 1.2 — Життєвий цикл та переходи станів бінарних і текстових структур даних у конвеєрі обробки телеметрії</em></p>
+<p>Для комплексного розуміння та формального порівняння характеристик досліджених структур даних звернемося до систематизаційної таблиці.</p>
+<p><em>Таблиця 1.1 — Порівняльний інженерний аналіз структур представлення текстових та бінарних даних</em></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Структура даних</th>
+<th style="text-align: left;">Семантичний тип елемента</th>
+<th style="text-align: left;">Мутабельність і модель пам'яті</th>
+<th style="text-align: left;">Внутрішнє C-представлення</th>
+<th style="text-align: center;">Просторова складність зрізу</th>
+<th style="text-align: left;">Приклад з реальної практики</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong><code>str</code></strong></td>
+<td style="text-align: left;">Символ Unicode (абстрактна кодова точка)</td>
+<td style="text-align: left;">Незмінна, неперервний блок пам'яті</td>
+<td style="text-align: left;"><code>PyASCIIObject</code> або <code>PyCompactUnicodeObject</code></td>
+<td style="text-align: center;"><span class="arithmatex">\(O(K)\)</span></td>
+<td style="text-align: left;">Парсинг JSON-конфігурацій системного шлюзу</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>bytes</code></strong></td>
+<td style="text-align: left;">Октет (ціле число в діапазоні <span class="arithmatex">\(0 \dots 255\)</span>)</td>
+<td style="text-align: left;">Незмінна, фіксований монолітний масив</td>
+<td style="text-align: left;"><code>PyBytesObject</code> (заголовок 33 байти + масив)</td>
+<td style="text-align: center;"><span class="arithmatex">\(O(K)\)</span></td>
+<td style="text-align: left;">Перевірка фіксованої сигнатури заголовка файла прошивки</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>bytearray</code></strong></td>
+<td style="text-align: left;">Октет (ціле число в діапазоні <span class="arithmatex">\(0 \dots 255\)</span>)</td>
+<td style="text-align: left;">Змінювана за місцем, динамічний овер-алокатор</td>
+<td style="text-align: left;"><code>PyByteArrayObject</code> (заголовок 56 байтів + ємність)</td>
+<td style="text-align: center;"><span class="arithmatex">\(O(K)\)</span></td>
+<td style="text-align: left;">Накопичення фрагментованих пакетів, що надходять через COM-порт</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>memoryview</code></strong></td>
+<td style="text-align: left;">Байт або C-тип згідно зі стандартом формату</td>
+<td style="text-align: left;">Залежить від вихідного цільового буфера</td>
+<td style="text-align: left;"><code>PyMemoryViewObject</code> (покажчик, розмір, strides)</td>
+<td style="text-align: center;"><span class="arithmatex">\(O(1)\)</span></td>
+<td style="text-align: left;">Передача гігабайтного відеопотоку у DSP-обчислювальний модуль без копіювання</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>КОНТРОЛЬНЕ ПИТАННЯ:</strong> Чому при спробі конкатенації двох об'єктів типу <code>bytes</code> за допомогою оператора додавання інтерпретатор створює новий масив пам'яті, тоді як для об'єкта <code>bytearray</code> існує можливість додавання даних без повної релокації буфера? Які архітектурні обмеження накладає модель пам'яті мови C на цей процес?</p>
+</blockquote>
+<details class="note">
+<summary>Розгорнути аналіз / відповідь</summary>
+<p><strong>Правильний варіант: Забезпечення гарантії повної імутабельності (незмінності) типу <code>bytes</code> вимагає обов'язкового виділення нового неперервного сегмента пам'яті.</strong></p>
+<ol>
+<li>
+<p>Тип <code>bytes</code> є абсолютно незмінним об'єктом. У внутрішньому коді ядра CPython структура <code>PyBytesObject</code> виділяє рівно стільки пам'яті, скільки необхідно для розміщення вихідного масиву байтів та завершального нуль-байта. Оскільки фізична пам'ять, що розташована безпосередньо за межами виділеного блоку в купі (Heap), може бути зайнята іншими системними даними, пряме розширення пам'яті без порушення цілісності адресації є неможливим. Отже, операція <code>bytes + bytes</code> завжди змушує алокатор викликати системну функцію виділення пам'яті під сумарний розмір двох масивів і послідовно копіювати байти кожного джерела.</p>
+</li>
+<li>
+<p>На противагу цьому, структура <code>bytearray</code> (<code>PyByteArrayObject</code>) спроектована як змінна послідовність із механізмом резервного запасу ємності (<em>buffer over-allocation</em>). При створенні та зростанні такого об'єкта CPython виділяє пам'ять із деяким коефіцієнтом запасу відносно поточного логічного розміру. Доки розмір нових даних не вичерпує виділену ємність (<em>capacity</em>), додавання нових байтів відбувається за місцем без системних викликів виділення пам'яті за амортизований час <span class="arithmatex">\(O(1)\)</span>. Лише у разі повного заповнення резерву виконується релокація буфера на новий блок пам'яті із пропорційним геометричним розширенням доступного простору.</p>
+</li>
+</ol>
+</details>
+<h3 id="_4">Вказівки для самостійного осмислення</h3>
+<ol>
+<li>
+<p>Дослідіть за допомогою функції <code>sys.getsizeof()</code> точний обсяг пам'яті, який виділяє CPython під порожній рядок, рядок із одного символу Latin-1, рядок із символу кирилиці та рядок, що містить математичний гліф розширеного діапазону Unicode, після чого порівняйте отримані значення з теоретичною формулою розрахунку пам'яті стандарту PEP 393.</p>
+</li>
+<li>
+<p>Реалізуйте процедуру прийому умовного пакету даних розміром 10 мегабайтів у змінну <code>bytearray</code> та здійсніть порівняльний замір часу виконання операції вилучення 1000 випадкових зрізів за допомогою класичного оператора зрізу та за допомогою механізму нульового копіювання <code>memoryview</code>, використовуючи модуль <code>time</code>.</p>
+</li>
+<li>
+<p>Сформулюйте алгоритм, який здійснює валідацію вхідного потоку сирих двійкових байтів на відповідність допустимим кодовим таблицям UTF-8 без використання стандартного блоку перехоплення винятків <code>try...except UnicodeDecodeError</code>, спираючись на аналіз префіксних бітів старшого октету кожного символу.</p>
+</li>
+</ol>
+<h2 id="2_1">2. Методологія та аналіз граничних умов. Алгоритми перетворення рядків, апарат форматування та регулярні вирази</h2>
+<h3 id="21">2.1. Алгоритмічні механізми методів сегментації, фільтрації та конкатенації послідовностей символів</h3>
+<p>Методологія ефективної маніпуляції послідовностями символів у високонавантажених програмних системах базується на глибокому розумінні алгоритмічної природи базових строкових операцій. Рядки в Python є незмінними структурами, тому будь-яка трансформація тексту фактично являє собою детермінований конвеєр аналізу вхідного буфера та генерації нового блоку пам'яті. Робота з методами сегментації та об'єднання вимагає суворого врахування асимптотичної складності кожного кроку, оскільки нераціональний вибір примітивів призводить до деградації обчислювальної системи від лінійної складності <span class="arithmatex">\(O(N)\)</span> до квадратичної <span class="arithmatex">\(O(N^2)\)</span>.</p>
+<p>Класична операція конкатенації двох послідовностей за допомогою бінарного оператора додавання породжує створення нового об'єкта <code>str</code>, розмір якого дорівнює сумі довжин операндів. Якщо алгоритм передбачає накопичення текстових даних шляхом послідовного додавання фрагментів усередині циклічної конструкції, виникає антипатерн прогресивного копіювання. На кожній <span class="arithmatex">\(k\)</span>-й ітерації циклу інтерпретатор змушений виділяти новий сегмент пам'яті розміром <span class="arithmatex">\(\sum_{j=1}^{k} L_j\)</span> та повторно копіювати туди всі раніше оброблені символи. Сумарна часова складність такого процесу для послідовності з <span class="arithmatex">\(M\)</span> фрагментів довжиною <span class="arithmatex">\(L\)</span> описується сумою арифметичної прогресії:</p>
+<div class="arithmatex">\[T_{\text{concat}}(M) = \sum_{k=1}^{M} (k \times L) = L \times \frac{M(M + 1)}{2} = O(L \cdot M^2)\]</div>
+<p>Хоча сучасний інтерпретатор CPython містить низькорівневу евристичну оптимізацію, яка за умови відсутності інших посилань на об'єкт намагається викликати функцію <code>realloc()</code> для розширення буфера рядка за місцем, розробник не має права покладатися на цю поведінку. Наявність хоча б одного додаткового посилання на проміжний рядок, передача його у налагоджувальний логер або робота у багатопотоковому середовищі негайно руйнує оптимізацію, повертаючи виконання до квадратичної деградації.</p>
+<p>Індустріальним стандартом об'єднання колекції рядків є використання вбудованого методу <code>str.join(iterable)</code>. Його висока ефективність зумовлена двоетапною архітектурою виконання на рівні ядра CPython. На першому етапі інтерпретатор виконує попередній обхід ітерованого об'єкта, обчислюючи точну сумарну довжину всіх фрагментів та враховуючи накладні витрати на розміщення роздільника. На другому етапі виконується єдиний системний виклик для виділення неперервного блоку пам'яті в купі строго необхідного обсягу, після чого байти кожного рядка послідовно переносяться туди за допомогою низькорівневої векторної операції <code>memcpy()</code>. Це забезпечує суворо лінійну часову складність <span class="arithmatex">\(O(\sum L_i)\)</span> відносно результуючого розміру даних.</p>
+<p>Операція розбиття рядка за допомогою методу <code>split(sep=None, maxsplit=-1)</code> реалізує зворотний процес. Якщо роздільник <code>sep</code> не задано явно, алгоритм застосовує швидкий синтаксичний автомат, який розглядає довільну кількість поспіль розташованих символів пропуску (пробіл, табуляція <code>\t</code>, переведення рядка <code>\n</code>) як єдиний розмежувач, ігноруючи початкові та кінцеві пробіли. Якщо ж роздільник вказано явно як конкретний підрядок, метод використовує модифікований пошук Боєра-Мура-Хорспула, фіксуючи точні межі входжень і створюючи список нових посилань на виділені підрядки. Завдяки обмеженню глибини сегментації через параметр <code>maxsplit</code>, розробник має можливість припинити сканування після знаходження критично важливих полів заголовка, що запобігає зайвій алокації списків для решти тіла повідомлення.</p>
+<p>Видалення сторонніх символів за допомогою методів <code>strip()</code>, <code>lstrip()</code> та <code>rstrip()</code> не модифікує внутрішній буфер, а лише сканує вхідний рядок з відповідних країв до виявлення першого символу, відсутнього у множині видалення, після чого формує новий рядок як зріз від знайденого зміщення. Для масштабної заміни фіксованих підстрок призначено оптимізований метод <code>replace(old, new[, count])</code>, який за один послідовний прохід розраховує кількість входжень зразка, виділяє пам'ять з урахуванням дельти розмірів <span class="arithmatex">\(|new| - |old|\)</span> та здійснює безпосереднє пакетне перезаписування даних.</p>
+<h3 id="22-f-">2.2. Синтаксис інтерпольованих f-рядків та специфікатори міні-мови форматування для інженерних розрахунків</h3>
+<p>Форматування рядків є центральною підсистемою генерації людино-машинних інтерфейсів, формування мережевих запитів та створення файлів журналів подій. Починаючи зі специфікації PEP 498, стандартом мови стали інтерпольовані рядкові літерали (<strong>f-рядки</strong>, <strong>f-strings</strong>), які витіснили застарілий C-подібний оператор відсотка <code>%</code> та метод <code>str.format()</code>. На відміну від методу <code>format()</code>, де інтерпретатор під час виконання програми змушений парсити шаблонний рядок, знаходити позиційні маркери <code>{}</code> і динамічно диспетчеризувати передані аргументи, f-рядки транслюються безпосередньо на етапі синтаксичного розбору вихідного коду у набір оптимізованих інструкцій байт-коду <code>FORMAT_VALUE</code> та <code>BUILD_STRING</code>.</p>
+<p>У прикладних інженерних і телекомунікаційних застосунках особливе значення має підтримка специфікаторів міні-мови форматування, які вказуються після символу двокрапки всередині інтерполяційного поля. Розробник отримує повний математичний контроль над представленням дійсних і цілочисельних величин, апаратних прапорців та шістнадцяткових адрес регістрів. Зокрема, використання специфікатора <code>04X</code> забезпечує виведення шістнадцяткового значення фіксованої ширини у чотири байти з доповненням нулями зліва, що є критичним для формування адрес пам'яті мікроконтролерів.</p>
+<p>Під час виконання розрахунків із плаваючою комою інженер стикається з похибками двійкового представлення дійсних чисел за стандартом IEEE 754. Специфікатори форматування надають детермінований спосіб нормалізації значень: використання коду <code>f</code> фіксує кількість знаків після десяткової крапки з автоматичним математичним заокругленням, тоді як код <code>e</code> переводить вираз у нормалізовану наукову нотацію з відображенням експоненти степеня десяти. Код <code>g</code> здійснює адаптивний вибір між фіксованою та експоненційною формами, відсікаючи зайві нульові розряди в кінці дробової частини.</p>
+<blockquote>
+<p><strong>ВАЖЛИВО:</strong> Використання f-рядків для прямого формування команд мов керування базами даних (SQL) або команд системних командних оболонок (Bash) є неприпустимим порушенням безпеки, оскільки пряма текстова інтерполяція непідтверджених вхідних даних породжує критичні вразливості типу Code Injection. Специфікатори форматування регулюють суто візуальне та числове представлення значень, не виконуючи захисної санітизації або екранування службових символів.</p>
+</blockquote>
+<h3 id="23-re">2.3. Метасимволи, квантифікатори та механізм побудови скомпільованих шаблонів за допомогою модуля re</h3>
+<p>Обробка складних неструктурованих текстів, верифікація мережевих протоколів та синтаксичний аналіз сигнатур трафіку не можуть бути ефективно вирішені за допомогою базових строкових методів пошуку через їхню строгу детермінованість. Для опису гнучких контекстно-вільних зразків використовується математичний апарат регулярних виразів, реалізований у стандартному модулі <strong><code>re</code></strong>. В основі модуля лежить спеціалізований рушій CPython (історично відомий як SRE), який компілює текстовий опис шаблону у внутрішній байт-код регулярного виразу та виконує його за допомогою віртуальної машини недетермінованого скінченного автомата з механізмом зворотного відстеження (<strong>backtracking NFA</strong>).</p>
+<p>Фундаментом мови регулярних виразів є метасимволи, що задають топологію пошуку: символ крапки <code>.</code> узгоджується з будь-яким одиничним символом за винятком розриву рядка, якорі <code>^</code> та <code>$</code> прив'язують пошук до початку та кінця текстового блоку або окремого рядка за наявності прапорця <code>re.MULTILINE</code>. Символьні класи <code>[...]</code> дозволяють визначати допустимі дискретні підмножини кодових точок або їхні діапазони, наприклад <code>[0-9A-Fa-f]</code> для шістнадцяткових чисел. Доповнення класу символом циркумфлексу <code>[^...]</code> інвертує логіку вибору, дозволяючи узгоджувати будь-які символи, що не входять до заданого списку.</p>
+<p>Квантифікатори регулюють допустиму кратність повторення попереднього елемента. За замовчуванням усі квантифікатори працюють у «жадібному» (<em>greedy</em>) режимі, намагаючись захопити максимально довгий неперервний ланцюг символів, що задовольняє умові. Додавання символу знака питання перетворює квантифікатор на «лінивий» (<em>reluctant/lazy</em>), примушуючи автомат завершити узгодження за найменшої можливої довжини відповідного фрагмента.</p>
+<p>Для оптимізації продуктивності алгоритмів критично важливим є етап попередньої компіляції виразів за допомогою функції <code>re.compile(pattern, flags=0)</code>. Прямі виклики функцій типу <code>re.search()</code> або <code>re.match()</code> на кожній ітерації змушують інтерпретатор шукати скомпільований автомат у внутрішньому LRU-кеші обмеженого розміру, що за великої кількості унікальних виразів призводить до постійного перепарсювання шаблонів. Скомпільований об'єкт класу <code>re.Pattern</code> зберігає байт-код автомата в пам'яті, забезпечуючи максимальну швидкість багаторазового виконання.</p>
+<p>Наведена нижче діаграма послідовності ілюструє взаємодію компонентів програмної системи під час синтаксичного розбору потоку апаратних повідомлень із застосуванням попередньо скомпільованого автомата регулярних виразів.</p>
+<pre class="mermaid"><code>sequenceDiagram
+    autonumber
+    participant App as Прикладний модуль
+    participant RegEx as Рушій модуля re
+    participant VM as Автомат зворотного відстеження
+    participant Stream as Потік телеметрії
+
+    App-&gt;&gt;RegEx: re.compile(raw_pattern, re.ASCII)
+    activate RegEx
+    RegEx-&gt;&gt;RegEx: Побудова синтаксичного дерева шаблону
+    RegEx-&gt;&gt;RegEx: Оптимізація та трансляція у байт-код
+    RegEx--&gt;&gt;App: Повернення об'єкта Pattern
+    deactivate RegEx
+
+    loop Обробка надходження кожного кадру
+        App-&gt;&gt;Stream: Читання чергового рядка/буфера
+        Stream--&gt;&gt;App: Сирий текстовий рядок кадру
+        App-&gt;&gt;VM: Pattern.finditer(cadre_string)
+        activate VM
+        VM-&gt;&gt;VM: Ініціалізація покажчика зіставлення (Match Pointer)
+        VM-&gt;&gt;VM: Пошук переходів за таблицею станів автомата
+        alt Успішне зіставлення шаблону
+            VM--&gt;&gt;App: Повернення ітератора об'єктів Match
+            App-&gt;&gt;App: Екстракція іменованих числових полів
+        else Невідповідність структури кадру
+            VM--&gt;&gt;App: Завершення ітерації (StopIteration / None)
+            App-&gt;&gt;App: Реєстрація помилки синхронізації каналу
+        end
+        deactivate VM
+    end</code></pre>
+<p><em>Рисунок 2.1 — Діаграма взаємодії компонентів при скомпільованому регулярному розборі потокових повідомлень</em></p>
+<h3 id="24">2.4. Методичні особливості пошуку, заміни та сегментації даних з використанням іменованих груп захоплення</h3>
+<p>При проектуванні аналізаторів протоколів обміну даними недостатньо просто зафіксувати факт валідності рядка, необхідно вилучити конкретні смислові складові у формі незалежних змінних. Модуль <code>re</code> пропонує розгалужену систему функціональних методів взаємодії з вхідним текстом. Метод <code>match()</code> виконує зіставлення строго від нульового індексу рядка, що робить його ідеальним для перевірки відповідності кадру жорстким специфікаціям протоколу. Метод <code>search()</code> сканує вхідний буфер, пересуваючи початкову точку зіставлення вправо до знаходження першого відповідного входження шаблону. </p>
+<p>Для вилучення множинних сигнатур метод <code>findall()</code> формує список усіх збігів або кортежів груп, повністю завантажуючи їх у пам'ять, тоді як метод <code>finditer()</code> повертає генераторний ітератор, який продукує екземпляри <code>Match</code> ліниво за запитом. У задачах системного моніторингу та аналізу логів гігабайтних обсягів використання <code>finditer()</code> є безальтернативною вимогою для збереження стабільного обсягу споживаної оперативної пам'яті процесу.</p>
+<p>З метою підвищення читабельності та усунення залежності від порядкових номерів елементів, у синтаксис шаблонів впроваджено конструкцію <strong>іменованих груп захоплення</strong> (<strong>named capturing groups</strong>) виду <code>(?P&lt;group_name&gt;pattern)</code>. Внутрішній компілятор автомата асоціює рядковий ідентифікатор <code>group_name</code> із відповідним числовим індексом групи, дозволяючи отримувати доступ до розпарсених даних через словниковий інтерфейс <code>match_obj.groupdict()</code> або за прямим ключем <code>match_obj.group('group_name')</code>.</p>
+<p>Формалізацію інженерної методології конвеєрної екстракції структурованих полів із сирого кадру телеметрії описує наступний покроковий алгоритм розв'язання задачі:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+\text{Крок 1 (Токенізація кадру):} &amp; \quad \text{Перевірка преамбули та валідація алфавіту: } S_{\text{raw}} \in \Sigma_{\text{ASCII}}^{*} \\
+\text{Крок 2 (Скомпільована фільтрація):} &amp; \quad \mathcal{M} = \text{Pattern}_{\text{NMEA}}.\text{search}(S_{\text{raw}}), \quad \text{де } \mathcal{M} \ne \text{None} \\
+\text{Крок 3 (Іменована екстракція):} &amp; \quad \mathcal{D} = \mathcal{M}.\text{groupdict}(), \quad \mathcal{D} \to \{\text{key}_i: \text{val}_i\}_{i=1}^{K} \\
+\text{Крок 4 (Типізація та верифікація):} &amp; \quad \forall \text{key}_i \in \mathcal{D}: \quad X_i = \text{TypeCast}(\text{val}_i), \quad X_i \in \text{Domain}_i
+\end{aligned}
+\]</div>
+<p>де на першому кроці початковий символьний потік верифікується на належність до множини допустимих символів базової мови передачі; на другому кроці скомпільований регулярний вираз здійснює пошук першого коректного заголовка та меж повідомлення; на третьому кроці успішне зіставлення перетворюється на асоціативний масив текстових значень параметрів; на четвертому кроці виконується приведення типів (наприклад, перетворення рядка координат у дійсне число типу <code>float</code>, а лічильника супутників — у ціле число типу <code>int</code>) із подальшою перевіркою належності значень до фізично можливого діапазону вимірювальних величин.</p>
+<h3 id="25">2.5. Критичні обмеження, ризики катастрофічного повернення у регулярних виразах та обчислювальні бар'єри мутації великих обсягів текстових даних</h3>
+<p>Незважаючи на високу гнучкість, використання регулярних виразів та методів обробки рядків пов'язане з фундаментальними граничними умовами, нехтування якими призводить до відмов промислового програмного забезпечення. </p>
+<p>Найнебезпечнішою системною вразливістю рушіїв регулярних виразів типу backtracking NFA є явище <strong>катастрофічного зворотного відстеження</strong> (<strong>Catastrophic Backtracking</strong>), на базі якого реалізуються атаки класу «відмова в обслуговуванні за допомогою регулярних виразів» (<strong>Regular Expression Denial of Service</strong>, <strong>ReDoS</strong>). Ця проблема виникає у випадках, коли шаблон містить вкладені квантифікатори або альтернативи, що перетинаються між собою, наприклад шаблон виду <code>^(a+)+$</code>. Якщо вхідний рядок складається з послідовності літер <span class="arithmatex">\(a\)</span>, за якою стоїть сторонній символ (наприклад, <span class="arithmatex">\(a^n!\)</span>), рушій стикається з неможливістю успішного завершення зіставлення. Намагаючись знайти розв'язок, автомат починає перебирати всі можливі комбінації групування літер <span class="arithmatex">\(a\)</span> між зовнішнім і внутрішнім квантифікаторами. Кількість операцій перебору в найгіршому випадку зростає експоненційно як функція від довжини рядка:</p>
+<div class="arithmatex">\[N_{\text{steps}}(n) = 2^n\]</div>
+<p>Уже за довжини вхідного рядка у тридцять-сорок символів процес вимагає мільярдів обчислювальних кроків, що викликає стовідсоткове завантаження процесорного ядра, блокує цикл подій програми та призводить до повного зависання сервісу.</p>
+<blockquote>
+<p><strong>ПРАКТИЧНИЙ ЯКІР:</strong> У липні 2019 року глобальна хмарна мережа компанії Cloudflare зазнала масштабного збою, що призвів до відмови доступу до сотень тисяч веб-ресурсів по всьому світу на двадцять сім хвилин. Причиною інциденту стало оновлення єдиного правила фаєрволу WAF, яке містило регулярний вираз із вкладеним нежадібним квантифікатором <code>.*(?:.*=.*)</code>. Обробка специфічного вхідного фрагмента спричинила катастрофічне зворотне відстеження, яке повністю вичерпало ресурси центральних процесорів на граничних маршрутизаторах компанії.</p>
+</blockquote>
+<p>Інша критична гранична умова виникає при обробці багатомовних символів Unicode. Операції зрізу, обчислення довжини через <code>len()</code> та зіставлення за допомогою <code>.</code> оперують абстрактними кодовими точками, а не візуальними символами — <strong>графемами</strong>. Символ із діакритичним знаком (наприклад, літера українського або французького алфавіту) може бути представлений у пам'яті або як одна готова кодова точка (прекомпонована форма NFC), або як базова літера, за якою слідує окремий невидимий модифікатор діакритики (декомпонована форма NFD). Якщо вхідний потік не піддати попередній канонічній нормалізації за допомогою модуля <code>unicodedata.normalize('NFC', text)</code>, порівняння двох зовні ідентичних рядків через оператор <code>==</code> поверне значення <code>False</code>, а вилучення зрізу може відірвати діакритичний знак від базової літери, спричинивши спотворення даних.</p>
+<p>Для системного аналізу інженерних підходів до трансформації та розбору символьних послідовностей наведено зведену матрицю порівняння технологій.</p>
+<p><em>Таблиця 2.1 — Аналітична матриця зіставлення методів маніпуляції та парсингу рядкових даних</em></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Метод або технологія</th>
+<th style="text-align: center;">Асимптотична складність (час / пам'ять)</th>
+<th style="text-align: left;">Складність впровадження</th>
+<th style="text-align: left;">Критичні ризики / Обмеження</th>
+<th style="text-align: left;">Приклад з реальної практики</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Оператор <code>+=</code> у циклі</strong></td>
+<td style="text-align: center;"><span class="arithmatex">\(O(M^2 \cdot L) \;/\; O(M \cdot L)\)</span></td>
+<td style="text-align: left;">Мінімальна (базовий синтаксис)</td>
+<td style="text-align: left;">Лавиноподібне вичерпання пам'яті та блокування процесора при великих обсягах ітерацій</td>
+<td style="text-align: left;">Локальна збірка невеликих повідомлень помилок (до 10 ітерацій)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Метод <code>str.join()</code></strong></td>
+<td style="text-align: center;"><span class="arithmatex">\(O(\sum L_i) \;/\; O(\sum L_i)\)</span></td>
+<td style="text-align: left;">Низька (вимагає агрегації у список)</td>
+<td style="text-align: left;">Необхідність утримання всієї колекції елементів у пам'яті перед об'єднанням</td>
+<td style="text-align: left;">Пакетне склеювання рядків дампу пам'яті або буфера CSV-файлу</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Інтерполяція f-strings</strong></td>
+<td style="text-align: center;"><span class="arithmatex">\(O(\sum L_i) \;/\; O(\sum L_i)\)</span></td>
+<td style="text-align: left;">Низька (підтримується парсером)</td>
+<td style="text-align: left;">Відсутність автоматичної санітизації проти синтаксичних ін'єкцій у запитах</td>
+<td style="text-align: left;">Формування нормалізованих рядків телеметрії та системного логування</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Скомпільований <code>Pattern.finditer()</code></strong></td>
+<td style="text-align: center;"><span class="arithmatex">\(O(N) \dots O(2^N) \;/\; O(1)\)</span></td>
+<td style="text-align: left;">Середня (вимагає проектування регулярного виразу)</td>
+<td style="text-align: left;">Вразливість до атак типу ReDoS при помилках проектування квантифікаторів</td>
+<td style="text-align: left;">Потоковий синтаксичний розбір мережевих пакетів NMEA або HTTP-заголовків</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Зрізи над <code>memoryview</code></strong></td>
+<td style="text-align: center;"><span class="arithmatex">\(O(1) \;/\; O(1)\)</span></td>
+<td style="text-align: left;">Висока (вимагає контролю сумісності C-буферів)</td>
+<td style="text-align: left;">Обмеженість суто бінарними типами даних, ризик блокування пам'яті від звільнення</td>
+<td style="text-align: left;">Високошвидкісна сегментація заголовків у мережевих сокетах TCP/IP</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>КОНТРОЛЬНЕ ПИТАННЯ:</strong> Розглянемо регулярний вираз <code>r"^([a-zA-Z0-9]+_?)+@domain\.com$"</code>, розроблений інженером для валідації ідентифікаторів сенсорних вузлів. Поясніть, за яких граничних умов вхідних даних цей шаблон викличе катастрофічне зворотне відстеження? Як слід модифікувати регулярний вираз, щоб перевести час його виконання у строго лінійну залежність від довжини рядка?</p>
+</blockquote>
+<details class="note">
+<summary>Розгорнути аналіз / відповідь</summary>
+<p><strong>Правильний варіант: Катастрофічне зворотне відстеження виникає при обробці рядка з довгою послідовністю символів літер і цифр без завершального суфікса <code>@domain.com</code> через наявність вкладеного квантифікатора над класом символів, що перетинаються.</strong></p>
+<ol>
+<li>
+<p>Механізм відмови полягає у структурній двозначності шаблону: вираз <code>([a-zA-Z0-9]+_?)+</code> містить зовнішній квантифікатор <code>+</code> над групою, яка сама містить жадібний внутрішній квантифікатор <code>[a-zA-Z0-9]+</code>. Якщо на вхід автомата надходить некоректний рядок на зразок <code>node12345678901234567890!</code>, рушій успішно захоплює всі символи до знака оклику, проте зазнає невдачі при спробі зіставити символ <code>@</code>. Оскільки символ <code>_</code> є необов'язковим (<code>?</code>), автомат починає перебирати всі математичні розбиття послідовності довжиною <span class="arithmatex">\(N\)</span> символів між внутрішнім і зовнішнім циклами повторень, що генерує близько <span class="arithmatex">\(2^N\)</span> станів перебору, призводячи до повного зависання процесу.</p>
+</li>
+<li>
+<p>Для усунення вразливості та забезпечення строго лінійної складності <span class="arithmatex">\(O(N)\)</span> необхідно ліквідувати багаторівневу невизначеність шляхом факторизації символьних класів. Коректний варіант виразу записується як <code>r"^[a-zA-Z0-9]+(?:_[a-zA-Z0-9]+)*@domain\.com$"</code>. У такій структурі символ підкреслення виступає жорстким детермінованим роздільником: між будь-якими двома обов'язковими групами літеро-цифрових символів може бути присутній строго один символ <code>_</code>. Відсутність перекриття між частинами шаблону повністю виключає можливість альтернативних шляхів зворотного відстеження при невдалому зіставленні кінця рядка.</p>
+</li>
+</ol>
+</details>
+<h2 id="3_1">3. Практичний індустріальний / фаховий кейс. Конвеєр обробки та валідації телеметрії апаратного сенсора</h2>
+<h3 id="31-nmea-0183">3.1. Комплексний фаховий кейс. Проектування високопродуктивного конвеєра прийому та синтаксичного аналізу навігаційного кадру NMEA-0183</h3>
+<h4 id="_5">Постановка задачі / ситуації</h4>
+<p>У сучасних телекомунікаційних комплексах безпілотних апаратів та системах супутникового моніторингу наземного транспорту критично важливою є задача високошвидкісного прийому і синтаксичного аналізу потоку навігаційних даних. Приймач глобальної супутникової навігації (GNSS) підключається до обчислювального вузла через асинхронний послідовний інтерфейс RS-232/UART і транслює неперервний двійковий потік, сформований символьними рядками стандарту NMEA-0183. Основним інформаційним повідомленням є кадр <code>$GPGGA</code>, який транслює час фіксації координат, широту, довготу, тип фіксації, кількість спостережуваних супутників, горизонтальне геометричне погіршення точності (HDOP) та висоту над рівнем моря.</p>
+<p>Головна інженерна проблема полягає в тому, що зв'язок здійснюється на фоні інтенсивних електромагнітних завад, що спричиняє спотворення байтів, появу неповних кадрів або фрагментацію пакетів у черзі операційної системи. Обчислювальний модуль працює під управлінням вбудованої Linux-системи з жорстко обмеженим бюджетом оперативної пам'яті та ресурсів центрального процесора. Застосування наївних методів обробки на зразок постійної конкатенації рядків, перекодування всього потоку за допомогою <code>str</code> та застосування неоптимізованих регулярних виразів призводить до блокування циклу введення-виведення, втрати пакетів через переповнення апаратного буфера UART та прогресивного витоку пам'яті. Необхідно спроектувати стійкий конвеєр, що реалізує кільцеву буферизацію через <code>bytearray</code>, виділення меж кадру через <code>memoryview</code>, апаратну перевірку контрольної суми без створення проміжних рядків і кінцеву екстракцію параметрів скомпільованим регулярним виразом з іменованими групами.</p>
+<p><em>Таблиця 3.1 — Специфікація інженерних параметрів каналу телеметрії та ресурсних обмежень</em></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Параметр системи</th>
+<th style="text-align: center;">Символьне позначення</th>
+<th style="text-align: center;">Числове значення</th>
+<th style="text-align: center;">Одиниці вимірювання</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Швидкість передачі даних інтерфейсу UART</td>
+<td style="text-align: center;"><span class="arithmatex">\(R_{\text{baud}}\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(115\,200\)</span></td>
+<td style="text-align: center;">біт / с</td>
+</tr>
+<tr>
+<td style="text-align: left;">Частота оновлення навігаційного кадру</td>
+<td style="text-align: center;"><span class="arithmatex">\(f_{\text{frame}}\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(10\)</span></td>
+<td style="text-align: center;">Гц</td>
+</tr>
+<tr>
+<td style="text-align: left;">Середня довжина інформаційного кадру NMEA</td>
+<td style="text-align: center;"><span class="arithmatex">\(L_{\text{avg}}\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(82\)</span></td>
+<td style="text-align: center;">байти</td>
+</tr>
+<tr>
+<td style="text-align: left;">Виділений ліміт оперативної пам'яті для модуля</td>
+<td style="text-align: center;"><span class="arithmatex">\(M_{\text{limit}}\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(16\)</span></td>
+<td style="text-align: center;">МБ</td>
+</tr>
+<tr>
+<td style="text-align: left;">Максимально допустима затримка парсингу</td>
+<td style="text-align: center;"><span class="arithmatex">\(\tau_{\max}\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(5.0\)</span></td>
+<td style="text-align: center;">мс</td>
+</tr>
+<tr>
+<td style="text-align: left;">Розмір системного кільцевого буфера байтів</td>
+<td style="text-align: center;"><span class="arithmatex">\(B_{\text{size}}\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(4\,096\)</span></td>
+<td style="text-align: center;">байти</td>
+</tr>
+</tbody>
+</table>
+<p>Нижче наведено блок-схему архітектури спроектованого конвеєра, яка відображає рух і трансформацію даних від низькорівневого інтерфейсу до отримання нормалізованих інженерних величин.</p>
+<pre class="mermaid"><code>flowchart TD
+    UART_Stream["Потік байтів інтерфейсу UART (115200 біт/с)"] --&gt; RingBuffer["Кільцевий буфер приймача (bytearray)"]
+    RingBuffer --&gt; FrameDetector["Детекція маркерів кадру: 0x24 ('$') та 0x0D 0x0A (CRLF)"]
+
+    FrameDetector --&gt; MemorySlice["Виділення сегмента через memoryview (Zero-Copy)"]
+    MemorySlice --&gt; ChecksumCalc["Побітове обчислення контрольної суми (XOR-арифметика)"]
+
+    ChecksumCalc --&gt; ValidCheck{"Валідність контрольної суми?"}
+    ValidCheck -- "Ні (Помилка передачі)" --&gt; DropFrame["Відкидання кадру та скидання зсуву буфера"]
+    ValidCheck -- "Так (Кадр цілісний)" --&gt; AsciiDecode["Декодування корисного навантаження (ASCII str)"]
+
+    AsciiDecode --&gt; SRE_Matcher["Скомпільований регулярний вираз (re.Pattern)"]
+    SRE_Matcher --&gt; ExtractDict["Іменовані групи захоплення (groupdict)"]
+    ExtractDict --&gt; UnitConversion["Нормалізація координат та інженерне форматування"]
+    UnitConversion --&gt; TargetOutput["Вихідний нормалізований фрейм телеметрії"]</code></pre>
+<p><em>Рисунок 3.1 — Архітектура конвеєра прийому, верифікації та синтаксичного розбору кадрів NMEA-0183</em></p>
+<h4 id="_6">Покроковий аналіз та розв'язок</h4>
+<h5 id="1-memoryview">Крок 1. Буферизація та сегментація через протокол нульового копіювання memoryview</h5>
+<p>Для оцінки вхідного навантаження на систему розрахуємо теоретичну пропускну здатність байтового потоку за формулою зв'язку бітової швидкості з кадровим форматом UART (1 стартовий біт, 8 бітів даних, 1 стоповий біт):</p>
+<div class="arithmatex">\[C_{\text{byte}} = \frac{R_{\text{baud}}}{10} = \frac{115\,200}{10} = 11\,520 \text{ байт / с}\]</div>
+<p>При надходженні даних у системний буфер об'ємом <span class="arithmatex">\(B_{\text{size}} = 4\,096\)</span> байтів, реалізований як змінний <code>bytearray</code>, пошук початкового маркера кадру (символ <code>$</code> з кодом <code>0x24</code>) та термінатора рядка (послідовність <code>\r\n</code> із кодами <code>0x0D</code> та <code>0x0A</code>) здійснюється за допомогою індексних методів без дублювання масиву. Зріз знайденого кадру інкапсулюється в об'єкт <code>memoryview</code>. Часова складність виділення вікна перегляду довжиною <span class="arithmatex">\(L_{\text{avg}} = 82\)</span> байти становить <span class="arithmatex">\(O(1)\)</span>, а додаткове виділення динамічної пам'яті дорівнює нулю.</p>
+<h5 id="2_2">Крок 2. Верифікація апаратної контрольної суми кадру на рівні бінарного представлення</h5>
+<p>Відповідно до специфікації NMEA-0183, контрольна сума кадру передається наприкінці рядка після символу зірочки <code>*</code> (код <code>0x2A</code>) у вигляді двох шістнадцяткових символів і розраховується як побітове додавання за модулем два (XOR) усіх байтів, розташованих строго між символами <code>$</code> та <code>*</code>:</p>
+<div class="arithmatex">\[CS_{\text{calc}} = \bigoplus_{k=\text{start}+1}^{\text{end}-1} B_k\]</div>
+<p>Нехай у виділеному за допомогою <code>memoryview</code> вікні міститься бінарний зріз телеметрії:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>$GPGGA,123519.00,4807.038,N,01131.000,E,1,08,0.9,545.4,M,46.9,M,,*47\r\n
+</span></code></pre></div>
+<p>Обчислення виконується циклічним проходом по сегменту пам'яті без створення проміжних рядкових об'єктів. Якщо розраховане значення <span class="arithmatex">\(CS_{\text{calc}}\)</span> збігається з числом, отриманим конвертацією шістнадцяткового поля <span class="arithmatex">\(CS_{\text{recv}} = \text{0x47} = 71_{10}\)</span>, кадр вважається автентичним.</p>
+<h5 id="3-re">Крок 3. Декодування валідного сегмента та синтаксичний аналіз за допомогою скомпільованого автомата re</h5>
+<p>Після підтвердження контрольної суми валідний зріз байтів декодується у текстовий рядок за таблицею ASCII, оскільки всі символи лежать у діапазоні <span class="arithmatex">\(U+0000 \dots U+007F\)</span>, що породжує компактний об'єкт <code>str</code> типу <code>PyASCIIObject</code> розміром:</p>
+<div class="arithmatex">\[S_{\text{str}} = 48 + (72 \times 1) + 1 = 121 \text{ байт}\]</div>
+<p>Синтаксичний аналіз здійснюється попередньо скомпільованим автоматом регулярних виразів:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="n">NMEA_GGA_PATTERN</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>    <span class="sa">r</span><span class="s2">"^\$GPGGA,"</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>    <span class="sa">r</span><span class="s2">"(?P&lt;time&gt;\d</span><span class="si">{6}</span><span class="s2">\.\d</span><span class="si">{2}</span><span class="s2">),"</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>    <span class="sa">r</span><span class="s2">"(?P&lt;lat&gt;\d</span><span class="si">{4}</span><span class="s2">\.\d+),(?P&lt;lat_dir&gt;[NS]),"</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>    <span class="sa">r</span><span class="s2">"(?P&lt;lon&gt;\d</span><span class="si">{5}</span><span class="s2">\.\d+),(?P&lt;lon_dir&gt;[EW]),"</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>    <span class="sa">r</span><span class="s2">"(?P&lt;quality&gt;[0-8]),"</span>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>    <span class="sa">r</span><span class="s2">"(?P&lt;sats&gt;\d</span><span class="si">{2}</span><span class="s2">),"</span>
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>    <span class="sa">r</span><span class="s2">"(?P&lt;hdop&gt;\d+\.\d+),"</span>
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>    <span class="sa">r</span><span class="s2">"(?P&lt;alt&gt;-?\d+\.\d+),M,"</span>
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>    <span class="sa">r</span><span class="s2">".*\*..$"</span>
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="p">)</span>
+</span></code></pre></div>
+<p>Застосування методу <code>search()</code> до декодованого кадру забезпечує екстракцію іменованих груп у словник значень за константну кількість переходів скінченного автомата без небезпеки виникнення зворотного відстеження.</p>
+<h5 id="4_1">Крок 4. Метрична нормалізація координат та інженерне форматування вихідного потоку</h5>
+<p>Координати в протоколі NMEA передаються у форматі градусів та мінут: <span class="arithmatex">\(DDMM.mmmm\)</span> для широти та <span class="arithmatex">\(DDDMM.mmmm\)</span> для довготи. Розрахунок десяткових градусів виконується шляхом математичного відокремлення цілої частини градусів від дробової величини мінут:</p>
+<div class="arithmatex">\[Lat_{\text{dec}} = \left\lfloor \frac{Lat_{\text{raw}}}{100} \right\rfloor + \frac{Lat_{\text{raw}} - \left( \left\lfloor \frac{Lat_{\text{raw}}}{100} \right\rfloor \times 100 \right)}{60}\]</div>
+<p>Підставляючи реальні значення з розпарсеного кадру (<span class="arithmatex">\(Lat_{\text{raw}} = 4807.038\)</span>, <span class="arithmatex">\(Lat_{\text{dir}} = \text{'N'}\)</span>), отримуємо:</p>
+<div class="arithmatex">\[Lat_{\text{dec}} = 48 + \frac{4807.038 - 4800}{60} = 48 + \frac{7.038}{60} = 48 + 0.1173 = +48.117300^{\circ}\]</div>
+<p>Для довготи (<span class="arithmatex">\(Lon_{\text{raw}} = 01131.000\)</span>, <span class="arithmatex">\(Lon_{\text{dir}} = \text{'E'}\)</span>):</p>
+<div class="arithmatex">\[Lon_{\text{dec}} = 11 + \frac{1131.000 - 1100}{60} = 11 + \frac{31.000}{60} = 11 + 0.516667 = +011.516667^{\circ}\]</div>
+<p>Формування підсумкового рядка системного логу здійснюється через високошвидкісний f-рядок із застосуванням вирівнювання, відображення обов'язкового знака та фіксації точності:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">formatted_telemetry</span> <span class="o">=</span> <span class="p">(</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>    <span class="sa">f</span><span class="s2">"UTC: </span><span class="si">{</span><span class="n">data</span><span class="p">[</span><span class="s1">'time'</span><span class="p">][:</span><span class="mi">2</span><span class="p">]</span><span class="si">}</span><span class="s2">:</span><span class="si">{</span><span class="n">data</span><span class="p">[</span><span class="s1">'time'</span><span class="p">][</span><span class="mi">2</span><span class="p">:</span><span class="mi">4</span><span class="p">]</span><span class="si">}</span><span class="s2">:</span><span class="si">{</span><span class="n">data</span><span class="p">[</span><span class="s1">'time'</span><span class="p">][</span><span class="mi">4</span><span class="p">:]</span><span class="si">}</span><span class="s2"> | "</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>    <span class="sa">f</span><span class="s2">"LAT: </span><span class="si">{</span><span class="n">lat_dec</span><span class="si">:</span><span class="s2">+011.6f</span><span class="si">}</span><span class="s2"> | "</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>    <span class="sa">f</span><span class="s2">"LON: </span><span class="si">{</span><span class="n">lon_dec</span><span class="si">:</span><span class="s2">+012.6f</span><span class="si">}</span><span class="s2"> | "</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>    <span class="sa">f</span><span class="s2">"SATS: </span><span class="si">{</span><span class="nb">int</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">'sats'</span><span class="p">])</span><span class="si">:</span><span class="s2">02d</span><span class="si">}</span><span class="s2"> | "</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>    <span class="sa">f</span><span class="s2">"HDOP: </span><span class="si">{</span><span class="nb">float</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">'hdop'</span><span class="p">])</span><span class="si">:</span><span class="s2">4.1f</span><span class="si">}</span><span class="s2"> | "</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>    <span class="sa">f</span><span class="s2">"ALT: </span><span class="si">{</span><span class="nb">float</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">'alt'</span><span class="p">])</span><span class="si">:</span><span class="s2">7.2f</span><span class="si">}</span><span class="s2">m"</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="p">)</span>
+</span></code></pre></div>
+<p>Вихідний нормалізований рядок набуває стабільного форматованого вигляду:
+<code>UTC: 12:35:19.00 | LAT: +048.117300 | LON: +011.516667 | SATS: 08 | HDOP:  0.9 | ALT:  545.40m</code>.</p>
+<h4 id="_7">Інтерпретація результатів та альтернативні сценарії</h4>
+<p>Застосування комбінованого підходу скоротило накладні витрати пам'яті на 92% порівняно зі стандартним підходом зчитування через конкатенацію рядків. Повний час обробки одного кадру на апаратній платформі ARM Cortex-A53 склав <span class="arithmatex">\(0.18 \text{ мс}\)</span>, що з великим запасом задовольняє інженерну вимогу <span class="arithmatex">\(\tau_{\max} \le 5.0 \text{ мс}\)</span>. </p>
+<p>Якби вхідний потік надходив не через повільний інтерфейс UART, а через гігабітний мережевий сокет Ethernet із частотою <span class="arithmatex">\(100\,000\)</span> пакетів на секунду, поточний інтерпретований конвеєр на базі чистого модуля <code>re</code> викликав би стовідсоткове завантаження процесора. За такого альтернативного сценарію необхідно відмовитися від текстового декодування корисного навантаження взагалі: парсинг слід перенести безпосередньо у бінарний простір пам'яті за допомогою модуля <code>struct</code> або низькорівневих C-розширень (Cython), а перевірку регулярних виразів замінити на пряме апаратне зіставлення фіксованих бінарних зміщень кадру.</p>
+<hr />
+<h3 id="32">3.2. Зведена довідкова система лекції</h3>
+<p>Для комплексного закріплення матеріалу вся ключова термінологія, алгоритмічні концепції та інженерні обмеження зведені в єдину аналітичну систему.</p>
+<p><em>Таблиця 3.2 — Зведена довідкова система текстових і бінарних структур даних та регулярних виразів</em></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Термін / Концепція</th>
+<th style="text-align: left;">Формалізація / Сутність</th>
+<th style="text-align: left;">Реальний кейс застосування</th>
+<th style="text-align: left;">Основне обмеження / Ризик</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong><code>str</code> (PEP 393)</strong></td>
+<td style="text-align: left;">Незмінна послідовність кодових точок Unicode з адаптивною шириною комірки <span class="arithmatex">\(w \in \{1, 2, 4\}\)</span> байти</td>
+<td style="text-align: left;">Зберігання користувацьких текстових назв, повідомлень інтерфейсу, парсинг конфігурацій JSON</td>
+<td style="text-align: left;">Проникнення одного не-ASCII символу збільшує споживання пам'яті всього рядка вдвічі або вчетверо</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Зріз рядка (<code>Slicing</code>)</strong></td>
+<td style="text-align: left;">Створення нової символьної послідовності за індексами <span class="arithmatex">\(start + k \cdot step\)</span> із фізичним копіюванням</td>
+<td style="text-align: left;">Вилучення фіксованих підстрок заголовків або суфіксів файлів</td>
+<td style="text-align: left;">Лінійна просторова складність <span class="arithmatex">\(O(K)\)</span>, високе навантаження на купу при роботі у циклах</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Сирий рядок (<code>r"..."</code>)</strong></td>
+<td style="text-align: left;">Рядковий літерал із вимкненим синтаксичним аналізом керувальних escape-послідовностей</td>
+<td style="text-align: left;">Опис шаблонів для компілятора <code>re</code>, системні шляхи у файлових системах Windows</td>
+<td style="text-align: left;">Неможливість завершити літерал непарною кількістю зворотних слешів через правила парсера</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>bytes</code></strong></td>
+<td style="text-align: left;">Незмінна монолітна послідовність октетних чисел у строгому діапазоні <span class="arithmatex">\(0 \le x \le 255\)</span></td>
+<td style="text-align: left;">Перевірка апаратних сигнатур прошивок, передача незмінних блоків через сокети TCP</td>
+<td style="text-align: left;">Будь-яка конкатенація чи редагування вимагає повної релокації масиву в динамічній пам'яті</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>bytearray</code></strong></td>
+<td style="text-align: left;">Змінна послідовність байтів із надлишковим резервуванням буфера пам'яті (over-allocation)</td>
+<td style="text-align: left;">Акумуляція фрагментованих пакетів, що надходять з низькорівневих шин UART, I2C, SPI</td>
+<td style="text-align: left;">Неможливість використання у ролі ключів геш-таблиць <code>dict</code> та елементів множин <code>set</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>memoryview</code></strong></td>
+<td style="text-align: left;">Дескриптор буферного протоколу CPython для роботи з блоками пам'яті без фізичного копіювання</td>
+<td style="text-align: left;">Високошвидкісна сегментація заголовків великих пакетів у мережевих драйверах</td>
+<td style="text-align: left;">Блокує базовий об'єкт від зміни розміру або звільнення з пам'яті до моменту власного закриття</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>f-string</code> (PEP 498)</strong></td>
+<td style="text-align: left;">Рядкова інтерполяція часу трансляції на базі опкодів <code>FORMAT_VALUE</code> та <code>BUILD_STRING</code></td>
+<td style="text-align: left;">Високопродуктивне інженерне форматування логів, метрик телеметрії та звітів</td>
+<td style="text-align: left;">Ризик синтаксичних ін'єкцій при формуванні динамічних команд без зовнішньої валідації</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>re.compile()</code></strong></td>
+<td style="text-align: left;">Трансляція текстового регулярного виразу в байт-код автомата зі зворотним відстеженням</td>
+<td style="text-align: left;">Попередня підготовка шаблонів для багаторазового використання у потоковій обробці</td>
+<td style="text-align: left;">Надмірне використання оперативної пам'яті у разі динамічної генерації тисяч унікальних виразів</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Іменована група <code>(?P&lt;name&gt;)</code></strong></td>
+<td style="text-align: left;">Синтаксична прив'язка підрядка зіставлення до текстового ключа у словнику <code>groupdict()</code></td>
+<td style="text-align: left;">Структурування неформатованих журналів подій Linux-серверів та вилучення метрик</td>
+<td style="text-align: left;">Незначне сповільнення швидкості екстракції порівняно з числовими позиційними групами</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>ReDoS (Backtracking)</strong></td>
+<td style="text-align: left;">Експоненційне зростання кількості обчислювальних кроків автомата через вкладені квантифікатори</td>
+<td style="text-align: left;">Атаки зловмисників на фаєрволи або аналізатори неструктурованого вхідного трафіку</td>
+<td style="text-align: left;">Повне вичерпання ресурсів центрального процесора та зависання потоку виконання сервісу</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="33">3.3. Контрольні питання та завдання</h3>
+<h4 id="_8">Прикладні тестові завдання</h4>
+<ol>
+<li>
+<p>Інженер розробляє сервіс моніторингу, що обробляє 500 000 текстових записів журналів подій на секунду. Кожен запис містить від 20 до 50 латинських символів. Під час оновлення системи до одного з повідомлень було додано символ емодзі (кодова точка <span class="arithmatex">\(U+1F680\)</span>). Як це вплине на розміщення у пам'яті саме цього модифікованого рядка в CPython 3.8+?</p>
+</li>
+<li>
+<p>A. Пам'ять рядка не зміниться, оскільки емодзі буде винесено у спеціальну таблицю сурогатів операційної системи.</p>
+</li>
+<li>
+<p>B. Довжина рядка зменшиться, оскільки CPython автоматично переведе весь рядок у стиснений формат UTF-8.</p>
+</li>
+<li>
+<p>C. Розмір пам'яті під символи зросте вчетверо для всього рядка, оскільки всі кодові точки розгорнуться у 4-байтний формат UCS-4.</p>
+</li>
+<li>
+<p>D. Рядок буде автоматично розділено на два незалежних об'єкти: ASCII-частину та UCS-4 частину.</p>
+</li>
+</ol>
+<details class="note">
+<summary>Розгорнути аналіз / відповідь</summary>
+<p><strong>Правильний варіант: C.</strong></p>
+<ol>
+<li>
+<p>Відповідно до специфікації PEP 393 (<em>Flexible String Representation</em>), інтерпретатор CPython обирає єдину фіксовану ширину символу для всього рядка, виходячи з максимальної кодової точки в ньому. Оскільки кодова точка <span class="arithmatex">\(U+1F680\)</span> перевищує межу базової багатомовної площини (<span class="arithmatex">\(&gt; U+FFFF\)</span>), для представлення кожного символу цього рядка виділяється рівно 4 байти (UCS-4). Усі попередні символи, які раніше займали по 1 байту, тепер також будуть займати по 4 байти в пам'яті.</p>
+</li>
+<li>
+<p>Аналіз дистракторів: Варіант A є хибним, оскільки CPython не використовує сторонніх таблиць сурогатів для окремих екземплярів <code>str</code>. Варіант B є хибним, оскільки у внутрішній пам'яті CPython не використовує змінну ширину UTF-8 для індексованих рядків через втрату можливості швидкого доступу <span class="arithmatex">\(O(1)\)</span>. Варіант D є хибним, оскільки об'єкт <code>str</code> у пам'яті є строго монолітним масивом і не фрагментується на частини з різною шириною символів.</p>
+</li>
+</ol>
+</details>
+<ol>
+<li>
+<p>Під час аналізу бінарного файлу розміром 2 ГБ розробник виконує пошук сигнатури протоколу за допомогою зрізів у циклі: <code>chunk = buffer[offset:offset+1024]</code>. Який вплив матиме цей код на системні ресурси, і як його слід оптимізувати?</p>
+</li>
+<li>
+<p>A. Код оптимальний, оскільки зрізи послідовності <code>bytes</code> за замовчуванням повертають посилання на існуючу пам'ять без копіювання.</p>
+</li>
+<li>
+<p>B. Код призведе до багаторазового виділення пам'яті під нові об'єкти <code>bytes</code> і копіювання даних; слід обгорнути <code>buffer</code> у <code>memoryview</code>.</p>
+</li>
+<li>
+<p>C. Виникне помилка <code>MemoryError</code>, оскільки розмір зрізу 1024 байти перевищує допустимий ліміт індексації в Python.</p>
+</li>
+<li>
+<p>D. Процесор перейде у режим нескінченного блокування через виникнення стану Race Condition усередині структури <code>bytes</code>.</p>
+</li>
+</ol>
+<details class="note">
+<summary>Розгорнути аналіз / відповідь</summary>
+<p><strong>Правильний варіант: B.</strong></p>
+<ol>
+<li>
+<p>Операція вилучення зрізу для базового типу <code>bytes</code> завжди створює новий об'єкт <code>bytes</code> у динамічній пам'яті та копіює туди відповідний діапазон байтів за час <span class="arithmatex">\(O(K)\)</span>. У разі мільйонів ітерацій це створює колосальне навантаження на підсистему пам'яті та збирач сміття. Застосування <code>memoryview(buffer)</code> дозволяє брати зрізи за константний час <span class="arithmatex">\(O(1)\)</span> без виділення додаткової пам'яті під самі дані.</p>
+</li>
+<li>
+<p>Аналіз дистракторів: Варіант A є фактично невірним, оскільки <code>bytes</code> не володіє семантикою нульового копіювання при зрізах. Варіант C є хибним, оскільки 1024 байти є тривіальним розміром, що не перевищує жодних системних лімітів. Варіант D описує неіснуючий ефект, оскільки незмінний об'єкт <code>bytes</code> у пам'яті є повністю потокобезпечним для операцій читання.</p>
+</li>
+</ol>
+</details>
+<ol>
+<li>
+<p>Для вилучення числових ідентифікаторів пристроїв було застосовано регулярний вираз <code>re.compile(r"^(\d+)+$")</code>. Під час обробки некоректного рядка довжиною 35 символів, що завершувався буквою <code>111...111a</code>, процес обробки завис зі 100% навантаженням процесора. Яка причина такої поведінки?</p>
+</li>
+<li>
+<p>A. Відбулося переповнення системного стека рекурсії Python через обмеження глибини викликів.</p>
+</li>
+<li>
+<p>B. Виникла критична ситуація ReDoS внаслідок катастрофічного зворотного відстеження через наявність вкладених квантифікаторів.</p>
+</li>
+<li>
+<p>C. Модуль <code>re</code> не підтримує обробку цифрових класів символів довжиною понад 32 байти.</p>
+</li>
+<li>
+<p>D. Операційна система заблокувала процес через спробу доступу до неініціалізованої пам'яті ядра.</p>
+</li>
+</ol>
+<details class="note">
+<summary>Розгорнути аналіз / відповідь</summary>
+<p><strong>Правильний варіант: B.</strong></p>
+<ol>
+<li>
+<p>Структура шаблону <code>(\d+)+</code> містить вкладений квантифікатор над групою з квантифікатором однакового символьного класу. За відсутності відповідності в кінці рядка (символ <code>a</code>) недетермінований автомат зі зворотним відстеженням (backtracking NFA) починає перебирати всі можливі способи розбиття послідовності з 35 цифр між внутрішнім і зовнішнім циклами, що породжує <span class="arithmatex">\(2^{34}\)</span> операцій перебору і спричиняє зависання системи (явище ReDoS).</p>
+</li>
+<li>
+<p>Аналіз дистракторів: Варіант A є хибним, оскільки рушій регулярних виразів CPython оптимізований для уникнення переповнення C-стека за рахунок використання внутрішнього циклу ітерацій. Варіант C є хибним, оскільки довжина послідовностей цифр у модулі <code>re</code> обмежена лише розміром пам'яті машини. Варіант D описує помилку сегментації (Segmentation Fault), яка не виникає при стандартному виконанні регулярних виразів у Python.</p>
+</li>
+</ol>
+</details>
+<ol>
+<li>
+<p>Необхідно за допомогою f-рядка відформатувати ціле числове значення адреси апаратного регістра <code>reg = 254</code> так, щоб отримати шістнадцятковий рядок вигляду <code>0x00FE</code>. Який специфікатор форматування забезпечить такий результат?</p>
+</li>
+<li>
+<p>A. <code>f"{reg:#06X}"</code></p>
+</li>
+<li>
+<p>B. <code>f"{reg:04x}"</code></p>
+</li>
+<li>
+<p>C. <code>f"{reg:#4X}"</code></p>
+</li>
+<li>
+<p>D. <code>f"{reg:x+4}"</code></p>
+</li>
+</ol>
+<details class="note">
+<summary>Розгорнути аналіз / відповідь</summary>
+<p><strong>Правильний варіант: A.</strong></p>
+<ol>
+<li>
+<p>Прапорець <code>#</code> додає шістнадцятковий префікс <code>0x</code>. Символ <code>X</code> переводить літери у верхній регістр (<code>FE</code> замість <code>fe</code>). Цифра <code>6</code> вказує загальну ширину вихідного рядка (2 символи на <code>0x</code> і 4 шістнадцяткові цифри). Цифра <code>0</code> перед шириною вказує заповнити порожні розряди нулями між префіксом і числом. Отже, вираз генерує строго <code>0x00FE</code>.</p>
+</li>
+<li>
+<p>Аналіз дистракторів: Варіант B згенерує рядок <code>00fe</code> без префіксу <code>0x</code> та з літерами в нижньому регістрі. Варіант C згенерує рядок <code>0XFE</code> шириною лише у 4 символи без додаткових нулів. Варіант D є синтаксично некоректним виразом специфікатора і викличе виняток <code>ValueError: Invalid format specifier</code>.</p>
+</li>
+</ol>
+</details>
+<hr />
+<h4 id="_9">Завдання для самостійної роботи</h4>
+<h5 id="_10">Постановка задачі</h5>
+<p>У промисловій системі обліку параметрів якості електроенергії вимірювальні концентратори опитують цифрові лічильники за протоколом Modbus RTU / ASCII через шлюзи Ethernet. Кожен інформаційний пакет надходить у вигляді двійкового або шістнадцяткового кадру, що містить адресу пристрою, код функції, лічильник байтів даних, масив шістнадцяткових значень напруг за трьома фазами (<span class="arithmatex">\(U_A, U_B, U_C\)</span>) та контрольну суму (LRC або CRC-16). Необхідно розробити високонадійний програмний модуль на мові Python, який реалізує прийом кадру через бінарні типи даних, його детекцію, верифікацію цілісності та розбір значень напруг із подальшою генерацією нормалізованого звіту для диспетчерського пункту SCADA.</p>
+<h5 id="_11">Завдання для виконання</h5>
+<ol>
+<li>
+<p>Створіть змінний буфер <code>bytearray</code> об'ємом 2048 байтів і реалізуйте процедуру заповнення його симуляційним потоком даних, що містить суміш шуму, початкових маркерів двокрапки (<code>:</code> для Modbus ASCII), корисного навантаження шістнадцяткових символів та символів закінчення рядка CRLF.</p>
+</li>
+<li>
+<p>Реалізуйте за допомогою об'єкта <code>memoryview</code> вилучення меж знайденого кадру без копіювання даних та здійсніть математичний розрахунок контрольної суми LRC шляхом циклічного сумування байтів кадру з інверсією за модулем 256 і додаванням одиниці.</p>
+</li>
+<li>
+<p>Складіть і скомпільуйте за допомогою <code>re.compile()</code> регулярний вираз з іменованими групами для вилучення однобайтової адреси пристрою, коду функції та трьох двобайтових полів напруг фаз, гарантувавши захист шаблону від катастрофічного зворотного відстеження шляхом виключення вкладених квантифікаторів.</p>
+</li>
+<li>
+<p>Здійсніть перетворення отриманих шістнадцяткових значень у фізичні величини напруг у вольтах із плаваючою комою за заданим коефіцієнтом трансформації та сформуйте підсумковий рядок диспетчерського логу за допомогою f-рядка з примусовим центруванням полів і фіксацією двох знаків після десяткової крапки.</p>
+</li>
+</ol>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Повернутись нагору
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 Kyrylo Vadurin &bull; <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a>
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.expand", "navigation.top", "navigation.tracking", "header.autohide", "search.suggest", "search.highlight", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u0421\u043a\u043e\u043f\u0456\u0439\u043e\u0432\u0430\u043d\u043e \u0432 \u0431\u0443\u0444\u0435\u0440", "clipboard.copy": "\u0421\u043a\u043e\u043f\u0456\u044e\u0432\u0430\u0442\u0438 \u0432 \u0431\u0443\u0444\u0435\u0440", "search.result.more.one": "\u0429\u0435 1 \u0437\u0431\u0456\u0433 \u043d\u0430 \u0446\u0456\u0439 \u0441\u0442\u043e\u0440\u0456\u043d\u0446\u0456", "search.result.more.other": "\u0429\u0435 # \u0437\u0431\u0456\u0433\u0456\u0432 \u043d\u0430 \u0446\u0456\u0439 \u0441\u0442\u043e\u0440\u0456\u043d\u0446\u0456", "search.result.none": "\u0417\u0431\u0456\u0433\u0456\u0432 \u043d\u0435 \u0437\u043d\u0430\u0439\u0434\u0435\u043d\u043e", "search.result.one": "\u0417\u043d\u0430\u0439\u0434\u0435\u043d\u043e 1 \u0437\u0431\u0456\u0433", "search.result.other": "\u0417\u043d\u0430\u0439\u0434\u0435\u043d\u043e # \u0437\u0431\u0456\u0433\u0456\u0432", "search.result.placeholder": "\u0420\u043e\u0437\u043f\u043e\u0447\u043d\u0456\u0442\u044c \u043f\u0438\u0441\u0430\u0442\u0438 \u0434\u043b\u044f \u043f\u043e\u0448\u0443\u043a\u0443", "search.result.term.missing": "\u041d\u0435 \u0437\u043d\u0430\u0439\u0434\u0435\u043d\u043e \u0437\u0430\u043f\u0438\u0442\u0443", "select.version": "\u041e\u0431\u0440\u0430\u0442\u0438 \u0432\u0435\u0440\u0441\u0456\u044e"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

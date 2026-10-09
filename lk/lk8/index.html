@@ -1,0 +1,3094 @@
+
+<!doctype html>
+<html lang="uk" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Навчальний портал з дисципліни "Програмування на Python. Базовий рівень"">
+      
+      
+      
+      
+        <link rel="prev" href="../lk7/">
+      
+      
+        <link rel="next" href="../lk9/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Тема 8. Обробка винятків та файлове в/в - Програмування на Python</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="cyan">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#8-python" class="md-skip">
+          Перейти до змісту
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Хедер">
+    <a href="../.." title="Програмування на Python" class="md-header__button md-logo" aria-label="Програмування на Python" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Програмування на Python
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Тема 8. Обробка винятків та файлове в/в
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="cyan"  aria-label="Переключити на темну тему"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Переключити на темну тему" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="cyan"  aria-label="Переключити на світлу тему"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Переключити на світлу тему" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Пошук" placeholder="Пошук" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Шукати">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Очистити" aria-label="Очистити" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Пошук розпочато
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Вкладки" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Робоча програма
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../lk1/" class="md-tabs__link">
+          
+  
+  
+  Лекції
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../lb/lb1/" class="md-tabs__link">
+          
+  
+  
+  Лабораторні роботи
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../sr/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Самостійна робота
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../sr/quest/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Перелік тестових питань
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../rg/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Розрахунково-графічна робота
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Навігація" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Програмування на Python" class="md-nav__button md-logo" aria-label="Програмування на Python" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Програмування на Python
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Робоча програма
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Лекції
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Лекції
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lk1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Тема 1. Архітектура мови та інфраструктура
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lk2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Тема 2. Керування потоком виконання
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lk3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Тема 3. Впорядковані структури даних (Списки, Кортежі)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lk4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Тема 4. Текстові, двійкові дані та Регулярні вирази
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lk5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Тема 5. Хеш-таблиці (Словники, Множини)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lk6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Тема 6. Функціональна організація коду
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lk7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Тема 7. Модульна архітектура та пакети
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Тема 8. Обробка винятків та файлове в/в
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Тема 8. Обробка винятків та файлове в/в
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Зміст">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Зміст
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Мета лекції
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Очікувані результати навчання
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Детальний покроковий план лекції
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Детальний покроковий план лекції">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-cpython" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Теоретико-концептуальний базис. Архітектура обробки виняткових ситуацій та об'єктна модель помилок у CPython
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Методологія та аналіз граничних умов. Потокове введення-виведення, системні файлові дескриптори та контекстні протоколи
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Практичний індустріальний / фаховий кейс. Проектування відмовостійкого модуля збору та збереження телеметрії телекомунікаційного вузла
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-cpython_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Теоретико-концептуальний базис. Архітектура обробки виняткових ситуацій та об'єктна модель помилок у CPython
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Теоретико-концептуальний базис. Архітектура обробки виняткових ситуацій та об&#39;єктна модель помилок у CPython">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1. Диференціація синтаксичних помилок і помилок часу виконання з детальним аналізом внутрішнього механізму розкручування стека викликів та генерації трасування
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-baseexception-exception" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2. Об'єктно-орієнтована таксономія винятків на основі ієрархії класів BaseException і Exception із нормативними правилами послідовного перехоплення за принципом спадання специфічності
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-try-except-else-finally" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3. Повна семантична структура диспетчеризації винятків за допомогою конструкції try-except-else-finally та особливості гарантованого виконання фіналізаторів
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14-raise" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.4. Механізми явної ініціалізації виняткових станів оператором raise, техніка збереження діагностичного сліду через ланцюжки винятків та проектування користувацьких класів для специфічних інженерних завдань
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Вказівки для самостійного осмислення
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Методологія та аналіз граничних умов. Потокове введення-виведення, системні файлові дескриптори та контекстні протоколи
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Методологія та аналіз граничних умов. Потокове введення-виведення, системні файлові дескриптори та контекстні протоколи">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-open" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1. Архітектура системних викликів функції open, матриця взаємовиключних і комбінованих режимів доступу, механізми кодування символів та апаратна буферизація потоків даних
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-seek-tell" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2. Низькорівневе позиціонування файлового курсору за допомогою методів seek і tell та математичні аспекти адресації зміщень у бінарних і текстових структурах
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-raii-enter-exit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3. Патерн детермінованого вивільнення ресурсів RAII та системна реалізація протоколу менеджерів контексту через інтерфейсні магічні методи enter і exit
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4. Критичні обмеження та вузькі місця роботи з дисковими потоками, включаючи вичерпання лімітів дескрипторів ядра операційної системи, стан гонитви перевірки часу використання та блокування введення-виведення у багатозадачному середовищі
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25-look-before-you-leap-easier-to-ask-for-forgiveness-than-permission" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.5. Порівняльний аналіз інженерних парадигм Look Before You Leap та Easier to Ask for Forgiveness than Permission у контексті швидкодії інтерпретатора та надійності критичних сервісів
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Практичний індустріальний / фаховий кейс. Проектування відмовостійкої системи збору та збереження телеметрії телекомунікаційного вузла
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Практичний індустріальний / фаховий кейс. Проектування відмовостійкої системи збору та збереження телеметрії телекомунікаційного вузла">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1. Комплексний фаховий кейс. Розробка відмовостійкого модуля аудиту телеметричних даних мережевого маршрутизатора із транзакційною атомарністю запису на диск, перевіркою цілісності пакетів та дворівневою системою кастомних винятків
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.1. Комплексний фаховий кейс. Розробка відмовостійкого модуля аудиту телеметричних даних мережевого маршрутизатора із транзакційною атомарністю запису на диск, перевіркою цілісності пакетів та дворівневою системою кастомних винятків">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Постановка задачі / ситуації
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Покроковий аналіз та розв'язок
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Покроковий аналіз та розв&#39;язок">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Крок 1. Проектування дворівневої ієрархії користувацьких винятків
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Крок 2. Формалізація алгоритму верифікації та розрахунок параметрів транзакції
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Крок 3. Реалізація відмовостійкого процесора збереження телеметрії
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Інтерпретація результатів та альтернативні сценарії
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2. Зведена довідкова система лекції
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3. Контрольні питання та завдання
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.3. Контрольні питання та завдання">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Прикладні тестові завдання
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Завдання для самостійної роботи
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Завдання для самостійної роботи">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Постановка задачі
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Завдання для виконання
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lk9/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Тема 9. Об'єктно-орієнтоване програмування
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Лабораторні роботи
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Лабораторні роботи
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lb/lb1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 1. Розгортання інфраструктури розробки
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lb/lb2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 2. Скалярні типи даних та моделювання
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lb/lb3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 3. Алгоритми розгалуженої та циклічної структури
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lb/lb4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 4. Обробка списків та кортежі
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lb/lb5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 5. Обробка тексту та регулярні вирази
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lb/lb6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 6. Асоціативні структури даних (Словники, Множини)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lb/lb7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 7. Проєктування функцій та рекурсія
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lb/lb8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 8. Модульне програмування та системні бібліотеки
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lb/lb9/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 9. Обробка виняткових ситуацій
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lb/lb10/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 10. Файлове в/в та менеджери контексту
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lb/lb11/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 11. ООП та перевантаження методів
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sr/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Самостійна робота
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sr/quest/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Перелік тестових питань
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../rg/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Розрахунково-графічна робота
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Зміст">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Зміст
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Мета лекції
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Очікувані результати навчання
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Детальний покроковий план лекції
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Детальний покроковий план лекції">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-cpython" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Теоретико-концептуальний базис. Архітектура обробки виняткових ситуацій та об'єктна модель помилок у CPython
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Методологія та аналіз граничних умов. Потокове введення-виведення, системні файлові дескриптори та контекстні протоколи
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Практичний індустріальний / фаховий кейс. Проектування відмовостійкого модуля збору та збереження телеметрії телекомунікаційного вузла
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-cpython_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Теоретико-концептуальний базис. Архітектура обробки виняткових ситуацій та об'єктна модель помилок у CPython
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Теоретико-концептуальний базис. Архітектура обробки виняткових ситуацій та об&#39;єктна модель помилок у CPython">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1. Диференціація синтаксичних помилок і помилок часу виконання з детальним аналізом внутрішнього механізму розкручування стека викликів та генерації трасування
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-baseexception-exception" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2. Об'єктно-орієнтована таксономія винятків на основі ієрархії класів BaseException і Exception із нормативними правилами послідовного перехоплення за принципом спадання специфічності
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-try-except-else-finally" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3. Повна семантична структура диспетчеризації винятків за допомогою конструкції try-except-else-finally та особливості гарантованого виконання фіналізаторів
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14-raise" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.4. Механізми явної ініціалізації виняткових станів оператором raise, техніка збереження діагностичного сліду через ланцюжки винятків та проектування користувацьких класів для специфічних інженерних завдань
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Вказівки для самостійного осмислення
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Методологія та аналіз граничних умов. Потокове введення-виведення, системні файлові дескриптори та контекстні протоколи
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Методологія та аналіз граничних умов. Потокове введення-виведення, системні файлові дескриптори та контекстні протоколи">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-open" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1. Архітектура системних викликів функції open, матриця взаємовиключних і комбінованих режимів доступу, механізми кодування символів та апаратна буферизація потоків даних
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-seek-tell" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2. Низькорівневе позиціонування файлового курсору за допомогою методів seek і tell та математичні аспекти адресації зміщень у бінарних і текстових структурах
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-raii-enter-exit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3. Патерн детермінованого вивільнення ресурсів RAII та системна реалізація протоколу менеджерів контексту через інтерфейсні магічні методи enter і exit
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4. Критичні обмеження та вузькі місця роботи з дисковими потоками, включаючи вичерпання лімітів дескрипторів ядра операційної системи, стан гонитви перевірки часу використання та блокування введення-виведення у багатозадачному середовищі
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25-look-before-you-leap-easier-to-ask-for-forgiveness-than-permission" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.5. Порівняльний аналіз інженерних парадигм Look Before You Leap та Easier to Ask for Forgiveness than Permission у контексті швидкодії інтерпретатора та надійності критичних сервісів
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Практичний індустріальний / фаховий кейс. Проектування відмовостійкої системи збору та збереження телеметрії телекомунікаційного вузла
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Практичний індустріальний / фаховий кейс. Проектування відмовостійкої системи збору та збереження телеметрії телекомунікаційного вузла">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1. Комплексний фаховий кейс. Розробка відмовостійкого модуля аудиту телеметричних даних мережевого маршрутизатора із транзакційною атомарністю запису на диск, перевіркою цілісності пакетів та дворівневою системою кастомних винятків
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.1. Комплексний фаховий кейс. Розробка відмовостійкого модуля аудиту телеметричних даних мережевого маршрутизатора із транзакційною атомарністю запису на диск, перевіркою цілісності пакетів та дворівневою системою кастомних винятків">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Постановка задачі / ситуації
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Покроковий аналіз та розв'язок
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Покроковий аналіз та розв&#39;язок">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Крок 1. Проектування дворівневої ієрархії користувацьких винятків
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Крок 2. Формалізація алгоритму верифікації та розрахунок параметрів транзакції
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Крок 3. Реалізація відмовостійкого процесора збереження телеметрії
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Інтерпретація результатів та альтернативні сценарії
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2. Зведена довідкова система лекції
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3. Контрольні питання та завдання
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.3. Контрольні питання та завдання">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Прикладні тестові завдання
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Завдання для самостійної роботи
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Завдання для самостійної роботи">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Постановка задачі
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Завдання для виконання
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="8-python">Тема 8. Архітектура обробки виняткових ситуацій та потокового файлового введення-виведення у мові Python</h1>
+<h2 id="_1">Мета лекції</h2>
+<p>Метою лекції з навчальної дисципліни «Програмування на Python» для здобувачів першого (бакалаврського) рівня вищої освіти спеціальностей 122 «Комп’ютерні науки» та 172 «Електронні комунікації та радіотехніка» є формування цілісної системи фундаментальних знань і практичних інженерних компетентностей щодо забезпечення надійності та стійкості програмних комплексів шляхом глибокого опанування внутрішньої архітектури диспетчеризації винятків у віртуальній машині CPython, проектування предметно-орієнтованих ієрархій користувацьких помилок, а також засвоєння нормативних практик низькорівневого й буферизованого введення-виведення з гарантованим керуванням системними дескрипторами на основі концепції детермінованого вивільнення ресурсів і протоколу менеджерів контексту.</p>
+<h2 id="_2">Очікувані результати навчання</h2>
+<ol>
+<li>
+<p><strong>Знання та розуміння.</strong> Здобувачі вищої освіти засвоять теоретичні засади функціонування механізму розкручування стека викликів у віртуальній машині CPython, ієрархічну структуру базових класів винятків, системну організацію файлових дескрипторів операційної системи та принципи взаємодії з апаратними накопичувачами через дискові буфери.</p>
+</li>
+<li>
+<p><strong>Застосування.</strong> Студенти оволодіють практичними навичками побудови повноформатних блоків перехоплення аномальних станів, створення власних типізованих класів винятків для бізнес-логіки систем, а також синтаксичного керування файловими потоками за допомогою методів прямого позиціонування й контекстних менеджерів.</p>
+</li>
+<li>
+<p><strong>Аналіз.</strong> Майбутні інженери зможуть диференціювати синтаксичні дефекти трансляції від динамічних аварій часу виконання, досліджувати причини виникнення витоків системних дескрипторів та станів гонитви при операціях введення-виведення, а також зіставляти ефективність парадигм проектування програмного забезпечення при високих навантаженнях.</p>
+</li>
+<li>
+<p><strong>Оцінювання та синтез.</strong> Здобувачі набудуть здатності проектувати відмовостійкі архітектурні модулі транзакційного збереження телеметричної інформації, оцінювати наслідки некоректного перехоплення системних сигналів та розробляти стратегії комплексного відновлення працездатності телекомунікаційного вузла в умовах раптової втрати з'єднання чи апаратних збоїв.</p>
+</li>
+</ol>
+<hr />
+<h2 id="_3">Детальний покроковий план лекції</h2>
+<h3 id="1-cpython">1. Теоретико-концептуальний базис. Архітектура обробки виняткових ситуацій та об'єктна модель помилок у CPython</h3>
+<ul>
+<li>
+<p>1.1. Диференціація синтаксичних помилок і помилок часу виконання з детальним аналізом внутрішнього механізму розкручування стека викликів та генерації трасування.</p>
+</li>
+<li>
+<p>1.2. Об'єктно-орієнтована таксономія винятків на основі ієрархії класів BaseException і Exception із нормативними правилами послідовного перехоплення за принципом спадання специфічності.</p>
+</li>
+<li>
+<p>1.3. Повна семантична структура диспетчеризації винятків за допомогою конструкції try-except-else-finally та особливості гарантованого виконання фіналізаторів.</p>
+</li>
+<li>
+<p>1.4. Механізми явної ініціалізації виняткових станів оператором raise, техніка збереження діагностичного сліду через ланцюжки винятків та проектування користувацьких класів для специфічних інженерних завдань.</p>
+</li>
+</ul>
+<h3 id="2-">2. Методологія та аналіз граничних умов. Потокове введення-виведення, системні файлові дескриптори та контекстні протоколи</h3>
+<ul>
+<li>
+<p>2.1. Архітектура системних викликів функції open, матриця взаємовиключних і комбінованих режимів доступу, механізми кодування символів та апаратна буферизація потоків даних.</p>
+</li>
+<li>
+<p>2.2. Низькорівневе позиціонування файлового курсору за допомогою методів seek і tell та математичні аспекти адресації зміщень у бінарних і текстових структурах.</p>
+</li>
+<li>
+<p>2.3. Патерн детермінованого вивільнення ресурсів RAII та системна реалізація протоколу менеджерів контексту через інтерфейсні магічні методи enter і exit.</p>
+</li>
+<li>
+<p>2.4. Критичні обмеження та вузькі місця роботи з дисковими потоками, включаючи вичерпання лімітів дескрипторів ядра операційної системи, стан гонитви перевірки часу використання та блокування введення-виведення у багатозадачному середовищі.</p>
+</li>
+<li>
+<p>2.5. Порівняльний аналіз інженерних парадигм Look Before You Leap та Easier to Ask for Forgiveness than Permission у контексті швидкодії інтерпретатора та надійності критичних сервісів.</p>
+</li>
+</ul>
+<h3 id="3">3. Практичний індустріальний / фаховий кейс. Проектування відмовостійкого модуля збору та збереження телеметрії телекомунікаційного вузла</h3>
+<p><strong>Тема наскрізної задачі.</strong> «Розробка відмовостійкого модуля аудиту телеметричних пакетів мережевого маршрутизатора із забезпеченням транзакційної атомарності запису на накопичувач, верифікацією цілісності потокових даних та багаторівневою обробкою апаратних винятків введення-виведення»</p>
+<h2 id="1-cpython_1">1. Теоретико-концептуальний базис. Архітектура обробки виняткових ситуацій та об'єктна модель помилок у CPython</h2>
+<h3 id="11">1.1. Диференціація синтаксичних помилок і помилок часу виконання з детальним аналізом внутрішнього механізму розкручування стека викликів та генерації трасування</h3>
+<p>Надійність функціонування будь-якого програмного комплексу в комп'ютерній інженерії та телекомунікаціях визначається його здатністю зберігати стабільний стан або коректно деградувати при виникненні аномальних режимів. Для побудови стійких систем розробник повинен чітко розмежовувати дві принципово різні категорії збоїв, а саме синтаксичні дефекти вихідного тексту та динамічні помилки часу виконання.</p>
+<p>Синтаксичні помилки виникають на етапі статичного аналізу коду компілятором CPython до початку безпосереднього виконання інструкцій. Коли інтерпретатор отримує вихідний модуль, підсистема лексичного аналізу перетворює потік символів на послідовність неподільних лексем. Далі синтаксичний аналізатор співставляє отримані лексеми з граматичними правилами мови, будуючи конкретне дерево синтаксису, яке згодом трансформується в абстрактне синтаксичне дерево. </p>
+<p>Якщо на цьому етапі виявляється невідповідність формальній граматиці, генерується виняток класу <strong><code>SyntaxError</code></strong> або його спеціалізованого нащадка <strong><code>IndentationError</code></strong>. Оскільки фаза побудови абстрактного синтаксичного дерева передує етапу генерації байт-коду, виявлення синтаксичної помилки призводить до негайної відмови компіляції всього модуля. За таких умов жодна інструкція програми взагалі не передається на виконання віртуальній машині PVM (<em>Python Virtual Machine</em>), а конструкції динамічного перехоплення помилок не здатні нейтралізувати цей збій всередині того самого файлу.</p>
+<p>На противагу синтаксичним дефектам, помилки часу виконання виникають у процесі інтерпретації синтаксично валідного байт-коду. Вони формалізуються в об'єктній моделі CPython як <strong>виняткові ситуації</strong> або <strong>винятки</strong> (<em>exceptions</em>). До цієї категорії належать спроби ділення на нульовий дільник, звернення до неіснуючих ключів асоціативного масиву, вичерпання апаратної оперативної пам'яті або втрата несучої частоти й обрив зв'язку при роботі з фізичними мережевими інтерфейсами.</p>
+<p>Внутрішній механізм обробки виняткових ситуацій у віртуальній машині CPython базується на процедурі <strong>розкручування стека викликів</strong> (<em>stack unwinding</em>). Стан виконання програми у будь-який момент часу моделюється ланцюжком зв'язаних стекових кадрів, які в C-реалізації інтерпретатора представлені структурами <code>PyFrameObject</code>. Кожен стековий кадр інкапсулює стан локальних змінних, вказівник поточної інструкції байт-коду та внутрішній стек блоків для контекстних менеджерів і циклів.</p>
+<p>Формально стан стека викликів у момент виникнення збою можна представити як упорядковану послідовність активних кадрів:</p>
+<div class="arithmatex">\[S = \langle F_1, F_2, \dots, F_k \rangle\]</div>
+<p>де <span class="arithmatex">\(F_1\)</span> позначає глобальний фрейм точки входу програми, а <span class="arithmatex">\(F_k\)</span> відповідає поточному фрейму функції, у якому сталася помилка на кроці інструкції <span class="arithmatex">\(IP \in F_k\)</span>. </p>
+<p>Коли віртуальна машина стикається з неможливістю штатного завершення інструкції, вона ініціалізує об'єкт винятку <span class="arithmatex">\(E\)</span> і переходить у режим диспетчеризації помилки. Процес розкручування стека формалізується алгоритмом динамічного пошуку обробника <span class="arithmatex">\(\Delta(F_i, E)\)</span>. Якщо в кадрі <span class="arithmatex">\(F_k\)</span> присутній активний блок захищеного коду, адреса переходу якого охоплює <span class="arithmatex">\(IP\)</span>, і вказаний блок зіставляється з типом <span class="arithmatex">\(E\)</span>, керування передається на відповідну інструкцію обробника. Якщо ж обробник у кадрі <span class="arithmatex">\(F_k\)</span> відсутній:</p>
+<div class="arithmatex">\[S \leftarrow S \setminus \{F_k\}\]</div>
+<p>Поточний кадр <span class="arithmatex">\(F_k\)</span> знищується, лічильники посилань його локальних змінних декрементуються, запускаючи деалокацію об'єктів у купі, а виняток <span class="arithmatex">\(E\)</span> прокидається на рівень вище у кадр <span class="arithmatex">\(F_{k-1}\)</span>. При цьому формується або доповнюється спеціалізований системний об'єкт трасування <code>traceback</code>, який фіксує зв'язний список усіх пройдених стекових кадрів з точними номерами рядків та іменами функцій. Процедура триває рекурсивно до виявлення активного блоку перехоплення або до вичерпання стека, що призводить до передачі <span class="arithmatex">\(E\)</span> в обробник вищого рівня <code>sys.excepthook</code>, виведення трасувального повідомлення у стандартний потік <code>sys.stderr</code> та аварійної зупинки процесу.</p>
+<p><pre class="mermaid"><code>stateDiagram-v2
+    [*] --&gt; NormalExecution: Виконання інструкцій у фреймі F_k
+    NormalExecution --&gt; ExceptionRaised: Аномальний стан (DivisionByZero, Timeout)
+
+    state ExceptionRaised {
+        [*] --&gt; CreateExceptionObject: Створення екземпляра E
+        CreateExceptionObject --&gt; CheckLocalHandler: Пошук обробника у фреймі F_k
+        CheckLocalHandler --&gt; HandlerFound: Збіг за типом знайдено
+        CheckLocalHandler --&gt; HandlerNotFound: Збіг відсутній
+    }
+
+    HandlerFound --&gt; ExecuteExcept: Виконання інструкцій блоку except
+    ExecuteExcept --&gt; ExecuteFinally: Перехід до блоку finally
+    ExecuteFinally --&gt; NormalExecution: Відновлення нормального потоку
+
+    HandlerNotFound --&gt; AppendTraceback: Запис інформації у traceback-об'єкт
+    AppendTraceback --&gt; DestroyFrame: Декремент лічильників та деалокація F_k
+    DestroyFrame --&gt; PropagateUp: Передача E у викликаючий фрейм F_{k-1}
+
+    state PropagateUp {
+        [*] --&gt; CheckParentFrame: Перевірка наявності кадру F_{k-1}
+        CheckParentFrame --&gt; CheckLocalHandler: Кадр існує (повторний пошук)
+        CheckParentFrame --&gt; UnhandledFatal: Стек викликів вичерпано (S = ∅)
+    }
+
+    UnhandledFatal --&gt; SysExceptHook: Виклик sys.excepthook
+    SysExceptHook --&gt; ProcessTermination: Аварійне завершення процесу
+    ProcessTermination --&gt; [*]</code></pre>
+<em>Рисунок 1.1 — Скінченний автомат життєвого циклу винятку та алгоритму розкручування стека викликів</em></p>
+<blockquote>
+<p><strong>ПРАКТИЧНИЙ ЯКІР:</strong> У вбудованих контролерах промислового Інтернету речей під керуванням MicroPython некоректно оброблений виняток часу виконання при парсингу пошкодженого пакета з послідовного порту UART призводить до повного перезавантаження операційної системи реального часу, якщо стек викликів розкручується до базового циклу обробки повідомлень без перехоплення.</p>
+</blockquote>
+<hr />
+<h3 id="12-baseexception-exception">1.2. Об'єктно-орієнтована таксономія винятків на основі ієрархії класів BaseException і Exception із нормативними правилами послідовного перехоплення за принципом спадання специфічності</h3>
+<p>В архітектурі мови Python концепція обробки аномалій повністю інтегрована в об'єктно-орієнтовану парадигму. Будь-який виняток є повноправним екземпляром певного класу, інтегрованого у строго ієрархічне дерево наслідування. Вершиною цієї структури є абстрактний клас <strong><code>BaseException</code></strong>, безпосередньо від якого успадковуються системні інфраструктурні сигнали інтерпретатора, а також фундаментальний базовий клас усіх прикладних помилок <strong><code>Exception</code></strong>.</p>
+<p>Ієрархічний розподіл відповідальності спроектовано так, щоб чітко розмежувати програмні помилки прикладного рівня від команд керування життєвим циклом самого процесу віртуальної машини. До безпосередніх нащадків <code>BaseException</code> належать клас <strong><code>SystemExit</code></strong>, що ініціалізується функцією <code>sys.exit()</code> при плановому завершенні роботи, клас <strong><code>KeyboardInterrupt</code></strong>, який генерується внаслідок надходження апаратного сигналу <code>SIGINT</code> при натисканні користувачем комбінації клавіш <code>Ctrl+C</code>, а також клас <strong><code>GeneratorExit</code></strong>, що сигналізує про примусове закриття генераторного об'єкта чи корутини. </p>
+<p>Усі помилки, які виникають внаслідок збоїв алгоритмічної логіки, некоректності обчислень або відмов периферійного обладнання, зосереджені в піддереві класу <code>Exception</code>. </p>
+<p><pre class="mermaid"><code>flowchart TD
+    BaseException["BaseException (Кореневий клас моделі)"]
+
+    SystemExit["SystemExit (Сигнал sys.exit())"]
+    KeyboardInterrupt["KeyboardInterrupt (Апаратний сигнал SIGINT)"]
+    GeneratorExit["GeneratorExit (Закриття корутини/генератора)"]
+    ExceptionClass["Exception (Базовий клас усіх прикладних помилок)"]
+
+    ArithmeticError["ArithmeticError (Математичні збої)"]
+    LookupError["LookupError (Помилки трансляції ключів/індексів)"]
+    OSError["OSError (Апаратні та системні збої ОС)"]
+    ValueError["ValueError (Некоректне значення аргументу)"]
+    TypeError["TypeError (Операція над несумісним типом)"]
+
+    ZeroDivisionError["ZeroDivisionError (Ділення на нуль)"]
+    OverflowError["OverflowError (Арифметичне переповнення)"]
+    FloatingPointError["FloatingPointError (Збій операцій із рухомою комою)"]
+
+    IndexError["IndexError (Вихід за межі діапазону)"]
+    KeyError["KeyError (Відсутність ключа в словнику)"]
+
+    FileNotFoundError["FileNotFoundError (Файл не знайдено)"]
+    PermissionError["PermissionError (Відсутні права доступу)"]
+    ConnectionResetError["ConnectionResetError (Скидання мережевого з'єднання)"]
+
+    BaseException --&gt; SystemExit
+    BaseException --&gt; KeyboardInterrupt
+    BaseException --&gt; GeneratorExit
+    BaseException --&gt; ExceptionClass
+
+    ExceptionClass --&gt; ArithmeticError
+    ExceptionClass --&gt; LookupError
+    ExceptionClass --&gt; OSError
+    ExceptionClass --&gt; ValueError
+    ExceptionClass --&gt; TypeError
+
+    ArithmeticError --&gt; ZeroDivisionError
+    ArithmeticError --&gt; OverflowError
+    ArithmeticError --&gt; FloatingPointError
+
+    LookupError --&gt; IndexError
+    LookupError --&gt; KeyError
+
+    OSError --&gt; FileNotFoundError
+    OSError --&gt; PermissionError
+    OSError --&gt; ConnectionResetError</code></pre>
+<em>Рисунок 1.2 — Структурне дерево успадкування стандартних класів винятків CPython</em></p>
+<p>Селекція відповідного блоку <code>except</code> віртуальною машиною виконується на основі відношення спеціалізації типів у частково впорядкованій множині класів винятків <span class="arithmatex">\((\mathcal{C}, \preceq)\)</span>, де <span class="arithmatex">\(C_i \preceq C_j\)</span> позначає відношення наслідування, згідно з яким клас <span class="arithmatex">\(C_i\)</span> є прямим чи опосередкованим нащадком класу <span class="arithmatex">\(C_j\)</span>. Диспетчеризація блоку <code>except HandlerClass:</code> для активного екземпляра винятку <span class="arithmatex">\(e \in \text{Instance}(RaisedClass)\)</span> завершується успішно тоді й лише тоді, коли виконується предикат:</p>
+<div class="arithmatex">\[\text{isinstance}(e, HandlerClass) \iff RaisedClass \preceq HandlerClass\]</div>
+<p>З наведеної формальної моделі випливає обов'язкове інженерне правило організації коду, яке полягає у <strong>розташуванні обробників у порядку спадання специфічності</strong> (від конкретних підкласів до базових класів). Якщо базовий клас розташований вище за ієрархією синтаксичних блоків, ніж його спеціалізований нащадок, то внаслідок транзитивності відношення наслідування перевірка істинності умови перехоплення завжди виконуватиметься на користь більш загального класу. У такому випадку блок обробки спеціалізованого винятку перетворюється на мертвий код, який за жодних умов не отримає керування.</p>
+<blockquote>
+<p><strong>ТИПОВА ПОМИЛКА:</strong> Використання конструкції <code>except BaseException:</code> або нетипізованого блоку <code>except:</code> для глобального придушення помилок є критичним порушенням системного дизайну. У такому випадку програма перехоплює сигнали <code>KeyboardInterrupt</code> та <code>SystemExit</code>, що позбавляє диспетчер процесів операційної системи або оркестратор контейнерів можливості штатно зупинити процес за допомогою сигналів завершення, перетворюючи програму на неуправлінний завислий фоновий потік.</p>
+</blockquote>
+<hr />
+<h3 id="13-try-except-else-finally">1.3. Повна семантична структура диспетчеризації винятків за допомогою конструкції try-except-else-finally та особливості гарантованого виконання фіналізаторів</h3>
+<p>Повнофункціональний синтаксичний каркас захисту коду в Python реалізується взаємодією чотирьох секцій оператора <code>try</code>. Кожна секція володіє строго детермінованою семантикою та зоною відповідальності в загальному ланцюжку передачі керування.</p>
+<p>Блок <strong><code>try</code></strong> формує межі захищеного регіону пам'яті та інструкцій. Усі операції, розміщені всередині цього блоку, перебувають під постійним моніторингом диспетчера винятків. Розробник повинен мінімізувати обсяг інструкцій у блоці <code>try</code>, ізолюючи лише ті виклики, які дійсно здатні призвести до прогнозованого збою, щоб уникнути ненавмисного маскування сторонніх помилок.</p>
+<p>Блок <strong><code>except</code></strong> виконує роль спеціалізованого фільтра та обробника. Якщо клас перехопленого об'єкта задовольняє умову екземпляра цільового типу, виконання блоку <code>try</code> припиняється на інструкції, що викликала збій, і потік виконання негайно спрямовується до тіла відповідного <code>except</code>. Об'єкт помилки може бути асоційований з локальною змінною за допомогою синтаксичної конструкції <code>as alias</code>, що надає прямий доступ до внутрішніх атрибутів збою, таких як діагностичне повідомлення <code>args</code>, системний код помилки <code>errno</code> або сформований трасувальний стек <code>__traceback__</code>. Дозволяється також перехоплення кортежу взаємонезалежних класів <code>except (ValueError, KeyError, IndexError) as err:</code>.</p>
+<p>Блок <strong><code>else</code></strong> реалізує семантику умовного успіху. Код, розміщений у секції <code>else</code>, активізується виключно тоді, коли блок <code>try</code> відпрацював до кінця без збудження жодної виняткової ситуації. Відокремлення постобробки від основного коду <code>try</code> за допомогою секції <code>else</code> є важливим архітектурним принципом інженерії надійних систем, оскільки це виключає ризик випадкового перехоплення винятків, які можуть виникнути всередині самого коду постобробки, тими самими блоками <code>except</code>.</p>
+<p>Блок <strong><code>finally</code></strong> забезпечує детерміновану фіналізацію та гарантоване вивільнення захоплених апаратних чи системних ресурсів. Інструкції цього блоку виконуються безумовно в усіх сценаріях завершення роботи захищеної конструкції:</p>
+<ol>
+<li>
+<p>При штатному завершенні блоку <code>try</code> та послідовному виконанні секції <code>else</code>.</p>
+</li>
+<li>
+<p>Після завершення обробки перехопленого винятку всередині блоку <code>except</code>.</p>
+</li>
+<li>
+<p>Перед початком процедури розкручування стека викликів, якщо виник виняток, для якого не знайдено відповідного блоку <code>except</code>.</p>
+</li>
+<li>
+<p>При примусовому виході з будь-якого внутрішнього блоку внаслідок спрацьовування операторів переривання потоку керування <code>return</code>, <code>break</code> або <code>continue</code>.</p>
+</li>
+</ol>
+<p>Якщо всередині блоку <code>try</code> спрацьовує оператор <code>return value</code>, віртуальна машина CPython зберігає повернуте значення у внутрішньому регістрі потоку, призупиняє вихід із функції, повністю виконує весь блок <code>finally</code>, і лише після цього остаточно повертає керування викликаючому коду. Якщо ж блок <code>finally</code> сам містить явний оператор <code>return</code> або збуджує новий виняток, первинне збережене значення або попередній неперехоплений виняток безповоротно стираються та замінюються новою дією фіналізатора.</p>
+<p><em>Таблиця 1.1 — Систематизація стратегій керування потоком виконання при обробці виняткових ситуацій</em></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Стратегія / Конструкція</th>
+<th style="text-align: left;">Механізм активації</th>
+<th style="text-align: left;">Вплив на системний стан</th>
+<th style="text-align: left;">Приклад з реальної практики</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong><code>try - except</code></strong></td>
+<td style="text-align: left;">Активується у разі динамічного виникнення типізованого винятку</td>
+<td style="text-align: left;">Зупиняє розкручування стека викликів та локалізує аномалію</td>
+<td style="text-align: left;">Перехоплення втрати пакетів при таймауті сокета з переходом на резервний канал зв'язку</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>try - except - else</code></strong></td>
+<td style="text-align: left;">Секція <code>else</code> виконується лише за повної відсутності збоїв у <code>try</code></td>
+<td style="text-align: left;">Запобігає маскуванню помилок, що виникають поза цільовою ділянкою</td>
+<td style="text-align: left;">Парсинг валідного JSON-пакета конфігурації виключно після успішного зчитування файлу з диска</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>try - finally</code></strong></td>
+<td style="text-align: left;">Секція <code>finally</code> спрацьовує детерміновано за будь-яких умов</td>
+<td style="text-align: left;">Гарантує повернення дескрипторів та закриття інтерфейсів</td>
+<td style="text-align: left;">Звільнення блокування м'ютекса підсистеми пам'яті у багатопотоковому модулі прийому телеметрії</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>raise ... from ...</code></strong></td>
+<td style="text-align: left;">Явно ініціюється розробником для заміни типу помилки</td>
+<td style="text-align: left;">Зберігає первинний діагностичний контекст у атрибуті <code>__cause__</code></td>
+<td style="text-align: left;">Трансляція низькорівневого винятку сокета <code>OSError</code> у високорівневий бізнес-виняток сервісу</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>ПРАКТИЧНИЙ ЯКІР:</strong> При проектуванні драйверів комутаторів пакетів блок <code>finally</code> використовується для безумовного скидання апаратного прапорця занятості буфера DMA (<em>Direct Memory Access</em>), навіть якщо процес перетворення отриманого фрейму викликав помилку розбору заголовка, що запобігає апаратному клінчу всієї мережевої карти.</p>
+</blockquote>
+<hr />
+<h3 id="14-raise">1.4. Механізми явної ініціалізації виняткових станів оператором raise, техніка збереження діагностичного сліду через ланцюжки винятків та проектування користувацьких класів для специфічних інженерних завдань</h3>
+<p>Оператор <strong><code>raise</code></strong> забезпечує явну примусову генерацію об'єкта винятку. Цей інструмент застосовується у випадках, коли алгоритмічний стан системи порушує задані граничні умови, інваріанти структури даних або правила мережевого протоколу, незважаючи на відсутність прямих апаратних збоїв чи математичної некоректності операцій.</p>
+<p>У комп'ютерній інженерії виділяють три базові форми застосування оператора <code>raise</code>:</p>
+<ol>
+<li>
+<p>Ініціалізація нового винятку з передачею контекстного текстового опису або числових кодів помилки: <code>raise ValueError("Частота опитування датчика виходить за межі 1..1000 Гц")</code>.</p>
+</li>
+<li>
+<p>Повторна генерація (<em>re-raising</em>) поточного активного винятку всередині секції <code>except</code> за допомогою одиночного виклику <code>raise</code> без аргументів, що дозволяє локально зафіксувати телеметрію аварії в журналі подій та прокинути помилку далі вгору по стеку викликів для глобального обробника.</p>
+</li>
+<li>
+<p>Формування явного ланцюжка винятків (<em>explicit exception chaining</em>) відповідно до стандарту PEP 3134 за допомогою синтаксичної конструкції <code>raise TargetException() from OriginalException</code>.</p>
+</li>
+</ol>
+<p>Техніка ланцюжків винятків розв'язує фундаментальну проблему збереження первинного діагностичного контексту при міжрівневій трансляції помилок. Якщо високорівневий модуль обробки телеметрії перехоплює низькорівневий виняток <code>OSError</code>, безпосереднє збудження власного винятку <code>TelemetryStreamError</code> може призвести до втрати інформації про первинну причину відмови на фізичному рівні. Конструкція <code>from</code> зв'язує об'єкти винятків на системному рівні:</p>
+<div class="arithmatex">\[\text{TargetException}.\_\_\text{cause}\_\_ = \text{OriginalException}\]</div>
+<p>При виведенні трасування інтерпретатор автоматично надрукує обидва стекових сліди, явно зазначивши, що виняток вищого рівня був безпосереднім наслідком помилки нижчого рівня. Якщо виникає необхідність навмисно приховати деталі внутрішньої реалізації системи (наприклад, з міркувань кібербезпеки), ланцюжок можна примусово розірвати за допомогою конструкції <code>raise TargetException() from None</code>, що очищає атрибут <code>__suppress_context__</code> і вимикає друк первинного трасування.</p>
+<p>Стандартні винятки мови Python не здатні повноцінно виразити бізнес-логіку специфічних інженерних та телекомунікаційних завдань. Для вирішення цієї проблеми проектуються <strong>користувацькі класи винятків</strong> (<em>Custom Exceptions</em>). Відповідно до стандартів об'єктно-орієнтованого проектування, користувацькі винятки повинні наслідуватися від класу <code>Exception</code> (або його прикладних нащадків) і в жодному разі не від <code>BaseException</code>.</p>
+<p>При проектуванні складних програмних комплексів створюється ієрархія класів, корінням якої виступає базовий виняток конкретної підсистеми. Це дозволяє зовнішнім клієнтам бібліотеки гнучко налаштовувати глибину перехоплення:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">TelemetrySubsystemError</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">    </span><span class="sd">"""Базовий виняток для всіх збоїв у підсистемі обробки телеметрії."""</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">message</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">subsystem_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">subsystem_id</span> <span class="o">=</span> <span class="n">subsystem_id</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">timestamp</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># Заповнюється системним таймером</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="k">class</span><span class="w"> </span><span class="nc">FrameIntegrityError</span><span class="p">(</span><span class="n">TelemetrySubsystemError</span><span class="p">):</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">    </span><span class="sd">"""Виникає при порушенні структури або контрольної суми кадру даних."""</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">message</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">subsystem_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">expected_crc</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">actual_crc</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">message</span><span class="p">,</span> <span class="n">subsystem_id</span><span class="p">)</span>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">expected_crc</span> <span class="o">=</span> <span class="n">expected_crc</span>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">actual_crc</span> <span class="o">=</span> <span class="n">actual_crc</span>
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="k">class</span><span class="w"> </span><span class="nc">ChannelTimeoutError</span><span class="p">(</span><span class="n">TelemetrySubsystemError</span><span class="p">):</span>
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="w">    </span><span class="sd">"""Виникає при перевищенні ліміту часу очікування сигналу в каналі."""</span>
+</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">message</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">subsystem_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">channel_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">timeout_sec</span><span class="p">:</span> <span class="nb">float</span><span class="p">):</span>
+</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">message</span><span class="p">,</span> <span class="n">subsystem_id</span><span class="p">)</span>
+</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">channel_id</span> <span class="o">=</span> <span class="n">channel_id</span>
+</span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">timeout_sec</span> <span class="o">=</span> <span class="n">timeout_sec</span>
+</span></code></pre></div>
+<p>Представлена ієрархія дозволяє обробляти помилки на різних рівнях деталізації. Якщо високорівневому диспетчеру достатньо зафіксувати загальний факт збою в модулі, він використовує блок <code>except TelemetrySubsystemError:</code>. Якщо ж алгоритм підтримує можливість автоматичного запиту повторної передачі кадру при виявленні бітових помилок, реалізується спеціалізований блок <code>except FrameIntegrityError as err:</code>, який оперує безпосередньо числовими полями <code>expected_crc</code> та <code>actual_crc</code>.</p>
+<blockquote>
+<p><strong>КОНТРОЛЬНЕ ПИТАННЯ:</strong> Яким буде результат виконання функції, якщо в блоці <code>try</code> виконується інструкція <code>return 1</code>, у блоці <code>except</code> — <code>return 2</code>, а в блоці <code>finally</code> — <code>return 3</code> за умови збудження винятку <code>ZeroDivisionError</code>?</p>
+</blockquote>
+<details class="note">
+<summary>Розгорнути аналіз / відповідь</summary>
+<p><strong>Правильний варіант: Функція поверне значення 3.</strong></p>
+<ol>
+<li>
+<p>При виконанні блоку <code>try</code> генерується виняток <code>ZeroDivisionError</code>. Інструкція <code>return 1</code> не встигає виконатися, і керування негайно передається відповідному блоку <code>except</code>.</p>
+</li>
+<li>
+<p>Всередині блоку <code>except</code> віртуальна машина інтерпретує вираз <code>return 2</code>. Значення <code>2</code> зберігається у внутрішній комірці стекового кадру як потенційне значення повернення.</p>
+</li>
+<li>
+<p>Проте інтерпретатор перевіряє наявність активного блоку <code>finally</code> і примусово виконує його інструкції перед виходом із фрейму функції.</p>
+</li>
+<li>
+<p>Оскільки блок <code>finally</code> містить власну явну інструкцію <code>return 3</code>, це нове значення повністю перезаписує попередній результат повернення (<code>2</code>). Функція остаточно виштовхує зі стека числове значення <code>3</code>.</p>
+</li>
+</ol>
+<p>Аналіз дистракторів (чому інші варіанти є хибними на практиці):</p>
+<ul>
+<li>
+<p>Варіант <code>1</code>: Інструкція блоку <code>try</code> не виконується взагалі через аварійне переривання потоку на діленні на нуль.</p>
+</li>
+<li>
+<p>Варіант <code>2</code>: Повернення з блоку <code>except</code> скасовується і придушується пізнішим поверненням із термінального блоку <code>finally</code>.</p>
+</li>
+<li>
+<p>Варіант пробросу необробленого винятку <code>ZeroDivisionError</code>: Виняток був успішно нейтралізований блоком <code>except</code>, а вторинне переривання в блоці <code>finally</code> перетворило потік виконання на штатний вихід із функції з поверненням константи.</p>
+</li>
+</ul>
+</details>
+<hr />
+<h3 id="_4">Вказівки для самостійного осмислення</h3>
+<ol>
+<li>
+<p>Складіть формальну порівняльну таблицю надійності обробки помилок за двома основними парадигмами: перевірка кодів повернення функцій у стилістиці мови програмування C та розгортання структурованих винятків у середовищі CPython. Проаналізуйте вплив кожного підходу на кінцеву читабельність вихідного коду, швидкість виконання у штатному режимі за відсутності збоїв та ймовірність пропуску критичної помилки розробником.</p>
+</li>
+<li>
+<p>Спроектуйте власну трирівневу ієрархію класів винятків для емулятора мережевого стека протоколів передачі даних. Базовий клас повинен представляти загальну системну помилку протоколу, класи другого рівня мають розділяти помилки фізичного каналу зв'язку та логічні помилки валідації пакетів, а класи третього рівня — конкретизувати відмову до рівня таймауту, невідповідності розміру корисного навантаження або помилки контрольної суми CRC-16.</p>
+</li>
+<li>
+<p>Дослідіть поведінку віртуальної машини CPython при збудженні нового вторинного винятку безпосередньо всередині блоку <code>finally</code> під час обробки первинного винятку в секції <code>try</code>. Напишіть мінімальний тестовий скрипт, проаналізуйте виведений звіт трасування стека та поясніть структуру зв'язування об'єктів помилок через системні атрибути <code>__context__</code> і <code>__cause__</code>.</p>
+</li>
+</ol>
+<h2 id="2-_1">2. Методологія та аналіз граничних умов. Потокове введення-виведення, системні файлові дескриптори та контекстні протоколи</h2>
+<h3 id="21-open">2.1. Архітектура системних викликів функції open, матриця взаємовиключних і комбінованих режимів доступу, механізми кодування символів та апаратна буферизація потоків даних</h3>
+<p>Взаємодія програмного забезпечення з енергонезалежними запам'ятовуючими пристроями в сучасних обчислювальних системах являє собою багаторівневий процес абстрагування апаратних ресурсів. На найнижчому системному рівні будь-яка операція введення-виведення транслюється у системні виклики ядра операційної системи, такі як <code>sys_open</code>, <code>sys_read</code>, <code>sys_write</code> та <code>sys_close</code> для POSIX-сумісних систем або функцію <code>CreateFileW</code> у середовищі Windows API. </p>
+<p>Високорівнева вбудована функція Python <strong><code>open()</code></strong> слугує мостом між віртуальною машиною CPython та ядром операційної системи. Під час її виклику ядро створює запис у внутрішній таблиці відкритих файлів процесу (<em>File Descriptor Table</em>) і повертає невід'ємне ціле число — <strong>файловий дескриптор</strong> (<em>file descriptor, fd</em>), який виступає індексом системного дескриптора файлового потоку в просторі ядра.</p>
+<p>Архітектура підсистеми введення-виведення CPython (модуль <code>io</code>) має трирівневу структуру, де кожен шар відповідає за власну фазу перетворення потоку даних:</p>
+<ul>
+<li>
+<p>Шар сирого байтового вводу-виводу (<em>Raw I/O</em>), представлений класом <code>io.FileIO</code>, здійснює безпосереднє виконання системних викликів операційної системи, передаючи незмінні послідовності байтів між пам'яттю та блоковим пристроєм.</p>
+</li>
+<li>
+<p>Шар буферизації (<em>Buffered I/O</em>), представлений класами <code>io.BufferedReader</code>, <code>io.BufferedWriter</code> або <code>io.BufferedRandom</code>, акумулює окремі операції читання та запису в оперативній пам'яті виділеного системного буфера, мінімізуючи частоту звернень до ядра ОС та оптимізуючи взаємодію з апаратною геометрією секторів накопичувача.</p>
+</li>
+<li>
+<p>Шар текстового перетворення (<em>Text I/O</em>), що реалізується класом <code>io.TextIOWrapper</code>, відповідає за потокове декодування бінарних послідовностей у рядки символів Unicode і навпаки, застосовуючи відповідні кодові таблиці та здійснюючи трансляцію кінців рядків.</p>
+</li>
+</ul>
+<p>Механізм функціонування буфера введення-виведення базується на асинхронізмі між швидкістю виконання процесорних інструкцій і часом затримки дискових накопичувачів. За замовчуванням інтерпретатор встановлює розмір внутрішнього буфера рівним константі <code>io.DEFAULT_BUFFER_SIZE</code>, яка у більшості систем становить 8192 байти. </p>
+<p>При записі даних у файл інформація спочатку накопичується в оперативній пам'яті цього буфера. Фізична передача байтів на контролер накопичувача відбувається лише у трьох випадках: при повному заповненні виділеного об'єму буфера, при явному виклику програмного методу <code>file.flush()</code> або при штатному закритті дескриптора методом <code>file.close()</code>.</p>
+<p>Кодування текстових потоків вимагає однозначного узгодження між джерелом і приймачем інформації. Якщо параметр <code>encoding</code> опущений, інтерпретатор застосовує платформозалежне значення за замовчуванням, яке повертається функцією <code>locale.getpreferredencoding()</code>. У гетерогенних розподілених середовищах та телекомунікаційних протоколах це призводить до виникнення фатальних помилок розкодування, оскільки кодова сторінка вузла відправника (наприклад, <code>UTF-8</code> у дистрибутиві Linux) не збігається з локаллю сервера-приймача (наприклад, <code>CP1251</code> у застарілих інсталяціях Windows). </p>
+<blockquote>
+<p><strong>ВАЖЛИВО:</strong> Режим відкриття файлу <code>'w'</code> (<em>Write</em>) на системному рівні передає ядру операційної системи прапорець <code>O_TRUNC</code> (<em>truncate</em>). Це призводить до миттєвого видалення метаданих та обнулення розміру існуючого файлу ще до виконання першої операції запису. Якщо програма аварійно завершиться відразу після виклику <code>open(..., 'w')</code>, початкові дані на накопичувачі будуть безповоротно втрачені.</p>
+</blockquote>
+<hr />
+<h3 id="22-seek-tell">2.2. Низькорівневе позиціонування файлового курсору за допомогою методів seek і tell та математичні аспекти адресації зміщень у бінарних і текстових структурах</h3>
+<p>Для реалізації довільного доступу (<em>random access</em>) до дискретних структур даних замість послідовного вичитування всього масиву застосовується механізм позиціонування внутрішнього <strong>файлового курсору</strong> (<em>file pointer</em>). Курсор представляє собою цілочисельний вказівник на зміщення відносно початку файлу, що зберігається в контексті відкритого дескриптора ядра.</p>
+<p>Зчитування поточної координати курсору здійснюється методом <code>file.tell()</code>, який повертає ціле значення зміщення в байтах:</p>
+<div class="arithmatex">\[P_{\text{cur}} = \text{file.tell}(), \quad P_{\text{cur}} \in [0, L_{\text{file}}]\]</div>
+<p>де <span class="arithmatex">\(L_{\text{file}}\)</span> позначає повну довжину файлу в байтах. </p>
+<p>Переміщення курсору здійснюється системним методом <code>file.seek(offset, whence=0)</code>. Математична модель обчислення результуючої абсолютної позиції курсору <span class="arithmatex">\(P_{\text{new}}\)</span> описується кусочно-заданою функцією залежно від значення базисної точки відліку <span class="arithmatex">\(whence\)</span>:</p>
+<div class="arithmatex">\[P_{\text{new}} = 
+\begin{cases} 
+offset, &amp; \text{якщо } whence = 0 \quad (\text{SEEK\_SET, початок файлу}) \\ 
+P_{\text{cur}} + offset, &amp; \text{якщо } whence = 1 \quad (\text{SEEK\_CUR, поточна позиція}) \\ 
+L_{\text{file}} + offset, &amp; \text{якщо } whence = 2 \quad (\text{SEEK\_END, кінець файлу}) 
+\end{cases}\]</div>
+<p>Формалізація процесу розрахунку зміщення при адресації фіксованих бінарних записів телеметрії дозволяє здійснювати прямий доступ до довільного кадру даних без необхідності завантаження попередніх блоків:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+\text{Крок 1 (Специфікація структури):} &amp; \quad H_{\text{size}} = 64 \text{ байтів (розмір службового заголовка файлу)}, \\
+&amp; \quad R_{\text{size}} = 128 \text{ байтів (фіксований розмір одного пакету даних)}. \\
+\text{Крок 2 (Обчислення зміщення i-го запису):} &amp; \quad \text{Offset}(i) = H_{\text{size}} + i \cdot R_{\text{size}}, \quad i \in \{0, 1, \dots, N-1\}. \\
+\text{Крок 3 (Позиціонування покажчика):} &amp; \quad \text{file.seek}(\text{Offset}(i), \text{os.SEEK\_SET}). \\
+\text{Крок 4 (Зчитування корисного навантаження):} &amp; \quad \text{Payload} = \text{file.read}(R_{\text{size}}).
+\end{aligned}
+\]</div>
+<p>Аналіз граничних умов позиціонування розкриває принципові відмінності між бінарним і текстовим режимами доступу. У бінарному режимі операції <code>seek</code> і <code>tell</code> строго відповідають реальним фізичним байтам, що дозволяє застосовувати від'ємні та відносні зміщення для будь-яких типів файлів. </p>
+<p>Навпаки, у текстовому режимі використання відносних зміщень (<span class="arithmatex">\(whence = 1\)</span> або <span class="arithmatex">\(whence = 2\)</span>) заборонене на рівні реалізації CPython і генерує виняток <code>io.UnsupportedOperation</code>. Єдиним допустимим аргументом для переміщення в текстовому файлі є або абсолютний нуль (<code>seek(0)</code> для повернення на початок файлу чи <code>seek(0, 2)</code> для переходу в кінець), або непрозоре числове значення (<em>opaque cookie</em>), яке раніше було отримане безпосередньо з виклику <code>tell()</code>. </p>
+<p>Це фундаментальне обмеження зумовлене тим, що у кодуванні <code>UTF-8</code> довжина окремого символу є змінною величиною і становить від 1 до 4 байтів:</p>
+<div class="arithmatex">\[\text{len}_{\text{bytes}}(\text{char}) \in \{1, 2, 3, 4\}\]</div>
+<p>Спроба довільного позиціонування курсору на довільну кількість байтів усередину багатобайтового символу розриває послідовність октетів, що при наступній спробі читання гарантовано призводить до генерації винятку <code>UnicodeDecodeError</code>. Крім того, автоматична трансляція символів кінця рядка (<code>\r\n</code> у <code>\n</code> на платформі Windows) спотворює пряму відповідність між логічною кількістю прочитаних символів і фізичним зміщенням файлового курсору на дисковому носії.</p>
+<hr />
+<h3 id="23-raii-enter-exit">2.3. Патерн детермінованого вивільнення ресурсів RAII та системна реалізація протоколу менеджерів контексту через інтерфейсні магічні методи enter і exit</h3>
+<p>У парадигмі системного програмування витік дескрипторів є однією з критичних причин відмови серверних систем. Архітектурний шаблон <strong>RAII</strong> (<em>Resource Acquisition Is Initialization</em> — «Захоплення ресурсу є ініціалізацією») постулює, що життєвий цикл системного ресурсу повинен бути строго прив'язаний до життєвого циклу відповідного програмного об'єкта. У мові Python ідіоматична реалізація цього патерну базується на синтаксичній інструкції <strong><code>with</code></strong> та протоколі <strong>менеджерів контексту</strong> (PEP 343).</p>
+<p>Протокол менеджера контексту регламентується наявністю двох взаємопов'язаних методів у інтерфейсі керуючого об'єкта:</p>
+<ul>
+<li>
+<p>Метод <strong><code>__enter__(self)</code></strong> виконує ініціалізацію середовища, захоплює необхідний системний ресурс (відкриває файловий дескриптор, блокує м'ютекс пам'яті або встановлює мережеве з'єднання) і повертає об'єкт, який прив'язується до локальної змінної після ключового слова <code>as</code>.</p>
+</li>
+<li>
+<p>Метод <strong><code>__exit__(self, exc_type, exc_val, exc_tb)</code></strong> викликається інтерпретатором детерміновано в момент виходу потоку керування за межі тіла блоку <code>with</code>. Він приймає параметри можливої виняткової ситуації, яка виникла всередині контексту. Якщо блок виконався штатно, усі три аргументи винятку дорівнюють <code>None</code>.</p>
+</li>
+</ul>
+<p><pre class="mermaid"><code>sequenceDiagram
+    autonumber
+    participant App as Прикладна програма
+    participant CM as Менеджер контексту
+    participant FileStream as Об'єкт потоку io.FileIO
+    participant Kernel as Ядро операційної системи
+
+    App-&gt;&gt;CM: Вхід у блок: with open('sensor.dat', 'wb') as stream
+    CM-&gt;&gt;Kernel: Системний виклик sys_open()
+    Kernel--&gt;&gt;CM: Повернення дескриптора fd (наприклад, 4)
+    CM-&gt;&gt;FileStream: Ініціалізація буферизованого потоку
+    CM-&gt;&gt;CM: Виклик методу __enter__()
+    CM--&gt;&gt;App: Повернення об'єкта FileStream у змінну stream
+
+    rect rgb(240, 248, 255)
+        Note over App,FileStream: Виконання операцій вводу-виводу
+        App-&gt;&gt;FileStream: stream.write(telemetry_buffer)
+        FileStream-&gt;&gt;FileStream: Акумуляція даних у буфері пам'яті
+        App-&gt;&gt;FileStream: Виникнення аварійної ситуації (BufferOverflow)
+    end
+
+    App-&gt;&gt;CM: Вихід із контекстного блоку (сигнал розкрутки стека)
+    CM-&gt;&gt;CM: Виклик методу __exit__(exc_type, exc_val, exc_tb)
+    CM-&gt;&gt;FileStream: file.flush() (примусовий скид залишків буфера)
+    FileStream-&gt;&gt;Kernel: Системний виклик sys_write()
+    CM-&gt;&gt;FileStream: file.close()
+    FileStream-&gt;&gt;Kernel: Системний виклик sys_close(fd=4)
+    Kernel--&gt;&gt;FileStream: Дескриптор вивільнено в таблиці PCB
+    CM--&gt;&gt;App: Повернення False (виняток прокидається далі по стеку)</code></pre>
+<em>Рисунок 2.1 — Послідовність виконання протоколу контекстного менеджера при гарантованому закритті системного дескриптора</em></p>
+<p>Особливе архітектурне значення має повернене значення методу <code>__exit__</code>. За замовчуванням метод повертає значення <code>None</code>, що в логічному контексті інтерпретується як <code>False</code>. Це сигналізує віртуальній машині про необхідність продовжити процедуру розкручування стека викликів для винятку, переданого в метод. </p>
+<p>Якщо ж розробник реалізує в методі <code>__exit__</code> явне повернення логічного значення <code>True</code>, виняток перехоплюється, його поширення припиняється, а програма продовжує виконання з інструкції, наступної після блоку <code>with</code>. Такий підхід вимагає виняткової обережності, оскільки неконтрольоване придушення помилок унеможливлює діагностику системних збоїв.</p>
+<blockquote>
+<p><strong>ПРАКТИЧНИЙ ЯКІР:</strong> У космічній програмі Mars Pathfinder відмова бортового комп'ютера була викликана класичною інверсією пріоритетів та блокуванням ресурсів; у сучасному наземному телекомунікаційному ПЗ стандарту 3GPP витік файлових дескрипторів при логуванні сесій мобільних абонентів призводить до спрацьовування сторожового таймера (<em>watchdog timer</em>) та примусового перезавантаження базової станції.</p>
+</blockquote>
+<hr />
+<h3 id="24-">2.4. Критичні обмеження та вузькі місця роботи з дисковими потоками, включаючи вичерпання лімітів дескрипторів ядра операційної системи, стан гонитви перевірки часу використання та блокування введення-виведення у багатозадачному середовищі</h3>
+<p>Незважаючи на високий рівень абстракції, що надається мовою Python, пряма взаємодія з дисковою підсистемою пов'язана з низкою жорстких фізичних та архітектурних обмежень. Неврахування цих факторів перетворює коректний синтаксично код на причину критичних відмов у промисловому середовищі.</p>
+<p>Першим критичним бар'єром є <strong>ліміт файлових дескрипторів операційної системи</strong>. Ядро Linux накладає суворі обмеження на кількість одночасно відкритих дескрипторів як для окремого процесу (параметр <code>RLIMIT_NOFILE</code>, що налаштовується командою <code>ulimit -n</code>), так і для всієї операційної системи загалом (системний параметр <code>fs.file-max</code>). </p>
+<p>Якщо високонавантажений телекомунікаційний демон у процесі обробки з'єднань відкриває файли конфігурації чи створює лог-сесії без гарантованого закриття за допомогою менеджерів контексту, дескриптори залишаються зайнятими до моменту спрацьовування збирача сміття (<em>Garbage Collector</em>). Оскільки збирач сміття CPython детерміновано звільняє пам'ять лише за механізмом лічильника посилань, наявність циклічних посилань відтерміновує виклик деструктора <code>__del__</code> на невизначений час. </p>
+<p>Це призводить до вичерпання системного пулу дескрипторів і збудження системного винятку <code>OSError: [Errno 24] Too many open files</code>. У такій ситуації процес втрачає можливість відкривати нові мережеві сокети або довантажувати динамічні бібліотеки, що спричиняє повний відказ системи обслуговування.</p>
+<p>Другим вразливим місцем є <strong>стан гонитви перевірки часу використання</strong> (<strong>TOCTOU</strong>, <em>Time-of-Check to Time-of-Use</em>). Це класична асинхронна аномалія, яка виникає при спробі попередньої перевірки стану файлової системи перед виконанням операції:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># Класичний антипатерн TOCTOU, схильний до стану гонитви</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="s2">"firmware.bin"</span><span class="p">):</span>  <span class="c1"># Точка перевірки (Time of Check)</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>    <span class="c1"># КРИТИЧНИЙ ІНТЕРВАЛ ГОНИТВИ: файл може бути видалений, підмінений </span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>    <span class="c1"># символьним посиланням або заблокований іншим процесом</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"firmware.bin"</span><span class="p">,</span> <span class="s2">"rb"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>  <span class="c1"># Точка використання (Time of Use)</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>        <span class="n">data</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+</span></code></pre></div>
+<p>Якщо в інтервалі часу між викликом функції <code>os.path.exists()</code> та викликом <code>open()</code> сторонній потік чи зловмисник встигає видалити файл або створити на його місці символьне посилання (<em>symlink</em>) на захищений системний ресурс, програма або зазнає аварійної зупинки з винятком <code>FileNotFoundError</code>, або скомпрометує конфіденційні дані ОС. Єдиним методологічно коректним способом подолання цієї вразливості є відмова від попередньої перевірки на користь парадигми безпосередньої спроби виконання в захищеному блоці <code>try-except</code> із використанням низькорівневих прапорців атомарного створення файлу <code>os.O_EXCL | os.O_CREAT</code>.</p>
+<p>Третім суттєвим бар'єром виступає <strong>синхронне блокування системного потоку введення-виведення</strong>. У багатопотокових або асинхронних програмах на основі <code>asyncio</code> виклик звичайної функції <code>open()</code> або методів <code>read()</code> та <code>write()</code> передає керування системному виклику ядра, який переводить потік операційної системи у стан блокування очікування пристрою (<em>Uninterruptible Sleep</em>, або стан <code>D</code> утиліти <code>ps</code>). </p>
+<p>Глобальне блокування інтерпретатора GIL (<em>Global Interpreter Lock</em>) звільняється CPython на час виконання системного виклику дискового вводу-виводу, проте сам потік не повертає керування до завершення фізичного переміщення даних. Якщо дисковий масив зазнає перевантаження або відмови апаратного контролера введення-виведення, весь цикл подій (<em>event loop</em>) програми зависає, що паралізує обслуговування мережевих сокетів або терміналів користувача.</p>
+<p>Четвертим аспектом граничних умов є розбіжність між завершенням роботи функції <code>write()</code> та фактичним записом інформації на магнітний чи напівпровідниковий носій. Завершення виклику <code>file.write()</code> означає лише переміщення даних із пам'яті програми в дисковий кеш операційної системи (<em>page cache</em>). У разі аварійного знеструмлення апаратного вузла інформація, що залишилася у сторінковому кеші ядра, втрачається безповоротно, призводячи до пошкодження файлових систем. </p>
+<p>Для гарантування транзакційної цілісності даних розробник зобов'язаний після виклику <code>file.flush()</code> примусово ініціювати синхронізацію апаратного кешу накопичувача за допомогою системного виклику <code>os.fsync(file.fileno())</code>.</p>
+<hr />
+<h3 id="25-look-before-you-leap-easier-to-ask-for-forgiveness-than-permission">2.5. Порівняльний аналіз інженерних парадигм Look Before You Leap та Easier to Ask for Forgiveness than Permission у контексті швидкодії інтерпретатора та надійності критичних сервісів</h3>
+<p>У методології розробки програмного забезпечення на Python існують дві діаметрально протилежні філософії проектування обчислювальних процесів: парадигма перевірки передумов <strong>LBYL</strong> (<em>Look Before You Leap</em> — «Подивись перед тим, як стрибнути») та парадигма оптимістичного виконання <strong>EAFP</strong> (<em>Easier to Ask for Forgiveness than Permission</em> — «Легше попросити вибачення, ніж дозволу»).</p>
+<p>Парадигма LBYL вимагає явного підтвердження валідності всіх вхідних умов перед виконанням операції. Наприклад, перед зчитуванням ключа зі словника перевіряється умова <code>if key in dictionary:</code>, а перед відкриттям файлу викликається функція <code>if os.path.exists(path):</code>. </p>
+<p>Цей підхід є стандартним для компільованих мов програмування з низькими накладними витратами на умовні переходи, проте в інтерпретованому середовищі CPython він демонструє значні вади: подвійне хешування ключів, багаторазові дублюючі системні виклики до файлової системи та схильність до згаданого стану гонитви TOCTOU у конкурентних середовищах.</p>
+<p>Навпаки, парадигма EAFP є нормативним стилем програмування на мові Python. Вона передбачає виконання цільової дії всередині блоку <code>try</code> в припущенні, що аномалії трапляються вкрай рідко, з подальшим перехопленням можливого збою у секції <code>except</code>. </p>
+<p>З погляду мікроархітектури віртуальної машини, виконання блоку <code>try</code> за відсутності винятку не створює додаткових накладних витрат у сучасних версіях Python (так звана концепція «нульової вартості винятків» — <em>zero-cost exceptions</em>, де таблиці обробників реєструються статично у байт-коді без динамічних маніпуляцій зі стеком блоків). Таким чином, у штатному режимі відсутності помилок код за парадигмою EAFP працює швидше, ніж код із численними запобіжними інструкціями <code>if</code>. </p>
+<p>Проте, якщо виняток виникає регулярно (наприклад, усередині високочастотного циклу обробки потоку мережевих пакетів), накладні витрати на ініціалізацію об'єкта <code>Exception</code>, збереження стекових кадрів і розкручування стека стають домінуючим фактором сповільнення роботи програми, роблячи парадигму EAFP неефективною.</p>
+<p><em>Таблиця 2.1 — Порівняльна матриця методологій керування ресурсами та обробки виняткових станів</em></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Методологія / Патерн</th>
+<th style="text-align: left;">Механізм гарантії надійності</th>
+<th style="text-align: left;">Швидкодія в штатному режимі</th>
+<th style="text-align: left;">Складність впровадження</th>
+<th style="text-align: left;">Критичні ризики / Обмеження</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>LBYL (Попередня валідація)</strong></td>
+<td style="text-align: left;">Перевірка прапорців та умов через інструкції <code>if-else</code></td>
+<td style="text-align: left;">Низька (подвійні звернення та системні виклики)</td>
+<td style="text-align: left;">Низька (інтуїтивна процедурна логіка)</td>
+<td style="text-align: left;">Вразливість до станів гонитви TOCTOU, надмірний оверхед на системні виклики ядра</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>EAFP (Оптимістичне перехоплення)</strong></td>
+<td style="text-align: left;">Локалізація аномалій через <code>try-except</code></td>
+<td style="text-align: left;">Максимальна (за відсутності помилок — zero-cost)</td>
+<td style="text-align: left;">Середня (вимагає точної типізації класів)</td>
+<td style="text-align: left;">Катастрофічне падіння швидкодії при високій частоті помилок через оверхед розкрутки стека</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Ручне керування дескрипторами</strong></td>
+<td style="text-align: left;">Явний виклик методів <code>close()</code> безпосередньо в коді</td>
+<td style="text-align: left;">Максимальна (відсутні додаткові абстракції)</td>
+<td style="text-align: left;">Мінімальна (лінійний процедурний код)</td>
+<td style="text-align: left;">Гарантовані витоки дескрипторів при необроблених винятках або передчасних виходах через <code>return</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>RAII / Менеджер контексту (<code>with</code>)</strong></td>
+<td style="text-align: left;">Детермінований виклик <code>__exit__</code> на рівні байт-коду</td>
+<td style="text-align: left;">Висока (мінімальний оверхед протоколу контексту)</td>
+<td style="text-align: left;">Середня (вимагає проектування спеціальних класів)</td>
+<td style="text-align: left;">Блокування асинхронних циклів при тривалих дискових операціях, придушення помилок при невірному <code>return True</code></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<blockquote>
+<p><strong>КОНТРОЛЬНЕ ПИТАННЯ:</strong> У розподіленій системі зберігання телеметрії процес повинен гарантовано перезаписати критичний калібрувальний файл <code>calib.dat</code> новими даними з пам'яті. Якщо процес буде знеструмлено в будь-яку наносекунду виконання операції, на диску повинен залишитися або старий цілісний файл, або новий валідний файл, але ні за яких умов не нульовий або частково записаний фрагмент. Запропонуйте інженерне рішення цієї проблеми засобами мови Python.</p>
+</blockquote>
+<details class="note">
+<summary>Розгорнути аналіз / відповідь</summary>
+<p><strong>Правильний варіант: Застосування методології атомарного перезапису через тимчасовий файл із примусовою синхронізацією кешу та системним перейменуванням.</strong></p>
+<ol>
+<li>
+<p>Пряме відкриття цільового файлу через виклик <code>open("calib.dat", "w")</code> є неприпустимим, оскільки системний виклик ядра з прапорцем <code>O_TRUNC</code> миттєво знищує початковий вміст файлу. Якщо апаратне знеструмлення відбудеться до завершення запису нового масиву, система втратить обидві версії калібрувань.</p>
+</li>
+<li>
+<p>Для досягнення атомарності транзакції необхідно створити тимчасовий файл у тому самому розділі файлової системи (наприклад, <code>calib.dat.tmp</code>). Однаковий фізичний розділ є обов'язковою умовою для гарантування того, що фінальне перейменування відбудеться на рівні зміни посилання на inode в межах однієї файлової таблиці без фізичного копіювання блоків даних.</p>
+</li>
+<li>
+<p>Після запису даних у тимчасовий файл необхідно виконати дворівневий скид буферів: спочатку програмний метод <code>file.flush()</code>, а потім системний виклик <code>os.fsync(file.fileno())</code> для примусового виштовхування «брудних сторінок» із кешу операційної системи безпосередньо в комірки енергонезалежного носія.</p>
+</li>
+<li>
+<p>Після закриття тимчасового файлу викликається функція <code>os.replace("calib.dat.tmp", "calib.dat")</code>. У стандарті POSIX системний виклик <code>rename()</code> є повністю атомарною операцією: на рівні структури каталогу зміна покажчика імені на новий inode виконується як неподільна транзакція, що виключає стан неповної модифікації файлу при аварійній втраті живлення.</p>
+</li>
+</ol>
+<p>Аналіз дистракторів (чому інші підходи є непридатними на практиці):</p>
+<ul>
+<li>
+<p>Варіант відкриття файлу в режимі оновлення <code>'r+'</code>: Спроба перезапису байтів поверх існуючих призводить до пошкодження файлу, якщо довжина нового калібрування менша за старе (залишається «хвіст» попередніх даних) або якщо живлення зникає під час запису проміжних секторів.</p>
+</li>
+<li>
+<p>Варіант використання стандартного блоку <code>try-except-finally</code> з безпосереднім записом у <code>calib.dat</code>: Конструкції перехоплення винятків мови Python не захищають від апаратного відключення живлення чи аварійного завершення процесу сигналом <code>SIGKILL</code>, оскільки операційна система не встигає виконати блок <code>finally</code>.</p>
+</li>
+</ul>
+</details>
+<h2 id="3_1">3. Практичний індустріальний / фаховий кейс. Проектування відмовостійкої системи збору та збереження телеметрії телекомунікаційного вузла</h2>
+<h3 id="31">3.1. Комплексний фаховий кейс. Розробка відмовостійкого модуля аудиту телеметричних даних мережевого маршрутизатора із транзакційною атомарністю запису на диск, перевіркою цілісності пакетів та дворівневою системою кастомних винятків</h3>
+<h4 id="_5">Постановка задачі / ситуації</h4>
+<p>У сучасних розподілених телекомунікаційних мережах магістральні та прикордонні маршрутизатори працюють у режимі безперервної генерації діагностичної інформації. На базовій станції зв'язку бортовий контролер збирає телеметричні параметри апаратних вузлів: напругу живлення лінійних плат, температуру оптичних трансиверів SFP, відсоток втрати пакетів на портах та стан буферів комутаційної фабрики. </p>
+<p>Збір даних здійснюється через локальний інтерфейс у вигляді бінарних кадрів. Критичною інженерною вимогою до підсистеми моніторингу є забезпечення абсолютної цілісності збережених даних в умовах нестабільного живлення та частих аварійних перезавантажень вузла. Прямий або неатомарний запис у робочий лог-файл призводить до пошкодження структури файлу або його обнулення при знеструмленні. </p>
+<p>Додатково розробник стикається з проблемою обмеженого ресурсу циклів перезапису вбудованої flash-пам'яті (eMMC), що вимагає впровадження буферизованого групового запису замість постійного скидання окремих байтів на диск.</p>
+<p><em>Таблиця 3.1 — Технічні параметри, системні обмеження та вхідні характеристики телеметричного модуля</em></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Параметр системи</th>
+<th style="text-align: left;">Числове значення</th>
+<th style="text-align: left;">Фізичний / системний зміст</th>
+<th style="text-align: left;">Інженерні обмеження та вимоги</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Розмір кадру телеметрії (<span class="arithmatex">\(S_f\)</span>)</strong></td>
+<td style="text-align: left;"><span class="arithmatex">\(32 \text{ байти}\)</span></td>
+<td style="text-align: left;">Фіксована довжина бінарного кадру датчиків</td>
+<td style="text-align: left;">Вимагає суворої перевірки структури та заголовка</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Розмір пакета пачки (<span class="arithmatex">\(B_{\text{count}}\)</span>)</strong></td>
+<td style="text-align: left;"><span class="arithmatex">\(100 \text{ кадрів}\)</span></td>
+<td style="text-align: left;">Кількість кадрів в одній транзакції запису</td>
+<td style="text-align: left;">Об'єм одного транзакційного скиду на носій</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Частота надходження пакетів (<span class="arithmatex">\(F_{\text{in}}\)</span>)</strong></td>
+<td style="text-align: left;"><span class="arithmatex">\(100 \text{ кадрів/с}\)</span></td>
+<td style="text-align: left;">Інтенсивність потоку з діагностичної шини</td>
+<td style="text-align: left;">Обробка без затримок внутрішньої черги демона</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Розмір службового заголовка (<span class="arithmatex">\(H_{\text{len}}\)</span>)</strong></td>
+<td style="text-align: left;"><span class="arithmatex">\(4 \text{ байти}\)</span></td>
+<td style="text-align: left;">Преамбула кадру: сигнатура 0xAA55 та ID датчика</td>
+<td style="text-align: left;">Невідповідність трактується як втрата синхронізації</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Контрольна сума кадру (<span class="arithmatex">\(CRC_{\text{len}}\)</span>)</strong></td>
+<td style="text-align: left;"><span class="arithmatex">\(2 \text{ байти}\)</span></td>
+<td style="text-align: left;">Контрольна сума за стандартом CRC-16-CCITT</td>
+<td style="text-align: left;">Виявлення бітових спотворень у каналі зв'язку</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Ліміт дескрипторів процесу (<span class="arithmatex">\(RLIMIT\)</span>)</strong></td>
+<td style="text-align: left;"><span class="arithmatex">\(1024\)</span></td>
+<td style="text-align: left;">Максимальна кількість відкритих файлів ядра</td>
+<td style="text-align: left;">Необхідність детермінованого вивільнення ресурсів</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Енергонезалежний буфер (<span class="arithmatex">\(T_{\text{sync}}\)</span>)</strong></td>
+<td style="text-align: left;"><span class="arithmatex">\(1.0 \text{ с}\)</span></td>
+<td style="text-align: left;">Період примусового виклику системного <code>fsync</code></td>
+<td style="text-align: left;">Мінімізація деградації комірок пам'яті накопичувача</td>
+</tr>
+</tbody>
+</table>
+<p>Для вирішення завдання необхідно спроектувати архітектуру модуля, яка об'єднує багаторівневу обробку виняткових ситуацій із транзакційним алгоритмом запису на накопичувач через тимчасові файли.</p>
+<p><pre class="mermaid"><code>flowchart TD
+    StartIngest(["Надходження бінарного кадру (32 байти)"]) --&gt; ValidateHeader{"Перевірка преамбули кадру (0xAA55)"}
+
+    ValidateHeader -- "Невідповідність" --&gt; RaiseCorrupt["Генерація FrameCorruptionError"]
+    ValidateHeader -- "Валідно" --&gt; ValidateCRC{"Верифікація контрольної суми CRC-16"}
+
+    ValidateCRC -- "Помилка CRC" --&gt; RaiseCRC["Генерація ChecksumMismatchError"]
+    ValidateCRC -- "Успішно" --&gt; BufferBatch["Акумуляція в оперативному буфері транзакції"]
+
+    BufferBatch --&gt; CheckBatchSize{"Розмір буфера == 100 кадрів?"}
+    CheckBatchSize -- "Ні" --&gt; WaitNext["Очікування наступного пакета"]
+    CheckBatchSize -- "Так" --&gt; OpenTmp["Створення тимчасового файлу .tmp (with open)"]
+
+    OpenTmp --&gt; WriteBinary["Запис накопиченого бінарного блоку (3200 байтів)"]
+    WriteBinary --&gt; FlushApp["Програмне виштовхування: file.flush()"]
+    FlushApp --&gt; SyncKernel["Синхронізація кешу накопичувача: os.fsync()"]
+    SyncKernel --&gt; CloseTmp["Гарантоване закриття дескриптора (__exit__)"]
+
+    CloseTmp --&gt; AtomicRename["Атомарна заміна файлу: os.replace(tmp, target)"]
+    AtomicRename --&gt; CommitSuccess(["Транзакція зафіксована успішно"])
+
+    RaiseCorrupt --&gt; HandleRecovery["Локалізація у блоці except: запис у журнал інцидентів"]
+    RaiseCRC --&gt; HandleRecovery
+    HandleRecovery --&gt; DiscardBadFrame["Скидання пошкодженого кадру та зсув курсору"]</code></pre>
+<em>Рисунок 3.1 — Граф потоку керування відмовостійкого модуля збору та збереження телеметрії</em></p>
+<h4 id="_6">Покроковий аналіз та розв'язок</h4>
+<h5 id="1">Крок 1. Проектування дворівневої ієрархії користувацьких винятків</h5>
+<p>Стандартні класи помилок інтерпретатора не дозволяють диференціювати порушення на рівні бінарного протоколу від збоїв операційної системи. Спроектуємо предметно-орієнтовану ієрархію винятків, у якій базовий клас відокремлює домен телеметрії, а дочірні класи інкапсулюють специфічні діагностичні змінні.</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">struct</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="kn">import</span><span class="w"> </span><span class="nn">tempfile</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="k">class</span><span class="w"> </span><span class="nc">TelemetryError</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">    </span><span class="sd">"""Базовий виняток підсистеми збору та аудиту телеметрії."""</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>    <span class="k">pass</span>
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="k">class</span><span class="w"> </span><span class="nc">FrameCorruptionError</span><span class="p">(</span><span class="n">TelemetryError</span><span class="p">):</span>
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="w">    </span><span class="sd">"""Виникає при порушенні сигнатури або структури бінарного кадру."""</span>
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">message</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">raw_header</span><span class="p">:</span> <span class="nb">bytes</span><span class="p">):</span>
+</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
+</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">raw_header</span> <span class="o">=</span> <span class="n">raw_header</span>
+</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>
+</span><span id="__span-2-16"><a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a><span class="k">class</span><span class="w"> </span><span class="nc">ChecksumMismatchError</span><span class="p">(</span><span class="n">TelemetryError</span><span class="p">):</span>
+</span><span id="__span-2-17"><a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a><span class="w">    </span><span class="sd">"""Виникає при неспівпадінні обчисленої та фактичної контрольних сум."""</span>
+</span><span id="__span-2-18"><a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">expected_crc</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">actual_crc</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+</span><span id="__span-2-19"><a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="sa">f</span><span class="s2">"CRC mismatch: expected 0x</span><span class="si">{</span><span class="n">expected_crc</span><span class="si">:</span><span class="s2">04X</span><span class="si">}</span><span class="s2">, got 0x</span><span class="si">{</span><span class="n">actual_crc</span><span class="si">:</span><span class="s2">04X</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</span><span id="__span-2-20"><a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">expected_crc</span> <span class="o">=</span> <span class="n">expected_crc</span>
+</span><span id="__span-2-21"><a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">actual_crc</span> <span class="o">=</span> <span class="n">actual_crc</span>
+</span><span id="__span-2-22"><a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a>
+</span><span id="__span-2-23"><a id="__codelineno-2-23" name="__codelineno-2-23" href="#__codelineno-2-23"></a><span class="k">class</span><span class="w"> </span><span class="nc">StorageTransactionError</span><span class="p">(</span><span class="n">TelemetryError</span><span class="p">):</span>
+</span><span id="__span-2-24"><a id="__codelineno-2-24" name="__codelineno-2-24" href="#__codelineno-2-24"></a><span class="w">    </span><span class="sd">"""Виникає при збоях дискової підсистеми на етапі фіксації транзакції."""</span>
+</span><span id="__span-2-25"><a id="__codelineno-2-25" name="__codelineno-2-25" href="#__codelineno-2-25"></a>    <span class="k">pass</span>
+</span></code></pre></div>
+<h5 id="2">Крок 2. Формалізація алгоритму верифікації та розрахунок параметрів транзакції</h5>
+<p>Кожен вхідний пакет перевіряється на рівність поліноміальної контрольної суми CRC-16. Математична модель розрахунку корисного дискового навантаження однієї транзакції визначається добутком кількості кадрів у пакеті на розмір окремого кадру:</p>
+<div class="arithmatex">\[V_{\text{batch}} = B_{\text{count}} \cdot S_f = 100 \cdot 32 \text{ байти} = 3200 \text{ байтів}\]</div>
+<p>Розрахуємо тривалість накопичення однієї транзакційної пачки даних у буфері оперативної пам'яті за умови номінальної частоти надходження сигналів:</p>
+<div class="arithmatex">\[T_{\text{accum}} = \frac{B_{\text{count}}}{F_{\text{in}}} = \frac{100 \text{ кадрів}}{100 \text{ кадрів/с}} = 1.0 \text{ с}\]</div>
+<p>Зіставлення отриманого часу <span class="arithmatex">\(T_{\text{accum}} = 1.0 \text{ с}\)</span> з апаратним обмеженням <span class="arithmatex">\(T_{\text{sync}} = 1.0 \text{ с}\)</span> показує, що операція примусового скидання дискового кешу <code>os.fsync</code> виконуватиметься рівно один раз на секунду. Це повністю задовольняє вимогу збереження ресурсу комірок пам'яті накопичувача при гарантованому захисті від втрати більше ніж однієї секунди спостережень.</p>
+<h5 id="3_2">Крок 3. Реалізація відмовостійкого процесора збереження телеметрії</h5>
+<p>Наведемо програмну реалізацію транзакційного збереження телеметрії, яка поєднує перевірку контрольних сум, перехоплення системних помилок через <code>try-except-else-finally</code> та атомарне перейменування файлів.</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">compute_crc16</span><span class="p">(</span><span class="n">data</span><span class="p">:</span> <span class="nb">bytes</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">    </span><span class="sd">"""Обчислює контрольну суму за спрощеним алгоритмом CRC-16-CCITT."""</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>    <span class="n">crc</span> <span class="o">=</span> <span class="mh">0xFFFF</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>    <span class="k">for</span> <span class="n">byte</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>        <span class="n">crc</span> <span class="o">^=</span> <span class="p">(</span><span class="n">byte</span> <span class="o">&lt;&lt;</span> <span class="mi">8</span><span class="p">)</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>        <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">8</span><span class="p">):</span>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>            <span class="k">if</span> <span class="n">crc</span> <span class="o">&amp;</span> <span class="mh">0x8000</span><span class="p">:</span>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>                <span class="n">crc</span> <span class="o">=</span> <span class="p">((</span><span class="n">crc</span> <span class="o">&lt;&lt;</span> <span class="mi">1</span><span class="p">)</span> <span class="o">^</span> <span class="mh">0x1021</span><span class="p">)</span> <span class="o">&amp;</span> <span class="mh">0xFFFF</span>
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>            <span class="k">else</span><span class="p">:</span>
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>                <span class="n">crc</span> <span class="o">=</span> <span class="p">(</span><span class="n">crc</span> <span class="o">&lt;&lt;</span> <span class="mi">1</span><span class="p">)</span> <span class="o">&amp;</span> <span class="mh">0xFFFF</span>
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>    <span class="k">return</span> <span class="n">crc</span>
+</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>
+</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="k">class</span><span class="w"> </span><span class="nc">TelemetryStorageEngine</span><span class="p">:</span>
+</span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="w">    </span><span class="sd">"""Транзакційний двигун збереження телеметрії з гарантією відмовостійкості."""</span>
+</span><span id="__span-3-15"><a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a>
+</span><span id="__span-3-16"><a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a>    <span class="n">HEADER_MAGIC</span> <span class="o">=</span> <span class="sa">b</span><span class="s2">"</span><span class="se">\xAA\x55</span><span class="s2">"</span>
+</span><span id="__span-3-17"><a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a>    <span class="n">FRAME_SIZE</span> <span class="o">=</span> <span class="mi">32</span>
+</span><span id="__span-3-18"><a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a>
+</span><span id="__span-3-19"><a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">storage_dir</span><span class="p">:</span> <span class="n">Path</span><span class="p">,</span> <span class="n">target_filename</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+</span><span id="__span-3-20"><a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">storage_dir</span> <span class="o">=</span> <span class="n">storage_dir</span>
+</span><span id="__span-3-21"><a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">target_path</span> <span class="o">=</span> <span class="n">storage_dir</span> <span class="o">/</span> <span class="n">target_filename</span>
+</span><span id="__span-3-22"><a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">storage_dir</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">parents</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</span><span id="__span-3-23"><a id="__codelineno-3-23" name="__codelineno-3-23" href="#__codelineno-3-23"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">memory_buffer</span> <span class="o">=</span> <span class="nb">bytearray</span><span class="p">()</span>
+</span><span id="__span-3-24"><a id="__codelineno-3-24" name="__codelineno-3-24" href="#__codelineno-3-24"></a>
+</span><span id="__span-3-25"><a id="__codelineno-3-25" name="__codelineno-3-25" href="#__codelineno-3-25"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">process_incoming_frame</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">raw_frame</span><span class="p">:</span> <span class="nb">bytes</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="__span-3-26"><a id="__codelineno-3-26" name="__codelineno-3-26" href="#__codelineno-3-26"></a><span class="w">        </span><span class="sd">"""Здійснює валідацію кадру та накопичення у транзакційному буфері."""</span>
+</span><span id="__span-3-27"><a id="__codelineno-3-27" name="__codelineno-3-27" href="#__codelineno-3-27"></a>        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">raw_frame</span><span class="p">)</span> <span class="o">!=</span> <span class="bp">self</span><span class="o">.</span><span class="n">FRAME_SIZE</span><span class="p">:</span>
+</span><span id="__span-3-28"><a id="__codelineno-3-28" name="__codelineno-3-28" href="#__codelineno-3-28"></a>            <span class="k">raise</span> <span class="n">FrameCorruptionError</span><span class="p">(</span><span class="s2">"Некоректний розмір кадру телеметрії."</span><span class="p">,</span> <span class="n">raw_frame</span><span class="p">[:</span><span class="mi">4</span><span class="p">])</span>
+</span><span id="__span-3-29"><a id="__codelineno-3-29" name="__codelineno-3-29" href="#__codelineno-3-29"></a>
+</span><span id="__span-3-30"><a id="__codelineno-3-30" name="__codelineno-3-30" href="#__codelineno-3-30"></a>        <span class="n">magic_bytes</span> <span class="o">=</span> <span class="n">raw_frame</span><span class="p">[:</span><span class="mi">2</span><span class="p">]</span>
+</span><span id="__span-3-31"><a id="__codelineno-3-31" name="__codelineno-3-31" href="#__codelineno-3-31"></a>        <span class="k">if</span> <span class="n">magic_bytes</span> <span class="o">!=</span> <span class="bp">self</span><span class="o">.</span><span class="n">HEADER_MAGIC</span><span class="p">:</span>
+</span><span id="__span-3-32"><a id="__codelineno-3-32" name="__codelineno-3-32" href="#__codelineno-3-32"></a>            <span class="k">raise</span> <span class="n">FrameCorruptionError</span><span class="p">(</span><span class="s2">"Помилка синхронізації: невірна преамбула."</span><span class="p">,</span> <span class="n">magic_bytes</span><span class="p">)</span>
+</span><span id="__span-3-33"><a id="__codelineno-3-33" name="__codelineno-3-33" href="#__codelineno-3-33"></a>
+</span><span id="__span-3-34"><a id="__codelineno-3-34" name="__codelineno-3-34" href="#__codelineno-3-34"></a>        <span class="n">payload</span> <span class="o">=</span> <span class="n">raw_frame</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">30</span><span class="p">]</span>
+</span><span id="__span-3-35"><a id="__codelineno-3-35" name="__codelineno-3-35" href="#__codelineno-3-35"></a>        <span class="n">actual_crc</span> <span class="o">=</span> <span class="n">struct</span><span class="o">.</span><span class="n">unpack</span><span class="p">(</span><span class="s2">"&gt;H"</span><span class="p">,</span> <span class="n">raw_frame</span><span class="p">[</span><span class="mi">30</span><span class="p">:</span><span class="mi">32</span><span class="p">])[</span><span class="mi">0</span><span class="p">]</span>
+</span><span id="__span-3-36"><a id="__codelineno-3-36" name="__codelineno-3-36" href="#__codelineno-3-36"></a>        <span class="n">calculated_crc</span> <span class="o">=</span> <span class="n">compute_crc16</span><span class="p">(</span><span class="n">payload</span><span class="p">)</span>
+</span><span id="__span-3-37"><a id="__codelineno-3-37" name="__codelineno-3-37" href="#__codelineno-3-37"></a>
+</span><span id="__span-3-38"><a id="__codelineno-3-38" name="__codelineno-3-38" href="#__codelineno-3-38"></a>        <span class="k">if</span> <span class="n">actual_crc</span> <span class="o">!=</span> <span class="n">calculated_crc</span><span class="p">:</span>
+</span><span id="__span-3-39"><a id="__codelineno-3-39" name="__codelineno-3-39" href="#__codelineno-3-39"></a>            <span class="k">raise</span> <span class="n">ChecksumMismatchError</span><span class="p">(</span><span class="n">expected_crc</span><span class="o">=</span><span class="n">calculated_crc</span><span class="p">,</span> <span class="n">actual_crc</span><span class="o">=</span><span class="n">actual_crc</span><span class="p">)</span>
+</span><span id="__span-3-40"><a id="__codelineno-3-40" name="__codelineno-3-40" href="#__codelineno-3-40"></a>
+</span><span id="__span-3-41"><a id="__codelineno-3-41" name="__codelineno-3-41" href="#__codelineno-3-41"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">memory_buffer</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">raw_frame</span><span class="p">)</span>
+</span><span id="__span-3-42"><a id="__codelineno-3-42" name="__codelineno-3-42" href="#__codelineno-3-42"></a>
+</span><span id="__span-3-43"><a id="__codelineno-3-43" name="__codelineno-3-43" href="#__codelineno-3-43"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">commit_transaction</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="__span-3-44"><a id="__codelineno-3-44" name="__codelineno-3-44" href="#__codelineno-3-44"></a><span class="w">        </span><span class="sd">"""Атомарно фіксує накопичений буфер на дисковому носії."""</span>
+</span><span id="__span-3-45"><a id="__codelineno-3-45" name="__codelineno-3-45" href="#__codelineno-3-45"></a>        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">memory_buffer</span><span class="p">:</span>
+</span><span id="__span-3-46"><a id="__codelineno-3-46" name="__codelineno-3-46" href="#__codelineno-3-46"></a>            <span class="k">return</span>
+</span><span id="__span-3-47"><a id="__codelineno-3-47" name="__codelineno-3-47" href="#__codelineno-3-47"></a>
+</span><span id="__span-3-48"><a id="__codelineno-3-48" name="__codelineno-3-48" href="#__codelineno-3-48"></a>        <span class="n">temp_file_path</span> <span class="o">=</span> <span class="kc">None</span>
+</span><span id="__span-3-49"><a id="__codelineno-3-49" name="__codelineno-3-49" href="#__codelineno-3-49"></a>        <span class="k">try</span><span class="p">:</span>
+</span><span id="__span-3-50"><a id="__codelineno-3-50" name="__codelineno-3-50" href="#__codelineno-3-50"></a>            <span class="c1"># Створення тимчасового файлу в тому ж розділі для забезпечення атомарності replace</span>
+</span><span id="__span-3-51"><a id="__codelineno-3-51" name="__codelineno-3-51" href="#__codelineno-3-51"></a>            <span class="k">with</span> <span class="n">tempfile</span><span class="o">.</span><span class="n">NamedTemporaryFile</span><span class="p">(</span>
+</span><span id="__span-3-52"><a id="__codelineno-3-52" name="__codelineno-3-52" href="#__codelineno-3-52"></a>                <span class="n">mode</span><span class="o">=</span><span class="s2">"wb"</span><span class="p">,</span> 
+</span><span id="__span-3-53"><a id="__codelineno-3-53" name="__codelineno-3-53" href="#__codelineno-3-53"></a>                <span class="nb">dir</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">storage_dir</span><span class="p">,</span> 
+</span><span id="__span-3-54"><a id="__codelineno-3-54" name="__codelineno-3-54" href="#__codelineno-3-54"></a>                <span class="n">delete</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> 
+</span><span id="__span-3-55"><a id="__codelineno-3-55" name="__codelineno-3-55" href="#__codelineno-3-55"></a>                <span class="n">prefix</span><span class="o">=</span><span class="s2">"telemetry_batch_"</span><span class="p">,</span> 
+</span><span id="__span-3-56"><a id="__codelineno-3-56" name="__codelineno-3-56" href="#__codelineno-3-56"></a>                <span class="n">suffix</span><span class="o">=</span><span class="s2">".tmp"</span>
+</span><span id="__span-3-57"><a id="__codelineno-3-57" name="__codelineno-3-57" href="#__codelineno-3-57"></a>            <span class="p">)</span> <span class="k">as</span> <span class="n">tmp_file</span><span class="p">:</span>
+</span><span id="__span-3-58"><a id="__codelineno-3-58" name="__codelineno-3-58" href="#__codelineno-3-58"></a>                <span class="n">temp_file_path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">tmp_file</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+</span><span id="__span-3-59"><a id="__codelineno-3-59" name="__codelineno-3-59" href="#__codelineno-3-59"></a>                <span class="n">tmp_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">memory_buffer</span><span class="p">)</span>
+</span><span id="__span-3-60"><a id="__codelineno-3-60" name="__codelineno-3-60" href="#__codelineno-3-60"></a>
+</span><span id="__span-3-61"><a id="__codelineno-3-61" name="__codelineno-3-61" href="#__codelineno-3-61"></a>                <span class="c1"># Дворівневий скид буферів</span>
+</span><span id="__span-3-62"><a id="__codelineno-3-62" name="__codelineno-3-62" href="#__codelineno-3-62"></a>                <span class="n">tmp_file</span><span class="o">.</span><span class="n">flush</span><span class="p">()</span>
+</span><span id="__span-3-63"><a id="__codelineno-3-63" name="__codelineno-3-63" href="#__codelineno-3-63"></a>                <span class="n">os</span><span class="o">.</span><span class="n">fsync</span><span class="p">(</span><span class="n">tmp_file</span><span class="o">.</span><span class="n">fileno</span><span class="p">())</span>
+</span><span id="__span-3-64"><a id="__codelineno-3-64" name="__codelineno-3-64" href="#__codelineno-3-64"></a>
+</span><span id="__span-3-65"><a id="__codelineno-3-65" name="__codelineno-3-65" href="#__codelineno-3-65"></a>            <span class="c1"># Атомарне заміщення цільового файлу</span>
+</span><span id="__span-3-66"><a id="__codelineno-3-66" name="__codelineno-3-66" href="#__codelineno-3-66"></a>            <span class="n">os</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">temp_file_path</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">target_path</span><span class="p">)</span>
+</span><span id="__span-3-67"><a id="__codelineno-3-67" name="__codelineno-3-67" href="#__codelineno-3-67"></a>
+</span><span id="__span-3-68"><a id="__codelineno-3-68" name="__codelineno-3-68" href="#__codelineno-3-68"></a>        <span class="k">except</span> <span class="p">(</span><span class="ne">OSError</span><span class="p">,</span> <span class="ne">PermissionError</span><span class="p">)</span> <span class="k">as</span> <span class="n">sys_err</span><span class="p">:</span>
+</span><span id="__span-3-69"><a id="__codelineno-3-69" name="__codelineno-3-69" href="#__codelineno-3-69"></a>            <span class="c1"># Використання механізму Exception Chaining для збереження системного сліду</span>
+</span><span id="__span-3-70"><a id="__codelineno-3-70" name="__codelineno-3-70" href="#__codelineno-3-70"></a>            <span class="k">raise</span> <span class="n">StorageTransactionError</span><span class="p">(</span><span class="s2">"Збій фіксації транзакції телеметрії на диск."</span><span class="p">)</span> <span class="kn">from</span><span class="w"> </span><span class="nn">sys_err</span>
+</span><span id="__span-3-71"><a id="__codelineno-3-71" name="__codelineno-3-71" href="#__codelineno-3-71"></a>
+</span><span id="__span-3-72"><a id="__codelineno-3-72" name="__codelineno-3-72" href="#__codelineno-3-72"></a>        <span class="k">else</span><span class="p">:</span>
+</span><span id="__span-3-73"><a id="__codelineno-3-73" name="__codelineno-3-73" href="#__codelineno-3-73"></a>            <span class="c1"># Очищення оперативного буфера виключно у разі успішної фіксації транзакції</span>
+</span><span id="__span-3-74"><a id="__codelineno-3-74" name="__codelineno-3-74" href="#__codelineno-3-74"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">memory_buffer</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+</span><span id="__span-3-75"><a id="__codelineno-3-75" name="__codelineno-3-75" href="#__codelineno-3-75"></a>
+</span><span id="__span-3-76"><a id="__codelineno-3-76" name="__codelineno-3-76" href="#__codelineno-3-76"></a>        <span class="k">finally</span><span class="p">:</span>
+</span><span id="__span-3-77"><a id="__codelineno-3-77" name="__codelineno-3-77" href="#__codelineno-3-77"></a>            <span class="c1"># Гарантоване прибирання тимчасового файлу у разі аварійного обриву транзакції</span>
+</span><span id="__span-3-78"><a id="__codelineno-3-78" name="__codelineno-3-78" href="#__codelineno-3-78"></a>            <span class="k">if</span> <span class="n">temp_file_path</span> <span class="ow">and</span> <span class="n">temp_file_path</span><span class="o">.</span><span class="n">exists</span><span class="p">()</span> <span class="ow">and</span> <span class="n">temp_file_path</span> <span class="o">!=</span> <span class="bp">self</span><span class="o">.</span><span class="n">target_path</span><span class="p">:</span>
+</span><span id="__span-3-79"><a id="__codelineno-3-79" name="__codelineno-3-79" href="#__codelineno-3-79"></a>                <span class="k">try</span><span class="p">:</span>
+</span><span id="__span-3-80"><a id="__codelineno-3-80" name="__codelineno-3-80" href="#__codelineno-3-80"></a>                    <span class="n">temp_file_path</span><span class="o">.</span><span class="n">unlink</span><span class="p">()</span>
+</span><span id="__span-3-81"><a id="__codelineno-3-81" name="__codelineno-3-81" href="#__codelineno-3-81"></a>                <span class="k">except</span> <span class="ne">OSError</span><span class="p">:</span>
+</span><span id="__span-3-82"><a id="__codelineno-3-82" name="__codelineno-3-82" href="#__codelineno-3-82"></a>                    <span class="k">pass</span>
+</span></code></pre></div>
+<h4 id="_7">Інтерпретація результатів та альтернативні сценарії</h4>
+<p>Запропоноване інженерне рішення повністю нівелює ризик пошкодження основної бази телеметрії. Завдяки використанню системного виклику <code>os.replace()</code> оновлення файлу відбувається як єдина неподільна транзакція на рівні метаданих файлової системи. </p>
+<p>У разі знеструмлення контролера в момент виконання інструкції запису ядро відкине тимчасовий несинхронізований файл <code>.tmp</code>, а на диску гарантовано збережеться попередня версія файлу без порушення внутрішньої адресації. </p>
+<p>Розглянемо альтернативний сценарій функціонування вузла при екстремальній зміні вхідних умов:</p>
+<ol>
+<li>
+<p>Якщо потік телеметрії зростає на три порядки (до <span class="arithmatex">\(100\,000 \text{ кадрів/с}\)</span>), дискова підсистема виявиться вузьким місцем через затримки вводу-виводу при постійній синхронізації кешу. У такому випадку методологія атомарного перезапису окремого файлу має бути замінена на потоковий кільцевий бінарний журнал (<em>circular WAL buffer</em>) із прямим доступом до секторів пам'яті через послідовні зсуви курсору <code>file.seek()</code>.</p>
+</li>
+<li>
+<p>Якщо апаратний вузол використовує твердотільний накопичувач з обмеженою кількістю циклів перезапису блоків TLC/QLC, щоденна перезапис файлу через створення нових тимчасових об'єктів призведе до швидкої деградації пам'яті. У цьому режимі виклик <code>os.fsync</code> необхідно винести в окремий асинхронний таймер із подовженим інтервалом до <span class="arithmatex">\(60 \text{ с}\)</span>, жертвуючи частиною останніх даних заради збереження апаратного ресурсу пристрою.</p>
+</li>
+</ol>
+<hr />
+<h3 id="32">3.2. Зведена довідкова система лекції</h3>
+<p><em>Таблиця 3.2 — Підсумкова матриця ключових концепцій обробки винятків та файлового введення-виведення</em></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Термін / Концепція</th>
+<th style="text-align: left;">Формалізація / Сутність</th>
+<th style="text-align: left;">Реальний кейс застосування</th>
+<th style="text-align: left;">Основне обмеження / Ризик</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong><code>BaseException</code></strong></td>
+<td style="text-align: left;">Кореневий клас моделі винятків CPython; не призначений для прикладного перехоплення</td>
+<td style="text-align: left;">Базова основа системних переривань інтерпретатора</td>
+<td style="text-align: left;">Пряме перехоплення блокує системні сигнали завершення ОС</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>Exception</code></strong></td>
+<td style="text-align: left;">Базовий клас для всіх прикладних, обчислювальних та операційних збоїв</td>
+<td style="text-align: left;">Перехоплення некритичних алгоритмічних помилок сервісу</td>
+<td style="text-align: left;">Небезпека маскування непередбачених логічних багів при широкому перехопленні</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Розкручування стека (<em>Stack Unwinding</em>)</strong></td>
+<td style="text-align: left;">Каскадне знищення стекових кадрів <span class="arithmatex">\(\Delta(F_i, E)\)</span> до точки перехоплення</td>
+<td style="text-align: left;">Діагностика глибинних аварій у розподіленому модулі</td>
+<td style="text-align: left;">Суттєві накладні витрати пам'яті та процесорного часу при високій частоті</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Ланцюжки винятків (<em>Chaining</em>)</strong></td>
+<td style="text-align: left;">Механізм PEP 3134 зв'язування винятків: <span class="arithmatex">\(\text{Target}.\_\_\text{cause}\_\_ = \text{Source}\)</span></td>
+<td style="text-align: left;">Трансляція низькорівневих помилок <code>OSError</code> у доменні <code>TelemetryError</code></td>
+<td style="text-align: left;">Можливість розкриття внутрішньої архітектури у відкритих API</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Менеджер контексту (<code>with</code>)</strong></td>
+<td style="text-align: left;">Протокол гарантованого життєвого циклу через <code>__enter__</code> та <code>__exit__</code></td>
+<td style="text-align: left;">Детерміноване закриття файлових та сокетних дескрипторів</td>
+<td style="text-align: left;">Блокування асинхронних циклів при виконанні важкого вводу-виводу в тілі</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Режим доступу <code>'r+'</code> / <code>'w+'</code></strong></td>
+<td style="text-align: left;">Комбінований доступ оновлення; <code>'w+'</code> викликає обнулення файлу через <code>O_TRUNC</code></td>
+<td style="text-align: left;">Редагування окремих байтів бінарних таблиць за зміщенням</td>
+<td style="text-align: left;">Ризик повної втрати даних при збої відразу після відкриття <code>'w+'</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Методи <code>seek</code> і <code>tell</code></strong></td>
+<td style="text-align: left;">Низькорівневе позиціонування курсору: <span class="arithmatex">\(P_{\text{new}} = f(offset, whence)\)</span></td>
+<td style="text-align: left;">Прямий доступ до записів телеметрії у бінарному файлі</td>
+<td style="text-align: left;">Позиціонування у середину мультибайтового символу UTF-8 викликає крах читання</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Системний виклик <code>os.fsync</code></strong></td>
+<td style="text-align: left;">Примусове вимивання сторінкового дискового кешу ядра на фізичний накопичувач</td>
+<td style="text-align: left;">Захист цілісності баз даних від раптового знеструмлення сервера</td>
+<td style="text-align: left;">Значне падіння пропускної здатності дискової підсистеми</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Атомарний перезапис</strong></td>
+<td style="text-align: left;">Запис у тимчасовий файл із фінальним системним викликом <code>os.replace</code></td>
+<td style="text-align: left;">Оновлення файлів конфігурації маршрутизаторів без станів гонитви</td>
+<td style="text-align: left;">Вимагає розташування тимчасового файлу в тому самому монтованому розділі</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Стан гонитви TOCTOU</strong></td>
+<td style="text-align: left;">Розбіжність стану системи між перевіркою <code>exists()</code> та операцією <code>open()</code></td>
+<td style="text-align: left;">Конкурентний доступ кількох демонів до одного файлу логу</td>
+<td style="text-align: left;">Можливість підміни файлу символьним посиланням у момент перевірки</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="33">3.3. Контрольні питання та завдання</h3>
+<h4 id="_8">Прикладні тестові завдання</h4>
+<ol>
+<li>Під час роботи демона збору мережевого трафіку виконується наступний блок коду:
+<div class="language-python highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">try</span><span class="p">:</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>    <span class="n">log_file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"/var/log/traffic.bin"</span><span class="p">,</span> <span class="s2">"wb"</span><span class="p">)</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>    <span class="n">log_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">b</span><span class="s2">"HEADER_V1"</span><span class="p">)</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>    <span class="mi">1</span> <span class="o">/</span> <span class="mi">0</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">"Помилка обробки!"</span><span class="p">)</span>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="k">finally</span><span class="p">:</span>
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">"Фіналізація блоку."</span><span class="p">)</span>
+</span></code></pre></div>
+Яким буде фізичний стан файлової системи, якщо аварійне знеструмлення вузла відбудеться в момент виконання ділення на нуль?</li>
+</ol>
+<p>A. Файл міститиме рядок <code>HEADER_V1</code>, оскільки операція запису передувала винятку.<br />
+B. Файл буде порожнім або відсутнім, оскільки буфер пам'яті не був вимитий на накопичувач.<br />
+C. Виникне виняток <code>OSError</code>, оскільки файл заблоковано незакритим дескриптором.<br />
+D. Операційна система автоматично виконає інструкції блоку <code>finally</code> перед перезавантаженням.</p>
+<details class="note">
+<summary>Розгорнути аналіз / відповідь</summary>
+<p><strong>Правильний варіант: B.</strong></p>
+<ol>
+<li>
+<p>Метод <code>write()</code> не передає байти безпосередньо на поверхню накопичувача, а лише записує їх у буфер процесу <code>io.BufferedWriter</code> розміром 8192 байти. Оскільки 9 байтів рядка <code>HEADER_V1</code> не заповнили буфер, фізичного системного виклику <code>sys_write</code> та скиду на диск не відбулося.</p>
+</li>
+<li>
+<p>При раптовому знеструмленні вміст оперативної пам'яті стирається миттєво. На диску залишиться лише створений ядром запис про файл із нульовим розміром.</p>
+</li>
+</ol>
+<p>Аналіз дистракторів:</p>
+<ul>
+<li>
+<p>Варіант A: Помилкове припущення про синхронний дисковий запис за замовчуванням без урахування буферизації.</p>
+</li>
+<li>
+<p>Варіант C: Файлові блокування не генерують помилок доступу у відсутності інструкцій <code>fcntl</code>.</p>
+</li>
+<li>
+<p>Варіант D: Апаратне знеструмлення анулює виконання коду віртуальною машиною; блок <code>finally</code> гарантує виконання лише в межах життєвого циклу працюючого процесу CPython.</p>
+</li>
+</ul>
+</details>
+<ol>
+<li>Програміст спроектував функцію обробки конфігураційних файлів наступним чином:
+<div class="language-python highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">load_config</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>    <span class="k">try</span><span class="p">:</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>        <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s2">"r"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>        <span class="k">return</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>    <span class="k">except</span> <span class="ne">BaseException</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>        <span class="k">return</span> <span class="s2">"</span><span class="si">{}</span><span class="s2">"</span>
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>    <span class="k">finally</span><span class="p">:</span>
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>        <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</span></code></pre></div>
+Яку критичну системну вразливість створює дана реалізація у виробничому середовищі?</li>
+</ol>
+<p>A. Функція викликає витік пам'яті через відсутність приведення тексту до рядкового типу.<br />
+B. Застосування <code>except BaseException</code> перехоплює сигнал <code>KeyboardInterrupt</code>, блокуючи штатне зупинення процесу операційною системою.<br />
+C. Метод <code>f.close()</code> у блоці <code>finally</code> виконається раніше, ніж завершиться операція <code>return f.read()</code>.<br />
+D. Якщо файл не знайдено, блок <code>finally</code> збудить додатковий виняток <code>UnboundLocalError</code>, замаскувавши первинний <code>FileNotFoundError</code>.</p>
+<details class="note">
+<summary>Розгорнути аналіз / відповідь</summary>
+<p><strong>Правильний варіант: D.</strong></p>
+<ol>
+<li>
+<p>Якщо файл за вказаним шляхом відсутній, функція <code>open()</code> зазнає невдачі і збудить виняток <code>FileNotFoundError</code>. У результаті змінна <code>f</code> не буде ініціалізована в локальному просторі імен стекового кадру.</p>
+</li>
+<li>
+<p>Керування перейде до блоку <code>except</code>, а потім безумовно до блоку <code>finally</code>. Спроба виконати <code>f.close()</code> призведе до звернення до неоголошеної змінної <code>f</code>, що викличе виняток <code>UnboundLocalError</code>. Цей вторинний виняток замістить первинний <code>FileNotFoundError</code>, позбавивши інженера коректної інформації про причину збою.</p>
+</li>
+</ol>
+<p>Аналіз дистракторів:</p>
+<ul>
+<li>
+<p>Варіант A: Текстовий режим читання автоматично повертає екземпляр <code>str</code>, витоки пам'яті тут відсутні.</p>
+</li>
+<li>
+<p>Варіант B: Хоча перехоплення <code>BaseException</code> дійсно є хибним, у разі <code>FileNotFoundError</code> інтерпретатор взагалі впаде на блоці <code>finally</code> через <code>UnboundLocalError</code>, що робить варіант D первинною фатальною помилкою коду.</p>
+</li>
+<li>
+<p>Варіант C: Інтерпретатор коректно обчислює результат <code>f.read()</code>, зберігає його в тимчасовий регістр, виконує <code>finally</code> і лише потім повертає значення.</p>
+</li>
+</ul>
+</details>
+<ol>
+<li>В системі збору даних необхідно перемістити курсор текстового файлу, відкритого в режимі <code>open('log.txt', 'r', encoding='utf-8')</code>. Яка з наведених операцій є синтаксично та методологічно допустимою у CPython?</li>
+</ol>
+<p>A. <code>file.seek(-10, os.SEEK_END)</code> для швидкого зчитування останніх десяти символів логу.<br />
+B. <code>file.seek(file.tell() + 5, os.SEEK_SET)</code> для пропуску п'яти байтів від поточної позиції.<br />
+C. <code>file.seek(cookie)</code> де <code>cookie</code> — ціле число, раніше повернуте функцією <code>file.tell()</code>.<br />
+D. <code>file.seek(15, os.SEEK_CUR)</code> за умови, що всі символи у файлі належать таблиці ASCII.</p>
+<details class="note">
+<summary>Розгорнути аналіз / відповідь</summary>
+<p><strong>Правильний варіант: C.</strong></p>
+<ol>
+<li>
+<p>У текстовому режимі транслятор <code>io.TextIOWrapper</code> не підтримує довільну байтову арифметику через нелінійне співвідношення між байтами UTF-8 та символами Unicode.</p>
+</li>
+<li>
+<p>Єдиними валідними аргументами для <code>seek()</code> у текстовому файлі є нульове зміщення (<code>0</code>) від початку або кінця файлу, або непрозоре числове значення (<em>opaque cookie</em>), яке було безпосередньо зафіксоване викликом <code>file.tell()</code> у цьому самому сеансі читання.</p>
+</li>
+</ol>
+<p>Аналіз дистракторів:</p>
+<ul>
+<li>
+<p>Варіант A: Від'ємне зміщення від кінця файлу в текстовому режимі заборонене і збуджує <code>io.UnsupportedOperation</code>.</p>
+</li>
+<li>
+<p>Варіант B: Арифметика над значенням <code>tell()</code> не гарантує потрапляння на межу символу і є невалідною для текстового потоку.</p>
+</li>
+<li>
+<p>Варіант D: Незалежно від вмісту файлу, інтерпретатор блокує ненульовий параметр <code>whence=1</code> для об'єктів <code>TextIOWrapper</code>.</p>
+</li>
+</ul>
+</details>
+<ol>
+<li>Розробник реалізував власний клас менеджера контексту для керування апаратним портом RS-485:
+<div class="language-python highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">SerialPortManager</span><span class="p">:</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">port</span><span class="p">):</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">port</span> <span class="o">=</span> <span class="n">port</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__enter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>        <span class="k">return</span> <span class="bp">self</span>
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__exit__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">exc_type</span><span class="p">,</span> <span class="n">exc_val</span><span class="p">,</span> <span class="n">exc_tb</span><span class="p">):</span>
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>        <span class="k">if</span> <span class="n">exc_type</span> <span class="ow">is</span> <span class="ne">TimeoutError</span><span class="p">:</span>
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>            <span class="nb">print</span><span class="p">(</span><span class="s2">"Таймаут лінії зв'язку!"</span><span class="p">)</span>
+</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>            <span class="k">return</span> <span class="kc">True</span>
+</span></code></pre></div>
+Якою буде поведінка програми, якщо всередині контекстного блоку <code>with SerialPortManager('/dev/ttyUSB0'):</code> виникне виняток <code>ZeroDivisionError</code>?</li>
+</ol>
+<p>A. Виняток буде проігноровано, оскільки метод <code>__exit__</code> завжди придушує помилки при наявності інструкції <code>return</code>.<br />
+B. Програма надрукує повідомлення про таймаут і продовжить нормальне виконання.<br />
+C. Метод <code>__exit__</code> поверне неявне значення <code>None</code> (інтерпретується як <code>False</code>), і виняток <code>ZeroDivisionError</code> продовжить поширюватися стеком викликів.<br />
+D. Виникне внутрішня помилка <code>TypeError</code> через неспівпадіння типів умовного виразу перевірки винятку.</p>
+<details class="note">
+<summary>Розгорнути аналіз / відповідь</summary>
+<p><strong>Правильний варіант: C.</strong></p>
+<ol>
+<li>
+<p>Метод <code>__exit__</code> перевіряє, чи є тип збудженого винятку екземпляром класу <code>TimeoutError</code>. У разі виникнення <code>ZeroDivisionError</code> умова <code>exc_type is TimeoutError</code> повертає <code>False</code>.</p>
+</li>
+<li>
+<p>Тіло умовного оператора пропускається, і метод завершується без явного оператора <code>return</code>, повертаючи <code>None</code>. У логічному контексті <code>None</code> еквівалентний <code>False</code>, що наказує віртуальній машині PVM продовжити штатну процедуру розкручування стека для необробленого винятку <code>ZeroDivisionError</code>.</p>
+</li>
+</ol>
+<p>Аналіз дистракторів:</p>
+<ul>
+<li>
+<p>Варіант A: Придушення винятку відбувається виключно тоді, коли <code>__exit__</code> явно повертає істинне значення <code>True</code>.</p>
+</li>
+<li>
+<p>Варіант B: Гілка друку активується лише при виникненні винятку типу <code>TimeoutError</code>.</p>
+</li>
+<li>
+<p>Варіант D: Зіставлення типів <code>is</code> над класами є абсолютно валідною операцією мови Python.</p>
+</li>
+</ul>
+</details>
+<hr />
+<h4 id="_9">Завдання для самостійної роботи</h4>
+<h5 id="_10">Постановка задачі</h5>
+<p>У системі контролю доступу базової станції стільникового зв'язку ведеться журнал реєстрації спроб автентифікації персоналу. Записи надходять безперервно через чергу міжпроцесної взаємодії. Необхідно розробити програмний модуль ротації лог-файлів, який забезпечує створення нового файлу журналу при досягненні розміру <span class="arithmatex">\(5 \text{ МБ}\)</span>, зберігає архівні копії у форматі <code>auth_audit.log.N</code> (де <span class="arithmatex">\(N \in \{1, 2, 3\}\)</span>), верифікує цілісність кожного рядка за допомогою контрольного хешу та унеможливлює втрату або пошкодження даних у разі раптового скидання живлення процесорного модуля.</p>
+<h5 id="_11">Завдання для виконання</h5>
+<ol>
+<li>
+<p>Спроектуйте клас власного винятку з обов'язковою інкапсуляцією імені пошкодженого файлу, зафіксованого розміру в байтах та очікуваного хешу контрольного блоку.</p>
+</li>
+<li>
+<p>Реалізуйте алгоритм перевірки розміру робочого журналу та процедуру каскадного зсуву архівних файлів із застосуванням виключно атомарних операцій перейменування файлової системи.</p>
+</li>
+<li>
+<p>Розробіть менеджер контексту для безпечного додавання нових рядків аудиту, який автоматично забезпечує виклик методів очищення буферів програми та примусової синхронізації кешу ядра на фізичний накопичувач.</p>
+</li>
+<li>
+<p>Складіть тестовий набір інструкцій, що емулює аварійне переривання процесу запису та демонструє збереження цілісності файлових дескрипторів та відсутність втрати раніше зафіксованих подій.</p>
+</li>
+</ol>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Повернутись нагору
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 Kyrylo Vadurin &bull; <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a>
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.expand", "navigation.top", "navigation.tracking", "header.autohide", "search.suggest", "search.highlight", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u0421\u043a\u043e\u043f\u0456\u0439\u043e\u0432\u0430\u043d\u043e \u0432 \u0431\u0443\u0444\u0435\u0440", "clipboard.copy": "\u0421\u043a\u043e\u043f\u0456\u044e\u0432\u0430\u0442\u0438 \u0432 \u0431\u0443\u0444\u0435\u0440", "search.result.more.one": "\u0429\u0435 1 \u0437\u0431\u0456\u0433 \u043d\u0430 \u0446\u0456\u0439 \u0441\u0442\u043e\u0440\u0456\u043d\u0446\u0456", "search.result.more.other": "\u0429\u0435 # \u0437\u0431\u0456\u0433\u0456\u0432 \u043d\u0430 \u0446\u0456\u0439 \u0441\u0442\u043e\u0440\u0456\u043d\u0446\u0456", "search.result.none": "\u0417\u0431\u0456\u0433\u0456\u0432 \u043d\u0435 \u0437\u043d\u0430\u0439\u0434\u0435\u043d\u043e", "search.result.one": "\u0417\u043d\u0430\u0439\u0434\u0435\u043d\u043e 1 \u0437\u0431\u0456\u0433", "search.result.other": "\u0417\u043d\u0430\u0439\u0434\u0435\u043d\u043e # \u0437\u0431\u0456\u0433\u0456\u0432", "search.result.placeholder": "\u0420\u043e\u0437\u043f\u043e\u0447\u043d\u0456\u0442\u044c \u043f\u0438\u0441\u0430\u0442\u0438 \u0434\u043b\u044f \u043f\u043e\u0448\u0443\u043a\u0443", "search.result.term.missing": "\u041d\u0435 \u0437\u043d\u0430\u0439\u0434\u0435\u043d\u043e \u0437\u0430\u043f\u0438\u0442\u0443", "select.version": "\u041e\u0431\u0440\u0430\u0442\u0438 \u0432\u0435\u0440\u0441\u0456\u044e"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

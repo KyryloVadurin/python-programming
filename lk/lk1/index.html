@@ -1,0 +1,3080 @@
+
+<!doctype html>
+<html lang="uk" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Навчальний портал з дисципліни "Програмування на Python. Базовий рівень"">
+      
+      
+      
+      
+        <link rel="prev" href="../..">
+      
+      
+        <link rel="next" href="../lk2/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Тема 1. Архітектура мови та інфраструктура - Програмування на Python</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="cyan">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#1-python" class="md-skip">
+          Перейти до змісту
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Хедер">
+    <a href="../.." title="Програмування на Python" class="md-header__button md-logo" aria-label="Програмування на Python" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Програмування на Python
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Тема 1. Архітектура мови та інфраструктура
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="cyan"  aria-label="Переключити на темну тему"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Переключити на темну тему" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="cyan"  aria-label="Переключити на світлу тему"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Переключити на світлу тему" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Пошук" placeholder="Пошук" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Шукати">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Очистити" aria-label="Очистити" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Пошук розпочато
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Вкладки" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Робоча програма
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="./" class="md-tabs__link">
+          
+  
+  
+  Лекції
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../lb/lb1/" class="md-tabs__link">
+          
+  
+  
+  Лабораторні роботи
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../sr/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Самостійна робота
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../sr/quest/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Перелік тестових питань
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../rg/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Розрахунково-графічна робота
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Навігація" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Програмування на Python" class="md-nav__button md-logo" aria-label="Програмування на Python" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Програмування на Python
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Робоча програма
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Лекції
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Лекції
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Тема 1. Архітектура мови та інфраструктура
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Тема 1. Архітектура мови та інфраструктура
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Зміст">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Зміст
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Мета лекції
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Очікувані результати навчання
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Детальний покроковий план лекції
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Детальний покроковий план лекції">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-cpython" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Теоретико-концептуальний базис. Архітектурні засади інтерпретатора CPython та скалярна модель даних
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Методологія та аналіз граничних умов. Логічні операції, розгалуження та обмеження точності
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Практичний індустріальний / фаховий кейс. Первинна обробка та верифікація апаратних потоків даних
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-cpython_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Теоретико-концептуальний базис. Архітектурні засади інтерпретатора CPython та скалярна модель даних
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Теоретико-концептуальний базис. Архітектурні засади інтерпретатора CPython та скалярна модель даних">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-ast-pyc-pvm-gil" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1. Дворівневий конвеєр компіляції та виконання програми: трансляція синтаксичного дерева AST у байт-код, формат файлів кешу (.pyc), цикл інтерпретації віртуальної машини PVM та природа глобального блокування інтерпретатора GIL
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-miniconda-venv-vs-code-git" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2. Інженерна екосистема розробки: створення ізольованих середовищ засобами дистрибутива Miniconda порівняно з venv, конфігурація середовища VS Code та фіксація станів проекту в розподіленій системі Git
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-cpython-c-ob_refcnt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3. Внутрішня модель пам'яті CPython: динамічна типізація, змінні як посилання на C-структури, лічильники посилань ob_refcnt, системні ідентифікатори та незмінність скалярних об'єктів
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14-ieee-754-none" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.4. Базові скалярні типи: довга арифметика цілих чисел, представлення дійсних чисел за стандартом IEEE 754, комплексна площина, булева логіка та об'єкт відсутності значення None
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Вказівки для самостійного осмислення
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Методологія та аналіз граничних умов. Алгоритмізація розгалужень, булева логіка та граничні стани обчислень
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Методологія та аналіз граничних умов. Алгоритмізація розгалужень, булева логіка та граничні стани обчислень">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-truthiness-short-circuit-evaluation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1. Концепція істинності об'єктів (truthiness) та робота логічних операторів за короткою схемою (short-circuit evaluation)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-if-elif-else" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2. Керування потоком інструкцій: семантика блоків відступів, повна форма умовного оператора if-elif-else та компактний тримісний вираз вибору
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3. Побітові операції над цілими числами у додатковому коді як інструмент побітового маскування апаратних прапорців
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-mathisclose" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4. Критичні бар'єри та обмеження чисельних типів: похибки двійкового дробового представлення, неможливість точного порівняння чисел з плаваючою комою та застосування функції math.isclose
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25-sysstdin-sysstdout" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.5. Стандартизоване потокове введення-виведення через sys.stdin і sys.stdout та сучасні методи форматування числових даних
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Практичний індустріальний / фаховий кейс. Первинна обробка та верифікація апаратних потоків даних
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Практичний індустріальний / фаховий кейс. Первинна обробка та верифікація апаратних потоків даних">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1. Комплексний фаховий кейс. Розробка алгоритмічного модуля валідації, побітового маскування та калібрування пакетів телеметрії супутникового сенсора радіозв'язку
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.1. Комплексний фаховий кейс. Розробка алгоритмічного модуля валідації, побітового маскування та калібрування пакетів телеметрії супутникового сенсора радіозв&#39;язку">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Постановка задачі / ситуації
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Покроковий аналіз та розв'язок
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Покроковий аналіз та розв&#39;язок">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Крок 1. Верифікація синхромаркера кадру засобами побітового зсуву
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Крок 2. Побітова сепарація статусних прапорців підсистем
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Крок 3. Демаскування та лінійне калібрування каналу температури
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-rssi-ieee-754" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Крок 4. Демаскування рівня сигналу RSSI та верифікація з граничним порогом IEEE 754
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Інтерпретація результатів та альтернативні сценарії
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2. Зведена довідкова система лекції
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3. Контрольні питання та завдання
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.3. Контрольні питання та завдання">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Прикладні тестові завдання
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Прикладні тестові завдання">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Завдання 1
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Завдання 2
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Завдання 3
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Завдання 4
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Завдання для самостійної роботи
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Завдання для самостійної роботи">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Постановка задачі
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Завдання для виконання
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lk2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Тема 2. Керування потоком виконання
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lk3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Тема 3. Впорядковані структури даних (Списки, Кортежі)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lk4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Тема 4. Текстові, двійкові дані та Регулярні вирази
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lk5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Тема 5. Хеш-таблиці (Словники, Множини)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lk6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Тема 6. Функціональна організація коду
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lk7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Тема 7. Модульна архітектура та пакети
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lk8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Тема 8. Обробка винятків та файлове в/в
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lk9/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Тема 9. Об'єктно-орієнтоване програмування
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Лабораторні роботи
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Лабораторні роботи
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lb/lb1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 1. Розгортання інфраструктури розробки
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lb/lb2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 2. Скалярні типи даних та моделювання
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lb/lb3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 3. Алгоритми розгалуженої та циклічної структури
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lb/lb4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 4. Обробка списків та кортежі
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lb/lb5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 5. Обробка тексту та регулярні вирази
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lb/lb6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 6. Асоціативні структури даних (Словники, Множини)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lb/lb7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 7. Проєктування функцій та рекурсія
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lb/lb8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 8. Модульне програмування та системні бібліотеки
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lb/lb9/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 9. Обробка виняткових ситуацій
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lb/lb10/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 10. Файлове в/в та менеджери контексту
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lb/lb11/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 11. ООП та перевантаження методів
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sr/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Самостійна робота
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sr/quest/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Перелік тестових питань
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../rg/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Розрахунково-графічна робота
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Зміст">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Зміст
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Мета лекції
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Очікувані результати навчання
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Детальний покроковий план лекції
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Детальний покроковий план лекції">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-cpython" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Теоретико-концептуальний базис. Архітектурні засади інтерпретатора CPython та скалярна модель даних
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Методологія та аналіз граничних умов. Логічні операції, розгалуження та обмеження точності
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Практичний індустріальний / фаховий кейс. Первинна обробка та верифікація апаратних потоків даних
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-cpython_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Теоретико-концептуальний базис. Архітектурні засади інтерпретатора CPython та скалярна модель даних
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Теоретико-концептуальний базис. Архітектурні засади інтерпретатора CPython та скалярна модель даних">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-ast-pyc-pvm-gil" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1. Дворівневий конвеєр компіляції та виконання програми: трансляція синтаксичного дерева AST у байт-код, формат файлів кешу (.pyc), цикл інтерпретації віртуальної машини PVM та природа глобального блокування інтерпретатора GIL
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-miniconda-venv-vs-code-git" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2. Інженерна екосистема розробки: створення ізольованих середовищ засобами дистрибутива Miniconda порівняно з venv, конфігурація середовища VS Code та фіксація станів проекту в розподіленій системі Git
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-cpython-c-ob_refcnt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3. Внутрішня модель пам'яті CPython: динамічна типізація, змінні як посилання на C-структури, лічильники посилань ob_refcnt, системні ідентифікатори та незмінність скалярних об'єктів
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14-ieee-754-none" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.4. Базові скалярні типи: довга арифметика цілих чисел, представлення дійсних чисел за стандартом IEEE 754, комплексна площина, булева логіка та об'єкт відсутності значення None
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Вказівки для самостійного осмислення
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Методологія та аналіз граничних умов. Алгоритмізація розгалужень, булева логіка та граничні стани обчислень
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Методологія та аналіз граничних умов. Алгоритмізація розгалужень, булева логіка та граничні стани обчислень">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-truthiness-short-circuit-evaluation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1. Концепція істинності об'єктів (truthiness) та робота логічних операторів за короткою схемою (short-circuit evaluation)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-if-elif-else" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2. Керування потоком інструкцій: семантика блоків відступів, повна форма умовного оператора if-elif-else та компактний тримісний вираз вибору
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3. Побітові операції над цілими числами у додатковому коді як інструмент побітового маскування апаратних прапорців
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-mathisclose" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4. Критичні бар'єри та обмеження чисельних типів: похибки двійкового дробового представлення, неможливість точного порівняння чисел з плаваючою комою та застосування функції math.isclose
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25-sysstdin-sysstdout" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.5. Стандартизоване потокове введення-виведення через sys.stdin і sys.stdout та сучасні методи форматування числових даних
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Практичний індустріальний / фаховий кейс. Первинна обробка та верифікація апаратних потоків даних
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Практичний індустріальний / фаховий кейс. Первинна обробка та верифікація апаратних потоків даних">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1. Комплексний фаховий кейс. Розробка алгоритмічного модуля валідації, побітового маскування та калібрування пакетів телеметрії супутникового сенсора радіозв'язку
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.1. Комплексний фаховий кейс. Розробка алгоритмічного модуля валідації, побітового маскування та калібрування пакетів телеметрії супутникового сенсора радіозв&#39;язку">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Постановка задачі / ситуації
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Покроковий аналіз та розв'язок
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Покроковий аналіз та розв&#39;язок">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Крок 1. Верифікація синхромаркера кадру засобами побітового зсуву
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Крок 2. Побітова сепарація статусних прапорців підсистем
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Крок 3. Демаскування та лінійне калібрування каналу температури
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-rssi-ieee-754" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Крок 4. Демаскування рівня сигналу RSSI та верифікація з граничним порогом IEEE 754
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Інтерпретація результатів та альтернативні сценарії
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2. Зведена довідкова система лекції
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3. Контрольні питання та завдання
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.3. Контрольні питання та завдання">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Прикладні тестові завдання
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Прикладні тестові завдання">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Завдання 1
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Завдання 2
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Завдання 3
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Завдання 4
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Завдання для самостійної роботи
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Завдання для самостійної роботи">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Постановка задачі
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Завдання для виконання
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="1-python">Тема 1. Архітектура мови Python, інфраструктура розробника та модель скалярних даних</h1>
+<h2 id="_1">Мета лекції</h2>
+<p>Мета лекції полягає у формуванні в майбутніх інженерів фундаментального системного розуміння внутрішніх механізмів функціонування інтерпретатора Python, його архітектурного конвеєра трансляції вихідного коду у байт-код та принципів роботи віртуальної машини PVM, а також у всебічному опануванні низькорівневої моделі керування пам'яттю, принципів представлення базових скалярних типів даних та інструментарію побудови відтворюваних середовищ розробки, що створює критично необхідний теоретичний і практичний базис для проектування надійних систем цифрової обробки інформації, засобів автоматизації та інженерного програмного забезпечення.</p>
+<h2 id="_2">Очікувані результати навчання</h2>
+<ol>
+<li>
+<p><strong>Знання та розуміння.</strong> Студенти оволодіють знаннями про дворівневу модель виконання програм у CPython, призначення та структуру байт-коду, архітектуру віртуальної машини PVM, механізм синхронізації потоків GIL, а також про структурну організацію скалярних об'єктів у динамічній пам'яті.</p>
+</li>
+<li>
+<p><strong>Застосування.</strong> Здобувачі вищої освіти набудуть умінь самостійно розгортати ізольовані виробничі середовища за допомогою Miniconda, інтегрувати робочий простір з редактором Visual Studio Code та розподіленою системою контролю версій Git, а також реалізовувати обчислювальні сценарії з використанням скалярних величин і модуля математичних функцій.</p>
+</li>
+<li>
+<p><strong>Аналіз.</strong> Майбутні фахівці зможуть досліджувати внутрішній стан об'єктів за їхніми фізичними адресами в оперативній пам'яті, аналізувати поведінку системного пулу кешування малих цілих чисел та виявляти приховані похибки округлення при роботі з числами подвійної точності за стандартом IEEE 754.</p>
+</li>
+<li>
+<p><strong>Оцінювання та синтез.</strong> Студенти навчаться критично оцінювати обмеження продуктивності інтерпретатора при розпаралелюванні обчислювальних процесів, проектувати надійні логічні фільтри з урахуванням концепції коротких схем обчислення та розробляти алгоритмічні модулі для низькорівневої обробки телеметричних потоків даних апаратури.</p>
+</li>
+</ol>
+<hr />
+<h2 id="_3">Детальний покроковий план лекції</h2>
+<h3 id="1-cpython">1. Теоретико-концептуальний базис. Архітектурні засади інтерпретатора CPython та скалярна модель даних</h3>
+<ul>
+<li>
+<p>1.1. Дворівневий конвеєр компіляції та виконання програми: трансляція синтаксичного дерева AST у байт-код, формат файлів кешу (.pyc), цикл інтерпретації віртуальної машини PVM та природа глобального блокування інтерпретатора GIL.</p>
+</li>
+<li>
+<p>1.2. Інженерна екосистема розробки: створення ізольованих середовищ засобами дистрибутива Miniconda порівняно з venv, конфігурація середовища VS Code та фіксація станів проекту в розподіленій системі Git.</p>
+</li>
+<li>
+<p>1.3. Внутрішня модель пам'яті CPython: динамічна типізація, змінні як посилання на C-структури, лічильники посилань ob_refcnt, системні ідентифікатори та незмінність скалярних об'єктів.</p>
+</li>
+<li>
+<p>1.4. Базові скалярні типи: довга арифметика цілих чисел, представлення дійсних чисел за стандартом IEEE 754, комплексна площина, булева логіка та об'єкт відсутності значення None.</p>
+</li>
+</ul>
+<h3 id="2">2. Методологія та аналіз граничних умов. Логічні операції, розгалуження та обмеження точності</h3>
+<ul>
+<li>
+<p>2.1. Концепція істинності об'єктів (truthiness) та робота логічних операторів за короткою схемою (short-circuit evaluation).</p>
+</li>
+<li>
+<p>2.2. Керування потоком інструкцій: семантика блоків відступів, повна форма умовного оператора if-elif-else та компактний тримісний вираз вибору.</p>
+</li>
+<li>
+<p>2.3. Побітові операції над цілими числами у додатковому коді як інструмент побітового маскування апаратних прапорців.</p>
+</li>
+<li>
+<p>2.4. Критичні бар'єри та обмеження чисельних типів: похибки двійкового дробового представлення, неможливість точного порівняння чисел з плаваючою комою та застосування функції math.isclose.</p>
+</li>
+<li>
+<p>2.5. Стандартизоване потокове введення-виведення через sys.stdin і sys.stdout та сучасні методи форматування числових даних.</p>
+</li>
+</ul>
+<h3 id="3">3. Практичний індустріальний / фаховий кейс. Первинна обробка та верифікація апаратних потоків даних</h3>
+<p><strong>Тема наскрізної задачі.</strong> «Розробка модуля валідації, побітового маскування та калібрування пакетів телеметрії супутникового сенсора радіозв'язку»</p>
+<h2 id="1-cpython_1">1. Теоретико-концептуальний базис. Архітектурні засади інтерпретатора CPython та скалярна модель даних</h2>
+<h3 id="11-ast-pyc-pvm-gil">1.1. Дворівневий конвеєр компіляції та виконання програми: трансляція синтаксичного дерева AST у байт-код, формат файлів кешу (.pyc), цикл інтерпретації віртуальної машини PVM та природа глобального блокування інтерпретатора GIL</h3>
+<p>Еталонна реалізація мови Python, відома як <strong>CPython</strong>, функціонує за дворівневою гібридною моделлю обробки програмного коду. Ця модель принципово відрізняється як від прямої компіляції в машинний код цільового процесора, властивої мовам C або Rust, так і від суто рядкової інтерпретації класичних командних скриптів. Вся кодова база на мові Python перед виконанням проходить обов'язковий етап трансляції у машинно-незалежне проміжне представлення фіксованого формату, що має назву <strong>байт-код</strong>.</p>
+<p>Конвеєр обробки вихідного файлу починається з лексичного аналізатора, який розбиває вхідний потік символів на неподільні елементарні лексеми відповідно до граматичних правил мови. Далі синтаксичний парсер перетворює послідовність лексем на абстрактне синтаксичне дерево (<strong>Abstract Syntax Tree, AST</strong>), яке формалізує ієрархічні зв'язки між виразами, керуючими структурами та блоками інструкцій. Спеціалізований компілятор CPython аналізує побудоване синтаксичне дерево і транслює його в лінійний масив байт-кодових інструкцій, упакованих у внутрішній системний об'єкт програмного коду, який у термінах мови C має тип <code>PyCodeObject</code>.</p>
+<pre class="mermaid"><code>flowchart TD
+    Source["Вихідний файл (.py)"] --&gt; Lexer["Лексичний сканер (Токенізація)"]
+    Lexer --&gt; Parser["Синтаксичний парсер (Побудова AST)"]
+    Parser --&gt; Compiler["Компілятор CPython (Генерація інструкцій)"]
+    Compiler --&gt; CodeObject["Об'єкт програмного коду (PyCodeObject)"]
+    CodeObject --&gt; PycFile["Кешований файл (.pyc у каталозі __pycache__)"]
+    CodeObject --&gt; PVM["Віртуальна машина Python (PVM Engine)"]
+    PVM --&gt; EvalLoop["Головний цикл інтерпретатора (файл ceval.c)"]
+    EvalLoop &lt;--&gt; GIL["М'ютекс синхронізації потоків (GIL)"]
+    EvalLoop --&gt; OS["Системні виклики ядра операційної системи"]</code></pre>
+<p>Для оптимізації повторного завантаження програмних модулів скомпільований об'єкт коду серіалізується на диск у бінарний файл із розширенням <code>.pyc</code>, який розміщується в автоматично створюваній піддиректорії <code>__pycache__</code>. Заголовок файлу <code>.pyc</code> містить службові метадані, необхідні для швидкої валідації кешу:</p>
+<ol>
+<li>
+<p>Чотирибайтне магічне число, перші два байти якого змінюються з кожною ревізією формату байт-коду CPython, а наступні два містять символи повернення каретки та нового рядка.</p>
+</li>
+<li>
+<p>Чотирибайтне бітове поле прапорців, що визначає стратегію перевірки цілісності кешу.</p>
+</li>
+<li>
+<p>Метадані відповідності вихідного коду, які залежно від прапорців містять або 32-бітну часову мітку останньої модифікації вихідного скрипта разом із його розміром, або 64-бітний криптографічний хеш вмісту файлу.</p>
+</li>
+<li>
+<p>Серіалізований за алгоритмом Marshal об'єкт <code>PyCodeObject</code>, що містить власне байт-код, кортежі констант та таблиці імен змінних.</p>
+</li>
+</ol>
+<p>Якщо часова мітка або хеш вихідного скрипта збігаються з даними у заголовку файлу <code>.pyc</code>, інтерпретатор повністю оминає етапи токенізації, побудови синтаксичного дерева та трансляції, негайно завантажуючи готовий байт-код безпосередньо у віртуальну машину.</p>
+<p>Безпосереднє виконання інструкцій здійснює віртуальна машина Python (<strong>Python Virtual Machine, PVM</strong>). Архітектурно PVM спроектована як абстрактний стековий процесор. У ній відсутні фізичні регістри загального призначення, а виконання будь-яких обчислень чи викликів функцій базується на завантаженні операндів на динамічний стек оцінювання та наступному знятті результату. Робочим тілом PVM є гігантський оператор вибору у вихідному коді ядра CPython у файлі <code>ceval.c</code>, де кожна команда байт-коду (операція довжиною в один або два байти з відповідним числовим аргументом) запускає виконання відповідного фрагмента низькорівневого C-коду. Для ізоляції контексту виконання функцій PVM динамічно створює стекові кадри (<code>PyFrameObject</code>), що містять локальну таблицю імен, покажчик на глобальний простір імен модуля та покажчик на попередній стек виклику.</p>
+<p>Фундаментальним обмеженням архітектури CPython виступає глобальне блокування інтерпретатора (<strong>Global Interpreter Lock, GIL</strong>). GIL являє собою системний м'ютекс взаємного виключення операційної системи, покликаний усунути стан гонитви при модифікації структур внутрішньої пам'яті CPython. Оскільки механізм керування пам'яттю спирається на неатомарне оновлення лічильників посилань на об'єкти, паралельний доступ кількох нативних потоків без централізованого блокування призвів би до деградації структур інтерпретатора. Як наслідок, у межах одного процесу CPython одночасно виконувати інструкції байт-коду може тільки один потік, навіть якщо апаратна платформа налічує десятки фізичних ядер процесора. Для завдань із домінуванням обчислень на центральному процесорі стандартна багатопоточність не забезпечує паралелізму, змушуючи інженерів переходити на використання окремих процесів операційної системи.</p>
+<blockquote>
+<p><strong>ПРАКТИЧНИЙ ЯКІР:</strong> У промислових системах комп'ютерного зору на базі бібліотеки OpenCV та чисельних розрахунків NumPy ресурсомісткі математичні цикли реалізовані мовами C/C++. Перед початком таких важких векторних обчислень ці бібліотеки викликають макрос CPython <code>Py_BEGIN_ALLOW_THREADS</code>, який тимчасово вивільняє м'ютекс GIL. Це дозволяє нативному C-коду задіяти всі ядра центрального процесора на повну потужність, поки основний потік інтерпретатора Python перебуває в режимі очікування.</p>
+</blockquote>
+<hr />
+<h3 id="12-miniconda-venv-vs-code-git">1.2. Інженерна екосистема розробки: створення ізольованих середовищ засобами дистрибутива Miniconda порівняно з venv, конфігурація середовища VS Code та фіксація станів проекту в розподіленій системі Git</h3>
+<p>Розробка надійного інженерного програмного забезпечення вимагає суворої детермінованості системного оточення. Якщо інсталювати пакети бібліотек у глобальний каталог операційної системи, неминуче виникає конфлікт версій спільних залежностей, відомий як «dependency hell». Для запобігання подібним ситуаціям у професійній практиці застосовують технології віртуальних ізольованих середовищ.</p>
+<p>Вбудований у стандартну поставку Python модуль <code>venv</code> вирішує завдання ізоляції шляхом створення локальної копії структури каталогів, яка включає символьне посилання на системний виконуваний файл інтерпретатора, власний каталог <code>site-packages</code> та командні файли активації оточення. Проте інструмент <code>venv</code> разом із пакетним менеджером <code>pip</code> оперує виключно залежностями рівня мови Python. Якщо бібліотека вимагає зовнішніх скомпільованих динамічних бібліотек мови C, обчислювальних ядер лінійної алгебри BLAS/LAPACK або драйверів апаратних прискорювачів обчислень, розробник змушений самостійно розгортати в операційній системі компілятори C++ та супутні системні заголовні файли.</p>
+<p>На противагу цьому, дистрибутив <strong>Miniconda</strong>, що базується на менеджері пакетів <code>conda</code>, є повноцінною системою керування бінарними залежностями на системному рівні. Середовища <code>conda</code> здатні інкапсулювати не лише модулі Python, але й сторонні системні бібліотеки компіляторів, графічні драйвери та специфічні версії самого інтерпретатора, повністю ізолюючи проєкт від стану хостової операційної системи. </p>
+<p>Таблиця 1.1 систематизує ключові компоненти сучасної інженерної екосистеми, які формують основу робочого середовища розробника.</p>
+<p><em>Таблиця 1.1 — Систематизація інструментального стека інженера-програміста</em></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Категорія інструменту</th>
+<th style="text-align: left;">Технологічне рішення</th>
+<th style="text-align: left;">Архітектурний механізм</th>
+<th style="text-align: left;">Приклад з реальної практики</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Керування середовищем</strong></td>
+<td style="text-align: left;">Miniconda (Conda Engine)</td>
+<td style="text-align: left;">Ізоляція бінарних версій системних компіляторів, інтерпретатора та C-бібліотек у пісочницю</td>
+<td style="text-align: left;">Розгортання стека SciPy та CUDA Toolkit без інсталяції системних драйверів у хостову ОС</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Керування бібліотеками</strong></td>
+<td style="text-align: left;">Python <code>venv</code> + <code>pip</code></td>
+<td style="text-align: left;">Створення локального каталогу <code>site-packages</code> зі зміною системної змінної шляхів <code>PATH</code></td>
+<td style="text-align: left;">Створення мікросервісу на базі FastAPI з фіксацією чистих Python-залежностей у <code>requirements.txt</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Редагування та налагодження</strong></td>
+<td style="text-align: left;">Visual Studio Code</td>
+<td style="text-align: left;">Клієнт-серверна модель на базі Language Server Protocol (LSP Pylance) та налагоджувача Debugpy</td>
+<td style="text-align: left;">Трасування стекових кадрів телеметричного сервера з установкою точок зупинки за умовою</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Інтерактивні обчислення</strong></td>
+<td style="text-align: left;">Jupyter Notebook (IPython)</td>
+<td style="text-align: left;">Двокомпонентна взаємодія веб-інтерфейсу з ядром через протокол обміну повідомленнями ZeroMQ</td>
+<td style="text-align: left;">Експериментальний аналіз та побудова спектрограм сигналів за допомогою бібліотеки Matplotlib</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Контроль версій</strong></td>
+<td style="text-align: left;">Git / GitHub</td>
+<td style="text-align: left;">Спрямований ациклічний граф (DAG) незмінних станів файлової системи на базі хешів SHA</td>
+<td style="text-align: left;">Командна розробка бортового алгоритму з ізоляцією експериментальних гілок та кодовим рецензуванням</td>
+</tr>
+</tbody>
+</table>
+<p>Інтегроване середовище розробки Visual Studio Code (VS Code) використовує модульну архітектуру. Взаємодія з кодом реалізується через мовний сервер Pylance, який виконує фоновий синтаксичний розбір, перевірку відповідності стилю коду стандарту <strong>PEP 8</strong>, статичний аналіз типів та динамічну підказку сигнатур функцій. Інтегрований налагоджувач дозволяє зупиняти виконання програми на довільному рядку, здійснювати покрокову трасування інструкцій та проводити інспекцію внутрішнього стану пам'яті. </p>
+<p>Керування версіями реалізується розподіленою системою <strong>Git</strong>. Архітектура Git побудована на зберіганні знімків файлової системи у вигляді спрямованого ациклічного графа комітів. Критично важливим елементом інженерного репозиторію є файл <code>.gitignore</code>. До нього обов'язково вносяться шаблони, що виключають збереження тимчасових та бінарних артефактів: кешу компіляції (<code>__pycache__/</code>, <code>*.pyc</code>), віртуальних оточень (<code>.venv/</code>, <code>miniconda3/</code>), локальних параметрів редактора (<code>.vscode/</code>) та службових каталогів блокнотів (<code>.ipynb_checkpoints/</code>).</p>
+<hr />
+<h3 id="13-cpython-c-ob_refcnt">1.3. Внутрішня модель пам'яті CPython: динамічна типізація, змінні як посилання на C-структури, лічильники посилань ob_refcnt, системні ідентифікатори та незмінність скалярних об'єктів</h3>
+<p>Система типізації мови Python має дві фундаментальні характеристики: вона є <strong>динамічною</strong> та <strong>строгою (сильною)</strong>. Динамічна природа означає, що зв'язування типу даних здійснюється не на етапі компіляції програми, а безпосередньо в процесі виконання під час створення конкретного об'єкта в динамічній пам'яті. Змінна в Python позбавлена внутрішнього типу; вона не резервує фіксовану кількість байтів у пам'яті, як це відбувається зі змінними у статично типізованих мовах. Змінна є лише іменованим посиланням, покажчиком на об'єкт, який розташовано у купі (<strong>heap</strong>). Сильна типізація виключає неявне автоматичне перетворення несумісних типів у бінарних операціях: спроба додати число до рядка без явного приведення негайно викликає аварійне завершення з винятком <code>TypeError</code>.</p>
+<p>Усі сутності в інтерпретаторі CPython реалізовані як C-структури, похідні від базового типу <code>PyObject</code>. Спрощене визначення цієї базової структури має такий вигляд:</p>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">_object</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">    </span><span class="n">_PyObject_HEAD_EXTRA</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="n">Py_ssize_t</span><span class="w"> </span><span class="n">ob_refcnt</span><span class="p">;</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span><span class="k">struct</span><span class="w"> </span><span class="nc">_typeobject</span><span class="w"> </span><span class="o">*</span><span class="n">ob_type</span><span class="p">;</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="p">}</span><span class="w"> </span><span class="n">PyObject</span><span class="p">;</span>
+</span></code></pre></div>
+<p>Кожен об'єкт у пам'яті несе в собі системний оверхед, що складається мінімум із двох фундаментальних полів:</p>
+<ul>
+<li>
+<p><span class="arithmatex">\(ob\_refcnt\)</span> — 64-бітне ціле число, що є лічильником активних посилань на цей екземпляр з боку змінних, списків, аргументів та внутрішніх механізмів інтерпретатора.</p>
+</li>
+<li>
+<p><span class="arithmatex">\(ob\_type\)</span> — системний покажчик на структуру метаданих типу (<code>PyTypeObject</code>), яка визначає, якими властивостями володіє об'єкт, які оператори підтримує та скільки фізичної пам'яті займає.</p>
+</li>
+</ul>
+<p>Для контролю стану об'єктів мова надає дві базові функції: функцію визначення типу <code>type(obj)</code> та функцію отримання системного ідентифікатора <code>id(obj)</code>. В еталонній реалізації CPython функція <code>id()</code> повертає ціле десяткове число, яке точно відповідає фізичній адресі структури <code>PyObject</code> у віртуальному адресному просторі процесу:</p>
+<div class="arithmatex">\[\text{id}(obj) = \text{Address}_{\text{RAM}}(obj)\]</div>
+<p>Оператор перевірки тотожності <code>is</code> порівнює значення адрес у покажчиках двох змінних, перевіряючи, чи посилаються вони на одну й ту саму область пам'яті:</p>
+<div class="arithmatex">\[a \text{ is } b \iff \text{id}(a) = \text{id}(b)\]</div>
+<p>На відміну від нього, оператор рівності <code>==</code> ініціює виклик внутрішнього магічного методу <code>__eq__()</code>, перевіряючи семантичну еквівалентність значень об'єктів, навіть якщо вони розміщені у зовсім різних ділянках пам'яті.</p>
+<p>Всі скалярні типи даних у Python (цілі, дійсні числа, булеві значення) є строго <strong>незмінними (immutable)</strong>. Це означає, що після виділення пам'яті під структуру об'єкта його внутрішній стан не може бути модифіковано жодним оператором. Будь-яка дія, що зовні виглядає як зміна змінної, насправді створює абсолютно новий екземпляр об'єкта в купі та перенаправляє іменоване посилання змінної на нову адресу пам'яті.</p>
+<p>Діаграма станів демонструє життєвий цикл скалярного об'єкта в динамічній пам'яті від моменту створення до остаточної деалокації.</p>
+<pre class="mermaid"><code>stateDiagram-v2
+    [*] --&gt; Allocation: Операція присвоювання (виклик PyObject_New)
+    Allocation --&gt; InUse: Ініціалізація полів ob_type та ob_refcnt = 1
+    InUse --&gt; Shared: Поява додаткових посилань (ob_refcnt++)
+    Shared --&gt; InUse: Видалення частини посилань (ob_refcnt--)
+    InUse --&gt; ZeroReferences: Втрата останнього посилання (ob_refcnt == 0)
+    ZeroReferences --&gt; MemoryDeallocation: Автоматичний виклик деструктора tp_dealloc
+    MemoryDeallocation --&gt; [*]: Повернення пам'яті в пул або ОС</code></pre>
+<p>Керування пам'яттю реалізовано через підрахунок посилань. Математично стан лічильника посилань <span class="arithmatex">\(R\)</span> для об'єкта <span class="arithmatex">\(obj\)</span> описується як сума індикаторів існування посилань у всіх активних контекстах виконання:</p>
+<div class="arithmatex">\[R(obj) = \sum_{k=1}^{M} p_k, \quad p_k \in \{0, 1\}\]</div>
+<p>де <span class="arithmatex">\(M\)</span> — загальна кількість потенційних джерел посилань (змінних, елементів колекцій, стеків викликів). Як тільки лічильник досягає нуля, об'єкт видаляється миттєво:</p>
+<div class="arithmatex">\[R(obj) = 0 \implies \text{PyObject\_Free}(obj)\]</div>
+<p>Для прискорення роботи з цілими числами та зменшення фрагментації пам'яті розробники CPython запровадили механізм кешування малих цілих чисел (<strong>Small Integer Cache</strong>). Під час ініціалізації середовища створюється глобальний масив цілих чисел у закритому діапазоні від <span class="arithmatex">\(-5\)</span> до <span class="arithmatex">\(256\)</span>. Якщо під час обчислень створюється число з цього інтервалу, новий об'єкт у купі не виділяється: інтерпретатор повертає посилання на вже існуючий екземпляр-сінглтон.</p>
+<blockquote>
+<p><strong>ПРАКТИЧНИЙ ЯКІР:</strong> У довготривалих сервісах моніторингу телеметрії інженери стикаються з неконтрольованим розростанням обсягу оперативної пам'яті (memory leak). Попри наявність автоматичного підрахунку посилань, утворення циклічних зв'язків між складними об'єктами блокує декремент лічильника <span class="arithmatex">\(R(obj)\)</span> до нуля. Для виявлення таких структур інженери використовують системний модуль <code>gc</code>, примусово запускаючи циклічний збирач сміття та налаштовуючи генераційні пороги очищення пам'яті.</p>
+<p><strong>ТИПОВА ПОМИЛКА:</strong> Початківці часто ототожнюють оператор <code>is</code> з оператором <code>==</code>. Перевірка рівності чисел через <code>a is b</code> може успішно повертати <code>True</code> для значень від <code>-5</code> до <code>256</code> завдяки механізму Small Integer Cache. Проте для чисел поза цим діапазоном, наприклад <span class="arithmatex">\(a = 257\)</span> та <span class="arithmatex">\(b = 257\)</span>, вираз <code>a is b</code> поверне <code>False</code>, оскільки інтерпретатор виділить під них дві різні структури в оперативній пам'яті. Порівняння значень величин завжди має здійснюватися виключно оператором <code>==</code>.</p>
+</blockquote>
+<hr />
+<h3 id="14-ieee-754-none">1.4. Базові скалярні типи: довга арифметика цілих чисел, представлення дійсних чисел за стандартом IEEE 754, комплексна площина, булева логіка та об'єкт відсутності значення None</h3>
+<p>Модель скалярних даних CPython представлена п'ятьма основними вбудованими типами, кожен із яких реалізує спеціалізовану математичну поведінку:</p>
+<p><strong>1. Цілі числа (<code>int</code>):</strong> У мові Python 3 відсутнє поняття переповнення розрядної сітки процесора для цілих чисел. Тип <code>int</code> реалізує довгу арифметику довільної точності на базі внутрішньої C-структури <code>PyLongObject</code>. Число зберігається у вигляді масиву «великих цифр» (digits) за основою <span class="arithmatex">\(2^{30}\)</span> для 64-розрядних систем. Математичне значення довільного цілого числа розраховується за поліноміальною формулою розкладання:</p>
+<div class="arithmatex">\[N = \text{sgn} \times \sum_{i=0}^{k-1} d_i \cdot \left(2^{30}\right)^i\]</div>
+<p>де <span class="arithmatex">\(\text{sgn} \in \{-1, 1\}\)</span> позначає знак числа; <span class="arithmatex">\(k\)</span> — кількість елементів у масиві цифр; <span class="arithmatex">\(d_i \in [0, 2^{30}-1]\)</span> — значення <span class="arithmatex">\(i\)</span>-го розряду масиву. Завдяки цій структурі мова дозволяє обчислювати надвеликі значення, обмежені виключно загальним обсягом доступної оперативної пам'яті комп'ютера.</p>
+<p><strong>2. Дійсні числа (<code>float</code>):</strong> На відміну від типу цілих чисел, дійсні числа не мають необмеженої точності. Тип <code>float</code> у CPython є апаратним представленням числа з плаваючою комою подвійної точності за стандартом <strong>IEEE 754</strong> (еквівалент типу <code>double</code> у мові C). У пам'яті таке число займає рівно 64 біти (8 байтів) власного вмісту (не враховуючи системні поля <code>PyObject</code>), які розбиті на три функціональні секції: 1 біт знака (<span class="arithmatex">\(s\)</span>), 11 бітів зміщеної експоненти (<span class="arithmatex">\(e\)</span>) та 52 біти мантиси (<span class="arithmatex">\(f\)</span>). Дійсне десяткове число відновлюється за формулою нормалізованого бінарного кодування:</p>
+<div class="arithmatex">\[V = (-1)^s \times \left(1 + \sum_{j=1}^{52} b_{52-j} \cdot 2^{-j}\right) \times 2^{e - 1023}\]</div>
+<p>де <span class="arithmatex">\(s \in \{0, 1\}\)</span> — знаковий розряд; <span class="arithmatex">\(e \in [1, 2046]\)</span> — зміщена цілочисельна експонента; <span class="arithmatex">\(b_k \in \{0, 1\}\)</span> — двійкові розряди дробової частини мантиси. Оскільки більшість звичних десяткових дробів (наприклад, <span class="arithmatex">\(0.1\)</span> або <span class="arithmatex">\(0.2\)</span>) у двійковій системі перетворюються на нескінченні періодичні дроби, їхнє усічення до 52 біт призводить до неминучих похибок округлення. Як наслідок, вираз <span class="arithmatex">\(0.1 + 0.2 == 0.3\)</span> у Python повертає логічне значення <code>False</code>.</p>
+<p><strong>3. Комплексні числа (<code>complex</code>):</strong> Вбудований числовий тип, призначений для інженерних розрахунків на комплексній площині. Внутрішня структура <code>PyComplexObject</code> містить два незалежні 64-бітні поля типу C <code>double</code>: одне для збереження дійсної частини (<span class="arithmatex">\(x = \text{Re}(z)\)</span>), інше — для уявної частини (<span class="arithmatex">\(y = \text{Im}(z)\)</span>):</p>
+<div class="arithmatex">\[z = x + y\mathbf{j}, \quad \text{де } \mathbf{j} = \sqrt{-1}\]</div>
+<p>Тип надає прямий доступ до числових атрибутів <code>.real</code> і <code>.imag</code>, підтримує операцію комплексного спряження через метод <code>.conjugate()</code>, а для обчислення трансцендентних функцій комплексного аргументу використовує математичний модуль <code>cmath</code>.</p>
+<p><strong>4. Логічний тип (<code>bool</code>):</strong> Тип даних <code>bool</code> є прямим спадкоємцем типу цілих чисел <code>int</code> (<code>issubclass(bool, int) == True</code>). Він представлений двома незмінними об'єктами-сінглтонами: <code>True</code> та <code>False</code>. На машинному рівні вони мають числові еквіваленти <span class="arithmatex">\(1\)</span> та <span class="arithmatex">\(0\)</span>, що дозволяє їм брати участь у чисельних виразах. У мові Python реалізовано концепцію узагальненої істинності об'єктів: число <span class="arithmatex">\(0\)</span>, значення <code>None</code>, порожні рядки та порожні колекції автоматично приводяться до значення <code>False</code>, тоді як будь-які непорожні об'єкти інтерпретуються як <code>True</code>.</p>
+<p><strong>5. Тип відсутності значення (<code>NoneType</code>):</strong> Цей тип містить єдиний екземпляр-сінглтон <code>None</code>. Він використовується для позначення відсутності корисного результату, сигналізації про порожній стан об'єкта або як маркер за замовчуванням для неініціалізованих параметрів у сигнатурах функцій.</p>
+<blockquote>
+<p><strong>КОНТРОЛЬНЕ ПИТАННЯ:</strong> Чому обчислення виразу <code>sys.getsizeof(0)</code> в інтерпретаторі CPython на 64-розрядній системі повертає 24 або 28 байтів, тоді як примітивний тип <code>int</code> у мові C займає лише 4 байти (32 біти)?</p>
+</blockquote>
+<details class="note">
+<summary>Розгорнути аналіз / відповідь</summary>
+<p><strong>Правильний варіант: Наявність обов'язкового системного заголовка об'єкта <code>PyObject</code> та структур підтримки довгої арифметики.</strong></p>
+<ol>
+<li>
+<p>У мові C змінна типу <code>int</code> є прямим відображенням чотирибайтової комірки апаратної пам'яті без жодних метаданих. Натомість у CPython ціле число є повноцінним об'єктом динамічної пам'яті (<code>PyLongObject</code>). Мінімальний розмір складається з трьох обов'язкових компонентів: 8 байтів для лічильника посилань (<code>ob_refcnt</code>), 8 байтів для покажчика на структуру типу <code>int</code> (<code>ob_type</code>) та 8 байтів для збереження знакової довжини масиву цифр (<code>ob_size</code>). Для числа 0 розмір становить 24 байти (в окремих компіляціях 28 байтів з урахуванням вирівнювання пам'яті). Будь-яке ненульове число потребує додатково мінімум 4 або 8 байтів для збереження масиву власне числових розрядів.</p>
+</li>
+<li>
+<p>Аналіз дистракторів:</p>
+</li>
+<li>
+<p>Твердження про те, що Python автоматично резервує пам'ять під можливі текстові коментарі чи назви змінних у структурі самого числа, є хибним: імена змінних зберігаються окремо в словниках просторів імен, а не всередині числових структур.</p>
+</li>
+<li>
+<p>Твердження про те, що розмір спричинений виключно роботою Garbage Collector, є неточним: для скалярних незмінних типів (<code>int</code>, <code>float</code>) структури відстеження циклічних посилань взагалі відключаються, і об'єкт не містить полів <code>_PyGC_Head</code>.</p>
+</li>
+</ol>
+</details>
+<hr />
+<h3 id="_4">Вказівки для самостійного осмислення</h3>
+<ol>
+<li>
+<p>Дослідіть практичну різницю між часом виконання чисельного циклу з піднесенням до степеня засобами чистого CPython та аналогічного циклу з використанням бібліотеки NumPy, пояснивши отриманий результат з точки зору наявності об'єктного оверхеду пам'яті та роботи віртуальної машини PVM.</p>
+</li>
+<li>
+<p>Проаналізуйте вихідний двійковий код скомпільованого файлу з каталогу <code>__pycache__</code> за допомогою стандартного системного модуля <code>dis</code>, ідентифікувавши базові інструкції стекового процесора PVM для простого математичного виразу.</p>
+</li>
+<li>
+<p>Розрахуйте точне бітове представлення дійсного числа <span class="arithmatex">\(0.15625\)</span> за стандартом IEEE 754, самостійно виділивши біт знака, зміщену експоненту та двійкову дробову мантису, після чого звірте отримане значення через системний метод <code>float.hex()</code>.</p>
+</li>
+</ol>
+<h2 id="2_1">2. Методологія та аналіз граничних умов. Алгоритмізація розгалужень, булева логіка та граничні стани обчислень</h2>
+<h3 id="21-truthiness-short-circuit-evaluation">2.1. Концепція істинності об'єктів (truthiness) та робота логічних операторів за короткою схемою (short-circuit evaluation)</h3>
+<p>У мові програмування Python логічний контекст керуючих конструкцій не обмежується значеннями вбудованого типу <code>bool</code>. Будь-який екземпляр скалярного чи колекційного типу даних володіє внутрішнім булевим еквівалентом, який обчислюється автоматично під час його оцінювання в умовних виразах. Ця властивість об'єктної моделі має назву <strong>концепція істинності об'єктів (truthiness)</strong>. </p>
+<p>Механізм визначення істинності спирається на внутрішній протокол інтерпретатора. Коли об'єкт потрапляє у логічний контекст, CPython виконує виклик його спеціального методу <code>__bool__()</code>, який повинен повертати безпосередньо значення <code>True</code> або <code>False</code>. Якщо зазначений метод не реалізований у структурі типу, інтерпретатор перевіряє наявність методу визначення довжини <code>__len__()</code>: нульова довжина транслюється як хибність, а ненульова — як істинність. </p>
+<p>У разі відсутності обох методів будь-який створений об'єкт за замовчуванням вважається істинним. Хибними у середовищі CPython визнаються виключно строго визначені сутності:</p>
+<ul>
+<li>
+<p>спеціальний об'єкт відсутності значення <code>None</code>;</p>
+</li>
+<li>
+<p>логічний літерал <code>False</code>;</p>
+</li>
+<li>
+<p>числові нулі всіх підтримуваних типів, включаючи ціле <code>0</code>, дійсне <code>0.0</code> та комплексне <code>0j</code>;</p>
+</li>
+<li>
+<p>порожні послідовності та колекції довільної природи, до яких належать порожній рядок <code>""</code>, порожній кортеж <code>()</code>, порожній список <code>[]</code>, порожній словник <code>{}</code> та порожня множина <code>set()</code>.</p>
+</li>
+</ul>
+<p>Логічні оператори <code>and</code>, <code>or</code> та <code>not</code> у мові Python мають унікальну семантику, яка суттєво відрізняє їх від аналогів у компільованих мовах C-родини. Оператори <code>and</code> та <code>or</code> не приводять результат обчислення до строгого типу <code>bool</code>, а повертають безпосередній об'єкт-операнд, на якому завершився процес обчислення виразу. </p>
+<p>Обчислення здійснюється за строго оптимізованим алгоритмом, що отримав назву <strong>коротка схема обчислення (short-circuit evaluation)</strong>. Інтерпретатор аналізує операнди зліва направо і припиняє виконання ланцюжка в той момент, коли кінцевий логічний результат стає однозначно визначеним.</p>
+<p>Діаграма послідовності ілюструє часову взаємодію компонентів середовища виконання CPython під час обчислення складного умовного виразу, демонструючи механізм запобігання зайвим або аварійним викликам завдяки короткій схемі.</p>
+<pre class="mermaid"><code>sequenceDiagram
+    autonumber
+    actor Engine as Контролер системи
+    participant PVM as Віртуальна машина PVM
+    participant Eval as Модуль оцінювання виразів
+    participant Dev as Апаратний інтерфейс драйвера
+
+    Engine-&gt;&gt;PVM: Виконання інструкції if (is_connected and read_telemetry())
+    PVM-&gt;&gt;Eval: Оцінка лівого операнда (is_connected)
+    Eval--&gt;&gt;PVM: Повернення об'єкта False
+    Note over PVM,Eval: Оператор 'and' зафіксував хибність першого аргументу
+    Note over PVM,Dev: Коротка схема: запит read_telemetry() повністю блокується
+    PVM-&gt;&gt;PVM: Припинення розбору ланцюжка виразу
+    PVM-&gt;&gt;Engine: Прямий перехід до виконання блоку else</code></pre>
+<p>Математична формалізація процесу прийняття рішення операторами короткої схеми описується за допомогою покрокового алгоритму зведення виразу:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+\text{Крок 1 (Оцінка лівого операнда):} &amp; \quad \beta_1 = \mathbf{bool}(x) \\
+\text{Крок 2 (Маршрутизація оператора and):} &amp; \quad \text{Result}_{and} = 
+\begin{cases} 
+x, &amp; \text{якщо } \beta_1 = \text{False} \\ 
+y, &amp; \text{якщо } \beta_1 = \text{True} 
+\end{cases} \\
+\text{Крок 3 (Маршрутизація оператора or):} &amp; \quad \text{Result}_{or} = 
+\begin{cases} 
+x, &amp; \text{якщо } \beta_1 = \text{True} \\ 
+y, &amp; \text{якщо } \beta_1 = \text{False} 
+\end{cases}
+\end{aligned}
+\]</div>
+<p>де функція <span class="arithmatex">\(\mathbf{bool}(x)\)</span> відображає проєкцію об'єкта домену <span class="arithmatex">\(x \in \mathbb{U}\)</span> на множину булевих істинностей <span class="arithmatex">\(\{\text{True}, \text{False}\}\)</span>. </p>
+<p>Практична важливість короткої схеми полягає у можливості створення безпечних конструкцій перевірки стану пам'яті. Вираз <code>obj is not None and obj.value &gt; 0</code> гарантує, що звернення до атрибута <code>.value</code> ніколи не призведе до фатального винятку <code>AttributeError</code>, оскільки за умови рівності покажчика об'єкту <code>None</code> правий операнд навіть не буде переданий на інтерпретацію.</p>
+<hr />
+<h3 id="22-if-elif-else">2.2. Керування потоком інструкцій: семантика блоків відступів, повна форма умовного оператора if-elif-else та компактний тримісний вираз вибору</h3>
+<p>Ключовою синтаксичною відмінністю мови Python є використання просторових відступів для формування лексичних блоків коду замість явних операторних дужок. Лексичний аналізатор інтерпретатора відстежує кількість пробілів на початку кожного рядка за допомогою внутрішнього стека рівнів відступів. </p>
+<p>Збільшення кількості пробілів генерує спеціальну псевдолексему <code>INDENT</code>, яка сигналізує синтаксичному парсеру про відкриття вкладеного блоку, тоді як зменшення генерує лексему <code>DEDENT</code>, що позначає закриття поточного блоку. Промисловий стандарт оформлення коду <strong>PEP 8</strong> суворо вимагає застосування виключно чотирьох символів пробілу для кожного рівня вкладеності, категорично забороняючи використання знаків горизонтальної табуляції через непередбачуваність їх інтерпретації на різних термінальних пристроях.</p>
+<p>Базовим механізмом керування розгалуженням обчислювального процесу є умовна конструкція <code>if-elif-else</code>. Синтаксичний шаблон конструкції вимагає обов'язкової двокрапки після кожного перевірочного виразу та однакового відступу для всіх операторів, вкладених у відповідну гілку. Перевірка альтернативних умов <code>elif</code> здійснюється строго послідовно зверху вниз до першого істинного виразу; всі наступні перевірки повністю ігноруються, а керування передається на першу інструкцію за межами конструкції. Блок <code>else</code> є термінальним і виконується лише тоді, коли жодна з попередніх умов не набула значення істини.</p>
+<p>Формалізація процесу маршрутизації потоку керування у повному операторі розгалуження з трьома критичними станами описується системою переходів:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+\text{Крок 1 (Аналіз первинної умови):} &amp; \quad \text{Якщо } \mathbf{bool}(C_1) = \text{True} \implies \text{Виконати } \text{Block}_1, \quad \text{Перейти до Кроку 4} \\
+\text{Крок 2 (Аналіз вторинної умови):} &amp; \quad \text{Якщо } \mathbf{bool}(C_2) = \text{True} \implies \text{Виконати } \text{Block}_2, \quad \text{Перейти до Кроку 4} \\
+\text{Крок 3 (Термінальна альтернатива):} &amp; \quad \text{Виконати } \text{Block}_{else} \\
+\text{Крок 4 (Вихід із конструкції):} &amp; \quad \text{Відновити лінійний потік інструкцій PVM}
+\end{aligned}
+\]</div>
+<p>де <span class="arithmatex">\(C_1, C_2\)</span> позначають предикатні логічні вирази; <span class="arithmatex">\(\text{Block}_k\)</span> позначає неподільну послідовність інструкцій, ізольовану власним рівнем відступу.</p>
+<p>Для компактного присвоювання значень залежно від умови мова надає <strong>тримісний (тернарний) оператор</strong>, що має синтаксис <code>x = TrueValue if Condition else FalseValue</code>. На відміну від класичного оператора <code>if</code>, тримісна конструкція є не інструкцією (statement), а виразом (expression), тобто вона завжди повертає конкретний обчислюваний результат і може вбудовуватися безпосередньо в арифметичні вирази, лямбда-функції чи аргументи виклику процедур. Порядок виконання тернарного оператора гарантує, що обчислюється лише одна з двох гілок: інтерпретатор спочатку обчислює <code>Condition</code>, і лише після цього виконує <code>TrueValue</code> (якщо умова істинна) або <code>FalseValue</code> (якщо умова хибна).</p>
+<blockquote>
+<p><strong>ВАЖЛИВО:</strong> Використання глибоко вкладених операторів <code>if-elif-else</code> (понад три рівні вкладеності) експоненційно збільшує цикломатичну складність програми та підвищує ймовірність логічних помилок. Професійним стандартом інженерної розробки є патерн «раннього повернення» (guard clauses), за якого некоректні стани та граничні умови відсікаються на самому початку алгоритму з виходом із функції, що дозволяє підтримувати основний код на нульовому рівні вкладеності.</p>
+</blockquote>
+<hr />
+<h3 id="23">2.3. Побітові операції над цілими числами у додатковому коді як інструмент побітового маскування апаратних прапорців</h3>
+<p>Обробка сигналів мікроконтролерів, взаємодія з драйверами периферійних інтерфейсів та розбір пакетів мережевих протоколів вимагають прямого маніпулювання окремими двійковими розрядами даних. У мові Python побітові операції застосовуються виключно до цілих чисел типу <code>int</code>. </p>
+<p>Оскільки в CPython цілі числа підтримують довгу арифметику і позбавлені апаратного обмеження розрядності, віртуальна машина інтерпретує цілі числа так, ніби вони представлені у <strong>додатковому двійковому коді (two's complement)</strong> із нескінченним розширенням знакового розряду ліворуч.</p>
+<p>Оператор побітової інверсії <code>~</code> інвертує кожен двійковий розряд числа. Математичний зв'язок між числом <span class="arithmatex">\(x\)</span> та результатом його порозрядного заперечення описується строгою формулою:</p>
+<div class="arithmatex">\[\sim x = -(x + 1)\]</div>
+<p>Отже, операція над додатним числом <code>~9</code> дає результат <code>-10</code>. Бінарні порозрядні оператори включають кон'юнкцію <code>&amp;</code> (побітове І), диз'юнкцію <code>|</code> (побітове АБО) та операцію строгої диз'юнкції <code>^</code> (побітове виключне АБО). Побітові зсуви <code>&lt;&lt;</code> та <code>&gt;&gt;</code> виконують зміщення бітового вектора на задану кількість позицій. Зсув ліворуч еквівалентний множенню на відповідний степінь двійки, тоді як зсув праворуч виконує арифметичний зсув зі збереженням знакового біта:</p>
+<div class="arithmatex">\[x \ll n = x \cdot 2^n, \quad x \gg n = \lfloor x \cdot 2^{-n} \rfloor\]</div>
+<p>Методологія <strong>побітового маскування</strong> базується на застосуванні бітових фільтрів для ізоляції, встановлення, скидання або інверсії окремих розрядів у складі статусного регістра апаратного пристрою.</p>
+<div class="arithmatex">\[
+\begin{aligned}
+\text{Крок 1 (Створення бітової маски):} &amp; \quad M_k = 1 \ll k \\
+\text{Крок 2 (Читання стану k-го біта):} &amp; \quad b_k = (S \ \&amp; \ M_k) \gg k \\
+\text{Крок 3 (Примусове встановлення в 1):} &amp; \quad S_{new} = S \ | \ M_k \\
+\text{Крок 4 (Примусове скидання в 0):} &amp; \quad S_{cleared} = S \ \&amp; \ (\sim M_k) \\
+\text{Крок 5 (Інверсія значення k-го біта):} &amp; \quad S_{toggled} = S \ \text{\textasciicircum} \ M_k
+\end{aligned}
+\]</div>
+<p>де <span class="arithmatex">\(S\)</span> позначає вихідне цілочисельне значення регістра стану; <span class="arithmatex">\(k\)</span> — нульовий індекс цільового біта; <span class="arithmatex">\(M_k\)</span> — згенерована унітарна бітова маска; <span class="arithmatex">\(b_k \in \{0, 1\}\)</span> — нормалізоване значення прапорця.</p>
+<p>Граничні умови застосування побітової математики в Python полягають у специфіці взаємодії з від'ємними операндами. На відміну від мов низького рівня (C, ассемблер), де зсув від'ємного беззнакового чи знакового числа обмежений фіксованою розрядною сіткою (наприклад, 32 або 64 біти), нескінченна довга арифметика Python зберігає віртуальний знаковий біт. </p>
+<p>Спроба виділити старші байти з від'ємного числа через логічний зсув без попереднього накладання обмежувальної маски розрядності, наприклад <code>x &amp; 0xFFFFFFFF</code>, призведе до отримання від'ємного числа з нескінченним шлейфом одиниць у старших розрядах, що руйнує протокол серіалізації апаратних пакетів.</p>
+<hr />
+<h3 id="24-mathisclose">2.4. Критичні бар'єри та обмеження чисельних типів: похибки двійкового дробового представлення, неможливість точного порівняння чисел з плаваючою комою та застосування функції math.isclose</h3>
+<p>Застосування дійсних чисел типу <code>float</code> у системах цифрової обробки сигналів, навігації та моделювання фізичних процесів пов'язане з критичним бар'єром точності. Стандарт <strong>IEEE 754</strong> для чисел подвійної точності використовує скінченну мантису довжиною 53 біти (52 збережених біти плюс один неявний провідний біт). Число може бути точно представлене у двійковій системі числення тоді і тільки тоді, коли воно є скінченним двійковим дробом вигляду:</p>
+<div class="arithmatex">\[x = \frac{m}{2^p}, \quad m, p \in \mathbb{Z}\]</div>
+<p>Дроби, знаменники яких містять прості множники, відмінні від двійки (зокрема, звичні десяткові дроби <span class="arithmatex">\(0.1 = \frac{1}{10}\)</span> та <span class="arithmatex">\(0.2 = \frac{1}{5}\)</span>), перетворюються у нескінченні періодичні двійкові дроби:</p>
+<div class="arithmatex">\[0.1_{10} = 0.0001100110011001100110011001100110011001100110011..._2\]</div>
+<p>Примусове усічення періодичного хвоста до розрядності мантиси вносить похибку квантування порядку <span class="arithmatex">\(\epsilon_{mach} \approx 2.22 \times 10^{-16}\)</span> (машинний нуль). При накопиченні таких операцій у рекурентних алгоритмах пряме порівняння через оператор рівності <code>a == b</code> стає неприпустимим, оскільки гарантовано породжує хибно-негативні спрацьовування у точках розгалуження програми.</p>
+<p>Для коректної перевірки збігу результатів інженерних розрахунків застосовується алгоритм перевірки близькості з адаптивним допуском, реалізований у функції <code>math.isclose(a, b, rel_tol=1e-09, abs_tol=0.0)</code>.</p>
+<pre class="mermaid"><code>flowchart TD
+    Start["Вхідні значення: a, b, rel_tol, abs_tol"] --&gt; Diff["Обчислення абсолютного відхилення: Δ = |a - b|"]
+    Diff --&gt; CheckInf{"Чи є a або b нескінченністю чи NaN?"}
+    CheckInf -- Так --&gt; StrictCheck["Перевірка тотожності IEEE 754: a is b"]
+    CheckInf -- Ні --&gt; TolCalc["Розрахунок динамічного порогу: δ = max(rel_tol * max(|a|, |b|), abs_tol)"]
+    TolCalc --&gt; Compare{"Чи виконується нерівність: Δ &lt;= δ ?"}
+    Compare -- Так --&gt; TrueRes["Повернення True (Числа еквівалентні)"]
+    Compare -- Ні --&gt; FalseRes["Повернення False (Відхилення неприпустиме)"]</code></pre>
+<p>Формалізація процесу валідації числових даних функцією <code>math.isclose</code> представляється такою аналітичною послідовністю:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+\text{Крок 1 (Оцінка локального масштабу):} &amp; \quad S_{max} = \max(|a|, |b|) \\
+\text{Крок 2 (Обчислення відносного допуску):} &amp; \quad \tau_{rel} = \text{rel\_tol} \times S_{max} \\
+\text{Крок 3 (Синтез загального порогу похибки):} &amp; \quad \delta = \max(\tau_{rel}, \text{abs\_tol}) \\
+\text{Крок 4 (Оцінка фактичного відхилення):} &amp; \quad \Delta = |a - b| \\
+\text{Крок 5 (Предикат прийняття рівності):} &amp; \quad \mathbf{IsClose}(a, b) = 
+\begin{cases} 
+\text{True}, &amp; \text{якщо } \Delta \le \delta \\ 
+\text{False}, &amp; \text{якщо } \Delta &gt; \delta 
+\end{cases}
+\end{aligned}
+\]</div>
+<p>де <span class="arithmatex">\(\text{rel\_tol}\)</span> гарантує стабільність порівняння для чисел великого порядку, а <span class="arithmatex">\(\text{abs\_tol}\)</span> є обов'язковим для величин, що прагнуть до нуля.</p>
+<p>Граничні умови теорії чисельної точності проявляються у катастрофічній втраті значущих цифр під час віднімання двох близьких за значенням великих дійсних чисел. Якщо вихідні параметри мають вимір порядку <span class="arithmatex">\(10^8\)</span>, а їх різниця лежить у діапазоні <span class="arithmatex">\(10^{-6}\)</span>, стандартна 53-бітна мантиса втрачає практично всі значущі розряди результату, перетворюючи подальші розрахунки на обробку апаратного шуму. </p>
+<p>У таких критичних сценаріях теорія наближень IEEE 754 стає нерелевантною, вимагаючи переходу на модуль десяткової арифметики довільної точності <code>decimal</code> або символьні аналітичні обчислення бібліотеки <code>sympy</code>.</p>
+<blockquote>
+<p><strong>ПРАКТИЧНИЙ ЯКІР:</strong> Катастрофічна відмова зенітно-ракетного комплексу Patriot у Дахрані 25 лютого 1991 року, яка призвела до пропуску ракети Р-17, була викликана саме похибкою представлення числа <span class="arithmatex">\(0.1_{10}\)</span> у двійковій системі. Системний таймер накопичував час у десятих долях секунди шляхом множення цілочисельного лічильника на константу <span class="arithmatex">\(0.1\)</span>, усічену до 24 бітів. За 100 годин безперервної роботи радарної станції накопичена похибка перетворення склала 0.3433 секунди, що призвело до помилки обчислення координат траєкторії цілі на понад 600 метрів.</p>
+</blockquote>
+<hr />
+<h3 id="25-sysstdin-sysstdout">2.5. Стандартизоване потокове введення-виведення через sys.stdin і sys.stdout та сучасні методи форматування числових даних</h3>
+<p>Взаємодія програми з зовнішнім апаратним середовищем базується на концепції стандартних системних потоків POSIX. У мові Python доступ до цих каналів надає модуль <code>sys</code> через файлоподібні об'єкти:</p>
+<ul>
+<li>
+<p><code>sys.stdin</code> — стандартний потік введення (дескриптор 0), зв'язаний за замовчуванням із клавіатурою або вихідним каналом попередньої програми в конвеєрі (pipe);</p>
+</li>
+<li>
+<p><code>sys.stdout</code> — стандартний потік виведення (дескриптор 1), що буферизує передачу символів на термінальний екран;</p>
+</li>
+<li>
+<p><code>sys.stderr</code> — небуферизований потік виведення діагностичних повідомлень та аварійних трасувань помилок (дескриптор 2).</p>
+</li>
+</ul>
+<p>Вбудована функція <code>print(*objects, sep=' ', end='\n', file=sys.stdout, flush=False)</code> є високорівневою оболонкою над потоком <code>sys.stdout</code>. Аргумент <code>flush=True</code> примусово очищує внутрішній програмний буфер інтерпретатора, негайно скидаючи байти безпосередньо в дескриптор ядра операційної системи. Це критично необхідно при виведенні даних реального часу, коли затримка буферизації може спотворити хронологію подій. Функція <code>input(prompt)</code> зчитує символи з <code>sys.stdin</code> до появи маркера переходу на новий рядок <code>\n</code>, видаляє цей маркер і повертає незмінний об'єкт типу <code>str</code>, що вимагає від інженера обов'язкової явної типізації перед виконанням розрахунків.</p>
+<p>Представлення числових результатів вимагає точного контролю розрядності, вирівнювання та кодування систем числення. Сучасний стандарт мови надає три основні методології форматування рядків, зіставлені в аналітичній матриці нижче.</p>
+<p><em>Таблиця 2.1 — Матриця порівняльного аналізу методологій форматування числових даних у Python</em></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Методологія</th>
+<th style="text-align: left;">Синтаксичний апарат</th>
+<th style="text-align: left;">Обчислювальна швидкодія</th>
+<th style="text-align: left;">Підтримка просторів імен</th>
+<th style="text-align: left;">Складність впровадження</th>
+<th style="text-align: left;">Критичні ризики / Обмеження</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Класичний оператор %</strong></td>
+<td style="text-align: left;"><code>"Val: %.3f" % x</code></td>
+<td style="text-align: left;">Низька (застарілий парсер C printf)</td>
+<td style="text-align: left;">Відсутня (тільки позиційні кортежі/словники)</td>
+<td style="text-align: left;">Низька (знайома С-програмістам)</td>
+<td style="text-align: left;">Відсутність перевірки типів аргументів під час компіляції, висока ймовірність збоїв при зміні кількості параметрів</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Метод str.format()</strong></td>
+<td style="text-align: left;"><code>"Val: {:.3f}".format(x)</code></td>
+<td style="text-align: left;">Середня (виклик методу об'єкта в runtime)</td>
+<td style="text-align: left;">Опосередкована (через передачу іменованих аргументів)</td>
+<td style="text-align: left;">Середня (вимагає надлишкового синтаксису)</td>
+<td style="text-align: left;">Громіздкість при форматуванні великої кількості змінних, накладні витрати на виклик методу</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Інтерпольовані f-рядки</strong></td>
+<td style="text-align: left;"><code>f"Val: {x:.3f}"</code></td>
+<td style="text-align: left;">Максимальна (трансляція напряму в байт-код BUILD_STRING)</td>
+<td style="text-align: left;">Пряма (повний доступ до локальних і глобальних імен)</td>
+<td style="text-align: left;">Мінімальна (найвища читабельність)</td>
+<td style="text-align: left;">Неможливість збереження динамічного шаблону у конфігураційних файлах окремо від виконуваного коду програми</td>
+</tr>
+</tbody>
+</table>
+<p>Специфікація мікросинтаксису форматування всередині полів заміни f-рядків та методу <code>.format()</code> описується узагальненим правилом:</p>
+<p><code>:[fill][align][sign][#][0][width][grouping][.precision][type]</code></p>
+<p>де <code>fill</code> задає символ заповнення; <code>align</code> визначає вирівнювання (<code>&lt;</code> ліворуч, <code>&gt;</code> праворуч, <code>^</code> по центру, <code>=</code> після знака); <code>width</code> резервує мінімальну ширину поля; <code>grouping</code> встановлює роздільник тисяч (<code>_</code> або <code>,</code>); <code>.precision</code> фіксує кількість знаків після десяткової коми для дійсних чисел або максимальну довжину для рядків; <code>type</code> задає систему числення чи форму представлення (<code>d</code> — десяткове ціле, <code>b</code> — бінарне, <code>x</code> — шістнадцяткове, <code>f</code> — фіксована кома, <code>e</code> — експоненційна форма).</p>
+<blockquote>
+<p><strong>КОНТРОЛЬНЕ ПИТАННЯ:</strong> Під час тестування цифрового компаса інженер зіткнувся з тим, що перевірка апаратного прапорця готовності даних дає збій. Регістр статусу пристрою повертає значення <code>status_reg = 0b1000000000000000</code> (15-й біт встановлено). Яким буде результат виконання умовного оператора <code>if status_reg &amp; 0b1000000000000000 == 0b1000000000000000:</code> у мові Python, і в чому полягає системна причина такої поведінки?</p>
+</blockquote>
+<details class="note">
+<summary>Розгорнути аналіз / відповідь</summary>
+<p><strong>Правильний варіант: Умова оціниться як False (гілка if не виконається) через пріоритет операторів.</strong></p>
+<ol>
+<li>
+<p>Повне логічне обґрунтування:
+   Відповідно до таблиці пріоритетів операторів мови Python, оператор рівності <code>==</code> має вищий пріоритет виконання, ніж побітовий оператор кон'юнкції <code>&amp;</code>. У результаті вираз неявно інтерпретується віртуальною машиною як:
+   <code>status_reg &amp; (0b1000000000000000 == 0b1000000000000000)</code>
+   Оскільки вираз у дужках оцінюється як логічне значення <code>True</code>, наступним кроком інтерпретатор обчислює побітове І між цілим числом <code>status_reg</code> та булевим об'єктом <code>True</code>:
+   <code>0b1000000000000000 &amp; 1</code> (оскільки <code>bool</code> є підкласом <code>int</code>, де <code>True == 1</code>).
+   Оскільки 0-й біт числа <code>status_reg</code> дорівнює нулю, операція повертає ціле число <code>0</code>. У логічному контексті інструкції <code>if</code> число <code>0</code> оцінюється як <code>False</code>, тому блок коду не виконується, що є критичною апаратною помилкою. Коректний інженерний запис вимагає явного використання дужок: <code>if (status_reg &amp; 0b1000000000000000) == 0b1000000000000000:</code>.</p>
+</li>
+<li>
+<p>Аналіз дистракторів:</p>
+</li>
+<li>
+<p>Припущення, що стається переповнення 16-бітної розрядної сітки, є хибним, оскільки тип <code>int</code> у Python реалізує довгу арифметику необмеженої розрядності.</p>
+</li>
+<li>
+<p>Твердження, що двійкові літерали <code>0b...</code> не підтримують операції прямого порівняння з регістрами, не відповідає дійсності: двійковий запис є лише синтаксичним представленням стандартного цілого числа.</p>
+</li>
+</ol>
+</details>
+<h2 id="3_1">3. Практичний індустріальний / фаховий кейс. Первинна обробка та верифікація апаратних потоків даних</h2>
+<h3 id="31">3.1. Комплексний фаховий кейс. Розробка алгоритмічного модуля валідації, побітового маскування та калібрування пакетів телеметрії супутникового сенсора радіозв'язку</h3>
+<h4 id="_5">Постановка задачі / ситуації</h4>
+<p>У сучасних телекомунікаційних комплексах мікросупутників класу CubeSat бортовий трансивер здійснює передачу діагностичних даних до центрального процесора керування через апаратний інтерфейс SPI у вигляді 32-розрядних цілочисельних слів телеметрії. Кожне слово містить упаковану інформацію про апаратний стан підсистем, напругу живлення, температуру підсилювача потужності та рівень потужності прийнятого радіосигналу. </p>
+<p>Перед інженером-програмістом постає завдання створення високонадійного програмного модуля первинної обробки на мові Python, який повинен у реальному часі здійснювати валідацію цілісності кадру, виділяти апаратні прапорці аварійних станів за допомогою побітового маскування, виконувати перерахунок сирих кодів аналого-цифрового перетворювача (АЦП) у фізичні величини з плаваючою комою та проводити прецизійну верифікацію граничних параметрів з урахуванням апаратних похибок стандарту IEEE 754.</p>
+<p>Вхідні специфікації та технічні обмеження переданого 32-бітного телеметричного кадру зведені у таблиці вхідних параметрів.</p>
+<p><em>Таблиця 3.1 — Специфікація структури 32-бітного слова телеметрії супутникового трансивера</em></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Поле параметра</th>
+<th style="text-align: left;">Бітовий діапазон</th>
+<th style="text-align: left;">Тип даних у кадрі</th>
+<th style="text-align: left;">Фізичний діапазон</th>
+<th style="text-align: left;">Опис інженерного призначення</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Синхромаркер (Sync)</strong></td>
+<td style="text-align: left;">Біти 31–28 (4 біти)</td>
+<td style="text-align: left;">Беззнакове ціле</td>
+<td style="text-align: left;">Константа <code>0xA</code></td>
+<td style="text-align: left;">Преамбула валідації синхронізації початку кадру</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Прапорець аварії живлення (<span class="arithmatex">\(F_{pwr}\)</span>)</strong></td>
+<td style="text-align: left;">Біт 27 (1 біт)</td>
+<td style="text-align: left;">Двійковий прапорець</td>
+<td style="text-align: left;"><code>0</code> (Норма), <code>1</code> (Аварія)</td>
+<td style="text-align: left;">Сигналізація падіння напруги шини нижче 6.8 В</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Прапорець перегріву (<span class="arithmatex">\(F_{temp}\)</span>)</strong></td>
+<td style="text-align: left;">Біт 26 (1 біт)</td>
+<td style="text-align: left;">Двійковий прапорець</td>
+<td style="text-align: left;"><code>0</code> (Норма), <code>1</code> (Перегрів)</td>
+<td style="text-align: left;">Фіксація температури вихідного каскаду понад 85 °C</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Прапорець захоплення частоти (<span class="arithmatex">\(F_{lock}\)</span>)</strong></td>
+<td style="text-align: left;">Біт 25 (1 біт)</td>
+<td style="text-align: left;">Двійковий прапорець</td>
+<td style="text-align: left;"><code>0</code> (Втрата), <code>1</code> (Захоплено)</td>
+<td style="text-align: left;">Стан синхронізації синтезатора частоти ФАПЧ</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Код температури (<span class="arithmatex">\(T_{raw}\)</span>)</strong></td>
+<td style="text-align: left;">Біти 24–16 (9 бітів)</td>
+<td style="text-align: left;">Беззнаковий код АЦП</td>
+<td style="text-align: left;"><span class="arithmatex">\(0 \dots 511\)</span></td>
+<td style="text-align: left;">Код термодатчика: діапазон від -40.0 °C до +87.75 °C</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Код потужності сигналу (<span class="arithmatex">\(P_{raw}\)</span>)</strong></td>
+<td style="text-align: left;">Біти 15–0 (16 бітів)</td>
+<td style="text-align: left;">Беззнакове ціле</td>
+<td style="text-align: left;"><span class="arithmatex">\(0 \dots 65535\)</span></td>
+<td style="text-align: left;">Сирий код RSSI: від -120.00 dBm до +11.07 dBm</td>
+</tr>
+</tbody>
+</table>
+<p>Для аналізу надано тестовий апаратний кадр, отриманий із буфера радіоканалу у шістнадцятковому представленні:</p>
+<div class="arithmatex">\[S_{raw} = \text{0xA49A2710}_{16} = 2761623312_{10}\]</div>
+<p>Необхідно підтвердити валідності кадру, розпакувати статусні біти, обчислити фізичну температуру підсилювача і потужність сигналу та перевірити, чи збігається обчислена потужність із критичним калібрувальним рівнем <span class="arithmatex">\(P_{crit} = -20.0\text{ dBm}\)</span> з допустимим технологічним відхиленням <span class="arithmatex">\(10^{-5}\)</span>.</p>
+<p>Схему функціонального конвеєра обробки кадру наведено на блок-схемі нижче.</p>
+<pre class="mermaid"><code>flowchart TD
+    Packet["Вхідне 32-бітне слово телеметрії (S_raw)"] --&gt; SyncCheck{"Перевірка синхромаркера: (S_raw &gt;&gt; 28) == 0xA"}
+    SyncCheck -- Ні --&gt; Drop["Аварійне скидання: FrameSyncError"]
+    SyncCheck -- Так --&gt; Masking["Побітова сепарація бітовими масками: Flags, T_raw, P_raw"]
+    Masking --&gt; FlagEval["Логічний аналіз прапорців: F_pwr, F_temp, F_lock"]
+    Masking --&gt; CalcT["Калібрування температури: T = T_raw * 0.25 - 40.0"]
+    Masking --&gt; CalcP["Калібрування потужності: P = P_raw * 0.002 - 120.0"]
+    CalcT --&gt; ValidFloat{"Чисельна верифікація: math.isclose(P, P_crit)"}
+    CalcP --&gt; ValidFloat
+    FlagEval --&gt; Report["Генерація валідованого звіту телеметрії"]
+    ValidFloat --&gt; Report</code></pre>
+<h4 id="_6">Покроковий аналіз та розв'язок</h4>
+<h5 id="1">Крок 1. Верифікація синхромаркера кадру засобами побітового зсуву</h5>
+<p>Для перевірки автентичності пакета необхідно виділити старші чотири розряди (біти 31–28) і порівняти їх із еталонним значенням преамбули <span class="arithmatex">\(\text{Sync}_{etalon} = \text{0xA}_{16} = 10_{10}\)</span>. Оскільки цільові біти розташовані у старшому ніблі 32-розрядного слова, виділення реалізується через логічний зсув праворуч на 28 позицій:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+\text{Крок 1 (Зсув розрядів):} &amp; \quad \text{Sync}_{val} = S_{raw} \gg 28 \\
+\text{Крок 2 (Підстановка даних):} &amp; \quad \text{Sync}_{val} = 2761623312 \gg 28 = 10_{10} = \text{0xA}_{16} \\
+\text{Крок 3 (Перевірка тотожності):} &amp; \quad \text{Status}_{sync} = (\text{Sync}_{val} == \text{0xA}) \implies \text{True}
+\end{aligned}
+\]</div>
+<p>Синхромаркер визнано валідним, що дозволяє інтерпретатору перейти до подальшої декомпозиції слова.</p>
+<h5 id="2_2">Крок 2. Побітова сепарація статусних прапорців підсистем</h5>
+<p>Для ізоляції індивідуальних бітів 27, 26 та 25 формуються унітарні маски шляхом бітового зсуву одиниці на відповідний розряд, після чого застосовується операція порозрядного логічного множення:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+\text{Крок 1 (Маска аварії живлення):} &amp; \quad M_{pwr} = 1 \ll 27 = \text{0x08000000}_{16} \\
+\text{Крок 2 (Маска перегріву):} &amp; \quad M_{temp} = 1 \ll 26 = \text{0x04000000}_{16} \\
+\text{Крок 3 (Маска синхронізації ФАПЧ):} &amp; \quad M_{lock} = 1 \ll 25 = \text{0x02000000}_{16}
+\end{aligned}
+\]</div>
+<p>Здійснимо аналітичне накладання масок на отримане апаратне значення:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+F_{pwr} &amp; = (S_{raw} \ \&amp; \ M_{pwr}) \gg 27 = (\text{0xA49A2710} \ \&amp; \ \text{0x08000000}) \gg 27 = 0 \\
+F_{temp} &amp; = (S_{raw} \ \&amp; \ M_{temp}) \gg 26 = (\text{0xA49A2710} \ \&amp; \ \text{0x04000000}) \gg 26 = 1 \\
+F_{lock} &amp; = (S_{raw} \ \&amp; \ M_{lock}) \gg 25 = (\text{0xA49A2710} \ \&amp; \ \text{0x02000000}) \gg 25 = 0
+\end{aligned}
+\]</div>
+<p>Результати свідчать, що лінія живлення перебуває в нормі (<span class="arithmatex">\(F_{pwr} = 0\)</span>), проте зафіксовано критичний прапорець аварійного перегріву підсилювача (<span class="arithmatex">\(F_{temp} = 1\)</span>) та втрату синхронізації синтезатора (<span class="arithmatex">\(F_{lock} = 0\)</span>).</p>
+<h5 id="3_2">Крок 3. Демаскування та лінійне калібрування каналу температури</h5>
+<p>Поле температури займає 9 бітів (розряди 24–16). Маска виділення формується з 9 одиниць:</p>
+<div class="arithmatex">\[M_{T} = (2^9 - 1) \ll 16 = 511 \ll 16 = \text{0x01FF0000}_{16}\]</div>
+<p>Виділимо сирий двійковий код АЦП та виконаємо лінійну інтерполяцію за заводською формулою перетворення <span class="arithmatex">\(T = T_{raw} \times 0.25 - 40.0\)</span>:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+\text{Крок 1 (Виділення коду АЦП):} &amp; \quad T_{raw} = (S_{raw} \ \&amp; \ M_T) \gg 16 \\
+\text{Крок 2 (Розрахунок значення коду):} &amp; \quad T_{raw} = (\text{0xA49A2710} \ \&amp; \ \text{0x01FF0000}) \gg 16 = \text{0x009A}_{16} = 154_{10} \\
+\text{Крок 3 (Калібрування у фізичну шкалу):} &amp; \quad T = 154 \times 0.25 - 40.0 = 38.5 - 40.0 = -1.5\text{ }^\circ\text{C}
+\end{aligned}
+\]</div>
+<h5 id="4-rssi-ieee-754">Крок 4. Демаскування рівня сигналу RSSI та верифікація з граничним порогом IEEE 754</h5>
+<p>Поле потужності займає молодші 16 розрядів (біти 15–0). Маска має вигляд:</p>
+<div class="arithmatex">\[M_{P} = \text{0x0000FFFF}_{16} = 65535_{10}\]</div>
+<p>Калібрування потужності в децибел-мілівати (dBm) виконується за передавальною функцією <span class="arithmatex">\(P = P_{raw} \times 0.002 - 120.0\)</span>:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+\text{Крок 1 (Виділення коду RSSI):} &amp; \quad P_{raw} = S_{raw} \ \&amp; \ M_P = \text{0xA49A2710} \ \&amp; \ \text{0x0000FFFF} = \text{0x2710}_{16} = 10000_{10} \\
+\text{Крок 2 (Обчислення дійсного рівня):} &amp; \quad P = 10000 \times 0.002 - 120.0 = 20.0 - 120.0 = -100.0\text{ dBm}
+\end{aligned}
+\]</div>
+<p>Необхідно перевірити, чи дорівнює обчислена потужність пороговому значенню чутливості приймача <span class="arithmatex">\(P_{crit} = -100.0\text{ dBm}\)</span> за умови апаратного дрейфу. Застосуємо формальну модель перевірки близькості чисел:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+\text{Крок 1 (Різниця значень):} &amp; \quad \Delta = |P - P_{crit}| = |-100.0 - (-100.0)| = 0.0 \\
+\text{Крок 2 (Розрахунок допуску):} &amp; \quad \delta = \max(10^{-5} \times \max(|-100.0|, |-100.0|), 10^{-9}) = 10^{-5} \times 100.0 = 10^{-3} \\
+\text{Крок 3 (Перевірка нерівності):} &amp; \quad (\Delta \le \delta) \implies (0.0 \le 0.001) \implies \text{True}
+\end{aligned}
+\]</div>
+<p>Отримане значення потужності строго збігається з пороговою межею чутливості в межах заданої інженерної похибки.</p>
+<h4 id="_7">Інтерпретація результатів та альтернативні сценарії</h4>
+<p>На основі покрокового виконання розробленого алгоритмічного конвеєра сформовано висновки щодо працездатності телекомунікаційного обладнання:</p>
+<ol>
+<li>
+<p>Кадр є повністю автентичним, оскільки комбінація старших розрядів строго відповідає синхромаркеру <code>0xA</code>.</p>
+</li>
+<li>
+<p>Виявлено критичну розбіжність між фізичною температурою сенсора (<span class="arithmatex">\(-1.5\text{ }^\circ\text{C}\)</span>) та прапорцем перегріву (<span class="arithmatex">\(F_{temp} = 1\)</span>). Це сигналізує про внутрішнє апаратне пошкодження компаратора захисту або збій у мікросхемі підсилювача потужності.</p>
+</li>
+<li>
+<p>Втрата захоплення частоти (<span class="arithmatex">\(F_{lock} = 0\)</span>) свідчить про зрив синхронізації прийомо-передавального тракту, що у поєднанні з рівнем сигналу <span class="arithmatex">\(-100.0\text{ dBm}\)</span> вимагає негайного перезапуску модуля ФАПЧ.</p>
+</li>
+</ol>
+<p>Розглянемо альтернативний сценарій: якби розрядність коду температури <span class="arithmatex">\(T_{raw}\)</span> була збільшена з 9 до 12 бітів за рахунок зменшення розрядності поля RSSI до 13 бітів, системна маска температури набула б вигляду <span class="arithmatex">\(M_T = (2^{12} - 1) \ll 13 = \text{0x01FFE000}_{16}\)</span>. </p>
+<p>У разі передачі від'ємних температур безпосередньо у форматі додаткового коду АЦП (зі знаковим бітом у розряді 24), прямий зсув <code>&gt;&gt; 16</code> у мові Python призвів би до некоректного результату без виконання штучного знакового розширення, оскільки тип <code>int</code> автоматично не обмежує старші нулі беззнакового слова. Інженеру знадобилося б застосувати явну перевірку знакового біта та виконати декремент еквівалента ваги розряду: <span class="arithmatex">\(T_{signed} = T_{raw} - 2^{12}\)</span>, якщо знаковий розряд дорівнює одиниці.</p>
+<hr />
+<h3 id="32">3.2. Зведена довідкова система лекції</h3>
+<p>Підсумкова довідкова таблиця акумулює весь понятійно-термінологічний апарат лекції, систематизуючи фундаментальні архітектурні концепції, моделі типізації та апаратні обмеження мови Python.</p>
+<p><em>Таблиця 3.2 — Зведена система архітектурних та методологічних понять мови Python</em></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Термін / Концепція</th>
+<th style="text-align: left;">Формалізація / Сутність</th>
+<th style="text-align: left;">Реальний кейс застосування</th>
+<th style="text-align: left;">Основне обмеження / Ризик</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>CPython</strong></td>
+<td style="text-align: left;">Еталонний інтерпретатор мови Python, реалізований на мові C; транслює вихідний код у байт-код для стекової віртуальної машини PVM</td>
+<td style="text-align: left;">Базова платформа для розгортання серверних, наукових та вбудованих інженерних систем</td>
+<td style="text-align: left;">Неможливість виконання нативного багатопотокового паралелізму на рівні байт-коду через GIL</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Байт-код (.pyc)</strong></td>
+<td style="text-align: left;">Платформно-незалежна послідовність низькорівневих команд; зберігається у каталозі <code>__pycache__</code> разом із магічним числом та часовою міткою</td>
+<td style="text-align: left;">Оптимізація часу «холодного старту» великих інженерних програмних пакетів та мікросервісів</td>
+<td style="text-align: left;">Не захищає інтелектуальну власність від зворотного декомпілювання у вихідний код</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>PVM (Python Virtual Machine)</strong></td>
+<td style="text-align: left;">Стековий програмний процесор, що виконує команди байт-коду через глобальний цикл вибору інструкцій у файлі <code>ceval.c</code></td>
+<td style="text-align: left;">Покрокове виконання програмних інструкцій без прив'язки до регістрової структури процесора</td>
+<td style="text-align: left;">Суттєво нижча продуктивність обчислень у порівнянні з прямим машинним кодом компіляторів</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>GIL (Global Interpreter Lock)</strong></td>
+<td style="text-align: left;">М'ютекс взаємного виключення, що гарантує виконання байт-коду лише одним потоком операційної системи одночасно</td>
+<td style="text-align: left;">Захист неатомарних операцій оновлення лічильника посилань <code>ob_refcnt</code> від стану гонитви</td>
+<td style="text-align: left;">Повна відсутність прискорення обчислювально-складних завдань при використанні модуля <code>threading</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Динамічна строга типізація</strong></td>
+<td style="text-align: left;">Зв'язування типу здійснюється з об'єктом у купі під час виконання; автоматичне неявне приведення несумісних типів суворо заборонено</td>
+<td style="text-align: left;">Безпечне маніпулювання поліморфними даними в алгоритмах розпізнавання сигналів</td>
+<td style="text-align: left;">Необхідність явного приведення типів під час зчитування потоків із текстових інтерфейсів</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Small Integer Cache</strong></td>
+<td style="text-align: left;">Масив глобальних об'єктів-сінглтонів для цілих чисел діапазону <span class="arithmatex">\([-5, 256]\)</span>, створений на етапі запуску інтерпретатора</td>
+<td style="text-align: left;">Оптимізація виділення пам'яті під циклічні індекси та системні змінні розрахункових циклів</td>
+<td style="text-align: left;">Хибне припущення про ідентичність об'єктів поза вказаним пулом при порівнянні через оператор <code>is</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>IEEE 754 (Тип float)</strong></td>
+<td style="text-align: left;">64-бітне бінарне представлення чисел із плаваючою комою: 1 біт знака, 11 бітів експоненти, 52 біти мантиси</td>
+<td style="text-align: left;">Обчислення фізичних характеристик середовища, координат та спектральних коефіцієнтів</td>
+<td style="text-align: left;">Похибки округлення двійкових періодичних дробів; неприпустимість прямого порівняння <code>a == b</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Побітове маскування</strong></td>
+<td style="text-align: left;">Порозрядні операції <code>&amp;</code>, <code>\|</code>, <code>^</code>, <code>~</code>, <code>&lt;&lt;</code>, <code>&gt;&gt;</code> над цілими числами, представленими у нескінченному додатковому коді</td>
+<td style="text-align: left;">Розпакування та пакування телеметричних слів, керування апаратними регістрами мікроконтролерів</td>
+<td style="text-align: left;">Необхідність явного обмеження розрядності від'ємних чисел за допомогою масок виду <code>0xFFFFFFFF</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Short-circuit evaluation</strong></td>
+<td style="text-align: left;">Логічні оператори <code>and</code>/<code>or</code> зупиняють обчислення ланцюжка, як тільки результат стає однозначним, повертаючи сам об'єкт</td>
+<td style="text-align: left;">Безпечна навігація за покажчиками та блокування викликів ресурсомістких функцій за умовою</td>
+<td style="text-align: left;">Непередбачувана поведінка алгоритму, якщо правий операнд містив обов'язкові побічні ефекти</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>math.isclose()</strong></td>
+<td style="text-align: left;">Алгоритм верифікації близькості чисел: $</td>
+<td style="text-align: left;">a - b</td>
+<td style="text-align: left;">\le \max(\text{rel_tol} \times \max(</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="33">3.3. Контрольні питання та завдання</h3>
+<h4 id="_8">Прикладні тестові завдання</h4>
+<h5 id="1_1">Завдання 1</h5>
+<p>Під час розробки модуля драйвера бортового радіомодема інженер створив функцію перевірки аварійного прапорця живлення у 16-бітному регістрі статусу <code>reg_val</code>. Умова написана так:
+<div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">if</span> <span class="n">reg_val</span> <span class="o">&amp;</span> <span class="mh">0x0020</span> <span class="o">==</span> <span class="mh">0x0020</span><span class="p">:</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>    <span class="n">trigger_alarm</span><span class="p">()</span>
+</span></code></pre></div>
+Проте система не викликає функцію аварії навіть тоді, коли 5-й біт встановлено у одиницю (<code>reg_val = 0x0020</code>). Яка причина такого збою в середовищі CPython?</p>
+<p>A. Відбувається переповнення розрядної сітки 16-бітного регістра в системі довгої арифметики.<br />
+B. Оператор рівності <code>==</code> має вищий пріоритет, ніж побітове <code>&amp;</code>, тому спочатку обчислюється <code>0x0020 == 0x0020</code>.<br />
+C. Побітові літерали у шістнадцятковій формі не підтримують пряме логічне порівняння без виклику функції <code>int()</code>.<br />
+D. Логічний контекст інструкції <code>if</code> не може інтерпретувати результат побітової кон'юнкції.</p>
+<details class="note">
+<summary>Розгорнути аналіз / відповідь</summary>
+<p><strong>Правильний варіант: B.</strong></p>
+<ol>
+<li>
+<p>Відповідно до специфікації граматики мови Python оператори порівняння (зокрема <code>==</code>) мають пріоритет вищий, ніж побітова кон'юнкція <code>&amp;</code>. Через відсутність явних дужок інтерпретатор виконує вираз як <code>reg_val &amp; (0x0020 == 0x0020)</code>. Вираз у дужках повертає логічний об'єкт <code>True</code>. Оскільки <code>bool</code> є підкласом <code>int</code>, <code>True</code> еквівалентний числу <code>1</code>. Далі обчислюється <code>0x0020 &amp; 1</code>, що дає ціле число <code>0</code>, оскільки молодший розряд числа <code>0x0020</code> дорівнює нулю. Число <code>0</code> в умовному операторі <code>if</code> інтерпретується як <code>False</code>, тому функція аварії ніколи не спрацьовує. Коректний запис вимагає явних дужок: <code>if (reg_val &amp; 0x0020) == 0x0020:</code>.</p>
+</li>
+<li>
+<p>Аналіз дистракторів:</p>
+</li>
+<li>
+<p>Варіант A є хибним, оскільки у мові Python цілі числа мають необмежену точність і ніколи не викликають переповнення розрядної сітки.</p>
+</li>
+<li>
+<p>Варіант C є хибним, оскільки шістнадцяткові літерали <code>0x...</code> є повноцінними цілими числами типу <code>int</code> і беруть участь у порівняннях на загальних підставах.</p>
+</li>
+<li>
+<p>Варіант D є хибним, оскільки будь-яке ціле число успішно інтерпретується в контексті істинності (нуль — <code>False</code>, ненульове — <code>True</code>).</p>
+</li>
+</ol>
+</details>
+<h5 id="2_3">Завдання 2</h5>
+<p>Розглядається фрагмент коду безпечного скидання апаратного буфера:
+<div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">reset_buffer</span><span class="p">(</span><span class="n">device</span><span class="p">):</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>    <span class="k">return</span> <span class="n">device</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">device</span><span class="o">.</span><span class="n">purge</span><span class="p">()</span>
+</span></code></pre></div>
+Яким буде фактичний результат виконання функції <code>reset_buffer(None)</code>?</p>
+<p>A. Виникне фатальний виняток <code>AttributeError: 'NoneType' object has no attribute 'purge'</code>.<br />
+B. Функція поверне логічне значення <code>False</code>.<br />
+C. Функція поверне системний об'єкт <code>None</code>.<br />
+D. Інтерпретатор поверне порожній кортеж <code>()</code>.</p>
+<details class="note">
+<summary>Розгорнути аналіз / відповідь</summary>
+<p><strong>Правильний варіант: C.</strong></p>
+<ol>
+<li>Оператор <code>and</code> реалізує коротку схему обчислення і повертає перший об'єкт, який у логічному контексті оцінюється як хибний, або останній операнд, якщо всі попередні істинні. У виразі <code>device is not None</code> для аргументу <code>None</code> результат першого порівняння становить <code>False</code>. Відповідно, інтерпретатор фіксує, що перший операнд є хибним, негайно припиняє обчислення всього виразу і повертає сам результат лівої частини. Проте зверніть увагу: ліва частина — це вираз <code>device is not None</code>, який обчислюється як булеве <code>False</code>. 
+   Стоп, перевіримо: якщо <code>device</code> дорівнює <code>None</code>, то вираз <code>device is not None</code> обчислюється як <code>False</code>. Чи повертає <code>and</code> значення лівого операнда? Так, значення лівого операнда у цьому виразі — це результат операції <code>device is not None</code>, тобто безпосередньо об'єкт <code>False</code>! 
+   Але якби вираз був записаний як <code>device and device.purge()</code>, результатом був би саме об'єкт <code>None</code>. У даному завданні вираз має вигляд <code>device is not None and device.purge()</code>. Перший операнд — це вираз порівняння <code>device is not None</code>, його значенням є <code>False</code>. Відповідно, оператор <code>and</code> повертає перший хибний операнд, тобто <code>False</code>.</li>
+</ol>
+<p><strong>Правильний варіант: B.</strong></p>
+<ol>
+<li>
+<p>Оператор <code>and</code> обчислює вираз зліва направо за короткою схемою. Першим обчислюється вираз <code>device is not None</code>. Оскільки передано <code>device = None</code>, порівняння тотожності повертає об'єкт <code>False</code>. Оскільки цей операнд є хибним, оператор <code>and</code> негайно припиняє подальший розбір ланцюжка і повертає значення поточного операнда, тобто <code>False</code>. Правий операнд <code>device.purge()</code> навіть не викликається, що запобігає виникненню винятку <code>AttributeError</code>.</p>
+</li>
+<li>
+<p>Аналіз дистракторів:</p>
+</li>
+<li>
+<p>Варіант A є хибним, оскільки коротка схема повністю блокує доступ до неіснуючого атрибута <code>purge</code> для об'єкта <code>None</code>.</p>
+</li>
+<li>
+<p>Варіант C був би правильним лише за умови синтаксису <code>device and device.purge()</code>, де лівим операндом виступав би безпосередньо об'єкт <code>device</code>.</p>
+</li>
+<li>
+<p>Варіант D є абсурдним, оскільки жодна операція у виразі не генерує кортежів.</p>
+</li>
+</ol>
+</details>
+<h5 id="3_3">Завдання 3</h5>
+<p>Інженер виконує калібрувальні вимірювання затухання сигналу в хвилеводі. У циклі обчислюється змінна <span class="arithmatex">\(loss\)</span>:
+<div class="language-python highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">loss</span> <span class="o">=</span> <span class="mf">0.0</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>    <span class="n">loss</span> <span class="o">+=</span> <span class="mf">0.1</span>
+</span></code></pre></div>
+Яким буде результат виконання перевірки <code>loss == 1.0</code> та виклику <code>math.isclose(loss, 1.0)</code>?</p>
+<p>A. Обидва вирази повернуть <code>True</code>.<br />
+B. <code>loss == 1.0</code> поверне <code>False</code>, а <code>math.isclose(loss, 1.0)</code> поверне <code>True</code>.<br />
+C. <code>loss == 1.0</code> поверне <code>True</code>, а <code>math.isclose(loss, 1.0)</code> поверне <code>False</code>.<br />
+D. Обидва вирази повернуть <code>False</code>.</p>
+<details class="note">
+<summary>Розгорнути аналіз / відповідь</summary>
+<p><strong>Правильний варіант: B.</strong></p>
+<ol>
+<li>
+<p>Число <span class="arithmatex">\(0.1\)</span> у стандарті IEEE 754 не може бути представлене скінченним двійковим дробом. Після десятикратного додавання похибки квантування накопичуються у молодших розрядах мантиси. Фактичне значення змінної <code>loss</code> у двійковій пам'яті становить <code>0.9999999999999999</code> (або <code>1.0000000000000002</code> залежно від порядку операцій). Пряме порівняння <code>loss == 1.0</code> фіксує невідповідність бітів мантиси і повертає <code>False</code>. Функція <code>math.isclose()</code> обчислює різницю <span class="arithmatex">\(|0.9999999999999999 - 1.0| \approx 1.11 \times 10^{-16}\)</span>, що значно менше допустимого відносного відхилення за замовчуванням <span class="arithmatex">\(\text{rel\_tol} = 10^{-9}\)</span>, тому повертає <code>True</code>.</p>
+</li>
+<li>
+<p>Аналіз дистракторів:</p>
+</li>
+<li>
+<p>Варіант A є хибним через ігнорування накопичення похибок заокруглення двійкових дробів у стандарті IEEE 754.</p>
+</li>
+<li>
+<p>Варіант C містить інвертовану логіку, яка суперечить природі апаратних обчислень на PVM.</p>
+</li>
+<li>
+<p>Варіант D є хибним, оскільки функція <code>math.isclose()</code> була спеціально розроблена для компенсації подібних похибок і успішно нівелює розбіжність такого порядку.</p>
+</li>
+</ol>
+</details>
+<h5 id="4">Завдання 4</h5>
+<p>У процесі оптимізації структур даних комп'ютерного моделювання дослідник створив такі змінні:
+<div class="language-python highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">x</span> <span class="o">=</span> <span class="mi">256</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="n">y</span> <span class="o">=</span> <span class="mi">256</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="n">u</span> <span class="o">=</span> <span class="mi">257</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="n">v</span> <span class="o">=</span> <span class="mi">257</span>
+</span></code></pre></div>
+Які логічні значення повернуть вирази <code>x is y</code> та <code>u is v</code> у стандартній консолі CPython?</p>
+<p>A. <code>x is y</code> поверне <code>True</code>, а <code>u is v</code> поверне <code>False</code>.<br />
+B. Обидва вирази повернуть <code>True</code>.<br />
+C. Обидва вирази повернуть <code>False</code>.<br />
+D. <code>x is y</code> поверне <code>False</code>, а <code>u is v</code> поверне <code>True</code>.</p>
+<details class="note">
+<summary>Розгорнути аналіз / відповідь</summary>
+<p><strong>Правильний варіант: A.</strong></p>
+<ol>
+<li>
+<p>Під час запуску середовища CPython створює статичний пул об'єктів для цілих чисел у діапазоні від <code>-5</code> до <code>256</code> включно (Small Integer Cache). Змінні <code>x</code> та <code>y</code> отримують посилання на один і той самий об'єкт-сінглтон у купі, тому їхні фізичні адреси збігаються, і оператор тотожності <code>x is y</code> повертає <code>True</code>. Число <code>257</code> виходить за межі оптимізаційного пулу; для кожної змінної інтерпретатор виділяє незалежну C-структуру <code>PyLongObject</code> з унікальною адресою пам'яті, внаслідок чого операція <code>u is v</code> повертає <code>False</code>.</p>
+</li>
+<li>
+<p>Аналіз дистракторів:</p>
+</li>
+<li>
+<p>Варіант B є хибним, оскільки припускає наявність глобального кешування для всіх цілих чисел, що вичерпало б пам'ять системи.</p>
+</li>
+<li>
+<p>Варіант C не враховує внутрішню архітектурну оптимізацію CPython щодо діапазону малих цілих чисел.</p>
+</li>
+<li>
+<p>Варіант D суперечить базовому принципу розміщення сінглтонів пулу цілих чисел у runtime.</p>
+</li>
+</ol>
+</details>
+<hr />
+<h4 id="_9">Завдання для самостійної роботи</h4>
+<h5 id="_10">Постановка задачі</h5>
+<p>Розробити модуль первинної обробки телеметричного кадру контролера поворотного пристрою супутникової антени станції наземного зв'язку. Контролер передає поточний стан приводу через 16-бітне беззнакове ціле число <code>azimuth_word</code>. Структура слова містить:</p>
+<ul>
+<li>
+<p>біти 15–14: код режиму роботи приводу (<code>00</code> — калібрування, <code>01</code> — ручне наведення, <code>10</code> — автосупровід цілі, <code>11</code> — блокування за аварією);</p>
+</li>
+<li>
+<p>біт 13: прапорець кінцевого вимикача азимута (<code>1</code> — досягнуто ліміту, <code>0</code> — сектор вільний);</p>
+</li>
+<li>
+<p>біт 12: резервний розряд (завжди повинен дорівнювати <code>0</code>);</p>
+</li>
+<li>
+<p>біти 11–0 (12 бітів): сирий цілочисельний код кута азимута від <span class="arithmatex">\(0\)</span> до <span class="arithmatex">\(4095\)</span>, де <span class="arithmatex">\(0\)</span> відповідає <span class="arithmatex">\(0.0^\circ\)</span>, а <span class="arithmatex">\(4095\)</span> відповідає <span class="arithmatex">\(359.912^\circ\)</span> (передавальний коефіцієнт <span class="arithmatex">\(K_{az} = \frac{360.0}{4096}\)</span>).</p>
+</li>
+</ul>
+<h5 id="_11">Завдання для виконання</h5>
+<ol>
+<li>
+<p>Складіть математичні вирази генерації бітових масок для ізоляції коду режиму роботи, прапорця кінцевика та 12-бітного коду кута повороту антени.</p>
+</li>
+<li>
+<p>Реалізуйте алгоритм розпакування 16-бітного слова з перевіркою коректності резервного біта та конвертацією коду азимута у фізичні градуси з використанням операцій зсуву і маскування.</p>
+</li>
+<li>
+<p>Додайте перевірку рівності поточного азимута нульовому напрямку на Північ (<span class="arithmatex">\(0.0^\circ\)</span>) із застосуванням функції <code>math.isclose</code>, встановивши абсолютний допуск <code>abs_tol</code> відповідно до роздільної здатності енкодера.</p>
+</li>
+<li>
+<p>Оформіть виведення діагностичного повідомлення за допомогою інтерпольованих f-рядків, представивши вихідний код у шістнадцятковому та двійковому форматах із вирівнюванням та фіксованою кількістю знаків після коми.</p>
+</li>
+</ol>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Повернутись нагору
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 Kyrylo Vadurin &bull; <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a>
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.expand", "navigation.top", "navigation.tracking", "header.autohide", "search.suggest", "search.highlight", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u0421\u043a\u043e\u043f\u0456\u0439\u043e\u0432\u0430\u043d\u043e \u0432 \u0431\u0443\u0444\u0435\u0440", "clipboard.copy": "\u0421\u043a\u043e\u043f\u0456\u044e\u0432\u0430\u0442\u0438 \u0432 \u0431\u0443\u0444\u0435\u0440", "search.result.more.one": "\u0429\u0435 1 \u0437\u0431\u0456\u0433 \u043d\u0430 \u0446\u0456\u0439 \u0441\u0442\u043e\u0440\u0456\u043d\u0446\u0456", "search.result.more.other": "\u0429\u0435 # \u0437\u0431\u0456\u0433\u0456\u0432 \u043d\u0430 \u0446\u0456\u0439 \u0441\u0442\u043e\u0440\u0456\u043d\u0446\u0456", "search.result.none": "\u0417\u0431\u0456\u0433\u0456\u0432 \u043d\u0435 \u0437\u043d\u0430\u0439\u0434\u0435\u043d\u043e", "search.result.one": "\u0417\u043d\u0430\u0439\u0434\u0435\u043d\u043e 1 \u0437\u0431\u0456\u0433", "search.result.other": "\u0417\u043d\u0430\u0439\u0434\u0435\u043d\u043e # \u0437\u0431\u0456\u0433\u0456\u0432", "search.result.placeholder": "\u0420\u043e\u0437\u043f\u043e\u0447\u043d\u0456\u0442\u044c \u043f\u0438\u0441\u0430\u0442\u0438 \u0434\u043b\u044f \u043f\u043e\u0448\u0443\u043a\u0443", "search.result.term.missing": "\u041d\u0435 \u0437\u043d\u0430\u0439\u0434\u0435\u043d\u043e \u0437\u0430\u043f\u0438\u0442\u0443", "select.version": "\u041e\u0431\u0440\u0430\u0442\u0438 \u0432\u0435\u0440\u0441\u0456\u044e"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,2960 @@
+
+<!doctype html>
+<html lang="uk" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Навчальний портал з дисципліни "Програмування на Python. Базовий рівень"">
+      
+      
+      
+      
+        <link rel="prev" href="../lk5/">
+      
+      
+        <link rel="next" href="../lk7/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Тема 6. Функціональна організація коду - Програмування на Python</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="cyan">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#6" class="md-skip">
+          Перейти до змісту
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Хедер">
+    <a href="../.." title="Програмування на Python" class="md-header__button md-logo" aria-label="Програмування на Python" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Програмування на Python
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Тема 6. Функціональна організація коду
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="cyan"  aria-label="Переключити на темну тему"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Переключити на темну тему" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="cyan"  aria-label="Переключити на світлу тему"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Переключити на світлу тему" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Пошук" placeholder="Пошук" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Шукати">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Очистити" aria-label="Очистити" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Пошук розпочато
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Вкладки" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Робоча програма
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../lk1/" class="md-tabs__link">
+          
+  
+  
+  Лекції
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../lb/lb1/" class="md-tabs__link">
+          
+  
+  
+  Лабораторні роботи
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../sr/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Самостійна робота
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../sr/quest/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Перелік тестових питань
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../rg/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Розрахунково-графічна робота
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Навігація" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Програмування на Python" class="md-nav__button md-logo" aria-label="Програмування на Python" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Програмування на Python
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Робоча програма
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Лекції
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Лекції
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lk1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Тема 1. Архітектура мови та інфраструктура
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lk2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Тема 2. Керування потоком виконання
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lk3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Тема 3. Впорядковані структури даних (Списки, Кортежі)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lk4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Тема 4. Текстові, двійкові дані та Регулярні вирази
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lk5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Тема 5. Хеш-таблиці (Словники, Множини)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Тема 6. Функціональна організація коду
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Тема 6. Функціональна організація коду
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Зміст">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Зміст
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Мета лекції
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Очікувані результати навчання
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Детальний покроковий план лекції
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Детальний покроковий план лекції">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Теоретико-концептуальний базис. Архітектура функцій, життєвий цикл об'єктів та модель передачі параметрів
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Методологія та аналіз граничних умов. Розширене зв'язування аргументів, лексичні замикання та бар'єри рекурсивних обчислень
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Практичний індустріальний / фаховий кейс. Проєктування модульного конвеєра обробки телеметричних сигналів у розподілених системах
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Теоретико-концептуальний базис. Архітектура функцій, життєвий цикл об'єктів та модель передачі параметрів
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Теоретико-концептуальний базис. Архітектура функцій, життєвий цикл об&#39;єктів та модель передачі параметрів">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-def-pyfunctionobject-pycodeobject-cpython" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1. Синтаксична декларація функцій інструкцією def, внутрішня структура об'єкта PyFunctionObject та генерація незмінного байт-коду PyCodeObject у віртуальній машині CPython
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-pass-by-object-reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2. Модель передачі параметрів pass-by-object-reference та оцінка впливу мутабельності аргументів на збереження цілісності даних викликаючого середовища
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-return-none" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3. Семантика оператора return, правила повернення об'єкта-сінглтона None та механізми автоматичного пакування множинних значень у незмінний кортеж
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14-first-class-citizens" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.4. Концепція функцій як об'єктів першого класу (First-class citizens), системна інтроспекція службових атрибутів та розміщення посилань у просторах імен
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Вказівки для самостійного осмислення
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Методологія та аналіз граничних умов. Розширене зв'язування аргументів, лексичні замикання та бар'єри рекурсивних обчислень
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Методологія та аналіз граничних умов. Розширене зв&#39;язування аргументів, лексичні замикання та бар&#39;єри рекурсивних обчислень">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-args-kwargs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1. Варіативне пакування аргументів за допомогою синтаксичних конструкцій args та *kwargs із наступним застосуванням операцій структурного розпакування колекцій
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-pep-570-pep-3102-positional-only-keyword-only" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2. Застосування специфікаторів PEP 570 та PEP 3102 для суворого розмежування позиційних (positional-only) та іменованих (keyword-only) параметрів у публічних програмних інтерфейсах
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-legb-global-nonlocal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3. Дозвіл ідентифікаторів за ієрархічним правилом LEGB, проектування лексичних замикань та зміна контексту видимості за допомогою директив global і nonlocal
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-lambda-map-filter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4. Анонімна функціональна декомпозиція за допомогою lambda-виразів у поєднанні з функціями вищого порядку map та filter для потокової трансформації даних
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25-defaults-recursionerror-cpython" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.5. Архітектурні обмеження та критичні бар'єри: пастка накопичення стану в мутабельних значеннях за замовчуванням кортежу defaults та ризики переповнення стека викликів RecursionError за відсутності оптимізації хвостової рекурсії в CPython
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Практичний індустріальний / фаховий кейс. Проєктування модульного конвеєра обробки телеметричних сигналів у розподілених системах
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Практичний індустріальний / фаховий кейс. Проєктування модульного конвеєра обробки телеметричних сигналів у розподілених системах">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1. Комплексний фаховий кейс. Розробка відмовостійкого функціонального конвеєра обробки телеметрії
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.1. Комплексний фаховий кейс. Розробка відмовостійкого функціонального конвеєра обробки телеметрії">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Постановка задачі / ситуації
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Покроковий аналіз та розв'язок
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Покроковий аналіз та розв&#39;язок">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Крок 1. Проектування чистої функції валідації пакетів із позиційними обмеженнями
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Крок 2. Побудова фабрики калібрувальних функцій на базі лексичних замикань
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-nonlocal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Крок 3. Реалізація віконного агрегатора з лексичним замиканням та оператором nonlocal
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Крок 4. Композиція конвеєра за допомогою функцій вищого порядку
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Інтерпретація результатів та альтернативні сценарії
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2. Зведена довідкова система лекції
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3. Контрольні питання та завдання
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.3. Контрольні питання та завдання">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Прикладні тестові завдання
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Завдання для самостійної роботи
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Завдання для самостійної роботи">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Постановка задачі
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Завдання для виконання
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lk7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Тема 7. Модульна архітектура та пакети
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lk8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Тема 8. Обробка винятків та файлове в/в
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lk9/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Тема 9. Об'єктно-орієнтоване програмування
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Лабораторні роботи
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Лабораторні роботи
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lb/lb1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 1. Розгортання інфраструктури розробки
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lb/lb2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 2. Скалярні типи даних та моделювання
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lb/lb3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 3. Алгоритми розгалуженої та циклічної структури
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lb/lb4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 4. Обробка списків та кортежі
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lb/lb5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 5. Обробка тексту та регулярні вирази
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lb/lb6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 6. Асоціативні структури даних (Словники, Множини)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lb/lb7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 7. Проєктування функцій та рекурсія
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lb/lb8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 8. Модульне програмування та системні бібліотеки
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lb/lb9/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 9. Обробка виняткових ситуацій
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lb/lb10/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 10. Файлове в/в та менеджери контексту
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lb/lb11/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 11. ООП та перевантаження методів
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sr/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Самостійна робота
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sr/quest/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Перелік тестових питань
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../rg/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Розрахунково-графічна робота
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Зміст">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Зміст
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Мета лекції
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Очікувані результати навчання
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Детальний покроковий план лекції
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Детальний покроковий план лекції">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Теоретико-концептуальний базис. Архітектура функцій, життєвий цикл об'єктів та модель передачі параметрів
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Методологія та аналіз граничних умов. Розширене зв'язування аргументів, лексичні замикання та бар'єри рекурсивних обчислень
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Практичний індустріальний / фаховий кейс. Проєктування модульного конвеєра обробки телеметричних сигналів у розподілених системах
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Теоретико-концептуальний базис. Архітектура функцій, життєвий цикл об'єктів та модель передачі параметрів
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Теоретико-концептуальний базис. Архітектура функцій, життєвий цикл об&#39;єктів та модель передачі параметрів">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-def-pyfunctionobject-pycodeobject-cpython" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1. Синтаксична декларація функцій інструкцією def, внутрішня структура об'єкта PyFunctionObject та генерація незмінного байт-коду PyCodeObject у віртуальній машині CPython
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-pass-by-object-reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2. Модель передачі параметрів pass-by-object-reference та оцінка впливу мутабельності аргументів на збереження цілісності даних викликаючого середовища
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-return-none" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3. Семантика оператора return, правила повернення об'єкта-сінглтона None та механізми автоматичного пакування множинних значень у незмінний кортеж
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14-first-class-citizens" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.4. Концепція функцій як об'єктів першого класу (First-class citizens), системна інтроспекція службових атрибутів та розміщення посилань у просторах імен
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Вказівки для самостійного осмислення
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Методологія та аналіз граничних умов. Розширене зв'язування аргументів, лексичні замикання та бар'єри рекурсивних обчислень
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Методологія та аналіз граничних умов. Розширене зв&#39;язування аргументів, лексичні замикання та бар&#39;єри рекурсивних обчислень">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-args-kwargs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1. Варіативне пакування аргументів за допомогою синтаксичних конструкцій args та *kwargs із наступним застосуванням операцій структурного розпакування колекцій
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-pep-570-pep-3102-positional-only-keyword-only" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2. Застосування специфікаторів PEP 570 та PEP 3102 для суворого розмежування позиційних (positional-only) та іменованих (keyword-only) параметрів у публічних програмних інтерфейсах
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-legb-global-nonlocal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3. Дозвіл ідентифікаторів за ієрархічним правилом LEGB, проектування лексичних замикань та зміна контексту видимості за допомогою директив global і nonlocal
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-lambda-map-filter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4. Анонімна функціональна декомпозиція за допомогою lambda-виразів у поєднанні з функціями вищого порядку map та filter для потокової трансформації даних
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25-defaults-recursionerror-cpython" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.5. Архітектурні обмеження та критичні бар'єри: пастка накопичення стану в мутабельних значеннях за замовчуванням кортежу defaults та ризики переповнення стека викликів RecursionError за відсутності оптимізації хвостової рекурсії в CPython
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Практичний індустріальний / фаховий кейс. Проєктування модульного конвеєра обробки телеметричних сигналів у розподілених системах
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Практичний індустріальний / фаховий кейс. Проєктування модульного конвеєра обробки телеметричних сигналів у розподілених системах">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1. Комплексний фаховий кейс. Розробка відмовостійкого функціонального конвеєра обробки телеметрії
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.1. Комплексний фаховий кейс. Розробка відмовостійкого функціонального конвеєра обробки телеметрії">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Постановка задачі / ситуації
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Покроковий аналіз та розв'язок
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Покроковий аналіз та розв&#39;язок">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Крок 1. Проектування чистої функції валідації пакетів із позиційними обмеженнями
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Крок 2. Побудова фабрики калібрувальних функцій на базі лексичних замикань
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-nonlocal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Крок 3. Реалізація віконного агрегатора з лексичним замиканням та оператором nonlocal
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Крок 4. Композиція конвеєра за допомогою функцій вищого порядку
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Інтерпретація результатів та альтернативні сценарії
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2. Зведена довідкова система лекції
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3. Контрольні питання та завдання
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.3. Контрольні питання та завдання">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Прикладні тестові завдання
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Завдання для самостійної роботи
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Завдання для самостійної роботи">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Постановка задачі
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Завдання для виконання
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="6">Тема 6. Функціональна організація програмного коду</h1>
+<h2 id="_1">Мета лекції</h2>
+<p>Формування у здобувачів першого (бакалаврського) рівня вищої освіти фундаментального розуміння процедурно-модульної та функціональної декомпозиції програмного забезпечення мовою Python. Лекція орієнтована на розкриття внутрішніх механізмів створення та виконання підпрограм у середовищі CPython, опанування концепції функцій як об'єктів першого класу, детальне вивчення механізмів виділення пам'яті під час виклику підпрограм за моделлю передачі посилань на об'єкти, засвоєння правил зв'язування аргументів у сучасних стандартах мови, а також опанування дисципліни лексичних областей видимості LEGB для проектування надійних, масштабованих та стійких до відмов інженерних систем.</p>
+<h2 id="_2">Очікувані результати навчання</h2>
+<ol>
+<li>
+<p><strong>Знання та розуміння.</strong> Студенти повинні засвоїти архітектурні засади функціональної організації коду в Python, зрозуміти відмінності між статичним байт-кодом об'єкта коду та динамічним об'єктом функції в пам'яті, а також осягнути системні механізми передачі параметрів за посиланням на спільний об'єкт.</p>
+</li>
+<li>
+<p><strong>Застосування.</strong> Здобувачі вищої освіти набудуть умінь проектувати гнучкі та типізовані сигнатури підпрограм із використанням позиційних, ключових і варіативних параметрів, реалізовувати чисті функції без небажаних побічних ефектів та застосовувати анонімні вирази у конвеєрах обробки потокових даних.</p>
+</li>
+<li>
+<p><strong>Аналіз.</strong> Студенти зможуть аналізувати проходження ідентифікаторів крізь багаторівневі лексичні простори імен за правилом LEGB, своєчасно діагностувати помилки зв'язування неініціалізованих локальних змінних, а також досліджувати поведінку функціональних замикань і рекурсивних викликів на рівні кадрів стека виконання.</p>
+</li>
+<li>
+<p><strong>Оцінювання та синтез.</strong> Майбутні інженери зможуть критично оцінювати компроміси між ітеративними обчисленнями, глибокою рекурсією та функціями вищого порядку за критеріями просторової складності й швидкодії, а також синтезувати модульні архітектурні рішення для високонавантажених прикладних систем.</p>
+</li>
+</ol>
+<hr />
+<h2 id="_3">Детальний покроковий план лекції</h2>
+<h3 id="1-">1. Теоретико-концептуальний базис. Архітектура функцій, життєвий цикл об'єктів та модель передачі параметрів</h3>
+<ul>
+<li>
+<p>1.1. Синтаксична декларація функцій інструкцією def, внутрішня структура об'єкта PyFunctionObject та генерація незмінного байт-коду PyCodeObject у віртуальній машині CPython.</p>
+</li>
+<li>
+<p>1.2. Модель передачі параметрів pass-by-object-reference та оцінка впливу мутабельності аргументів на збереження цілісності даних викликаючого середовища.</p>
+</li>
+<li>
+<p>1.3. Семантика оператора return, правила повернення об'єкта-сінглтона None та механізми автоматичного пакування множинних значень у незмінний кортеж.</p>
+</li>
+<li>
+<p>1.4. Концепція функцій як об'єктів першого класу (First-class citizens), системна інтроспекція службових атрибутів та розміщення посилань у просторах імен.</p>
+</li>
+</ul>
+<h3 id="2">2. Методологія та аналіз граничних умов. Розширене зв'язування аргументів, лексичні замикання та бар'єри рекурсивних обчислень</h3>
+<ul>
+<li>
+<p>2.1. Варіативне пакування аргументів за допомогою синтаксичних конструкцій <em>args та </em>*kwargs із наступним застосуванням операцій структурного розпакування колекцій.</p>
+</li>
+<li>
+<p>2.2. Застосування специфікаторів PEP 570 та PEP 3102 для суворого розмежування позиційних (positional-only) та іменованих (keyword-only) параметрів у публічних програмних інтерфейсах.</p>
+</li>
+<li>
+<p>2.3. Дозвіл ідентифікаторів за ієрархічним правилом LEGB, проектування лексичних замикань та модифікація контексту видимості за допомогою директив global і nonlocal.</p>
+</li>
+<li>
+<p>2.4. Анонімна функціональна декомпозиція за допомогою lambda-виразів у поєднанні з функціями вищого порядку map та filter для потокової трансформації даних.</p>
+</li>
+<li>
+<p>2.5. Архітектурні обмеження та критичні бар'єри: небезпека спільного стану при використанні мутабельних значень за замовчуванням у кортежі <strong>defaults</strong> та вичерпання системного стека викликів RecursionError за відсутності оптимізації хвостової рекурсії в CPython.</p>
+</li>
+</ul>
+<h3 id="3">3. Практичний індустріальний / фаховий кейс. Проєктування модульного конвеєра обробки телеметричних сигналів у розподілених системах</h3>
+<p><strong>Тема наскрізної задачі.</strong> «Розробка відмовостійкого функціонального конвеєра первинної валідації, калібрування та потокової агрегації телеметричних пакетів сенсорної мережі з використанням чистих функцій, варіативних аргументів та замикань»</p>
+<h2 id="1-_1">1. Теоретико-концептуальний базис. Архітектура функцій, життєвий цикл об'єктів та модель передачі параметрів</h2>
+<h3 id="11-def-pyfunctionobject-pycodeobject-cpython">1.1. Синтаксична декларація функцій інструкцією def, внутрішня структура об'єкта PyFunctionObject та генерація незмінного байт-коду PyCodeObject у віртуальній машині CPython</h3>
+<p>Функціональна декомпозиція виступає фундаментальним інженерним інструментом структурування складних обчислювальних систем, забезпечуючи ізоляцію локальної алгоритмічної логіки, повторне використання програмного коду та мінімізацію ентропії архітектури. У традиційних компільованих мовах програмування на зразок C або C++ декларація функції є статичною директивою для транслятора, яка фіксує сигнатуру та генерує незмінну адресу точки входу в сегменті пам'яті інструкцій. На противагу цьому, у мові програмування Python інструкція <code>def</code> є повноцінним виконуваним оператором часу виконання. Коли інтерпретатор CPython під час послідовного виконання блоку інструкцій досягає ключового слова <code>def</code>, він не просто реєструє прототип, а динамічно ініціалізує новий об'єкт у керованій купі та пов'язує його ім'я з новоствореною адресою в поточному просторі імен.</p>
+<p>Внутрішня архітектура підпрограми у середовищі CPython базується на чіткому розділенні між статичним скомпільованим представленням алгоритму та динамічним екземпляром функції. Статична складова інкапсулюється в низькорівневому незмінному об'єкті коду <strong>PyCodeObject</strong>, який формується компілятором під час синтаксичного аналізу вихідного тексту. Динамічна сутність представлена екземпляром типу <strong>PyFunctionObject</strong>, який створюється інструкцією віртуальної машини <code>MAKE_FUNCTION</code> безпосередньо в процесі виконання програми. Об'єкт функції функціонує як контекстна обгортка навколо об'єкта коду, забезпечуючи зв'язок абстрактних машинних інструкцій із глобальним середовищем виконання модуля, значеннями параметрів за замовчуванням та лексичними замиканнями.</p>
+<p>Об'єкт коду є детермінованим і абсолютно ізольованим від динамічного середовища, містячи виключно інформацію, необхідну для роботи стекової віртуальної машини. До його ключових полів належать сирий масив байт-код операцій <code>co_code</code>, кортеж літеральних констант <code>co_consts</code>, кортеж імен глобальних змінних та зовнішніх функцій <code>co_names</code>, а також кортеж локальних ідентифікаторів <code>co_varnames</code>. Окрім того, об'єкт коду фіксує точну кількість позиційних параметрів через атрибут <code>co_argcount</code> та визначає піковий обсяг пам'яті стека оцінювання, необхідний для обчислення виразів, через цілочисельне поле <code>co_stacksize</code>.</p>
+<pre class="mermaid"><code>flowchart TD
+    subgraph ExecutionEnvironment["Простір імен модуля (Globals)"]
+        SymbolName["Ідентифікатор: 'calculate_metric'"]
+    end
+
+    subgraph HeapFunction["Динамічний об'єкт у купі: PyFunctionObject"]
+        FuncHeader["Заголовок об'єкта: PyObject_HEAD"]
+        FuncGlobals["Покажчик __globals__ на словник модуля"]
+        FuncDefaults["Кортеж аргументів за замовчуванням __defaults__"]
+        FuncCodePtr["Покажчик на блок інструкцій: __code__"]
+    end
+
+    subgraph HeapCode["Статичний об'єкт байт-коду: PyCodeObject"]
+        BytecodeOps["co_code: Масив опкодів (LOAD_FAST, BINARY_OP...)"]
+        LocalVars["co_varnames: Кортеж локальних змінних"]
+        ConstPool["co_consts: Пул літералів та констант"]
+        StackMetrics["co_stacksize: Глибина стека обчислень"]
+    end
+
+    SymbolName --&gt;|Адресне посилання| FuncHeader
+    FuncCodePtr --&gt;|Внутрішній покажчик| BytecodeOps
+    FuncGlobals -.-&gt;|Зворотний зв'язок із контекстом| ExecutionEnvironment</code></pre>
+<p>Математично процес визначення та виконання функції можна описати як оператор відображення, що переводить вхідний вектор параметрів <span class="arithmatex">\(\vec{x}\)</span> у вихідний результат <span class="arithmatex">\(y\)</span> у межах зафіксованого середовища стану <span class="arithmatex">\(\mathcal{E}\)</span>:</p>
+<div class="arithmatex">\[f: \mathcal{X} \times \mathcal{E} \longrightarrow \mathcal{Y}\]</div>
+<p>де вектор <span class="arithmatex">\(\vec{x} = (x_1, x_2, \dots, x_n) \in \mathcal{X}\)</span> позначає область допустимих вхідних значень аргументів, <span class="arithmatex">\(\mathcal{E} = (\mathcal{S}_{\text{local}}, \mathcal{S}_{\text{global}}, \mathcal{S}_{\text{builtin}})\)</span> формує впорядковану трійку доступних просторів імен, а множина <span class="arithmatex">\(\mathcal{Y}\)</span> задає простір результуючих значень, обчислених функціональним блоком.</p>
+<blockquote>
+<p><strong>ПРАКТИЧНИЙ ЯКІР:</strong> У високонавантажених вебфреймворках на кшталт FastAPI або gRPC динамічна природа <code>PyFunctionObject</code> дозволяє системі під час старту сервера зчитувати службовий атрибут <code>__code__</code> разом із метаданими сигнатури та автоматично генерувати специфікацію OpenAPI й маршрутизатори RPC без використання громіздких зовнішніх конфігураційних файлів.</p>
+</blockquote>
+<hr />
+<h3 id="12-pass-by-object-reference">1.2. Модель передачі параметрів pass-by-object-reference та оцінка впливу мутабельності аргументів на збереження цілісності даних викликаючого середовища</h3>
+<p>Механізм зв'язування формальних і фактичних параметрів у мові Python виключає класичну дихотомію між передачею за значенням (<em>pass-by-value</em>) та передачею за посиланням (<em>pass-by-reference</em>), яка характерна для мов Pascal, C або C++. Замість цього використовується об'єктно-орієнтована парадигма <strong>передачі за посиланням на спільний об'єкт</strong> (<em>pass-by-object-reference</em> або <em>call-by-sharing</em>). </p>
+<p>Сутність цієї моделі полягає в тому, що під час виклику функції фактичні аргументи ніколи не копіюються фізично в пам'яті незалежно від їхнього розміру. Віртуальна машина створює локальні змінні в новому стековому кадрі виконання <strong>PyFrameObject</strong>, які отримують точні копії адрес покажчиків на вже існуючі об'єкти в купі. Таким чином, викликаючий і викликаний контексти одночасно володіють посиланнями на одні й ті самі області оперативної пам'яті, що збільшує лічильник посилань кожного переданого об'єкта <code>ob_refcnt</code> на одиницю на час існування стекового кадру.</p>
+<p>Наслідки цієї моделі безпосередньо визначаються внутрішньою природою самого переданого об'єкта, яка поділяє всі типи даних на змінювані (<strong>mutable</strong>) та незмінювані (<strong>immutable</strong>). Якщо аргументом виступає незмінюваний тип (наприклад, <code>int</code>, <code>float</code>, <code>str</code>, <code>tuple</code>), то спроба його внутрішньої зміни через оператор присвоєння призводить до розриву зв'язку локального ідентифікатора з початковим об'єктом та створення нового незалежного об'єкта в пам'яті. Викликаючий контекст зберігає посилання на початковий об'єкт, і його стан залишається повністю незмінним. </p>
+<p>Навпаки, передача змінюваних структур (таких як <code>list</code>, <code>dict</code>, <code>set</code>) створює пряму загрозу порушення цілісності даних у викликаючому коді: застосування внутрішніх мутуючих методів змінює фізичний стан того самого екземпляра в купі, породжуючи неявні зовнішні <strong>побічні ефекти</strong> (<em>side-effects</em>).</p>
+<pre class="mermaid"><code>stateDiagram-v2
+    [*] --&gt; FrameCreation: Виклик функції foo(data, count)
+    state FrameCreation {
+        [*] --&gt; PointerDuplication
+        PointerDuplication: Копіювання адрес покажчиків у PyFrameObject
+        PointerDuplication --&gt; RefCountIncrement: Інкремент ob_refcnt переданих об'єктів
+    }
+    FrameCreation --&gt; Execution: Виконання тіла функції
+    state Execution {
+        state "Незмінюваний об'єкт (int)" as ImmutableState
+        state "Змінюваний об'єкт (list)" as MutableState
+        ImmutableState --&gt; Rebind: Операція count += 1 генерує новий PyObject
+        MutableState --&gt; InPlaceMutation: Метод data.append() мутує існуючу пам'ять
+    }
+    Execution --&gt; FrameTermination: Інструкція RETURN_VALUE
+    state FrameTermination {
+        [*] --&gt; RefCountDecrement: Декремент ob_refcnt локальних посилань
+        RefCountDecrement --&gt; MemoryReclaim: Звільнення структури PyFrameObject
+    }
+    FrameTermination --&gt; [*]: Повернення керування викликаючому коду</code></pre>
+<p>Формалізуємо процес модифікації пам'яті за умови взаємодії зі змінюваними об'єктами. Нехай стан пам'яті кучі в дискретний момент часу <span class="arithmatex">\(t\)</span> описується відображенням <span class="arithmatex">\(\sigma_t: \mathcal{A} \to \mathcal{V}\)</span>, де <span class="arithmatex">\(\mathcal{A}\)</span> — множина фізичних адрес, а <span class="arithmatex">\(\mathcal{V}\)</span> — множина станів об'єктів. Викликаючий код ініціалізує зв'язування для змінної <span class="arithmatex">\(x\)</span> у вигляді покажчика на адресу <span class="arithmatex">\(a\)</span>:</p>
+<div class="arithmatex">\[\beta_{\text{caller}}(x) = a \quad \text{де} \quad \sigma_t(a) = v_{\text{initial}}\]</div>
+<p>Під час передачі змінної <span class="arithmatex">\(x\)</span> у функцію <span class="arithmatex">\(g(p)\)</span> створюється локальне зв'язування <span class="arithmatex">\(\beta_{\text{callee}}(p) = a\)</span>. Якщо функція <span class="arithmatex">\(g\)</span> застосовує оператор мутації <span class="arithmatex">\(\mu: \mathcal{V} \to \mathcal{V}\)</span>, новий глобальний стан комірки пам'яті набуває вигляду:</p>
+<div class="arithmatex">\[\sigma_{t+1}(a) = \mu(\sigma_t(a)) = v_{\text{mutated}}\]</div>
+<p>Оскільки відображення викликаючого коду залишається інваріантним <span class="arithmatex">\(\beta_{\text{caller}}(x) = a\)</span>, після завершення виконання підпрограми викликаюче середовище спостерігає мутований стан <span class="arithmatex">\(\sigma_{t+1}(\beta_{\text{caller}}(x)) = v_{\text{mutated}}\)</span>, що може спричинити каскадні логічні помилки в паралельних чи розподілених обчислювальних потоках.</p>
+<blockquote>
+<p><strong>ТИПОВА ПОМИЛКА:</strong> Хибне припущення про те, що будь-яка операція всередині підпрограми ізольована від вихідних даних викликаючого контексту. Передача масиву <code>def process(batch): batch.sort()</code> призводить до непоправної мутації первинного набору телеметрії безпосередньо у викликаючому коді, замість чого інженер повинен явно застосовувати створення захисної копії <code>batch.copy()</code> або використовувати функцію <code>sorted(batch)</code>, яка створює новий об'єкт.</p>
+</blockquote>
+<hr />
+<h3 id="13-return-none">1.3. Семантика оператора return, правила повернення об'єкта-сінглтона None та механізми автоматичного пакування множинних значень у незмінний кортеж</h3>
+<p>Оператор <code>return</code> виконує ключову роль у керуванні життєвим циклом обчислень, реалізуючи контрольований вихід із підпрограми та передачу розрахованого значення викликаючому середовищу. З точки зору системної архітектури виконання, обробка інструкції <code>return</code> призводить до негайного переривання обчислювального циклу віртуальної машини <code>PyEval_EvalFrameEx</code>, припинення обробки байт-код послідовності поточного блоку та запуску процедури демонтажу локального стекового кадру. Усі локальні ідентифікатори, що мали ненульові лічильники посилань у межах цього кадру, проходять операцію декременту, що за умови відсутності зовнішніх посилань ініціює негайне звільнення займаних ними комірок пам'яті через менеджер пам'яті CPython.</p>
+<p>У мові Python повністю відсутня концепція процедур, які не повертають значення. Кожна синтаксична функціональна одиниця зобов'язана надати викликаючому контексту адресу конкретного об'єкта. Якщо розробник явно не використав оператор <code>return</code>, або якщо вказаний оператор викликається без наступного результуючого виразу, транслятор мови автоматично додає в кінець блоку байт-коду інструкцію завантаження константи <code>LOAD_CONST</code> зі значенням об'єкта <strong>None</strong>, після якої обов'язково слідує термінальний опкод <code>RETURN_VALUE</code>.</p>
+<p>Об'єкт <code>None</code> є строго детермінованим системним сінглтоном типу <code>NoneType</code>. На рівні вихідного коду середовища CPython він представлений глобальною структурою <code>_Py_NoneStruct</code>. Це означає, що незалежно від кількості функцій, які повертають порожнє значення, або кількості змінних, що його утримують, усі вони посилаються на одну й ту саму адресу пам'яті:</p>
+<div class="arithmatex">\[\forall x, y \in \mathcal{U} : ((x = \text{None}) \land (y = \text{None})) \implies (\text{id}(x) = \text{id}(y))\]</div>
+<p>де <span class="arithmatex">\(\mathcal{U}\)</span> позначає універсум об'єктів середовища виконання, а функція <span class="arithmatex">\(\text{id}(\cdot)\)</span> повертає унікальний цілочисельний ідентифікатор комірки пам'яті об'єкта.</p>
+<p>Коли перед архітектором постає задача проектування інтерфейсу, що повертає кілька розрахованих метрик (наприклад, статус транзакції, обчислене значення сигналу та код помилки), синтаксис Python дозволяє перерахувати результуючі сутності через кому у формі <code>return status, value, error_code</code>. </p>
+<p>У даному випадку спрацьовує низькорівневий механізм <strong>автоматичного пакування значень у кортеж</strong>. Компілятор зчитує вираз як єдиний структурний літерал і генерує опкод <code>BUILD_TUPLE</code>, який виділяє у купі пам'ять під незмінний масив покажчиків типу <code>tuple</code>. </p>
+<p>Викликаючий контекст має змогу або зберегти цей кортеж у єдиній комплексній змінній, або виконати симетричну операцію структурного розпакування послідовності, яка на рівні віртуальної машини реалізується через опкод <code>UNPACK_SEQUENCE</code>.</p>
+<blockquote>
+<p><strong>ПРАКТИЧНИЙ ЯКІР:</strong> У промислових системах обробки цифрових сигналів використання автоматичного пакування результатів дозволяє одночасно повертати кортеж із вектором амплітуд, вектором фазових кутів та оцінкою дисперсії шуму, мінімізуючи накладні витрати пам'яті завдяки оптимізованому пулу вільних кортежів невеликого розміру в ядрі CPython.</p>
+</blockquote>
+<hr />
+<h3 id="14-first-class-citizens">1.4. Концепція функцій як об'єктів першого класу (First-class citizens), системна інтроспекція службових атрибутів та розміщення посилань у просторах імен</h3>
+<p>Парадигмальна основа Python зводить функцію в ранг <strong>об'єкта першого класу</strong> (<em>First-Class Citizen</em>). Ця концепція, запозичена з функціонального програмування та лямбда-числення Чорча, гарантує, що функції мають абсолютно еквівалентні права поряд із базовими скалярними чи колекційними сутностями: числами, рядками або масивами. Об'єкт функції може динамічно конструюватися під час виконання, передаватися в ролі формального аргументу іншим функціональним блокам, повертатися підпрограмами як результат обчислення, а також агрегуватися всередині довільних структур даних: списків, множин або словників.</p>
+<p>Реалізація цієї моделі в архітектурі віртуальної машини спирається на внутрішній протокол виклику. Будь-який об'єкт мови Python, у структурі типу якого (<code>PyTypeObject</code>) заповнено функціональний покажчик слота <code>tp_call</code>, класифікується як <strong>викликова сутність</strong> (<em>callable</em>). Коли компілятор зустрічає оператор круглих дужок <code>()</code>, застосований до ідентифікатора, він генерує інструкцію виклику <code>CALL</code>, транслюючи запит безпосередньо на низькорівневий слот <code>tp_call</code>. Оскільки <code>PyFunctionObject</code> реалізує цей протокол за замовчуванням, його можна динамічно зв'язувати з іншими ідентифікаторами або перезаписувати у системних словниках.</p>
+<p>Інженерна цінність функціональних об'єктів підсилюється глибинною системою системної <strong>інтроспекції</strong>. Кожен функціональний об'єкт відкриває прямий програмний доступ до своїх внутрішніх службових атрибутів, що дозволяє виконувати динамічний аудит коду безпосередньо під час роботи прикладного комплексу:</p>
+<p><em>Таблиця 1.1 — Системні службові атрибути об'єкта функції в архітектурі CPython</em></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Атрибут</th>
+<th style="text-align: left;">Тип даних CPython</th>
+<th style="text-align: left;">Призначення в runtime</th>
+<th style="text-align: left;">Приклад з реальної практики</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong><code>__name__</code></strong></td>
+<td style="text-align: left;"><code>str</code></td>
+<td style="text-align: left;">Ідентифікує офіційне ім'я підпрограми</td>
+<td style="text-align: left;">Логування викликів у розподілених трасувальниках на кшталт OpenTelemetry</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>__doc__</code></strong></td>
+<td style="text-align: left;"><code>str</code> або <code>None</code></td>
+<td style="text-align: left;">Зберігає сирий текст рядка документації</td>
+<td style="text-align: left;">Автоматична генерація API-документації сервісів інструментами Sphinx та Swagger</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>__code__</code></strong></td>
+<td style="text-align: left;"><code>types.CodeType</code></td>
+<td style="text-align: left;">Утримує незмінний скомпільований об'єкт коду</td>
+<td style="text-align: left;">Профілювання та статичний аналіз покриття коду тестами у бібліотеці Coverage.py</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>__defaults__</code></strong></td>
+<td style="text-align: left;"><code>tuple</code> або <code>None</code></td>
+<td style="text-align: left;">Фіксує обчислені позиційні значення за замовчуванням</td>
+<td style="text-align: left;">Системна інтроспекція під час динамічного зв'язування залежностей у DI-контейнерах</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>__annotations__</code></strong></td>
+<td style="text-align: left;"><code>dict</code></td>
+<td style="text-align: left;">Зберігає словник анотацій типів параметрів</td>
+<td style="text-align: left;">Валідація схеми вхідних JSON-пакетів даними моделями валідатора Pydantic</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>__closure__</code></strong></td>
+<td style="text-align: left;"><code>tuple</code> або <code>None</code></td>
+<td style="text-align: left;">Інкапсулює кортеж комірок збереженого лексичного стану</td>
+<td style="text-align: left;">Реалізація фабрик обчислювальних фільтрів та декораторів доступу</td>
+</tr>
+</tbody>
+</table>
+<p>Можливість зберігання функціональних покажчиків у структурах даних дозволяє повністю відмовитися від розгалужених конструкцій вибору у вигляді багаторівневих блоків <code>if-elif-else</code>, замінюючи їх на <strong>таблиці диспетчеризації</strong> (<em>dispatch tables</em>). Таблиця диспетчеризації будується на основі хеш-таблиці <code>dict</code>, де ключами виступають команди протоколу або коди подій, а значеннями — прямі посилання на обробники.</p>
+<p>Зіставлення парадигмальних засад організації функцій у різних мовах програмування дозволяє глибше осягнути специфіку архітектури Python:</p>
+<p><em>Таблиця 1.2 — Порівняльний аналіз архітектурної організації підпрограм у різних мовах</em></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Мова програмування</th>
+<th style="text-align: left;">Архітектурна сутність функції</th>
+<th style="text-align: left;">Модель передачі параметрів</th>
+<th style="text-align: left;">Підтримка First-Class Citizens</th>
+<th style="text-align: left;">Приклад з реальної практики</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>C</strong></td>
+<td style="text-align: left;">Статична адреса машинних інструкцій у пам'яті</td>
+<td style="text-align: left;">Суворий pass-by-value з передачею покажчиків вручну</td>
+<td style="text-align: left;">Обмежена (виключно через покажчики на функції)</td>
+<td style="text-align: left;">Системні таблиці переривань ядра операційної системи Linux</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>C++</strong></td>
+<td style="text-align: left;">Скомпільований код, шаблони або функціональні об'єкти</td>
+<td style="text-align: left;">Pass-by-value або pass-by-reference на рівні компілятора</td>
+<td style="text-align: left;">Повна через функціональні обгортки <code>std::function</code></td>
+<td style="text-align: left;">Високочастотний біржовий трейдинг із мінімальною латентністю пам'яті</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Java</strong></td>
+<td style="text-align: left;">Методи, жорстко прив'язані до структури класу</td>
+<td style="text-align: left;">Суворий pass-by-value для примітивів і адрес об'єктів</td>
+<td style="text-align: left;">Опосередкована через функціональні інтерфейси</td>
+<td style="text-align: left;">Банківські транзакційні системи корпоративного класу на базі Spring</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Python</strong></td>
+<td style="text-align: left;">Динамічний повноправний об'єкт <code>PyFunctionObject</code> у купі</td>
+<td style="text-align: left;">Pass-by-object-reference (копіювання покажчиків на heap)</td>
+<td style="text-align: left;">Абсолютна (нативна підтримка в ядрі віртуальної машини)</td>
+<td style="text-align: left;">Маршрутизація асинхронних подій та сигналів у брокерах повідомлень Celery</td>
+</tr>
+</tbody>
+</table>
+<p>Наведена класифікація демонструє, що завдяки повноправному статусу функціональних об'єктів Python мінімізує обсяг шаблонного інженерного коду, дозволяючи будувати гнучкі та високоадаптивні системи.</p>
+<blockquote>
+<p><strong>КОНТРОЛЬНЕ ПИТАННЯ:</strong> Що відбудеться з викликом функції, якщо розробник під час виконання програми динамічно модифікує поле <code>func.__code__</code>, підставивши туди скомпільований об'єкт коду іншої функції з ідентичною кількістю аргументів?</p>
+</blockquote>
+<details class="note">
+<summary>Розгорнути аналіз / відповідь</summary>
+<p><strong>Правильний варіант: Функція успішно виконає нову логіку, зберігши старе ім'я та глобальний контекст.</strong></p>
+<ol>
+<li>
+<p>Об'єкт функції <code>PyFunctionObject</code> виступає динамічною оболонкою, яка під час виклику через слот <code>tp_call</code> звертається до свого внутрішнього атрибута <code>__code__</code> для запуску циклу виконання віртуальної машини. Якщо підмінити об'єкт коду іншим сумісним об'єктом коду з такою самою кількістю формальних параметрів <code>co_argcount</code>, інтерпретатор CPython запустить нову послідовність байт-коду. При цьому початковий простір імен <code>__globals__</code>, назва функції <code>__name__</code> та адреса самої функції в пам'яті залишаться незмінними.</p>
+</li>
+<li>
+<p>Аналіз дистракторів:</p>
+</li>
+<li>
+<p>Твердження про те, що інтерпретатор негайно згенерує виняток <code>TypeError</code>, є помилковим, оскільки атрибут <code>__code__</code> є доступним для запису на рівні системного API мови за умови передачі валідного об'єкта типу <code>types.CodeType</code>.</p>
+</li>
+<li>
+<p>Твердження про руйнування глобального простору імен є некоректним, оскільки простір імен <code>__globals__</code> закріплений безпосередньо за екземпляром функції <code>PyFunctionObject</code> і не залежить від статичної таблиці байт-коду підміненого <code>PyCodeObject</code>.</p>
+</li>
+<li>
+<p>Припущення про неможливість зміни поведінки через незмінність байт-коду плутає сам <code>PyCodeObject</code>, який дійсно не можна модифікувати in-place, з покажчиком на нього всередині змінюваного об'єкта функції <code>PyFunctionObject</code>.</p>
+</li>
+</ol>
+</details>
+<hr />
+<h3 id="_4">Вказівки для самостійного осмислення</h3>
+<ol>
+<li>
+<p>Складіть аналітичну діаграму взаємодії об'єктів пам'яті CPython під час передачі змінної структури даних у підпрограму, детально простеживши зміну лічильника посилань об'єкта до, під час та після демонтажу відповідного стекового кадру.</p>
+</li>
+<li>
+<p>Дослідіть за допомогою стандартного системного модуля <code>dis</code> байт-код функції, яка повертає декілька скалярних значень через кому, та поясніть точну роль опкодів <code>BUILD_TUPLE</code> і <code>RETURN_VALUE</code> у збереженні стабільності простору пам'яті віртуальної машини.</p>
+</li>
+<li>
+<p>Спроектуйте модульну архітектуру диспетчеризації мережевих запитів телеметрії на базі словника функцій першого класу, оцінивши її обчислювальну складність у нотації <span class="arithmatex">\(O\)</span>-велике у порівнянні з каскадними перевірками умовними операторами.</p>
+</li>
+</ol>
+<h2 id="2_1">2. Методологія та аналіз граничних умов. Розширене зв'язування аргументів, лексичні замикання та бар'єри рекурсивних обчислень</h2>
+<h3 id="21-args-kwargs">2.1. Варіативне пакування аргументів за допомогою синтаксичних конструкцій <em>args та </em>*kwargs із наступним застосуванням операцій структурного розпакування колекцій</h3>
+<p>Проектування гнучких інженерних інтерфейсів вимагає від підпрограм здатності адаптуватися до динамічної кількості вхідних даних без порушення сигнатури функції. Для реалізації такого функціоналу мова Python надає механізм варіативного пакування аргументів, що спирається на синтаксичні префікси одиночної та подвійної зірочки. Якщо формальний параметр позначений префіксом <code>*args</code>, віртуальна машина перехоплює всі надлишкові позиційні аргументи, передані під час виклику, та упаковує їх у новий незмінний кортеж <code>tuple</code>. Аналогічно, параметр з префіксом <code>**kwargs</code> перехоплює будь-які передані іменовані аргументи, назви яких не збігаються з явно задекларованими параметрами, та агрегує їх у асоціативний словник <code>dict</code>.</p>
+<p>На рівні системної реалізації віртуальної машини CPython використання варіативних параметрів модифікує байт-код виклику, перемикаючи виконання на спеціалізовані інструкції сімейства <code>CALL_FUNCTION_EX</code>. Під час такого виклику інтерпретатор змушений динамічно виділяти пам'ять у керованій купі під структури кортежу та словника, що породжує додаткові системні накладні витрати на кожну ітерацію підпрограми. </p>
+<p>Зворотна операція структурного розпакування (<em>unpacking</em>) дозволяє перетворити елементи довільної ітерованої послідовності на потік позиційних аргументів за допомогою оператора <code>*</code>, а пари ключ-значення довільного мапінгу — на потік іменованих аргументів за допомогою <code>**</code>. Це формує потужний фундамент для створення патернів проектування типу проксі-обгорток, декораторів та делегування викликів, де проміжна функція повинна прозоро передати будь-який вхідний потік аргументів цільовій підпрограмі без аналізу їхнього внутрішнього вмісту.</p>
+<pre class="mermaid"><code>sequenceDiagram
+    autonumber
+    actor Caller as Викликаючий модуль
+    participant PVM as Віртуальна машина (ceval.c)
+    participant Stack as Стек обчислень
+    participant Frame as Кадр функції (PyFrameObject)
+    participant Heap as Купа об'єктів (Heap)
+
+    Caller-&gt;&gt;PVM: Виклик func(1, 2, mode='fast', timeout=30)
+    activate PVM
+    PVM-&gt;&gt;Heap: Алокація tuple для надлишкових позиційних даних (*args)
+    PVM-&gt;&gt;Heap: Алокація dict для невідомих іменованих даних (**kwargs)
+    PVM-&gt;&gt;Stack: Завантаження покажчиків аргументів
+    PVM-&gt;&gt;Frame: Створення стекового кадру з таблицею fastlocals
+    Frame-&gt;&gt;Heap: Прив'язка локальних імен до виділених структур
+    Frame-&gt;&gt;PVM: Інтерпретація байт-коду підпрограми
+    PVM-&gt;&gt;Caller: Повернення обчисленого результату (RETURN_VALUE)
+    deactivate PVM</code></pre>
+<hr />
+<h3 id="22-pep-570-pep-3102-positional-only-keyword-only">2.2. Застосування специфікаторів PEP 570 та PEP 3102 для суворого розмежування позиційних (positional-only) та іменованих (keyword-only) параметрів у публічних програмних інтерфейсах</h3>
+<p>Еволюція мови Python призвела до впровадження жорстких інструментів специфікації інтерфейсів підпрограм, покликаних розв'язати проблему надмірної гнучкості викликів. За замовчуванням будь-який стандартний параметр функції може бути переданий як за позицією, так і за ім'ям, що створює небажану залежність зовнішнього клієнтського коду від конкретних назв параметрів у тілі бібліотечної функції. Для усунення цього архітектурного ризику стандарти PEP 3102 та PEP 570 впровадили синтаксичні роздільники у вигляді символів прямого слешу <code>/</code> та одиночної зірочки <code>*</code>.</p>
+<p>Символ прямого слешу відокремлює групу <strong>виключно позиційних параметрів</strong> (<em>positional-only</em>). Параметри, задекларовані ліворуч від слешу, можуть приймати значення виключно на основі свого порядкового номера у виклику. Спроба передати значення такого параметра через синтаксис <code>name=value</code> призводить до негайної зупинки програми віртуальною машиною з генерацією винятку <code>TypeError</code>. Це дозволяє авторам системних бібліотек вільно перейменовувати внутрішні змінні під час рефакторингу, зберігаючи абсолютну зворотну сумісність публічного API. Окрім того, це запобігає виникненню колізій імен у ситуаціях, коли функція одночасно приймає параметр <code>**kwargs</code>, ключі якого можуть випадково співпасти з іменами фіксованих аргументів.</p>
+<p>Символ зірочки слугує делімітером для <strong>виключно іменованих параметрів</strong> (<em>keyword-only</em>). Усі формальні змінні, оголошені праворуч від зірочки (або після параметра <code>*args</code>), не можуть бути ініціалізовані через позиційний виклик. Такий підхід є обов'язковим інженерним стандартом при конструюванні функцій із багатьма булевими прапорцями або конфігураційними коефіцієнтами, оскільки позиційна передача значень на зразок <code>configure(True, False, 10, False)</code> робить код абсолютно нечитабельним та провокує критичні помилки під час зміни порядку аргументів.</p>
+<blockquote>
+<p><strong>ВАЖЛИВО:</strong> Сигнатура підпрограми з роздільниками підпорядковується суворому системному інваріанту: спершу розташовуються виключно позиційні параметри до роздільника <code>/</code>, далі слідують стандартні позиційно-іменовані параметри, після них — варіативний кортеж <code>*args</code> або порожній роздільник <code>*</code>, за якими розміщуються виключно іменовані параметри, а завершує список варіативний словник <code>**kwargs</code>. Порушення цієї послідовності є фатальною синтаксичною помилкою <code>SyntaxError</code> на етапі компіляції байт-коду.</p>
+</blockquote>
+<hr />
+<h3 id="23-legb-global-nonlocal">2.3. Дозвіл ідентифікаторів за ієрархічним правилом LEGB, проектування лексичних замикань та зміна контексту видимості за допомогою директив global і nonlocal</h3>
+<p>Розв'язання ідентифікаторів у Python здійснюється за суворою статичною моделлю лексичного контексту, формалізованою як <strong>правило LEGB</strong>. Під час спроби читання змінної всередині функції інтерпретатор виконує послідовний пошук у чотирьох ізольованих просторах імен: спершу опитується локальний простір <code>Local</code>, сформований параметрами та локальними призначеннями кадру; якщо ім'я не знайдено, пошук розширюється на простори <code>Enclosing</code> усіх статично охоплюючих функцій у порядку їхньої вкладеності; далі перевіряється глобальний простір модуля <code>Global</code>, і нарешті опитується вбудований простір ядра <code>Built-in</code>. Неможливість знайти ідентифікатор на жодному з рівнів спричиняє виняток <code>NameError</code>.</p>
+<p>Формалізуємо алгоритмічний процес зіставлення фактичних аргументів із формальними параметрами функції у віртуальній машині CPython як детермінований покроковий процес трансформації станів простору імен:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+\text{Крок 1 (Зв'язування positional-only):} &amp; \quad \forall i \in [1, k] : \beta_{\text{frame}}(p_i) \leftarrow \alpha_{\text{pos}}[i] \\
+\text{Крок 2 (Зв'язування standard params):} &amp; \quad \forall j \in [k+1, m] : \beta_{\text{frame}}(p_j) \leftarrow \alpha_{\text{pos}}[j] \lor \alpha_{\text{kw}}[p_j] \\
+\text{Крок 3 (Пакування залишку позицій):} &amp; \quad \beta_{\text{frame}}(\text{args}) \leftarrow \left( \alpha_{\text{pos}}[m+1], \dots, \alpha_{\text{pos}}[N] \right) \\
+\text{Крок 4 (Зв'язування keyword-only):} &amp; \quad \forall r \in [m+1, q] : \beta_{\text{frame}}(p_r) \leftarrow \alpha_{\text{kw}}[p_r] \\
+\text{Крок 5 (Підстановка дефолтних значень):} &amp; \quad \forall p \in \mathcal{P}_{\text{unbound}} : \beta_{\text{frame}}(p) \leftarrow \text{defaults}[p] \\
+\text{Крок 6 (Пакування залишку іменованих):} &amp; \quad \beta_{\text{frame}}(\text{kwargs}) \leftarrow \alpha_{\text{kw}} \setminus \{ \text{використані ключі} \}
+\end{aligned}
+\]</div>
+<p>де <span class="arithmatex">\(\alpha_{\text{pos}}\)</span> є вектором переданих позиційних аргументів, <span class="arithmatex">\(\alpha_{\text{kw}}\)</span> позначає асоціативну таблицю переданих іменованих аргументів, <span class="arithmatex">\(\beta_{\text{frame}}\)</span> задає функцію відображення локальних імен у покажчики на об'єкти кучі всередині кадру <code>PyFrameObject</code>, а <span class="arithmatex">\(\mathcal{P}_{\text{unbound}}\)</span> є множиною параметрів, що залишилися неініціалізованими після виконання попередніх кроків алгоритму.</p>
+<p>Особливе місце у методології займає концепція <strong>лексичного замикання</strong> (<em>lexical closure</em>), коли внутрішня підпрограма захоплює та утримує посилання на змінні з охоплюючого простору імен <code>Enclosing</code> навіть після того, як зовнішня функція завершила своє виконання і її стековий кадр був знищений. На системному рівні CPython перетворює кожну захоплену змінну на спеціальний об'єкт комірки <strong>PyCellObject</strong>. Ця комірка розташовується безпосередньо в керованій купі, а не на стеку, що дозволяє внутрішній функції звертатися до збереженого стану через атрибут <code>__closure__</code> за допомогою спеціалізованих інструкцій байт-коду <code>LOAD_DEREF</code> та <code>STORE_DEREF</code>.</p>
+<p>Якщо вкладена функція потребує перезапису значення захопленої змінної, просте присвоєння <code>x = value</code> не оновить зовнішню сутність, а неявно створить нову локальну змінну в просторі <code>Local</code>. Для явної модифікації зв'язування в охоплюючому контексті використовується оператор <code>nonlocal x</code>. На відміну від нього, директива <code>global x</code> повністю ігнорує проміжні рівні вкладеності та пов'язує ідентифікатор безпосередньо зі словником верхнього рівня модуля.</p>
+<blockquote>
+<p><strong>ПРАКТИЧНИЙ ЯКІР:</strong> У сучасних системах оркестрації мікросервісів директива <code>nonlocal</code> застосовується для реалізації патерну автоматичного вимикача (<em>Circuit Breaker</em>). Внутрішня функція-обгортка перехоплює помилки мережевих викликів і безпосередньо модифікує лічильник збоїв, збережений у комірці пам'яті замикання зовнішньої фабрики, забезпечуючи перехід сервісу в стан відмови без використання глобальних змінних.</p>
+</blockquote>
+<hr />
+<h3 id="24-lambda-map-filter">2.4. Анонімна функціональна декомпозиція за допомогою lambda-виразів у поєднанні з функціями вищого порядку map та filter для потокової трансформації даних</h3>
+<p>Для вирішення завдань локальної трансформації даних мова Python надає механізм конструювання анонімних функцій за допомогою ключового слова <code>lambda</code>. З точки зору формальної семантики, інструкція <code>lambda</code> є скороченою синтаксичною формою створення стандартного об'єкта <code>PyFunctionObject</code>. Головна методологічна відмінність анонімної функції полягає в її строгому синтаксичному обмеженні: її тіло може складатися виключно з одного обчислюваного виразу, результат якого автоматично повертається без явної наявності оператора <code>return</code>. Включення в тіло lambda будь-яких операторів керування потоком (<code>while</code>, <code>for</code>, <code>try-except</code>) або присвоєння значень є синтаксично неможливим.</p>
+<p>Lambda-вирази демонструють максимальну аналітичну ефективність при використанні як аргументів у <strong>функціях вищого порядку</strong> (<em>Higher-Order Functions</em>), що складають основу декларативної обробки потоків даних:</p>
+<p>Математична семантика функції <code>map(f, S)</code> полягає у послідовному застосуванні відображення <span class="arithmatex">\(f: \mathcal{A} \to \mathcal{B}\)</span> до кожного елемента множини або послідовності <span class="arithmatex">\(S = \{s_1, s_2, \dots, s_n\}\)</span>:</p>
+<div class="arithmatex">\[\text{map}(f, S) = \big\{ f(s_1), f(s_2), \dots, f(s_n) \big\}\]</div>
+<p>де вихідний результат генерується у формі лінивого ітератора, який реалізує константну просторову складність <span class="arithmatex">\(O(1)\)</span> відносно оперативної пам'яті комп'ютера, оскільки елементи обчислюються по одному лише за запитом викликаючого споживача.</p>
+<p>Оператор фільтрації <code>filter(p, S)</code> спирається на функціональний предикат <span class="arithmatex">\(p: \mathcal{A} \to \{\text{True}, \text{False}\}\)</span>, формуючи підмножину елементів, для яких значення предиката є істинним:</p>
+<div class="arithmatex">\[\text{filter}(p, S) = \big\{ s \in S \;\big|\; p(s) = \text{True} \big\}\]</div>
+<p>Незважаючи на високу теоретичну виразність комбінації <code>map</code> та <code>filter</code> із lambda-функціями, у реальній практиці CPython такі конструкції часто поступаються списковим включенням (<em>list comprehensions</em>) та генераторним виразам. Спискове включення на кшталт <code>[f(x) for x in data if p(x)]</code> оптимізовано на рівні компілятора до монолітного C-циклу з прямим викликом опкоду <code>LIST_APPEND</code>, тоді як парадигма <code>map(lambda x: ..., data)</code> вимагає регулярного створення повноцінного стекового кадру <code>PyFrameObject</code> на кожен окремий елемент колекції, що збільшує час виконання програми на десятки відсотків через оверхед віртуальної машини.</p>
+<hr />
+<h3 id="25-defaults-recursionerror-cpython">2.5. Архітектурні обмеження та критичні бар'єри: пастка накопичення стану в мутабельних значеннях за замовчуванням кортежу <strong>defaults</strong> та ризики переповнення стека викликів RecursionError за відсутності оптимізації хвостової рекурсії в CPython</h3>
+<p>Глибоке розуміння внутрішньої моделі виконання Python дозволяє виявити суворі межі застосування теоретичних концепцій, порушення яких призводить до фатальних помилок у промислових системах. Першим критичним бар'єром є поведінка значень параметрів за замовчуванням при роботі зі змінюваними об'єктами. Відповідно до архітектури трансляції CPython, вираз значення за замовчуванням обчислюється рівно один раз під час завантаження модуля та первинного виконання інструкції <code>def</code>. Отриманий об'єкт розміщується у керованій купі, а покажчик на нього назавжди записується у незмінний кортеж <code>__defaults__</code> відповідного об'єкта <code>PyFunctionObject</code>.</p>
+<p>Якщо функція містить декларацію на зразок <code>def register_node(node_id, cluster_list=[])</code>, адреса списку <code>cluster_list</code> фіксується статично. Будь-які модифікації цього списку методом <code>.append()</code> всередині підпрограми змінюють фізичну комірку пам'яті, збережену в атрибуті <code>__defaults__</code>. У результаті всі наступні виклики підпрограми без явної передачі аргументу працюватимуть не з новим чистим масивом, а зі старим екземпляром, що призводить до прихованого витоку стану між абсолютно незалежними сесіями користувачів або транзакціями бази даних.</p>
+<pre class="mermaid"><code>flowchart TD
+    subgraph CompilationPhase["Етап 1: Первинне виконання інструкції def"]
+        DefStatement["def log_event(event, storage=[]):"] --&gt; EvalDefault["Створення єдиного об'єкта list() у купі"]
+        EvalDefault --&gt; WriteDefaults["Запис покажчика в кортеж func.__defaults__"]
+    end
+
+    subgraph RuntimePhase["Етап 2: Виклики функції в процесі роботи програми"]
+        Call1["Перший виклик: log_event('err1')"] --&gt; MutateMemory["storage.append('err1') мутує пам'ять"]
+        Call2["Другий виклик: log_event('err2')"] --&gt; ReadCorrupted["Читання мутованого списку ['err1']"]
+        ReadCorrupted --&gt; AccumulateState["Накопичення стану: ['err1', 'err2']"]
+    end
+
+    WriteDefaults -.-&gt;|Статичний зв'язок| MutateMemory</code></pre>
+<p>Другим фундаментальним бар'єром виступає механізм обробки рекурсивних викликів. На відміну від компіляторів мов Scheme, Lisp або сучасних оптимізуючих трансляторів C++, віртуальна машина CPython принципово не реалізує <strong>оптимізацію хвостової рекурсії</strong> (<em>Tail Call Optimization</em>, TCO). Причина такого проектного рішення полягає у вимогах безпеки та діагностики: згортання стекових кадрів спотворює трасування стека (<em>stack trace</em>), що ускладнює пошук помилок та інтроспекцію викликів під час аварійних зупинок.</p>
+<p>Як наслідок, кожен рекурсивний крок вимагає виділення структури <code>PyFrameObject</code> розміром у кількасот байтів на рівні платформного C-стека. При роботі зі структурами даних великої глибини (наприклад, незбалансованими графами або довгими пов'язаними списками) глибина викликів стрімко сягає системного ліміту, який за замовчуванням становить 1000 викликів. Захисний механізм інтерпретатора ініціює виняток <code>RecursionError</code>. Якщо ж розробник штучно збільшить ліміт за допомогою виклику <code>sys.setrecursionlimit()</code>, виникає фізичне вичерпання виділеного стека процесу операційної системи, що призводить до аварійного завершення інтерпретатора з фатальною системною помилкою порушення сегментації (<em>Segmentation Fault</em>), яку неможливо перехопити жодним блоком <code>try-except</code>.</p>
+<p>Зіставимо розглянуті методологічні підходи до організації функціонального коду та їхні системні характеристики:</p>
+<p><em>Таблиця 2.1 — Порівняльна матриця функціональних методологій у Python</em></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Методологічний підхід</th>
+<th style="text-align: center;">Просторова складність</th>
+<th style="text-align: left;">Механізм дозволу пам'яті</th>
+<th style="text-align: left;">Складність впровадження</th>
+<th style="text-align: left;">Критичні ризики / Обмеження</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Позиційне та іменоване зв'язування</strong></td>
+<td style="text-align: center;"><span class="arithmatex">\(O(1)\)</span></td>
+<td style="text-align: left;">Пряма адресація через масив <code>fastlocals</code></td>
+<td style="text-align: left;">Низька (базовий синтаксис)</td>
+<td style="text-align: left;">Ризик передачі аргументів невідповідного типу за відсутності валідації</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Варіативне пакування (<code>*args</code>, <code>**kwargs</code>)</strong></td>
+<td style="text-align: center;"><span class="arithmatex">\(O(k)\)</span></td>
+<td style="text-align: left;">Динамічна алокація об'єктів <code>tuple</code> та <code>dict</code> у купі</td>
+<td style="text-align: left;">Середня (потребує документації)</td>
+<td style="text-align: left;">Деградація пропускної здатності на гарячих шляхах виконання</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Лексичні замикання (<code>nonlocal</code>)</strong></td>
+<td style="text-align: center;"><span class="arithmatex">\(O(c)\)</span></td>
+<td style="text-align: left;">Опосередкований доступ через об'єкти <code>PyCellObject</code></td>
+<td style="text-align: left;">Висока (вимагає контролю станів)</td>
+<td style="text-align: left;">Пастка пізнього зв'язування в циклах генерації функцій</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Функції вищого порядку (<code>map</code>, <code>filter</code>)</strong></td>
+<td style="text-align: center;"><span class="arithmatex">\(O(1)\)</span></td>
+<td style="text-align: left;">Ліниві ітератори без проміжних колекцій</td>
+<td style="text-align: left;">Середня (функціональний стиль)</td>
+<td style="text-align: left;">Накладні витрати на виклик інтерпретатора для кожного елемента</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Рекурсивна декомпозиція</strong></td>
+<td style="text-align: center;"><span class="arithmatex">\(O(D)\)</span></td>
+<td style="text-align: left;">Каскадне виділення кадрів <code>PyFrameObject</code> у стеку</td>
+<td style="text-align: left;">Середня (математична елегантність)</td>
+<td style="text-align: left;">Аварійний збій системи через <code>RecursionError</code> або переповнення стека ОС</td>
+</tr>
+</tbody>
+</table>
+<p>Наведена матриця чітко окреслює інженерні межі: варіативність сигнатур повинна дозуватися заради збереження продуктивності, лексичні замикання потребують захисту від пізнього зв'язування, а глибока рекурсія в середовищі CPython повинна обов'язково замінюватися на ітеративні еквіваленти з явними структурами даних.</p>
+<blockquote>
+<p><strong>КОНТРОЛЬНЕ ПИТАННЯ:</strong> У розподіленій системі розробник створив фабрику функцій зворотного виклику для обробки черги телеметричних сигналів:
+<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">handlers</span> <span class="o">=</span> <span class="p">[]</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>    <span class="n">handlers</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="k">lambda</span> <span class="n">packet</span><span class="p">:</span> <span class="n">packet</span> <span class="o">*</span> <span class="n">i</span><span class="p">)</span>
+</span></code></pre></div>
+Який результат поверне виклик <code>handlers[0](10)</code> під час роботи системи та яка точна причина такої поведінки?</p>
+</blockquote>
+<details class="note">
+<summary>Розгорнути аналіз / відповідь</summary>
+<p><strong>Правильний варіант: Вираз поверне число 40, а не 0, через ефект пізнього зв'язування змінних у замиканнях.</strong></p>
+<ol>
+<li>
+<p>Покрокове розв'язання та аналітичне обґрунтування:</p>
+</li>
+<li>
+<p><strong>Крок 1 (Створення замикань):</strong> Під час виконання циклу <code>for</code> кожна ітерація створює новий об'єкт функції <code>lambda</code>. Проте тіло анонімної функції не виконується в момент створення, а лише компілюється в об'єкт коду з інструкцією читання вільної змінної <code>i</code>.</p>
+</li>
+<li>
+<p><strong>Крок 2 (Спільна комірка пам'яті):</strong> Оскільки змінна <code>i</code> належить до локального простору імен охоплюючої функції (або глобального простору модуля), усі п'ять створених lambda-об'єктів отримують посилання на одну й ту саму фізичну комірку пам'яті <code>PyCellObject</code>, яка зберігає поточний індекс циклу.</p>
+</li>
+<li>
+<p><strong>Крок 3 (Фіксація стану після завершення циклу):</strong> На момент завершення ітераційного процесу змінна <code>i</code> набуває фінального значення 4. </p>
+</li>
+<li>
+<p><strong>Крок 4 (Оцінка виклику):</strong> Коли викликається перший обробник <code>handlers[0](10)</code>, віртуальна машина зчитує поточний стан замикання, де значення <code>i</code> дорівнює 4. Обчислення набуває вигляду <span class="arithmatex">\(10 \times 4 = 40\)</span>.</p>
+</li>
+<li>
+<p>Аналіз варіантів вирішення та попередження помилки:</p>
+</li>
+<li>
+<p>Для забезпечення раннього зв'язування слід використовувати параметри за замовчуванням, які обчислюються в момент декларації кожного екземпляра: <code>lambda packet, factor=i: packet * factor</code>.</p>
+</li>
+<li>
+<p>Альтернативним архітектурним рішенням є застосування фабричної підпрограми <code>functools.partial</code>, яка жорстко зв'язує значення аргументу на кожній ітерації без утворення замикань на спільний змінюваний контекст циклу.</p>
+</li>
+</ol>
+</details>
+<h2 id="3_1">3. Практичний індустріальний / фаховий кейс. Проєктування модульного конвеєра обробки телеметричних сигналів у розподілених системах</h2>
+<h3 id="31">3.1. Комплексний фаховий кейс. Розробка відмовостійкого функціонального конвеєра обробки телеметрії</h3>
+<h4 id="_5">Постановка задачі / ситуації</h4>
+<p>У сучасних системах збору даних інтернету речей (IoT) та автоматизованого керування технологічними процесами (АСКТП) критично важливим є етап первинної обробки телеметрії на прикордонних вузлах (<em>edge computing nodes</em>). Прикордонний контролер отримує безперервний потік гетерогенних пакетів від мережі сенсорів, що вимірюють параметри вібрації, температури та тиску в промисловому обладнанні. Головний інженерний виклик полягає у необхідності створення обчислювального конвеєра, який гарантує детерміновану валідацію вхідних структур, динамічне поліноміальне калібрування сигналів та потоковий розрахунок ковзних статистик в умовах жорстко обмежених обчислювальних ресурсів.</p>
+<p>Система функціонує в режимі суворого ліміту оперативної пам'яті, що унеможливлює створення проміжних копій масивів даних. Будь-який непередбачений витік спільного стану між циклами обробки, викликаний некоректною роботою зі змінюваними структурами даних, призводить до спотворення показань сусідніх каналів зв'язку та аварійної зупинки обладнання. Для усунення цих ризиків конвеєр будується виключно на принципах чистих функцій, замикань із контрольованим станом та строго типізованих сигнатур підпрограм.</p>
+<p>Параметри функціонування та системні обмеження шлюзу первинної обробки наведено у розрахунковій таблиці:</p>
+<p><em>Таблиця 3.1 — Технічні вимоги та граничні параметри прикордонного вузла обробки телеметрії</em></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Параметр системи</th>
+<th style="text-align: left;">Одиниця вимірювання</th>
+<th style="text-align: left;">Розрахункове значення</th>
+<th style="text-align: left;">Інженерне обмеження середовища</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Вхідний потік даних</strong></td>
+<td style="text-align: left;">пакетів / секунду</td>
+<td style="text-align: left;"><span class="arithmatex">\(10\,000\)</span></td>
+<td style="text-align: left;">Максимальний інтервал між пакетами <span class="arithmatex">\(100\)</span> мкс</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Бюджет оперативної пам'яті</strong></td>
+<td style="text-align: left;">мегабайт</td>
+<td style="text-align: left;"><span class="arithmatex">\(64\)</span></td>
+<td style="text-align: left;">Жорсткий ліміт на один робочий процес ОС</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Розмірність сирого відліку АЦП</strong></td>
+<td style="text-align: left;">біт</td>
+<td style="text-align: left;"><span class="arithmatex">\(12\)</span> (діапазон <span class="arithmatex">\(0 \dots 4095\)</span>)</td>
+<td style="text-align: left;">Цілочисельний тип без знаку</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Коефіцієнти калібрування</strong></td>
+<td style="text-align: left;">пара чисел</td>
+<td style="text-align: left;"><span class="arithmatex">\(\alpha = 0{,}025\)</span>, <span class="arithmatex">\(\beta = -5{,}0\)</span></td>
+<td style="text-align: left;">Лінійне відображення в реальну шкалу</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Розмір вікна ковзного аналізу</strong></td>
+<td style="text-align: left;">кількість відліків</td>
+<td style="text-align: left;"><span class="arithmatex">\(5\)</span></td>
+<td style="text-align: left;">Необхідність фіксації стану між викликами</td>
+</tr>
+</tbody>
+</table>
+<p>Архітектура функціонального конвеєра передбачає послідовну трансформацію невалідованого бінарного пакета крізь ізольовані функціональні блоки:</p>
+<pre class="mermaid"><code>flowchart TD
+    RawPacket["Сирий телеметричний пакет (id, sensor, raw_val, crc)"] --&gt; ValidationStage["Етап 1: Чиста валідація (positional-only)"]
+    ValidationStage --&gt; ChecksumDecision{"CRC валідний?"}
+    ChecksumDecision --&gt;|Ні| ErrorHandler["Логування збою та відкидання"]
+    ChecksumDecision --&gt;|Так| CalibrationStage["Етап 2: Калібрувальне замикання (closure)"]
+    CalibrationStage --&gt; AggregationStage["Етап 3: Віконний агрегатор (nonlocal state)"]
+    AggregationStage --&gt; EmissionStage["Етап 4: Формування типізованого кортежу результатів"]</code></pre>
+<h4 id="_6">Покроковий аналіз та розв'язок</h4>
+<h5 id="1">Крок 1. Проектування чистої функції валідації пакетів із позиційними обмеженнями</h5>
+<p>На першому етапі необхідно реалізувати функцію швидкої перевірки цілісності пакета. Оскільки функція валідації викликається на найгарячішому шляху виконання, ми застосовуємо синтаксис PEP 570 для створення строго позиційних параметрів, що усуває накладні витрати на обробку імен аргументів у словнику кадру. Математично контрольна сума обчислюється як побітове додавання за модулем 256:</p>
+<div class="arithmatex">\[\text{CRC}_{\text{expected}} = (id + raw\_val) \pmod{256}\]</div>
+<p>Підставимо граничні параметри з таблиці для пакета з ідентифікатором <span class="arithmatex">\(id = 101\)</span> та сирим значенням <span class="arithmatex">\(raw\_val = 2048\)</span>:</p>
+<div class="arithmatex">\[\text{CRC}_{\text{expected}} = (101 + 2048) \pmod{256} = 2149 \pmod{256} = 101\]</div>
+<p>Реалізуємо підпрограму у функціональному стилі як чисту функцію:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">validate_telemetry_packet</span><span class="p">(</span><span class="n">pkt_id</span><span class="p">,</span> <span class="n">raw_val</span><span class="p">,</span> <span class="n">crc</span><span class="p">,</span> <span class="o">/</span><span class="p">):</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>    <span class="n">calculated_crc</span> <span class="o">=</span> <span class="p">(</span><span class="n">pkt_id</span> <span class="o">+</span> <span class="n">raw_val</span><span class="p">)</span> <span class="o">%</span> <span class="mi">256</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>    <span class="n">is_valid</span> <span class="o">=</span> <span class="p">(</span><span class="n">calculated_crc</span> <span class="o">==</span> <span class="n">crc</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">raw_val</span> <span class="o">&lt;=</span> <span class="mi">4095</span><span class="p">)</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>    <span class="k">return</span> <span class="n">is_valid</span>
+</span></code></pre></div>
+<h5 id="2_2">Крок 2. Побудова фабрики калібрувальних функцій на базі лексичних замикань</h5>
+<p>Отримане сире значення АЦП <span class="arithmatex">\(X_{\text{raw}}\)</span> необхідно перевести у фізичну величину (наприклад, температуру в градусах Цельсія). Замість передачі калібрувальних коефіцієнтів аргументами при кожній ітерації, створимо фабрику функцій, яка інкапсулює коефіцієнти в об'єкті комірки пам'яті <code>PyCellObject</code> лексичного замикання:</p>
+<div class="arithmatex">\[V_{\text{physical}} = \alpha \cdot X_{\text{raw}} + \beta\]</div>
+<p>Використовуючи параметри з таблиці <span class="arithmatex">\(\alpha = 0{,}025\)</span> та <span class="arithmatex">\(\beta = -5{,}0\)</span>, для відліку <span class="arithmatex">\(X_{\text{raw}} = 2048\)</span> отримуємо розрахункову температуру:</p>
+<div class="arithmatex">\[V_{\text{physical}} = 0{,}025 \cdot 2048 - 5{,}0 = 51{,}2 - 5{,}0 = 46{,}2^\circ\text{C}\]</div>
+<p>Фабрика замикання конструюється наступним чином:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">create_linear_calibrator</span><span class="p">(</span><span class="n">alpha</span><span class="p">,</span> <span class="n">beta</span><span class="p">):</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">calibrator</span><span class="p">(</span><span class="n">raw_val</span><span class="p">,</span> <span class="o">/</span><span class="p">):</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>        <span class="k">return</span> <span class="n">alpha</span> <span class="o">*</span> <span class="n">raw_val</span> <span class="o">+</span> <span class="n">beta</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>    <span class="k">return</span> <span class="n">calibrator</span>
+</span></code></pre></div>
+<h5 id="3-nonlocal">Крок 3. Реалізація віконного агрегатора з лексичним замиканням та оператором nonlocal</h5>
+<p>Для розрахунку середнього значення за останніми <span class="arithmatex">\(N = 5\)</span> відліками не можна використовувати глобальні змінні або змінювані значення параметрів за замовчуванням через ризик руйнування ізоляції стану. Спроектуємо замикання, яке утримує внутрішній фіксований буфер розміром <span class="arithmatex">\(N\)</span> і модифікує його за допомогою оператора <code>nonlocal</code>, гарантуючи відсутність побічних ефектів для зовнішнього середовища:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+\text{Крок 3.1 (Оновлення ковзного буфера):} &amp; \quad B_t = \big( B_{t-1}[2 \dots N] \cup \{ V_t \} \big) \\
+\text{Крок 3.2 (Розрахунок ковзного середнього):} &amp; \quad \bar{V}_t = \frac{1}{|B_t|} \sum_{v \in B_t} v
+\end{aligned}
+\]</div>
+<p>де <span class="arithmatex">\(B_t\)</span> позначає стан внутрішнього буфера спостережень на кроці <span class="arithmatex">\(t\)</span>, а <span class="arithmatex">\(V_t\)</span> є новим каліброваним відліком сигналу.</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">create_window_accumulator</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">window_size</span><span class="o">=</span><span class="mi">5</span><span class="p">):</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>    <span class="n">buffer</span> <span class="o">=</span> <span class="p">[]</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">accumulator</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="o">/</span><span class="p">):</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>        <span class="k">nonlocal</span> <span class="n">buffer</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>        <span class="n">buffer</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">buffer</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">window_size</span><span class="p">:</span>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>            <span class="n">buffer</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>        <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="n">buffer</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">buffer</span><span class="p">)</span>
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>    <span class="k">return</span> <span class="n">accumulator</span>
+</span></code></pre></div>
+<h5 id="4">Крок 4. Композиція конвеєра за допомогою функцій вищого порядку</h5>
+<p>Зберемо розроблені функціональні компоненти у повноцінний відмовостійкий конвеєр, що приймає варіативний потік пакетів через <code>*packets</code> та повертає незмінний кортеж агрегованих метрик, повністю виключаючи мутацію зовнішніх об'єктів:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">process_telemetry_stream</span><span class="p">(</span><span class="o">*</span><span class="n">packets</span><span class="p">,</span> <span class="n">calibrator</span><span class="p">,</span> <span class="n">aggregator</span><span class="p">):</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>    <span class="n">processed_metrics</span> <span class="o">=</span> <span class="p">[]</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>    <span class="k">for</span> <span class="n">pkt</span> <span class="ow">in</span> <span class="n">packets</span><span class="p">:</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>        <span class="n">pkt_id</span><span class="p">,</span> <span class="n">sensor_type</span><span class="p">,</span> <span class="n">raw_val</span><span class="p">,</span> <span class="n">crc</span> <span class="o">=</span> <span class="n">pkt</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>        <span class="k">if</span> <span class="ow">not</span> <span class="n">validate_telemetry_packet</span><span class="p">(</span><span class="n">pkt_id</span><span class="p">,</span> <span class="n">raw_val</span><span class="p">,</span> <span class="n">crc</span><span class="p">):</span>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>            <span class="k">continue</span>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>        <span class="n">calibrated_value</span> <span class="o">=</span> <span class="n">calibrator</span><span class="p">(</span><span class="n">raw_val</span><span class="p">)</span>
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>        <span class="n">rolling_mean</span> <span class="o">=</span> <span class="n">aggregator</span><span class="p">(</span><span class="n">calibrated_value</span><span class="p">)</span>
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>        <span class="n">processed_metrics</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">pkt_id</span><span class="p">,</span> <span class="n">sensor_type</span><span class="p">,</span> <span class="n">calibrated_value</span><span class="p">,</span> <span class="n">rolling_mean</span><span class="p">))</span>
+</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>    <span class="k">return</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">processed_metrics</span><span class="p">)</span>
+</span></code></pre></div>
+<h4 id="_7">Інтерпретація результатів та альтернативні сценарії</h4>
+<p>Застосування модульної функціональної архітектури забезпечило повну референтну прозорість конвеєра: внутрішній стан агрегатора суворо ізольований у комірках замикання <code>__closure__</code>, а функції валідації та калібрування позбавлені побічних ефектів. Це виключає блокування пам'яті та дозволяє паралелізувати обробку незалежних сенсорних каналів між різними ядрами процесора без ризику виникнення станів гонитви (<em>race conditions</em>).</p>
+<p>Якби вхідні вимоги змінилися в бік радикального збільшення навантаження до <span class="arithmatex">\(10^7\)</span> пакетів за секунду з мікросекундними затримками реального часу, поточна реалізація на CPython досягла б межі пропускної здатності через накладні витрати на виклик інтерпретатора та динамічну алокацію пам'яті під об'єкти <code>PyFrameObject</code> і списки буфера. У такому граничному сценарії архітектуру слід було б модифікувати: замінити внутрішні списки на кільцеві буфери у фіксованій виділеній C-структурі через <code>ctypes</code> або модуль <code>array</code>, а критичні обчислювальні замикання скомпілювати за допомогою Cython або транслювати у машинний код засобами JIT-компілятора Numba.</p>
+<hr />
+<h3 id="32">3.2. Зведена довідкова система лекції</h3>
+<p>Нижче наведено зведену концептуальну систему, що систематизує теоретичні та інженерні засади функціональної організації коду мовою Python:</p>
+<p><em>Таблиця 3.2 — Зведена довідкова система функціональних концепцій Python</em></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Термін / Концепція</th>
+<th style="text-align: left;">Формалізація / Сутність</th>
+<th style="text-align: left;">Реальний кейс застосування</th>
+<th style="text-align: left;">Основне обмеження / Ризик</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>PyFunctionObject</strong></td>
+<td style="text-align: left;">Динамічний об'єкт у купі, що зв'язує код <code>PyCodeObject</code> із контекстом <code>__globals__</code></td>
+<td style="text-align: left;">Реєстрація динамічних ендпоінтів у вебфреймворках (FastAPI, Flask)</td>
+<td style="text-align: left;">Додаткові накладні витрати пам'яті на створення обгортки в runtime</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Pass-by-object-reference</strong></td>
+<td style="text-align: left;">Модель передачі аргументів шляхом копіювання покажчиків на <code>PyObject</code> без дублювання даних</td>
+<td style="text-align: left;">Передача масивів цифрових сигналів у математичні обчислювальні бібліотеки</td>
+<td style="text-align: left;">Ненавмисна зовнішня мутація змінюваних аргументів (<code>list</code>, <code>dict</code>)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Правило LEGB</strong></td>
+<td style="text-align: left;">Статичний ієрархічний порядок пошуку імен: Local <span class="arithmatex">\(\to\)</span> Enclosing <span class="arithmatex">\(\to\)</span> Global <span class="arithmatex">\(\to\)</span> Built-in</td>
+<td style="text-align: left;">Організація багатошарових просторів імен у модульних бібліотеках</td>
+<td style="text-align: left;">Ризик виникнення <code>UnboundLocalError</code> при повторному локальному присвоєнні</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Лексичне замикання (Closure)</strong></td>
+<td style="text-align: left;">Функція, що утримує стан охоплюючого простору через об'єкти <code>PyCellObject</code> у купі</td>
+<td style="text-align: left;">Реалізація ковзних віконних фільтрів та генераторів унікальних токенів</td>
+<td style="text-align: left;">Пастка пізнього зв'язування змінних усередині ітераційних циклів</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Positional-Only (<code>/</code>)</strong></td>
+<td style="text-align: left;">Делімітер параметрів, доступних для ініціалізації виключно за порядковим номером</td>
+<td style="text-align: left;">Захист публічних контрактів API низькорівневих системних утиліт</td>
+<td style="text-align: left;">Неможливість явного іменування параметрів для підвищення читабельності коду</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Keyword-Only (<code>*</code>)</strong></td>
+<td style="text-align: left;">Делімітер параметрів, що вимагають обов'язкової передачі у форматі <code>name=value</code></td>
+<td style="text-align: left;">Конфігураційні методи системних служб із багатьма булевими прапорцями</td>
+<td style="text-align: left;">Синтаксична помилка <code>TypeError</code> при спробі позиційної передачі значень</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Оператор nonlocal</strong></td>
+<td style="text-align: left;">Інструкція зв'язування ідентифікатора з найближчим зовнішнім простором <code>Enclosing</code></td>
+<td style="text-align: left;">Модифікація внутрішніх лічильників у патернах <code>State</code> та <code>Circuit Breaker</code></td>
+<td style="text-align: left;">Обмежений лише вкладеними функціями; не діє на рівні глобального модуля</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Чиста функція (Pure func)</strong></td>
+<td style="text-align: left;">Детермінований оператор <span class="arithmatex">\(f(X)\)</span>, позбавлений побічних ефектів мутації оточення</td>
+<td style="text-align: left;">Критичні модулі білінгу, криптографії та обчислення контрольних сум</td>
+<td style="text-align: left;">Потенційне збільшення використання пам'яті при поверненні нових об'єктів</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="33">3.3. Контрольні питання та завдання</h3>
+<h4 id="_8">Прикладні тестові завдання</h4>
+<ol>
+<li>
+<p>Розробник спроектував функцію підключення до брокера повідомлень із такою сигнатурою:
+<div class="language-python highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">connect</span><span class="p">(</span><span class="n">host</span><span class="p">,</span> <span class="n">port</span><span class="p">,</span> <span class="o">/</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">secure</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>    <span class="k">return</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">host</span><span class="si">}</span><span class="s2">:</span><span class="si">{</span><span class="n">port</span><span class="si">}</span><span class="s2">?timeout=</span><span class="si">{</span><span class="n">timeout</span><span class="si">}</span><span class="s2">&amp;secure=</span><span class="si">{</span><span class="n">secure</span><span class="si">}</span><span class="s2">"</span>
+</span></code></pre></div>
+Який із наведених викликів призведе до аварійного завершення програми з винятком <code>TypeError</code>?</p>
+</li>
+<li>
+<p>A) <code>connect("localhost", 9092, 5, secure=False)</code></p>
+</li>
+<li>
+<p>B) <code>connect("localhost", 9092, timeout=5, secure=True)</code></p>
+</li>
+<li>
+<p>C) <code>connect(host="localhost", port=9092, timeout=5, secure=True)</code></p>
+</li>
+<li>
+<p>D) <code>connect("localhost", 9092, secure=False)</code></p>
+</li>
+</ol>
+<details class="note">
+<summary>Розгорнути аналіз / відповідь</summary>
+<p><strong>Правильний варіант: C.</strong></p>
+<ol>
+<li>
+<p>Параметри <code>host</code> та <code>port</code> задекларовані ліворуч від роздільника <code>/</code>, що відносить їх до категорії строго позиційних параметрів (<em>positional-only</em>). У варіанті C розробник явно передає <code>host="localhost"</code> та <code>port=9092</code> як іменовані аргументи, що є прямим порушенням специфікації PEP 570 та ініціює виняток <code>TypeError: connect() got some positional-only arguments passed as keyword arguments</code>.</p>
+</li>
+<li>
+<p>Аналіз дистракторів:</p>
+</li>
+<li>
+<p>Варіант A є повністю коректним, оскільки перші два аргументи передано позиційно, параметр <code>timeout</code> допускає як позиційну, так і іменовану передачу, а <code>secure</code> передано як ключовий аргумент праворуч від <code>*</code>.</p>
+</li>
+<li>
+<p>Варіант B є валідним, оскільки <code>timeout</code> передано як іменований аргумент, що дозволено для стандартних параметрів між <code>/</code> та <code>*</code>.</p>
+</li>
+<li>
+<p>Варіант D є валідним, оскільки <code>timeout</code> опускається і приймає дефолтне значення 10, а решта параметрів задовольняє правилам роздільників.</p>
+</li>
+</ol>
+</details>
+<ol>
+<li>
+<p>У системі розподіленого кешування створено функцію для збереження сесій:
+<div class="language-python highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">cache_session</span><span class="p">(</span><span class="n">session_id</span><span class="p">,</span> <span class="n">store</span><span class="o">=</span><span class="p">{}):</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>    <span class="n">store</span><span class="p">[</span><span class="n">session_id</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>    <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="n">store</span><span class="p">)</span>
+</span></code></pre></div>
+Що виведе послідовність викликів <code>print(cache_session('A'))</code> та <code>print(cache_session('B'))</code> за умови відсутності інших операцій?</p>
+</li>
+<li>
+<p>A) 1 та 1</p>
+</li>
+<li>
+<p>B) 1 та 2</p>
+</li>
+<li>
+<p>C) 0 та 1</p>
+</li>
+<li>
+<p>D) Помилку <code>UnboundLocalError</code> під час другого виклику</p>
+</li>
+</ol>
+<details class="note">
+<summary>Розгорнути аналіз / відповідь</summary>
+<p><strong>Правильний варіант: B.</strong></p>
+<ol>
+<li>
+<p>У даному фрагменті коду спрацьовує пастка змінного значення за замовчуванням (<em>mutable default argument trap</em>). Об'єкт порожнього словника <code>{}</code> ініціалізується один раз під час завантаження модуля та зберігається в атрибуті <code>__defaults__</code> функції. Перший виклик записує ключ <code>'A'</code> у цей словник і повертає довжину 1. Другий виклик працює з тим самим фізичним об'єктом у купі, додаючи ключ <code>'B'</code>, тому довжина словника стає рівною 2.</p>
+</li>
+<li>
+<p>Аналіз дистракторів:</p>
+</li>
+<li>
+<p>Варіант A базується на помилковому припущенні, що словник за замовчуванням створюється наново при кожному виклику функції.</p>
+</li>
+<li>
+<p>Варіант C суперечить логіці оператора <code>store[session_id] = True</code>, який гарантовано додає елемент перед поверненням довжини.</p>
+</li>
+<li>
+<p>Варіант D є хибним, оскільки змінна <code>store</code> успішно резолвиться через механізм завантаження аргументів за замовчуванням і не провокує проблем з локальним зв'язуванням.</p>
+</li>
+</ol>
+</details>
+<ol>
+<li>
+<p>Проаналізуйте роботу з лексичними замиканнями у наступному фрагменті коду:
+<div class="language-python highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">outer_scope</span><span class="p">():</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>    <span class="n">factor</span> <span class="o">=</span> <span class="mi">2</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">inner_scope</span><span class="p">(</span><span class="n">val</span><span class="p">):</span>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>        <span class="k">return</span> <span class="n">val</span> <span class="o">*</span> <span class="n">factor</span>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>    <span class="n">factor</span> <span class="o">=</span> <span class="mi">3</span>
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>    <span class="k">return</span> <span class="n">inner_scope</span>
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>
+</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="n">closure_instance</span> <span class="o">=</span> <span class="n">outer_scope</span><span class="p">()</span>
+</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="nb">print</span><span class="p">(</span><span class="n">closure_instance</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
+</span></code></pre></div>
+Яке число буде виведено на консоль?</p>
+</li>
+<li>
+<p>A) 20</p>
+</li>
+<li>
+<p>B) 30</p>
+</li>
+<li>
+<p>C) 60</p>
+</li>
+<li>
+<p>D) Виникне виняток <code>NameError</code></p>
+</li>
+</ol>
+<details class="note">
+<summary>Розгорнути аналіз / відповідь</summary>
+<p><strong>Правильний варіант: B.</strong></p>
+<ol>
+<li>
+<p>Замикання в Python реалізують механізм пізнього зв'язування (<em>late binding</em>). Внутрішня функція <code>inner_scope</code> утримує посилання на спільний об'єкт комірки <code>PyCellObject</code>, у якому зберігається адреса об'єкта, пов'язаного з ідентифікатором <code>factor</code>. На момент завершення виконання функції <code>outer_scope</code> значення змінної <code>factor</code> було перезаписано на 3. Відповідно, під час виклику <code>closure_instance(10)</code> значення зчитується з цієї самої комірки, даючи результат <span class="arithmatex">\(10 \times 3 = 30\)</span>.</p>
+</li>
+<li>
+<p>Аналіз дистракторів:</p>
+</li>
+<li>
+<p>Варіант A був би правильним, якби мова фіксувала стан змінних на момент створення функції <code>inner_scope</code> (раннє копіювання значень), що не відповідає архітектурі CPython.</p>
+</li>
+<li>
+<p>Варіант C є безпідставним математичним припущенням, яке не спирається на жодну інструкцію програми.</p>
+</li>
+<li>
+<p>Варіант D є некоректним, оскільки змінна <code>factor</code> успішно захоплюється в лексичному просторі <code>Enclosing</code> і залишається доступною через кортеж <code>__closure__</code>.</p>
+</li>
+</ol>
+</details>
+<ol>
+<li>
+<p>У модулі обробки аудіосигналів оголошено функцію з використанням глобальної змінної:
+<div class="language-python highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="n">gain</span> <span class="o">=</span> <span class="mf">1.5</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="k">def</span><span class="w"> </span><span class="nf">adjust_gain</span><span class="p">(</span><span class="n">sample</span><span class="p">):</span>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>    <span class="k">if</span> <span class="n">sample</span> <span class="o">&gt;</span> <span class="mi">100</span><span class="p">:</span>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>        <span class="n">gain</span> <span class="o">=</span> <span class="mf">2.0</span>
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>    <span class="k">return</span> <span class="n">sample</span> <span class="o">*</span> <span class="n">gain</span>
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>
+</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="n">adjust_gain</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span>
+</span></code></pre></div>
+Який результат отримає система під час виконання інструкції <code>adjust_gain(50)</code>?</p>
+</li>
+<li>
+<p>A) Число 75.0</p>
+</li>
+<li>
+<p>B) Число 100.0</p>
+</li>
+<li>
+<p>C) Виняток <code>UnboundLocalError</code></p>
+</li>
+<li>
+<p>D) Виняток <code>TypeError</code></p>
+</li>
+</ol>
+<details class="note">
+<summary>Розгорнути аналіз / відповідь</summary>
+<p><strong>Правильний варіант: C.</strong></p>
+<ol>
+<li>
+<p>Під час синтаксичного аналізу тіла функції компілятор CPython виявляє наявність оператора присвоєння <code>gain = 2.0</code>. Відповідно до правил формування просторів імен, ідентифікатор <code>gain</code> автоматично позначається як локальна змінна функції для всього блоку. При виклику з аргументом <code>sample = 50</code> гілка <code>if</code> не виконується, і потік доходить до рядка <code>return sample * gain</code>. На цьому етапі локальна змінна <code>gain</code> ще не зв'язана з жодним об'єктом, а пошук у глобальному просторі заблоковано локальним статусом імені, що викликає помилку <code>UnboundLocalError: local variable 'gain' referenced before assignment</code>.</p>
+</li>
+<li>
+<p>Аналіз дистракторів:</p>
+</li>
+<li>
+<p>Варіант A хибно припускає, що за відсутності виконання умови <code>if</code> інтерпретатор автоматично прочитає глобальне значення 1.5.</p>
+</li>
+<li>
+<p>Варіант B припускає некоректну логіку обчислення без урахування семантики операторів мови.</p>
+</li>
+<li>
+<p>Варіант D є нерелевантним, оскільки операція множення чисел з рухомою комою та цілих чисел є валідною і проблема виникає виключно на етапі дозволу ідентифікатора.</p>
+</li>
+</ol>
+</details>
+<hr />
+<h4 id="_9">Завдання для самостійної роботи</h4>
+<h5 id="_10">Постановка задачі</h5>
+<p>У розподіленій системі моніторингу вібраційного стану роторних турбін виникає необхідність створення модуля цифрової фільтрації спектральних відліків. Від датчиків з інтервалом у <span class="arithmatex">\(10\)</span> мікросекунд надходять масиви комплексних амплітуд сигналів. Розробнику доручається спроектувати автономний функціональний вузол, який виконує первинне відсікання шумів нижче динамічного порогу, обчислює нормовану дисперсію потужності сигналу та агрегує аварійні сплески за допомогою чистих функцій вищого порядку, запобігаючи неконтрольованому зростанню споживання пам'яті.</p>
+<h5 id="_11">Завдання для виконання</h5>
+<ol>
+<li>
+<p>Спроектуйте чисту функцію фільтрації сигналу, яка приймає коефіцієнт зрізу частоти як строго позиційний параметр, а вхідний потік амплітуд як варіативний кортеж позиційних аргументів.</p>
+</li>
+<li>
+<p>Розробіть фабрику замикань для розрахунку експоненційно зваженого ковзного середнього значення енергії вібрації, забезпечивши збереження коефіцієнта згладжування та попереднього інтегрального стану всередині замикання без використання глобальних змінних.</p>
+</li>
+<li>
+<p>Реалізуйте функцію-диспетчер обробки аварійних станів турбіни, що приймає таблицю функціональних зворотних викликів у вигляді розпакованого словника іменованих параметрів і маршрутизує сигнали за константний час без використання умовних операторів.</p>
+</li>
+<li>
+<p>Проведіть практичне профілювання розробленого модуля за допомогою вбудованого модуля <code>dis</code>, зафіксувавши відсутність генерації опкодів створення динамічних словників аргументів на гарячому шляху виконання циклу фільтрації.</p>
+</li>
+</ol>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Повернутись нагору
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 Kyrylo Vadurin &bull; <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a>
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.expand", "navigation.top", "navigation.tracking", "header.autohide", "search.suggest", "search.highlight", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u0421\u043a\u043e\u043f\u0456\u0439\u043e\u0432\u0430\u043d\u043e \u0432 \u0431\u0443\u0444\u0435\u0440", "clipboard.copy": "\u0421\u043a\u043e\u043f\u0456\u044e\u0432\u0430\u0442\u0438 \u0432 \u0431\u0443\u0444\u0435\u0440", "search.result.more.one": "\u0429\u0435 1 \u0437\u0431\u0456\u0433 \u043d\u0430 \u0446\u0456\u0439 \u0441\u0442\u043e\u0440\u0456\u043d\u0446\u0456", "search.result.more.other": "\u0429\u0435 # \u0437\u0431\u0456\u0433\u0456\u0432 \u043d\u0430 \u0446\u0456\u0439 \u0441\u0442\u043e\u0440\u0456\u043d\u0446\u0456", "search.result.none": "\u0417\u0431\u0456\u0433\u0456\u0432 \u043d\u0435 \u0437\u043d\u0430\u0439\u0434\u0435\u043d\u043e", "search.result.one": "\u0417\u043d\u0430\u0439\u0434\u0435\u043d\u043e 1 \u0437\u0431\u0456\u0433", "search.result.other": "\u0417\u043d\u0430\u0439\u0434\u0435\u043d\u043e # \u0437\u0431\u0456\u0433\u0456\u0432", "search.result.placeholder": "\u0420\u043e\u0437\u043f\u043e\u0447\u043d\u0456\u0442\u044c \u043f\u0438\u0441\u0430\u0442\u0438 \u0434\u043b\u044f \u043f\u043e\u0448\u0443\u043a\u0443", "search.result.term.missing": "\u041d\u0435 \u0437\u043d\u0430\u0439\u0434\u0435\u043d\u043e \u0437\u0430\u043f\u0438\u0442\u0443", "select.version": "\u041e\u0431\u0440\u0430\u0442\u0438 \u0432\u0435\u0440\u0441\u0456\u044e"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

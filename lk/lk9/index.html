@@ -1,0 +1,3116 @@
+
+<!doctype html>
+<html lang="uk" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Навчальний портал з дисципліни "Програмування на Python. Базовий рівень"">
+      
+      
+      
+      
+        <link rel="prev" href="../lk8/">
+      
+      
+        <link rel="next" href="../../lb/lb1/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Тема 9. Об'єктно-орієнтоване програмування - Програмування на Python</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="cyan">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#9-python" class="md-skip">
+          Перейти до змісту
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Хедер">
+    <a href="../.." title="Програмування на Python" class="md-header__button md-logo" aria-label="Програмування на Python" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Програмування на Python
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Тема 9. Об'єктно-орієнтоване програмування
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="cyan"  aria-label="Переключити на темну тему"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Переключити на темну тему" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="cyan"  aria-label="Переключити на світлу тему"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Переключити на світлу тему" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Пошук" placeholder="Пошук" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Шукати">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Очистити" aria-label="Очистити" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Пошук розпочато
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Вкладки" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Робоча програма
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../lk1/" class="md-tabs__link">
+          
+  
+  
+  Лекції
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../lb/lb1/" class="md-tabs__link">
+          
+  
+  
+  Лабораторні роботи
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../sr/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Самостійна робота
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../sr/quest/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Перелік тестових питань
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../rg/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Розрахунково-графічна робота
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Навігація" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Програмування на Python" class="md-nav__button md-logo" aria-label="Програмування на Python" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Програмування на Python
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Робоча програма
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Лекції
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Лекції
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lk1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Тема 1. Архітектура мови та інфраструктура
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lk2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Тема 2. Керування потоком виконання
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lk3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Тема 3. Впорядковані структури даних (Списки, Кортежі)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lk4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Тема 4. Текстові, двійкові дані та Регулярні вирази
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lk5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Тема 5. Хеш-таблиці (Словники, Множини)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lk6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Тема 6. Функціональна організація коду
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lk7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Тема 7. Модульна архітектура та пакети
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lk8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Тема 8. Обробка винятків та файлове в/в
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Тема 9. Об'єктно-орієнтоване програмування
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Тема 9. Об'єктно-орієнтоване програмування
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Зміст">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Зміст
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Мета лекції
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Очікувані результати навчання
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Детальний покроковий план лекції
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Детальний покроковий план лекції">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-cpython" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Теоретико-концептуальний базис. Об'єктна модель CPython та фундаментальні засади проектування класів
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Методологія та аналіз граничних умов. Ієрархічні структури наслідування, протоколи спеціальних методів та обмеження моделі
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Практичний індустріальний / фаховий кейс. Проектування архітектури апаратного контролера телеметрії
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-cpython_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Теоретико-концептуальний базис. Об'єктна модель CPython та фундаментальні засади проектування класів
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Теоретико-концептуальний базис. Об&#39;єктна модель CPython та фундаментальні засади проектування класів">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-cpython" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1. Парадигма об'єктно-орієнтованого програмування та системна концепція представлення типів даних у CPython як об'єктів першого класу
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-__new__-__init__-self" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2. Двоетапний життєвий цикл екземпляра в динамічній пам'яті: виділення адреси методом __new__, ініціалізація методом __init__ та семантична роль покажчика self
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-class__dict__-instance__dict__" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3. Топологія адресного простору об'єктів: словники простору імен Class.__dict__ проти instance.__dict__, правила пошуку полів і ефект затінення атрибутів класу
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14-pep-8-name-mangling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.4. Архітектурні рівні доступу до компонентів класу: публічні поля, захищені атрибути за конвенцією PEP 8 та внутрішня дія алгоритму спотворення імен name mangling для приватних ідентифікаторів
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Вказівки для самостійного осмислення
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Методологія та аналіз граничних умов. Ієрархічні структури наслідування, протоколи спеціальних методів та обмеження моделі
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Методологія та аналіз граничних умов. Ієрархічні структури наслідування, протоколи спеціальних методів та обмеження моделі">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-super" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1. Механізми одиночного і множинного наслідування, делегування викликів базового функціоналу через проксі-об'єкт super() та вирішення проблеми ромбоподібної спадковості
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-method-resolution-order-c3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2. Математична формалізація порядку вирішення методів (Method Resolution Order) за алгоритмом лінеаризації C3 та діагностика суперечностей в ієрархіях
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-duck-typing-dunder-" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3. Поліморфізм у системі динамічної типізації через парадигму Duck Typing та реалізація протоколів інтерпретатора за допомогою спеціальних dunder-методів
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-property-classmethod-staticmethod" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4. Протокол дескрипторів і керування інтерфейсом: валідація стану за допомогою властивостей @property, створення фабрик класовими методами @classmethod та утилітарні функції @staticmethod
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25-gil" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.5. Критичні бар'єри та вузькі місця: накладні витрати динамічних словників екземплярів на пам'ять, неможливість прямої модифікації вбудованих С-типів та вплив блокування GIL на потокобезпеку спільних станів об'єктів
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Практичний індустріальний / фаховий кейс. Проектування архітектури апаратного контролера телеметрії
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Практичний індустріальний / фаховий кейс. Проектування архітектури апаратного контролера телеметрії">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1. Комплексний фаховий кейс. Проектування драйвера контролера телеметричних датчиків безпілотного апарата
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.1. Комплексний фаховий кейс. Проектування драйвера контролера телеметричних датчиків безпілотного апарата">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Постановка задачі / ситуації
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Покроковий аналіз та розв'язок
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Покроковий аналіз та розв&#39;язок">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Крок 1. Розрахунок чутливості перетворення АЦП та квантування сигналу
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-__slots__" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Крок 2. Подолання граничних витрат пам'яті через впровадження __slots__
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Крок 3. Реалізація інкапсуляції та захисту даних через дескрипторні властивості
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-classmethod" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Крок 4. Фабричний метод @classmethod для компенсації температурного дрейфу
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-dunder-" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Крок 5. Реалізація протоколів векторної алгебри через dunder-методи
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Інтерпретація результатів та альтернативні сценарії
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2. Зведена довідкова система лекції
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3. Контрольні питання та завдання
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.3. Контрольні питання та завдання">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Прикладні тестові завдання
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Прикладні тестові завдання">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Завдання 1
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Завдання 2
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Завдання 3
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Завдання 4
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Завдання для самостійної роботи
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Завдання для самостійної роботи">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Постановка задачі
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Завдання для виконання
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Лабораторні роботи
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Лабораторні роботи
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lb/lb1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 1. Розгортання інфраструктури розробки
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lb/lb2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 2. Скалярні типи даних та моделювання
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lb/lb3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 3. Алгоритми розгалуженої та циклічної структури
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lb/lb4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 4. Обробка списків та кортежі
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lb/lb5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 5. Обробка тексту та регулярні вирази
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lb/lb6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 6. Асоціативні структури даних (Словники, Множини)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lb/lb7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 7. Проєктування функцій та рекурсія
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lb/lb8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 8. Модульне програмування та системні бібліотеки
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lb/lb9/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 9. Обробка виняткових ситуацій
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lb/lb10/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 10. Файлове в/в та менеджери контексту
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lb/lb11/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ЛБ 11. ООП та перевантаження методів
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sr/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Самостійна робота
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sr/quest/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Перелік тестових питань
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../rg/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Розрахунково-графічна робота
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Зміст">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Зміст
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Мета лекції
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Очікувані результати навчання
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Детальний покроковий план лекції
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Детальний покроковий план лекції">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-cpython" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Теоретико-концептуальний базис. Об'єктна модель CPython та фундаментальні засади проектування класів
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Методологія та аналіз граничних умов. Ієрархічні структури наслідування, протоколи спеціальних методів та обмеження моделі
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Практичний індустріальний / фаховий кейс. Проектування архітектури апаратного контролера телеметрії
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-cpython_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Теоретико-концептуальний базис. Об'єктна модель CPython та фундаментальні засади проектування класів
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Теоретико-концептуальний базис. Об&#39;єктна модель CPython та фундаментальні засади проектування класів">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-cpython" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1. Парадигма об'єктно-орієнтованого програмування та системна концепція представлення типів даних у CPython як об'єктів першого класу
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-__new__-__init__-self" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2. Двоетапний життєвий цикл екземпляра в динамічній пам'яті: виділення адреси методом __new__, ініціалізація методом __init__ та семантична роль покажчика self
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-class__dict__-instance__dict__" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3. Топологія адресного простору об'єктів: словники простору імен Class.__dict__ проти instance.__dict__, правила пошуку полів і ефект затінення атрибутів класу
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14-pep-8-name-mangling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.4. Архітектурні рівні доступу до компонентів класу: публічні поля, захищені атрибути за конвенцією PEP 8 та внутрішня дія алгоритму спотворення імен name mangling для приватних ідентифікаторів
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Вказівки для самостійного осмислення
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Методологія та аналіз граничних умов. Ієрархічні структури наслідування, протоколи спеціальних методів та обмеження моделі
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Методологія та аналіз граничних умов. Ієрархічні структури наслідування, протоколи спеціальних методів та обмеження моделі">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-super" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1. Механізми одиночного і множинного наслідування, делегування викликів базового функціоналу через проксі-об'єкт super() та вирішення проблеми ромбоподібної спадковості
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-method-resolution-order-c3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2. Математична формалізація порядку вирішення методів (Method Resolution Order) за алгоритмом лінеаризації C3 та діагностика суперечностей в ієрархіях
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-duck-typing-dunder-" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3. Поліморфізм у системі динамічної типізації через парадигму Duck Typing та реалізація протоколів інтерпретатора за допомогою спеціальних dunder-методів
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-property-classmethod-staticmethod" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4. Протокол дескрипторів і керування інтерфейсом: валідація стану за допомогою властивостей @property, створення фабрик класовими методами @classmethod та утилітарні функції @staticmethod
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25-gil" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.5. Критичні бар'єри та вузькі місця: накладні витрати динамічних словників екземплярів на пам'ять, неможливість прямої модифікації вбудованих С-типів та вплив блокування GIL на потокобезпеку спільних станів об'єктів
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Практичний індустріальний / фаховий кейс. Проектування архітектури апаратного контролера телеметрії
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Практичний індустріальний / фаховий кейс. Проектування архітектури апаратного контролера телеметрії">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1. Комплексний фаховий кейс. Проектування драйвера контролера телеметричних датчиків безпілотного апарата
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.1. Комплексний фаховий кейс. Проектування драйвера контролера телеметричних датчиків безпілотного апарата">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Постановка задачі / ситуації
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Покроковий аналіз та розв'язок
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Покроковий аналіз та розв&#39;язок">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Крок 1. Розрахунок чутливості перетворення АЦП та квантування сигналу
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-__slots__" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Крок 2. Подолання граничних витрат пам'яті через впровадження __slots__
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Крок 3. Реалізація інкапсуляції та захисту даних через дескрипторні властивості
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-classmethod" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Крок 4. Фабричний метод @classmethod для компенсації температурного дрейфу
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-dunder-" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Крок 5. Реалізація протоколів векторної алгебри через dunder-методи
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Інтерпретація результатів та альтернативні сценарії
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2. Зведена довідкова система лекції
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3. Контрольні питання та завдання
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.3. Контрольні питання та завдання">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Прикладні тестові завдання
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Прикладні тестові завдання">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Завдання 1
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Завдання 2
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Завдання 3
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Завдання 4
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Завдання для самостійної роботи
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Завдання для самостійної роботи">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Постановка задачі
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Завдання для виконання
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="9-python">Тема 9. Об'єктно-орієнтоване програмування в Python</h1>
+<h2 id="_1">Мета лекції</h2>
+<p>Формування у здобувачів вищої освіти системного теоретичного базису та практичних інженерних компетентностей щодо проектування програмного забезпечення на основі парадигми об'єктно-орієнтованого програмування мовою Python, з детальним вивченням життєвого циклу об'єктів у динамічній пам'яті CPython, архітектурних принципів інкапсуляції, наслідування та поліморфізму, специфіки лінеаризації просторів імен за алгоритмом C3 MRO, протоколу спеціальних dunder-методів і дескрипторних декораторів, що є критично необхідним підґрунтям для розробки відмовостійких, модульних і високопродуктивних інформаційно-комунікаційних систем і компонентів вбудованого програмного забезпечення.</p>
+<h2 id="_2">Очікувані результати навчання</h2>
+<ol>
+<li>
+<p><strong>Знання та розуміння.</strong> Здобувачі демонструють ґрунтовні знання архітектури об'єктної моделі CPython, механізмів виділення пам'яті конструктором <code>__new__</code> та ініціалізації екземплярів методом <code>__init__</code>, сутності конвенцій захисту полів через алгоритм спотворення імен, а також математичних правил побудови послідовності дозволу методів MRO за алгоритмом C3.</p>
+</li>
+<li>
+<p><strong>Застосування.</strong> Здобувачі вміють проектувати складні ієрархії користувацьких класів, реалізовувати протоколи об'єктної взаємодії через перевизначення спеціальних dunder-методів арифметики та порівняння, а також застосовувати вбудовані декоратори методів для створення фабричних конструкторів і динамічної валідації атрибутів.</p>
+</li>
+<li>
+<p><strong>Аналіз.</strong> Здобувачі здатні аналізувати розгалужені графи множинного наслідування для запобігання колізіям просторів імен і блокуванням лінеаризації MRO, досліджувати внутрішній стан об'єктів через системні словники <code>__dict__</code>, а також зіставляти ефективність використання об'єктних структур даних у задачах системного та прикладного програмування.</p>
+</li>
+<li>
+<p><strong>Оцінювання та синтез.</strong> Здобувачі набувають здатності самостійно синтезувати відмовостійкі програмні модулі для моделювання телеметричних і апаратних вузлів, обґрунтовувати вибір між успадкуванням та композицією, а також критично оцінювати накладні витрати пам'яті й бар'єри багатопотокової безпеки об'єктних моделей під час промислової експлуатації.</p>
+</li>
+</ol>
+<hr />
+<h2 id="_3">Детальний покроковий план лекції</h2>
+<h3 id="1-cpython">1. Теоретико-концептуальний базис. Об'єктна модель CPython та фундаментальні засади проектування класів</h3>
+<ul>
+<li>
+<p>1.1. Парадигма об'єктно-орієнтованого програмування та системна концепція представлення типів даних у CPython як об'єктів першого класу</p>
+</li>
+<li>
+<p>1.2. Двоетапний життєвий цикл екземпляра в динамічній пам'яті: виділення адреси методом <code>__new__</code>, ініціалізація методом <code>__init__</code> та семантична роль покажчика <code>self</code></p>
+</li>
+<li>
+<p>1.3. Топологія адресного простору об'єктів: словники простору імен <code>Class.__dict__</code> проти <code>instance.__dict__</code>, правила пошуку полів і ефект затінення атрибутів класу</p>
+</li>
+<li>
+<p>1.4. Архітектурні рівні доступу до компонентів класу: публічні поля, захищені атрибути за конвенцією PEP 8 та внутрішня дія алгоритму спотворення імен <code>name mangling</code> для приватних ідентифікаторів</p>
+</li>
+</ul>
+<h3 id="2">2. Методологія та аналіз граничних умов. Ієрархічні структури наслідування, протоколи спеціальних методів та обмеження моделі</h3>
+<ul>
+<li>
+<p>2.1. Механізми одиночного і множинного наслідування, делегування викликів базового функціоналу через проксі-об'єкт <code>super()</code> та вирішення проблеми ромбоподібної спадковості</p>
+</li>
+<li>
+<p>2.2. Математична формалізація порядку вирішення методів (Method Resolution Order) за алгоритмом лінеаризації C3 та діагностика суперечностей в ієрархіях</p>
+</li>
+<li>
+<p>2.3. Поліморфізм у системі динамічної типізації через парадигму Duck Typing та реалізація протоколів інтерпретатора за допомогою спеціальних dunder-методів</p>
+</li>
+<li>
+<p>2.4. Протокол дескрипторів і керування інтерфейсом: валідація стану за допомогою властивостей <code>@property</code>, створення фабрик класовими методами <code>@classmethod</code> та утилітарні функції <code>@staticmethod</code></p>
+</li>
+<li>
+<p>2.5. Критичні бар'єри та вузькі місця: накладні витрати динамічних словників екземплярів на пам'ять, неможливість прямої модифікації вбудованих С-типів та вплив блокування GIL на потокобезпеку спільних станів об'єктів</p>
+</li>
+</ul>
+<h3 id="3">3. Практичний індустріальний / фаховий кейс. Проектування архітектури апаратного контролера телеметрії</h3>
+<p><strong>Тема наскрізної задачі.</strong> «Розробка об'єктно-орієнтованого драйвера цифрового контролера телеметричних датчиків з інкапсульованою валідацією шини, векторною алгеброю dunder-методів та фабричними методами калібрування»</p>
+<h2 id="1-cpython_1">1. Теоретико-концептуальний базис. Об'єктна модель CPython та фундаментальні засади проектування класів</h2>
+<h3 id="11-cpython">1.1. Парадигма об'єктно-орієнтованого програмування та системна концепція представлення типів даних у CPython як об'єктів першого класу</h3>
+<p>Парадигма об'єктно-орієнтованого програмування виникла як інженерна відповідь на кризу складності програмного забезпечення, спричинену масштабуванням процедурних систем. У процедурній моделі алгоритми обробки жорстко відокремлені від структур даних, якими вони маніпулюють. Такий підхід під час розробки розподілених систем, драйверів телекомунікаційного обладнання або обчислювальних ядер призводить до розмивання відповідальності компонентів, неконтрольованого зростання побічних ефектів через глобальний стан пам'яті та критичного ускладнення супроводу кодової бази. </p>
+<p>Об'єктно-орієнтований підхід долає зазначені деструктивні фактори шляхом реалізації принципу модульності, коли система декомпонується на автономні інформаційні сутності — об'єкти. Кожен об'єкт виступає як закрита функціональна одиниця, що володіє власним дискретним життєвим циклом, внутрішнім адресним станом та сукупністю чітко регламентованих повідомлень, на які він здатен реагувати.</p>
+<p>У системній архітектурі мови Python, реалізованій її еталонним інтерпретатором CPython, концепція об'єктно-орієнтованого дизайну доведена до абсолюту через постулат «все є об'єктом першого класу» (<em>first-class object</em>). Це означає, що фундаментальні скалярні типи даних, складні структури колекцій, виконувані функції, простори імен модулів і навіть самі класи в пам'яті комп'ютера представлені уніфікованими об'єктними структурами мови C. Будь-яка сутність першого класу може бути динамічно створена під час виконання програми, передана у функцію як аргумент, повернута з підпрограми як результат обчислень і зв'язана зі змінною в поточному просторі імен.</p>
+<p>На системному рівні CPython кожен об'єкт розміщується у динамічній пам'яті (<em>heap</em>) і базується на структурі <code>PyObject</code>. Дана структура містить два критично важливі системні поля: лічильник зовнішніх посилань на об'єкт <code>ob_refcnt</code>, який використовується базовим механізмом керування пам'яттю для автоматичного знищення об'єкта при обнулінні звернень, а також покажчик на об'єкт типу <code>ob_type</code>. Покажчик <code>ob_type</code> адресує спеціальний екземпляр метаструктури <code>PyTypeObject</code>, який описує семантику поведінки, розмір пам'яті, доступні системні слоти операцій та методи конкретного типу даних. Якщо об'єкт має змінну довжину, наприклад, як рядок, кортеж або список, його структурою виступає <code>PyVarObject</code>, що додає третє обов'язкове системне поле <code>ob_size</code>, яке визначає поточну кількість збережених елементів.</p>
+<p>Ієрархія типів даних у CPython реалізує замкнену рекурсивну схему типізації, подану нижче. Класи, які визначаються розробником за допомогою інструкції <code>class</code>, є повноправними екземплярами метакласу <code>type</code>. Сам же метаклас <code>type</code> володіє дуалістичною природою: він виступає типом для самого себе і одночасно успадковує поведінку від базового предка всіх об'єктних структур — класу <code>object</code>.</p>
+<pre class="mermaid"><code>flowchart TD
+    subgraph MetaLayer ["Метарівень CPython"]
+        TypeClass["Метаклас (type)&lt;br&gt;ob_refcnt: int&lt;br&gt;ob_type: посилання на type"]
+    end
+    subgraph ClassLayer ["Рівень класів та користувацьких типів"]
+        ObjectClass["Базовий тип (object)&lt;br&gt;ob_refcnt: int&lt;br&gt;ob_type: посилання на type"]
+        DeviceClass["Клас (DeviceController)&lt;br&gt;ob_refcnt: int&lt;br&gt;ob_type: посилання на type"]
+    end
+    subgraph InstanceLayer ["Рівень фізичних екземплярів у динамічній пам'яті"]
+        InstA["Об'єкт dev_01&lt;br&gt;ob_refcnt: int&lt;br&gt;ob_type: DeviceController&lt;br&gt;__dict__: словник екземпляра"]
+        InstB["Об'єкт dev_02&lt;br&gt;ob_refcnt: int&lt;br&gt;ob_type: DeviceController&lt;br&gt;__dict__: словник екземпляра"]
+    end
+
+    TypeClass --&gt;|визначає як тип| ObjectClass
+    TypeClass --&gt;|інстанціює під час компіляції| DeviceClass
+    ObjectClass -.-&gt;|виступає предком за замовчуванням| DeviceClass
+    DeviceClass --&gt;|породжує та типізує| InstA
+    DeviceClass --&gt;|породжує та типізує| InstB</code></pre>
+<p>Структурна організація просторів імен виключає необхідність жорсткої бінарної сумісності компільованого коду, оскільки динамічний пошук атрибутів через таблиці типів виконується у рантаймі без прив'язки до статичних зсувів пам'яті.</p>
+<blockquote>
+<p><strong>ПРАКТИЧНИЙ ЯКІР:</strong> У промисловому програмному забезпеченні базових станцій стільникового зв'язку стандарту 5G NR концепція представлення пристроїв як об'єктів першого класу дозволяє реалізувати механізм гарячої заміни драйверів антенних фазованих решіток: під час зміни конфігурації сектору система завантажує новий об'єкт-клас контролера безпосередньо з мережевого сокета й інстанціює його на льоту, не зупиняючи базові процеси маршрутизації транзитного трафіку.</p>
+</blockquote>
+<h3 id="12-__new__-__init__-self">1.2. Двоетапний життєвий цикл екземпляра в динамічній пам'яті: виділення адреси методом <code>__new__</code>, ініціалізація методом <code>__init__</code> та семантична роль покажчика <code>self</code></h3>
+<p>У багатьох класичних мовах програмування конструювання об'єкта є неподільною атомарною операцією, однак у середовищі CPython процес появи нового екземпляра класу чітко розмежований на дві послідовні фази: безпосереднє низькорівневе створення екземпляра в адресному просторі та його подальше функціональне наповнення. </p>
+<p>Першим виконується спеціальний статичний метод-алокатор <strong><code>__new__(cls, *args, **kwargs)</code></strong>. Цей метод приймає як перший обов'язковий аргумент сам об'єкт класу <code>cls</code>, для якого створюється екземпляр, і повертає посилання на щойно виділений у купі сегмент пам'яті типу <code>PyObject</code>. Оскільки метод <code>__new__</code> відповідає безпосередньо за фізичне формування об'єкта, саме він перехоплюється розробниками під час створення синглтонів (<em>Singleton</em>), побудови пулів об'єктів для оптимізації мережевих буферів або під час успадкування незмінних (<em>immutable</em>) базових типів, таких як цілі числа чи кортежі, внутрішній стан яких не може бути змінений після фізичного створення.</p>
+<p>Якщо метод <code>__new__</code> успішно повертає створений екземпляр свого ж класу, віртуальна машина PVM негайно ініціює другу фазу, автоматично викликаючи метод <strong><code>__init__(self, *args, **kwargs)</code></strong>. На відміну від конструктора в C++ або Java, метод <code>__init__</code> у Python є суто ініціалізатором: він не повертає значення (його спроба повернути будь-що, крім системного об'єкта <code>None</code>, породжує фатальний виняток <code>TypeError</code>) і приймає у параметрі <code>self</code> посилання на вже існуючий у пам'яті «порожній» об'єкт. Основне призначення <code>__init__</code> полягає у визначенні початкових значень полів об'єкта та підготовці зовнішніх дескрипторів системних ресурсів.</p>
+<p>Життєвий цикл будь-якого програмного об'єкта від моменту запиту пам'яті до повернення байтів у пул інтерпретатора демонструє наведена діаграма станів.</p>
+<pre class="mermaid"><code>stateDiagram-v2
+    [*] --&gt; Allocation: Запит інстанціювання ClassName(*args)
+    Allocation --&gt; Allocated: Виконання __new__(cls) (алокація пам'яті)
+    Allocated --&gt; Initialized: Виконання __init__(self) (прив'язка атрибутів)
+    Initialized --&gt; Active: Експлуатація у рантаймі (виклики методів)
+    Active --&gt; Active: Модифікація внутрішнього стану self
+    Active --&gt; Finalization: Зниження ob_refcnt до 0
+    Finalization --&gt; Deallocated: Виклик методу __del__(self)
+    Deallocated --&gt; [*]: Повернення блоку пам'яті системному алокатору</code></pre>
+<p>Параметр <strong><code>self</code></strong> є базовою семантичною конструкцією методів екземпляра в Python. Він не є зарезервованим ключовим словом інтерпретатора, але згідно з конвенцією консорціуму розробників PEP 8 виступає безальтернативним ім'ям для першого аргументу будь-якого стандартного методу класу. Фізично <code>self</code> містить пряме посилання на ту область динамічної пам'яті, де розміщено дані конкретного екземпляра, що викликає цей метод.</p>
+<p>У процесі виклику методу через екземпляр транслювання інструкції здійснюється за формалізованим математичним правилом передачі контексту зв'язаного методу:</p>
+<div class="arithmatex">\[\text{Call}(\text{inst}, \text{method}, \vec{a}) \iff \text{inst}.\text{method}(a_1, \dots, a_n) \equiv \text{Class}.\text{method}(\text{inst}, a_1, \dots, a_n)\]</div>
+<p>де <span class="arithmatex">\(\text{inst}\)</span> — конкретний екземпляр класу <span class="arithmatex">\(\text{Class}\)</span> у динамічній пам'яті комп'ютера;
+<span class="arithmatex">\(\text{method}\)</span> — символьне ім'я методу, задекларованого у просторі імен класу;
+<span class="arithmatex">\(\vec{a} = (a_1, a_2, \dots, a_n)\)</span> — кортеж фактичних параметрів, що передаються у метод користувацьким кодом;
+<span class="arithmatex">\(\text{Call}\)</span> — предикат виклику функції, що зв'язує фізичну адресу об'єкта <span class="arithmatex">\(\text{inst}\)</span> із формальним аргументом <code>self</code>.</p>
+<p>Якщо розробник допускає виклик функції без параметра <code>self</code> через об'єкт, PVM генерує системний виняток <code>TypeError</code>, сигналізуючи про невідповідність арності функції, оскільки екземпляр передається у стековий фрейм інтерпретатора першим прихованим позиційним аргументом за замовчуванням.</p>
+<h3 id="13-class__dict__-instance__dict__">1.3. Топологія адресного простору об'єктів: словники простору імен <code>Class.__dict__</code> проти <code>instance.__dict__</code>, правила пошуку полів і ефект затінення атрибутів класу</h3>
+<p>Для забезпечення надзвичайної гнучкості динамічної типізації CPython організує адресний простір об'єктів не як жорсткі статичні структури з фіксованими зсувами, а за допомогою оптимізованих хеш-таблиць. Простір імен класу та простори імен кожного з його екземплярів фізично розмежовані у пам'яті і функціонують як повністю незалежні словники.</p>
+<p>Словник класу доступний через спеціальний атрибут <code>Class.__dict__</code> і повертає незмінний об'єкт-проксі типу <code>mappingproxy</code>. У ньому зберігаються сигнатури та компільовані об'єкти функцій (методи), а також <strong>атрибути класу</strong>, які оголошуються безпосередньо в тілі блоку <code>class</code> поза межами будь-яких вкладених підпрограм. На противагу цьому, кожен окремий екземпляр володіє власним мутабельним словником <code>instance.__dict__</code>, призначеним для зберігання <strong>атрибутів екземпляра</strong>, які зв'язуються через покажчик <code>self</code> переважно всередині методу <code>__init__</code>.</p>
+<p>Алгоритм резолвінгу ідентифікатора під час звернення за синтаксисом читання <code>instance.attribute</code> підпорядковується суворому правилу ієрархічного каскаду:</p>
+<div class="arithmatex">\[\mathcal{R}(o, \alpha) = \begin{cases} 
+o.\_\_dict\_\_[\alpha], &amp; \text{якщо } \alpha \in o.\_\_dict\_\_, \\ 
+C.\_\_dict\_\_[\alpha], &amp; \text{якщо } \alpha \notin o.\_\_dict\_\_ \land \alpha \in C.\_\_dict\_\_, \\ 
+\mathcal{MRO}(C, \alpha), &amp; \text{якщо } \alpha \notin o.\_\_dict\_\_ \land \alpha \notin C.\_\_dict\_\_ \land \exists \text{ предки}
+\end{cases}\]</div>
+<p>де <span class="arithmatex">\(o\)</span> — цільовий об'єкт-екземпляр, до якого здійснюється програмний доступ;
+<span class="arithmatex">\(C\)</span> — клас об'єкта, визначений за системним покажчиком <span class="arithmatex">\(o\text{.ob\_type}\)</span>;
+<span class="arithmatex">\(\alpha\)</span> — рядковий ідентифікатор шуканого атрибута або методу;
+<span class="arithmatex">\(\mathcal{R}(o, \alpha)\)</span> — резолвінг-функція, що повертає посилання на знайдений у пам'яті об'єкт;
+<span class="arithmatex">\(\mathcal{MRO}(C, \alpha)\)</span> — послідовний пошук за графом предків класу відповідно до порядку дозволу методів.</p>
+<p>Якщо атрибут відсутній у локальному словнику <code>instance.__dict__</code>, механізм диспетчеризації звертається до словника класу <code>Class.__dict__</code>, а за необхідності — рекурсивно перевіряє базові класи. </p>
+<p>Ця ієрархічна модель створює специфічний інженерний ефект — <strong>затінення атрибутів класу</strong> (<em>class attribute shadowing</em>). Коли значення викликається для читання (<code>val = inst.attr</code>), і атрибут відсутній у <code>instance.__dict__</code>, повертається спільне для всіх об'єктів значення з <code>Class.__dict__</code>. Однак щойно виконується операція запису через посилання на екземпляр (<code>inst.attr = new_val</code>), інтерпретатор ніколи не змінює вміст словника класу: замість цього у внутрішньому словнику <code>inst.__dict__</code> динамічно створюється новий запис із ключем <code>attr</code>. Від цього моменту для даного конкретного екземпляра спільне поле класу стає невидимим, оскільки пошук за правилом <span class="arithmatex">\(\mathcal{R}(o, \alpha)\)</span> термінується на першому кроці.</p>
+<blockquote>
+<p><strong>ТИПОВА ПОМИЛКА:</strong> Розповсюдженою архітектурною помилкою серед розробників є оголошення змінюваних об'єктів, наприклад, списків або словників, як атрибутів самого класу з наміром використовувати їх як індивідуальні буфери обміну кожного екземпляра. Оскільки атрибут класу створюється в єдиному екземплярі в <code>Class.__dict__</code>, виконання операцій додавання на кшталт <code>self.telemetry_buffer.append(data)</code> не ініціює перезапис через створення локального ключа, а модифікує спільний список за посиланням; у результаті виникає критичне змішування даних різних пристроїв, коли запис у буфер одним контролером неконтрольовано спотворює телеметричний контекст усіх інших вузлів мережі.</p>
+</blockquote>
+<p><em>Таблиця 1.1 — Порівняльна систематизація механізмів організації та зберігання даних об'єкта в Python</em></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Рівень зберігання</th>
+<th style="text-align: left;">Фізична локалізація в CPython</th>
+<th style="text-align: left;">Область та час існування</th>
+<th style="text-align: left;">Вплив на пам'ять системи</th>
+<th style="text-align: left;">Приклад з реальної практики</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Атрибут екземпляра</strong></td>
+<td style="text-align: left;">Хеш-таблиця <code>instance.__dict__</code></td>
+<td style="text-align: left;">Ізольовано в межах життєвого циклу конкретного об'єкта</td>
+<td style="text-align: left;">Окремий словник для кожного екземпляра з накладними витратами хеш-таблиці</td>
+<td style="text-align: left;">Індивідуальний мережевий IP-порт приймача телеметрії</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Атрибут класу</strong></td>
+<td style="text-align: left;">Хеш-таблиця <code>Class.__dict__</code></td>
+<td style="text-align: left;">Єдиний екземпляр у просторі імен класу протягом роботи програми</td>
+<td style="text-align: left;">Економічний, розподіляється між усіма екземплярами без дублювання</td>
+<td style="text-align: left;">Максимально допустима пропускна здатність радіоканалу зв'язку</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Локальна змінна методу</strong></td>
+<td style="text-align: left;">Масив стекового фрейму <code>PyFrameObject</code></td>
+<td style="text-align: left;">Створюється під час входу в метод і знищується при виході</td>
+<td style="text-align: left;">Виділяється в оперативному стеку процесу, мінімальне споживання</td>
+<td style="text-align: left;">Тимчасовий лічильник ітерацій обчислення контрольної суми CRC32</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Властивість (<code>@property</code>)</strong></td>
+<td style="text-align: left;">Слот класу, що реалізує протокол дескрипторів</td>
+<td style="text-align: left;">Постійно зберігається у класі як об'єкт-дескриптор</td>
+<td style="text-align: left;">Практично відсутні накладні витрати на рівні екземпляра</td>
+<td style="text-align: left;">Динамічно розрахований коефіцієнт бітових помилок BER каналу</td>
+</tr>
+</tbody>
+</table>
+<p>Систематизація доводить, що для уникнення перевитрати оперативної пам'яті константні параметри підсистем завжди слід виносити на рівень атрибутів класу, тоді як робочі параметри стану поточних комунікацій вимагають суворої ізоляції на рівні екземпляра.</p>
+<h3 id="14-pep-8-name-mangling">1.4. Архітектурні рівні доступу до компонентів класу: публічні поля, захищені атрибути за конвенцією PEP 8 та внутрішня дія алгоритму спотворення імен <code>name mangling</code> для приватних ідентифікаторів</h3>
+<p>Парадигма інкапсуляції передбачає надійне приховування внутрішньої структури модуля з метою запобігання переходу об'єкта в некоректний або невизначений стан через пряме втручання зовнішнього коду. </p>
+<p>На рівні компіляторів мов C++ або C# обмеження доступу гарантується бінарною перевіркою модифікаторів <code>public</code>, <code>protected</code> та <code>private</code>. Мова Python реалізує кардинально іншу філософію проектування, що базується на принципі високої прозорості архітектури та взаємної довіри між розробниками програмних модулів:</p>
+<ol>
+<li>
+<p>Публічні атрибути оголошуються стандартними ідентифікаторами без використання префіксних підкреслень, наприклад, <code>device_id</code> або <code>baudrate</code>. Доступ до таких полів відкритий для читання та прямої мутації з будь-якого сегмента програми.</p>
+</li>
+<li>
+<p>Захищені атрибути маркуються рівно одним провідним символом підкреслення, наприклад, <code>_rx_buffer</code> або <code>_calibration_matrix</code>. Цей префікс не викликає технічних обмежень з боку віртуальної машини CPython: інтерпретатор обробляє такий атрибут абсолютно ідентично до публічного. Проте згідно з регламентом стандарту консорціуму PEP 8 даний атрибут декларується як непублічний компонент API, призначений виключно для внутрішньої реалізації самого класу та його прямих нащадків. Порушення цієї конвенції сигналізується статичними аналізаторами коду та інструментами лінтування (<em>linters</em>).</p>
+</li>
+<li>
+<p>Приватні атрибути маркуються мінімум двома провідними підкресленнями за відсутності більше ніж одного завершального підкреслення, наприклад, <code>__hardware_key</code> або <code>__system_register</code>. </p>
+</li>
+</ol>
+<p>Для приватних атрибутів інтерпретатор застосовує обов'язковий апаратний механізм компілятора — <strong>спотворення імен</strong> (<strong>name mangling</strong>). Якщо розробник оголошує змінну <code>__field</code> у класі <code>Transceiver</code>, компілятор під час формування байт-коду автоматично перетворює кожне входження цього імені на синтаксичну конструкцію вигляду <code>_Transceiver__field</code>.</p>
+<p>Головною метою алгоритму спотворення імен є не надання абсолютного криптографічного захисту від читання зловмисником, а гарантоване виключення колізій просторів імен при глибокому наслідуванні. Якщо клас-нащадок задекларує приватне поле з аналогічною назвою <code>__field</code>, його ім'я трансформується у <code>_SubTransceiver__field</code>. Обидва поля безпечно співіснуватимуть у єдиному словнику екземпляра <code>instance.__dict__</code>, унеможливлюючи випадкове перезаписування приватного стану базового класу методами підкласу. Пряме звернення на кшталт <code>inst.__hardware_key</code> миттєво викликає помилку <code>AttributeError</code>, оскільки ключа з такою назвою у словнику фізично немає, проте повний доступ зберігається через явне зазначення спотвореного імені <code>inst._Transceiver__hardware_key</code>.</p>
+<blockquote>
+<p><strong>ПРАКТИЧНИЙ ЯКІР:</strong> Під час розробки вбудованого мікрокоду для контролерів бортової мережі CAN (<em>Controller Area Network</em>) приватні атрибути із захистом через механізм спотворення імен застосовуються для конфігураційних бітових масок фільтрації повідомлень: якщо сторонній розробник створює прикладний плагін обробки датчиків на базі системного класу, автоматичне модифікування імен унеможливлює випадкове скидання системних бітів безпеки базового драйвера шини.</p>
+<p><strong>КОНТРОЛЬНЕ ПИТАННЯ:</strong> Чому розробники мовної специфікації Python навмисно виключили застосування алгоритму спотворення імен для спеціальних системних ідентифікаторів, які починаються і закінчуються двома символами підкреслення (dunder-методи на кшталт <code>__init__</code>, <code>__len__</code>, <code>__repr__</code>), незважаючи на наявність префіксу з двох підкреслень?</p>
+</blockquote>
+<details class="note">
+<summary>Розгорнути аналіз / відповідь</summary>
+<p><strong>Правильний варіант: Забезпечення передбачуваного поліморфного зв'язування за фіксованими протоколами віртуальної машини.</strong></p>
+<ol>
+<li>
+<p>Логічне та архітектурне обґрунтування: Системні dunder-методи формують публічний протокол взаємодії віртуальної машини PVM з об'єктом. Коли інтерпретатор виконує системні операції <code>len(obj)</code> або <code>obj + other</code>, внутрішній C-код PVM напряму звертається до слотів типу <code>tp_as_sequence</code> або <code>tp_as_number</code>, шукаючи суворо визначені імена <code>__len__</code> чи <code>__add__</code>. Якби до них застосовувався алгоритм <code>name mangling</code>, ім'я методу перетворилося б на <code>_ClassName__len__</code>, що повністю заблокувало б можливість для віртуальної машини викликати поліморфний інтерфейс об'єкта єдиним стандартизованим шляхом через базові протоколи.</p>
+</li>
+<li>
+<p>Аналіз дистракторів (чому інші підходи є хибними на практиці): Припущення, що подвійні підкреслення на початку і в кінці слугують лише для візуального виділення, є хибним, оскільки лексичний аналізатор компілятора Python містить окрему синтаксичну інструкцію, яка явно вимикає механізм спотворення імен для ідентифікаторів, що мають патерн регулярного виразу <code>^__.*__$</code>. Також неможливо вважати це випадковим недоглядом, адже порушення цього правила зруйнувало б увесь механізм поліморфізму базової моделі даних.</p>
+</li>
+</ol>
+</details>
+<h3 id="_4">Вказівки для самостійного осмислення</h3>
+<ol>
+<li>
+<p>Дослідіть за допомогою стандартних функцій <code>id()</code>, <code>type()</code> та модуля <code>sys</code> обсяг споживання оперативної пам'яті новоствореним порожнім екземпляром базового класу <code>object</code> порівняно з екземпляром користувацького класу, який містить три ініціалізовані чисельні атрибути в словнику <code>__dict__</code>, та складіть пояснення виявленої різниці у байтах.</p>
+</li>
+<li>
+<p>Проаналізуйте наслідки використання статичного методу-алокатора <code>__new__</code> для створення класу, що реалізує патерн проектування «Одинак» (<em>Singleton</em>), сформулювавши алгоритмічну послідовність дій для випадків, коли повторний виклик створення об'єкта повинен повертати посилання на раніше ініціалізований блок пам'яті без повторного скидання його полів методом <code>__init__</code>.</p>
+</li>
+<li>
+<p>Сформулюйте вичерпний перелік технічних ризиків, що виникають під час прямого читання або примусової модифікації приватних полів через їхнє спотворене ім'я <code>_ClassName__private_field</code> в обхід публічного інтерфейсу класу, звертаючи особливу увагу на наслідки подальшого рефакторингу вихідного коду базового класу та версійної сумісності сторонніх бібліотек.</p>
+</li>
+</ol>
+<h2 id="2_1">2. Методологія та аналіз граничних умов. Ієрархічні структури наслідування, протоколи спеціальних методів та обмеження моделі</h2>
+<h3 id="21-super">2.1. Механізми одиночного і множинного наслідування, делегування викликів базового функціоналу через проксі-об'єкт <code>super()</code> та вирішення проблеми ромбоподібної спадковості</h3>
+<p>У складних інженерних проектах наслідування виступає фундаментальним інструментом таксономічної організації коду, що дозволяє вибудовувати ієрархії від узагальнених абстракцій до спеціалізованих апаратних або програмних сутностей. Якщо при одиночному наслідуванні зв'язок між базовим та похідним класом є лінійним і тривіальним, то реалізація множинного наслідування породжує проблему неоднозначності диспетчеризації методів, історично відому як «проблема ромба» (<em>diamond problem</em>). Вона виникає тоді, коли два проміжні класи наслідують спільний базовий клас, а кінцевий клас-нащадок агрегує функціонал обох проміжних вузлів. За наївної реалізації спроба викликати конструктор або метод предка прямим зазначенням імені класу призводить до дублювання виконання інструкцій кореневого класу, розсинхронізації внутрішнього стану об'єкта або витоку пам'яті під час повторної алокації буферів.</p>
+<p>Для розв'язання цієї колізії мова Python застосовує концепцію кооперативного множинного наслідування, реалізовану через вбудований проксі-об'єкт <strong><code>super()</code></strong>. На відміну від багатьох інших мов програмування, де аналогічні конструкції жорстко адресують прямий батьківський клас у висхідній лінії, у Python виклик <code>super()</code> повертає спеціальний дескриптор, який делегує виконання методу наступному класу згідно з лінійним порядком дозволу методів (<em>Method Resolution Order, MRO</em>) того об'єкта, через який було ініційовано первинний виклик. </p>
+<pre class="mermaid"><code>sequenceDiagram
+    autonumber
+    participant App as Клієнтський код
+    participant Node as Екземпляр DiagnosticNode
+    participant Serial as Клас SerialInterface
+    participant Network as Клас NetworkInterface
+    participant Base as Базовий клас DeviceNode
+
+    App-&gt;&gt;Node: Виклик методу initialize_bus()
+    Node-&gt;&gt;Serial: Делегування через super() до наступного в MRO
+    Serial-&gt;&gt;Serial: Конфігурація регістрів UART/RS-485
+    Serial-&gt;&gt;Network: Делегування через super() до наступного в MRO
+    Network-&gt;&gt;Network: Ініціалізація мережевого сокета й MAC
+    Network-&gt;&gt;Base: Делегування через super() до кореневого класу
+    Base-&gt;&gt;Base: Виділення системних черг і базового ID
+    Base--&gt;&gt;Network: Повернення керування
+    Network--&gt;&gt;Serial: Повернення керування
+    Serial--&gt;&gt;Node: Завершення ланцюжка ініціалізації
+    Node--&gt;&gt;App: Готовність пристрою до передачі телеметрії</code></pre>
+<p>Наведена діаграма демонструє принцип кооперативної диспетчеризації: кожен клас в ієрархії перехоплює виконання, реалізує власну частину конфігурації обладнання та передає керування далі за допомогою виклику <code>super().method_name()</code>. Головним інваріантом цієї моделі є узгодженість сигнатур методів у всьому ланцюжку кооперації.</p>
+<blockquote>
+<p><strong>ВАЖЛИВО:</strong> Застосування кооперативного наслідування через <code>super()</code> вимагає суворого дотримання принципу транзитивності параметрів: якщо один із проміжних класів утилізує жорстко закодований виклик предка на кшталт <code>BaseClass.__init__(self)</code> замість виклику <code>super()</code>, глобальний ланцюжок лінеаризації MRO розривається, що призводить до пропуску ініціалізації цілих гілок дерева успадкування або непередбачуваного повторного виконання коду.</p>
+</blockquote>
+<h3 id="22-method-resolution-order-c3">2.2. Математична формалізація порядку вирішення методів (Method Resolution Order) за алгоритмом лінеаризації C3 та діагностика суперечностей в ієрархіях</h3>
+<p>Для детермінованого перетворення довільного ациклічного графа наслідування у лінійну послідовність викликів інтерпретатор CPython використовує <strong>алгоритм лінеаризації C3</strong> (<em>C3 Linearization</em>). Цей алгоритм базується на трьох фундаментальних аксіомах: збереженні локального порядку слідування безпосередніх батьківських класів, монотонності (порядок перегляду класів, визначений для предка, залишається незмінним для всіх його нащадків) та збереженні правила розширеного відбору предка за ознакою єдиності.</p>
+<p>Нехай клас <span class="arithmatex">\(C\)</span> успадковує батьківські класи <span class="arithmatex">\(B_1, B_2, \dots, B_k\)</span>, а <span class="arithmatex">\(O\)</span> є абсолютним кореневим предком об'єктної моделі <code>object</code>. Лінеаризація <span class="arithmatex">\(L(C)\)</span> визначається як упорядкований список, утворений додаванням класу <span class="arithmatex">\(C\)</span> до результату спеціальної операції злиття (<span class="arithmatex">\(\text{merge}\)</span>) лінеаризацій усіх його батьків і списку самих батьків:</p>
+<div class="arithmatex">\[L(C) = [C] + \text{merge}\left(L(B_1), L(B_2), \dots, L(B_k), [B_1, B_2, \dots, B_k]\right)\]</div>
+<p>де операція <span class="arithmatex">\(+\)</span> позначає конкатенацію послідовностей, а функція <span class="arithmatex">\(\text{merge}\)</span> діє за ітеративним правилом: вона обирає перший елемент (голову) першого списку аргументів, який не міститься у хвості (усі елементи списку після голови) жодного іншого списку; знайдений елемент додається до результуючої лінеаризації і видаляється з усіх списків процесу злиття. Якщо на певному кроці неможливо знайти жодного елемента, що задовольняє цю умову, лінеаризація вважається неможливою, і компілятор відхиляє створення класу.</p>
+<p>Розглянемо покроковий формалізований процес обчислення MRO для класичної інженерної ромбоподібної конфігурації, де клас вузла діагностики <span class="arithmatex">\(\text{Diag}\)</span> успадковує інтерфейси послідовної шини <span class="arithmatex">\(\text{Serial}\)</span> та мережевого адаптера <span class="arithmatex">\(\text{Net}\)</span>, які у свою чергу походять від базового контролера <span class="arithmatex">\(\text{Dev}\)</span>:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+\text{Крок 1 (Лінеаризація кореня):} &amp; \quad L(\text{Dev}) = [\text{Dev}, O] \\
+\text{Крок 2 (Лінеаризація Serial):} &amp; \quad L(\text{Serial}) = [\text{Serial}] + \text{merge}(L(\text{Dev}), [\text{Dev}]) = [\text{Serial}, \text{Dev}, O] \\
+\text{Крок 3 (Лінеаризація Net):} &amp; \quad L(\text{Net}) = [\text{Net}] + \text{merge}(L(\text{Dev}), [\text{Dev}]) = [\text{Net}, \text{Dev}, O] \\
+\text{Крок 4 (Злиття предків Diag):} &amp; \quad L(\text{Diag}) = [\text{Diag}] + \text{merge}(L(\text{Serial}), L(\text{Net}), [\text{Serial}, \text{Net}]) \\
+\text{Крок 5 (Редукція голови Serial):} &amp; \quad \text{merge}([\text{Serial}, \text{Dev}, O], [\text{Net}, \text{Dev}, O], [\text{Serial}, \text{Net}]) \to \text{Serial} \\
+\text{Крок 6 (Редукція голови Net):} &amp; \quad \text{merge}([\text{Dev}, O], [\text{Net}, \text{Dev}, O], [\text{Net}]) \to \text{Net} \\
+\text{Крок 7 (Редукція вузла Dev):} &amp; \quad \text{merge}([\text{Dev}, O], [\text{Dev}, O]) \to \text{Dev} \\
+\text{Крок 8 (Фіналізація лінеаризації):} &amp; \quad L(\text{Diag}) = [\text{Diag}, \text{Serial}, \text{Net}, \text{Dev}, O]
+\end{aligned}
+\]</div>
+<p>де <span class="arithmatex">\(O\)</span> позначає клас <code>object</code>, що замикає будь-яку гілку лінеаризації.</p>
+<p>Аналіз граничних умов показує, що алгоритм C3 перестає функціонувати в ситуаціях порушення монотонності порядку оголошення. Якщо у кодовій базі задекларовано базові класи <span class="arithmatex">\(X\)</span> та <span class="arithmatex">\(Y\)</span>, похідний клас <span class="arithmatex">\(A(X, Y)\)</span>, паралельний похідний клас <span class="arithmatex">\(B(Y, X)\)</span>, а потім створюється спільний спадкоємець <span class="arithmatex">\(C(A, B)\)</span>, виникає нерозв'язна циклічна суперечність: у лінеаризації класу <span class="arithmatex">\(A\)</span> клас <span class="arithmatex">\(X\)</span> зобов'язаний передувати <span class="arithmatex">\(Y\)</span>, тоді як у лінеаризації <span class="arithmatex">\(B\)</span> клас <span class="arithmatex">\(Y\)</span> повинен суворо передувати <span class="arithmatex">\(X\)</span>. За таких умов функція <span class="arithmatex">\(\text{merge}\)</span> фіксує перехресне блокування списків і інтерпретатор перериває компіляцію модуля аварійним винятком <code>TypeError: Cannot create a consistent method resolution order (MRO)</code>.</p>
+<h3 id="23-duck-typing-dunder-">2.3. Поліморфізм у системі динамічної типізації через парадигму Duck Typing та реалізація протоколів інтерпретатора за допомогою спеціальних dunder-методів</h3>
+<p>Поліморфізм у мові Python відрізняється від традиційної строго типізованої моделі, оскільки не спирається на наявність спільних абстрактних інтерфейсів на етапі компіляції. Замість цього використовується динамічна концепція <strong>качиної типізації</strong> (<em>Duck Typing</em>), згідно з якою придатність об'єкта для участі в обчислювальному процесі визначається виключно наявністю у нього необхідного набору методів і атрибутів у момент виклику.</p>
+<p>Основою реалізації протоколів мови виступають спеціальні dunder-методи. Інтерпретатор PVM транслює синтаксичні операції безпосередньо у виклики слотів низькорівневої структури <code>PyTypeObject</code>:</p>
+<ol>
+<li>
+<p>Протокол ітерування реалізується парою методів <code>__iter__()</code> та <code>__next__()</code>, забезпечуючи безперервний конвеєрний потік елементів без завантаження всієї вибірки у пам'ять.</p>
+</li>
+<li>
+<p>Протокол контекстного менеджера транслює інструкцію <code>with</code> у гарантовані виклики методів <code>__enter__()</code> та <code>__exit__()</code>, що є обов'язковим інженерним стандартом для керування файловими дескрипторами, мережевими з'єднаннями та системними м'ютексами.</p>
+</li>
+<li>
+<p>Протокол послідовностей регламентує індексацію та отримання зрізів через метод <code>__getitem__(self, key)</code>, визначення потужності через <code>__len__(self)</code> та модифікацію за індексом через <code>__setitem__(self, key, value)</code>.</p>
+</li>
+</ol>
+<p>Граничні умови качиної типізації виявляються у критичних сценаріях, коли об'єкт симулює поведінку цільового протоколу лише частково. Якщо користувацький клас телеметричного пакета реалізує метод <code>__len__()</code>, але не реалізує метод <code>__getitem__()</code>, алгоритми потокового читання успішно проходять перевірку на довжину, проте зазнають аварійної зупинки під час спроби доступу за індексом. </p>
+<p>Для усунення цієї вразливості у високонадійних промислових системах застосовується комбінація качиної типізації з абстрактними базовими класами модуля <code>collections.abc</code>. Шляхом реєстрації спеціальних методів перевірки <code>__subclasshook__</code> розробник отримує змогу перевіряти сумісність об'єкта з протоколом через стандартні виклики <code>isinstance(obj, Sequence)</code>, не руйнуючи при цьому гнучкості динамічної моделі.</p>
+<h3 id="24-property-classmethod-staticmethod">2.4. Протокол дескрипторів і керування інтерфейсом: валідація стану за допомогою властивостей <code>@property</code>, створення фабрик класовими методами <code>@classmethod</code> та утилітарні функції <code>@staticmethod</code></h3>
+<p>Механізм зв'язування атрибутів у CPython спирається на низькорівневий <strong>протокол дескрипторів</strong>. Дескриптором є будь-який об'єкт класу, що реалізує щонайменше один із магічних методів: <code>__get__(self, instance, owner)</code>, <code>__set__(self, instance, value)</code> або <code>__delete__(self, instance)</code>. </p>
+<p>Якщо об'єкт визначає метод <code>__set__</code>, він класифікується як <strong>дескриптор даних</strong> (<em>data descriptor</em>). Дескриптори даних мають найвищий пріоритет у ланцюжку пошуку атрибутів: їхня дія передує навіть перевірці локального словника <code>instance.__dict__</code>. Якщо ж реалізовано лише метод <code>__get__</code>, об'єкт виступає <strong>дескриптором без даних</strong> (<em>non-data descriptor</em>), чий пріоритет нижчий за вміст локального словника екземпляра.</p>
+<p>Вбудований декоратор <strong><code>@property</code></strong> є канонічною реалізацією дескриптора даних. Він дозволяє замінити прямий доступ до змінної викликом захищених підпрограм валідації без зміни синтаксису клієнтського звернення:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">TelemetryChannel</span><span class="p">:</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">frequency_hz</span><span class="p">:</span> <span class="nb">float</span><span class="p">):</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_frequency_hz</span> <span class="o">=</span> <span class="kc">None</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">frequency_hz</span> <span class="o">=</span> <span class="n">frequency_hz</span>  <span class="c1"># Активація сетера на етапі ініціалізації</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>    <span class="nd">@property</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">frequency_hz</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">        </span><span class="sd">"""Гетер: читання частоти каналу зв'язку."""</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_frequency_hz</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>    <span class="nd">@frequency_hz</span><span class="o">.</span><span class="n">setter</span>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">frequency_hz</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">        </span><span class="sd">"""Сетер: сувора валідація апаратного діапазону частот."""</span>
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">)):</span>
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">"Значення частоти повинно належати до числового типу."</span><span class="p">)</span>
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>        <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="mf">100e6</span> <span class="o">&lt;=</span> <span class="n">value</span> <span class="o">&lt;=</span> <span class="mf">6e9</span><span class="p">):</span>
+</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"Частота виходить за межі діапазону 100 МГц - 6 ГГц."</span><span class="p">)</span>
+</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_frequency_hz</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+</span></code></pre></div>
+<p>Декоратор <strong><code>@classmethod</code></strong> перетворює звичайний метод у дескриптор, який під час зв'язування завжди передає першим аргументом сам об'єкт класу <code>cls</code>. Це дозволяє проектувати надійні альтернативні конструктори (фабричні методи), що адаптують зовнішні потоки сирих даних (наприклад, бінарні пакети, конфігурації JSON або рядки форматів зв'язку) до формату класу з коректною підтримкою подальшого успадкування. </p>
+<p>На відміну від нього, декоратор <strong><code>@staticmethod</code></strong> повністю блокує інструменти зв'язування: декорована функція залишається звичайною підпрограмою, інкапсульованою у просторі імен класу виключно з міркувань логічної модульності, не маючи доступу ні до стану екземпляра <code>self</code>, ні до структури класу <code>cls</code>.</p>
+<h3 id="25-gil">2.5. Критичні бар'єри та вузькі місця: накладні витрати динамічних словників екземплярів на пам'ять, неможливість прямої модифікації вбудованих С-типів та вплив блокування GIL на потокобезпеку спільних станів об'єктів</h3>
+<p>Практичне застосування об'єктної моделі Python у високонавантажених обчислювальних середовищах та системах реального часу стикається з трьома критичними архітектурними обмеженнями, які здатні нівелювати ефективність розробки:</p>
+<p>По-перше, системна організація кожного екземпляра на базі мутабельної хеш-таблиці <code>instance.__dict__</code> спричиняє катастрофічні накладні витрати пам'яті. У 64-бітній версії CPython порожній екземпляр класу разом зі своїм внутрішнім словником споживає понад 150 байтів, що в умовах обробки телеметричних масивів із мільйонами елементів призводить до гігабайтних перевитрат пам'яті та постійної деградації кешу процесора. </p>
+<p>Інженерним засобом подолання цього бар'єра є декларація спеціального класового атрибута <strong><code>__slots__</code></strong>, який замінює словник статичним C-масивом покажчиків фіксованого розміру:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">OptimizedPacket</span><span class="p">:</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>    <span class="c1"># Заборона створення __dict__ та фіксація структури в пам'яті</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>    <span class="vm">__slots__</span> <span class="o">=</span> <span class="p">(</span><span class="s1">'packet_id'</span><span class="p">,</span> <span class="s1">'timestamp'</span><span class="p">,</span> <span class="s1">'payload_size'</span><span class="p">)</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">packet_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">timestamp</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">payload_size</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">packet_id</span> <span class="o">=</span> <span class="n">packet_id</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">timestamp</span> <span class="o">=</span> <span class="n">timestamp</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">payload_size</span> <span class="o">=</span> <span class="n">payload_size</span>
+</span></code></pre></div>
+<p>Використання <code>__slots__</code> зменшує споживання пам'яті екземпляром у 4–5 разів, однак створює жорсткі граничні умови: об'єкт втрачає можливість динамічного додавання полів у рантаймі, множинне успадкування від двох класів із непорожніми несумісними слотами забороняється віртуальною машиною, а некоректне застосування ускладнює серіалізацію через модуль <code>pickle</code>.</p>
+<p>По-друге, вбудовані типи даних CPython (<code>int</code>, <code>str</code>, <code>list</code>, <code>dict</code>), реалізовані мовою C, володіють незмінними словниками типів. Спроба безпосередньо модифікувати простір імен базового типу за допомогою команди <code>int.custom_method = func</code> викликає виняток <code>TypeError: can't set attributes on built-in/extension type</code>. Більше того, пряме успадкування від вбудованих класів містить внутрішні пастки: методи ядра CPython, написані на C, часто викликають оптимізовані внутрішні функції в обхід перевизначених користувачем методів (наприклад, метод <code>dict.update</code> ігнорує перевизначений у нащадку <code>__setitem__</code>). Для побудови надійних користувацьких структур даних методологічно вимагається наслідувати класи-обгортки модуля <code>collections</code> (<code>UserDict</code>, <code>UserList</code>).</p>
+<p>По-третє, глобальне блокування інтерпретатора (<strong>Global Interpreter Lock, GIL</strong>) у CPython накладає суворі обмеження на парадигму ООП у багатопотокових додатках. Попри те, що GIL гарантує атомарність оновлення внутрішніх лічильників посилань самої віртуальної машини, він категорично не забезпечує безпеку багатопотокової модифікації (<em>thread safety</em>) атрибутів об'єкта на рівні прикладного коду. </p>
+<p>Інструкція модифікації числового поля екземпляра <code>self.counter += 1</code> транслюється віртуальною машиною у послідовність із чотирьох незалежних опкодів байт-коду:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+\text{Опкод 1:} &amp; \quad \text{LOAD\_FAST / LOAD\_ATTR (читання поточного значення атрибута)} \\
+\text{Опкод 2:} &amp; \quad \text{LOAD\_CONST (завантаження константи інкременту)} \\
+\text{Опкод 3:} &amp; \quad \text{INPLACE\_ADD (обчислення суми на верхівці стека)} \\
+\text{Опкод 4:} &amp; \quad \text{STORE\_ATTR (запис нового посилання у словник екземпляра)}
+\end{aligned}
+\]</div>
+<p>Перемикання потоків у CPython може відбутися в інтервалі між виконанням будь-яких двох опкодів, що за відсутності явних апаратних або програмних блокувань (<code>threading.Lock</code>) неминуче призводить до втрати оновлень (<em>race condition</em>) та фатального спотворення внутрішнього стану складних об'єктів.</p>
+<blockquote>
+<p><strong>ПРАКТИЧНИЙ ЯКІР:</strong> У розподіленому обчислювальному фреймворку Celery та мережевих драйверах високочастотної фінансової торгівлі (HFT) надзвичайно жорстко регламентується використання <code>__slots__</code>: відмова від динамічних <code>__dict__</code> для об'єктів обробки транзакцій дозволяє оптимізувати роботу збірника сміття CPython, знижуючи латентність затримок обробки запитів на величину до 35% за рахунок збереження стабільності L1/L2-кешів процесора.</p>
+</blockquote>
+<p><em>Таблиця 2.1 — Аналітична матриця архітектурних підходів до композиції об'єктних моделей у Python</em></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Архітектурний підхід</th>
+<th style="text-align: left;">Механізм зв'язування компонентів</th>
+<th style="text-align: left;">Складність впровадження</th>
+<th style="text-align: left;">Критичні ризики / Обмеження</th>
+<th style="text-align: left;">Сфера інженерного застосування</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Одиночне наслідування</strong></td>
+<td style="text-align: left;">Статична висхідна лінеаризація за <span class="arithmatex">\(L(C)\)</span></td>
+<td style="text-align: left;">Низька: стандартне проектування класів</td>
+<td style="text-align: left;">Жорстка прив'язка до батьківського класу, обмеження рефакторингу</td>
+<td style="text-align: left;">Прості моделі сутностей з прямою ієрархією</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Множинне наслідування (Mixins)</strong></td>
+<td style="text-align: left;">Динамічне злиття списків алгоритмом C3</td>
+<td style="text-align: left;">Висока: вимагає координації через <code>super()</code></td>
+<td style="text-align: left;">Загроза блокування MRO, небезпека затінення прихованих методів</td>
+<td style="text-align: left;">Розширення класів незалежним системним функціоналом</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Композиція та агрегація</strong></td>
+<td style="text-align: left;">Збереження екземплярів в атрибутах <code>self</code></td>
+<td style="text-align: left;">Середня: явне делегування викликів</td>
+<td style="text-align: left;">Збільшення кодової бази через необхідність ручних проксі-методів</td>
+<td style="text-align: left;">Моделювання складних пристроїв, що містять модулі зв'язку</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Качина типізація (Duck Typing)</strong></td>
+<td style="text-align: left;">Динамічний пошук атрибутів у рантаймі</td>
+<td style="text-align: left;">Мінімальна: відсутність обмежень наслідування</td>
+<td style="text-align: left;">Відсутність статичного контролю, виникнення <code>AttributeError</code> під навантаженням</td>
+<td style="text-align: left;">Прототипування, плагінні модулі, обробка потоків даних</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Оптимізовані структури (<code>__slots__</code>)</strong></td>
+<td style="text-align: left;">Фіксація дескрипторів у статичному C-масиві</td>
+<td style="text-align: left;">Середня: суворий контроль структури полів</td>
+<td style="text-align: left;">Неможливість динамічного додавання полів, конфлікти при наслідуванні</td>
+<td style="text-align: left;">Високонавантажені структури пам'яті, пакети телеметрії</td>
+</tr>
+</tbody>
+</table>
+<p>Аналітична матриця доводить, що вибір між наслідуванням і композицією повинен визначатися не абстрактними міркуваннями стилю, а конкретними вимогами до пам'яті, обчислювальної латентності та ризиків багатопотокової безпеки.</p>
+<blockquote>
+<p><strong>КОНТРОЛЬНЕ ПИТАННЯ:</strong> Під час розробки телеметричного шлюзу розробник створив клас-нащадок від вбудованого типу <code>dict</code> із наміром перехоплювати всі операції збереження параметрів для їхньої реєстрації в аудиторському журналі:
+<div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">LoggingDict</span><span class="p">(</span><span class="nb">dict</span><span class="p">):</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__setitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Audit log: </span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2"> -&gt; </span><span class="si">{</span><span class="n">value</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__setitem__</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+</span></code></pre></div>
+Під час тестування операція прямого присвоєння <code>d['voltage'] = 12.5</code> працює коректно, проте пакетний виклик <code>d.update({'current': 1.8, 'temp': 45.0})</code> не виводить жодного аудиторського повідомлення, хоча нові ключі успішно з'являються у словнику. У чому полягає системна причина цієї аномалії на рівні CPython і яке архітектурне рішення є гарантовано коректним?</p>
+</blockquote>
+<details class="note">
+<summary>Розгорнути аналіз / відповідь</summary>
+<p><strong>Правильний варіант: Метод <code>update</code> у скомпільованій C-структурі <code>PyDictObject</code> безпосередньо звертається до внутрішнього C-масиву хеш-таблиці, оминаючи перевизначений у байт-коді метод <code>__setitem__</code>; коректним рішенням є використання класу <code>collections.UserDict</code>.</strong></p>
+<ol>
+<li>
+<p>Покроковий технічний аналіз відмови базової моделі:</p>
+</li>
+<li>
+<p>Скомпільований модуль C-коду CPython для оптимізації швидкодії реалізує метод <code>dict.update</code> (функція <code>dict_update_common</code> у ядрі інтерпретатора), яка для однорідних словників напряму копіює записи через внутрішню C-функцію <code>insertdict</code>.</p>
+</li>
+<li>
+<p>Внутрішня C-реалізація не робить віртуального виклику через механізм диспетчеризації Python-рівня <code>__setitem__</code> для ключів, що передаються у словниковому форматі, спричиняючи повне ігнорування користувацького перехоплення.</p>
+</li>
+<li>
+<p>Даний бар'єр є фундаментальним обмеженням розширення вбудованих С-типів у CPython.</p>
+</li>
+<li>
+<p>Поетапний алгоритм архітектурного виправлення:</p>
+</li>
+<li>
+<p>Замінити пряме успадкування від класу <code>dict</code> на успадкування від класу <code>UserDict</code> стандартного модуля <code>collections</code>.</p>
+</li>
+<li>
+<p>Клас <code>UserDict</code> реалізований повністю на рівні мови Python як обгортка над звичайним словником (атрибут <code>self.data</code>), де всі операції модифікації (включаючи <code>update</code>, <code>setdefault</code> тощо) строго транслюються у виклики методу <code>__setitem__</code>.</p>
+</li>
+<li>
+<p>Результуючий код гарантує надійне спрацьовування аудиторського журналу для абсолютно всіх методів пакетної та поодинокої модифікації даних:
+   <div class="language-python highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">collections</span><span class="w"> </span><span class="kn">import</span> <span class="n">UserDict</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="k">class</span><span class="w"> </span><span class="nc">LoggingDict</span><span class="p">(</span><span class="n">UserDict</span><span class="p">):</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__setitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Audit log: </span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2"> -&gt; </span><span class="si">{</span><span class="n">value</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__setitem__</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+</span></code></pre></div></p>
+</li>
+</ol>
+</details>
+<h2 id="3_1">3. Практичний індустріальний / фаховий кейс. Проектування архітектури апаратного контролера телеметрії</h2>
+<h3 id="31">3.1. Комплексний фаховий кейс. Проектування драйвера контролера телеметричних датчиків безпілотного апарата</h3>
+<h4 id="_5">Постановка задачі / ситуації</h4>
+<p>У сучасних телекомунікаційних та автономних авіаційних комплексах гостро постає задача надійної низькорівневої обробки просторової телеметрії в умовах обмежених обчислювальних ресурсів бортового комп'ютера. Під час виконання місії безпілотний апарат збирає первинні дані просторового прискорення та вібраційного навантаження за допомогою трьохосьового цифрового акселерометра, що підключений до системної шини SPI/I2C. </p>
+<p>Програмний драйвер бортового контролера повинен забезпечувати безперервне зчитування показників, фільтрацію апаратного шуму, температурну компенсацію та валідацію динамічних діапазонів перед передачею даних у контур автопілота. Якщо в системі виникає переповнення оперативної пам'яті через неефективне представлення структур даних або виникає неконтрольована мутація глобального стану шини кількома підсистемами, це призводить до зриву циклу стабілізації апарата та аварії.</p>
+<p>Необхідно спроектувати об'єктно-орієнтований драйвер цифрового контролера телеметрії мовою Python, який задовольняє суворим вимогам бортового середовища, наведеним у таблиці технічних параметрів.</p>
+<p><em>Таблиця 3.1 — Вхідні інженерні параметри та системні обмеження бортового контролера телеметрії</em></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Найменування параметра</th>
+<th style="text-align: left;">Символьне позначення</th>
+<th style="text-align: left;">Числове значення</th>
+<th style="text-align: left;">Інженерна розмірність / Обмеження</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Частота опитування сенсора</strong></td>
+<td style="text-align: left;"><span class="arithmatex">\(F_s\)</span></td>
+<td style="text-align: left;"><span class="arithmatex">\(100\)</span></td>
+<td style="text-align: left;">Гц (період опитування <span class="arithmatex">\(T_s = 10\)</span> мс)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Розрядність АЦП сенсора</strong></td>
+<td style="text-align: left;"><span class="arithmatex">\(N_{\text{bit}}\)</span></td>
+<td style="text-align: left;"><span class="arithmatex">\(16\)</span></td>
+<td style="text-align: left;">біт (<span class="arithmatex">\(65\,536\)</span> квантів шкали)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Діапазон вимірювань</strong></td>
+<td style="text-align: left;"><span class="arithmatex">\(A_{\max}\)</span></td>
+<td style="text-align: left;"><span class="arithmatex">\(\pm 16\)</span></td>
+<td style="text-align: left;"><span class="arithmatex">\(g\)</span> (<span class="arithmatex">\(\pm 156{,}96\)</span> м/с<span class="arithmatex">\(^2\)</span> при <span class="arithmatex">\(g = 9{,}81\)</span> м/с<span class="arithmatex">\(^2\)</span>)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Базова температура калібрування</strong></td>
+<td style="text-align: left;"><span class="arithmatex">\(T_0\)</span></td>
+<td style="text-align: left;"><span class="arithmatex">\(293{,}15\)</span></td>
+<td style="text-align: left;">Кельвінів (<span class="arithmatex">\(+20^\circ\text{C}\)</span>)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Температурний коефіцієнт дрейфу</strong></td>
+<td style="text-align: left;"><span class="arithmatex">\(k_T\)</span></td>
+<td style="text-align: left;"><span class="arithmatex">\(0{,}0015\)</span></td>
+<td style="text-align: left;"><span class="arithmatex">\((\text{м/с}^2)/\text{K}\)</span> (похибка на кельвін)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Максимальний буфер у пам'яті</strong></td>
+<td style="text-align: left;"><span class="arithmatex">\(V_{\text{RAM}}\)</span></td>
+<td style="text-align: left;"><span class="arithmatex">\(15\)</span></td>
+<td style="text-align: left;">Мегабайтів на сесію (<span class="arithmatex">\(100\,000\)</span> пакетів)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Гранична похибка калібрування</strong></td>
+<td style="text-align: left;"><span class="arithmatex">\(\epsilon_{\max}\)</span></td>
+<td style="text-align: left;"><span class="arithmatex">\(0{,}05\)</span></td>
+<td style="text-align: left;">м/с<span class="arithmatex">\(^2\)</span> (максимальне відхилення норми)</td>
+</tr>
+</tbody>
+</table>
+<p>Архітектурне рішення задачі передбачає декомпозицію системи на три рівні: апаратний рівень шини обміну, рівень математичного представлення векторів телеметрії та рівень фабричного конструювання об'єктів.</p>
+<pre class="mermaid"><code>flowchart TD
+    subgraph HardwareLayer ["Апаратний рівень мікроконтролера"]
+        Sensor["Сенсор акселерометра&lt;br&gt;Регістри: DataX, DataY, DataZ, Temp"]
+        SPI["Шина зв'язку SPI / I2C&lt;br&gt;Апаратний буфер 400 кГц"]
+        Sensor --&gt;|передача байтів| SPI
+    end
+
+    subgraph DriverCore ["Об'єктно-орієнтований драйвер Python"]
+        BusController["Клас TelemetryBusController&lt;br&gt;- інкапсуляція дескриптора порту&lt;br&gt;- валідація діапазонів через property"]
+        Factory["Фабрика: TelemetryVector.from_raw_registers()&lt;br&gt;- температурна компенсація&lt;br&gt;- перерахунок LSB у м/с2"]
+        VectorModel["Клас TelemetryVector&lt;br&gt;- фіксація пам'яті через __slots__&lt;br&gt;- dunder-алгебра: __add__, __abs__, __eq__"]
+
+        SPI --&gt;|сирий буфер| BusController
+        BusController --&gt;|валідовані байти| Factory
+        Factory --&gt;|інстанціювання| VectorModel
+    end
+
+    subgraph ApplicationLayer ["Контур керування автопілота"]
+        Navigation["Блок інерціальної навігації&lt;br&gt;Векторні операції та детекція перевантажень"]
+        VectorModel --&gt;|поліморфні вектори| Navigation
+    end</code></pre>
+<h4 id="_6">Покроковий аналіз та розв'язок</h4>
+<h5 id="1">Крок 1. Розрахунок чутливості перетворення АЦП та квантування сигналу</h5>
+<p>Для перетворення шістнадцятибітових цілочисельних кодів сенсора у фізичні величини прискорення необхідно визначити ціну молодшого значущого розряду (<em>LSB</em>). Розрахунок коефіцієнта чутливості виконується за формулою відношення повного динамічного діапазону до загальної кількості дискретних рівнів квантування:</p>
+<div class="arithmatex">\[S_{\text{ADC}} = \frac{2 \cdot A_{\max}}{2^{N_{\text{bit}}} - 1} = \frac{2 \cdot (16 \cdot 9{,}81)}{2^{16} - 1} = \frac{313{,}92}{65\,535} \approx 0{,}00479011 \text{ } \frac{\text{м/с}^2}{\text{LSB}}\]</div>
+<p>де <span class="arithmatex">\(A_{\max}\)</span> — максимальне вимірюване прискорення в одиницях м/с<span class="arithmatex">\(^2\)</span>, що дорівнює <span class="arithmatex">\(156{,}96\)</span> м/с<span class="arithmatex">\(^2\)</span>;
+<span class="arithmatex">\(N_{\text{bit}}\)</span> — апаратна розрядність аналого-цифрового перетворювача сенсора, рівна <span class="arithmatex">\(16\)</span> бітам;
+<span class="arithmatex">\(S_{\text{ADC}}\)</span> — коефіцієнт масштабування, що відображає одиницю цифрового коду у фізичну розмірність прискорення.</p>
+<h5 id="2-__slots__">Крок 2. Подолання граничних витрат пам'яті через впровадження <code>__slots__</code></h5>
+<p>Бортовий накопичувач повинен зберігати буфер із <span class="arithmatex">\(M = 100\,000\)</span> пакетів телеметрії. За стандартного проектування класів кожен екземпляр у CPython володіє словником <code>__dict__</code>, базовий розмір якого разом із заголовком <code>PyObject</code> становить приблизно <span class="arithmatex">\(152\)</span> байти, що сумарно створює навантаження:</p>
+<div class="arithmatex">\[V_{\text{dict}} = M \cdot (\text{Size}_{\text{PyObject}} + \text{Size}_{\text{dict}} + \text{Size}_{\text{floats}}) \approx 100\,000 \cdot (56 + 112 + 32) = 20{,}0 \text{ МБ}\]</div>
+<p>Даний обсяг перевищує виділений інженерний бюджет <span class="arithmatex">\(V_{\text{RAM}} = 15\)</span> МБ. Для усунення оверхеду пам'яті в класі <code>TelemetryVector</code> реалізується атрибут <code>__slots__ = ('_ax', '_ay', '_az', '_temp')</code>. Це замінює динамічний словник фіксованим C-масивом покажчиків, скорочуючи розмір кожного екземпляра до <span class="arithmatex">\(56 + 4 \cdot 8 = 88\)</span> байтів, що забезпечує компактне розміщення масиву в межах:</p>
+<div class="arithmatex">\[V_{\text{slots}} = 100\,000 \cdot 88 \text{ байтів} \approx 8{,}8 \text{ МБ}\]</div>
+<h5 id="3_2">Крок 3. Реалізація інкапсуляції та захисту даних через дескрипторні властивості</h5>
+<p>Для запобігання пошкодженню даних при виході значень прискорення за фізичні можливості датчика поля вектора інкапсулюються за допомогою захищених атрибутів із валідацією через декоратор <code>@property</code>:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">TelemetryVector</span><span class="p">:</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">    </span><span class="sd">"""Оптимізований клас вектора просторової телеметрії."""</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>    <span class="vm">__slots__</span> <span class="o">=</span> <span class="p">(</span><span class="s1">'_ax'</span><span class="p">,</span> <span class="s1">'_ay'</span><span class="p">,</span> <span class="s1">'_az'</span><span class="p">,</span> <span class="s1">'_temp'</span><span class="p">)</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ax</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">ay</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">az</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">temp</span><span class="p">:</span> <span class="nb">float</span><span class="p">):</span>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_validate_and_set</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">ay</span><span class="p">,</span> <span class="n">az</span><span class="p">,</span> <span class="n">temp</span><span class="p">)</span>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">_validate_and_set</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ax</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">ay</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">az</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">temp</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>        <span class="k">for</span> <span class="n">val</span><span class="p">,</span> <span class="n">name</span> <span class="ow">in</span> <span class="p">[(</span><span class="n">ax</span><span class="p">,</span> <span class="s1">'ax'</span><span class="p">),</span> <span class="p">(</span><span class="n">ay</span><span class="p">,</span> <span class="s1">'ay'</span><span class="p">),</span> <span class="p">(</span><span class="n">az</span><span class="p">,</span> <span class="s1">'az'</span><span class="p">)]:</span>
+</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>            <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">val</span><span class="p">,</span> <span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">)):</span>
+</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>                <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Компонента </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2"> повинна бути числом."</span><span class="p">)</span>
+</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>            <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="o">-</span><span class="mf">156.96</span> <span class="o">&lt;=</span> <span class="n">val</span> <span class="o">&lt;=</span> <span class="mf">156.96</span><span class="p">):</span>
+</span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Компонента </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2"> перевищує ліміт сенсора: </span><span class="si">{</span><span class="n">val</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</span><span id="__span-4-14"><a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_ax</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">ax</span><span class="p">)</span>
+</span><span id="__span-4-15"><a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_ay</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">ay</span><span class="p">)</span>
+</span><span id="__span-4-16"><a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_az</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">az</span><span class="p">)</span>
+</span><span id="__span-4-17"><a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_temp</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">temp</span><span class="p">)</span>
+</span><span id="__span-4-18"><a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a>
+</span><span id="__span-4-19"><a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a>    <span class="nd">@property</span>
+</span><span id="__span-4-20"><a id="__codelineno-4-20" name="__codelineno-4-20" href="#__codelineno-4-20"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">ax</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+</span><span id="__span-4-21"><a id="__codelineno-4-21" name="__codelineno-4-21" href="#__codelineno-4-21"></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ax</span>
+</span><span id="__span-4-22"><a id="__codelineno-4-22" name="__codelineno-4-22" href="#__codelineno-4-22"></a>
+</span><span id="__span-4-23"><a id="__codelineno-4-23" name="__codelineno-4-23" href="#__codelineno-4-23"></a>    <span class="nd">@property</span>
+</span><span id="__span-4-24"><a id="__codelineno-4-24" name="__codelineno-4-24" href="#__codelineno-4-24"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">ay</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+</span><span id="__span-4-25"><a id="__codelineno-4-25" name="__codelineno-4-25" href="#__codelineno-4-25"></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ay</span>
+</span><span id="__span-4-26"><a id="__codelineno-4-26" name="__codelineno-4-26" href="#__codelineno-4-26"></a>
+</span><span id="__span-4-27"><a id="__codelineno-4-27" name="__codelineno-4-27" href="#__codelineno-4-27"></a>    <span class="nd">@property</span>
+</span><span id="__span-4-28"><a id="__codelineno-4-28" name="__codelineno-4-28" href="#__codelineno-4-28"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">az</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+</span><span id="__span-4-29"><a id="__codelineno-4-29" name="__codelineno-4-29" href="#__codelineno-4-29"></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_az</span>
+</span><span id="__span-4-30"><a id="__codelineno-4-30" name="__codelineno-4-30" href="#__codelineno-4-30"></a>
+</span><span id="__span-4-31"><a id="__codelineno-4-31" name="__codelineno-4-31" href="#__codelineno-4-31"></a>    <span class="nd">@property</span>
+</span><span id="__span-4-32"><a id="__codelineno-4-32" name="__codelineno-4-32" href="#__codelineno-4-32"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">temp</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+</span><span id="__span-4-33"><a id="__codelineno-4-33" name="__codelineno-4-33" href="#__codelineno-4-33"></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_temp</span>
+</span></code></pre></div>
+<h5 id="4-classmethod">Крок 4. Фабричний метод <code>@classmethod</code> для компенсації температурного дрейфу</h5>
+<p>Показники сенсора зазнають спотворення під дією зміни температури оточуючого середовища. Фізична формула температурної компенсації сигналу має лінійний вигляд:</p>
+<div class="arithmatex">\[a_{\text{cal}} = (D_{\text{raw}} \cdot S_{\text{ADC}}) - k_T \cdot (T - T_0)\]</div>
+<p>де <span class="arithmatex">\(D_{\text{raw}}\)</span> — значення сирого 16-бітного знакового регістра акселерометра;
+<span class="arithmatex">\(T\)</span> — виміряна поточна температура сенсора в Кельвінах;
+<span class="arithmatex">\(T_0 = 293{,}15\)</span> К — еталонна температура заводського калібрування;
+<span class="arithmatex">\(k_T = 0{,}0015\)</span> (м/с<span class="arithmatex">\(^2\)</span>)/К — коефіцієнт термічного зсуву нуля.</p>
+<p>Підставимо реальні значення для перевірки: нехай сирі регістри рівні <span class="arithmatex">\(D_x = 2087\)</span>, <span class="arithmatex">\(D_y = -417\)</span>, <span class="arithmatex">\(D_z = 20450\)</span> при температурі <span class="arithmatex">\(T = 313{,}15\)</span> К (<span class="arithmatex">\(+40^\circ\text{C}\)</span>, <span class="arithmatex">\(\Delta T = 20\)</span> K). Обчислення скоригованого прискорення для вісі <span class="arithmatex">\(Z\)</span> дає наступний результат:</p>
+<div class="arithmatex">\[a_{z,\text{cal}} = (20450 \cdot 0{,}00479011) - 0{,}0015 \cdot (313{,}15 - 293{,}15) = 97{,}9577 - 0{,}0300 = 97{,}9277 \text{ м/с}^2\]</div>
+<p>Даний алгоритм вбудовується безпосередньо в альтернативний фабричний конструктор класу:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>    <span class="nd">@classmethod</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">from_raw_registers</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">raw_x</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">raw_y</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">raw_z</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">raw_temp_c</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">'TelemetryVector'</span><span class="p">:</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">        </span><span class="sd">"""Фабричний метод калібрування сирих даних сенсора."""</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>        <span class="n">s_adc</span> <span class="o">=</span> <span class="mf">0.00479011</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>        <span class="n">k_t</span> <span class="o">=</span> <span class="mf">0.0015</span>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>        <span class="n">t_current_k</span> <span class="o">=</span> <span class="n">raw_temp_c</span> <span class="o">+</span> <span class="mf">273.15</span>
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>        <span class="n">delta_t</span> <span class="o">=</span> <span class="n">t_current_k</span> <span class="o">-</span> <span class="mf">293.15</span>
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>
+</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>        <span class="n">cal_x</span> <span class="o">=</span> <span class="p">(</span><span class="n">raw_x</span> <span class="o">*</span> <span class="n">s_adc</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="n">k_t</span> <span class="o">*</span> <span class="n">delta_t</span><span class="p">)</span>
+</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>        <span class="n">cal_y</span> <span class="o">=</span> <span class="p">(</span><span class="n">raw_y</span> <span class="o">*</span> <span class="n">s_adc</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="n">k_t</span> <span class="o">*</span> <span class="n">delta_t</span><span class="p">)</span>
+</span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>        <span class="n">cal_z</span> <span class="o">=</span> <span class="p">(</span><span class="n">raw_z</span> <span class="o">*</span> <span class="n">s_adc</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="n">k_t</span> <span class="o">*</span> <span class="n">delta_t</span><span class="p">)</span>
+</span><span id="__span-5-12"><a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a>
+</span><span id="__span-5-13"><a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a>        <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span><span class="n">cal_x</span><span class="p">,</span> <span class="n">cal_y</span><span class="p">,</span> <span class="n">cal_z</span><span class="p">,</span> <span class="n">t_current_k</span><span class="p">)</span>
+</span></code></pre></div>
+<h5 id="5-dunder-">Крок 5. Реалізація протоколів векторної алгебри через dunder-методи</h5>
+<p>Для математичної взаємодії векторів у контурі автопілота клас оснащується спеціальними методами обчислення довжини (евклідової норми) <code>__abs__</code>, векторного додавання <code>__add__</code> та перевірки тотожності <code>__eq__</code>:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__abs__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w">        </span><span class="sd">"""Обчислення евклідової норми результуючого прискорення."""</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>        <span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>        <span class="k">return</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_ax</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ay</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">_az</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__add__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">:</span> <span class="s1">'TelemetryVector'</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">'TelemetryVector'</span><span class="p">:</span>
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="w">        </span><span class="sd">"""Поліморфне додавання векторів перевантаження."""</span>
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="n">TelemetryVector</span><span class="p">):</span>
+</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>            <span class="k">return</span> <span class="bp">NotImplemented</span>
+</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>        <span class="k">return</span> <span class="n">TelemetryVector</span><span class="p">(</span>
+</span><span id="__span-6-11"><a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">_ax</span> <span class="o">+</span> <span class="n">other</span><span class="o">.</span><span class="n">ax</span><span class="p">,</span>
+</span><span id="__span-6-12"><a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">_ay</span> <span class="o">+</span> <span class="n">other</span><span class="o">.</span><span class="n">ay</span><span class="p">,</span>
+</span><span id="__span-6-13"><a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">_az</span> <span class="o">+</span> <span class="n">other</span><span class="o">.</span><span class="n">az</span><span class="p">,</span>
+</span><span id="__span-6-14"><a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a>            <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_temp</span> <span class="o">+</span> <span class="n">other</span><span class="o">.</span><span class="n">temp</span><span class="p">)</span> <span class="o">/</span> <span class="mf">2.0</span>
+</span><span id="__span-6-15"><a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a>        <span class="p">)</span>
+</span><span id="__span-6-16"><a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a>
+</span><span id="__span-6-17"><a id="__codelineno-6-17" name="__codelineno-6-17" href="#__codelineno-6-17"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+</span><span id="__span-6-18"><a id="__codelineno-6-18" name="__codelineno-6-18" href="#__codelineno-6-18"></a>        <span class="k">return</span> <span class="sa">f</span><span class="s2">"TelemetryVector(ax=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_ax</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">, ay=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_ay</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">, az=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_az</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">, norm=</span><span class="si">{</span><span class="nb">abs</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">)"</span>
+</span></code></pre></div>
+<h4 id="_7">Інтерпретація результатів та альтернативні сценарії</h4>
+<p>Проведене моделювання доводить, що застосування об'єктної декомпозиції з оптимізацією структури пам'яті дозволило досягти стабільної обробки потоку даних на частоті 100 Гц без витоків пам'яті. Обмеження пам'яті утилізовано лише на <span class="arithmatex">\(58{,}6\%\)</span> (<span class="arithmatex">\(8{,}8\)</span> МБ із доступних <span class="arithmatex">\(15\)</span> МБ), а інкапсульовані сетери повністю виключили можливість передачі недостовірних фізичних даних в алгоритми навігації.</p>
+<p>Розглянемо альтернативний граничний сценарій: якби проектні вимоги вимагали підвищення частоти опитування датчика до <span class="arithmatex">\(10\)</span> кГц (наприклад, для реєстрації високочастотних акустичних вібрацій турбіни), наведена архітектура Python виявилася б непрацездатною з двох причин:</p>
+<ol>
+<li>
+<p>За частоти <span class="arithmatex">\(10\,000\)</span> Гц інтервал між викликами скорочується до <span class="arithmatex">\(100\)</span> мікросекунд, що наближається до накладних витрат самої віртуальної машини CPython на створення та деструкцію стекових кадрів об'єктних методів.</p>
+</li>
+<li>
+<p>Буфер із <span class="arithmatex">\(100\,000\)</span> елементів заповнювався б за <span class="arithmatex">\(10\)</span> секунд, створюючи критичні навантаження на збірник сміття під час його очищення.</p>
+</li>
+</ol>
+<p>У такому екстремальному сценарії класичну об'єктну модель Python необхідно замінити на підхід із використанням кільцевого буфера на базі модуля <code>ctypes</code> або масивів <code>numpy</code>, де об'єкт виступає лише довготривалим диспетчером блоку пам'яті, а математичні розрахунки переносяться у скомпільовану бібліотеку на C/C++ через модулі розширення.</p>
+<hr />
+<h3 id="32">3.2. Зведена довідкова система лекції</h3>
+<p>Підсумкова концептуальна система лекційного матеріалу зводить фундаментальні категорії об'єктно-орієнтованого програмування у взаємозв'язку з їхнім системним змістом та проектними ризиками в реальній практиці.</p>
+<p><em>Таблиця 3.2 — Зведена довідкова матриця об'єктної моделі та архітектурних концепцій Python</em></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Термін / Концепція</th>
+<th style="text-align: left;">Формалізація / Сутність</th>
+<th style="text-align: left;">Реальний кейс застосування</th>
+<th style="text-align: left;">Основне обмеження / Ризик</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Клас (<code>class</code>)</strong></td>
+<td style="text-align: left;"><span class="arithmatex">\(\text{Type} = \text{type}(\text{name}, \text{bases}, \text{dict})\)</span></td>
+<td style="text-align: left;">Створення шаблону керування радіомодемом</td>
+<td style="text-align: left;">Високі накладні витрати пам'яті на метадані</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Екземпляр (<code>instance</code>)</strong></td>
+<td style="text-align: left;"><span class="arithmatex">\(\text{Obj} = \text{Class}(\vec{a})\)</span>, <code>PyObject</code> у купі</td>
+<td style="text-align: left;">Окреме активне з'єднання на сокеті</td>
+<td style="text-align: left;">Створення надмірної кількості об'єктів переповнює RAM</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Метод <code>__new__</code></strong></td>
+<td style="text-align: left;"><span class="arithmatex">\(\text{Alloc}: \text{cls} \to \text{new\_instance}\)</span></td>
+<td style="text-align: left;">Реалізація пулу сокетів або синглтона драйвера</td>
+<td style="text-align: left;">Повернення некоректного типу блокує виклик <code>__init__</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Метод <code>__init__</code></strong></td>
+<td style="text-align: left;"><span class="arithmatex">\(\text{Init}: (\text{self}, \vec{a}) \to \text{None}\)</span></td>
+<td style="text-align: left;">Наповнення початковими станами регістрів</td>
+<td style="text-align: left;">Спроба повернення значення породжує виняток <code>TypeError</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Покажчик <code>self</code></strong></td>
+<td style="text-align: left;">Зв'язування виклику: <span class="arithmatex">\(C.m(\text{inst}, \vec{a})\)</span></td>
+<td style="text-align: left;">Забезпечення доступу до унікального стану вузла</td>
+<td style="text-align: left;">Пропуск у сигнатурі методу робить його недійсним</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Атрибути класу</strong></td>
+<td style="text-align: left;">Запис у словнику <code>Class.__dict__</code></td>
+<td style="text-align: left;">Спільна версія прошивки модемів зв'язку</td>
+<td style="text-align: left;">Небезпека затінення при операціях запису через екземпляр</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Name Mangling</strong></td>
+<td style="text-align: left;"><code>__attr</code> <span class="arithmatex">\(\to\)</span> <code>_ClassName__attr</code></td>
+<td style="text-align: left;">Захист системних масок переривань процесора</td>
+<td style="text-align: left;">Не захищає від навмисного читання через повне спотворене ім'я</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Делегування <code>super()</code></strong></td>
+<td style="text-align: left;">Проксі-пошук: <span class="arithmatex">\(\text{next\_in\_MRO}(C, \text{self})\)</span></td>
+<td style="text-align: left;">Кооперативна ініціалізація компонентів шини</td>
+<td style="text-align: left;">Порушення сигнатур викликає збій ланцюжка ініціалізації</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Лінеаризація C3</strong></td>
+<td style="text-align: left;"><span class="arithmatex">\(L(C) = [C] + \text{merge}(\dots)\)</span></td>
+<td style="text-align: left;">Вирішення ромбоподібного наслідування шин</td>
+<td style="text-align: left;">Відхилення класів із порушенням монотонності порядку</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Качина типізація</strong></td>
+<td style="text-align: left;"><span class="arithmatex">\(\text{hasattr}(o, \text{method}) \implies \text{Valid}\)</span></td>
+<td style="text-align: left;">Уніфікований конвеєр обробки різнорідних сенсорів</td>
+<td style="text-align: left;">Помилки <code>AttributeError</code> у рантаймі при неповному протоколі</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Dunder-методи</strong></td>
+<td style="text-align: left;">Прямий виклик через C-слоти <code>tp_</code></td>
+<td style="text-align: left;">Перевантаження векторної суми та множення</td>
+<td style="text-align: left;">Перевантаження без перевірки типів викликає рекурсивний збій</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Властивість (<code>@property</code>)</strong></td>
+<td style="text-align: left;">Дескриптор даних із гетером і сетером</td>
+<td style="text-align: left;">Валідація меж напруги живлення приймача</td>
+<td style="text-align: left;">Додаткові накладні витрати часу на виклик функцій валідації</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Метод класу (<code>@classmethod</code>)</strong></td>
+<td style="text-align: left;">Передача контексту <code>cls</code> першим аргументом</td>
+<td style="text-align: left;">Фабричний парсинг JSON або бінарного пакету</td>
+<td style="text-align: left;">Не має доступу до специфічного стану конкретного екземпляра</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Статичний метод (<code>@staticmethod</code>)</strong></td>
+<td style="text-align: left;">Ізольована функція в просторі класу</td>
+<td style="text-align: left;">Обчислення контрольної суми CRC16 для буфера</td>
+<td style="text-align: left;">Повна втрата зв'язку з динамічним станом ієрархії</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Оптимізація <code>__slots__</code></strong></td>
+<td style="text-align: left;">Заміна <code>__dict__</code> статичним C-масивом</td>
+<td style="text-align: left;">Високочастотні масиви телеметричних точок</td>
+<td style="text-align: left;">Забороняє динамічні атрибути, конфліктує при наслідуванні</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="33">3.3. Контрольні питання та завдання</h3>
+<h4 id="_8">Прикладні тестові завдання</h4>
+<h5 id="1_1">Завдання 1</h5>
+<p>Інженер розробляє драйвер радіомодуля з використанням множинного наслідування. Оголошено наступні класи:
+<div class="language-python highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">BaseRadio</span><span class="p">:</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">ping</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>        <span class="k">return</span> <span class="s2">"Base"</span>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="k">class</span><span class="w"> </span><span class="nc">LoRaRadio</span><span class="p">(</span><span class="n">BaseRadio</span><span class="p">):</span>
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">ping</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>        <span class="k">return</span> <span class="s2">"LoRa-&gt;"</span> <span class="o">+</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">ping</span><span class="p">()</span>
+</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>
+</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="k">class</span><span class="w"> </span><span class="nc">FSKRadio</span><span class="p">(</span><span class="n">BaseRadio</span><span class="p">):</span>
+</span><span id="__span-7-10"><a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">ping</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span id="__span-7-11"><a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a>        <span class="k">return</span> <span class="s2">"FSK-&gt;"</span> <span class="o">+</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">ping</span><span class="p">()</span>
+</span><span id="__span-7-12"><a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a>
+</span><span id="__span-7-13"><a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a><span class="k">class</span><span class="w"> </span><span class="nc">DualRadio</span><span class="p">(</span><span class="n">LoRaRadio</span><span class="p">,</span> <span class="n">FSKRadio</span><span class="p">):</span>
+</span><span id="__span-7-14"><a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">ping</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span id="__span-7-15"><a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a>        <span class="k">return</span> <span class="s2">"Dual-&gt;"</span> <span class="o">+</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">ping</span><span class="p">()</span>
+</span></code></pre></div>
+Який результат поверне виклик <code>DualRadio().ping()</code> згідно з алгоритмом лінеаризації C3?</p>
+<p>A. <code>Dual-&gt;LoRa-&gt;Base</code><br />
+B. <code>Dual-&gt;LoRa-&gt;FSK-&gt;Base</code><br />
+C. <code>Dual-&gt;LoRa-&gt;Base-&gt;FSK-&gt;Base</code><br />
+D. Буде згенеровано виняток <code>TypeError</code> через колізію ромбоподібного наслідування.</p>
+<details class="note">
+<summary>Розгорнути аналіз / відповідь</summary>
+<p><strong>Правильний варіант: B.</strong></p>
+<ol>
+<li>
+<p>Логічне та аналітичне обґрунтування:
+   Алгоритм C3 формує лінеаризацію: <span class="arithmatex">\(L(\text{DualRadio}) = [\text{DualRadio}, \text{LoRaRadio}, \text{FSKRadio}, \text{BaseRadio}, \text{object}]\)</span>. Під час виконання <code>super().ping()</code> у методі <code>LoRaRadio.ping()</code> пошук наступного методу ведеться не до його статичного предка <code>BaseRadio</code>, а до наступного елемента в поточному MRO екземпляра <code>DualRadio</code>, яким є <code>FSKRadio</code>. Таким чином, виклик послідовно проходить через усі класи без дублювання базового рівня.</p>
+</li>
+<li>
+<p>Аналіз дистракторів:
+   Варіант A є хибним, оскільки він ігнорує кооперативний характер <code>super()</code> і розглядає лише ліву гілку наслідування. Варіант C є хибним, оскільки алгоритм C3 гарантує однократне входження кожного класу в лінеаризований список, унеможливлюючи подвійний виклик <code>Base</code>. Варіант D є хибним, тому що дана ієрархія монотонна і повністю задовольняє умови функції <code>merge</code>.</p>
+</li>
+</ol>
+</details>
+<h5 id="2_2">Завдання 2</h5>
+<p>Розглядається клас буфера мережевого комутатора, у якому реалізовано оптимізацію пам'яті через <code>__slots__</code>:
+<div class="language-python highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">PacketBuffer</span><span class="p">:</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>    <span class="vm">__slots__</span> <span class="o">=</span> <span class="p">(</span><span class="s1">'buffer_id'</span><span class="p">,</span> <span class="s1">'size'</span><span class="p">)</span>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">buffer_id</span><span class="p">,</span> <span class="n">size</span><span class="p">):</span>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">buffer_id</span> <span class="o">=</span> <span class="n">buffer_id</span>
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">size</span> <span class="o">=</span> <span class="n">size</span>
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>
+</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="k">class</span><span class="w"> </span><span class="nc">PriorityBuffer</span><span class="p">(</span><span class="n">PacketBuffer</span><span class="p">):</span>
+</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>    <span class="k">pass</span>
+</span></code></pre></div>
+Яке твердження щодо поведінки екземплярів класу <code>PriorityBuffer</code> є абсолютно істинним?</p>
+<p>A. Клас <code>PriorityBuffer</code> успадкує фіксовану пам'ять і заборону на динамічне додавання атрибутів.<br />
+B. Інтерпретатор згенерує <code>TypeError</code> під час спроби завантаження визначення класу <code>PriorityBuffer</code>.<br />
+C. Екземпляр <code>PriorityBuffer</code> отримає словник <code>__dict__</code>, що дозволить додавати довільні атрибути.<br />
+D. При спробі звернення до атрибута <code>size</code> виникне помилка <code>AttributeError</code>.</p>
+<details class="note">
+<summary>Розгорнути аналіз / відповідь</summary>
+<p><strong>Правильний варіант: C.</strong></p>
+<ol>
+<li>
+<p>Логічне та аналітичне обґрунтування:
+   У мові Python дія директиви <code>__slots__</code> не успадковується автоматично: якщо в класі-нащадку не оголошено власний атрибут <code>__slots__</code>, CPython автоматично створює для нащадка стандартний простір імен у вигляді словника <code>__dict__</code>. Тому екземпляри <code>PriorityBuffer</code> можуть отримувати нові динамічні атрибути, втрачаючи ефект оптимізації пам'яті.</p>
+</li>
+<li>
+<p>Аналіз дистракторів:
+   Варіант A є хибним, тому що для збереження оптимізації нащадок зобов'язаний явно вказати <code>__slots__ = ()</code>. Варіант B є хибним, оскільки оголошення нащадка з порожнім тілом є повністю валідною синтаксичною операцією. Варіант D є хибним, оскільки успадковані дескриптори слотів батьківського класу <code>buffer_id</code> та <code>size</code> залишаються повністю доступними для читання та запису.</p>
+</li>
+</ol>
+</details>
+<h5 id="3_3">Завдання 3</h5>
+<p>У кодовій базі мікроконтролера реалізовано клас із використанням приватного атрибута:
+<div class="language-python highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">PowerUnit</span><span class="p">:</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">__voltage</span> <span class="o">=</span> <span class="mf">12.0</span>
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="k">class</span><span class="w"> </span><span class="nc">SolarUnit</span><span class="p">(</span><span class="n">PowerUnit</span><span class="p">):</span>
+</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">get_voltage</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__voltage</span>
+</span></code></pre></div>
+Який результат отримає розробник під час спроби виконати інструкцію <code>SolarUnit().get_voltage()</code>?</p>
+<p>A. Буде успішно повернуто число <code>12.0</code>.<br />
+B. Виникне виняток <code>AttributeError: 'SolarUnit' object has no attribute '_SolarUnit__voltage'</code>.<br />
+C. Виникне виняток <code>PermissionError</code> через порушення прав доступу до приватного поля.<br />
+D. Буде повернуто значення <code>None</code>.</p>
+<details class="note">
+<summary>Розгорнути аналіз / відповідь</summary>
+<p><strong>Правильний варіант: B.</strong></p>
+<ol>
+<li>
+<p>Логічне та аналітичне обґрунтування:
+   Механізм спотворення імен перетворює вираз <code>self.__voltage</code> всередині класу <code>PowerUnit</code> на <code>_PowerUnit__voltage</code>. Проте під час компіляції методу <code>get_voltage</code> класу <code>SolarUnit</code> компілятор трансформує аналогічний запис у <code>_SolarUnit__voltage</code>. Оскільки в об'єкті існує лише ключ <code>_PowerUnit__voltage</code>, інтерпретатор видає <code>AttributeError</code> про відсутність ідентифікатора із префіксом нащадка.</p>
+</li>
+<li>
+<p>Аналіз дистракторів:
+   Варіант A є хибним, оскільки механізм <code>name mangling</code> робить приватні атрибути предка недоступними для методів нащадка за вихідним іменем. Варіант C є хибним, оскільки такого класу винятків у системі диспетчеризації атрибутів не існує (контроль базується суто на помилках атрибутів). Варіант D є хибним, оскільки помилка генерується ще до завершення оцінки виразу повернення.</p>
+</li>
+</ol>
+</details>
+<h5 id="4">Завдання 4</h5>
+<p>Розробник проекутє інтерфейс обміну даними через спеціальний метод додавання <code>__add__</code>. Що повинна повертати реалізація методу <code>CustomVector.__add__(self, other)</code>, якщо тип операнда <code>other</code> не підтримується алгоритмом?</p>
+<p>A. Повинна генерувати виняток <code>raise TypeError("Несумісний тип даних")</code>.<br />
+B. Повинна повертати системну константу <code>NotImplemented</code>.<br />
+C. Повинна повертати логічне значення <code>False</code>.<br />
+D. Повинна повертати порожнє значення <code>None</code>.</p>
+<details class="note">
+<summary>Розгорнути аналіз / відповідь</summary>
+<p><strong>Правильний варіант: B.</strong></p>
+<ol>
+<li>
+<p>Логічне та аналітичне обґрунтування:
+   Згідно з мовним стандартом моделі даних Python, повернення спеціальної константи <code>NotImplemented</code> сигналізує віртуальній машині PVM про неможливість виконання операції лівим операндом. Отримавши цей сигнал, PVM перевіряє наявність у правого операнда реверсивного методу <code>__radd__</code>. Тільки якщо правий операнд також повертає <code>NotImplemented</code> або не реалізує метод, інтерпретатор самостійно збуджує фінальний виняток <code>TypeError</code>.</p>
+</li>
+<li>
+<p>Аналіз дистракторів:
+   Варіант A є грубою архітектурною помилкою, оскільки прямий викид <code>TypeError</code> негайно зупиняє виконання програми, позбавляючи правий операнд шансу виконати операцію через <code>__radd__</code>. Варіанти C та D є некоректними, оскільки значення <code>False</code> та <code>None</code> сприйматимуться клієнтським кодом як успішний результат операції додавання.</p>
+</li>
+</ol>
+</details>
+<h4 id="_9">Завдання для самостійної роботи</h4>
+<h5 id="_10">Постановка задачі</h5>
+<p>Для автоматизованого наземного транспортного засобу (AGV) розробити архітектуру об'єктно-орієнтованого модуля енкодерів колісних приводів. Модуль повинен забезпечувати реєстрацію кількості обертів, розрахунок кутової швидкості та детекцію аномалій пробуксовки коліс за протоколом телеметрії на частоті 50 Гц.</p>
+<h5 id="_11">Завдання для виконання</h5>
+<ol>
+<li>
+<p>Спроектувати клас колісного вузла <code>WheelNode</code> із застосуванням інкапсуляції для захисту полів фізичного радіуса колеса та імпульсів енкодера, забезпечивши валідацію вхідних даних через дескрипторні сетери.</p>
+</li>
+<li>
+<p>Оптимізувати внутрішній стан класу за допомогою механізму <code>__slots__</code> для унеможливлення перевитрат пам'яті під час запису тривалих журналів руху в автономному режимі.</p>
+</li>
+<li>
+<p>Реалізувати фабричний метод класу <code>@classmethod</code>, який створює об'єкт вузла на основі сирого байтового рядка повідомлення протоколу промислової шини CAN.</p>
+</li>
+<li>
+<p>Перевизначити спеціальні dunder-методи порівняння та рядкового представлення для реалізації поліморфного аудиту швидкості обертання між колесами провідної та веденої осей.</p>
+</li>
+</ol>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Повернутись нагору
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 Kyrylo Vadurin &bull; <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a>
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.expand", "navigation.top", "navigation.tracking", "header.autohide", "search.suggest", "search.highlight", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u0421\u043a\u043e\u043f\u0456\u0439\u043e\u0432\u0430\u043d\u043e \u0432 \u0431\u0443\u0444\u0435\u0440", "clipboard.copy": "\u0421\u043a\u043e\u043f\u0456\u044e\u0432\u0430\u0442\u0438 \u0432 \u0431\u0443\u0444\u0435\u0440", "search.result.more.one": "\u0429\u0435 1 \u0437\u0431\u0456\u0433 \u043d\u0430 \u0446\u0456\u0439 \u0441\u0442\u043e\u0440\u0456\u043d\u0446\u0456", "search.result.more.other": "\u0429\u0435 # \u0437\u0431\u0456\u0433\u0456\u0432 \u043d\u0430 \u0446\u0456\u0439 \u0441\u0442\u043e\u0440\u0456\u043d\u0446\u0456", "search.result.none": "\u0417\u0431\u0456\u0433\u0456\u0432 \u043d\u0435 \u0437\u043d\u0430\u0439\u0434\u0435\u043d\u043e", "search.result.one": "\u0417\u043d\u0430\u0439\u0434\u0435\u043d\u043e 1 \u0437\u0431\u0456\u0433", "search.result.other": "\u0417\u043d\u0430\u0439\u0434\u0435\u043d\u043e # \u0437\u0431\u0456\u0433\u0456\u0432", "search.result.placeholder": "\u0420\u043e\u0437\u043f\u043e\u0447\u043d\u0456\u0442\u044c \u043f\u0438\u0441\u0430\u0442\u0438 \u0434\u043b\u044f \u043f\u043e\u0448\u0443\u043a\u0443", "search.result.term.missing": "\u041d\u0435 \u0437\u043d\u0430\u0439\u0434\u0435\u043d\u043e \u0437\u0430\u043f\u0438\u0442\u0443", "select.version": "\u041e\u0431\u0440\u0430\u0442\u0438 \u0432\u0435\u0440\u0441\u0456\u044e"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
